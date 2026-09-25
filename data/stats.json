@@ -18,7 +18,7 @@
     },
     "Interesting Engineering": {
       "approved": 2,
-      "rejected": 1
+      "rejected": 2
     },
     "Webrazzi": {
       "approved": 4,
@@ -370,6 +370,12 @@
       "t": "2026-09-25T20:23:02Z",
       "id": "ef7338579b",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T21:10:29Z",
+      "id": "42ad87ce82",
+      "ok": false,
       "manual": true
     }
   ]
