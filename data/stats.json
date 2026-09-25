@@ -29,7 +29,7 @@
       "rejected": 1
     },
     "DonanımHaber": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 1
     },
     "ShiftDelete.Net": {
@@ -59,6 +59,10 @@
     "Egirisim": {
       "approved": 1,
       "rejected": 0
+    },
+    "Polygon": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -239,6 +243,18 @@
     {
       "t": "2026-09-25T16:38:39Z",
       "id": "b80563e392",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:43:26Z",
+      "id": "48d1eb0603",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:43:38Z",
+      "id": "b4ed940201",
       "ok": false,
       "manual": true
     }
