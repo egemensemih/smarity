@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 0
     },
     "The Verge": {
@@ -9,7 +9,7 @@
       "rejected": 0
     },
     "Engadget": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "Google": {
@@ -21,18 +21,30 @@
       "rejected": 0
     },
     "Webrazzi": {
-      "approved": 1,
-      "rejected": 0
+      "approved": 2,
+      "rejected": 1
     },
     "Electrek": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "DonanımHaber": {
-      "approved": 1,
+      "approved": 3,
       "rejected": 0
     },
     "ShiftDelete.Net": {
+      "approved": 3,
+      "rejected": 0
+    },
+    "Webtekno": {
+      "approved": 3,
+      "rejected": 0
+    },
+    "Anadolu Ajansı": {
+      "approved": 1,
+      "rejected": 1
+    },
+    "GamesIndustry.biz": {
       "approved": 1,
       "rejected": 0
     }
@@ -60,6 +72,60 @@
       "t": "2026-09-25T13:14:37Z",
       "id": "5ab8c6fefe",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:04:42Z",
+      "id": "fda9757fcc",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:04:57Z",
+      "id": "0ab16eb5c5",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:04:59Z",
+      "id": "e1bc99d753",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:05:11Z",
+      "id": "4793a0df98",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:05:14Z",
+      "id": "a10d093fb9",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:05:28Z",
+      "id": "21a6c2a8ef",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:05:42Z",
+      "id": "c7e5a4ac03",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:05:57Z",
+      "id": "c58bc92f1f",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:06:09Z",
+      "id": "c972178f74",
+      "ok": false,
       "manual": true
     }
   ]

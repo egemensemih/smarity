@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815628,
+  "telegram_offset": 872815637,
   "last_collect": "2026-09-25T14:55:38Z",
   "last_summary_date": null,
   "mode_override": null,
@@ -182,13 +182,14 @@
       "tok_out": 29673,
       "cost_usd": 0.0,
       "drafts": 18,
-      "published": 4,
-      "approved": 4
+      "published": 10,
+      "approved": 10,
+      "rejected": 3
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-25T14:14:59Z",
+  "last_build": "2026-09-25T15:06:11Z",
   "build_sig": "f0d41db7f2812f61",
   "commands_version": 2,
   "queue": [
@@ -478,6 +479,13 @@
       "at": "2026-09-25T14:55:40Z"
     }
   ],
-  "last_activity": "2026-09-25T13:14:50Z",
-  "indexnow_queue": []
+  "last_activity": "2026-09-25T15:06:09Z",
+  "indexnow_queue": [
+    "https://egemensemih.github.io/smarity/haber/spacex-yapay-zeka-yarisi-alti-ay/",
+    "https://egemensemih.github.io/smarity/haber/steam-erisim-engeli-ve-paradox-ataturk-krizi/",
+    "https://egemensemih.github.io/smarity/haber/aselsan-deringoz-firat-nehrinde-kesif-yapti/",
+    "https://egemensemih.github.io/smarity/haber/spacex-starship-yorunge-testi-hazirliklari-tamamlandi/",
+    "https://egemensemih.github.io/smarity/haber/chatgpt-pro-max-aboneligi-hazirlaniyor/",
+    "https://egemensemih.github.io/smarity/haber/meta-horizon-create-ve-horizon-studio/"
+  ]
 }
