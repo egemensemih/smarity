@@ -1,0 +1,105 @@
+name: Haber botu
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"      # her 10 dakikada bir (GitHub bazen birkaç dakika geciktirebilir)
+  workflow_dispatch:
+    inputs:
+      force_collect:
+        description: "Kaynakları hemen tara"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/**"
+      - "content/**"
+      - "**.md"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: haber-botu
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      site_changed: ${{ steps.bot.outputs.site_changed }}
+    steps:
+      # Her zaman en güncel durumla başla (zamanlanmış çalışmalar gecikince eski kopya kullanılmasın)
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Paketleri kur
+        run: pip install -r requirements.txt
+
+      - name: Tarayıcı önbelleği
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Pages adresini öğren
+        id: pages
+        uses: actions/configure-pages@v6
+        continue-on-error: true
+
+      - name: Botu çalıştır
+        id: bot
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          FORCE_COLLECT: ${{ inputs.force_collect }}
+          FORCE_BUILD: ${{ github.event_name == 'push' }}   # zamanlayıcı çalışmaları siteyi sadece gerektiğinde yeniden yayınlar
+        run: python -m haberbot run
+
+      - name: Değişiklikleri kaydet
+        run: |
+          git config user.name "haber-botu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p data content
+          git add data content
+          if git diff --cached --quiet; then
+            echo "Kaydedilecek değişiklik yok."
+            exit 0
+          fi
+          git commit -q -m "bot: $(date -u +'%Y-%m-%d %H:%M') güncellemesi"
+          for i in 1 2 3; do
+            git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "::error::Değişiklikler gönderilemedi"
+          exit 1
+
+      - name: Siteyi paketle
+        if: steps.bot.outputs.site_changed == 'true'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: run
+    if: needs.run.outputs.site_changed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Siteyi yayınla
+        id: deployment
+        uses: actions/deploy-pages@v5
