@@ -6,7 +6,7 @@
     },
     "The Verge": {
       "approved": 3,
-      "rejected": 2
+      "rejected": 3
     },
     "Engadget": {
       "approved": 3,
@@ -26,7 +26,7 @@
     },
     "Electrek": {
       "approved": 2,
-      "rejected": 2
+      "rejected": 3
     },
     "DonanımHaber": {
       "approved": 7,
@@ -61,6 +61,10 @@
       "rejected": 0
     },
     "Polygon": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "WIRED": {
       "approved": 0,
       "rejected": 1
     }
@@ -291,6 +295,24 @@
     {
       "t": "2026-09-25T17:28:20Z",
       "id": "2611b23789",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T18:13:11Z",
+      "id": "90028d5c57",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T18:13:16Z",
+      "id": "055731635d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T18:13:19Z",
+      "id": "3b29b70cf1",
       "ok": false,
       "manual": true
     }
