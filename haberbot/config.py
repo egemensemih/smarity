@@ -63,6 +63,7 @@ class Config:
     telegram_token: str = ""
     telegram_chat_id: str = ""
     google_key: str = ""
+    instagram_token: str = ""
     mock: bool = False
     fixtures_dir: Path | None = None
     force_collect: bool = False
@@ -106,6 +107,11 @@ class Config:
     def out_dir(self) -> Path:
         return self.root / "_site"
 
+    @property
+    def instagram_auto(self) -> bool:
+        """IG_ACCESS_TOKEN tanımlı ve ayarlarda kapatılmamışsa haberler Instagram'a kendiliğinden gider."""
+        return bool(self.instagram_token) and bool(self.get("social", "instagram_auto", True))
+
     def post_url(self, slug: str) -> str:
         return f"{self.site_url}/haber/{slug}/"
 
@@ -142,6 +148,7 @@ def load_config(path: Path | None = None) -> Config:
         telegram_token=os.environ.get("TELEGRAM_BOT_TOKEN", "").strip(),
         telegram_chat_id=os.environ.get("TELEGRAM_CHAT_ID", "").strip(),
         google_key=(os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "").strip(),
+        instagram_token=os.environ.get("IG_ACCESS_TOKEN", "").strip(),
         mock=os.environ.get("HABERBOT_MOCK", "") == "1",
         fixtures_dir=Path(fixtures) if fixtures else None,
         force_collect=os.environ.get("FORCE_COLLECT", "").lower() == "true",

@@ -4,6 +4,7 @@ from __future__ import annotations
 import html
 import os
 import re
+import shutil
 import time
 from urllib.parse import urlsplit
 
@@ -13,6 +14,7 @@ from . import policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION
 from .extract import full_text
+from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
 from .prompts import (FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA, WRITE_SCHEMA, seo_system, seo_user,
                       triage_system, triage_user, write_system, write_user)
@@ -30,6 +32,7 @@ SLOW_ACTIONS = {
     "w": ("⏳ Yeniden yazılıyor…", "🔁 Yeniden yazıldı"),
     "s": ("⏳ Görseller hazırlanıyor…", "📱 Gönderildi"),
 }
+IG_WINDOW_DEFAULT = [8, 24]
 CONF_LABEL = {"yuksek": "yüksek", "orta": "orta", "dusuk": "düşük"}
 COMMANDS = [
     ("durum", "Sistem durumu ve istatistikler"),
@@ -39,8 +42,10 @@ COMMANDS = [
     ("duraklat", "Toplama ve otomatik yayını durdur"),
     ("devam", "Yeniden başlat"),
     ("kaynaklar", "Kaynak güven puanları"),
+    ("instagram", "Instagram paylaşımları: durum / kapat / ac"),
     ("yardim", "Nasıl kullanılır"),
 ]
+COMMANDS_VERSION = 2
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
 
@@ -55,7 +60,9 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 
 <b>Öğrenen mod:</b> Kararların kaynak bazında kaydedilir. Bir kaynak yeterince onay alınca, o kaynaktan gelen net haberler otomatik yayınlanır ve sana sessizce bildirilir. Şüpheli işaretli haberler her zaman sana sorulur.
 
-Komutlar: /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar"""
+📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
+
+Komutlar: /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
 
 
 def esc(s) -> str:
@@ -93,6 +100,8 @@ class App:
             self.tg = None
         self.chat_id = cfg.telegram_chat_id or ("1" if cfg.mock else "")
         self._vis = None
+        self._ig = None
+        self._cb_mid = None
 
     @property
     def vis(self):
@@ -522,6 +531,9 @@ class App:
     def _send_social(self, post: dict, force: bool = False) -> None:
         """Instagram için hazır carousel ve hikâyeyi Telegram'a gönder (elle paylaşım için).
         Carousel: kapak + öne çıkanlar + neden önemli. Hikâye: bağlantı çıkartmasıyla siteye yönlendirir."""
+        if not force and self.ig_enabled:
+            self.ig_enqueue(post)
+            return
         if not (self.tg and self.chat_id):
             return
         if not force and not self.cfg.get("social", "send_to_telegram", True):
@@ -581,6 +593,7 @@ class App:
                 return
             self.state["last_activity"] = iso(now_utc())
             action, _, did = (cq.get("data") or "").partition(":")
+            self._cb_mid = (cq.get("message") or {}).get("message_id")
             slow = SLOW_ACTIONS.get(action)
             if slow:  # uzun süren işlerde düğme hemen yanıt versin
                 self.tg.answer_callback(cq["id"], slow[0])
@@ -624,6 +637,13 @@ class App:
     # ── butonlar ────────────────────────────────────────────
     def _on_button(self, action: str, did: str) -> str:
         st = self.store
+        if action == "x":
+            return "🚫 Instagram'a gönderilmeyecek" if self._ig_drop(did, cancelled=True) else "Sırada değil (paylaşılmış olabilir)."
+        if action == "q":
+            post = st.load_post(did)
+            if not post:
+                return "Bu haber artık yayında değil."
+            return "📸 Tekrar sıraya alındı" if self.ig_enqueue(post, mid=self._cb_mid) else "Zaten sırada ya da paylaşıldı."
         where, d = st.find_any(did)
         if not d:
             return "Bu haber artık yok."
@@ -663,6 +683,7 @@ class App:
             if where != "post":
                 return "Bu haber yayında değil."
             st.delete_post(did)
+            self._ig_drop(did, "🗑 Haber siteden kaldırıldığı için Instagram'a gönderilmeyecek")
             weight = 2 if d.get("publish_mode") == "auto" else 1
             policy.record(self.stats, d, ok=False, weight=weight)
             st.bump(self.today(), "removed")
@@ -815,6 +836,15 @@ class App:
                 self.notify("\n".join(lines), silent=True)
         elif cmd == "kaynaklar":
             self.notify(self.sources_text(), silent=True)
+        elif cmd == "instagram":
+            if arg in ("kapat", "durdur"):
+                self.state["ig_off"] = True
+                self.notify("⏸ Instagram paylaşımları durdu. Sıradakiler bekliyor. Açmak için <code>/instagram ac</code>", silent=True)
+            elif arg in ("ac", "aç", "baslat", "başlat"):
+                self.state["ig_off"] = False
+                self.notify("▶️ Instagram paylaşımları açık.", silent=True)
+            else:
+                self.notify(self.instagram_status(), silent=True)
         else:
             self.notify("Bilinmeyen komut. /yardim", silent=True)
 
@@ -840,6 +870,10 @@ class App:
             f"Son tarama: {esc(tr_date(self.state.get('last_collect'), self.cfg.tz)) or '—'}",
             f"Site: {esc(self.cfg.site_url)}",
         ]
+        if self.cfg.instagram_token:
+            q = len(self.state.get("ig_queue") or [])
+            lines.append(f"Instagram: {c.get('instagram', 0)} paylaşım · sırada {q}"
+                         f"{' · ⏸ kapalı' if self.state.get('ig_off') else ''}")
         if bad:
             lines.append("⚠️ Okunamayan kaynaklar: " + esc(", ".join(bad)))
         return "\n".join(lines)
@@ -953,6 +987,7 @@ class App:
         text = (f"🌙 <b>Günün özeti</b>\n"
                 f"Yayın: {c.get('published', 0)} ({c.get('auto', 0)} otomatik, {c.get('approved', 0)} senin onayınla)\n"
                 f"Ret: {c.get('rejected', 0)} · Süresi dolan: {c.get('expired', 0)} · Kaldırılan: {c.get('removed', 0)}\n"
+                f"Instagram: {c.get('instagram', 0)} paylaşım\n"
                 f"Tahmini maliyet: ${self._cost(c):.2f} ({c.get('images', 0)} yapay zeka görseli)\n"
                 f"Mod: {policy.MODES[policy.current_mode(self.cfg, self.state)]}")
         self.notify(text, silent=True)
@@ -978,13 +1013,257 @@ class App:
             return True
         return bool(self.store.drafts("pending")) and not self.quiet()
 
+    # ── 5) INSTAGRAM ────────────────────────────────────────
+    def _ig_cfg(self, key: str, default):
+        return self.cfg.get("social", key, default)
+
+    @property
+    def ig_enabled(self) -> bool:
+        return self.cfg.instagram_auto and not self.state.get("ig_off")
+
+    def _ig_kinds(self) -> list[str]:
+        return list(self.vis.CAROUSEL) if self.vis.summary_style else ["post"]
+
+    def _ig_urls(self, post: dict) -> dict:
+        base = f"{self.cfg.site_url}/ig/{post['id']}"
+        return {k: f"{base}-{k}.jpg" for k in self._ig_kinds() + ["story"]}
+
+    def _ig_msg(self, it: dict, text: str, keyboard=None) -> None:
+        if not (self.tg and self.chat_id):
+            return
+        if it.get("mid"):
+            self.tg.edit_text(self.chat_id, it["mid"], text, keyboard)
+        else:
+            try:
+                it["mid"] = self.tg.send_message(self.chat_id, text, keyboard, silent=True).get("message_id")
+            except TelegramError as e:
+                log.warning("Instagram bildirimi gönderilemedi: %s", e)
+
+    def ig_enqueue(self, post: dict, mid: int | None = None) -> bool:
+        """Yayınlanan haberi Instagram sırasına ekler (kartlar site yayınlanırken _site/ig/ altına konur)."""
+        q = self.state.setdefault("ig_queue", [])
+        done = {x.get("id") for x in self.state.get("ig_done") or []}
+        if post["id"] in done or any(x["id"] == post["id"] for x in q):
+            return False
+        it = {"id": post["id"], "queued_at": iso(now_utc()), "tries": 0}
+        if mid:
+            it["mid"] = mid
+        q.append(it)
+        self.store.site_dirty = True
+        where = "" if not self.state.get("ig_off") else " (Instagram şu an kapalı: /instagram ac)"
+        self._ig_msg(it, f"📸 <b>Instagram sırasında</b>{where}\n{esc(post['title'])}\n"
+                         f"<i>Carousel ve hikâye birkaç dakika içinde paylaşılacak.</i>",
+                     [[{"text": "🚫 Instagram'a gönderme", "callback_data": f"x:{post['id']}"}]])
+        return True
+
+    def _ig_drop(self, did: str, note: str = "", cancelled: bool = False) -> bool:
+        q = self.state.get("ig_queue") or []
+        it = next((x for x in q if x["id"] == did), None)
+        if not it:
+            return False
+        q.remove(it)
+        if cancelled:
+            post = self.store.load_post(did) or {}
+            self._ig_msg(it, f"🚫 <b>Instagram'a gönderilmeyecek</b>\n{esc(post.get('title', ''))}",
+                         [[{"text": "↩️ Yine de paylaş", "callback_data": f"q:{did}"}]])
+        elif note:
+            self._ig_msg(it, note)
+        return True
+
+    def _ig_problem(self, text: str) -> None:
+        """Aynı uyarıyı en fazla 12 saatte bir gönder."""
+        if hours_since(self.state.get("ig_warned_at")) >= 12:
+            self.state["ig_warned_at"] = iso(now_utc())
+            self.notify("⚠️ <b>Instagram</b>: " + text)
+        log.warning("Instagram: %s", re.sub(r"<[^>]+>", "", text))
+
+    def _ig_client(self):
+        """Anahtarı (gerekirse yenileyip) hazırlar, hesabı tanır. Sorun varsa None."""
+        if self._ig is not None:
+            return self._ig or None
+        self._ig = False
+        secret = self.cfg.instagram_token
+        data = self.store.ig
+        ts = TokenStore(secret, data)
+        if ts.refresh_due():
+            try:
+                tok, exp = Instagram(ts.token).refresh()
+                ts.save(tok, exp)
+                data.pop("refresh_tried_at", None)
+                log.info("Instagram anahtarı yenilendi (%d gün)", exp // 86400)
+            except InstagramError as e:
+                data["refresh_tried_at"] = iso(now_utc())
+                log.info("Instagram anahtarı şimdilik yenilenemedi: %s", e)
+        left = ts.days_left()
+        if left is not None and left < 5:
+            self._ig_problem(f"erişim anahtarının süresi {max(0, left):.0f} gün içinde doluyor ve yenilenemedi. "
+                             "Meta geliştirici panelinden yeni anahtar üretip GitHub'da <b>IG_ACCESS_TOKEN</b> değerini güncelle.")
+        cli = Instagram(ts.token, self._ig_cfg("instagram_api_version", None) or "v25.0")
+        fp = fingerprint(secret)
+        if data.get("me_fp") != fp or not data.get("id"):
+            try:
+                me = cli.me()
+            except InstagramError as e:
+                if e.auth:
+                    self._ig_problem(f"erişim anahtarı çalışmıyor ({esc(e)}). Yeni anahtar üretip GitHub'da "
+                                     "<b>IG_ACCESS_TOKEN</b> değerini güncelle.")
+                else:
+                    log.warning("Instagram hesabı okunamadı: %s", e)
+                return None
+            data.update({"me_fp": fp, "id": str(me.get("id") or ""), "user_id": str(me.get("user_id") or ""),
+                         "username": me.get("username", "")})
+            data.pop("target", None)
+            if self.tg and self.chat_id:
+                self.notify(f"📸 Instagram bağlandı: <b>@{esc(data['username'])}</b>. Yayınlanan haberler buraya "
+                            f"carousel ve hikâye olarak paylaşılacak.", silent=True)
+        self._ig = cli
+        return cli
+
+    def _ig_targets(self) -> list[str]:
+        d = self.store.ig
+        if d.get("target"):
+            return [d["target"]]
+        return [t for t in dict.fromkeys(["me", d.get("user_id"), d.get("id")]) if t]
+
+    def _ig_run(self, fn, *a):
+        """Paylaşım hedefini (me / hesap numarası) dener, çalışanı hatırlar."""
+        last = None
+        for t in self._ig_targets():
+            try:
+                res = fn(t, *a)
+                self.store.ig["target"] = t
+                return res
+            except InstagramError as e:
+                last = e
+                if e.auth or e.transient or e.code not in (100, 3, 803):
+                    raise
+        raise last  # type: ignore[misc]
+
+    def ig_tick(self) -> None:
+        """Sıradaki haberi (kartları sitede yayındaysa) Instagram'da paylaşır. Her turda en fazla bir haber."""
+        if not self.cfg.instagram_auto or self.state.get("paused"):
+            return
+        q = self.state.setdefault("ig_queue", [])
+        max_wait = float(self._ig_cfg("instagram_max_wait_hours", 12) or 12)
+        for it in list(q):
+            post = self.store.load_post(it["id"])
+            if not post:
+                q.remove(it)
+            elif hours_since(it["queued_at"]) > max_wait:
+                self._ig_drop(it["id"], f"⌛ <b>Instagram'a gönderilmedi</b> ({max_wait:.0f} saatten uzun sırada kaldı)\n"
+                                        f"{esc(post['title'])}")
+        if not q or self.state.get("ig_off"):
+            return
+        now_l = local(now_utc(), self.cfg.tz)
+        a, b = (self._ig_cfg("instagram_hours", IG_WINDOW_DEFAULT) or [0, 24])[:2]
+        if not (a <= now_l.hour + now_l.minute / 60 < b):
+            return
+        gap = float(self._ig_cfg("instagram_min_gap_minutes", 15) or 0)
+        if hours_since(self.state.get("ig_last_at")) * 60 < gap:
+            return
+        cap = int(self._ig_cfg("instagram_max_per_day", 0) or 0)
+        if cap and self.store.count(self.today(), "instagram") >= cap:
+            return
+        it = q[0]
+        post = self.store.load_post(it["id"])
+        urls = self._ig_urls(post)
+        code = head_ok(urls["post"])
+        if code != 200:
+            waited = hours_since(it["queued_at"]) * 60
+            if waited > 15 and hours_since(it.get("restaged_at")) * 60 > 30:
+                it["restaged_at"] = iso(now_utc())
+                self.store.site_dirty = True  # site yeniden yayınlansın, kartlar eklensin
+                log.info("Instagram kartı sitede yok (HTTP %s); site yeniden yayınlanacak", code)
+            return
+        cli = self._ig_client()
+        if not cli:
+            return
+        try:
+            if not it.get("media_id"):
+                caption = clip(self.instagram_caption(post), 2150)
+                mid, link = self._ig_run(cli.carousel, [urls[k] for k in self._ig_kinds()], caption)
+                it.update({"media_id": mid, "permalink": link})
+                self.state["ig_last_at"] = iso(now_utc())
+                self.store.bump(self.today(), "instagram")
+        except InstagramError as e:
+            if e.auth:
+                self._ig_problem(f"paylaşım yapılamadı: {esc(e)}. Anahtarın <b>instagram_business_content_publish</b> "
+                                 "izni olduğundan emin ol.")
+                return
+            it["tries"] = it.get("tries", 0) + (0 if e.transient else 1)
+            it["last_error"] = str(e)[:300]
+            log.warning("Instagram paylaşımı başarısız (%s): %s", post["id"], e)
+            if it["tries"] >= 3:
+                self._ig_drop(it["id"], f"⚠️ <b>Instagram'da paylaşılamadı</b>\n{esc(post['title'])}\n<i>{esc(e)}</i>")
+            return
+        if self._ig_cfg("instagram_story", True) and not it.get("story_id"):
+            try:
+                it["story_id"] = self._ig_run(cli.story, urls["story"])
+            except InstagramError as e:  # hikâye olmasa da gönderi paylaşıldı; sırayı tıkama
+                log.warning("Instagram hikâyesi paylaşılamadı (%s): %s", post["id"], e)
+                it["story_error"] = str(e)[:200]
+        q.remove(it)
+        done = self.state.setdefault("ig_done", [])
+        done.append({"id": post["id"], "at": iso(now_utc()), "permalink": it.get("permalink", ""),
+                     "story": bool(it.get("story_id"))})
+        self.state["ig_done"] = done[-200:]
+        story = " + hikâye" if it.get("story_id") else (", hikâye paylaşılamadı" if it.get("story_error") else "")
+        kb = [[{"text": "📸 Instagram'da aç", "url": it["permalink"]}]] if it.get("permalink") else None
+        self._ig_msg(it, f"✅ <b>Instagram'da paylaşıldı</b> (carousel{story})\n{esc(post['title'])}", kb)
+        log.info("Instagram'da paylaşıldı: %s %s", post["id"], it.get("permalink", ""))
+
+    def stage_instagram(self, out) -> int:
+        """Sıradaki haberlerin Instagram kartlarını sitenin ig/ klasörüne koyar (Instagram herkese açık adresten alır)."""
+        q = self.state.get("ig_queue") or []
+        if not (q and self.cfg.instagram_auto):
+            return 0
+        folder = out / "ig"
+        folder.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for it in q[:8]:
+            post = self.store.load_post(it["id"])
+            if not post:
+                continue
+            for k in self._ig_kinds() + ["story"]:
+                try:
+                    shutil.copyfile(self._card(post, k), folder / f"{post['id']}-{k}.jpg")
+                    n += 1
+                except Exception as e:  # noqa: BLE001
+                    log.warning("Instagram kartı hazırlanamadı (%s %s): %s", post["id"], k, e)
+        if self._vis:
+            self._vis.close()
+            self._vis = None
+        log.info("Instagram kartları siteye kondu: %d görsel", n)
+        return n
+
+    def instagram_status(self) -> str:
+        if not self.cfg.instagram_token:
+            return ("📸 <b>Instagram</b> henüz bağlı değil.\nGitHub'da <b>IG_ACCESS_TOKEN</b> gizli anahtarı eklenince "
+                    "yayınlanan her haber otomatik paylaşılır.")
+        d = self.store.ig
+        c = self.state.get("day_counts", {}).get(self.today(), {})
+        left = TokenStore(self.cfg.instagram_token, d).days_left()
+        lines = [f"📸 <b>Instagram</b> {'⏸ kapalı' if self.state.get('ig_off') else '▶️ açık'}"
+                 f"{' · @' + esc(d['username']) if d.get('username') else ''}",
+                 f"Bugün: {c.get('instagram', 0)} paylaşım · Sırada: {len(self.state.get('ig_queue') or [])}"]
+        a, b = (self._ig_cfg("instagram_hours", IG_WINDOW_DEFAULT) or [0, 24])[:2]
+        lines.append(f"Paylaşım saatleri: {a:02d}:00–{b:02d}:00 · en az {self._ig_cfg('instagram_min_gap_minutes', 15)} dk arayla")
+        if left is not None:
+            lines.append(f"Anahtar: {left:.0f} gün geçerli (bot kendisi yeniler)")
+        for x in (self.state.get("ig_done") or [])[-3:][::-1]:
+            p = self.store.load_post(x["id"]) or {}
+            if x.get("permalink"):
+                lines.append(f'• <a href="{esc(x["permalink"])}">{esc(clip(p.get("title", x["id"]), 70))}</a>')
+        lines.append("Durdur: <code>/instagram kapat</code> · Aç: <code>/instagram ac</code>")
+        return "\n".join(lines)
+
     # ── tek çalışma ─────────────────────────────────────────
     def run(self) -> bool:
         """Bir tur: Telegram → süre dolanlar → toplama → özet → dinleme. Site değiştiyse True döner."""
-        if self.tg and self.state.get("commands_version") != 1:
+        if self.tg and self.state.get("commands_version") != COMMANDS_VERSION:
             self.tg.delete_webhook()
             self.tg.set_commands(COMMANDS)
-            self.state["commands_version"] = 1
+            self.state["commands_version"] = COMMANDS_VERSION
         if not self.tg:
             log.warning("TELEGRAM_BOT_TOKEN tanımlı değil; onay mekanizması kapalı.")
         elif not self.chat_id:
@@ -1004,6 +1283,10 @@ class App:
                 self.notify_error(f"Toplama sırasında hata: {type(e).__name__}: {e}")
         if not self.state.get("paused"):
             self.backfill_seo()
+        try:
+            self.ig_tick()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Instagram hatası: %s", e)
         self.refresh_covers()
         self.maybe_summary()
         self.listen(int(self.cfg.get("schedule", "listen_seconds", 120) or 0))

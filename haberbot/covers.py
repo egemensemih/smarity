@@ -286,7 +286,7 @@ def carousel_points(d: dict) -> list[str]:
 
 def news_card(d: dict, W: int, H: int, *, brand_name: str = "Smarity", tagline: str = "", label: str = "",
               date: str = "", credits: str = "", mode: str = "cover", page: int = 0, pages: int = 0,
-              site_host: str = "") -> dict:
+              site_host: str = "", story_link: bool = True) -> dict:
     """Özet kartı şablonu için bağlam: habere özel renkler, oluklu cam şeritleri ve vurgulu başlık."""
     seed = _seed(d)
     rnd = random.Random(seed)
@@ -312,6 +312,6 @@ def news_card(d: dict, W: int, H: int, *, brand_name: str = "Smarity", tagline: 
         "pal": pal[:4], "palette": pal_name, "base": base, "glow": glow, "reeds": reeds,
         "headline": _mark(title, d), "summary": (d.get("summary") or "").strip(), "title": title,
         "points": carousel_points(d) if mode == "points" else [], "why": why_text(d) if mode == "why" else "",
-        "mode": mode, "page": page, "pages": pages, "site_host": site_host, "label_plain": label,
+        "mode": mode, "page": page, "pages": pages, "site_host": site_host, "label_plain": label, "story_link": story_link,
         "label": tr_upper(label), "date": date, "credits": credits, "tagline": tagline, "brand_name": brand_name,
     }

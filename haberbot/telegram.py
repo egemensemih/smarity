@@ -101,6 +101,17 @@ class Telegram:
             if "not modified" not in str(e):
                 log.warning("Telegram mesajı güncellenemedi: %s", e)
 
+    def edit_text(self, chat_id, message_id: int, text: str, keyboard=None) -> None:
+        try:
+            self._call("editMessageText", {
+                "chat_id": chat_id, "message_id": message_id, "text": text[:4096], "parse_mode": "HTML",
+                "reply_markup": {"inline_keyboard": keyboard or []},
+                "link_preview_options": {"is_disabled": True},
+            })
+        except TelegramError as e:
+            if "not modified" not in str(e):
+                log.warning("Telegram mesajı güncellenemedi: %s", e)
+
     def set_commands(self, commands: list[tuple[str, str]]) -> None:
         try:
             self._call("setMyCommands", {"commands": [{"command": c, "description": d} for c, d in commands]})

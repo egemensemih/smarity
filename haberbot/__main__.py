@@ -39,6 +39,10 @@ def main(argv: list[str]) -> int:
         stale = hours_since(app.state.get("last_build")) >= 1 or app.state.get("build_sig") != sig
         if changed or cfg.force_build or stale or (not in_ci and not (cfg.out_dir / "index.html").exists()):
             SiteBuilder(cfg).build()
+            try:
+                app.stage_instagram(cfg.out_dir)
+            except Exception as e:  # noqa: BLE001
+                log.warning("Instagram kartları siteye konamadı: %s", e)
             app.state["last_build"] = iso(now_utc())
             app.state["build_sig"] = sig
             app.store.save()
@@ -73,6 +77,15 @@ def check(cfg) -> int:
         print("ANTHROPIC_API_KEY : VAR (isteğe bağlı)")
     print(f"TELEGRAM_BOT_TOKEN: {'VAR' if cfg.telegram_token else 'YOK ✗'}")
     print(f"TELEGRAM_CHAT_ID  : {cfg.telegram_chat_id or 'YOK (bota /start yaz)'}")
+    print(f"IG_ACCESS_TOKEN   : {'VAR' if cfg.instagram_token else 'YOK (Instagram otomatik paylaşım kapalı)'}")
+    if cfg.instagram_token:
+        from .instagram import Instagram, InstagramError
+        try:
+            me = Instagram(cfg.instagram_token).me()
+            print(f"Instagram         : @{me.get('username')} ✓")
+        except InstagramError as e:
+            print(f"Instagram         : HATA ✗ {e}")
+            ok = False
     ok &= bool((cfg.google_key or cfg.anthropic_key) and cfg.telegram_token and cfg.telegram_chat_id)
     if cfg.telegram_token and cfg.telegram_chat_id:
         from .telegram import Telegram, TelegramError

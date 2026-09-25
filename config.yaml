@@ -13,7 +13,7 @@ site:
   url: ""
   posts_per_page: 18
   contact_email: ""        # Hakkında sayfasında görünür (boş bırakılabilir)
-  instagram: ""            # Örn: "smarity" (2. aşamada kullanılacak)
+  instagram: ""            # Instagram kullanıcı adı (boşsa bağlanan hesap kullanılır; site altında bağlantı çıkar)
 
 seo:
   # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması
@@ -67,8 +67,16 @@ images:
   cost_per_image: 0.035                  # sadece maliyet raporu için (dolar)
 
 social:
-  # Yayınlanan her haber için Instagram post + story görsellerini Telegram'a gönder
-  # (Instagram otomasyonu 2. aşamada; o zamana kadar elle paylaşabilirsin).
+  # ── Instagram'a otomatik paylaşım ──
+  # GitHub'da IG_ACCESS_TOKEN gizli anahtarı tanımlıysa yayınlanan her haber, site güncellendikten
+  # birkaç dakika sonra carousel (3 görsel) ve hikâye olarak paylaşılır. Telegram'dan /instagram ile yönetilir.
+  instagram_auto: true
+  instagram_story: true            # carousel'e ek olarak hikâye de paylaşılsın
+  instagram_hours: [8, 24]         # paylaşım saatleri; gece yayınlanan haberler sabah 8'de sırayla paylaşılır
+  instagram_min_gap_minutes: 15    # iki paylaşım arasında en az bu kadar dakika olsun (akış boğulmasın)
+  instagram_max_per_day: 0         # günlük üst sınır (0 = sınır yok; Instagram'ın kendi sınırı 100)
+  instagram_max_wait_hours: 12     # bundan uzun sırada bekleyen haber artık paylaşılmaz (bayatlamasın)
+  # IG_ACCESS_TOKEN yokken: Instagram post + story görsellerini elle paylaşman için Telegram'a gönder
   send_to_telegram: true
   # Instagram görsel tarzı:
   # ozet  : logo, kategori etiketi, vurgulu büyük başlık ve kısa özet; renkler habere göre değişir (önerilen)

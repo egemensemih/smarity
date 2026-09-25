@@ -309,7 +309,8 @@ class Visuals:
                     credits=" · ".join(credits[:2]), mode=mode,
                     page=self.CAROUSEL.index(kind) + 1 if kind in self.CAROUSEL else 0,
                     pages=len(self.CAROUSEL) if kind in self.CAROUSEL else 0,
-                    site_host=self.cfg.site_url.split("://", 1)[-1] if "localhost" not in self.cfg.site_url else "")
+                    site_host=self.cfg.site_url.split("://", 1)[-1] if "localhost" not in self.cfg.site_url else "",
+                    story_link=not self.cfg.instagram_auto)
                 return self.renderer.html_to_image("news.html", ctx, size, out)
             except Exception as e:  # noqa: BLE001
                 log.warning("Özet kartı üretilemedi (%s), kapak kartı kullanılıyor: %s", kind, e)

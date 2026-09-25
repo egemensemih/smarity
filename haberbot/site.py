@@ -244,6 +244,8 @@ class SiteBuilder:
             "base": b,
             "url": cfg.site_url,
             "year": now_l.year,
+            # Instagram hesabı: ayarda yazılı değilse bağlanan hesaptan (data/instagram.json) alınır
+            "instagram": cfg.site.get("instagram") or (store.ig.get("username") if cfg.instagram_token else ""),
             "categories": cats,
             "nav_categories": [c for c in cats if c["count"] > 0] or cats[:6],
             "top_tags": [t for t in tags if t["count"] >= 2][:14],

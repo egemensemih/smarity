@@ -57,6 +57,8 @@ class Store:
         self.state: dict = {**DEFAULT_STATE, **read_json(cfg.data_dir / "state.json", {})}
         self.seen: dict = read_json(cfg.data_dir / "seen.json", {})
         self.stats: dict = {**DEFAULT_STATS, **read_json(cfg.data_dir / "stats.json", {})}
+        self.ig: dict = read_json(cfg.data_dir / "instagram.json", {})
+        self._ig_orig = dict(self.ig)
         self.site_dirty = False
 
     # ── kaydet ───────────────────────────────────────────────
@@ -70,6 +72,9 @@ class Store:
         write_json(self.cfg.data_dir / "state.json", self.state)
         write_json(self.cfg.data_dir / "seen.json", self.seen, compact=True)
         write_json(self.cfg.data_dir / "stats.json", self.stats)
+        if self.ig != self._ig_orig:
+            write_json(self.cfg.data_dir / "instagram.json", self.ig)
+            self._ig_orig = dict(self.ig)
 
     # ── sayaçlar ─────────────────────────────────────────────
     def bump(self, day: str, key: str, n: int = 1) -> None:
