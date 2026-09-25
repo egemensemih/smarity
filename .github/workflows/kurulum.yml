@@ -1,0 +1,98 @@
+name: Kurulum ve güncelleme
+
+# 1) smarity.zip paketi yüklendiyse depoya açar, sonra paketi siler.
+# 2) guncelleme-*.md parçalarının hepsi geldiyse güncellemeyi uygular, her dosyayı doğrular,
+#    parçaları siler ve siteyi yeniden kurar. Doğrulama başarısız olursa hiçbir şey değişmez.
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: kurulum
+  cancel-in-progress: false
+
+jobs:
+  paketi-ac:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Paketi aç
+        run: |
+          if [ ! -f smarity.zip ]; then echo "Açılacak paket yok."; exit 0; fi
+          mkdir -p /tmp/paket
+          unzip -q smarity.zip -d /tmp/paket
+          src=/tmp/paket
+          if [ -d /tmp/paket/smarity ]; then src=/tmp/paket/smarity; fi
+          rm -rf "$src/.github"
+          cp -a "$src"/. .
+          git rm -q smarity.zip
+          git config user.name "haber-botu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Proje dosyaları paketten açıldı"
+          git push
+
+      - name: Güncellemeyi uygula
+        run: |
+          python3 - <<'PY'
+          import glob, hashlib, os, re, subprocess, sys
+          parts = sorted(glob.glob("guncelleme-*.md"))
+          if not parts:
+              print("Uygulanacak güncelleme yok."); sys.exit(0)
+          texts, total = {}, 0
+          for p in parts:
+              t = open(p, encoding="utf-8", newline="").read()
+              m = re.match(r"SMARITY-BUNDLE v1 part (\d+)/(\d+)\n", t)
+              if not m:
+                  print("Geçersiz parça:", p); sys.exit(1)
+              texts[int(m.group(1))] = t[m.end():]
+              total = int(m.group(2))
+          if len(texts) < total:
+              print(f"{len(texts)}/{total} parça geldi, diğerleri bekleniyor."); sys.exit(0)
+          body = "".join(texts[i] for i in range(1, total + 1))
+          heads = list(re.finditer(r"^@@@SM@@@ (FILE|PATCH|SHA) ?(.*)\n", body, re.M))
+          shas = {}
+          for i, h in enumerate(heads):
+              end = heads[i + 1].start() if i + 1 < len(heads) else len(body)
+              content = body[h.end():end]
+              kind, path = h.group(1), h.group(2).strip()
+              if kind == "FILE":
+                  os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+                  with open(path, "w", encoding="utf-8", newline="") as f:
+                      f.write(content)
+              elif kind == "PATCH":
+                  with open("/tmp/sm.diff", "w", encoding="utf-8", newline="") as f:
+                      f.write(content)
+                  subprocess.run(["git", "apply", "--whitespace=nowarn", "/tmp/sm.diff"], check=True)
+              else:
+                  for line in content.splitlines():
+                      if line.strip():
+                          h_, f_ = line.split(None, 1)
+                          shas[f_.strip()] = h_
+          bad = [f for f, h_ in shas.items() if hashlib.sha256(open(f, "rb").read()).hexdigest() != h_]
+          if bad or not shas:
+              print("Doğrulama başarısız:", bad); sys.exit(1)
+          open("/tmp/sm-ok", "w").write("ok")
+          print(f"{len(shas)} dosya güncellendi ve doğrulandı.")
+          PY
+
+      - name: Kaydet ve siteyi yeniden kur
+        if: hashFiles('guncelleme-*.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -f /tmp/sm-ok ]; then echo "Güncelleme henüz tamamlanmadı."; exit 0; fi
+          git config user.name "haber-botu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -q guncelleme-*.md
+          git add -A
+          git commit -q -m "Güncelleme uygulandı"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase origin main && git push -q origin HEAD:main && break
+            sleep 8
+          done
+          gh workflow run bot.yml --ref main
