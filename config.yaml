@@ -38,7 +38,7 @@ schedule:
 editorial:
   min_importance: 7              # 1-10 arası. Bunun altındaki haberler hiç önüne gelmez (seçici: 7)
   max_drafts_per_run: 2          # Bir taramada en fazla kaç yeni haber taslağı yazılsın (haberler tek tek, düzenli gelsin)
-  max_drafts_per_day: 20         # Günlük üst sınır; gün içine eşit yayılır
+  max_drafts_per_day: 0          # Günlük üst sınır (0 = sınır yok; haberler yalnızca önem eşiğine göre seçilir)
   active_hours: [7, 24]          # Taslakların yayıldığı saatler (gece en fazla birkaç haber gelir, kalanlar sabaha kalır)
   max_item_age_hours: 36         # Bundan eski haberler atlanır
   pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer

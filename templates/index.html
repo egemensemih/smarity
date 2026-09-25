@@ -18,7 +18,8 @@
 
 {% block main %}
 <header class="home-head wrap">
-  <h1>{{ site.home_h1 }}</h1>
+  <h1 class="sr-only">{{ site.home_h1 }}</h1>
+  <p class="home-date"><time datetime="{{ site.built_iso[:10] }}">{{ site.today_str }}</time></p>
   {% if featured %}
   <p class="live" role="status"><span class="dot" aria-hidden="true"></span>Son haber <b><time datetime="{{ latest_iso }}" data-rel data-live>{{ latest_str }}</time></b>{% if site.today_count %} · Bugün <b>{{ site.today_count }}</b> gelişme{% endif %}</p>
   {% endif %}

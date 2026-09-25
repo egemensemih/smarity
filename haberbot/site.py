@@ -15,7 +15,7 @@ from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, 
 from .store import Store
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "6"
+ASSET_V = "7"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -185,7 +185,10 @@ class SiteBuilder:
             "credits": list(dict.fromkeys(s["name"] for s in p.get("sources", []))),
             "minutes": reading_minutes(p.get("body", "")),
             "words": len(plain(p.get("body", "")).split()),
-            "body_html": render_body(p.get("body", "")),
+            "body_html": (body_html := render_body(p.get("body", ""))),
+            "toc": [{"id": m.group(1), "text": re.sub("<[^>]+>", "", m.group(2))}
+                    for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', body_html)],
+            "key_points": [x for x in (p.get("carousel_points") or []) if x][:4],
             "updated_str": tr_date(p.get("updated_at"), cfg.tz) if p.get("updated_at") else "",
         }
 
@@ -252,6 +255,8 @@ class SiteBuilder:
             "logo_svg": f"{b}/static/logo.svg" if (ROOT / "static" / "logo.svg").exists() else "",
             "asset_v": ASSET_V,
             "home_h1": seo.get("home_h1") or "Teknoloji haberleri",
+            "today_str": f"{tr_date(now_utc(), cfg.tz, with_time=False)}, "
+                         f"{['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'][now_l.weekday()]}",
             "home_title": seo.get("home_title") or f"{cfg.site.get('name')}: {cfg.site.get('tagline')}",
             "home_description": seo.get("home_description") or cfg.site.get("description", ""),
             "verify": {k: seo.get(k) for k in ("google_site_verification", "bing_site_verification", "yandex_verification")},

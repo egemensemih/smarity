@@ -120,8 +120,10 @@ class App:
         """Şu an yazılabilecek taslak sayısı. Günlük sınır güne yayılır: sabah hepsi birden tükenmez,
         akşam da haber gelmeye devam eder."""
         ed = lambda k, d: self.cfg.get("editorial", k, d)  # noqa: E731
-        cap = int(ed("max_drafts_per_day", 40))
+        cap = int(ed("max_drafts_per_day", 0) or 0)
         used = self.store.count(self.today(), "drafts")
+        if cap <= 0:  # günlük sınır yok: seçim yalnızca önem eşiğine göre yapılır
+            return 10 ** 6
         a, b = (ed("active_hours", [7, 24]) or [0, 24])[:2]
         now_l = local(now_utc(), self.cfg.tz)
         h = now_l.hour + now_l.minute / 60
