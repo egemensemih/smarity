@@ -1,4 +1,42 @@
 {
-  "sources": {},
-  "decisions": []
+  "sources": {
+    "LOG": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "The Verge": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Engadget": {
+      "approved": 2,
+      "rejected": 0
+    },
+    "Google": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Interesting Engineering": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Webrazzi": {
+      "approved": 1,
+      "rejected": 0
+    }
+  },
+  "decisions": [
+    {
+      "t": "2026-09-25T12:58:00Z",
+      "id": "786bf7382a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T12:58:12Z",
+      "id": "ef3d93ddad",
+      "ok": true,
+      "manual": true
+    }
+  ]
 }
