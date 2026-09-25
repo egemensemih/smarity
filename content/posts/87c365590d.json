@@ -1,6 +1,5 @@
 {
   "id": "87c365590d",
-  "status": "pending",
   "created_at": "2026-09-25T14:41:16Z",
   "title": "Gemini Call for Me özelliği kullanıcılar adına arama yapıyor",
   "summary": "Google, yapay zeka asistanı Gemini'ın kullanıcılar adına işletmeleri arayarak rezervasyon ve stok sorgulaması yapmasını sağlayan yeni özelliğini test ediyor.",
@@ -47,17 +46,6 @@
   "source_keys": [
     "Webrazzi"
   ],
-  "source_texts": [
-    {
-      "credit": "Webrazzi",
-      "kind": "media",
-      "title": "Google, Gemini'ın kullanıcılar adına işletmeleri aramasını sağlayan Call for Me özelliğini test ediyor",
-      "url": "https://webrazzi.com/2026/09/25/google-gemini-in-kullanicilar-adina-isletmeleri-aramasini-saglayan-call-for-me-ozelligini-test-ediyor/",
-      "published": "2026-09-25T13:00:00Z",
-      "summary": "Google, yapay zeka asistanı Gemini’ın kullanıcılar adına işletmelerle telefon görüşmeleri gerçekleştirebildiği Call for Me özelliğini test etmeye başladı. Özellik, ilk aşamada ABD’de ücretli Gemini ab...",
-      "text": "Google, yapay zeka asistanı Gemini’ın kullanıcılar adına işletmelerle telefon görüşmeleri gerçekleştirebildiği Call for Me özelliğini test etmeye başladı. Özellik, ilk aşamada ABD’de ücretli Gemini aboneliği bulunan Pixel 11 serisi kullanıcılarına sunuluyor. Kullanıcıların ayrıca Google’ın Telefon uygulamasının herkese açık beta programına katılması gerekiyor.\nCall for Me, aramayı doğrudan kullanıcının telefonundan, kendi numarasıyla gerçekleştiriyor. Gemini, otomatik telefon menülerinde ilerleyebiliyor, hatta bekleyebiliyor ve işletme çalışanıyla görüşebiliyor. Desteklenen işlemler arasında bir ürünün stok durumunu öğrenmek, restoran rezervasyonu yapmak, mevcut bir randevunun tarihini değiştirmek ve ürün ayırtmak bulunuyor.\nÖzelliğin dikkat çeken yönlerinden biri, Gemini’ın görüşme sırasında kullanıcının önceden paylaşılmasına izin verdiği kişisel bilgileri aktarabilmesi. Kullanıcılar, konuşmanın anlık metin dökümünü takip edebiliyor ve istedikleri anda görüşmeyi devralabiliyor. Böylece yapay zekanın yürüttüğü telefon görüşmesine doğrudan müdahale edilebiliyor.\nGoogle’ın telefon görüşmelerini kolaylaştıran araçları arasında Direct My Call da bulunuyor. Bu araç, işletmelerin otomatik sesli menülerindeki seçenekleri ekranda göstererek kullanıcıların ilgili tuşlara dokunmasını sağlıyor. Call for Me ise işletmeyle konuşmayı da üstlenerek bu yaklaşımın kapsamını genişletiyor.\nGoogle, gerçek görüşmelerin karmaşıklığı nedeniyle denemeyi küçük ölçekte başlattığını ve daha geniş kullanıma geçmeden önce özelliği geliştirmek istediğini belirtiyor. Eski Pixel modelleri, diğer Android cihazlar veya Türkiye dahil farklı ülkeler için henüz bir kullanıma sunulma takvimi açıklanmış değil.\nCall for Me, Google’ın telefon görüşmelerini yapay zekayla otomatikleştirmeye yönelik çalışmalarının devamı niteliğinde. Şirket, 2018’de tanıttığı Duplex teknolojisiyle Google Asistan’ın bir kuaförü arayarak randevu alabildiğini göstermişti. Daha sonra sunulan Ask for Me, işletmelerden fiyat ve hizmet bilgisi toplamaya odaklanırken, Hold for Me kullanıcı adına hatta bekleyip bir çalışan yanıt verdiğinde bildirim gönderiyordu. Call for Me ise bilgi toplama, hatta bekleme ve görüşmeyi yürütme yeteneklerini tek bir özellikte bir araya getiriyor.\nGörsel Kaynak: ChatGPT"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 34
@@ -68,5 +56,7 @@
     "palette": "super-zeka-1",
     "cover_v": 1
   },
-  "policy_reason": "Öğreniyor: 4/30 karar"
+  "slug": "gemini-call-for-me-ozelligi-isletmeleri-ariyor",
+  "published_at": "2026-09-25T15:07:27Z",
+  "publish_mode": "manual"
 }

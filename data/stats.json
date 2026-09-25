@@ -1,8 +1,8 @@
 {
   "sources": {
     "LOG": {
-      "approved": 2,
-      "rejected": 0
+      "approved": 3,
+      "rejected": 1
     },
     "The Verge": {
       "approved": 1,
@@ -18,10 +18,10 @@
     },
     "Interesting Engineering": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Webrazzi": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 1
     },
     "Electrek": {
@@ -29,7 +29,7 @@
       "rejected": 1
     },
     "DonanımHaber": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 0
     },
     "ShiftDelete.Net": {
@@ -125,6 +125,36 @@
     {
       "t": "2026-09-25T15:06:09Z",
       "id": "c972178f74",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:07:03Z",
+      "id": "23753fdf9d",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:07:16Z",
+      "id": "105b9953b6",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:07:28Z",
+      "id": "87c365590d",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:07:38Z",
+      "id": "3e23120379",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T15:07:39Z",
+      "id": "69999242b3",
       "ok": false,
       "manual": true
     }
