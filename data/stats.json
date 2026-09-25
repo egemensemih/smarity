@@ -17,7 +17,7 @@
       "rejected": 0
     },
     "Interesting Engineering": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 1
     },
     "Webrazzi": {
@@ -26,11 +26,11 @@
     },
     "Electrek": {
       "approved": 2,
-      "rejected": 3
+      "rejected": 4
     },
     "DonanımHaber": {
       "approved": 7,
-      "rejected": 2
+      "rejected": 4
     },
     "ShiftDelete.Net": {
       "approved": 4,
@@ -53,11 +53,11 @@
       "rejected": 2
     },
     "TechCrunch": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "Egirisim": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 0
     },
     "Polygon": {
@@ -67,6 +67,14 @@
     "WIRED": {
       "approved": 0,
       "rejected": 1
+    },
+    "IGN": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "New Atlas": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -314,6 +322,54 @@
       "t": "2026-09-25T18:13:19Z",
       "id": "3b29b70cf1",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:22:07Z",
+      "id": "9e5b1c0071",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:22:19Z",
+      "id": "219b86c4bc",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:22:35Z",
+      "id": "b6bfee67ed",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:22:46Z",
+      "id": "438d9e1119",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:22:48Z",
+      "id": "d211c6070a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:23:00Z",
+      "id": "ae2bf0cb24",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:23:00Z",
+      "id": "f12438f1f9",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T20:23:02Z",
+      "id": "ef7338579b",
+      "ok": true,
       "manual": true
     }
   ]
