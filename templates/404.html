@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Sayfa bulunamadı — {{ site.name }}{% endblock %}
+{% block main %}
+<section class="empty">
+  <h1>Bu sayfa radarımızda yok.</h1>
+  <p>Aradığın haber kaldırılmış ya da adresi değişmiş olabilir.</p>
+  <p><a class="more" href="{{ site.base }}/">Ana sayfaya dön</a></p>
+</section>
+{% endblock %}

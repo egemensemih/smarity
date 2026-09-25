@@ -1,0 +1,136 @@
+{# Smarity Instagram kartları. Zemin: habere özel renklerle yumuşak ışık ve oluklu cam efekti.
+   mode: cover  (carousel 1: etiket, vurgulu büyük başlık, kısa özet)
+         points (carousel 2: öne çıkan 3 madde)
+         why    (carousel 3: neden önemli + haberin tamamı için yönlendirme)
+         story  (hikâye: başlık, özet ve bağlantı çıkartması için boş alan)
+   Değişkenler: pal, base, glow, reeds, headline (güvenli HTML), title, summary, points, why, label, date,
+   credits, tagline, page, pages, site_host, W, H #}
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Bold.ttf"); font-weight: 700; }
+:root {
+  --u: {{ [W, H]|min / 100 }}px;
+  --c1: {{ pal[0] }}; --c2: {{ pal[1] }}; --c3: {{ pal[2] }}; --c4: {{ pal[3] }};
+  --base: {{ base }};
+  --ink: #111114;
+  --ink2: rgba(17, 17, 20, .70);
+  --accent-ink: color-mix(in srgb, var(--c2) 58%, #000);
+  --glow: {% for g in glow %}radial-gradient(ellipse {{ g.w }}% {{ g.h }}% at {{ g.x }}% {{ g.y }}%, color-mix(in srgb, {{ g.c }} {{ g.a }}%, transparent), transparent 72%){{ ',' if not loop.last }}{% endfor %};
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: {{ W }}px; height: {{ H }}px; overflow: hidden; }
+body { font-family: "IS", system-ui, sans-serif; background: var(--base); color: var(--ink);
+  -webkit-font-smoothing: antialiased; position: relative; isolation: isolate; }
+
+/* ── zemin: ışık + oluklu cam ── */
+.bg { position: absolute; inset: 0; z-index: -3; background-image: var(--glow); }
+.reeds { position: absolute; inset: 0; z-index: -2; }
+.reed { position: absolute; top: 0; bottom: 0; background-image:
+    linear-gradient(90deg, rgba(255,255,255,.34), rgba(255,255,255,0) 38%, rgba(255,255,255,0) 78%, rgba(40,20,90,.05)),
+    var(--glow);
+  background-size: 100% 100%, {{ W }}px {{ H }}px; background-repeat: no-repeat; }
+.fade { position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--base) 92%, transparent) 0%, transparent 24%, transparent 76%, color-mix(in srgb, var(--base) 88%, transparent) 100%); }
+.grain { position: absolute; inset: 0; z-index: -1; opacity: .06; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+
+/* ── yerleşim ── */
+.page { position: absolute; inset: 0; display: flex; flex-direction: column;
+  padding: {{ 'calc(var(--u) * 15) calc(var(--u) * 7) calc(var(--u) * 16)' if H > W * 1.5 else 'calc(var(--u) * 6.5) calc(var(--u) * 6.5) calc(var(--u) * 6)' }}; }
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--u) * 4); }
+.wm { display: block; height: calc(var(--u) * 5.2); width: auto; }
+.tagline { font-size: calc(var(--u) * 2.75); line-height: 1.3; color: var(--ink2); text-align: right; max-width: calc(var(--u) * 36); letter-spacing: -.005em; }
+.spacer { flex: 1 1 0; }
+.spacer.lower { flex-grow: 1.35; }
+.content { display: grid; gap: calc(var(--u) * {{ 3.4 if H > W * 1.5 else 3 }}); justify-items: start; }
+.pill { display: inline-flex; align-items: center; gap: .55em; padding: calc(var(--u) * 1.15) calc(var(--u) * 2);
+  border: 2px solid color-mix(in srgb, var(--c2) 55%, #fff); border-radius: calc(var(--u) * 1.3);
+  background: rgba(255,255,255,.55); font-size: calc(var(--u) * 2.9); letter-spacing: .01em; color: var(--accent-ink); }
+.pill b { font-weight: 700; }
+.pill span { font-weight: 400; opacity: .9; }
+h1 { font-weight: 700; font-size: calc(var(--u) * {{ 9.6 if H > W * 1.5 else 8.4 }}); line-height: 1.08; letter-spacing: -.035em;
+  text-wrap: balance; max-width: 100%; }
+h1 mark { background: var(--ink); color: #fff; padding: 0 .14em; margin: 0 -.04em; border-radius: 2px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sum { font-size: calc(var(--u) * {{ 4 if H > W * 1.5 else 3.5 }}); line-height: 1.38; color: var(--ink2); max-width: 30ch;
+  display: -webkit-box; -webkit-line-clamp: {{ 4 if H > W * 1.5 else 3 }}; -webkit-box-orient: vertical; overflow: hidden; letter-spacing: -.01em; }
+.bottom { display: flex; justify-content: space-between; align-items: center; gap: calc(var(--u) * 4); min-height: calc(var(--u) * 9.4); }
+.src { font-size: calc(var(--u) * 2.9); color: var(--ink2); letter-spacing: -.005em; }
+.src b { color: var(--ink); font-weight: 700; }
+.go { flex: none; width: calc(var(--u) * 9.4); height: calc(var(--u) * 9.4); border-radius: 50%; border: 2px solid var(--ink);
+  display: grid; place-items: center; }
+.go svg { width: 42%; height: 42%; }
+/* carousel 2: maddeler */
+.ctx { font-weight: 700; font-size: calc(var(--u) * 5); line-height: 1.12; letter-spacing: -.03em; text-wrap: balance; }
+.pts { list-style: none; display: grid; gap: calc(var(--u) * 3.2); margin-top: calc(var(--u) * .6); }
+.pts li { display: grid; grid-template-columns: calc(var(--u) * 6.4) minmax(0, 1fr); gap: calc(var(--u) * 2.6); align-items: start; }
+.pts i { width: calc(var(--u) * 6.4); height: calc(var(--u) * 6.4); border-radius: 50%; background: var(--ink); color: #fff;
+  display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: calc(var(--u) * 3); }
+.pts span { font-size: calc(var(--u) * 4.1); line-height: 1.32; letter-spacing: -.015em; padding-top: calc(var(--u) * .6); }
+/* carousel 3: neden önemli */
+.why { font-weight: 700; font-size: calc(var(--u) * 6.4); line-height: 1.16; letter-spacing: -.03em; text-wrap: pretty; }
+.cta { display: grid; gap: calc(var(--u) * .8); padding: calc(var(--u) * 3.4) calc(var(--u) * 3.8); margin-top: calc(var(--u) * 1.4);
+  background: rgba(255,255,255,.66); border: 2px solid rgba(255,255,255,.9); border-radius: calc(var(--u) * 2.6);
+  box-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 4) rgba(20, 10, 60, .08); justify-self: stretch; }
+.cta b { font-size: calc(var(--u) * 4.2); letter-spacing: -.02em; }
+.cta span { font-size: calc(var(--u) * 3.2); color: var(--ink2); }
+/* hikâye: bağlantı çıkartması */
+.tap { display: flex; align-items: center; gap: calc(var(--u) * 2.2); font-weight: 700; font-size: calc(var(--u) * 4); letter-spacing: -.02em; }
+.tap .go { width: calc(var(--u) * 8.4); height: calc(var(--u) * 8.4); }
+.sticker-room { height: calc(var(--u) * 17); }
+</style></head>
+<body>
+<div class="bg"></div>
+<div class="reeds">
+  {% for r in reeds %}<div class="reed" style="left:{{ r.x }}px; width:{{ r.w }}px; background-position: 0 0, {{ r.bx }}px {{ r.by }}px"></div>{% endfor %}
+</div>
+<div class="fade"></div>
+<div class="grain"></div>
+
+<div class="page">
+  <div class="top">
+    {% if logo_uri %}<img class="wm" src="{{ logo_uri }}" alt="{{ brand_name }}">{% else %}<b>{{ brand_name }}</b>{% endif %}
+    {% if tagline %}<p class="tagline">{{ tagline }}</p>{% endif %}
+  </div>
+  <div class="spacer"></div>
+  {% set arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="#111114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>' %}
+  {% set down = '<svg viewBox="0 0 24 24" fill="none" stroke="#111114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg>' %}
+  <div class="content" id="content">
+  {% if mode == 'points' %}
+    <div class="pill"><b>ÖNE ÇIKANLAR</b><span>·</span><span>{{ label_plain }}</span></div>
+    <p class="ctx" id="head">{{ title }}</p>
+    <ol class="pts">{% for t in points %}<li><i>{{ loop.index }}</i><span>{{ t }}</span></li>{% endfor %}</ol>
+  {% elif mode == 'why' %}
+    <div class="pill"><b>NEDEN ÖNEMLİ?</b></div>
+    <p class="why" id="head">{{ why }}</p>
+    <div class="cta"><b>Haberin tamamı ve tüm kaynaklar</b><span>Profildeki bağlantıda{% if site_host %} · {{ site_host }}{% endif %}</span></div>
+  {% else %}
+    <div class="pill"><b>{{ label }}</b>{% if date %}<span>·</span><span>{{ date }}</span>{% endif %}</div>
+    <h1 id="head">{{ headline|safe }}</h1>
+    {% if summary %}<p class="sum">{{ summary }}</p>{% endif %}
+  {% endif %}
+  </div>
+  <div class="spacer lower"></div>
+  {% if mode == 'story' %}
+  <div class="tap"><span class="go" aria-hidden="true">{{ down|safe }}</span>Haberin tamamı için bağlantıya dokun</div>
+  <div class="sticker-room"></div>
+  {% endif %}
+  <div class="bottom">
+    <p class="src">{% if pages %}<b>{{ page }}/{{ pages }}</b>{% if credits %} — Kaynak: {{ credits }}{% endif %}{% elif credits %}<b>Kaynak</b> — {{ credits }}{% endif %}</p>
+    {% if mode in ('cover', 'points') %}<div class="go" aria-hidden="true">{{ arrow|safe }}</div>{% endif %}
+  </div>
+</div>
+
+<script>
+document.fonts.ready.then(function () {
+  // Başlık çok uzunsa küçült: içerik bloğu kartın ~%58'ini geçmesin
+  var h = document.getElementById("head"), c = document.getElementById("content");
+  var max = {{ (H * (0.46 if H > W * 1.5 else 0.6))|int }};
+  var fs = parseFloat(getComputedStyle(h).fontSize);
+  while (c.scrollHeight > max && fs > 30) { fs -= 3; h.style.fontSize = fs + "px"; }
+  window.__ready = true;
+});
+</script>
+</body></html>

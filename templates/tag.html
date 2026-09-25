@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, crumbs %}
+{% block title %}{{ tag.label }} haberleri: son gelişmeler | {{ site.name }}{% endblock %}
+{% block description %}{{ tag.label }} ile ilgili en son haberler ve gelişmeler. {{ tag.count }} haber, her biri kaynağıyla ve Türkçe.{% endblock %}
+{% block main %}
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), (tag.label, tag.url, site.url ~ "/etiket/" ~ tag.slug ~ "/")]) }}
+<header class="page-head wrap" style="--c:#6E6E73">
+  <span class="eyebrow">Konu</span>
+  <h1>{{ tag.label }} haberleri.</h1>
+  <p>{{ tag.label }} hakkındaki son gelişmeler, kaynağıyla.</p>
+  <p class="muted small">{{ tag.count }} haber</p>
+</header>
+<section class="wrap"><div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div></section>
+{% endblock %}

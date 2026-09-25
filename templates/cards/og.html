@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+{% block css %}
+.img { top: 0; right: 0; bottom: 0; width: 600px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
+.txt { position: absolute; top: 0; bottom: 0; left: 64px; width: 600px; display: flex; flex-direction: column; padding: 56px 0 50px; z-index: 2; }
+.txt .brand { font-size: 26px; }
+.txt .body { margin-top: auto; display: grid; gap: 14px; }
+.txt .kicker { font-size: 24px; }
+.txt h1 { font-size: 54px; max-height: 232px; }
+.txt .meta { margin-top: 26px; font-size: 20px; color: var(--muted); }
+.txt .stat { font-size: 116px; width: 100%; }
+.txt .stat-label { font-size: 22px; color: var(--muted); margin-top: -6px; }
+.l-stat .txt h1 { font-size: 34px; line-height: 1.12; max-height: 120px; margin-top: 8px; }
+{% endblock %}
+{% block body %}
+<div class="img"><img src="{{ hero }}" alt=""></div>
+<div class="txt">
+  {% include "_brand.html" %}
+  <div class="body">
+    <div class="kicker">{{ kicker }}</div>
+    {% if layout == "stat" %}
+      <div class="stat" data-fitw>{{ stat }}</div>
+      {% if stat_label %}<div class="stat-label">{{ stat_label }}</div>{% endif %}
+      <h1 data-max="120">{{ title }}</h1>
+    {% else %}
+      <h1 data-max="232">{{ title }}</h1>
+    {% endif %}
+  </div>
+  <div class="meta">Kaynak: {{ credits }} · {{ date }}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, crumbs %}
+{% block title %}{{ cat.seo_title }}: son dakika gelişmeler | {{ site.name }}{% endblock %}
+{% block description %}{{ cat.seo_title }}: {{ cat.intro }} Güncel ve kaynağıyla, Türkçe.{% endblock %}
+{% block main %}
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), (cat.label, cat.url, site.url ~ "/kategori/" ~ cat.slug ~ "/")]) }}
+<header class="page-head wrap" style="--c:{{ cat.color }}">
+  <span class="eyebrow">{{ cat.label }}</span>
+  <h1>{{ cat.seo_title }}.</h1>
+  <p>{{ cat.intro }}</p>
+  <p class="muted small">{% if cat.count %}{{ cat.count }} haber{% else %}Bu kategoride henüz haber yok.{% endif %}</p>
+</header>
+{% if posts %}
+<section class="wrap"><div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div></section>
+{% endif %}
+{% endblock %}

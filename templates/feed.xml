@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{{ site.name }}</title>
+  <link>{{ site.url }}/</link>
+  <description>{{ site.description }}</description>
+  <language>tr</language>
+  <lastBuildDate>{{ now_rfc }}</lastBuildDate>
+  <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+  {% for p in posts %}
+  <item>
+    <title>{{ p.title }}</title>
+    <link>{{ p.abs_url }}</link>
+    <guid isPermaLink="true">{{ p.abs_url }}</guid>
+    <pubDate>{{ p.rfc822 }}</pubDate>
+    <category>{{ p.cat_label }}</category>
+    <description>{{ p.summary }} (Kaynak: {{ p.credits|join(', ') }})</description>
+    <enclosure url="{{ p.abs_og }}" type="image/jpeg" length="0"/>
+  </item>
+  {% endfor %}
+</channel>
+</rss>

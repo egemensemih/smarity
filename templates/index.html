@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, slide, rail %}
+
+{% block head %}
+{% if featured %}<link rel="preload" as="image" href="{{ featured[0].img }}" fetchpriority="high">{% endif %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebSite", "@id": site.url ~ "/#website", "name": site.name, "alternateName": site.name ~ " teknoloji haberleri",
+     "url": site.url ~ "/", "inLanguage": "tr-TR", "description": site.home_description,
+     "publisher": {"@id": site.url ~ "/#org"}},
+    {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name, "url": site.url ~ "/",
+     "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512},
+     "publishingPrinciples": site.url ~ "/hakkinda/"}
+  ]
+}|tojson }}</script>
+{% endblock %}
+
+{% block main %}
+<header class="home-head wrap">
+  <h1>{{ site.home_h1 }}</h1>
+  {% if featured %}
+  <p class="live" role="status"><span class="dot" aria-hidden="true"></span>Son haber <b><time datetime="{{ latest_iso }}" data-rel data-live>{{ latest_str }}</time></b>{% if site.today_count %} · Bugün <b>{{ site.today_count }}</b> gelişme{% endif %}</p>
+  {% endif %}
+</header>
+
+{% if not featured %}
+  <section class="empty">
+    <p>{{ site.name }} yayına hazırlanıyor. {{ site.tagline }}</p>
+  </section>
+{% else %}
+  <section class="car" aria-roledescription="carousel" aria-label="Öne çıkan haberler" data-interval="6500">
+    <div class="car-view wrap">
+      <div class="car-track" id="car-track">
+        {% for p in featured %}{{ slide(p, loop.index, loop.length) }}{% endfor %}
+      </div>
+    </div>
+    {% if featured|length > 1 %}
+    <div class="car-ui wrap">
+      <div class="car-dots">
+        {% for p in featured %}
+        <button type="button" data-go="{{ loop.index0 }}" aria-label="{{ loop.index }}. manşet: {{ p.short_title or p.title }}"{% if loop.first %} aria-current="true"{% endif %}><i></i></button>
+        {% endfor %}
+      </div>
+      <div class="car-ctrl">
+        <button type="button" class="car-play" aria-label="Otomatik geçişi durdur" data-state="play"><span aria-hidden="true"></span></button>
+        <button type="button" class="car-arr" data-dir="-1" aria-label="Önceki manşet">‹</button>
+        <button type="button" class="car-arr" data-dir="1" aria-label="Sonraki manşet">›</button>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+  <nav class="chips wrap" aria-label="Kategoriler">
+    {% for c in site.categories if c.count %}
+    <a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}<span>{{ c.count }}</span></a>
+    {% endfor %}
+  </nav>
+
+  <section class="sec wrap" aria-labelledby="h-son">
+    <div class="sec-head"><h2 id="h-son">Son gelişmeler.</h2></div>
+    <div class="grid">{% for p in latest %}{{ card(p) }}{% endfor %}</div>
+    {% if next_url %}
+    <nav class="pager" aria-label="Sayfalar"><a class="more" href="{{ next_url }}">Daha eski haberler</a></nav>
+    {% endif %}
+  </section>
+
+  {% for r in rails %}
+    {{ rail(r.posts, r.cat.seo_title ~ '.', 'k-' ~ r.cat.slug, '', r.cat.url) }}
+  {% endfor %}
+
+  {% if tags %}
+  <section class="sec wrap" aria-labelledby="h-konu">
+    <div class="sec-head"><h2 id="h-konu">Popüler konular.</h2></div>
+    <div class="tags">{% for t in tags %}<a href="{{ t.url }}">{{ t.label }}<span>{{ t.count }}</span></a>{% endfor %}</div>
+  </section>
+  {% endif %}
+
+  <section class="about-note wrap" aria-labelledby="h-hakkinda">
+    <h2 id="h-hakkinda">{{ site.name }} nedir?</h2>
+    <p>{{ site.name }}, dünyada ve Türkiye'de yeni olan her şeyi Türkçe olarak takip eden bir teknoloji haber sitesidir. Apple, Samsung, Google ve OpenAI gibi şirketlerin resmi duyurularını; teknoloji, otomobil ve oyun dünyasının saygın yayınlarını ve Türkiye'nin teknoloji basınını düzenli olarak tarar. Yeni tanıtılan ürünleri, girişim hikâyelerini, ilk kez denenen teknolojileri, yapay zekanın yeni özelliklerini, otomobil ve oyun dünyasındaki gelişmeleri sade bir dille, her zaman orijinal kaynağıyla aktarır. <a href="{{ site.base }}/hakkinda/">Yayın ilkelerimiz</a></p>
+  </section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,210 @@
+# ─────────────────────────────────────────────────────────────
+#  Smarity — ayarlar
+#  Bu dosyayı GitHub'da kalem simgesiyle düzenleyebilirsin.
+#  Değişiklikler bir sonraki çalışmada (en geç ~10 dk) devreye girer.
+# ─────────────────────────────────────────────────────────────
+
+site:
+  name: "Smarity"
+  tagline: "Teknolojide yeni olan her şey, kaynağıyla."
+  description: "Dünyadan ve Türkiye'den yeni ürünleri, girişim hikâyelerini, ilk kez denenen teknolojileri, yapay zeka, otomobil ve oyun dünyasını her haberde orijinal kaynağıyla aktaran Türkçe teknoloji haber sitesi."
+  # Boş bırakırsan GitHub Pages adresi otomatik kullanılır.
+  # Kendi alan adını bağlarsan buraya yaz: "https://smarity.com"
+  url: ""
+  posts_per_page: 18
+  contact_email: ""        # Hakkında sayfasında görünür (boş bırakılabilir)
+  instagram: ""            # Örn: "smarity" (2. aşamada kullanılacak)
+
+seo:
+  # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması
+  home_h1: "Teknoloji haberleri"
+  home_title: "Teknoloji Haberleri: Yapay Zeka, İnovasyon, Girişimcilik, Gaming"
+  home_description: "Dünyadan ve Türkiye'den yapay zeka, yeni teknoloji ürünleri, inovasyon, girişim hikâyeleri ve oyun dünyası haberleri. Kaynağıyla, Türkçe, her gün güncel."
+  # Arama motoru doğrulama kodları (Search Console / Bing / Yandex'in verdiği "content" değeri)
+  google_site_verification: ""
+  bing_site_verification: ""
+  yandex_verification: ""
+  # Yeni haberleri Bing ve Yandex'e anında bildir (ücretsiz, hesap gerekmez)
+  indexnow: true
+  featured_count: 5        # Ana sayfadaki kaydırmalı manşette kaç haber olsun
+
+schedule:
+  timezone: "Europe/Istanbul"
+  collect_every_minutes: 15      # Kaynaklar kaç dakikada bir taransın
+  daily_summary_hour: 21         # Günlük özet Telegram'a saat kaçta gelsin
+  quiet_hours: [0, 8]            # Bu saatler arasında bildirimler sessiz gelir
+  listen_seconds: 240            # Butonlara anında tepki için her turda Telegram'ı dinleme süresi (sn)
+
+editorial:
+  min_importance: 7              # 1-10 arası. Bunun altındaki haberler hiç önüne gelmez (seçici: 7)
+  max_drafts_per_run: 2          # Bir taramada en fazla kaç yeni haber taslağı yazılsın (haberler tek tek, düzenli gelsin)
+  max_drafts_per_day: 20         # Günlük üst sınır; gün içine eşit yayılır
+  active_hours: [7, 24]          # Taslakların yayıldığı saatler (gece en fazla birkaç haber gelir, kalanlar sabaha kalır)
+  max_item_age_hours: 36         # Bundan eski haberler atlanır
+  pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer
+  fetch_full_text: true          # Haberin tam metnini kaynağından okuyup daha doğru özet çıkar
+
+autonomy:
+  # manuel  : her haber onayına gelir
+  # ogrenen : kararlarından öğrenir; güvendiği kaynaklardan gelen net haberleri kendisi yayınlar (önerilen)
+  # tam     : sadece şüpheli/riskli haberleri sorar, gerisini kendisi yayınlar
+  # Telegram'dan /mod komutuyla da değiştirebilirsin.
+  mode: ogrenen
+  source_min_decisions: 10       # Bir kaynağa güvenmek için gereken en az karar sayısı
+  source_min_approval: 0.9       # ...ve o kaynaktaki onay oranı
+  global_window: 30              # Genel başarı için bakılan son karar sayısı
+  global_min_approval: 0.85      # Son kararlarda genel onay oranı bunun altındaysa otomatik yayın durur
+  auto_min_importance: 7         # Otomatik yayın için en düşük önem puanı
+
+images:
+  # kapak: habere özel tipografik kapak (dev rakam / isim / manşet), ücretsiz (önerilen)
+  # 3d   : renkli 3D şekiller
+  style: kapak
+  # Her habere yapay zeka ile özel görsel (Google "Nano Banana").
+  # GEMINI_API_KEY yoksa ya da üretim başarısız olursa tipografik kapak kullanılır.
+  ai: false                              # ücretli (Google ödeme gerektirir). Açmak için: true
+  model: "gemini-3.1-flash-lite-image"   # daha kaliteli: "gemini-3.1-flash-image"
+  cost_per_image: 0.035                  # sadece maliyet raporu için (dolar)
+
+social:
+  # Yayınlanan her haber için Instagram post + story görsellerini Telegram'a gönder
+  # (Instagram otomasyonu 2. aşamada; o zamana kadar elle paylaşabilirsin).
+  send_to_telegram: true
+  # Instagram görsel tarzı:
+  # ozet  : logo, kategori etiketi, vurgulu büyük başlık ve kısa özet; renkler habere göre değişir (önerilen)
+  # kapak : dev rakam / ürün adı kapağı (sitedeki kapakla aynı)
+  card_style: ozet
+
+ai:
+  # gemini: Google Gemini ücretsiz katmanı (kredi kartı gerekmez, günlük sınırlı)
+  # claude: Anthropic Claude (ücretli, ANTHROPIC_API_KEY gerekir)
+  provider: gemini
+  triage_model: "gemini-flash-lite-latest"   # ayıklama
+  writer_model: "gemini-flash-latest"        # haber yazımı
+  # Claude'a geçersen örnek: triage_model "claude-haiku-4-5-20251001", writer_model "claude-sonnet-5"
+  writer_effort: "medium"                    # sadece Claude için
+
+# ─────────────────────────────────────────────────────────────
+#  Kaynaklar
+#  kind: official (şirketin kendi duyurusu), media (haber sitesi), community (topluluk)
+#  type: rss (varsayılan) | html (RSS'i olmayan sayfalar için)
+#  Bir kaynağı kapatmak için satırlarının başına # koy.
+# ─────────────────────────────────────────────────────────────
+sources:
+  # ── Resmi duyurular ──
+  - name: Apple
+    url: https://www.apple.com/newsroom/rss-feed.rss
+    kind: official
+  - name: Samsung
+    url: https://news.samsung.com/global/feed
+    kind: official
+  - name: Google
+    url: https://blog.google/rss/
+    kind: official
+  - name: OpenAI
+    url: https://openai.com/news/rss.xml
+    kind: official
+  - name: Anthropic
+    url: https://www.anthropic.com/news
+    type: html
+    link_pattern: '^/news/[a-z0-9-]+/?$'
+    kind: official
+  # - name: NVIDIA
+  #   url: https://blogs.nvidia.com/feed/
+  #   kind: official
+
+  # ── Dünya: teknoloji, ürünler, yapay zeka ──
+  - name: TechCrunch
+    url: https://techcrunch.com/feed/
+    kind: media
+  - name: The Verge
+    url: https://www.theverge.com/rss/index.xml
+    kind: media
+  - name: Engadget
+    url: https://www.engadget.com/rss.xml
+    kind: media
+  - name: WIRED
+    url: https://www.wired.com/feed/rss
+    kind: media
+  - name: Ars Technica
+    url: https://feeds.arstechnica.com/arstechnica/index
+    kind: media
+  - name: GSMArena
+    url: https://www.gsmarena.com/rss-news-reviews.php3
+    kind: media
+
+  # ── İnovasyon ve bilim ──
+  - name: MIT Technology Review
+    url: https://www.technologyreview.com/feed/
+    kind: media
+  - name: New Atlas
+    url: https://newatlas.com/index.rss
+    kind: media
+  # - name: IEEE Spectrum
+  #   url: https://spectrum.ieee.org/feeds/feed.rss
+  #   kind: media
+  - name: Interesting Engineering
+    url: https://interestingengineering.com/feed
+    kind: media
+
+  # ── Girişimler (uzman okura hitap eden kaynaklar kapalı; istersen # işaretini kaldır) ──
+  # - name: Crunchbase News
+  #   url: https://news.crunchbase.com/feed/
+  #   kind: media
+  # - name: EU-Startups
+  #   url: https://www.eu-startups.com/feed/
+  #   kind: media
+
+  # ── Otomobil ──
+  - name: Electrek
+    url: https://electrek.co/feed/
+    kind: media
+  - name: Carscoops
+    url: https://www.carscoops.com/feed/
+    kind: media
+  - name: Autocar
+    url: https://www.autocar.co.uk/rss
+    kind: media
+
+  # ── Oyun ──
+  - name: IGN
+    url: https://feeds.feedburner.com/ign/news
+    kind: media
+  - name: Polygon
+    url: https://www.polygon.com/rss/index.xml
+    kind: media
+  - name: VGC
+    url: https://www.videogameschronicle.com/feed/
+    kind: media
+  - name: GamesIndustry.biz
+    url: https://www.gamesindustry.biz/feed
+    kind: media
+
+  # ── Türkiye ──
+  - name: Webrazzi
+    url: https://webrazzi.com/feed/
+    kind: media
+  - name: Egirisim
+    url: https://egirisim.com/feed/
+    kind: media
+  - name: Webtekno
+    url: https://www.webtekno.com/rss.xml
+    kind: media
+  - name: ShiftDelete.Net
+    url: https://shiftdelete.net/feed
+    kind: media
+  - name: DonanımHaber
+    url: https://www.donanimhaber.com/rss/tum/
+    kind: media
+  - name: LOG
+    url: https://www.log.com.tr/feed/
+    kind: media
+  - name: Anadolu Ajansı
+    url: https://www.aa.com.tr/tr/rss/default?cat=bilim-teknoloji
+    kind: media
+
+  # ── Topluluk (kapalı: çoğu haber uzman okura yönelik) ──
+  # - name: Hacker News
+  #   url: https://hnrss.org/frontpage?points=400
+  #   kind: community
+  #   credit_linked_site: true

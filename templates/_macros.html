@@ -1,0 +1,74 @@
+{% macro img(p, cls='', eager=false, sizes='(min-width: 1000px) 400px, 100vw', priority=false) %}
+<img src="{{ p.img }}" alt="{{ p.img_alt }}" width="1280" height="960"{% if not eager %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async" class="{{ cls }}" style="view-transition-name: v{{ p.id }}">
+{% endmacro %}
+
+{% macro card(p, dek=true, heading='h3') %}
+<article class="card reveal" style="--c:{{ p.cat_color }}">
+  <a class="ph" href="{{ p.url }}" tabindex="-1" aria-hidden="true">{{ img(p) }}</a>
+  <a class="eyebrow sm" href="{{ p.cat_url }}">{{ p.cat_label }}</a>
+  <{{ heading }}><a href="{{ p.url }}">{{ p.title_disp }}</a></{{ heading }}>
+  {% if dek %}<p class="card-dek">{{ p.summary }}</p>{% endif %}
+  <span class="t"><time datetime="{{ p.iso }}" data-rel>{{ p.date_str }}</time> · {{ p.credits|join(', ') }}</span>
+</article>
+{% endmacro %}
+
+{% macro rcard(p) %}
+<a class="rcard" href="{{ p.url }}" style="--c:{{ p.cat_color }}">
+  {{ img(p) }}
+  <div class="rcard-body">
+    <span class="eyebrow sm">{{ p.kicker_disp }}</span>
+    <h3>{{ p.title_disp }}</h3>
+    <span class="t"><time datetime="{{ p.iso }}" data-rel>{{ p.date_str }}</time> · {{ p.credits|join(', ') }}</span>
+  </div>
+</a>
+{% endmacro %}
+
+{% macro slide(p, i, n) %}
+<article class="slide{{ ' dark' if p.slide_dark }}" role="group" aria-roledescription="slayt" aria-label="{{ i }} / {{ n }}" style="--c:{{ p.cat_color }}; --sbg:{{ p.slide_bg or '#F5F5F7' }}" data-i="{{ i - 1 }}">
+  <a class="slide-in" href="{{ p.url }}">
+    <span class="slide-txt">
+      <span class="slide-top">
+        <span class="chip">{{ p.kicker_disp }}</span>
+        {% if p.hero_stat and not p.stat_on_cover %}<span class="chip stat-chip"><b>{{ p.hero_stat }}</b>{% if p.hero_stat_label %} {{ p.hero_stat_label }}{% endif %}</span>{% endif %}
+      </span>
+      <h2>{{ p.title_disp }}</h2>
+      <span class="slide-dek">{{ p.summary }}</span>
+      <span class="slide-meta"><time datetime="{{ p.iso }}" data-rel>{{ p.date_str }}</time> · {{ p.credits|join(', ') }}</span>
+      <span class="more">Haberi oku</span>
+    </span>
+    <span class="slide-media">{{ img(p, 'slide-img', eager=(i == 1), sizes='(min-width: 900px) 640px, 100vw', priority=(i == 1)) }}</span>
+  </a>
+</article>
+{% endmacro %}
+
+{% macro rail(posts, title, id, muted_title='', more_url='') %}
+<section class="sec{{ ' bg-alt' if id == 'son' }}" aria-labelledby="h-{{ id }}">
+  <div class="wrap sec-head">
+    <h2 id="h-{{ id }}">{{ title }}{% if muted_title %} <span>{{ muted_title }}</span>{% endif %}</h2>
+    <div class="sec-tools">
+      {% if more_url %}<a class="more" href="{{ more_url }}">Tümü</a>{% endif %}
+      <div class="arrows" data-rail="r-{{ id }}">
+        <button type="button" data-dir="-1" aria-label="Önceki">‹</button>
+        <button type="button" data-dir="1" aria-label="Sonraki">›</button>
+      </div>
+    </div>
+  </div>
+  <div class="rail" id="r-{{ id }}">
+    {% for p in posts %}{{ rcard(p) }}{% endfor %}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro crumbs(items) %}
+{# items: [(ad, göreli_url, mutlak_url), ...] #}
+<nav class="crumbs wrap" aria-label="Konum">
+  <ol>
+    {% for it in items %}
+    <li>{% if not loop.last %}<a href="{{ it[1] }}">{{ it[0] }}</a>{% else %}<span aria-current="page">{{ it[0] }}</span>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</nav>
+{% set ns = namespace(els=[]) %}
+{% for it in items %}{% set ns.els = ns.els + [{"@type": "ListItem", "position": loop.index, "name": it[0], "item": it[2]}] %}{% endfor %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": ns.els}|tojson }}</script>
+{% endmacro %}

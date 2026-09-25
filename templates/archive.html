@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card %}
+{% block title %}Teknoloji haberleri arşivi, sayfa {{ page }} | {{ site.name }}{% endblock %}
+{% block description %}Teknoloji haberleri arşivi, sayfa {{ page }}: süper zeka, teknoloji, inovasyon, girişimcilik ve gaming haberleri, kaynağıyla.{% endblock %}
+{% block head %}
+{% if prev_url %}<link rel="prev" href="{{ prev_url }}">{% endif %}
+{% if next_url %}<link rel="next" href="{{ next_url }}">{% endif %}
+{% endblock %}
+{% block main %}
+<header class="page-head wrap"><span class="eyebrow" style="--c:#6E6E73">Arşiv</span><h1>Teknoloji haberleri.</h1><p>Sayfa {{ page }} / {{ pages }}</p></header>
+<section class="wrap"><div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div></section>
+<nav class="pager wrap" aria-label="Sayfalar">
+  {% if prev_url %}<a class="more" href="{{ prev_url }}">Daha yeni</a>{% endif %}
+  <span class="muted">{{ page }} / {{ pages }}</span>
+  {% if next_url %}<a class="more" href="{{ next_url }}">Daha eski</a>{% endif %}
+</nav>
+{% endblock %}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+</head><body>
+<canvas id="c" width="{{ w }}" height="{{ h }}"></canvas>
+<script id="fs" type="x-shader/x-fragment">#version 300 es
+precision highp float;
+out vec4 O;
+uniform vec2 R;
+uniform float S;
+uniform int C;
+uniform vec3 CA, CB, CC, BG;
+
+float h1(float n){ return fract(sin(n*127.1 + S*311.7)*43758.5453); }
+mat2 rot(float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c); }
+float smin(float a,float b,float k){ float h=clamp(.5+.5*(b-a)/k,0.,1.); return mix(b,a,h)-k*h*(1.-h); }
+float sdSph(vec3 p,float r){ return length(p)-r; }
+float sdRBox(vec3 p,vec3 b,float r){ vec3 q=abs(p)-b+r; return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.)-r; }
+float sdTor(vec3 p,vec2 t){ vec2 q=vec2(length(p.xz)-t.x,p.y); return length(q)-t.y; }
+float sdCyl(vec3 p,float h,float r,float rr){ vec2 d=vec2(length(p.xz)-r+rr, abs(p.y)-h+rr); return min(max(d.x,d.y),0.)+length(max(d,0.))-rr; }
+vec2 U(vec2 a, vec2 b){ return a.x<b.x ? a : b; }
+
+vec2 scene(vec3 p){
+  vec2 r = vec2(p.y+1., 0.);
+  float a1 = h1(1.)*6.2831, a2 = h1(2.)*6.2831;
+  if (C == 0) {                      // yumuşak birleşen küreler
+    float s1 = .62 + .16*h1(3.);
+    float d = sdSph(p - vec3(0., -1.+s1, 0.), s1);
+    float s2 = .34 + .1*h1(4.);
+    vec3 c2 = vec3(cos(a1), 0., sin(a1))*(s1+s2*.55) + vec3(0., -1.+s2, 0.);
+    d = smin(d, sdSph(p - c2, s2), .28);
+    r = U(r, vec2(d, 1.));
+    float s3 = .24 + .06*h1(5.);
+    vec3 c3 = vec3(cos(a1+2.3), 0., sin(a1+2.3))*(s1+s3+.3) + vec3(0., -1.+s3, 0.);
+    r = U(r, vec2(sdSph(p - c3, s3), 2.));
+    vec3 c4 = vec3(cos(a1-2.0), 0., sin(a1-2.0))*(s1+.5) + vec3(0., -1.+.13, 0.);
+    r = U(r, vec2(sdSph(p - c4, .13), 3.));
+  } else if (C == 1) {               // küreye yaslanan halka
+    r = U(r, vec2(sdSph(p - vec3(.42, -1.+.56, -.1), .56), 2.));
+    vec3 q = p - vec3(-.42, -1.+.8, .15);
+    q.xy *= rot(1.05 + .25*h1(3.));
+    q.xz *= rot(.4*h1(4.) - .2);
+    r = U(r, vec2(sdTor(q, vec2(.6, .21)), 1.));
+    r = U(r, vec2(sdSph(p - vec3(1.25, -1.+.15, .7), .15), 3.));
+  } else if (C == 2) {               // katmanlı çip yığını
+    for (int i = 0; i < 4; i++) {
+      float fi = float(i);
+      vec3 q = p - vec3(0., -1.+.13+fi*.27, 0.);
+      q.xz *= rot(a1 + fi*(.22 + .25*h1(6.+fi)));
+      float w = .95 - fi*.12;
+      float m = (i == 3) ? 2. : ((i == 1) ? 3. : 1.);
+      r = U(r, vec2(sdRBox(q, vec3(w, .11, w), .09), m));
+    }
+    r = U(r, vec2(sdSph(p - vec3(1.35, -1.+.14, .55), .14), 2.));
+  } else if (C == 3) {               // hap formu + silindir
+    vec3 q = p - vec3(-.1, -1.+.44, 0.);
+    q.xz *= rot(a1*.5);
+    r = U(r, vec2(sdRBox(q, vec3(1.0, .42, .42), .42), 1.));
+    r = U(r, vec2(sdSph(p - vec3(1.2, -1.+.26, .8), .26), 2.));
+    vec3 q3 = p - vec3(-1.25, -1.+.3, -.55);
+    r = U(r, vec2(sdCyl(q3, .3, .3, .07), 3.));
+  } else {                           // kemer + küre
+    vec3 q = p - vec3(-.15, -1.+.92, 0.);
+    q.xz *= rot(a1*.25 - .3);
+    float d = sdRBox(q, vec3(.6, .92, .2), .18);
+    vec3 hq = (q - vec3(0., .18, 0.)).xzy;
+    d = max(d, -sdCyl(hq, .6, .34, .04));
+    r = U(r, vec2(d, 1.));
+    r = U(r, vec2(sdSph(p - vec3(.85, -1.+.36, .5), .36), 2.));
+    r = U(r, vec2(sdSph(p - vec3(-1.05, -1.+.14, .65), .14), 3.));
+  }
+  return r;
+}
+
+vec3 nrm(vec3 p){
+  const vec2 e = vec2(.0007, -.0007);
+  return normalize(e.xyy*scene(p+e.xyy).x + e.yyx*scene(p+e.yyx).x + e.yxy*scene(p+e.yxy).x + e.xxx*scene(p+e.xxx).x);
+}
+vec2 march(vec3 ro, vec3 rd){
+  float t = 0.;
+  for (int i = 0; i < 180; i++) {
+    vec2 h = scene(ro + rd*t);
+    if (h.x < .0004*t) return vec2(t, h.y);
+    t += h.x;
+    if (t > 40.) break;
+  }
+  return vec2(-1.);
+}
+float shadow(vec3 ro, vec3 rd){
+  float res = 1., t = .02;
+  for (int i = 0; i < 72; i++) {
+    float h = scene(ro + rd*t).x;
+    res = min(res, 9.*h/t);
+    t += clamp(h, .01, .2);
+    if (res < .001 || t > 7.) break;
+  }
+  return clamp(res, 0., 1.);
+}
+float ao(vec3 p, vec3 n){
+  float o = 0., s = 1.;
+  for (int i = 0; i < 6; i++) {
+    float h = .02 + .16*float(i)/5.;
+    o += (h - scene(p + n*h).x)*s;
+    s *= .82;
+  }
+  return clamp(1. - 2.4*o, 0., 1.);
+}
+
+vec3 shade(vec3 ro, vec3 rd){
+  vec3 bgc = BG * (.94 + .1*clamp(rd.y + .3, 0., 1.));
+  vec2 h = march(ro, rd);
+  if (h.x < 0.) return bgc;
+  vec3 p = ro + rd*h.x;
+  vec3 n = nrm(p);
+  vec3 L = normalize(vec3(-.55, .95, .5));
+  float sh = shadow(p + n*.003, L);
+  float oc = ao(p, n);
+  if (h.y < .5) {
+    vec3 col = BG * mix(.72, 1., sh) * mix(.55, 1., oc);
+    return mix(col, bgc, smoothstep(3.5, 11., h.x));
+  }
+  vec3 base = h.y < 1.5 ? CA : (h.y < 2.5 ? CB : CC);
+  float ndl = dot(n, L);
+  float dif = clamp(ndl*.5 + .5, 0., 1.); dif *= dif;
+  vec3 Hh = normalize(L - rd);
+  float spe = pow(clamp(dot(n, Hh), 0., 1.), 70.) * sh;
+  float fre = pow(1. - clamp(dot(n, -rd), 0., 1.), 4.);
+  float sky = clamp(.5 + .5*n.y, 0., 1.);
+  float bou = clamp(.5 - .5*n.y, 0., 1.);
+  vec3 col = base * (.22 + .95*dif*mix(.55, 1., sh)) * oc;
+  col += base * BG * .38 * sky * oc;
+  col += BG * base * .3 * bou;
+  col += vec3(1.) * spe * .55;
+  col += mix(base, vec3(1.), .6) * fre * .3 * oc;
+  col += base * .12 * pow(clamp(1. - ndl, 0., 1.), 2.);   // yumuşak yarı saydamlık
+  return col;
+}
+
+void main(){
+  vec3 col = vec3(0.);
+  float ang = (h1(9.) - .5) * .5;
+  vec3 ta = vec3(0., -.42, 0.);
+  vec3 ro = vec3(sin(ang)*5.6, .95, cos(ang)*5.6);
+  vec3 ww = normalize(ta - ro), uu = normalize(cross(ww, vec3(0., 1., 0.))), vv = cross(uu, ww);
+  for (int j = 0; j < 2; j++) for (int i = 0; i < 2; i++) {
+    vec2 off = vec2(float(i), float(j)) / 2. - .25;
+    vec2 uv = (2.*(gl_FragCoord.xy + off) - R) / R.y;
+    vec3 rd = normalize(uv.x*uu + uv.y*vv + 3.1*ww);
+    col += shade(ro, rd);
+  }
+  col /= 4.;
+  col = col / (1. + col*.12);
+  col = pow(clamp(col, 0., 1.), vec3(1./2.2));
+  col += (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233)))*43758.5453) - .5) / 255.;
+  O = vec4(col, 1.);
+}
+</script>
+<script>
+(function(){
+  const cv = document.getElementById('c');
+  const gl = cv.getContext('webgl2', {preserveDrawingBuffer: true, antialias: false});
+  if (!gl) { document.title = 'error:nogl'; return; }
+  const vs = `#version 300 es
+in vec2 p; void main(){ gl_Position = vec4(p, 0., 1.); }`;
+  function sh(type, src){ const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { document.title = 'error:' + gl.getShaderInfoLog(s); throw 0; } return s; }
+  const pr = gl.createProgram();
+  gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs));
+  gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, document.getElementById('fs').textContent));
+  gl.linkProgram(pr); gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const u = n => gl.getUniformLocation(pr, n);
+  gl.uniform2f(u('R'), cv.width, cv.height);
+  gl.uniform1f(u('S'), {{ seed }});
+  gl.uniform1i(u('C'), {{ comp }});
+  gl.uniform3f(u('CA'), {{ ca|join(',') }});
+  gl.uniform3f(u('CB'), {{ cb|join(',') }});
+  gl.uniform3f(u('CC'), {{ cc|join(',') }});
+  gl.uniform3f(u('BG'), {{ bg|join(',') }});
+  gl.viewport(0, 0, cv.width, cv.height);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+  gl.finish();
+  window.__png = cv.toDataURL('image/png');
+  document.title = 'done';
+})();
+</script>
+</body></html>

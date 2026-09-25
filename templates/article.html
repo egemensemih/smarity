@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% from "_macros.html" import rail, img, crumbs %}
+{% set active_cat = post.category %}
+{% block title %}{{ post.seo_title }} | {{ site.name }}{% endblock %}
+{% block description %}{{ post.meta_description }}{% endblock %}
+{% block og %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.meta_description }}">
+<meta property="og:url" content="{{ post.abs_url }}">
+<meta property="og:image" content="{{ post.abs_og }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ post.img_alt }}">
+<meta name="twitter:image" content="{{ post.abs_og }}">
+<meta property="article:published_time" content="{{ post.iso }}">
+<meta property="article:modified_time" content="{{ post.mod_iso }}">
+<meta property="article:section" content="{{ post.cat_label }}">
+{% for t in post.tag_list %}<meta property="article:tag" content="{{ t.label }}">
+{% endfor %}
+{% endblock %}
+{% block head %}
+<link rel="preload" as="image" href="{{ post.img }}" fetchpriority="high">
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "NewsArticle",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": post.abs_url},
+  "headline": post.title[:110], "alternativeHeadline": post.seo_title,
+  "description": post.meta_description,
+  "image": [post.abs_og, post.abs_img],
+  "datePublished": post.iso, "dateModified": post.mod_iso,
+  "inLanguage": "tr-TR", "articleSection": post.cat_label,
+  "keywords": post.tag_list|map(attribute='label')|list,
+  "wordCount": post.words, "isAccessibleForFree": true,
+  "author": {"@type": "Organization", "name": site.name ~ " Haber Masası", "url": site.url ~ "/hakkinda/"},
+  "publisher": {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name,
+                "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512}},
+  "isBasedOn": post.sources|map(attribute='url')|list
+}|tojson }}</script>
+{% endblock %}
+{% block top %}<div class="progress" aria-hidden="true"></div>{% endblock %}
+
+{% block main %}
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), (post.cat_label, post.cat_url, post.abs_cat_url), (post.short_title or post.title, post.url, post.abs_url)]) }}
+<article style="--c:{{ post.cat_color }}">
+  <header class="art-head narrow">
+    <div class="meta-top">
+      <a class="eyebrow" href="{{ post.cat_url }}">{{ post.cat_label }}</a>
+      <time datetime="{{ post.iso }}">{{ post.date_str }}</time>
+      <span class="muted">{{ post.minutes }} dk okuma</span>
+    </div>
+    <h1>{{ post.title_disp }}</h1>
+    <p class="dek">{{ post.summary }}</p>
+    <div class="share">
+      <a href="https://x.com/intent/post?url={{ post.abs_url|urlencode }}&text={{ post.title|urlencode }}" rel="noopener" target="_blank">X'te paylaş</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.abs_url|urlencode }}" rel="noopener" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/?text={{ (post.title ~ ' ' ~ post.abs_url)|urlencode }}" rel="noopener" target="_blank">WhatsApp</a>
+      <button type="button" data-copy="{{ post.abs_url }}">Bağlantıyı kopyala</button>
+    </div>
+  </header>
+
+  <figure class="art-media">
+    <div class="ph">{{ img(post, eager=true, sizes='(min-width: 1232px) 1200px, 100vw', priority=true) }}</div>
+    {% if not post.cover_image %}<figcaption>{% if post.ai_image %}Temsili görsel, yapay zeka ile üretilmiştir.{% else %}Temsili görsel.{% endif %}</figcaption>{% endif %}
+  </figure>
+
+  <div class="narrow">
+    {% if post.hero_stat and not post.stat_on_cover %}
+    <div class="stat-band"><div class="stat">{{ post.hero_stat }}</div>{% if post.hero_stat_label %}<div class="stat-label">{{ post.hero_stat_label }}</div>{% endif %}</div>
+    {% endif %}
+    <div class="art-body">{{ post.body_html|safe }}</div>
+
+    {% if post.tag_list %}
+    <nav class="art-tags" aria-label="Konular">
+      <span class="muted">Konular</span>
+      {% for t in post.tag_list %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}
+    </nav>
+    {% endif %}
+
+    <section class="sources" aria-labelledby="kaynaklar">
+      <h2 id="kaynaklar">Kaynaklar</h2>
+      <ol>
+        {% for s in post.sources %}
+        <li><a href="{{ s.url }}" rel="noopener" target="_blank">
+          <span><span class="s-name">{{ s.name }}</span>{% if s.via %} <span class="muted">({{ s.via }} üzerinden)</span>{% endif %}<span class="s-title">{{ s.title }}</span></span>
+          <span class="s-go" aria-hidden="true">↗</span>
+        </a></li>
+        {% endfor %}
+      </ol>
+      <p class="disclosure">
+        Bu haber, yukarıdaki kaynaklardan yapay zeka yardımıyla Türkçe derlenmiş
+        {%- if post.publish_mode == 'auto' %} ve güvenilir kaynak kuralları çerçevesinde otomatik yayımlanmıştır.{% else %} ve editör onayıyla yayımlanmıştır.{% endif %}
+        Ayrıntılar ve orijinal ifadeler için kaynaklara başvurun.{% if post.updated_str %} Son güncelleme: {{ post.updated_str }}.{% endif %}
+        Bir hata görürseniz <a href="{{ site.base }}/hakkinda/">bize bildirin</a>.
+      </p>
+    </section>
+  </div>
+</article>
+
+{% if related %}
+  {{ rail(related, 'İlgili haberler.', 'ilgili', '', post.cat_url) }}
+{% endif %}
+{% endblock %}

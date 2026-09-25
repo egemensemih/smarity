@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>{{ site.url }}/</loc><lastmod>{{ site.built_iso }}</lastmod></url>
+  <url><loc>{{ site.url }}/hakkinda/</loc></url>
+  {% for n in range(2, pages + 1) %}
+  <url><loc>{{ site.url }}/sayfa/{{ n }}/</loc></url>
+  {% endfor %}
+  {% for c in cats %}
+  <url><loc>{{ site.url }}/kategori/{{ c.slug }}/</loc>{% if c.lastmod %}<lastmod>{{ c.lastmod }}</lastmod>{% endif %}</url>
+  {% endfor %}
+  {% for t in tags %}
+  <url><loc>{{ site.url }}/etiket/{{ t.slug }}/</loc><lastmod>{{ t.lastmod }}</lastmod></url>
+  {% endfor %}
+  {% for p in posts %}
+  <url>
+    <loc>{{ p.abs_url }}</loc><lastmod>{{ p.mod_iso }}</lastmod>
+    <image:image><image:loc>{{ p.abs_img }}</image:loc></image:image>
+  </url>
+  {% endfor %}
+</urlset>
