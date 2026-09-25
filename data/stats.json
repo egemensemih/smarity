@@ -21,7 +21,7 @@
       "rejected": 1
     },
     "Webrazzi": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 1
     },
     "Electrek": {
@@ -29,7 +29,7 @@
       "rejected": 1
     },
     "DonanımHaber": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 1
     },
     "ShiftDelete.Net": {
@@ -38,7 +38,7 @@
     },
     "Webtekno": {
       "approved": 5,
-      "rejected": 1
+      "rejected": 2
     },
     "Anadolu Ajansı": {
       "approved": 1,
@@ -53,6 +53,10 @@
       "rejected": 1
     },
     "TechCrunch": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Egirisim": {
       "approved": 1,
       "rejected": 0
     }
@@ -212,6 +216,30 @@
       "t": "2026-09-25T15:59:19Z",
       "id": "c8586fe390",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:37:58Z",
+      "id": "75b1b5d338",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:38:12Z",
+      "id": "8c19a79d49",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:38:28Z",
+      "id": "7abf6bcf17",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T16:38:39Z",
+      "id": "b80563e392",
+      "ok": false,
       "manual": true
     }
   ]

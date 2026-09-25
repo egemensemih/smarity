@@ -1,6 +1,5 @@
 {
   "id": "7abf6bcf17",
-  "status": "pending",
   "created_at": "2026-09-25T16:25:45Z",
   "title": "Patientdesk.ai'dan Türkçe odaklı ses modelleri: Alania ve Duyu",
   "summary": "Sesli yapay zeka girişimi Patientdesk.ai, Türkçe için özel olarak geliştirdiği Alania ve Duyu adlı metin-ses modellerini kullanıma sundu.",
@@ -49,17 +48,6 @@
   "source_keys": [
     "Webrazzi"
   ],
-  "source_texts": [
-    {
-      "credit": "Webrazzi",
-      "kind": "media",
-      "title": "Patientdesk.ai'dan Türkçe ses modelleri: Alania ve Duyu",
-      "url": "https://webrazzi.com/2026/09/25/patientdesk-ai-dan-turkce-ses-modelleri-alania-ve-duyu/",
-      "published": "2026-09-25T14:30:00Z",
-      "summary": "Sesli yapay zeka girişimi Patientdesk.ai'ın Y Combinator liderliğinde gerçekleşen tohum öncesi turda 1 milyon dolar yatırım aldığını şubat ayında sizlere aktarmıştık. Patientdesk.ai, Türkçe odaklı gel...",
-      "text": "Sesli yapay zeka girişimi Patientdesk.ai'ın Y Combinator liderliğinde gerçekleşen tohum öncesi turda 1 milyon dolar yatırım aldığını şubat ayında sizlere aktarmıştık. Patientdesk.ai, Türkçe odaklı geliştirdiği iki yeni ses modelini kullanıma sundu. Şirketin Alania adlı modeli metni sese dönüştürürken, Duyu ise konuşmaları yazıya aktarıyor. Her iki model de tek bir hesap ve API anahtarı üzerinden kullanılabiliyor. Modeller, lansman kapsamında kayıt tarihinden itibaren bir ay boyunca ücretsiz olarak sunuluyor.\nPatientdesk.ai'ın yeni modellerinin çıkış noktasında, mevcut sesli yapay zeka çözümlerinin önemli bir bölümünün ağırlıklı olarak İngilizce verilerle eğitilmiş olması yer alıyor. Türkçenin eklemeli yapısı, özel isimler, telefon görüşmelerindeki düşük ses kalitesi ve konuşma sırasında aktarılan e-posta adresleri ile telefon numaraları mevcut modeller için çeşitli zorluklar yaratabiliyor. Patientdesk.ai, ABD'deki kliniklerin telefon görüşmelerini yanıtlayan sesli asistanını geliştirirken edindiği deneyimden yararlanarak Alania ve Duyu'yu Türkçe için eğittiğini belirtiyor.\nDuyu, FLEURS testinde Whisper large-v3'ü geride bıraktı\nŞirketin paylaştığı verilere göre konuşmayı yazıya dönüştüren Duyu, açık Türkçe okuma testi FLEURS'ta yüzde 4,71 kelime hata oranına ulaştı. Aynı testte OpenAI'ın Whisper large-v3 modelinin kelime hata oranı yüzde 5,04 olarak ölçüldü. Patientdesk.ai'ın telefon kalitesindeki seslerden ve e-posta adresleri ile telefon numaralarının söylendiği konuşmalardan oluşan kendi test setinde ise Duyu'nun hata oranı yüzde 9,87 oldu. Şirketin aktardığına göre ElevenLabs'in Scribe v2 modeli aynı test setinde yüzde 10,4 hata oranı elde etti.\nDuyu, önceden kaydedilmiş ses dosyalarının yanı sıra canlı konuşmaları da gerçek zamanlı olarak yazıya dönüştürebiliyor. Ben ürünü test etmek için ses dosyası yüklediğimde Duyu, hızlıca ses dosyasını metne dönüştürdü.\nAlania ise Türkçe metinleri doğal ve tutarlı tek bir sesle okumaya odaklanıyor. Modelin ürettiği sesi cümlenin tamamlanmasını beklemeden akış halinde gönderebilmesi, özellikle telefon görüşmeleri ve sesli asistanlar gibi düşük gecikmenin önemli olduğu kullanım senaryolarını hedeflediğini gösteriyor. Şu an için platformda yalnızca tek bir ses seçeneği yer alıyor. Seslendirme esnasında randevu, soru ve sakinleştirme gibi tonlama seçenekleri sunulduğunu da ekleyelim.\nHer iki modelin de yaygın olarak kullanılan OpenAI API biçimiyle uyumlu olduğunu belirtelim. Bu sayede geliştiriciler modelleri mevcut uygulamalarına küçük değişikliklerle entegre edebiliyor. Patientdesk.ai, modellerin tarayıcı üzerinden denenmesine ve geliştiricilerin API anahtarı oluşturmasına da imkan tanıyor.\nAntalia-1 açık kaynak olarak yayınlandı\nPatientdesk.ai, Alania ve Duyu'nun yanı sıra araştırma topluluğuna yönelik Antalia-1 adlı deneysel Türkçe metinden sese modelini de açık kaynak olarak yayınladı. Tek bir sesle eğitilen Antalia-1'in model ağırlıkları, kodu ve teknik raporuyla birlikte yaklaşık 5 saatlik Türkçe ses veri seti de paylaşıldı. Şirket, Antalia-1'i ticari ürünlerinden ayrı bir araştırma çalışması olarak konumlandırıyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 103
@@ -70,5 +58,7 @@
     "palette": "super-zeka-2",
     "cover_v": 1
   },
-  "policy_reason": "Öğreniyor: 26/30 karar"
+  "slug": "patientdesk-ai-turkce-ses-modelleri-alania-duyu",
+  "published_at": "2026-09-25T16:38:27Z",
+  "publish_mode": "manual"
 }
