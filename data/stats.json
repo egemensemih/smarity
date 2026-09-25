@@ -23,6 +23,18 @@
     "Webrazzi": {
       "approved": 1,
       "rejected": 0
+    },
+    "Electrek": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "DonanımHaber": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "ShiftDelete.Net": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -35,6 +47,18 @@
     {
       "t": "2026-09-25T12:58:12Z",
       "id": "ef3d93ddad",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T13:14:22Z",
+      "id": "e36fa4f3f6",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-25T13:14:37Z",
+      "id": "5ab8c6fefe",
       "ok": true,
       "manual": true
     }
