@@ -56,6 +56,12 @@ autonomy:
   auto_min_importance: 7         # Otomatik yayın için en düşük önem puanı
 
 images:
+  # Gerçek fotoğraflar: önce şirketin resmi görseli, yoksa kaynak haberin görselleri (kaynağı fotoğrafın altında yazar).
+  # Fotoğraf bulunamazsa aşağıdaki tipografik kapak kullanılır.
+  photos: true
+  photo_limit: 6                  # haber başına en fazla fotoğraf (1 ana + galeri)
+  photo_backfill_per_run: 5       # eski haberlere her turda kaç tanesine fotoğraf eklensin
+  gallery_keep_days: 0            # 0 = fotoğraflar hiç silinmez (kalıcı depolama)
   # kapak: habere özel tipografik kapak (dev rakam / isim / manşet), ücretsiz (önerilen)
   # 3d   : renkli 3D şekiller
   style: kapak

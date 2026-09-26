@@ -53,15 +53,15 @@
       </div>
     </div>
   </div>
-  <div class="rail" id="r-{{ id }}">
+  <div class="rail wrap" id="r-{{ id }}">
     {% for p in posts %}{{ rcard(p) }}{% endfor %}
   </div>
 </section>
 {% endmacro %}
 
-{% macro crumbs(items) %}
+{% macro crumbs(items, cls='wrap') %}
 {# items: [(ad, göreli_url, mutlak_url), ...] #}
-<nav class="crumbs wrap" aria-label="Konum">
+<nav class="crumbs {{ cls }}" aria-label="Konum">
   <ol>
     {% for it in items %}
     <li>{% if not loop.last %}<a href="{{ it[1] }}">{{ it[0] }}</a>{% else %}<span aria-current="page">{{ it[0] }}</span>{% endif %}</li>

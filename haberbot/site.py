@@ -15,7 +15,7 @@ from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, 
 from .store import Store
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "7"
+ASSET_V = "8"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -163,7 +163,7 @@ class SiteBuilder:
             "ai_image": (p.get("image") or {}).get("source") == "ai",
             "cover_image": (p.get("image") or {}).get("source") == "cover",
             "stat_on_cover": (p.get("image") or {}).get("source") == "cover" and (p.get("image") or {}).get("layout") == "sayi",
-            "img_alt": clip(p.get("image_alt") or f"{short}: habere ait temsili görsel", 125),
+            "img_alt": clip(p.get("image_alt") or f"{short}: habere ait görsel", 125),
             "seo_title": seo_title,
             "meta_description": clip(meta, 158),
             "focus_keyword": p.get("focus_keyword", ""),
@@ -189,8 +189,28 @@ class SiteBuilder:
             "toc": [{"id": m.group(1), "text": re.sub("<[^>]+>", "", m.group(2))}
                     for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', body_html)],
             "key_points": [x for x in (p.get("carousel_points") or []) if x][:4],
+            "photos": self._photos(p, short),
+            "has_photo": (p.get("image") or {}).get("source") == "photo",
             "updated_str": tr_date(p.get("updated_at"), cfg.tz) if p.get("updated_at") else "",
         }
+
+    def _photos(self, p: dict, short: str) -> list[dict]:
+        """Haberin gerçek fotoğrafları (ilki ana görsel). Yerel kopyası silinmiş galeri fotoğrafı kaynaktan gösterilir."""
+        cfg, b = self.cfg, self.base
+        out = []
+        for i, r in enumerate(p.get("photos") or []):
+            local = bool(r.get("file")) and (cfg.images_dir / r["file"]).exists()
+            if not local and (i == 0 or not r.get("src")):
+                continue
+            out.append({
+                "url": f"{b}/img/{r['file']}" if local else r["src"],
+                "remote": not local,
+                "credit": r.get("credit") or "",
+                "page": r.get("page") or "",
+                "alt": clip(r.get("alt") or (p.get("image_alt") if i == 0 else "") or f"{short} ({i + 1})", 125),
+                "w": r.get("w") or 1600, "h": r.get("h") or 900,
+            })
+        return out
 
     def _write(self, rel: str, content: str) -> None:
         path = self.cfg.out_dir / rel
@@ -276,7 +296,9 @@ class SiteBuilder:
                     log.warning("Logo üretilemedi: %s", e)
         (out / "img").mkdir()
         for p in posts:
-            for name in (f"{p['id']}.webp", f"{p['id']}.jpg", f"{p['id']}-og.jpg"):
+            names = [f"{p['id']}.webp", f"{p['id']}.jpg", f"{p['id']}-og.jpg"]
+            names += [ph["url"].rsplit("/", 1)[-1] for ph in p.get("photos") or [] if not ph.get("remote")]
+            for name in dict.fromkeys(names):
                 src = cfg.images_dir / name
                 if src.exists():
                     shutil.copy2(src, out / "img" / name)

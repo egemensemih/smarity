@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 
 import requests
 
-from . import policy
+from . import photos, policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION
 from .extract import full_text
@@ -29,6 +29,8 @@ KIND_ORDER = {"official": 0, "media": 1, "community": 2}
 SLOW_ACTIONS = {
     "p": ("⏳ Yayınlanıyor…", "✅ Yayınlandı"),
     "v": ("⏳ Yeni görsel hazırlanıyor…", "🎨 Yeni görsel hazır"),
+    "g": ("⏳ Fotoğraf değiştiriliyor…", "🖼 Fotoğraf değişti"),
+    "n": ("⏳ Fotoğraflar kaldırılıyor…", "🚫 Fotoğraflar kaldırıldı"),
     "w": ("⏳ Yeniden yazılıyor…", "🔁 Yeniden yazıldı"),
     "s": ("⏳ Görseller hazırlanıyor…", "📱 Gönderildi"),
 }
@@ -302,7 +304,8 @@ class App:
     @staticmethod
     def _source_entry(it: dict) -> dict:
         return {"name": it["credit"], "url": it["url"], "title": it["title"], "kind": it["kind"],
-                "via": it.get("via"), "via_url": it.get("via_url"), "published": it.get("published")}
+                "via": it.get("via"), "via_url": it.get("via_url"), "published": it.get("published"),
+                "image": it.get("image")}
 
     # ── 2) YAZIM ────────────────────────────────────────────
     def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None) -> dict:
@@ -363,8 +366,9 @@ class App:
             "rewrites": 0,
             "telegram": {},
         }
-        d["image"] = self.vis.make_hero(d, st.draft_image(did))
-        self._image_feedback(d["image"])
+        if not self._attach_photos(d, draft=True):
+            d["image"] = self.vis.make_hero(d, st.draft_image(did))
+            self._image_feedback(d["image"])
         st.bump(self.today(), "drafts")
         decision, reason = policy.decide(cfg, self.state, self.stats, d)
         d["policy_reason"] = reason
@@ -421,7 +425,7 @@ class App:
             post["image"] = self.vis.make_hero(post, st.post_image(d["id"]))
         elif not st.post_image(d["id"]).exists():
             post["image"] = self.vis.make_hero(post, st.post_image(d["id"]))
-        self.vis.render_card(post, "og", st.post_image(d["id"]), st.post_og(d["id"]))
+        self._make_og(post)
         st.save_post(post)
         st.draft_path(d["id"]).unlink(missing_ok=True)
         st.bump(self.today(), "published")
@@ -466,17 +470,15 @@ class App:
             kb = [[{"text": "✅ Yayınla", "callback_data": f"p:{did}"},
                    {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
                   [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
-                   {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"},
-                   {"text": "🎨 Yeni görsel", "callback_data": f"v:{did}"}]]
+                   {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}] + self._visual_buttons(d)]
             if src:
                 kb.append([{"text": "🔗 Kaynağı aç", "url": src}])
             return kb
         if kind in ("published", "auto"):
             return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])},
                      {"text": "🗑 Kaldır", "callback_data": f"d:{did}"}],
-                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
-                     {"text": "🎨 Yeni görsel", "callback_data": f"v:{did}"},
-                     {"text": "📱 Instagram", "callback_data": f"s:{did}"}]]
+                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"}] + self._visual_buttons(d)
+                    + [{"text": "📱 Instagram", "callback_data": f"s:{did}"}]]
         if kind == "rejected":
             return [[{"text": "↩️ Geri al", "callback_data": f"u:{did}"}]]
         return []
@@ -486,7 +488,7 @@ class App:
             return
         st = self.store
         try:
-            img = self._card(d, "post")
+            img = self._hero(d) if d.get("photos") and self._hero(d).exists() else self._card(d, "post")
         except Exception as e:  # noqa: BLE001
             log.warning("Önizleme kartı üretilemedi: %s", e)
             img = self._hero(d)
@@ -702,6 +704,31 @@ class App:
                 return "Bu taslak kapanmış."
             self._rewrite(d, None, where, visual_only="")
             return "🎨 Yeni görsel hazır"
+        if action in ("g", "n"):
+            if where == "draft" and d.get("status") != "pending":
+                return "Bu taslak kapanmış."
+            if not d.get("photos"):
+                return "Bu haberde fotoğraf yok."
+            if action == "g":
+                local = [r for r in d["photos"] if r.get("file")]
+                if len(local) < 2:
+                    return "Başka fotoğraf yok."
+                self._reorder_photos(d, where, local[1:] + local[:1] + [r for r in d["photos"] if not r.get("file")])
+                msg = "🖼 Fotoğraf değişti"
+            else:
+                self._drop_photos(d, where)
+                d["image"] = self.vis.make_hero(d, self._hero(d))
+                msg = "🚫 Fotoğraflar kaldırıldı"
+            kind = "pending" if where == "draft" else ("auto" if d.get("publish_mode") == "auto" else "published")
+            if where == "draft":
+                st.save_draft(d)
+            else:
+                d["updated_at"] = iso(now_utc())
+                self._make_og(d)
+                st.save_post(d)
+            self._update_preview(d, "rewritten")
+            self._send_preview(d, kind)
+            return msg
         if action == "s":
             if where != "post":
                 return "Önce yayınlanmalı."
@@ -769,6 +796,8 @@ class App:
                 d["cover_variant"] = int(d.get("cover_variant", 0)) + 1
             d["rewrites"] = (d.get("rewrites") or 0) + 1
             old_kind = "pending" if where == "draft" else ("auto" if d.get("publish_mode") == "auto" else "published")
+            if d.get("photos"):
+                self._drop_photos(d, where)
             d["image"] = self.vis.make_hero(d, self._hero(d))
             self._image_feedback(d["image"])
             if where == "draft":
@@ -777,7 +806,7 @@ class App:
                 self._send_preview(d, "pending")
             else:
                 d["updated_at"] = iso(now_utc())
-                self.vis.render_card(d, "og", st.post_image(d["id"]), st.post_og(d["id"]))
+                self._make_og(d)
                 st.save_post(d)
                 self._update_preview(d, "rewritten")
                 self._send_preview(d, old_kind)
@@ -797,7 +826,7 @@ class App:
             self._send_preview(d, "pending")
         else:  # yayındaki haber: yerinde güncelle (adres değişmez)
             d["updated_at"] = iso(now_utc())
-            self.vis.render_card(d, "og", st.post_image(d["id"]), st.post_og(d["id"]))
+            self._make_og(d)
             st.save_post(d)
             self._update_preview(d, "rewritten")
             self._send_preview(d, old_kind if old_kind in ("published", "auto") else "published")
@@ -962,11 +991,12 @@ class App:
         if (self.cfg.get("images", "style", "kapak") or "kapak") != "kapak":
             return
         todo = [p for p in self.store.posts()
-                if (p.get("image") or {}).get("source") != "ai" and (p.get("image") or {}).get("cover_v") != COVER_VERSION][:limit]
+                if (p.get("image") or {}).get("source") in ("cover", "fallback", None)
+                and (p.get("image") or {}).get("cover_v") != COVER_VERSION and not p.get("photos")][:limit]
         for p in todo:
             try:
                 p["image"] = {**self.vis.make_hero(p, self.store.post_image(p["id"])), "cover_v": COVER_VERSION}
-                self.vis.render_card(p, "og", self.store.post_image(p["id"]), self.store.post_og(p["id"]))
+                self._make_og(p)
                 self.store.save_post(p)
             except Exception as e:  # noqa: BLE001
                 log.warning("Kapak yenilenemedi (%s): %s", p["id"], e)
@@ -1257,6 +1287,126 @@ class App:
         lines.append("Durdur: <code>/instagram kapat</code> · Aç: <code>/instagram ac</code>")
         return "\n".join(lines)
 
+    # ── gerçek fotoğraflar ──────────────────────────────────
+    def _visual_buttons(self, d: dict) -> list[dict]:
+        did = d["id"]
+        if d.get("photos"):
+            out = [{"text": "🚫 Fotoğrafsız", "callback_data": f"n:{did}"}]
+            if len(d["photos"]) > 1:
+                out.insert(0, {"text": "🖼 Başka foto", "callback_data": f"g:{did}"})
+            return out
+        return [{"text": "🎨 Yeni görsel", "callback_data": f"v:{did}"}]
+
+    def _photo_dir(self, draft: bool):
+        return self.cfg.drafts_dir if draft else self.cfg.images_dir
+
+    def _attach_photos(self, d: dict, draft: bool) -> bool:
+        """Kaynaklardan gerçek fotoğrafları al: ilki ana görsel, diğerleri galeri. Bulunamazsa False."""
+        cfg = self.cfg
+        if not cfg.get("images", "photos", True) or cfg.mock or cfg.fixtures_dir:
+            return False
+        try:
+            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 6) or 6))
+        except Exception as e:  # noqa: BLE001
+            log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
+            return False
+        if not got:
+            return False
+        folder = self._photo_dir(draft)
+        for f in self.store.gallery_files(d["id"], draft):
+            f.unlink(missing_ok=True)
+        recs = []
+        for i, p in enumerate(got):
+            name = f"{d['id']}.webp" if i == 0 else f"{d['id']}-g{i}.webp"
+            w, h = photos.save_webp(p["image"], folder / name, 1600 if i == 0 else 1280, 80 if i == 0 else 74)
+            recs.append({"file": name, "src": p["src"], "credit": p["credit"], "page": p["page"],
+                         "alt": p["alt"], "w": w, "h": h})
+        d["photos"] = recs
+        d["image"] = {"source": "photo", "credit": recs[0]["credit"], "page": recs[0]["page"], "src": recs[0]["src"]}
+        if not draft:
+            self._make_og(d)
+        return True
+
+    def _reorder_photos(self, d: dict, where: str, order: list[dict]) -> None:
+        """Fotoğraf sırasını değiştir (ilk sıradaki ana görsel olur); dosya adları sıraya göre yeniden verilir."""
+        from PIL import Image
+        draft = where == "draft"
+        folder = self._photo_dir(draft)
+        loaded = []
+        for rec in order:
+            f = folder / rec["file"] if rec.get("file") else None
+            loaded.append((rec, Image.open(f).convert("RGB") if f and f.exists() else None))
+        for f in self.store.gallery_files(d["id"], draft):
+            f.unlink(missing_ok=True)
+        recs = []
+        for i, (rec, im) in enumerate(loaded):
+            name = f"{d['id']}.webp" if i == 0 else f"{d['id']}-g{i}.webp"
+            rec = dict(rec)
+            if im is not None:
+                photos.save_webp(im, folder / name, 1600, 82)
+                rec["file"] = name
+            else:
+                rec["file"] = None
+            recs.append(rec)
+        d["photos"] = [r for r in recs if r.get("file") or r.get("src")]
+        first = d["photos"][0]
+        d["image"] = {"source": "photo", "credit": first["credit"], "page": first["page"], "src": first["src"]}
+
+    def _drop_photos(self, d: dict, where: str) -> None:
+        for f in self.store.gallery_files(d["id"], where == "draft"):
+            f.unlink(missing_ok=True)
+        d.pop("photos", None)
+        d["photos_removed"] = True
+        d["image"] = {"source": "cover"}
+
+    def _make_og(self, p: dict) -> None:
+        """Paylaşım görseli: fotoğraf varsa fotoğrafın kırpımı, yoksa marka kartı."""
+        st = self.store
+        hero = st.post_image(p["id"])
+        if (p.get("image") or {}).get("source") == "photo" and hero.exists():
+            from PIL import Image
+            photos.og_crop(Image.open(hero).convert("RGB"), st.post_og(p["id"]))
+        else:
+            self.vis.render_card(p, "og", hero, st.post_og(p["id"]))
+
+    def backfill_photos(self, limit: int = 5) -> None:
+        """Eski haberlere gerçek fotoğraf ekle (her turda birkaç tane; bulunamayanlar 3 gün sonra tekrar denenir)."""
+        if not self.cfg.get("images", "photos", True) or self.cfg.mock or self.cfg.fixtures_dir:
+            return
+        todo = [p for p in self.store.posts()
+                if not p.get("photos") and not p.get("photos_removed") and (p.get("image") or {}).get("source") != "ai"
+                and hours_since(p.get("photos_tried")) > 72][:limit]
+        for p in todo:
+            p["photos_tried"] = iso(now_utc())
+            if self._attach_photos(p, draft=False):
+                p["updated_at"] = p.get("updated_at") or p.get("published_at")
+                log.info("Fotoğraf eklendi: %s (%d)", p["id"], len(p["photos"]))
+            self.store.save_post(p)
+
+    def prune_gallery(self) -> None:
+        """Yer kazanmak için eski haberlerin galeri kopyalarını sil (ana görsel kalır, galeri kaynaktan gösterilir)."""
+        if self.state.get("last_prune") == self.today():
+            return
+        self.state["last_prune"] = self.today()
+        keep = float(self.cfg.get("images", "gallery_keep_days", 0) or 0)
+        if keep <= 0:  # 0 = hiçbir fotoğraf silinmez
+            return
+        n = 0
+        for p in self.store.posts():
+            if hours_since(p.get("published_at")) < keep * 24 or not p.get("photos"):
+                continue
+            changed = False
+            for rec in p["photos"][1:]:
+                if rec.get("file"):
+                    (self.cfg.images_dir / rec["file"]).unlink(missing_ok=True)
+                    rec["file"] = None
+                    changed = True
+                    n += 1
+            if changed:
+                self.store.save_post(p)
+        if n:
+            log.info("Eski galeri kopyaları silindi: %d", n)
+
     # ── tek çalışma ─────────────────────────────────────────
     def run(self) -> bool:
         """Bir tur: Telegram → süre dolanlar → toplama → özet → dinleme. Site değiştiyse True döner."""
@@ -1283,6 +1433,11 @@ class App:
                 self.notify_error(f"Toplama sırasında hata: {type(e).__name__}: {e}")
         if not self.state.get("paused"):
             self.backfill_seo()
+            try:
+                self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
+                self.prune_gallery()
+            except Exception as e:  # noqa: BLE001
+                log.exception("Fotoğraf işlemi hatası: %s", e)
         try:
             self.ig_tick()
         except Exception as e:  # noqa: BLE001

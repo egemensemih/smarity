@@ -92,6 +92,11 @@ class Store:
         """Taslağın kahraman görseli (yapay zeka ya da yedek)."""
         return self.cfg.drafts_dir / f"{did}.webp"
 
+    def gallery_files(self, did: str, draft: bool) -> list[Path]:
+        """Galeri fotoğrafları: {id}-g1.webp, {id}-g2.webp …"""
+        folder = self.cfg.drafts_dir if draft else self.cfg.images_dir
+        return sorted(folder.glob(f"{did}-g*.webp"), key=lambda p: int(p.stem.rsplit("-g", 1)[-1] or 0))
+
     def load_draft(self, did: str) -> dict | None:
         return read_json(self.draft_path(did), None)
 
@@ -120,6 +125,8 @@ class Store:
             f.write(json.dumps(d, ensure_ascii=False) + "\n")
         self.draft_path(d["id"]).unlink(missing_ok=True)
         self.draft_image(d["id"]).unlink(missing_ok=True)
+        for f in self.gallery_files(d["id"], draft=True):
+            f.unlink(missing_ok=True)
 
     # ── yayınlar ─────────────────────────────────────────────
     def post_path(self, pid: str) -> Path:
@@ -153,9 +160,11 @@ class Store:
 
     def move_image_to_post(self, did: str) -> None:
         src = self.draft_image(did)
+        self.cfg.images_dir.mkdir(parents=True, exist_ok=True)
         if src.exists():
-            self.cfg.images_dir.mkdir(parents=True, exist_ok=True)
             shutil.move(str(src), self.post_image(did))
+        for f in self.gallery_files(did, draft=True):
+            shutil.move(str(f), self.cfg.images_dir / f.name)
 
     def delete_post(self, pid: str) -> dict | None:
         d = self.load_post(pid)
@@ -164,6 +173,8 @@ class Store:
         self.post_path(pid).unlink(missing_ok=True)
         self.post_image(pid).unlink(missing_ok=True)
         self.post_og(pid).unlink(missing_ok=True)
+        for f in self.gallery_files(pid, draft=False):
+            f.unlink(missing_ok=True)
         self.site_dirty = True
         return d
 

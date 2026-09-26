@@ -30,6 +30,30 @@
     update();
   });
 
+  // Fotoğraf galerisi: kaydırma, oklar, sayaç, küçük resimler
+  document.querySelectorAll("[data-gal]").forEach(function (g) {
+    var track = g.querySelector(".gal-track");
+    if (!track) return;
+    var prev = g.querySelector('.gal-btn[data-dir="-1"]'), next = g.querySelector('.gal-btn[data-dir="1"]');
+    var count = g.querySelector(".gal-count b");
+    function slides() { return track.querySelectorAll(".gal-slide"); }
+    function idx() { return Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); }
+    function update() {
+      var n = slides().length, i = Math.min(idx(), n - 1);
+      if (count) count.textContent = i + 1;
+      var tot = g.querySelector(".gal-count"); if (tot) { tot.lastChild.nodeValue = " / " + n; tot.hidden = n < 2; }
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= n - 1;
+      g.querySelectorAll(".gal-thumbs button").forEach(function (b, k) { b.setAttribute("aria-current", k === i ? "true" : "false"); });
+    }
+    function go(i) { track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" }); }
+    [prev, next].forEach(function (b) { if (b) b.addEventListener("click", function () { go(idx() + (+b.getAttribute("data-dir"))); }); });
+    g.querySelectorAll(".gal-thumbs button").forEach(function (b) { b.addEventListener("click", function () { go(+b.getAttribute("data-go")); }); });
+    var t; track.addEventListener("scroll", function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+    track.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") go(idx() + 1); if (e.key === "ArrowLeft") go(idx() - 1); });
+    update();
+  });
+
   // Bağlantıyı kopyala
   document.querySelectorAll("[data-copy]").forEach(function (b) {
     b.addEventListener("click", function () {

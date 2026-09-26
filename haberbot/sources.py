@@ -22,7 +22,36 @@ NS = {
     "dc": "http://purl.org/dc/elements/1.1/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rss1": "http://purl.org/rss/1.0/",
+    "media": "http://search.yahoo.com/mrss/",
 }
+IMG_IN_HTML = re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"']", re.I)
+
+
+def _feed_image(el, html_parts: list[str]) -> str:
+    """Besleme öğesinin görseli: media:content / media:thumbnail / enclosure ya da içerikteki ilk <img>."""
+    best, bw = "", -1
+    for m in el.iter("{http://search.yahoo.com/mrss/}content", "{http://search.yahoo.com/mrss/}thumbnail"):
+        url = m.get("url") or ""
+        typ = (m.get("type") or m.get("medium") or "image").lower()
+        if not url or ("image" not in typ and not re.search(r"\.(jpe?g|png|webp|avif)(\?|$)", url, re.I)):
+            continue
+        try:
+            w = int(m.get("width") or 0)
+        except ValueError:
+            w = 0
+        if w > bw:
+            best, bw = url, w
+    if best:
+        return best
+    for enc in list(el.iter("enclosure")) + [l for l in el.iter("{http://www.w3.org/2005/Atom}link") if l.get("rel") == "enclosure"]:
+        url = enc.get("url") or enc.get("href") or ""
+        if url and (enc.get("type") or "").lower().startswith("image"):
+            return url
+    for h in html_parts:
+        m = IMG_IN_HTML.search(h or "")
+        if m:
+            return m.group(1)
+    return ""
 
 
 def _parse_date(s: str | None):
@@ -70,6 +99,7 @@ def parse_feed(xml_bytes: bytes) -> list[dict]:
                 "link": link,
                 "summary": strip_html(summary),
                 "published": _parse_date(_text(e, "atom:published") or _text(e, "atom:updated")),
+                "image": _feed_image(e, [_text(e, "atom:content"), _text(e, "atom:summary")]),
             })
         return out
 
@@ -92,6 +122,7 @@ def parse_feed(xml_bytes: bytes) -> list[dict]:
             "summary": strip_html(summary),
             "published": _parse_date(_text(it, "pubDate") or _text(it, "dc:date")),
             "comments": comments,
+            "image": _feed_image(it, [_text(it, "content:encoded"), _text(it, "description")]),
         })
     return out
 
@@ -190,6 +221,7 @@ def fetch_all(cfg: Config, store) -> list[dict]:
                     "summary": clip(e.get("summary") or "", 600),
                     "published": iso(e["published"]) if e.get("published") else None,
                     "html_source": src.get("type") == "html",
+                    "image": (e.get("image") or "").strip()[:600] or None,
                 })
             log.info("Kaynak %-22s %3d öğe", src["name"], len(entries))
     return results

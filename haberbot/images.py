@@ -1,8 +1,8 @@
 """Acil durum kapağı (Pillow). Normalde kartlar visuals.py + Chrome ile üretilir;
 bu dosya yalnızca tarayıcı hiç açılamazsa devreye girer.
 
-Kaynak sitelerin fotoğrafları KULLANILMAZ (telif). Her haber için markaya ait
-tipografik bir kapak üretilir.
+Gerçek fotoğraflar photos.py ile kaynaklardan alınır; bu dosya yalnızca fotoğraf
+bulunamadığında kullanılan markaya ait tipografik kapağın son yedeğidir.
 """
 from __future__ import annotations
 

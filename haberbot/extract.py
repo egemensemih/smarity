@@ -47,17 +47,30 @@ def _fallback_extract(html: str) -> str:
     return "\n\n".join(paras)
 
 
-def full_text(url: str, max_chars: int = 7000) -> str:
+_html_cache: dict[str, str] = {}
+
+
+def fetch_html(url: str) -> str:
+    """Sayfanın HTML'i (robots.txt'e uyarak; aynı çalışmada ikinci kez indirilmez)."""
+    if url in _html_cache:
+        return _html_cache[url]
+    html = ""
     try:
         if not _allowed(url):
-            log.info("robots.txt izin vermiyor, tam metin atlandı: %s", url)
-            return ""
-        r = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html"}, timeout=15)
-        if r.status_code >= 400 or "html" not in r.headers.get("content-type", "html"):
-            return ""
-        html = r.text[:3_000_000]
+            log.info("robots.txt izin vermiyor, sayfa okunmadı: %s", url)
+        else:
+            r = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html"}, timeout=15)
+            if r.status_code < 400 and "html" in r.headers.get("content-type", "html"):
+                html = r.text[:3_000_000]
     except requests.RequestException as e:
-        log.info("Tam metin okunamadı (%s): %s", type(e).__name__, url)
+        log.info("Sayfa okunamadı (%s): %s", type(e).__name__, url)
+    _html_cache[url] = html
+    return html
+
+
+def full_text(url: str, max_chars: int = 7000) -> str:
+    html = fetch_html(url)
+    if not html:
         return ""
     text = ""
     try:
