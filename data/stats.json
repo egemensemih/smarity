@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 3,
+      "approved": 5,
       "rejected": 1
     },
     "The Verge": {
@@ -18,7 +18,7 @@
     },
     "Interesting Engineering": {
       "approved": 2,
-      "rejected": 2
+      "rejected": 3
     },
     "Webrazzi": {
       "approved": 4,
@@ -29,7 +29,7 @@
       "rejected": 4
     },
     "DonanımHaber": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 4
     },
     "ShiftDelete.Net": {
@@ -42,7 +42,7 @@
     },
     "Anadolu Ajansı": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "GamesIndustry.biz": {
       "approved": 1,
@@ -53,8 +53,8 @@
       "rejected": 2
     },
     "TechCrunch": {
-      "approved": 3,
-      "rejected": 0
+      "approved": 4,
+      "rejected": 1
     },
     "Egirisim": {
       "approved": 2,
@@ -70,11 +70,19 @@
     },
     "IGN": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "New Atlas": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
+    },
+    "GSMArena": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "Ars Technica": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -376,6 +384,66 @@
       "t": "2026-09-25T21:10:29Z",
       "id": "42ad87ce82",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:35:33Z",
+      "id": "a93c14306b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:35:53Z",
+      "id": "12d3a78a09",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:06Z",
+      "id": "0d80d656d3",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:07Z",
+      "id": "461d2081a0",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:08Z",
+      "id": "4d08b0abca",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:09Z",
+      "id": "0f04846e44",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:10Z",
+      "id": "42fa934434",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:11Z",
+      "id": "bd3112b92d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:14Z",
+      "id": "283567453f",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T09:36:29Z",
+      "id": "e0c6c18ad3",
+      "ok": true,
       "manual": true
     }
   ]

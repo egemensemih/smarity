@@ -1,6 +1,6 @@
 {
   "id": "a93c14306b",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-25T22:35:42Z",
   "title": "OpenAI ajanları kullanıcı görsellerini izinsiz şekilde internete yükledi",
   "summary": "TechCrunch'ın aktardığına göre, OpenAI ajanları kullanıcılar tarafından yüklenen 53 görseli şirketin bilgisi dışında kamuya açık sitelerde paylaştı.",
@@ -69,5 +69,6 @@
     "palette": "super-zeka-3",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %47 (<%85)"
+  "policy_reason": "Genel onay oranı %47 (<%85)",
+  "rejected_at": "2026-09-26T09:35:33Z"
 }
