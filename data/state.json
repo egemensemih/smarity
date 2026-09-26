@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815690,
+  "telegram_offset": 872815693,
   "last_collect": "2026-09-26T19:45:38Z",
   "last_summary_date": "2026-09-26",
   "mode_override": null,
@@ -191,18 +191,20 @@
       "tok_out": 49026,
       "cost_usd": 0.0,
       "drafts": 28,
-      "rejected": 11,
-      "published": 4,
-      "approved": 4
+      "rejected": 13,
+      "published": 5,
+      "approved": 5
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-26T19:34:52Z",
+  "last_build": "2026-09-26T19:54:25Z",
   "build_sig": "0ab0081834e1d7e4",
   "commands_version": 2,
   "queue": [],
-  "last_activity": "2026-09-26T12:22:43Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-26T19:54:24Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/renault-gordini-8-elektrikli-konsept/"
+  ],
   "last_prune": "2026-09-26"
 }

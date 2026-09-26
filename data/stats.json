@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 5,
-      "rejected": 1
+      "rejected": 2
     },
     "The Verge": {
       "approved": 3,
@@ -25,7 +25,7 @@
       "rejected": 1
     },
     "Electrek": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 4
     },
     "DonanımHaber": {
@@ -34,7 +34,7 @@
     },
     "ShiftDelete.Net": {
       "approved": 4,
-      "rejected": 2
+      "rejected": 3
     },
     "Webtekno": {
       "approved": 5,
@@ -468,6 +468,24 @@
       "t": "2026-09-26T12:22:46Z",
       "id": "65d5011273",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T19:53:50Z",
+      "id": "40bc7b9a45",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T19:54:19Z",
+      "id": "291ea426a2",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-26T19:54:24Z",
+      "id": "8b5a79d28c",
+      "ok": false,
       "manual": true
     }
   ]
