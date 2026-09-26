@@ -3,15 +3,19 @@
 
 {% block head %}
 {% if featured %}<link rel="preload" as="image" href="{{ featured[0].img }}" fetchpriority="high">{% endif %}
+{% set org = {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name, "url": site.url ~ "/",
+     "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512},
+     "publishingPrinciples": site.url ~ "/hakkinda/", "ethicsPolicy": site.url ~ "/hakkinda/",
+     "correctionsPolicy": site.url ~ "/hakkinda/", "areaServed": "TR", "knowsLanguage": "tr"} %}
+{% if site.instagram %}{% set _ = org.update({"sameAs": ["https://www.instagram.com/" ~ site.instagram ~ "/"]}) %}{% endif %}
+{% if site.contact_email %}{% set _ = org.update({"email": site.contact_email}) %}{% endif %}
 <script type="application/ld+json">{{ {
   "@context": "https://schema.org",
   "@graph": [
     {"@type": "WebSite", "@id": site.url ~ "/#website", "name": site.name, "alternateName": site.name ~ " teknoloji haberleri",
      "url": site.url ~ "/", "inLanguage": "tr-TR", "description": site.home_description,
      "publisher": {"@id": site.url ~ "/#org"}},
-    {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name, "url": site.url ~ "/",
-     "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512},
-     "publishingPrinciples": site.url ~ "/hakkinda/"}
+    org
   ]
 }|tojson }}</script>
 {% endblock %}
