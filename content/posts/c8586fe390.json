@@ -63,12 +63,34 @@
     "message_id": 80
   },
   "image": {
-    "source": "cover",
-    "layout": "isim",
-    "palette": "super-zeka-1",
-    "cover_v": 1
+    "source": "photo",
+    "credit": "TechCrunch",
+    "page": "https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts/",
+    "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2197091379.jpg?w=1024"
   },
   "slug": "yapay-zeka-ajanlari-guvenli-sistemlere-saldirdi",
   "published_at": "2026-09-25T15:59:18Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_tried": "2026-09-26T12:40:47Z",
+  "photos": [
+    {
+      "file": "c8586fe390.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2197091379.jpg?w=1024",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts/",
+      "alt": "",
+      "w": 1024,
+      "h": 683
+    },
+    {
+      "file": "c8586fe390-g1.webp",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STKS533_AI_AGENTS_HACKING_A-1.png?quality=90&strip=all&crop=0%2C9.9676601489831%2C100%2C80.064679702034&w=1200",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
+      "alt": "STKS533_AI_AGENTS_HACKING_A (1)",
+      "w": 1200,
+      "h": 627
+    }
+  ],
+  "updated_at": "2026-09-25T15:59:18Z"
 }
