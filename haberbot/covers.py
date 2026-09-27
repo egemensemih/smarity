@@ -212,6 +212,33 @@ def design(d: dict, brand: bool = False, caption: bool = False, brand_name: str 
     }
 
 
+# ── Fotoğraflı kapak ─────────────────────────────────────────
+PHOTO_COVER_VERSION = 1
+
+
+def photo_design(d: dict, brand: bool = False, kicker: str = "", credit: str = "", brand_name: str = "Smarity") -> dict:
+    """Gerçek fotoğrafın üstüne bizim tasarım dilimiz: kategori renginde ışık, altta dev rakam / isim / manşet."""
+    _, pal = palette_for(d)
+    stat = (d.get("hero_stat") or "").strip()
+    word = cover_word(d)
+    if stat and len(stat) <= 12:
+        layout = "sayi"
+    elif word:
+        layout = "isim"
+    else:
+        layout = "manset"
+    kw = d.get("focus_keyword") or ""
+    if kw.lower() in GENERIC or len(kw.split()) > 3 or kw.lower().startswith("yapay zeka"):
+        kw = ""
+    title = d.get("short_title") or d.get("title", "")
+    return {
+        "layout": layout, "pal": pal[:4], "stat": stat, "stat_label": (d.get("hero_stat_label") or "").strip(),
+        "word": word, "headline": _highlight(title, word or kw), "title": title,
+        "kicker": kicker, "brand": brand, "brand_name": brand_name, "credit": credit,
+        "focus": d.get("photo_focus") or "50% 42%",
+    }
+
+
 # ── Özet kartı (Instagram post / story) ──────────────────────
 def _mark(title: str, d: dict) -> str:
     """Başlığı güvenli HTML'e çevir; öne çıkan ifade siyah kutuyla vurgulansın."""

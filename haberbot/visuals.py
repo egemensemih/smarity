@@ -210,6 +210,20 @@ class Visuals:
         self.renderer.html_to_image("cover.html", ctx, size, tmp, quality=95)
         return Image.open(tmp).convert("RGB")
 
+    def photo_cover(self, d: dict, photo: Path, out: Path, size=HERO_SIZE, brand: bool = False,
+                    kicker: bool = False, credit: str = "") -> Path:
+        """Gerçek fotoğrafın üstüne kapak tasarımı (dev rakam / isim / manşet). .webp çıktı WEBP, diğerleri JPEG."""
+        ctx = covers.photo_design(d, brand=brand, kicker=category_label(d.get("category", "teknoloji")) if kicker else "",
+                                  credit=credit, brand_name=self.brand)
+        ctx["photo"] = photo.resolve().as_uri()
+        if out.suffix.lower() != ".webp":
+            return self.renderer.html_to_image("photo.html", ctx, size, out, quality=86)
+        tmp = self.renderer.cache / "_photo_cover.jpg"
+        self.renderer.html_to_image("photo.html", ctx, size, tmp, quality=95)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        Image.open(tmp).convert("RGB").save(out, "WEBP", quality=82, method=6)
+        return out
+
     def make_hero(self, d: dict, out: Path) -> dict:
         """Görseli üretir, out'a WEBP yazar. d['image'] bilgisini döndürür."""
         info = {"source": "fallback"}

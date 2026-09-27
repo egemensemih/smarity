@@ -15,7 +15,7 @@ from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, 
 from .store import Store
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "8"
+ASSET_V = "9"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -29,6 +29,39 @@ def render_body(md: str) -> str:
     # Metindeki başlıklar sayfanın H1'i ile yarışmasın: hepsi H2, bağlantılanabilir
     out = H2_RE.sub(lambda m: f'<h2 id="{slugify(re.sub("<[^>]+>", "", m.group(1)), 60)}">{m.group(1)}</h2>', out)
     return out
+
+
+BLOCK_RE = re.compile(r"<(aside|blockquote|ul|ol|table|pre|figure)\b.*?</\1>", re.S)
+
+
+def figure_html(ph: dict) -> str:
+    """Haberin içine yerleşen fotoğraf: kaynağı altında."""
+    e = lambda v: htmlmod.escape(str(v or ""), quote=True)  # noqa: E731
+    remote = ' referrerpolicy="no-referrer" onerror="this.closest(\'figure\').remove()"' if ph.get("remote") else ""
+    cap = (f'<figcaption><a href="{e(ph.get("page"))}" rel="noopener nofollow" target="_blank">Görsel: {e(ph.get("credit"))}</a>'
+           f'</figcaption>' if ph.get("credit") else "")
+    return (f'<figure class="inl{" graphic" if ph.get("graphic") else ""}"><img src="{e(ph["url"])}" alt="{e(ph.get("alt"))}" '
+            f'width="{int(ph.get("w") or 1600)}" height="{int(ph.get("h") or 900)}" loading="lazy" decoding="async"{remote}>'
+            f'{cap}</figure>')
+
+
+def inline_figures(body_html: str, figs: list[dict], first: int = 1, every: int = 3) -> tuple[str, list[dict]]:
+    """Fotoğrafları metnin paragrafları arasına yerleştir (2. paragraftan sonra, sonra her 3 paragrafta bir).
+
+    Liste, alıntı ve "Neden önemli?" kutularının içine girmez. Yer kalmazsa artanlar geri döner.
+    """
+    if not figs:
+        return body_html, []
+    blocked = [m.span() for m in BLOCK_RE.finditer(body_html)]
+    ends = [m.end() for m in re.finditer(r"</p>", body_html) if not any(a <= m.start() < b for a, b in blocked)]
+    slots = ends[first::every]
+    use = figs[:len(slots)]
+    out, last = [], 0
+    for pos, ph in zip(slots, use):
+        out += [body_html[last:pos], "\n", figure_html(ph)]
+        last = pos
+    out.append(body_html[last:])
+    return "".join(out), figs[len(use):]
 
 
 def nobr_hyphen(title: str) -> str:
@@ -162,7 +195,8 @@ class SiteBuilder:
             "hero_stat_label": (p.get("hero_stat_label") or "").strip(),
             "ai_image": (p.get("image") or {}).get("source") == "ai",
             "cover_image": (p.get("image") or {}).get("source") == "cover",
-            "stat_on_cover": (p.get("image") or {}).get("source") == "cover" and (p.get("image") or {}).get("layout") == "sayi",
+            # rakam kapakta yazıyorsa "öne çıkanlar" kutusunda tekrar edilmez
+            "stat_on_cover": (p.get("image") or {}).get("source") in ("cover", "photo") and (p.get("image") or {}).get("layout") == "sayi",
             "img_alt": clip(p.get("image_alt") or f"{short}: habere ait görsel", 125),
             "seo_title": seo_title,
             "meta_description": clip(meta, 158),
@@ -185,32 +219,49 @@ class SiteBuilder:
             "credits": list(dict.fromkeys(s["name"] for s in p.get("sources", []))),
             "minutes": reading_minutes(p.get("body", "")),
             "words": len(plain(p.get("body", "")).split()),
-            "body_html": (body_html := render_body(p.get("body", ""))),
+            **(media := self._media(p, short, render_body(p.get("body", "")))),
             "toc": [{"id": m.group(1), "text": re.sub("<[^>]+>", "", m.group(2))}
-                    for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', body_html)],
+                    for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', media["body_html"])],
             "key_points": [x for x in (p.get("carousel_points") or []) if x][:4],
             "photos": self._photos(p, short),
-            "has_photo": (p.get("image") or {}).get("source") == "photo",
+            "has_photo": bool(p.get("photos")),
             "updated_str": tr_date(p.get("updated_at"), cfg.tz) if p.get("updated_at") else "",
         }
 
     def _photos(self, p: dict, short: str) -> list[dict]:
-        """Haberin gerçek fotoğrafları (ilki ana görsel). Yerel kopyası silinmiş galeri fotoğrafı kaynaktan gösterilir."""
+        """Haberin gerçek fotoğrafları. Yerel kopyası olmayan fotoğraf kaynaktaki adresinden gösterilir."""
         cfg, b = self.cfg, self.base
         out = []
         for i, r in enumerate(p.get("photos") or []):
             local = bool(r.get("file")) and (cfg.images_dir / r["file"]).exists()
-            if not local and (i == 0 or not r.get("src")):
+            if not local and not r.get("src"):
                 continue
             out.append({
+                "file": r.get("file") or "",
                 "url": f"{b}/img/{r['file']}" if local else r["src"],
                 "remote": not local,
+                "graphic": bool(r.get("graphic")),
                 "credit": r.get("credit") or "",
                 "page": r.get("page") or "",
-                "alt": clip(r.get("alt") or (p.get("image_alt") if i == 0 else "") or f"{short} ({i + 1})", 125),
+                "alt": clip(r.get("alt") or f"{short}: {r.get('credit') or 'habere ait'} fotoğrafı ({i + 1})", 125),
                 "w": r.get("w") or 1600, "h": r.get("h") or 900,
             })
         return out
+
+    def _media(self, p: dict, short: str, body_html: str) -> dict:
+        """Kapak (ilk kare) + kaydırınca gelen fotoğraflar + metnin içine yerleşen fotoğraflar.
+
+        Kapakta kullanılan fotoğraf tekrar gösterilmez. Kaydırmalı alana en fazla 2 gerçek fotoğraf konur;
+        kalan fotoğraflar ve grafikler (ekran görüntüsü, tablo) paragrafların arasına yerleşir.
+        """
+        ph = self._photos(p, short)
+        img = p.get("image") or {}
+        cover = next((x for x in ph if x["file"] and x["file"] == img.get("photo")), None) if img.get("source") == "photo" else None
+        rest = [x for x in ph if x is not cover]
+        good = [x for x in rest if not x["graphic"]]
+        graphics = [x for x in rest if x["graphic"]]
+        body_html, left = inline_figures(body_html, good[2:] + graphics)
+        return {"body_html": body_html, "cover_photo": cover, "slides": good[:2] + left}
 
     def _write(self, rel: str, content: str) -> None:
         path = self.cfg.out_dir / rel
@@ -297,7 +348,7 @@ class SiteBuilder:
         (out / "img").mkdir()
         for p in posts:
             names = [f"{p['id']}.webp", f"{p['id']}.jpg", f"{p['id']}-og.jpg"]
-            names += [ph["url"].rsplit("/", 1)[-1] for ph in p.get("photos") or [] if not ph.get("remote")]
+            names += [ph["file"] for ph in p.get("photos") or [] if ph.get("file") and not ph.get("remote")]
             for name in dict.fromkeys(names):
                 src = cfg.images_dir / name
                 if src.exists():

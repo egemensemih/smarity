@@ -12,7 +12,7 @@ import requests
 
 from . import photos, policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
-from .covers import COVER_VERSION
+from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
@@ -470,15 +470,15 @@ class App:
             kb = [[{"text": "✅ Yayınla", "callback_data": f"p:{did}"},
                    {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
                   [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
-                   {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}] + self._visual_buttons(d)]
+                   {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}], self._visual_buttons(d)]
             if src:
                 kb.append([{"text": "🔗 Kaynağı aç", "url": src}])
             return kb
         if kind in ("published", "auto"):
             return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])},
                      {"text": "🗑 Kaldır", "callback_data": f"d:{did}"}],
-                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"}] + self._visual_buttons(d)
-                    + [{"text": "📱 Instagram", "callback_data": f"s:{did}"}]]
+                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
+                     {"text": "📱 Instagram", "callback_data": f"s:{did}"}], self._visual_buttons(d)]
         if kind == "rejected":
             return [[{"text": "↩️ Geri al", "callback_data": f"u:{did}"}]]
         return []
@@ -711,10 +711,19 @@ class App:
                 return "Bu haberde fotoğraf yok."
             if action == "g":
                 local = [r for r in d["photos"] if r.get("file")]
-                if len(local) < 2:
-                    return "Başka fotoğraf yok."
-                self._reorder_photos(d, where, local[1:] + local[:1] + [r for r in d["photos"] if not r.get("file")])
-                msg = "🖼 Fotoğraf değişti"
+                good = [r for r in local if not r.get("graphic")]
+                if d.get("cover_mode") == "type" and any(self._coverable(r) for r in good):
+                    d.pop("cover_mode", None)            # yazılı kapaktan fotoğraflı kapağa dön
+                    self._build_cover(d, where == "draft")
+                    msg = "🖼 Fotoğraflı kapak"
+                else:
+                    coverable = [r for r in good if self._coverable(r)]
+                    if len(coverable) < 2:
+                        return "Kapak olabilecek başka fotoğraf yok."
+                    cur = next((r for r in coverable if r["file"] == (d.get("image") or {}).get("photo")), coverable[0])
+                    rest = [r for r in good if r is not cur]      # grafikler sonda kalır
+                    self._reorder_photos(d, where, rest + [cur] + [r for r in local if r.get("graphic")])
+                    msg = "🖼 Fotoğraf değişti"
             else:
                 self._drop_photos(d, where)
                 d["image"] = self.vis.make_hero(d, self._hero(d))
@@ -787,18 +796,18 @@ class App:
         new_visual = visual_only is not None
         if new_visual:
             text = visual_only.strip()
-            if text and len(text) <= 24:   # kısa ifade: kapaktaki büyük yazı olsun
+            if text and len(text) <= 24:   # kısa ifade: kapaktaki büyük yazı olsun (fotoğraflı kapakta da)
                 d["cover_text"] = text
                 d["cover_variant"] = int(d.get("cover_variant", 0)) + 1
             elif text:                      # uzun ifade: yapay zeka görseli sahnesi
                 d["visual_scene"] = text
-            else:                           # "Yeni görsel" düğmesi: yeni renk ve düzen
+                d["cover_mode"] = "type"
+            else:                           # "Yeni kapak" düğmesi: yazılı kapak, yeni renk ve düzen
                 d["cover_variant"] = int(d.get("cover_variant", 0)) + 1
+                d["cover_mode"] = "type"
             d["rewrites"] = (d.get("rewrites") or 0) + 1
             old_kind = "pending" if where == "draft" else ("auto" if d.get("publish_mode") == "auto" else "published")
-            if d.get("photos"):
-                self._drop_photos(d, where)
-            d["image"] = self.vis.make_hero(d, self._hero(d))
+            self._build_cover(d, where == "draft")   # fotoğraflar galeride kalır
             self._image_feedback(d["image"])
             if where == "draft":
                 self._update_preview(d, "rewritten")
@@ -992,7 +1001,7 @@ class App:
             return
         todo = [p for p in self.store.posts()
                 if (p.get("image") or {}).get("source") in ("cover", "fallback", None)
-                and (p.get("image") or {}).get("cover_v") != COVER_VERSION and not p.get("photos")][:limit]
+                and (p.get("image") or {}).get("cover_v") != COVER_VERSION][:limit]
         for p in todo:
             try:
                 p["image"] = {**self.vis.make_hero(p, self.store.post_image(p["id"])), "cover_v": COVER_VERSION}
@@ -1288,25 +1297,66 @@ class App:
         return "\n".join(lines)
 
     # ── gerçek fotoğraflar ──────────────────────────────────
+    # Düzen: fotoğraflar {id}-g0.webp, {id}-g1.webp … ; {id}.webp her zaman tasarımlı kapaktır:
+    # anlamlı bir fotoğraf varsa fotoğraflı kapak, yoksa (ya da cover_mode "type" ise) tipografik kapak.
+    PHOTOS_V = 2
+    COVER_MIN_W = 900          # kapak için en az bu genişlikte gerçek fotoğraf gerekir
+
     def _visual_buttons(self, d: dict) -> list[dict]:
         did = d["id"]
-        if d.get("photos"):
-            out = [{"text": "🚫 Fotoğrafsız", "callback_data": f"n:{did}"}]
-            if len(d["photos"]) > 1:
-                out.insert(0, {"text": "🖼 Başka foto", "callback_data": f"g:{did}"})
-            return out
-        return [{"text": "🎨 Yeni görsel", "callback_data": f"v:{did}"}]
+        if not d.get("photos"):
+            return [{"text": "🎨 Yeni görsel", "callback_data": f"v:{did}"}]
+        good = [r for r in d["photos"] if r.get("file") and not r.get("graphic")]
+        out = []
+        if d.get("cover_mode") == "type" and any(self._coverable(r) for r in good):
+            out.append({"text": "🖼 Fotoğraflı kapak", "callback_data": f"g:{did}"})
+        elif sum(self._coverable(r) for r in good) > 1:
+            out.append({"text": "🖼 Başka foto", "callback_data": f"g:{did}"})
+        photo_cover = (d.get("image") or {}).get("source") == "photo"
+        out.append({"text": "🎨 Yazılı kapak" if photo_cover else "🎨 Yeni kapak", "callback_data": f"v:{did}"})
+        out.append({"text": "🚫 Fotoğrafsız", "callback_data": f"n:{did}"})
+        return out
 
     def _photo_dir(self, draft: bool):
         return self.cfg.drafts_dir if draft else self.cfg.images_dir
 
+    def _no_cover_sources(self) -> set[str]:
+        """Paylaşım görseline yazı basan kaynaklar (ayarlarda photo_cover: false)."""
+        return {x.get("name") for x in self.cfg.sources if x.get("photo_cover") is False}
+
+    def _coverable(self, r: dict) -> bool:
+        """Kapak olabilecek fotoğraf: gerçek fotoğraf, düz zeminli tanıtım görseli değil, yeterince büyük."""
+        return bool(r.get("file")) and not r.get("graphic") and r.get("cover_ok", True) and (r.get("w") or 0) >= self.COVER_MIN_W
+
+    def _cover_photo(self, d: dict, folder) -> dict | None:
+        if d.get("cover_mode") == "type":
+            return None
+        return next((r for r in d.get("photos") or [] if self._coverable(r) and (folder / r["file"]).exists()), None)
+
+    def _build_cover(self, d: dict, draft: bool) -> None:
+        """Kapağı ({id}.webp) üret: fotoğraflı kapak ya da tipografik kapak."""
+        folder = self._photo_dir(draft)
+        hero = folder / f"{d['id']}.webp"
+        r = self._cover_photo(d, folder)
+        if r:
+            try:
+                self.vis.photo_cover(d, folder / r["file"], hero)
+                d["image"] = {"source": "photo", "photo": r["file"], "credit": r.get("credit", ""),
+                              "page": r.get("page", ""), "src": r.get("src", ""), "layout": photo_design(d)["layout"],
+                              "cover_v": PHOTO_COVER_VERSION}
+                return
+            except Exception as e:  # noqa: BLE001
+                log.warning("Fotoğraflı kapak üretilemedi (%s), yazılı kapak kullanılacak: %s", d.get("id"), e)
+        d["image"] = self.vis.make_hero(d, hero)
+
     def _attach_photos(self, d: dict, draft: bool) -> bool:
-        """Kaynaklardan gerçek fotoğrafları al: ilki ana görsel, diğerleri galeri. Bulunamazsa False."""
+        """Kaynaklardan gerçek fotoğrafları al ve kapağı üret. Bulunamazsa False."""
         cfg = self.cfg
         if not cfg.get("images", "photos", True) or cfg.mock or cfg.fixtures_dir:
             return False
         try:
-            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 6) or 6))
+            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 6) or 6),
+                                skip_cover=self._no_cover_sources())
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False
@@ -1317,57 +1367,126 @@ class App:
             f.unlink(missing_ok=True)
         recs = []
         for i, p in enumerate(got):
-            name = f"{d['id']}.webp" if i == 0 else f"{d['id']}-g{i}.webp"
-            w, h = photos.save_webp(p["image"], folder / name, 1600 if i == 0 else 1280, 80 if i == 0 else 74)
-            recs.append({"file": name, "src": p["src"], "credit": p["credit"], "page": p["page"],
-                         "alt": p["alt"], "w": w, "h": h})
+            name = f"{d['id']}-g{i}.webp"
+            w, h = photos.save_webp(p["image"], folder / name, 1600, 80 if p.get("graphic") else 78)
+            recs.append({"file": name, "src": p["src"], "credit": p["credit"], "page": p["page"], "alt": p["alt"],
+                         "w": w, "h": h, "kind": p.get("kind", ""), "graphic": bool(p.get("graphic")),
+                         "cover_ok": bool(p.get("cover_ok", not p.get("graphic")))})
         d["photos"] = recs
-        d["image"] = {"source": "photo", "credit": recs[0]["credit"], "page": recs[0]["page"], "src": recs[0]["src"]}
+        d["photos_v"] = self.PHOTOS_V
+        d.pop("cover_mode", None)
+        self._build_cover(d, draft)
         if not draft:
             self._make_og(d)
         return True
 
     def _reorder_photos(self, d: dict, where: str, order: list[dict]) -> None:
-        """Fotoğraf sırasını değiştir (ilk sıradaki ana görsel olur); dosya adları sıraya göre yeniden verilir."""
-        from PIL import Image
+        """Fotoğraf sırasını değiştir (dosyalar yeniden adlandırılır, yeniden sıkıştırılmaz) ve kapağı yenile."""
         draft = where == "draft"
         folder = self._photo_dir(draft)
-        loaded = []
-        for rec in order:
+        moved = []
+        for i, rec in enumerate(order):
             f = folder / rec["file"] if rec.get("file") else None
-            loaded.append((rec, Image.open(f).convert("RGB") if f and f.exists() else None))
+            if f and f.exists():
+                t = folder / f"{d['id']}-t{i}.webp"
+                f.rename(t)
+                moved.append((dict(rec), t))
         for f in self.store.gallery_files(d["id"], draft):
             f.unlink(missing_ok=True)
         recs = []
-        for i, (rec, im) in enumerate(loaded):
-            name = f"{d['id']}.webp" if i == 0 else f"{d['id']}-g{i}.webp"
-            rec = dict(rec)
-            if im is not None:
-                photos.save_webp(im, folder / name, 1600, 82)
-                rec["file"] = name
-            else:
-                rec["file"] = None
+        for rec, t in moved:
+            rec["file"] = f"{d['id']}-g{len(recs)}.webp"
+            t.rename(folder / rec["file"])
             recs.append(rec)
-        d["photos"] = [r for r in recs if r.get("file") or r.get("src")]
-        first = d["photos"][0]
-        d["image"] = {"source": "photo", "credit": first["credit"], "page": first["page"], "src": first["src"]}
+        d["photos"] = recs
+        d["photos_v"] = self.PHOTOS_V
+        self._build_cover(d, draft)
 
     def _drop_photos(self, d: dict, where: str) -> None:
         for f in self.store.gallery_files(d["id"], where == "draft"):
             f.unlink(missing_ok=True)
         d.pop("photos", None)
+        d.pop("cover_mode", None)
         d["photos_removed"] = True
         d["image"] = {"source": "cover"}
 
     def _make_og(self, p: dict) -> None:
-        """Paylaşım görseli: fotoğraf varsa fotoğrafın kırpımı, yoksa marka kartı."""
+        """Paylaşım görseli: fotoğraflı kapak (logo, kategori ve fotoğraf kredisiyle) ya da özet kartı."""
         st = self.store
-        hero = st.post_image(p["id"])
-        if (p.get("image") or {}).get("source") == "photo" and hero.exists():
-            from PIL import Image
-            photos.og_crop(Image.open(hero).convert("RGB"), st.post_og(p["id"]))
+        img = p.get("image") or {}
+        photo = self.cfg.images_dir / img["photo"] if img.get("source") == "photo" and img.get("photo") else None
+        if photo is not None and photo.exists():
+            try:
+                self.vis.photo_cover(p, photo, st.post_og(p["id"]), size=(1200, 630), brand=True, kicker=True,
+                                     credit=img.get("credit", ""))
+                return
+            except Exception as e:  # noqa: BLE001
+                log.warning("Fotoğraflı paylaşım görseli üretilemedi (%s): %s", p["id"], e)
+                from PIL import Image
+                photos.og_crop(Image.open(photo).convert("RGB"), st.post_og(p["id"]))
+                return
+        self.vis.render_card(p, "og", st.post_image(p["id"]), st.post_og(p["id"]))
+
+    def _migrate_photos(self, p: dict) -> None:
+        """Eski düzen (ilk fotoğraf {id}.webp) → yeni düzen ({id}-gN.webp, grafik/fotoğraf ayrımı).
+
+        Paylaşım görseline yazı basan kaynakların (photo_cover: false) ilk fotoğrafı o kaynağın paylaşım
+        görseliydi; o fotoğraf atılır.
+        """
+        from PIL import Image
+        folder, pid = self.cfg.images_dir, p["id"]
+        no_cover, seen, keep = self._no_cover_sources(), set(), []
+        for r in p.get("photos") or []:
+            c = r.get("credit")
+            if c in no_cover and c not in seen:
+                seen.add(c)
+                continue
+            seen.add(c)
+            keep.append(dict(r))
+        tmp = []
+        for i, r in enumerate(keep):
+            f = folder / r["file"] if r.get("file") else None
+            if f and f.exists():
+                t = folder / f"{pid}-t{i}.webp"
+                f.rename(t)
+                with Image.open(t) as im:
+                    r.update(photos.classify(im.convert("RGB")))
+                    r["w"], r["h"] = im.size
+                tmp.append((r, t))
+        for f in self.store.gallery_files(pid, draft=False):
+            f.unlink(missing_ok=True)
+        tmp.sort(key=lambda x: bool(x[0]["graphic"]))
+        recs = []
+        for r, t in tmp:
+            r["file"] = f"{pid}-g{len(recs)}.webp"
+            t.rename(folder / r["file"])
+            recs.append(r)
+        if recs:
+            p["photos"] = recs
         else:
-            self.vis.render_card(p, "og", hero, st.post_og(p["id"]))
+            p.pop("photos", None)
+        p["photos_v"] = self.PHOTOS_V
+
+    def upgrade_photos(self, limit: int = 30) -> None:
+        """Fotoğraflı haberleri yeni düzene geçir; fotoğraflı kapak tasarımı değişince kapakları yenile."""
+        def due(p: dict) -> bool:
+            if not p.get("photos"):
+                return False
+            img = p.get("image") or {}
+            return p.get("photos_v") != self.PHOTOS_V or (img.get("source") == "photo" and img.get("cover_v") != PHOTO_COVER_VERSION)
+        todo = [p for p in self.store.posts() if due(p)][:limit]
+        for p in todo:
+            try:
+                if p.get("photos_v") != self.PHOTOS_V:
+                    self._migrate_photos(p)
+                self._build_cover(p, draft=False)
+                self._make_og(p)
+                self.store.save_post(p)
+            except Exception as e:  # noqa: BLE001
+                log.warning("Fotoğraflı kapak yenilenemedi (%s): %s", p["id"], e)
+                return
+        if todo:
+            log.info("Fotoğraflı kapaklar yenilendi: %d", len(todo))
 
     def backfill_photos(self, limit: int = 5) -> None:
         """Eski haberlere gerçek fotoğraf ekle (her turda birkaç tane; bulunamayanlar 3 gün sonra tekrar denenir)."""
@@ -1382,30 +1501,6 @@ class App:
                 p["updated_at"] = p.get("updated_at") or p.get("published_at")
                 log.info("Fotoğraf eklendi: %s (%d)", p["id"], len(p["photos"]))
             self.store.save_post(p)
-
-    def prune_gallery(self) -> None:
-        """Yer kazanmak için eski haberlerin galeri kopyalarını sil (ana görsel kalır, galeri kaynaktan gösterilir)."""
-        if self.state.get("last_prune") == self.today():
-            return
-        self.state["last_prune"] = self.today()
-        keep = float(self.cfg.get("images", "gallery_keep_days", 0) or 0)
-        if keep <= 0:  # 0 = hiçbir fotoğraf silinmez
-            return
-        n = 0
-        for p in self.store.posts():
-            if hours_since(p.get("published_at")) < keep * 24 or not p.get("photos"):
-                continue
-            changed = False
-            for rec in p["photos"][1:]:
-                if rec.get("file"):
-                    (self.cfg.images_dir / rec["file"]).unlink(missing_ok=True)
-                    rec["file"] = None
-                    changed = True
-                    n += 1
-            if changed:
-                self.store.save_post(p)
-        if n:
-            log.info("Eski galeri kopyaları silindi: %d", n)
 
     # ── tek çalışma ─────────────────────────────────────────
     def run(self) -> bool:
@@ -1435,9 +1530,12 @@ class App:
             self.backfill_seo()
             try:
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
-                self.prune_gallery()
             except Exception as e:  # noqa: BLE001
                 log.exception("Fotoğraf işlemi hatası: %s", e)
+        try:
+            self.upgrade_photos()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Fotoğraflı kapak hatası: %s", e)
         try:
             self.ig_tick()
         except Exception as e:  # noqa: BLE001

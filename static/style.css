@@ -266,6 +266,15 @@ button { font: inherit; color: inherit; }
 .art-media .ph { border-radius: var(--r-md); overflow: hidden; background: var(--bg-alt); aspect-ratio: 16 / 10; }
 .art-media img { width: 100%; height: 100%; object-fit: cover; }
 .art-media figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.art-media .ph { position: relative; }
+.gal-slide.cover .gal-credit, .art-media .gal-credit { left: auto; bottom: auto; top: 12px; right: 12px; }
+/* metnin içindeki fotoğraflar */
+.art-body figure.inl { margin: 34px 0; }
+.art-body figure.inl img { display: block; width: 100%; height: auto; border-radius: var(--r-md); background: var(--bg-alt); }
+.art-body figure.inl.graphic img { border: 1px solid var(--line); background: #fff; }
+.art-body figure.inl figcaption { margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.art-body figure.inl figcaption a { color: inherit; text-decoration: none; }
+.art-body figure.inl figcaption a:hover { color: var(--ink, #1D1D1F); text-decoration: underline; }
 
 /* fotoğraf galerisi (kaydırmalı) */
 .gal { margin: 28px 0 0; }

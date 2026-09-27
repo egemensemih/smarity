@@ -4,8 +4,9 @@ Sıra: resmi kaynak (şirketin kendi duyurusu) → diğer kaynaklar. Her kaynağ
 paylaşım görseli (og:image), yapılandırılmış veri görseli ve metin içindeki büyük fotoğraflar alınır.
 Küçük/logo/ikon görseller ve aynı fotoğrafın farklı boyutları elenir.
 
-Ana fotoğraf ve galerinin ilk günleri için kopyalar sitede tutulur (hızlı ve güvenilir);
-eski galerilerde yer kazanmak için yerel kopya silinip kaynaktaki adres kullanılır.
+Her fotoğraf "fotoğraf" ya da "grafik" (ekran görüntüsü, tablo, belge) diye sınıflanır: kapakta yalnızca
+gerçek fotoğraf kullanılır, grafikler haberin içine yerleşir. Paylaşım görsellerine yazı basan kaynaklar
+(ayarlarda photo_cover: false) için yalnızca haber metnindeki fotoğraflar alınır.
 Hak sahibi talep ederse fotoğraflar Telegram'dan tek tuşla kaldırılır.
 """
 from __future__ import annotations
@@ -17,7 +18,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 import requests
-from PIL import Image, ImageOps, ImageStat
+from PIL import Image, ImageChops, ImageOps, ImageStat
 
 from .extract import UA, fetch_html
 from .util import log
@@ -196,6 +197,43 @@ def fetch_image(url: str, referer: str = "", timeout: int = 20) -> Image.Image |
     return im.convert("RGB")
 
 
+def _stats(im: Image.Image) -> tuple[float, float]:
+    """(düz zemin oranı, ince çizgi yoğunluğu) — 480 px genişlikte ölçülür."""
+    w = 480
+    small = im.convert("RGB").resize((w, max(2, round(im.height * w / im.width))), Image.BILINEAR)
+    px = small.tobytes()
+    counts: dict[int, int] = {}
+    for i in range(0, len(px), 3):
+        k = (px[i] >> 4) << 8 | (px[i + 1] >> 4) << 4 | (px[i + 2] >> 4)
+        counts[k] = counts.get(k, 0) + 1
+    n = len(px) // 3
+    flat = sum(sorted(counts.values(), reverse=True)[:2]) / n
+    g = small.convert("L")
+    gw, gh = g.size
+    base = g.crop((0, 0, gw - 1, gh - 1))
+    dx = ImageChops.difference(base, g.crop((1, 0, gw, gh - 1)))
+    dy = ImageChops.difference(base, g.crop((0, 1, gw - 1, gh)))
+    hist = ImageChops.add(dx, dy).histogram()      # 255'te doyar; eşik 80 olduğu için sorun değil
+    return flat, sum(hist[81:]) / n
+
+
+def classify(im: Image.Image) -> dict:
+    """Fotoğrafın türü.
+
+    graphic : ekran görüntüsü, tablo, harita, belge (zeminin çoğu tek renk + yoğun ince çizgi/yazı).
+              Kapak ya da kaydırmalı alan yerine haberin içine yerleşir.
+    cover_ok: kapak olabilir mi? Düz zeminli tanıtım görsellerinde (üstünde çoğu zaman kendi yazısı olur)
+              bizim yazımız kalabalık durur; bunlarda kapak yazılı olur, fotoğraf galeride gösterilir.
+    """
+    flat, edge = _stats(im)
+    graphic = flat >= 0.62 and edge >= 0.025
+    return {"graphic": graphic, "cover_ok": not graphic and flat < 0.7}
+
+
+def is_graphic(im: Image.Image) -> bool:
+    return classify(im)["graphic"]
+
+
 def usable(im: Image.Image) -> bool:
     w, h = im.size
     if w < MIN_W or h < MIN_H or not (0.5 <= w / h <= 2.4):
@@ -204,21 +242,28 @@ def usable(im: Image.Image) -> bool:
     return st.stddev[0] >= 14  # düz/boş görseller (logo zemini, yer tutucu) elenir
 
 
-def gather(sources: list[dict], limit: int = 6, per_source: int = 4, pages: int = 3) -> list[dict]:
-    """Kaynaklardan fotoğraf topla. Dönen her öğe: {'image': PIL, 'src', 'credit', 'page', 'alt', 'kind'}"""
+def gather(sources: list[dict], limit: int = 6, per_source: int = 4, pages: int = 3,
+           skip_cover: set[str] | frozenset = frozenset()) -> list[dict]:
+    """Kaynaklardan fotoğraf topla. Dönen her öğe: {'image': PIL, 'src', 'credit', 'page', 'alt', 'kind', 'graphic'}
+
+    skip_cover: paylaşım görseline yazı basan kaynakların adları (bunlarda besleme/og görseli alınmaz).
+    Sıra: resmi kaynak önce; aynı sırada gerçek fotoğraflar grafiklerden önce gelir.
+    """
     order = sorted(sources, key=lambda s: 0 if s.get("kind") == "official" else 1)[:pages]
     picked: list[dict] = []
     hashes: list[int] = []
     for s in order:
         url = s.get("url") or ""
+        no_cover = (s.get("name") or "") in skip_cover
         cands: list[dict] = []
         feed_img = _abs(s.get("image") or "", url or "https://x/")
-        if feed_img and not BAD_URL.search(feed_img):
+        if feed_img and not BAD_URL.search(feed_img) and not no_cover:
             cands.append({"url": feed_img, "kind": "feed", "alt": ""})
         html = fetch_html(url) if url else ""
         if html:
             known = {_key(c["url"]) for c in cands}
-            cands += [c for c in candidates(html, url) if _key(c["url"]) not in known]
+            cands += [c for c in candidates(html, url) if _key(c["url"]) not in known
+                      and not (no_cover and c["kind"] != "body")]
         n = 0
         for c in cands:
             if len(picked) >= limit or n >= per_source:
@@ -231,11 +276,13 @@ def gather(sources: list[dict], limit: int = 6, per_source: int = 4, pages: int 
                 continue
             hashes.append(h)
             picked.append({"image": im, "src": c["url"], "credit": s.get("name") or urlsplit(url).netloc,
-                           "page": url, "alt": c["alt"], "kind": c["kind"]})
+                           "page": url, "alt": c["alt"], "kind": c["kind"], **classify(im)})
             n += 1
         if len(picked) >= limit:
             break
-    log.info("Fotoğraf: %d bulundu (%s)", len(picked), ", ".join(dict.fromkeys(p["credit"] for p in picked)) or "-")
+    picked.sort(key=lambda p: p["graphic"])  # kararlı sıralama: kaynak sırası korunur
+    log.info("Fotoğraf: %d bulundu, %d grafik (%s)", len(picked), sum(p["graphic"] for p in picked),
+             ", ".join(dict.fromkeys(p["credit"] for p in picked)) or "-")
     return picked
 
 

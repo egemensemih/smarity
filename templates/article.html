@@ -59,36 +59,40 @@
     </div>
   </header>
 
-  {% if post.photos %}
-  {% set n = post.photos|length %}
-  <figure class="gal{{ ' single' if n == 1 }}" data-gal aria-label="Haberin fotoğrafları">
+  {% set cp = post.cover_photo %}
+  {% if post.slides %}
+  {% set n = post.slides|length + 1 %}
+  <figure class="gal" data-gal aria-label="Haberin görselleri">
     <div class="gal-view">
       <div class="gal-track">
-        {% for ph in post.photos %}
-        <div class="gal-slide{{ ' fit' if (ph.w / ph.h) < 1.25 }}" role="group" aria-label="{{ loop.index }} / {{ n }}">
-          <img src="{{ ph.url }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" decoding="async"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %}{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %} style="{% if loop.first %}view-transition-name: v{{ post.id }}{% endif %}">
+        <div class="gal-slide cover" role="group" aria-label="1 / {{ n }}">
+          <img src="{{ post.img }}" alt="{{ post.img_alt }}" width="1280" height="960" decoding="async" fetchpriority="high" style="view-transition-name: v{{ post.id }}">
+          {% if cp and cp.credit %}<a class="gal-credit" href="{{ cp.page or post.sources[0].url }}" rel="noopener nofollow" target="_blank">Görsel: {{ cp.credit }}</a>{% endif %}
+        </div>
+        {% for ph in post.slides %}
+        <div class="gal-slide{{ ' fit' if ph.graphic or (ph.w / ph.h) < 1.25 }}" role="group" aria-label="{{ loop.index + 1 }} / {{ n }}">
+          <img src="{{ ph.url }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" decoding="async" loading="lazy"{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %}>
           {% if ph.credit %}<a class="gal-credit" href="{{ ph.page or post.sources[0].url }}" rel="noopener nofollow" target="_blank">Görsel: {{ ph.credit }}</a>{% endif %}
         </div>
         {% endfor %}
       </div>
-      {% if n > 1 %}
-      <button type="button" class="gal-btn" data-dir="-1" aria-label="Önceki fotoğraf">‹</button>
-      <button type="button" class="gal-btn" data-dir="1" aria-label="Sonraki fotoğraf">›</button>
+      <button type="button" class="gal-btn" data-dir="-1" aria-label="Önceki görsel">‹</button>
+      <button type="button" class="gal-btn" data-dir="1" aria-label="Sonraki görsel">›</button>
       <span class="gal-count" aria-live="polite"><b>1</b> / {{ n }}</span>
-      {% endif %}
     </div>
-    {% if n > 1 %}
     <div class="gal-thumbs">
-      {% for ph in post.photos %}
-      <button type="button" data-go="{{ loop.index0 }}" aria-label="{{ loop.index }}. fotoğraf"{% if loop.first %} aria-current="true"{% endif %}><img src="{{ ph.url }}" alt="" loading="lazy" decoding="async"{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %}></button>
+      <button type="button" data-go="0" aria-label="Kapak" aria-current="true"><img src="{{ post.img }}" alt="" loading="lazy" decoding="async"></button>
+      {% for ph in post.slides %}
+      <button type="button" data-go="{{ loop.index }}" aria-label="{{ loop.index + 1 }}. görsel"><img src="{{ ph.url }}" alt="" loading="lazy" decoding="async"{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %}></button>
       {% endfor %}
     </div>
-    {% endif %}
   </figure>
   {% else %}
   <figure class="art-media">
-    <div class="ph">{{ img(post, eager=true, sizes='(min-width: 880px) 840px, 100vw', priority=true) }}</div>
-    {% if not post.cover_image %}<figcaption>{% if post.ai_image %}Temsili görsel, yapay zeka ile üretilmiştir.{% else %}Temsili görsel.{% endif %}</figcaption>{% endif %}
+    <div class="ph">{{ img(post, eager=true, sizes='(min-width: 880px) 840px, 100vw', priority=true) }}
+      {% if cp and cp.credit %}<a class="gal-credit" href="{{ cp.page or post.sources[0].url }}" rel="noopener nofollow" target="_blank">Görsel: {{ cp.credit }}</a>{% endif %}
+    </div>
+    {% if not post.cover_image and not cp %}<figcaption>{% if post.ai_image %}Temsili görsel, yapay zeka ile üretilmiştir.{% else %}Temsili görsel.{% endif %}</figcaption>{% endif %}
   </figure>
   {% endif %}
 

@@ -1,0 +1,89 @@
+{# Fotoğraflı kapak: gerçek fotoğraf + bizim tasarım dilimiz (kategori renginde ışık, dev rakam / isim / manşet).
+   Değişkenler: photo (dosya adresi), focus (object-position), layout (sayi|isim|manset), pal, stat, stat_label, word,
+   headline, kicker, brand (bool), credit, W, H #}
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Bold.ttf"); font-weight: 700; }
+:root {
+  --u: {{ [W, H]|min / 100 }}px;
+  --c1: {{ pal[0] }}; --c2: {{ pal[1] }}; --c3: {{ pal[2] }}; --c4: {{ pal[3] }};
+  --shade: 7, 8, 13;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: {{ W }}px; height: {{ H }}px; overflow: hidden; }
+body { font-family: "IS", system-ui, sans-serif; background: #07080D; color: #fff; -webkit-font-smoothing: antialiased;
+  position: relative; isolation: isolate; }
+.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ focus }}; z-index: -4; }
+.scrim { position: absolute; inset: 0; z-index: -3;
+  background: linear-gradient(to top, rgba(var(--shade), .95) 0%, rgba(var(--shade), .80) 22%, rgba(var(--shade), .42) 44%, rgba(var(--shade), 0) 64%); }
+.l-manset .scrim { background: linear-gradient(to top, rgba(var(--shade), .96) 0%, rgba(var(--shade), .84) 28%, rgba(var(--shade), .45) 52%, rgba(var(--shade), 0) 72%); }
+.top { position: absolute; inset: 0 0 auto; height: 30%; z-index: -3; background: linear-gradient(to bottom, rgba(var(--shade), .55), rgba(var(--shade), 0)); }
+.tint { position: absolute; z-index: -2; border-radius: 50%; mix-blend-mode: screen; filter: blur(calc(var(--u) * 9)); }
+.tint.a { left: -18%; bottom: -34%; width: 72%; height: 78%; background: var(--c2); opacity: .55; }
+.tint.b { right: -20%; bottom: -40%; width: 60%; height: 60%; background: var(--c3); opacity: .35; }
+.grain { position: absolute; inset: 0; z-index: -1; opacity: .08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+
+.txt { position: absolute; left: calc(var(--u) * 6); right: calc(var(--u) * 6); bottom: calc(var(--u) * 8.5);
+  display: flex; flex-direction: column; align-items: flex-start; gap: calc(var(--u) * 1.6); }
+.bar { width: calc(var(--u) * 7); height: calc(var(--u) * .9); border-radius: 99px;
+  background: linear-gradient(90deg, var(--c1), var(--c2) 55%, var(--c4)); box-shadow: 0 0 calc(var(--u) * 3) color-mix(in srgb, var(--c2) 70%, transparent); }
+.grad { background: linear-gradient(100deg, #FFFFFF 0%, var(--c1) 36%, color-mix(in oklab, var(--c2) 62%, #fff) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.num { font-weight: 700; font-size: calc(var(--u) * 25); line-height: .9; letter-spacing: -.06em; white-space: nowrap;
+  padding: 0 .04em .06em 0; max-width: 100%; }
+.lab { font-weight: 700; font-size: calc(var(--u) * 4.4); letter-spacing: -.02em; color: rgba(255,255,255,.84); max-width: 26ch; text-wrap: balance; }
+.word { font-weight: 700; font-size: calc(var(--u) * 15.5); line-height: .96; letter-spacing: -.055em; text-wrap: balance; max-width: 100%;
+  padding-bottom: .04em; }
+.head { font-weight: 700; font-size: calc(var(--u) * 7.4); line-height: 1.03; letter-spacing: -.04em; text-wrap: balance; max-width: 100%;
+  text-shadow: 0 calc(var(--u) * .3) calc(var(--u) * 3) rgba(0,0,0,.35); }
+.head em { font-style: normal; }
+.head .grad-text { background: linear-gradient(100deg, var(--c1) 0%, color-mix(in oklab, var(--c2) 55%, #fff) 60%, var(--c4) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; }
+
+.kicker { position: absolute; left: calc(var(--u) * 6); top: calc(var(--u) * 5.5); display: inline-flex; align-items: center; gap: calc(var(--u) * 1.2);
+  padding: calc(var(--u) * 1.1) calc(var(--u) * 2.2); border-radius: 999px; font-weight: 700; font-size: calc(var(--u) * 3.1); letter-spacing: -.01em;
+  background: rgba(12,12,18,.42); border: 1px solid rgba(255,255,255,.2); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+.kicker i { width: calc(var(--u) * 1.6); height: calc(var(--u) * 1.6); border-radius: 50%; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+.brand { position: absolute; right: calc(var(--u) * 6); top: calc(var(--u) * 5.6); height: calc(var(--u) * 5); width: calc(var(--u) * 18.7);
+  background: url("{{ logo_light_uri }}") right center / contain no-repeat; }
+.credit { position: absolute; right: calc(var(--u) * 6); bottom: calc(var(--u) * 3); font-size: calc(var(--u) * 2.1); font-weight: 400;
+  color: rgba(255,255,255,.66); letter-spacing: .01em; }
+</style></head>
+<body class="l-{{ layout }}">
+<img class="photo" src="{{ photo }}" alt="">
+<div class="scrim"></div>
+{% if kicker or brand %}<div class="top"></div>{% endif %}
+<div class="tint a"></div><div class="tint b"></div>
+<div class="grain"></div>
+
+{% if kicker %}<div class="kicker"><i></i>{{ kicker }}</div>{% endif %}
+{% if brand and logo_light_uri %}<div class="brand" role="img" aria-label="{{ brand_name }}"></div>{% endif %}
+
+<div class="txt">
+  <span class="bar"></span>
+  {% if layout == 'sayi' %}
+    {% if stat_label %}<div class="lab">{{ stat_label }}</div>{% endif %}
+    <div class="num grad" data-fitw>{{ stat }}</div>
+  {% elif layout == 'isim' %}
+    <div class="word grad" data-fitw data-maxh="{{ (H * 0.36)|int }}">{{ word }}</div>
+  {% else %}
+    <div class="head" data-maxh="{{ (H * 0.34)|int }}">{{ headline|safe }}</div>
+  {% endif %}
+</div>
+{% if credit %}<div class="credit">Görsel: {{ credit }}</div>{% endif %}
+
+<script>
+function fitW(el){ const max = el.parentElement.clientWidth - 4; const r = document.createRange(); r.selectNodeContents(el);
+  let fs = parseFloat(getComputedStyle(el).fontSize); while (r.getBoundingClientRect().width > max && fs > 20) { fs -= 3; el.style.fontSize = fs + "px"; } }
+function fitH(el, max){ let fs = parseFloat(getComputedStyle(el).fontSize); while (el.scrollHeight > max && fs > 18) { fs -= 2; el.style.fontSize = fs + "px"; } }
+document.fonts.ready.then(function(){
+  document.querySelectorAll("[data-fitw]").forEach(fitW);
+  document.querySelectorAll("[data-maxh]").forEach(function(e){ fitH(e, +e.dataset.maxh); });
+  var im = document.querySelector(".photo");
+  (im.complete ? Promise.resolve() : new Promise(function(r){ im.onload = im.onerror = r; })).then(function(){ window.__ready = true; });
+});
+</script>
+</body></html>

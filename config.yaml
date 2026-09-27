@@ -57,11 +57,12 @@ autonomy:
 
 images:
   # Gerçek fotoğraflar: önce şirketin resmi görseli, yoksa kaynak haberin görselleri (kaynağı fotoğrafın altında yazar).
-  # Fotoğraf bulunamazsa aşağıdaki tipografik kapak kullanılır.
+  # Kapak her zaman bizim tasarımımızdır: anlamlı bir fotoğraf varsa üstüne dev rakam / isim / manşet yazılır,
+  # yoksa (ekran görüntüsü, grafik, yazılı paylaşım görseli) tipografik kapak kullanılır. Diğer fotoğraflar
+  # kaydırmalı alanda ve haberin paragrafları arasında, kaynağıyla gösterilir. Fotoğraflar hiç silinmez.
   photos: true
-  photo_limit: 6                  # haber başına en fazla fotoğraf (1 ana + galeri)
+  photo_limit: 6                  # haber başına en fazla fotoğraf
   photo_backfill_per_run: 5       # eski haberlere her turda kaç tanesine fotoğraf eklensin
-  gallery_keep_days: 0            # 0 = fotoğraflar hiç silinmez (kalıcı depolama)
   # kapak: habere özel tipografik kapak (dev rakam / isim / manşet), ücretsiz (önerilen)
   # 3d   : renkli 3D şekiller
   style: kapak
@@ -102,6 +103,7 @@ ai:
 #  kind: official (şirketin kendi duyurusu), media (haber sitesi), community (topluluk)
 #  type: rss (varsayılan) | html (RSS'i olmayan sayfalar için)
 #  Bir kaynağı kapatmak için satırlarının başına # koy.
+#  photo_cover: false → kaynağın paylaşım görseline yazı basılıysa o görsel alınmaz, sadece haberdeki fotoğraflar.
 # ─────────────────────────────────────────────────────────────
 sources:
   # ── Resmi duyurular ──
@@ -209,6 +211,7 @@ sources:
   - name: DonanımHaber
     url: https://www.donanimhaber.com/rss/tum/
     kind: media
+    photo_cover: false   # paylaşım görsellerine yazı basıyor: yalnızca haber içindeki fotoğraflar alınır
   - name: LOG
     url: https://www.log.com.tr/feed/
     kind: media
