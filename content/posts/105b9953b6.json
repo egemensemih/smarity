@@ -50,10 +50,10 @@
     "message_id": 33
   },
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi--210902",
-    "src": "https://www.donanimhaber.com/images/images/haber/210902/1200x675ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi.jpg"
+    "source": "cover",
+    "layout": "isim",
+    "palette": "teknoloji-2",
+    "cover_v": 1
   },
   "slug": "otegezegen-radyo-sinyali-tespit-edildi",
   "published_at": "2026-09-25T15:07:15Z",
@@ -61,41 +61,39 @@
   "photos_tried": "2026-09-26T12:50:31Z",
   "photos": [
     {
-      "file": "105b9953b6.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210902/1200x675ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi--210902",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "105b9953b6-g1.webp",
+      "file": "105b9953b6-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925140308&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210902/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi210902_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi--210902",
       "alt": "",
       "w": 720,
-      "h": 401
+      "h": 401,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "105b9953b6-g2.webp",
+      "file": "105b9953b6-g1.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925140308&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210902/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi210902_1.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi--210902",
       "alt": "",
       "w": 720,
-      "h": 324
+      "h": 324,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "105b9953b6-g3.webp",
+      "file": "105b9953b6-g2.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925140308&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210902/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi210902_2.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/ilk-kez-bir-otegezegenden-gelen-radyo-sinyali-tespit-edildi--210902",
       "alt": "",
       "w": 720,
-      "h": 697
+      "h": 697,
+      "graphic": true,
+      "cover_ok": false
     }
   ],
-  "updated_at": "2026-09-25T15:07:15Z"
+  "updated_at": "2026-09-25T15:07:15Z",
+  "photos_v": 2
 }

@@ -53,10 +53,10 @@
     "message_id": 27
   },
   "image": {
-    "source": "photo",
-    "credit": "Anadolu Ajansı",
-    "page": "https://www.aa.com.tr/tr/bilim-teknoloji/aselsanin-derinlerdeki-milli-gozu-deringoz-firat-nehrinde-kesif-yapti/4069214",
-    "src": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/09/25/thumbs_b_c_280e3622efb7c8c9317883e589a53f59.jpg"
+    "source": "cover",
+    "layout": "isim",
+    "palette": "inovasyon-2",
+    "cover_v": 1
   },
   "slug": "aselsan-deringoz-firat-nehrinde-kesif-yapti",
   "published_at": "2026-09-25T15:05:13Z",
@@ -64,14 +64,17 @@
   "photos_tried": "2026-09-26T12:55:28Z",
   "photos": [
     {
-      "file": "a10d093fb9.webp",
+      "file": "a10d093fb9-g0.webp",
       "src": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/09/25/thumbs_b_c_280e3622efb7c8c9317883e589a53f59.jpg",
       "credit": "Anadolu Ajansı",
       "page": "https://www.aa.com.tr/tr/bilim-teknoloji/aselsanin-derinlerdeki-milli-gozu-deringoz-firat-nehrinde-kesif-yapti/4069214",
       "alt": "ASELSAN'ın derinlerdeki milli gözü DERİNGÖZ, Fırat Nehri'nde keşif yaptı",
       "w": 864,
-      "h": 486
+      "h": 486,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T15:05:13Z"
+  "updated_at": "2026-09-25T15:05:13Z",
+  "photos_v": 2
 }

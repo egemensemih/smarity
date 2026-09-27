@@ -53,9 +53,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "740af81329-g1.webp",
     "credit": "Webtekno",
     "page": "https://www.webtekno.com/byd-seagull-yeni-neslini-tanitti-h225676.html",
-    "src": "https://imgrosetta.webtekno.com/file/688972/688972-700x400.jpg"
+    "src": "https://imgrosetta.webtekno.com/file/688975/1200xauto.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "byd-seagull-yeni-nesli-tanitildi",
   "published_at": "2026-09-25T15:58:53Z",
@@ -63,13 +66,15 @@
   "photos_tried": "2026-09-26T12:45:39Z",
   "photos": [
     {
-      "file": "740af81329.webp",
+      "file": "740af81329-g0.webp",
       "src": "https://imgrosetta.webtekno.com/file/688972/688972-700x400.jpg",
       "credit": "Webtekno",
       "page": "https://www.webtekno.com/byd-seagull-yeni-neslini-tanitti-h225676.html",
       "alt": "",
       "w": 640,
-      "h": 360
+      "h": 360,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "740af81329-g1.webp",
@@ -78,7 +83,9 @@
       "page": "https://www.webtekno.com/byd-seagull-yeni-neslini-tanitti-h225676.html",
       "alt": "2",
       "w": 1200,
-      "h": 854
+      "h": 854,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "740af81329-g2.webp",
@@ -87,7 +94,9 @@
       "page": "https://www.webtekno.com/byd-seagull-yeni-neslini-tanitti-h225676.html",
       "alt": "2",
       "w": 1200,
-      "h": 1013
+      "h": 1013,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "740af81329-g3.webp",
@@ -96,8 +105,11 @@
       "page": "https://www.webtekno.com/byd-seagull-yeni-neslini-tanitti-h225676.html",
       "alt": "“404 Not Found”daki 404 Sayısı Nereden Geliyor?",
       "w": 640,
-      "h": 357
+      "h": 357,
+      "graphic": false,
+      "cover_ok": false
     }
   ],
-  "updated_at": "2026-09-25T15:58:53Z"
+  "updated_at": "2026-09-25T15:58:53Z",
+  "photos_v": 2
 }

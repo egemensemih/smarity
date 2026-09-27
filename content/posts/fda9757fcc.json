@@ -56,9 +56,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "fda9757fcc-g1.webp",
     "credit": "Webtekno",
     "page": "https://www.webtekno.com/elon-musk-yapay-zeka-yarisinda-iddiali-cikis-6-ay-icinde-lider-olabiliriz-h225691.html",
-    "src": "https://imgrosetta.webtekno.com/file/689077/689077-700x400.png"
+    "src": "https://imgrosetta.webtekno.com/file/689056/1200xauto.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "spacex-yapay-zeka-yarisi-alti-ay",
   "published_at": "2026-09-25T15:04:39Z",
@@ -66,13 +69,15 @@
   "photos_tried": "2026-09-26T12:55:53Z",
   "photos": [
     {
-      "file": "fda9757fcc.webp",
+      "file": "fda9757fcc-g0.webp",
       "src": "https://imgrosetta.webtekno.com/file/689077/689077-700x400.png",
       "credit": "Webtekno",
       "page": "https://www.webtekno.com/elon-musk-yapay-zeka-yarisinda-iddiali-cikis-6-ay-icinde-lider-olabiliriz-h225691.html",
       "alt": "",
       "w": 640,
-      "h": 360
+      "h": 360,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "fda9757fcc-g1.webp",
@@ -81,7 +86,9 @@
       "page": "https://www.webtekno.com/elon-musk-yapay-zeka-yarisinda-iddiali-cikis-6-ay-icinde-lider-olabiliriz-h225691.html",
       "alt": "69a59ee71fb3fcb42648b820",
       "w": 1200,
-      "h": 600
+      "h": 600,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "fda9757fcc-g2.webp",
@@ -90,7 +97,9 @@
       "page": "https://www.webtekno.com/elon-musk-yapay-zeka-yarisinda-iddiali-cikis-6-ay-icinde-lider-olabiliriz-h225691.html",
       "alt": "images",
       "w": 1200,
-      "h": 800
+      "h": 800,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "fda9757fcc-g3.webp",
@@ -99,8 +108,11 @@
       "page": "https://www.webtekno.com/elon-musk-yapay-zeka-yarisinda-iddiali-cikis-6-ay-icinde-lider-olabiliriz-h225691.html",
       "alt": "images (1)",
       "w": 1200,
-      "h": 674
+      "h": 674,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T15:04:39Z"
+  "updated_at": "2026-09-25T15:04:39Z",
+  "photos_v": 2
 }

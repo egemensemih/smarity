@@ -54,9 +54,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "74cc97382c-g1.webp",
     "credit": "Webtekno",
     "page": "https://www.webtekno.com/ea-sports-fc-27-dunya-genelinde-erisime-sunuldu-h225742.html",
-    "src": "https://imgrosetta.webtekno.com/file/689155/689155-700x400.jpg"
+    "src": "https://imgrosetta.webtekno.com/file/689158/1200xauto.jpg",
+    "layout": "isim",
+    "cover_v": 1
   },
   "slug": "ea-sports-fc-27-dunya-genelinde-cikti",
   "published_at": "2026-09-25T15:58:28Z",
@@ -64,13 +67,15 @@
   "photos_tried": "2026-09-26T12:45:42Z",
   "photos": [
     {
-      "file": "74cc97382c.webp",
+      "file": "74cc97382c-g0.webp",
       "src": "https://imgrosetta.webtekno.com/file/689155/689155-700x400.jpg",
       "credit": "Webtekno",
       "page": "https://www.webtekno.com/ea-sports-fc-27-dunya-genelinde-erisime-sunuldu-h225742.html",
       "alt": "",
       "w": 640,
-      "h": 360
+      "h": 360,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "74cc97382c-g1.webp",
@@ -79,7 +84,9 @@
       "page": "https://www.webtekno.com/ea-sports-fc-27-dunya-genelinde-erisime-sunuldu-h225742.html",
       "alt": "2",
       "w": 1200,
-      "h": 675
+      "h": 675,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "74cc97382c-g2.webp",
@@ -88,7 +95,9 @@
       "page": "https://www.webtekno.com/ea-sports-fc-27-dunya-genelinde-erisime-sunuldu-h225742.html",
       "alt": "“404 Not Found”daki 404 Sayısı Nereden Geliyor?",
       "w": 640,
-      "h": 357
+      "h": 357,
+      "graphic": false,
+      "cover_ok": false
     },
     {
       "file": "74cc97382c-g3.webp",
@@ -97,8 +106,11 @@
       "page": "https://www.webtekno.com/ea-sports-fc-27-dunya-genelinde-erisime-sunuldu-h225742.html",
       "alt": "1 Milyon TL ve Altına Alınabilecek En Sorunsuz İkinci El Otomobiller",
       "w": 640,
-      "h": 361
+      "h": 361,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T15:58:28Z"
+  "updated_at": "2026-09-25T15:58:28Z",
+  "photos_v": 2
 }

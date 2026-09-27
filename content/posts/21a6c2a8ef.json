@@ -53,9 +53,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "21a6c2a8ef-g0.webp",
     "credit": "Engadget",
     "page": "https://www.engadget.com/2268608/spacex-starship-first-orbit-flight-set-for-september-28/",
-    "src": "https://www.engadget.com/img/gallery/spacex-starships-first-orbital-flight-test-on-track-after-successful-launch-rehearsal/l-intro-1790337251.jpg"
+    "src": "https://www.engadget.com/img/gallery/spacex-starships-first-orbital-flight-test-on-track-after-successful-launch-rehearsal/l-intro-1790337251.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "spacex-starship-yorunge-testi-hazirliklari-tamamlandi",
   "published_at": "2026-09-25T15:05:28Z",
@@ -63,14 +66,17 @@
   "photos_tried": "2026-09-26T12:51:05Z",
   "photos": [
     {
-      "file": "21a6c2a8ef.webp",
+      "file": "21a6c2a8ef-g0.webp",
       "src": "https://www.engadget.com/img/gallery/spacex-starships-first-orbital-flight-test-on-track-after-successful-launch-rehearsal/l-intro-1790337251.jpg",
       "credit": "Engadget",
       "page": "https://www.engadget.com/2268608/spacex-starship-first-orbit-flight-set-for-september-28/",
       "alt": "",
       "w": 1600,
-      "h": 900
+      "h": 900,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T15:05:28Z"
+  "updated_at": "2026-09-25T15:05:28Z",
+  "photos_v": 2
 }

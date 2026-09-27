@@ -72,10 +72,10 @@
     "message_id": 3
   },
   "image": {
-    "source": "photo",
-    "credit": "LOG",
-    "page": "https://www.log.com.tr/microsoft-copilotun-tum-yeteneklerini-tek-uygulamada-birlestirdi/",
-    "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-25_15-31-02_rgYZU.jpg"
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "inovasyon-1",
+    "cover_v": 1
   },
   "slug": "microsoft-copilot-yenilendi-tek-uygulamada-birlesti",
   "published_at": "2026-09-25T12:57:59Z",
@@ -83,41 +83,50 @@
   "photos_tried": "2026-09-26T13:02:20Z",
   "photos": [
     {
-      "file": "786bf7382a.webp",
-      "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-25_15-31-02_rgYZU.jpg",
-      "credit": "LOG",
-      "page": "https://www.log.com.tr/microsoft-copilotun-tum-yeteneklerini-tek-uygulamada-birlestirdi/",
-      "alt": "",
-      "w": 1600,
-      "h": 900
-    },
-    {
-      "file": "786bf7382a-g1.webp",
-      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/copilothed.jpg?quality=90&strip=all&crop=0,10.713360597188,100,78.573278805623",
-      "credit": "The Verge",
-      "page": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
-      "alt": "",
-      "w": 1280,
-      "h": 666
-    },
-    {
-      "file": "786bf7382a-g2.webp",
+      "file": "786bf7382a-g0.webp",
       "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Copilot-Code.png?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400",
       "credit": "The Verge",
       "page": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
       "alt": "Code is a surprise addition to a Copilot app focused on knowledge workers.",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": false
     },
     {
-      "file": "786bf7382a-g3.webp",
+      "file": "786bf7382a-g1.webp",
       "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Copilot-Autopilot.png?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400",
       "credit": "The Verge",
       "page": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
       "alt": "You can give Autopilot a name and an appearance.",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": false
+    },
+    {
+      "file": "786bf7382a-g2.webp",
+      "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-25_15-31-02_rgYZU.jpg",
+      "credit": "LOG",
+      "page": "https://www.log.com.tr/microsoft-copilotun-tum-yeteneklerini-tek-uygulamada-birlestirdi/",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "graphic": true,
+      "cover_ok": false
+    },
+    {
+      "file": "786bf7382a-g3.webp",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/copilothed.jpg?quality=90&strip=all&crop=0,10.713360597188,100,78.573278805623",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/news/1000532/microsoft-copilot-super-app-chat-coding-autopilot",
+      "alt": "",
+      "w": 1280,
+      "h": 666,
+      "graphic": true,
+      "cover_ok": false
     }
   ],
-  "updated_at": "2026-09-25T12:57:59Z"
+  "updated_at": "2026-09-25T12:57:59Z",
+  "photos_v": 2
 }

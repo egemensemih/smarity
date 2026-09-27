@@ -81,9 +81,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "ef3d93ddad-g0.webp",
     "credit": "Google",
     "page": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/",
-    "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Slide_16_9_-_37.width-1300.png"
+    "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Slide_16_9_-_37.width-1300.png",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "gemini-3-8-live-live-avatar-ozelligi",
   "published_at": "2026-09-25T12:58:12Z",
@@ -91,13 +94,15 @@
   "photos_tried": "2026-09-26T13:02:16Z",
   "photos": [
     {
-      "file": "ef3d93ddad.webp",
+      "file": "ef3d93ddad-g0.webp",
       "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Slide_16_9_-_37.width-1300.png",
       "credit": "Google",
       "page": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/",
       "alt": "",
       "w": 1300,
-      "h": 731
+      "h": 731,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "ef3d93ddad-g1.webp",
@@ -106,7 +111,9 @@
       "page": "https://interestingengineering.com/space/google-project-suncatcher-ai-chips-space-launch",
       "alt": "",
       "w": 1140,
-      "h": 608
+      "h": 608,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "ef3d93ddad-g2.webp",
@@ -115,7 +122,9 @@
       "page": "https://interestingengineering.com/space/google-project-suncatcher-ai-chips-space-launch",
       "alt": "Hydrogen fuel cell that works without air targets long-duration Moon missions",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "ef3d93ddad-g3.webp",
@@ -124,7 +133,9 @@
       "page": "https://interestingengineering.com/space/google-project-suncatcher-ai-chips-space-launch",
       "alt": "US scientists take real-time look at spacecraft heat shields that withstand 1,652 °F temperature",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "ef3d93ddad-g4.webp",
@@ -133,8 +144,11 @@
       "page": "https://interestingengineering.com/space/google-project-suncatcher-ai-chips-space-launch",
       "alt": "UK blinds enemy spy satellites with ground-based lasers to shield military secrets",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T12:58:12Z"
+  "updated_at": "2026-09-25T12:58:12Z",
+  "photos_v": 2
 }
