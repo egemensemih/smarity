@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 2
     },
     "The Verge": {
@@ -29,12 +29,12 @@
       "rejected": 4
     },
     "DonanımHaber": {
-      "approved": 8,
-      "rejected": 6
+      "approved": 10,
+      "rejected": 7
     },
     "ShiftDelete.Net": {
-      "approved": 4,
-      "rejected": 4
+      "approved": 5,
+      "rejected": 5
     },
     "Webtekno": {
       "approved": 5,
@@ -42,7 +42,7 @@
     },
     "Anadolu Ajansı": {
       "approved": 1,
-      "rejected": 5
+      "rejected": 6
     },
     "GamesIndustry.biz": {
       "approved": 1,
@@ -61,7 +61,7 @@
       "rejected": 0
     },
     "Polygon": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 2
     },
     "WIRED": {
@@ -74,10 +74,10 @@
     },
     "New Atlas": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "GSMArena": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 1
     },
     "Ars Technica": {
@@ -569,6 +569,48 @@
     {
       "t": "2026-09-27T06:07:52Z",
       "id": "ee9f2bdfe6",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:45:38Z",
+      "id": "aa9892b773",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:45:40Z",
+      "id": "ecc583c3d5",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:46:02Z",
+      "id": "d901a6a000",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:46:15Z",
+      "id": "de8dd284b5",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:46:53Z",
+      "id": "af078c030b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:46:55Z",
+      "id": "537ba26bf2",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T16:47:07Z",
+      "id": "7b5c143681",
       "ok": false,
       "manual": true
     }
