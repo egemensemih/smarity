@@ -18,7 +18,7 @@
     },
     "Interesting Engineering": {
       "approved": 3,
-      "rejected": 3
+      "rejected": 4
     },
     "Webrazzi": {
       "approved": 4,
@@ -70,7 +70,7 @@
     },
     "IGN": {
       "approved": 0,
-      "rejected": 4
+      "rejected": 5
     },
     "New Atlas": {
       "approved": 1,
@@ -558,6 +558,18 @@
       "t": "2026-09-27T06:06:51Z",
       "id": "3bd96a0fa5",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T06:07:52Z",
+      "id": "2f4819a20c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-27T06:07:52Z",
+      "id": "ee9f2bdfe6",
+      "ok": false,
       "manual": true
     }
   ]
