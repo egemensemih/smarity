@@ -1,0 +1,93 @@
+{
+  "id": "50012851f7",
+  "created_at": "2026-09-27T19:45:58Z",
+  "title": "Xiaomi MiMo-V2.6 tanıtıldı: 1 trilyon parametreli yeni yapay zeka modeli",
+  "summary": "Xiaomi, metin, görüntü, ses ve video işleyebilen, 1 trilyon parametreden oluşan MiMo-V2.6 model ailesini duyurdu.",
+  "body": "Xiaomi MiMo-V2.6, metin, görüntü, ses ve video girdilerini aynı sistem içinde işleyebilen yeni yapay zeka model ailesi olarak tanıtıldı. DonanımHaber'in aktardığına göre, serinin en iddialı üyesi olan MiMo-V2.6-Pro toplam 1,02 trilyon parametreye sahip bulunuyor. Uzmanlar ve yazılımcılar arasında modelin kapasitesi tartışılırken, bağımsız performans testleri MiMo-V2.6-Pro'nun özellikle kodlama alanında en iyi açık modeller arasında yer aldığını gösteriyor.\n\n## MiMo-V2.6 mimarisi ve versiyonları\n\nMiMo-V2.6-Pro, Mixture of Experts yani uzmanların karışımı mimarisini kullandığı için her işlemde parametrelerin tamamı aktif olmuyor ve çıkarım sırasında yaklaşık 42 milyar parametre devreye giriyor. Model ayrıca 1 milyon tokenlık büyük bir bağlam penceresi sunuyor. Eğitim sürecinde pekiştirmeli öğrenmeye ağırlık verilen sistem, bu sayede uzun soluklu görevlerde planlama yapma ve hata düzeltme gibi yetenekler kazanıyor. Ailenin daha küçük ve ekonomik üyesi MiMo-V2.6-Flash ise 310 milyar toplam parametreye ve çıkarım sırasında aktif olan 15 milyar parametreye sahip.\n\n## Fiyatlandırma ve maliyet avantajı\n\nXiaomi'nin duyurduğu API fiyatlandırmasına göre, yüksek hacimli uygulamalar için geliştirilen MiMo-V2.6-Flash modeli, 1 milyon giriş tokenı için 0,14 dolar ve 1 milyon çıkış tokenı için 0,28 dolar ücretlendiriliyor. Pro modelinde ise bu rakamlar 1 milyon giriş tokenı için 0,435 dolar, çıkış tokenı için ise 0,87 dolar seviyesinde yer alıyor. Bu fiyatlandırma ile Flash modeli, yoğun yapay zeka işlemlerinde daha ekonomik bir alternatif olmayı hedefliyor.\n\n**Neden önemli?** Tek bir mimari çatısı altında metin, ses, görüntü ve video verilerini bir arada işleyebilen MiMo-V2.6 serisi, açık modeller pazarında rekabeti kızıştırarak özellikle kodlama ve uzun süreli yapay zeka ajan görevleri için yeni maliyet ve performans seçenekleri sunuyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Xiaomi",
+    "MiMo-V2.6",
+    "yapay zeka",
+    "DeepSeek"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Xiaomi MiMo-V2.6 tanıtıldı",
+  "kicker": "Yeni model",
+  "hero_stat": "1,02 trilyon",
+  "hero_stat_label": "toplam parametre",
+  "visual_style": "studio",
+  "visual_scene": "a single translucent frosted-glass monolith standing upright on a dark surface, casting a soft warm glow from its core, with fine geometric lines etched onto its smooth surface",
+  "focus_keyword": "Xiaomi MiMo-V2.6",
+  "seo_title": "Xiaomi MiMo-V2.6 tanıtıldı: 1 trilyon parametreli yapay zeka",
+  "meta_description": "Xiaomi'nin 1 trilyon parametreden oluşan yeni yapay zeka modeli MiMo-V2.6 tanıtıldı. Pro ve Flash sürümlerinin özellikleri haberimizde.",
+  "seo_slug": "xiaomi-mimo-v2-6-yapay-zeka-modeli-tanitildi",
+  "image_alt": "Buzlu cam monoblok formunda Xiaomi MiMo-V2.6 yapay zeka modelini temsil eden soyut stüdyo görseli",
+  "cover_text": "MiMo-V2.6",
+  "carousel_points": [
+    "Xiaomi, metin, görüntü, ses ve video işleyebilen MiMo-V2.6 modelini tanıttı.",
+    "Pro modeli toplam 1,02 trilyon parametreye ve 1 milyon token bağlam penceresine sahip.",
+    "Flash versiyonu yüksek hacimli işlemler için daha düşük API maliyetleri sunuyor."
+  ],
+  "importance": 8,
+  "triage_reason": "Xiaomi'nin 1 trilyon parametreli yeni yapay zeka modeli büyük yankı uyandırdı.",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
+      "title": "Xiaomi'den yapay zekâ dünyasını şaşırtan model: 1 trilyon parametreli MiMo-V2.6 tanıtıldı",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-27T19:36:29Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/210969/1200x675xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 270
+  },
+  "photos": [
+    {
+      "file": "50012851f7.webp",
+      "src": "https://www.donanimhaber.com/images/images/haber/210969/1200x675xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
+      "alt": "",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "file": "50012851f7-g1.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260927223607&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210969/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre210969_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
+      "alt": "",
+      "w": 720,
+      "h": 376
+    },
+    {
+      "file": "50012851f7-g2.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260927223607&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210969/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre210969_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
+      "alt": "",
+      "w": 720,
+      "h": 417
+    }
+  ],
+  "image": {
+    "source": "photo",
+    "credit": "DonanımHaber",
+    "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
+    "src": "https://www.donanimhaber.com/images/images/haber/210969/1200x675xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre.jpg"
+  },
+  "slug": "xiaomi-mimo-v2-6-yapay-zeka-modeli-tanitildi",
+  "published_at": "2026-09-27T19:47:35Z",
+  "publish_mode": "manual"
+}
