@@ -1,6 +1,5 @@
 {
   "id": "81b95abbba",
-  "status": "pending",
   "created_at": "2026-09-27T17:16:11Z",
   "title": "İPhone 18 Pro Max üzerinde GTA 5 çalıştırıldı",
   "summary": "Apple'ın yeni A20 Pro işlemcisiyle donatılan iPhone 18 Pro Max, Vapor emülatörü aracılığıyla GTA 5'te yüksek kare hızlarına ulaştı.",
@@ -48,17 +47,6 @@
   "source_keys": [
     "ShiftDelete.Net"
   ],
-  "source_texts": [
-    {
-      "credit": "ShiftDelete.Net",
-      "kind": "media",
-      "title": "iPhone 18 Pro Max’te GTA 5 Oynadı: Masaüstü Bilgisayara Rakip",
-      "url": "https://shiftdelete.net/apple-a20-pro-gta-5-performansi",
-      "published": "2026-09-27T17:00:33Z",
-      "summary": "Apple A20 Pro işlemcili iPhone 18 Pro Max, GTA 5 oyununda GTX 1650 performansına ulaşıyor. Yeni mobil oyun teknolojilerini keşfedin.",
-      "text": "iPhone 18 Pro Max’te GTA 5 Oynadı: Masaüstü Bilgisayara Rakip\nApple’ın yeni nesil mobil işlemcisi A20 Pro, oyun dünyasında dikkat çekici bir başarıya imza atıyor. iPhone 18 Pro Max içerisinde yer alan bu çip, GTA 5 oyununda GTX 1650 ekran kartı ile benzer performans değerleri sergiliyor.\nEmülasyon yoluyla gerçekleştirilen bu test, mobil cihazların grafik gücündeki devasa gelişimi gözler önüne seriyor. Vapor adlı emülatör üzerinde yapılan denemeler, AAA oyunların mobil platformlarda oynanabilirliğini kanıtlıyor.\nA20 Pro ve GTA 5 Performansı\nYapılan testlerde iPhone 18 Pro Max, şehir içi sürüş sahnelerinde ortalama 66 FPS değerine ulaşıyor. Oyunun diğer sahnelerinde ise bu oran 80 FPS seviyelerine kadar çıkabiliyor.\nHere’s the full GTA V benchmark running in Vapor on an iPhone 18 Pro Max\nCity drive: 66 FPS average\nOther scenes: 80 FPS average\n• 1080p, DirectX 11\n• High textures\n• FXAA, 16x AF\n• 75% population density\n• 50% distance scaling\n• Sharp shadows, MSAA off\n• Everything else on Normal\nStill a work in progress, and I have some minor issues left to fix.\n— Vapor (@play_vapor) September 27, 2026\nBu performans, 1080p çözünürlükte ve DirectX 11 desteğiyle elde ediliyor. Grafik ayarları ise yüksek doku kalitesi, FXAA ve 16x AF gibi detaylarla destekleniyor.\nAyrıca 75 oranında nüfus yoğunluğu ve 50 oranında mesafe ölçeklendirme ayarları kullanılıyor. Keskin gölgeler aktif tutulurken, MSAA özelliği ise kapalı konumda bırakılıyor.\nEmülasyon süreci hala geliştirilme aşamasında olsa da, elde edilen sonuçlar oldukça etkileyici görünüyor. Kullanıcılar, oyunun bazı küçük sorunlarının giderilmesiyle daha stabil bir deneyim bekliyor.\nTeknik Altyapı ve Soğutma Çözümleri\nApple, A20 Pro çipinde 7 çekirdekli bir GPU yapısı kullanıyor. Bu donanım, yeni nesil paketleme teknolojisi ve genişletilmiş bir buhar odası ile destekleniyor.\nŞirket, Wafer-Level Multi-Chip Module yani WMCM adı verilen özel bir paketleme yöntemine geçiş yaptı. Bu yöntem, DRAM birimini yan tarafa taşıyarak çipin daha verimli çalışmasına olanak tanıyor.\nBu tasarım değişikliği, cihazın ısınma sorunlarını yönetmesine yardımcı oluyor. Böylece A20 Pro, grafik yükü altındayken bile yüksek performansını koruyabiliyor.\nÖnceki nesil olan iPhone 17 Pro Max içerisindeki A19 Pro ile yapılan karşılaştırmalar, gelişimi net bir şekilde ortaya koyuyor. A20 Pro, selefine göre yüzde 50 oranında performans artışı sağlıyor.\nÖzellikle yüzde 1’lik düşük kare hızı değerlerinde yüzde 77’lik bir iyileşme gözlemleniyor. Bu veriler, Apple’ın mobil oyunculuk konusundaki kararlılığını destekleyen somut kanıtlar sunuyor.\nEmülasyon tarafındaki gelişmeler de oldukça dikkat çekici bir hızda ilerliyor. Geçmişte XeniOS Xbox 360 emülatörü ile yapılan denemelerde 20 FPS barajını aşmak oldukça zordu.\nVapor adlı emülatörün sunduğu bu yeni sonuçlar, mobil cihazların masaüstü seviyesindeki oyunları çalıştırma kapasitesini yeniden tanımlıyor. Teknolojinin geldiği bu nokta, gelecekteki mobil oyun deneyimlerinin sınırlarını zorlayacak gibi görünüyor.\nApple’ın bu donanım hamlesi, sadece işlemci gücünü değil aynı zamanda soğutma ve paketleme teknolojilerini de bir üst seviyeye taşıyor. Bu gelişmeler, mobil cihazların artık sadece günlük işler için değil, ciddi oyun oturumları için de kullanılabileceğini gösteriyor.\nSizce mobil cihazlar gelecekte masaüstü oyun bilgisayarlarının yerini tamamen alabilir mi?"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 251
@@ -80,5 +68,7 @@
     "page": "https://shiftdelete.net/apple-a20-pro-gta-5-performansi",
     "src": "https://ares.shiftdelete.net/2026/09/iphone-18-pro-maxte-gta-5-oynadi-masaustu-bilgisayara-rakip.webp"
   },
-  "policy_reason": "Genel onay oranı %33 (<%85)"
+  "slug": "iphone-18-pro-max-gta-5-performansi",
+  "published_at": "2026-09-27T18:19:15Z",
+  "publish_mode": "manual"
 }
