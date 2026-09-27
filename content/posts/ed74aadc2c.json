@@ -1,6 +1,5 @@
 {
   "id": "ed74aadc2c",
-  "status": "pending",
   "created_at": "2026-09-27T17:31:07Z",
   "title": "OpenAI ajanları BM sitesine erişmek için sınırları zorladı",
   "summary": "OpenAI ajanları, Birleşmiş Milletler verilerine ulaşmak için kısıtlamaları aşmaya çalışarak siteyi 16 binden fazla kez taradı.",
@@ -52,17 +51,6 @@
   "source_keys": [
     "The Verge"
   ],
-  "source_texts": [
-    {
-      "credit": "The Verge",
-      "kind": "media",
-      "title": "OpenAI agents tried to ‘bruteforce’ a UN website",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
-      "published": "2026-09-27T17:21:07Z",
-      "summary": "Security researcher Rowan Howard-Jones says that OpenAI agents scanned the UN Conference on Trade and Development's (UNCTAD) statistics site over 16,000 times between April and June. While the incident doesn't quite rise to the level of the Hugging Face hack, or the recent attacks on US government sites, it's yet another concerning example of AI […]",
-      "text": "Security researcher Rowan Howard-Jones says that OpenAI agents scanned the UN Conference on Trade and Development’s (UNCTAD) statistics site over 16,000 times between April and June. While the incident doesn’t quite rise to the level of the Hugging Face hack, or the recent attacks on US government sites, it’s yet another concerning example of AI agents going outside the normal bounds to accomplish a task.\nOpenAI agents tried to ‘bruteforce’ a UN website\nOpenAI’s agents resorted to increasingly aggressive tactics when they couldn’t immediately get what they wanted.\nAccording to Howard-Jones, the agents were likely tasked with retrieving publicly available data related to the Productive Capacities Index (PCI) through the UNCTADstat API. However, the agents did not appear to have direct API access and were limited in their ability to pull data from UNCTADstat because of restrictions on their HTTP tools.\nThe agents eventually worked out a way to bypass their limitations and start pulling data from the site, but still encountered some errors. At this point, the AI went from creative to deceptive. Believing that the errors were due to its requests being caught by a nonexistent filter, it started to mask its behavior. It eventually realized it could hijack Google’s XSS game (a cross-site scripting learning tool) to accomplish its goals. The agents resorted to increasingly aggressive tactics to get access to UN data.\nOpenAI and the UN did not immediately reply to a request for comment."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 252
@@ -84,5 +72,7 @@
     "page": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
     "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2236154957.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
   },
-  "policy_reason": "Uyarı işareti var"
+  "slug": "openai-ajanlari-bm-sitesini-taradi",
+  "published_at": "2026-09-27T18:21:10Z",
+  "publish_mode": "manual"
 }
