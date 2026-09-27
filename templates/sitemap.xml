@@ -2,8 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>{{ site.url }}/</loc><lastmod>{{ site.built_iso }}</lastmod></url>
   <url><loc>{{ site.url }}/hakkinda/</loc></url>
+  <url><loc>{{ site.url }}/haberler/</loc><lastmod>{{ site.built_iso }}</lastmod></url>
   {% for n in range(2, pages + 1) %}
-  <url><loc>{{ site.url }}/sayfa/{{ n }}/</loc></url>
+  <url><loc>{{ site.url }}/haberler/sayfa/{{ n }}/</loc></url>
   {% endfor %}
   {% for c in cats %}
   <url><loc>{{ site.url }}/kategori/{{ c.slug }}/</loc>{% if c.lastmod %}<lastmod>{{ c.lastmod }}</lastmod>{% endif %}</url>

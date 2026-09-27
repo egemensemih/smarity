@@ -16,10 +16,11 @@ from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
-from .prompts import (FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA, WRITE_SCHEMA, seo_system, seo_user,
-                      triage_system, triage_user, write_system, write_user)
+from .prompts import (APPEAL_SCHEMA, FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA, WRITE_SCHEMA, appeal_system,
+                      appeal_user, seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
 from .store import Store
+from .textfix import Fixer
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
                    tr_date)
@@ -55,10 +56,16 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 ❌ <b>Reddet</b> — yayınlamaz (Geri al ile dönebilirsin)
 📄 <b>Tam metin</b> — haberin tamamını gösterir
 🔁 <b>Yeniden yaz</b> — yapay zeka metni yeniden yazar
-🎨 <b>Yeni görsel</b> — aynı sahneden yeni bir görsel üretir
-🖼 <b>Kendi sahnen</b> — mesajı yanıtlayıp <code>görsel: kırmızı bir satranç tahtası üzerinde cam piyonlar</code> gibi yaz; görsel buna göre yeniden üretilir
+🖼 <b>Başka foto</b> — kapaktaki fotoğrafı sıradaki fotoğrafla değiştirir
+🎨 <b>Yazılı kapak / Yeni kapak</b> — kapağı bizim yazılı tasarımımıza çevirir ya da yenisini üretir (fotoğraflar haberde kalır)
+🚫 <b>Fotoğrafsız</b> — haberdeki tüm fotoğrafları kaldırır
+🔤 <b>Kapak yazısı</b> — mesajı yanıtlayıp <code>görsel: Galaxy S27</code> gibi kısa bir ifade yazarsan kapakta o yazar
 ✏️ <b>Düzeltme</b> — bir haber mesajını <i>yanıtlayıp</i> talimat yaz: "başlığı kısalt", "ikinci paragrafı çıkar" gibi. Yayınlanmış habere de uygulanır.
 🗑 <b>Kaldır</b> — yayınlanmış haberi siteden kaldırır
+⭐ <b>Manşete al</b> — haberi 36 saat ana sayfa manşetinin en başına koyar
+🙈 <b>Ana sayfada gösterme</b> — haber ana sayfaya çıkmaz, kategoride ve "Tüm haberler"de kalır
+
+<b>Ana sayfa seçkisi:</b> Her haber ana sayfaya çıkmaz. Yapay zeka her habere bir ilgi puanı verir; puan ve tazeliğe göre en dikkat çekiciler manşete ve "Öne çıkanlar"a girer.
 
 <b>Öğrenen mod:</b> Kararların kaynak bazında kaydedilir. Bir kaynak yeterince onay alınca, o kaynaktan gelen net haberler otomatik yayınlanır ve sana sessizce bildirilir. Şüpheli işaretli haberler her zaman sana sorulur.
 
@@ -308,6 +315,54 @@ class App:
                 "image": it.get("image")}
 
     # ── 2) YAZIM ────────────────────────────────────────────
+    @property
+    def fixer(self) -> Fixer:
+        """Türkçe metin düzeltici; sözlüğünü yayındaki haberlerin metinlerinden öğrenir (tur başına bir kez)."""
+        if getattr(self, "_fixer", None) is None:
+            self._fixer = Fixer([f"{p.get('summary', '')}\n{p.get('body', '')}" for p in self.store.posts()])
+        return self._fixer
+
+    @staticmethod
+    def _appeal(v) -> int | None:
+        try:
+            return max(1, min(10, int(v)))
+        except (TypeError, ValueError):
+            return None
+
+    def fix_texts(self) -> None:
+        """Yayındaki haberlerde Türkçe karakteri düşmüş sözcükleri ve marka yazımlarını düzelt."""
+        for p in self.store.posts():
+            changed = self.fixer.post(p)
+            if changed:
+                p["updated_at"] = p.get("updated_at") or p.get("published_at")
+                self.store.save_post(p)
+                self.queue_indexnow(self.cfg.post_url(p["slug"]))
+                log.info("Metin düzeltildi: %s (%s)", p["id"], ", ".join(changed))
+
+    def backfill_appeal(self, batch: int = 25) -> None:
+        """İlgi puanı olmayan eski haberleri toplu puanla (ana sayfa seçkisi için)."""
+        if not self.llm:
+            return
+        todo = [p for p in self.store.posts() if p.get("appeal") is None and not p.get("appeal_skip")][:batch]
+        if not todo:
+            return
+        try:
+            out = self.llm.json(self.cfg.get("ai", "triage_model", "gemini-flash-lite-latest"),
+                                appeal_system(self.brand), appeal_user(todo), APPEAL_SCHEMA, max_tokens=3000)
+        except LLMError as e:
+            log.warning("İlgi puanları alınamadı: %s", e)
+            return
+        got = {str(x.get("id")): self._appeal(x.get("appeal")) for x in (out.get("scores") or []) if isinstance(x, dict)}
+        for p in todo:
+            if got.get(p["id"]):
+                p["appeal"] = got[p["id"]]
+            else:
+                p["appeal_tries"] = int(p.get("appeal_tries", 0)) + 1
+                if p["appeal_tries"] >= 3:
+                    p["appeal_skip"] = True
+            self.store.save_post(p)
+        log.info("İlgi puanı verildi: %d haber", sum(1 for p in todo if p.get("appeal")))
+
     def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None) -> dict:
         cfg = self.cfg
         out = self.llm.json(
@@ -316,7 +371,7 @@ class App:
             write_user(sources, self.today(), previous, instruction),
             WRITE_SCHEMA, max_tokens=16000, effort=cfg.get("ai", "writer_effort", "medium"))
         cat = out.get("category") if out.get("category") in CATEGORIES else None
-        return {
+        res = {
             "title": clip((out.get("title") or "").strip().rstrip("."), 120),
             "summary": clip((out.get("summary") or "").strip(), 280),
             "body": (out.get("body") or "").strip(),
@@ -338,7 +393,10 @@ class App:
             "image_alt": clip((out.get("image_alt") or "").strip(), 125),
             "cover_text": clip((out.get("cover_text") or "").strip(), 24),
             "carousel_points": [clip(x.strip(), 130) for x in (out.get("carousel_points") or []) if x and x.strip()][:4],
+            "appeal": self._appeal(out.get("appeal")),
         }
+        self.fixer.post(res)          # Türkçe karakter ve marka yazımı düzeltmeleri
+        return res
 
     def create_draft(self, story: dict, its: list[dict]) -> dict:
         cfg, st = self.cfg, self.store
@@ -478,7 +536,10 @@ class App:
             return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])},
                      {"text": "🗑 Kaldır", "callback_data": f"d:{did}"}],
                     [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
-                     {"text": "📱 Instagram", "callback_data": f"s:{did}"}], self._visual_buttons(d)]
+                     {"text": "📱 Instagram", "callback_data": f"s:{did}"}], self._visual_buttons(d),
+                    [{"text": "⭐ Manşetten çıkar" if d.get("home") == "pin" else "⭐ Manşete al", "callback_data": f"m:{did}"},
+                     {"text": "🏠 Ana sayfada göster" if d.get("home") == "hide" else "🙈 Ana sayfada gösterme",
+                      "callback_data": f"h:{did}"}]]
         if kind == "rejected":
             return [[{"text": "↩️ Geri al", "callback_data": f"u:{did}"}]]
         return []
@@ -699,6 +760,21 @@ class App:
                 for s in d.get("sources", []))
             self.tg.send_message(self.chat_id, body, reply_to=mid, silent=True)
             return ""
+        if action in ("m", "h"):
+            # ana sayfa seçkisi: manşete sabitle (36 saat) ya da ana sayfada hiç gösterme (kategoride kalır)
+            if where != "post":
+                return "Önce yayınlanmalı."
+            cur = d.get("home")
+            new = ("pin" if cur != "pin" else None) if action == "m" else ("hide" if cur != "hide" else None)
+            if new:
+                d["home"], d["home_at"] = new, iso(now_utc())
+            else:
+                d.pop("home", None)
+                d.pop("home_at", None)
+            st.save_post(d)
+            self._update_preview(d, "auto" if d.get("publish_mode") == "auto" else "published")
+            return {"pin": "⭐ Manşete alındı", "hide": "🙈 Ana sayfada gösterilmeyecek (kategoride kalır)",
+                    None: "↩️ Ana sayfada normal sıralamaya döndü"}[new]
         if action == "v":
             if where == "draft" and d.get("status") != "pending":
                 return "Bu taslak kapanmış."
@@ -1528,6 +1604,11 @@ class App:
                 self.notify_error(f"Toplama sırasında hata: {type(e).__name__}: {e}")
         if not self.state.get("paused"):
             self.backfill_seo()
+            try:
+                self.fix_texts()
+                self.backfill_appeal()
+            except Exception as e:  # noqa: BLE001
+                log.exception("Metin/ilgi puanı hatası: %s", e)
             try:
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
             except Exception as e:  # noqa: BLE001

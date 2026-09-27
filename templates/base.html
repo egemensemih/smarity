@@ -31,6 +31,8 @@
 <link rel="icon" href="{{ site.base }}/static/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{{ site.base }}/static/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
+<link rel="manifest" href="{{ site.base }}/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="{{ site.name }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
@@ -48,12 +50,14 @@
       {% endfor %}
     </div>
     <div class="nav-end">
+      <a href="{{ site.base }}/haberler/" class="hide-sm">Tüm haberler</a>
       <a href="{{ site.base }}/hakkinda/" class="hide-sm">Hakkında</a>
       <details class="menu">
         <summary aria-label="Menüyü aç"><span></span></summary>
         <div class="menu-panel">
-          <a href="{{ site.base }}/">Tüm haberler</a>
-          {% for c in site.nav_categories %}<a href="{{ c.url }}">{{ c.label }}</a>{% endfor %}
+          <a href="{{ site.base }}/">Ana sayfa</a>
+          {% for c in site.nav_categories %}<a href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}</a>{% endfor %}
+          <a href="{{ site.base }}/haberler/">Tüm haberler</a>
           <a href="{{ site.base }}/hakkinda/">Hakkında</a>
         </div>
       </details>
@@ -68,17 +72,32 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand" href="{{ site.base }}/">{% if site.logo_svg %}<img class="wordmark" src="{{ site.logo_svg }}?v={{ site.asset_v }}" alt="{{ site.name }}" width="105" height="28" loading="lazy">{% else %}<span class="mark" aria-hidden="true"></span>{{ site.name }}{% endif %}</a>
-    <p>{{ site.name }}, dünyadan ve Türkiye'den teknoloji, inovasyon, girişim, yapay zeka, otomobil ve oyun haberlerini Türkçe ve kaynağıyla aktaran bir haber sitesidir. Her haberde orijinal kaynak adıyla ve bağlantısıyla belirtilir. Haberler kaynaklardan yapay zeka yardımıyla derlenir ve editör denetiminden geçer. Fotoğrafların kaynağı her fotoğrafın altında belirtilir.</p>
-    <div class="foot-cats">
-      {% for c in site.categories %}<a href="{{ c.url }}">{{ c.label }}</a>{% endfor %}
+    <div class="foot-brand">
+      <a class="brand" href="{{ site.base }}/">{% if site.logo_svg %}<img class="wordmark" src="{{ site.logo_svg }}?v={{ site.asset_v }}" alt="{{ site.name }}" width="105" height="28" loading="lazy">{% else %}<span class="mark" aria-hidden="true"></span>{{ site.name }}{% endif %}</a>
+      <p>{{ site.tagline }}</p>
+      <p class="foot-note">Haberler, dayandığı kaynaklardan yapay zeka yardımıyla Türkçe derlenir ve editör denetiminden geçer. Her haberde kaynak adıyla ve bağlantısıyla, her fotoğrafta sahibi belirtilir.</p>
     </div>
+    <nav class="foot-col" aria-label="Kategoriler">
+      <h2>Kategoriler</h2>
+      {% for c in site.categories %}<a href="{{ c.url }}">{{ c.label }}</a>{% endfor %}
+      <a href="{{ site.base }}/haberler/">Tüm haberler</a>
+    </nav>
+    <nav class="foot-col" aria-label="Takip et">
+      <h2>Takip et</h2>
+      {% for f in site.follow|default([]) %}<a href="{{ f.url }}"{% if f.key != 'rss' %} rel="noopener" target="_blank"{% endif %}>{{ f.label }}</a>{% endfor %}
+    </nav>
+    <nav class="foot-col" aria-label="Smarity">
+      <h2>{{ site.name }}</h2>
+      <a href="{{ site.base }}/hakkinda/">Hakkında</a>
+      <a href="{{ site.base }}/hakkinda/#ilkeler">Yayın ilkeleri</a>
+      {% if site.contact_email %}<a href="mailto:{{ site.contact_email }}">İletişim</a>{% endif %}
+    </nav>
     {% if site.top_tags %}
-    <div class="foot-cats foot-tags" aria-label="Popüler konular">
-      {% for t in site.top_tags %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}
+    <div class="foot-tags" aria-label="Popüler konular">
+      {% for t in site.top_tags[:10] %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}
     </div>
     {% endif %}
-    <p>© {{ site.year }} {{ site.name }} · <a href="{{ site.base }}/hakkinda/">Hakkında ve yayın ilkeleri</a> · <a href="{{ site.base }}/feed.xml">RSS</a>{% if site.instagram %} · <a href="https://instagram.com/{{ site.instagram }}" rel="noopener" target="_blank">Instagram</a>{% endif %}</p>
+    <p class="foot-copy">© {{ site.year }} {{ site.name }}</p>
   </div>
 </footer>
 <script src="{{ site.base }}/static/site.js?v={{ site.asset_v }}" defer></script>

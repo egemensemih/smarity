@@ -13,9 +13,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, category_label, category_seo, indexnow_key
 from .store import Store
+from .textfix import tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "9"
+ASSET_V = "10"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -62,6 +63,41 @@ def inline_figures(body_html: str, figs: list[dict], first: int = 1, every: int 
         last = pos
     out.append(body_html[last:])
     return "".join(out), figs[len(use):]
+
+
+def follow_links(site: dict) -> list[dict]:
+    """Takip kanalları (ayarlarda yazılı olanlar) + RSS."""
+    out = []
+    ig = (site.get("instagram") or "").lstrip("@").strip()
+    if ig:
+        out.append({"key": "instagram", "label": "Instagram", "handle": "@" + ig, "url": f"https://www.instagram.com/{ig}/"})
+    tg = (site.get("telegram") or "").lstrip("@").strip()
+    if tg:
+        out.append({"key": "telegram", "label": "Telegram", "handle": "@" + tg, "url": f"https://t.me/{tg}"})
+    wa = (site.get("whatsapp") or "").strip()
+    if wa:
+        out.append({"key": "whatsapp", "label": "WhatsApp", "handle": "Kanal", "url": wa})
+    x = (site.get("x") or "").lstrip("@").strip()
+    if x:
+        out.append({"key": "x", "label": "X", "handle": "@" + x, "url": f"https://x.com/{x}"})
+    out.append({"key": "rss", "label": "RSS", "handle": "Besleme", "url": f"{site.get('url', '')}/feed.xml"})
+    return out
+
+
+def hot(p: dict, now=None) -> float:
+    """Ana sayfa sıralaması: ilgi puanı (1–10) × tazelik. Fotoğraflı kapak az öne çıkar; manşete sabitlenen haber
+    36 saat boyunca en üstte durur; "ana sayfada gösterme" denen haber hiç çıkmaz (kategoride kalır)."""
+    home = p.get("home")
+    if home == "hide":
+        return -1.0
+    age = max(0.0, hours_since(p.get("published_at")))
+    base = float(p.get("appeal") or max(5, int(p.get("importance") or 6) - 1))
+    if (p.get("image") or {}).get("source") == "photo":
+        base += 1.0
+    score = base / (age + 4) ** 0.7
+    if home == "pin" and hours_since(p.get("home_at") or p.get("published_at")) < 36:
+        score += 100          # editör manşete sabitledi: 36 saat en üstte
+    return score
 
 
 def nobr_hyphen(title: str) -> str:
@@ -183,11 +219,14 @@ class SiteBuilder:
         for t in dict.fromkeys(t.strip() for t in (p.get("tags") or []) if t and t.strip()):
             ts = tag_slug(t)
             if ts and ts not in self.skip_tags and len(tags) < 6:
-                tags.append({"label": t, "slug": ts, "url": f"{b}/etiket/{ts}/"})
+                tags.append({"label": tag_display(t), "slug": ts, "url": f"{b}/etiket/{ts}/"})
         cat = p.get("category", DEFAULT_CATEGORY)
         return {
             **p,
             "url": f"{b}/haber/{p['slug']}/",
+            "ts": int(dt.timestamp()),
+            "hot": hot(p),
+            "photo_cover": (p.get("image") or {}).get("source") == "photo",
             "title_disp": nobr_hyphen(title),
             "short_disp": nobr_hyphen(short),
             "kicker_disp": p.get("kicker") or category_label(cat),
@@ -269,16 +308,23 @@ class SiteBuilder:
         path.write_text(content, encoding="utf-8")
 
     @staticmethod
-    def _featured(posts: list[dict], n: int) -> list[dict]:
-        """Manşet: son 3 günün en önemli haberleri (eşitlikte en yenisi); yetmezse en yeniler."""
-        fresh = [p for p in posts if hours_since(p.get("published_at")) <= 72]
-        pick = sorted(fresh, key=lambda p: (-int(p.get("importance") or 5), -(parse_iso(p.get("published_at")) or now_utc()).timestamp()))[:n]
-        for p in posts:
-            if len(pick) >= n:
-                break
-            if p not in pick:
-                pick.append(p)
-        return pick
+    def _home(posts: list[dict], n_feat: int) -> dict:
+        """Ana sayfa seçkisi. Her onaylanan haber ana sayfaya çıkmaz: en dikkat çekiciler (ilgi × tazelik) seçilir,
+        bir haber sayfada yalnızca bir kez görünür. Tüm haberler kategori ve "Tüm haberler" sayfalarında durur."""
+        visible = [p for p in posts if p["hot"] >= 0]
+        ranked = sorted(visible, key=lambda p: -p["hot"])
+        fresh = [p for p in ranked if hours_since(p.get("published_at")) <= 72 or p["hot"] >= 100]  # sabitlenen her zaman
+        featured = (fresh + [p for p in ranked if p not in fresh])[:n_feat]
+        shown = {p["id"] for p in featured}
+        top = [p for p in ranked if p["id"] not in shown][:6]
+        shown |= {p["id"] for p in top}
+        latest = [p for p in visible if p["id"] not in shown and hours_since(p.get("published_at")) <= 48][:6]
+        shown |= {p["id"] for p in latest}
+        # "Kaçırmış olabilirsin": son iki haftanın ilgi çekici haberlerinden her ziyarette farklı dördü (tarayıcıda seçilir)
+        pool = sorted((p for p in visible if p["id"] not in shown and hours_since(p.get("published_at")) <= 24 * 14),
+                      key=lambda p: (-(p.get("appeal") or 5), -p["ts"]))[:16]
+        return {"featured": featured, "top": top, "latest": latest, "discover": pool, "shown": shown,
+                "ranked": ranked}
 
     def build(self) -> int:
         cfg, b = self.cfg, self.base
@@ -334,6 +380,7 @@ class SiteBuilder:
             "home_description": seo.get("home_description") or cfg.site.get("description", ""),
             "verify": {k: seo.get(k) for k in ("google_site_verification", "bing_site_verification", "yandex_verification")},
         }
+        site["follow"] = follow_links(site)
         ctx = {"site": site}
 
         # statik dosyalar, logo ve görseller
@@ -354,38 +401,43 @@ class SiteBuilder:
                 if src.exists():
                     shutil.copy2(src, out / "img" / name)
 
-        # ana sayfa: manşet + son haberler; devamı arşiv sayfalarında
-        n_feat = int(seo.get("featured_count", 5) or 5)
-        featured = self._featured(posts, n_feat)
+        # ana sayfa: seçki (manşet, öne çıkanlar, son dakika, kaçırmış olabilirsin, kategori şeritleri)
+        n_feat = int((cfg.raw.get("home") or {}).get("featured_count") or seo.get("featured_count", 5) or 5)
+        home = self._home(posts, n_feat)
+        featured = home["featured"]
         for p in featured:
             src = cfg.images_dir / p["img"].rsplit("/", 1)[-1]
             p["slide_bg"], p["slide_dark"] = edge_color(src)
-        rest = [p for p in posts if p not in featured]
-        latest = rest[:12] if len(rest) >= 3 else posts[:6]
-        if len(latest) > 3:
-            latest = latest[:len(latest) - len(latest) % 3]
-        shown = {p["id"] for p in featured} | {p["id"] for p in latest}
-        archive = [p for p in posts if p["id"] not in shown]
-        per = int(cfg.site.get("posts_per_page", 18))
-        pages = 1 + (len(archive) + per - 1) // per
+        shown = set(home["shown"])
         rails = []
         for c in sorted(cats, key=lambda c: -c["count"]):
-            cp = [p for p in posts if p["category"] == c["slug"]]
-            if len(cp) >= 4 and len(rails) < 3:
-                rails.append({"cat": c, "posts": cp[:10]})
+            cp = [p for p in home["ranked"] if p["category"] == c["slug"] and p["id"] not in shown][:8]
+            if len(cp) >= 3 and len(rails) < 3:
+                rails.append({"cat": c, "posts": cp})
+        per = int(cfg.site.get("posts_per_page", 18))
+        pages = max(1, (len(posts) + per - 1) // per)
         self._write("index.html", self.env.get_template("index.html").render(
-            **ctx, featured=featured, latest=latest, rails=rails, tags=site["top_tags"],
+            **ctx, featured=featured, top=home["top"], latest=home["latest"], discover=home["discover"],
+            rails=rails, tags=site["top_tags"],
             latest_iso=max((q["iso"] for q in posts), default=site["built_iso"]),
             latest_str=tr_date(max((q.get("published_at") or "" for q in posts), default=None), cfg.tz),
-            page=1, pages=pages, next_url=f"{b}/sayfa/2/" if pages > 1 else None,
-            canonical=cfg.site_url + "/"))
-        for n in range(2, pages + 1):
-            chunk = archive[(n - 2) * per:(n - 1) * per]
-            self._write(f"sayfa/{n}/index.html", self.env.get_template("archive.html").render(
-                **ctx, posts=chunk, page=n, pages=pages,
-                prev_url=f"{b}/" if n == 2 else f"{b}/sayfa/{n - 1}/",
-                next_url=f"{b}/sayfa/{n + 1}/" if n < pages else None,
-                canonical=f"{cfg.site_url}/sayfa/{n}/"))
+            all_url=f"{b}/haberler/", canonical=cfg.site_url + "/"))
+        # tüm haberler (kronolojik, sayfalı): /haberler/, /haberler/sayfa/2/ …
+        for n in range(1, pages + 1):
+            chunk = posts[(n - 1) * per:n * per]
+            url = lambda k: f"{b}/haberler/" if k == 1 else f"{b}/haberler/sayfa/{k}/"  # noqa: E731
+            rel = "haberler/index.html" if n == 1 else f"haberler/sayfa/{n}/index.html"
+            self._write(rel, self.env.get_template("archive.html").render(
+                **ctx, posts=chunk, page=n, pages=pages, total=len(posts),
+                prev_url=url(n - 1) if n > 1 else None, next_url=url(n + 1) if n < pages else None,
+                canonical=cfg.site_url + url(n)[len(b):]))
+        # eski arşiv adresleri (/sayfa/N/) yeni sayfalara yönlenir
+        for n in range(2, pages + 2):
+            target = f"{cfg.site_url}/haberler/" if n - 1 <= 1 else f"{cfg.site_url}/haberler/sayfa/{n - 1}/"
+            self._write(f"sayfa/{n}/index.html",
+                        f'<!doctype html><meta charset="utf-8"><title>Tüm haberler</title><meta name="robots" content="noindex">'
+                        f'<link rel="canonical" href="{target}"><meta http-equiv="refresh" content="0; url={target}">'
+                        f'<a href="{target}">Tüm haberler</a>')
 
         # haber sayfaları
         for p in posts:
@@ -393,8 +445,12 @@ class SiteBuilder:
             related = sorted((q for q in posts if q["id"] != p["id"]),
                              key=lambda q: (-(len(same_tag & {t["slug"] for t in q["tag_list"]}) * 2
                                               + (q["category"] == p["category"])), posts.index(q)))[:8]
+            # sıradaki haber: aynı kategoriden en dikkat çekici güncel haber, yoksa genel seçkiden
+            pool = [q for q in home["ranked"][:24] if q["id"] != p["id"]]
+            nxt = next((q for q in pool if q["category"] == p["category"]), pool[0] if pool else None)
+            related = [q for q in related if not nxt or q["id"] != nxt["id"]]
             self._write(f"haber/{p['slug']}/index.html", self.env.get_template("article.html").render(
-                **ctx, post=p, related=related, canonical=p["abs_url"]))
+                **ctx, post=p, related=related, next_post=nxt, canonical=p["abs_url"]))
 
         # kategoriler
         for c in cats:
@@ -420,6 +476,14 @@ class SiteBuilder:
         self._write("sitemap.xml", self.env.get_template("sitemap.xml").render(
             **ctx, posts=posts, cats=[c for c in cats if c["count"]], tags=[t for t in tags if t["count"] >= 2],
             pages=pages))
+        # ana ekrana eklenebilir site (PWA bildirimi)
+        self._write("manifest.webmanifest", json.dumps({
+            "name": cfg.site.get("name", "Smarity"), "short_name": cfg.site.get("name", "Smarity"),
+            "description": cfg.site.get("tagline", ""), "lang": "tr", "start_url": f"{b}/?kaynak=uygulama",
+            "scope": f"{b}/", "display": "standalone", "background_color": "#FFFFFF", "theme_color": "#FFFFFF",
+            "icons": [{"src": f"{b}/static/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+                      {"src": f"{b}/static/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}]},
+            ensure_ascii=False, indent=1))
         news = [p for p in posts if hours_since(p.get("published_at")) <= 48][:1000]
         self._write("news-sitemap.xml", self.env.get_template("news-sitemap.xml").render(**ctx, posts=news))
         self._write("robots.txt", "User-agent: *\nAllow: /\nDisallow: /api/\n\n"

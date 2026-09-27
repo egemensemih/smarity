@@ -1,11 +1,114 @@
 (function () {
+  // ── Kişisel hafıza (yalnızca bu tarayıcıda): son ziyaret, okunan haberler, görülen manşetler ──
+  function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var NOW = Math.floor(Date.now() / 1000);
+  var read = load("sm_read", {});          // {id: zaman}
+  var seen = load("sm_seen", {});          // manşette gösterilenler {id: zaman}
+  function prune(o, max) { var ks = Object.keys(o).sort(function (a, b) { return o[b] - o[a]; }); ks.slice(max).forEach(function (k) { delete o[k]; }); return o; }
+
+  // Haber sayfası: okundu olarak işaretle
+  var art = document.querySelector("[data-read]");
+  if (art) { read[art.getAttribute("data-read")] = NOW; save("sm_read", prune(read, 400)); }
+
+  // Son ziyaret: 30 dakikadan uzun aradan sonra gelinirse "yeni" sayılır
+  var visit = load("sm_visit", null), since = 0;
+  if (visit && NOW - visit.last > 1800) { since = visit.last; visit = { last: NOW, prev: visit.last }; }
+  else if (visit) { since = visit.prev || 0; visit.last = NOW; }
+  else { visit = { last: NOW, prev: 0 }; }
+  save("sm_visit", visit);
+
+  var isHome = !!document.querySelector(".car");
+  var items = document.querySelectorAll("[data-id][data-ts]");
+  var newIds = {};
+  items.forEach(function (el) {
+    var id = el.getAttribute("data-id"), ts = +el.getAttribute("data-ts");
+    var top = el.querySelector(".card-top, .row-cat, .slide-top");
+    if (read[id]) {
+      el.classList.add("is-read");
+      if (top) top.insertAdjacentHTML("beforeend", '<span class="badge read">Okundu</span>');
+    } else if (since && ts > since) {
+      newIds[id] = 1;
+      el.classList.add("is-new");
+      if (top) top.insertAdjacentHTML("beforeend", '<span class="badge new">Yeni</span>');
+    }
+  });
+  var nNew = Object.keys(newIds).length;
+  var banner = document.querySelector("[data-since]");
+  if (banner && nNew) {
+    banner.querySelector("[data-since-text]").textContent = "Son ziyaretinden beri " + nNew + " yeni haber";
+    banner.hidden = false;
+  }
+
+  if (isHome) {
+    // Öne çıkanlar: okunanlar sona
+    var grid = document.querySelector("[data-top]");
+    if (grid) Array.prototype.slice.call(grid.children).filter(function (c) { return c.classList.contains("is-read"); })
+      .forEach(function (c) { grid.appendChild(c); });
+    // Kaçırmış olabilirsin: her ziyarette okunmamışlardan farklı dört haber
+    var disc = document.querySelector("[data-discover]");
+    if (disc) {
+      var all = Array.prototype.slice.call(disc.querySelectorAll(".disc-item"));
+      var unread = all.filter(function (d) { return !d.querySelector(".is-read"); });
+      var rest = all.filter(function (d) { return unread.indexOf(d) < 0; });
+      function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+      var pick = shuffle(unread).concat(shuffle(rest)).slice(0, 4);
+      all.forEach(function (d) { d.hidden = pick.indexOf(d) < 0; });
+      pick.forEach(function (d) {
+        disc.appendChild(d);
+        // aynı haber aşağıdaki kategori şeritlerinde tekrar görünmesin
+        var id = d.querySelector("[data-id]").getAttribute("data-id");
+        document.querySelectorAll('.rail [data-id="' + id + '"]').forEach(function (r) { r.remove(); });
+      });
+    }
+    // Manşet: okunmamış ve son 12 saatte görülmemiş haberler önce (her girişte aynı manşet görünmesin)
+    var track = document.getElementById("car-track");
+    if (track) {
+      var sl = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+      function rank(s) { var id = s.getAttribute("data-id"); return read[id] ? 2 : (seen[id] && NOW - seen[id] < 43200) ? 1 : 0; }
+      var ordered = sl.map(function (s, i) { return [rank(s), i, s]; }).sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+      if (ordered.some(function (x, k) { return x[1] !== k; })) {
+        var dots = document.querySelector(".car-dots"), db = dots ? Array.prototype.slice.call(dots.children) : [];
+        ordered.forEach(function (x, k) {
+          track.appendChild(x[2]);
+          x[2].setAttribute("aria-label", (k + 1) + " / " + sl.length);
+          x[2].querySelector(".slide-img") && (x[2].querySelector(".slide-img").loading = k === 0 ? "eager" : "lazy");
+          if (db[x[1]]) dots.appendChild(db[x[1]]);
+        });
+        if (dots) Array.prototype.slice.call(dots.children).forEach(function (b, k) { b.setAttribute("data-go", k); if (k === 0) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
+      }
+      window.__smSeen = function (id) { seen[id] = Math.floor(Date.now() / 1000); save("sm_seen", prune(seen, 120)); };
+    }
+  }
+
+  // Yerel paylaşım (telefonlarda paylaş menüsü)
+  document.querySelectorAll("[data-share]").forEach(function (b) {
+    if (!navigator.share) return;
+    b.hidden = false;
+    b.addEventListener("click", function () {
+      navigator.share({ title: b.getAttribute("data-title"), url: b.getAttribute("data-url") }).catch(function () {});
+    });
+  });
+
+  // Ana ekrana ekle (destekleyen tarayıcılarda)
+  var installEvt = null;
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault(); installEvt = e;
+    document.querySelectorAll("[data-install]").forEach(function (b) { b.hidden = false; });
+  });
+  document.querySelectorAll("[data-install]").forEach(function (b) {
+    b.addEventListener("click", function () { if (installEvt) { installEvt.prompt(); installEvt = null; b.hidden = true; } });
+  });
+
   // Göreli zaman: "12 dk önce"
   var now = Date.now();
   document.querySelectorAll("time[data-rel]").forEach(function (t) {
     var d = Date.parse(t.getAttribute("datetime"));
     if (!d) return;
     var m = Math.round((now - d) / 60000);
-    var s = m < 1 ? "az önce" : m < 60 ? m + " dk önce" : m < 1440 ? Math.round(m / 60) + " saat önce" : m < 10080 ? Math.round(m / 1440) + " gün önce" : null;
+    var sh = t.getAttribute("data-rel") === "short";
+    var s = m < 1 ? "az önce" : m < 60 ? m + " dk" + (sh ? "" : " önce") : m < 1440 ? Math.round(m / 60) + (sh ? " sa" : " saat önce")
+      : m < 10080 ? Math.round(m / 1440) + " gün" + (sh ? "" : " önce") : null;
     if (s) { t.title = t.textContent; t.textContent = s; }
     if (t.hasAttribute("data-live") && m > 180) { var l = t.closest(".live"); if (l) l.classList.add("stale"); }
   });
@@ -73,7 +176,7 @@
     var slides = Array.prototype.slice.call(car.querySelectorAll(".slide"));
     var dots = Array.prototype.slice.call(car.querySelectorAll(".car-dots button"));
     var play = car.querySelector(".car-play");
-    if (!track || slides.length < 2) { if (slides[0]) slides[0].classList.add("on"); return; }
+    if (!track || slides.length < 2) { if (slides[0]) { slides[0].classList.add("on"); if (window.__smSeen) window.__smSeen(slides[0].getAttribute("data-id")); } return; }
     var dur = +car.getAttribute("data-interval") || 6500;
     car.style.setProperty("--dur", dur + "ms");
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -82,6 +185,7 @@
     function setCur(i) {
       if (i === cur && slides[i].classList.contains("on")) return;
       cur = i;
+      if (window.__smSeen) { var sid = slides[i].getAttribute("data-id"); clearTimeout(car.__seenT); car.__seenT = setTimeout(function () { window.__smSeen(sid); }, 2500); }
       slides.forEach(function (s, k) { s.classList.toggle("on", k === i); s.setAttribute("aria-hidden", k === i ? "false" : "true");
         s.querySelector("a").tabIndex = k === i ? 0 : -1; });
       dots.forEach(function (d, k) {

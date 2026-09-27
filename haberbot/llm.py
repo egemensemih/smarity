@@ -325,6 +325,9 @@ class MockLLM:
             self.usage_cb(model, len(user) // 4, 300)
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
+        if "scores" in schema.get("properties", {}):     # ilgi puanı
+            return {"scores": [{"id": ln.split(" | ")[0].strip(), "appeal": 6 + len(ln) % 3}
+                               for ln in user.splitlines() if " | " in ln]}
         if "body" not in schema.get("properties", {}):  # yalnızca SEO bilgisi
             t = re.search(r"TITLE: (.+)", user)
             t = t.group(1) if t else "Haber"
@@ -387,6 +390,7 @@ class MockLLM:
             "meta_description": (f"{title}. {credit} kaynaklı gelişmenin ayrıntıları, kaynağıyla ve Türkçe olarak.")[:156],
             "slug": "",
             "image_alt": f"{title[:80]} haberini temsil eden 3D görsel",
+            "appeal": 7 if kind == "official" else 6,
             "carousel_points": [f"{credit} bu gelişmeyi duyurdu (test maddesi).",
                                 "Gerçek kurulumda burada kaynaktan alınan somut bir bilgi yer alır.",
                                 "Üçüncü madde: fiyat, tarih ya da kullanıcı sayısı gibi bir ayrıntı."],

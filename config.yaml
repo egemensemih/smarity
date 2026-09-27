@@ -12,7 +12,17 @@ site:
   url: "https://smarity.com.tr"
   posts_per_page: 18
   contact_email: "smarityco@gmail.com"   # Hakkında sayfasında görünür
-  instagram: ""            # Instagram kullanıcı adı (boşsa bağlanan hesap kullanılır; site altında bağlantı çıkar)
+  # Takip kanalları: yazılanlar sitede "Takip et" bölümünde ve alt bilgide görünür
+  instagram: ""            # Instagram kullanıcı adı (boşsa bağlanan hesap kullanılır)
+  telegram: ""             # Telegram kanalı kullanıcı adı (örn. smaritytr)
+  whatsapp: ""             # WhatsApp kanalı bağlantısı (https://whatsapp.com/channel/...)
+  x: ""                    # X (Twitter) kullanıcı adı
+
+home:
+  # Ana sayfa seçkisi: her haber ana sayfaya çıkmaz. İlgi puanı (yapay zeka verir) ve tazeliğe göre en dikkat çekiciler
+  # manşete ve "Öne çıkanlar"a girer; diğerleri kategori ve "Tüm haberler" sayfalarında durur.
+  # Telegram'daki "⭐ Manşete al" ve "🙈 Ana sayfada gösterme" düğmeleriyle tek tek yönetebilirsin.
+  featured_count: 5        # manşetteki haber sayısı
 
 seo:
   # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması
@@ -25,7 +35,6 @@ seo:
   yandex_verification: ""
   # Yeni haberleri Bing ve Yandex'e anında bildir (ücretsiz, hesap gerekmez)
   indexnow: true
-  featured_count: 5        # Ana sayfadaki kaydırmalı manşette kaç haber olsun
 
 schedule:
   timezone: "Europe/Istanbul"

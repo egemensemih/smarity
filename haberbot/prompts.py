@@ -140,10 +140,12 @@ WRITE_SCHEMA = {
         "image_alt": {"type": "string"},
         "cover_text": {"type": "string"},
         "carousel_points": {"type": "array", "items": {"type": "string"}},
+        "appeal": {"type": "integer"},
     },
     "required": ["title", "summary", "body", "category", "tags", "confidence", "flags", "editor_note",
                  "short_title", "kicker", "hero_stat", "hero_stat_label", "visual_style", "visual_scene",
-                 "focus_keyword", "seo_title", "meta_description", "slug", "image_alt", "cover_text", "carousel_points"],
+                 "focus_keyword", "seo_title", "meta_description", "slug", "image_alt", "cover_text", "carousel_points",
+                 "appeal"],
     "additionalProperties": False,
 }
 
@@ -166,7 +168,8 @@ Style:
 - Write for a general audience, not for specialists. Keep only the details a general reader needs to understand the news
   and why it matters; skip deep technical specs, parameter counts, benchmark scores, version minutiae, financial jargon
   and long lists unless they are the heart of the story. Explain in plain everyday Turkish.
-- Keep product, model, game, car and company names in their original form. Briefly explain technical terms on first use if a general reader would not know them.
+- Always write with correct Turkish characters (ç, ğ, ı, ö, ş, ü, İ) in every field except slug; never write Turkish words in ASCII ("çıkış", not "cikis").
+- Keep product, model, game, car and company names in their original form, including lowercase-first names even at the start of a title or sentence ("iPhone 18 tanıtıldı", never "İPhone"; "eFootball", "iOS"). Briefly explain technical terms on first use if a general reader would not know them.
 - For startup stories, explain in one or two sentences what the company actually does and what problem it solves. For products and cars, include price, availability and the key specs when the sources give them. For games, include platforms and release date when given.
 - Money: "350 milyon dolar". Avoid "bugün/dün"; use explicit dates like "22 Eylül'de" when the sources give them.
 
@@ -189,6 +192,7 @@ Output fields:
 - confidence: "yuksek" if facts are clear and come from an official/primary source or several reputable reports; "orta" if a single secondary report with clear facts; "dusuk" if thin or ambiguous.
 - flags (zero or more): iddia = based on unconfirmed reports, anonymous sources or rumors; hassas = death, violence, military, elections, allegations against individuals, medical/health claims, minors; yetersiz_bilgi = source text too thin to write reliably; celiski = sources conflict; eski = not actually new; tanitim = primarily promotional/sponsored/event marketing.
 - editor_note: ≤140 characters in Turkish for the human editor explaining any flag or uncertainty; "" if nothing to note.
+- appeal: integer 1–10, how strongly a broad Turkish audience (curious about technology, not specialists) would want to click and share this story. 9–10: huge mainstream news everyone talks about (a new iPhone or PlayStation, GTA 6 date, a major AI launch, big Türkiye tech news); 7–8: notable news about well-known brands, products, games, cars or surprising records; 5–6: interesting but niche; 1–4: specialist or industry-only. Be strict and honest; most stories are 5–7.
 
 Social/visual fields (used on Instagram cards and the site; the design is bold, colourful and premium, like an Apple product page):
 - short_title: ≤55 characters, punchy Turkish headline for social cards; still factual, no clickbait, no emojis. Sentence case.
@@ -246,7 +250,7 @@ Do NOT change the article. Produce search metadata in natural Türkiye Türkçes
 - seo_title: ≤58 characters, starts with or contains the focus_keyword near the start, specific, sentence case (only first word and proper nouns capitalized), no clickbait, no site name, no trailing period.
 - meta_description: 140–156 characters, active voice, contains the focus_keyword, tells the reader what they will learn. No quotes, no emojis.
 - image_alt: ≤120 characters, describes the cover image (described in VISUAL) and relates it to the news topic.
-- tags: 3–6 searchable entities (companies, products, models, technologies, places) with official spelling. Never generic words like "teknoloji", "yapay zeka", "oyun", "otomobil", and never news outlet names."""
+- tags: 3–6 searchable entities (companies, products, models, technologies, places) with official spelling and correct Turkish characters. Never generic words like "teknoloji", "yapay zeka", "oyun", "otomobil", and never news outlet names."""
 
 
 def seo_user(post: dict) -> str:
@@ -258,3 +262,28 @@ def seo_user(post: dict) -> str:
         "BODY:",
         post.get("body", ""),
     ])
+
+
+# ── 4) İlgi puanı (eski haberler için toplu) ──
+APPEAL_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "scores": {"type": "array", "items": {"type": "object", "properties": {
+            "id": {"type": "string"}, "appeal": {"type": "integer"}}, "required": ["id", "appeal"],
+            "additionalProperties": False}},
+    },
+    "required": ["scores"],
+    "additionalProperties": False,
+}
+
+
+def appeal_system(site_name: str) -> str:
+    return f"""You are the homepage editor of "{site_name}", a Turkish technology news site. For each story below give "appeal":
+an integer 1–10 for how strongly a broad Turkish audience (curious about technology, not specialists) would want to click and share it.
+9–10: huge mainstream news everyone talks about (a new iPhone or PlayStation, GTA 6 date, a major AI launch, big Türkiye tech news);
+7–8: notable news about well-known brands, products, games, cars or surprising records; 5–6: interesting but niche;
+1–4: specialist or industry-only. Be strict and consistent; most stories are 5–7. Return one score per id."""
+
+
+def appeal_user(posts: list[dict]) -> str:
+    return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')}" for p in posts)

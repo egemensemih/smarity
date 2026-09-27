@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import card, slide, rail %}
+{% from "_macros.html" import card, slide, rail, row, follow %}
 
 {% block head %}
 {% if featured %}<link rel="preload" as="image" href="{{ featured[0].img }}" fetchpriority="high">{% endif %}
@@ -34,7 +34,9 @@
     <p>{{ site.name }} yayına hazırlanıyor. {{ site.tagline }}</p>
   </section>
 {% else %}
-  <section class="car" aria-roledescription="carousel" aria-label="Öne çıkan haberler" data-interval="6500">
+  <p class="since wrap" data-since hidden><span class="since-dot" aria-hidden="true"></span><span data-since-text></span> <a href="#h-son">Göster</a></p>
+
+  <section class="car" aria-roledescription="carousel" aria-label="Manşet" data-interval="6500">
     <div class="car-view wrap">
       <div class="car-track" id="car-track">
         {% for p in featured %}{{ slide(p, loop.index, loop.length) }}{% endfor %}
@@ -60,15 +62,36 @@
     {% for c in site.categories if c.count %}
     <a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}<span>{{ c.count }}</span></a>
     {% endfor %}
+    <a class="chip-link all" href="{{ all_url }}">Tüm haberler<span>›</span></a>
   </nav>
 
-  <section class="sec wrap" aria-labelledby="h-son">
-    <div class="sec-head"><h2 id="h-son">Son gelişmeler.</h2></div>
-    <div class="grid">{% for p in latest %}{{ card(p) }}{% endfor %}</div>
-    {% if next_url %}
-    <nav class="pager" aria-label="Sayfalar"><a class="more" href="{{ next_url }}">Daha eski haberler</a></nav>
-    {% endif %}
+  {% if top %}
+  <section class="sec wrap" aria-labelledby="h-one">
+    <div class="sec-head"><h2 id="h-one">Öne çıkanlar.</h2></div>
+    <div class="grid" data-top>{% for p in top %}{{ card(p) }}{% endfor %}</div>
   </section>
+  {% endif %}
+
+  {% if latest %}
+  <section class="sec wrap" aria-labelledby="h-son">
+    <div class="sec-head">
+      <h2 id="h-son">Son haberler.</h2>
+      <div class="sec-tools"><a class="more" href="{{ all_url }}">Tüm haberler</a></div>
+    </div>
+    <ol class="rows">{% for p in latest %}{{ row(p) }}{% endfor %}</ol>
+  </section>
+  {% endif %}
+
+  {% if site.follow|length > 1 %}<div class="wrap">{{ follow(site) }}</div>{% endif %}
+
+  {% if discover|length >= 4 %}
+  <section class="sec wrap disc" aria-labelledby="h-kacir">
+    <div class="sec-head"><h2 id="h-kacir">Kaçırmış olabilirsin.</h2></div>
+    <div class="grid grid-4" data-discover>
+      {% for p in discover %}<div class="disc-item"{% if loop.index > 4 %} hidden{% endif %}>{{ card(p, dek=false) }}</div>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
   {% for r in rails %}
     {{ rail(r.posts, r.cat.seo_title ~ '.', 'k-' ~ r.cat.slug, '', r.cat.url) }}

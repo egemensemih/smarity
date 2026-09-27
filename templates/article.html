@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_macros.html" import rail, img, crumbs %}
+{% from "_macros.html" import rail, img, crumbs, follow %}
 {% set active_cat = post.category %}
 {% block title %}{{ post.seo_title }} | {{ site.name }}{% endblock %}
 {% block description %}{{ post.meta_description }}{% endblock %}
@@ -40,7 +40,7 @@
 {% block top %}<div class="progress" aria-hidden="true"></div>{% endblock %}
 
 {% block main %}
-<article class="art" style="--c:{{ post.cat_color }}">
+<article class="art" style="--c:{{ post.cat_color }}" data-read="{{ post.id }}">
   <div class="art-col">
   {{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), (post.cat_label, post.cat_url, post.abs_cat_url), (post.short_title or post.title, post.url, post.abs_url)], '') }}
   <header class="art-head">
@@ -52,8 +52,10 @@
     <h1>{{ post.title_disp }}</h1>
     <p class="dek">{{ post.summary }}</p>
     <div class="share" aria-label="Paylaş">
-      <a href="https://x.com/intent/post?url={{ post.abs_url|urlencode }}&text={{ post.title|urlencode }}" rel="noopener" target="_blank">X</a>
+      <button type="button" class="sh-native" data-share data-title="{{ post.title }}" data-url="{{ post.abs_url }}" hidden>Paylaş</button>
       <a href="https://wa.me/?text={{ (post.title ~ ' ' ~ post.abs_url)|urlencode }}" rel="noopener" target="_blank">WhatsApp</a>
+      <a href="https://x.com/intent/post?url={{ post.abs_url|urlencode }}&text={{ post.title|urlencode }}" rel="noopener" target="_blank">X</a>
+      <a href="https://t.me/share/url?url={{ post.abs_url|urlencode }}&text={{ post.title|urlencode }}" rel="noopener" target="_blank">Telegram</a>
       <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.abs_url|urlencode }}" rel="noopener" target="_blank">LinkedIn</a>
       <button type="button" data-copy="{{ post.abs_url }}">Bağlantıyı kopyala</button>
     </div>
@@ -137,6 +139,24 @@
       Bir hata görürseniz <a href="{{ site.base }}/hakkinda/">bize bildirin</a>.
     </p>
   </section>
+
+  {% if site.follow|length > 1 %}{{ follow(site, compact=true) }}{% endif %}
+
+  {% if next_post %}
+  {% set n = next_post %}
+  <aside class="next" aria-label="Sıradaki haber" style="--c:{{ n.cat_color }}">
+    <span class="next-label">Sıradaki haber</span>
+    <a class="next-in" href="{{ n.url }}">
+      <span class="next-img">{{ img(n) }}</span>
+      <span class="next-txt">
+        <span class="eyebrow sm">{{ n.cat_label }}</span>
+        <span class="next-title">{{ n.title_disp }}</span>
+        <span class="next-dek">{{ n.summary }}</span>
+        <span class="more">Oku</span>
+      </span>
+    </a>
+  </aside>
+  {% endif %}
   </div>
 </article>
 
