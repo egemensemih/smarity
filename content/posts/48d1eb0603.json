@@ -53,10 +53,10 @@
     "message_id": 117
   },
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri--210905",
-    "src": "https://www.donanimhaber.com/images/images/haber/210905/1200x675samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri.jpg"
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "teknoloji-3",
+    "cover_v": 1
   },
   "slug": "samsung-galaxy-a08-tanitildi-fiyati-ve-ozellikleri",
   "published_at": "2026-09-25T16:43:25Z",
@@ -64,41 +64,39 @@
   "photos_tried": "2026-09-26T12:40:30Z",
   "photos": [
     {
-      "file": "48d1eb0603.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210905/1200x675samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri--210905",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "48d1eb0603-g1.webp",
+      "file": "48d1eb0603-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925144843&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210905/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri210905_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri--210905",
       "alt": "",
       "w": 720,
-      "h": 393
+      "h": 393,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "48d1eb0603-g2.webp",
+      "file": "48d1eb0603-g1.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925144843&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210905/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri210905_1.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri--210905",
       "alt": "",
       "w": 720,
-      "h": 368
+      "h": 368,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "48d1eb0603-g3.webp",
+      "file": "48d1eb0603-g2.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925144843&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210905/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri210905_2.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/samsung-galaxy-a08-tanitildi-iste-fiyati-ve-ozellikleri--210905",
       "alt": "",
       "w": 720,
-      "h": 451
+      "h": 451,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T16:43:25Z"
+  "updated_at": "2026-09-25T16:43:25Z",
+  "photos_v": 2
 }

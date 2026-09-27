@@ -54,22 +54,28 @@
   },
   "photos": [
     {
-      "file": "de8dd284b5.webp",
+      "file": "de8dd284b5-g0.webp",
       "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/geralt-witcher-3-remastered.jpg",
       "credit": "Polygon",
       "page": "https://www.polygon.com/the-witcher-3-remastered-release-time-when-edt-pdt/",
       "alt": "",
       "w": 1600,
-      "h": 792
+      "h": 792,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
     "source": "photo",
+    "photo": "de8dd284b5-g0.webp",
     "credit": "Polygon",
     "page": "https://www.polygon.com/the-witcher-3-remastered-release-time-when-edt-pdt/",
-    "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/geralt-witcher-3-remastered.jpg"
+    "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/geralt-witcher-3-remastered.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "the-witcher-3-remastered-cikis-tarihi",
   "published_at": "2026-09-27T16:46:15Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

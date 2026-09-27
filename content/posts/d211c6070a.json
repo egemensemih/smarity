@@ -53,9 +53,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "d211c6070a-g0.webp",
     "credit": "Interesting Engineering",
     "page": "https://interestingengineering.com/energy/mercedes-benz-lithium-ceramic-battery-testing",
-    "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/GettyImages-1454927079.jpg"
+    "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/GettyImages-1454927079.jpg",
+    "layout": "isim",
+    "cover_v": 1
   },
   "slug": "mercedes-benz-seramik-batarya-testleri",
   "published_at": "2026-09-25T20:22:47Z",
@@ -63,13 +66,15 @@
   "photos_tried": "2026-09-26T12:35:26Z",
   "photos": [
     {
-      "file": "d211c6070a.webp",
+      "file": "d211c6070a-g0.webp",
       "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/GettyImages-1454927079.jpg",
       "credit": "Interesting Engineering",
       "page": "https://interestingengineering.com/energy/mercedes-benz-lithium-ceramic-battery-testing",
       "alt": "",
       "w": 1600,
-      "h": 900
+      "h": 900,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "d211c6070a-g1.webp",
@@ -78,8 +83,11 @@
       "page": "https://interestingengineering.com/energy/mercedes-benz-lithium-ceramic-battery-testing",
       "alt": "Commercially viable fusion energy that delivers limitless clean power could be closer to reality",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T20:22:47Z"
+  "updated_at": "2026-09-25T20:22:47Z",
+  "photos_v": 2
 }

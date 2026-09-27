@@ -55,31 +55,25 @@
   },
   "photos": [
     {
-      "file": "d8ea4f0bec.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210966/1200x675booking-com-icin-turkiye-kapisi-yeniden-aciliyor.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/booking-com-icin-turkiye-kapisi-yeniden-aciliyor--210966",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "d8ea4f0bec-g1.webp",
+      "file": "d8ea4f0bec-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260927201740&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210966/booking-com-icin-turkiye-kapisi-yeniden-aciliyor210966_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/booking-com-icin-turkiye-kapisi-yeniden-aciliyor--210966",
       "alt": "",
       "w": 720,
-      "h": 404
+      "h": 404,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/booking-com-icin-turkiye-kapisi-yeniden-aciliyor--210966",
-    "src": "https://www.donanimhaber.com/images/images/haber/210966/1200x675booking-com-icin-turkiye-kapisi-yeniden-aciliyor.jpg"
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "teknoloji-1",
+    "cover_v": 1
   },
   "slug": "booking-com-turkiye-erisim-duzenlemesi",
   "published_at": "2026-09-27T18:21:33Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

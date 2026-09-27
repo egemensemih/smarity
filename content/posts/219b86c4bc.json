@@ -52,9 +52,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "219b86c4bc-g0.webp",
     "credit": "TechCrunch",
     "page": "https://techcrunch.com/video/will-metas-ai-tamagotchi-bet-isworking/",
-    "src": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2296215726.jpg?resize=1200,799"
+    "src": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2296215726.jpg?resize=1200,799",
+    "layout": "isim",
+    "cover_v": 1
   },
   "slug": "meta-muse-akilli-gozlugue-geliyor",
   "published_at": "2026-09-25T20:22:17Z",
@@ -62,14 +65,17 @@
   "photos_tried": "2026-09-26T12:35:32Z",
   "photos": [
     {
-      "file": "219b86c4bc.webp",
+      "file": "219b86c4bc-g0.webp",
       "src": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2296215726.jpg?resize=1200,799",
       "credit": "TechCrunch",
       "page": "https://techcrunch.com/video/will-metas-ai-tamagotchi-bet-isworking/",
       "alt": "",
       "w": 1200,
-      "h": 799
+      "h": 799,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T20:22:17Z"
+  "updated_at": "2026-09-25T20:22:17Z",
+  "photos_v": 2
 }

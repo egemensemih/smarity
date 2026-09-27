@@ -55,22 +55,28 @@
   },
   "photos": [
     {
-      "file": "b10a09ec76.webp",
+      "file": "b10a09ec76-g0.webp",
       "src": "https://www.engadget.com/img/gallery/byd-says-its-new-solid-state-ev-battery-tech-is-nearly-ready-for-the-open-road/l-intro-1790034826.jpg",
       "credit": "Engadget",
       "page": "https://www.engadget.com/2265495/byd-new-solid-state-battery-ev-almost-ready-2027/",
       "alt": "",
       "w": 1600,
-      "h": 899
+      "h": 899,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
     "source": "photo",
+    "photo": "b10a09ec76-g0.webp",
     "credit": "Engadget",
     "page": "https://www.engadget.com/2265495/byd-new-solid-state-battery-ev-almost-ready-2027/",
-    "src": "https://www.engadget.com/img/gallery/byd-says-its-new-solid-state-ev-battery-tech-is-nearly-ready-for-the-open-road/l-intro-1790034826.jpg"
+    "src": "https://www.engadget.com/img/gallery/byd-says-its-new-solid-state-ev-battery-tech-is-nearly-ready-for-the-open-road/l-intro-1790034826.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "byd-kati-hal-batarya-2027",
   "published_at": "2026-09-27T19:47:00Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

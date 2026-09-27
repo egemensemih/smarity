@@ -52,10 +52,10 @@
     "message_id": 123
   },
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor--210912",
-    "src": "https://www.donanimhaber.com/images/images/haber/210912/1200x67515-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor.jpg"
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "teknoloji-3",
+    "cover_v": 1
   },
   "slug": "dacia-hipster-fiyati-ve-ozellikleri",
   "published_at": "2026-09-25T17:27:50Z",
@@ -63,32 +63,28 @@
   "photos_tried": "2026-09-26T12:35:35Z",
   "photos": [
     {
-      "file": "95a0ae8187.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210912/1200x67515-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor--210912",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "95a0ae8187-g1.webp",
+      "file": "95a0ae8187-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925162300&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210912/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor210912_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor--210912",
       "alt": "",
       "w": 720,
-      "h": 477
+      "h": 477,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "95a0ae8187-g2.webp",
+      "file": "95a0ae8187-g1.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260925162300&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210912/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor210912_1.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/15-bin-euronun-altina-elektrikli-dacia-hipster-2027-de-geliyor--210912",
       "alt": "",
       "w": 720,
-      "h": 480
+      "h": 480,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-25T17:27:50Z"
+  "updated_at": "2026-09-25T17:27:50Z",
+  "photos_v": 2
 }

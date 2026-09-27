@@ -54,40 +54,36 @@
   },
   "photos": [
     {
-      "file": "50012851f7.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210969/1200x675xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "50012851f7-g1.webp",
+      "file": "50012851f7-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260927223607&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210969/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre210969_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
       "alt": "",
       "w": 720,
-      "h": 376
+      "h": 376,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "50012851f7-g2.webp",
+      "file": "50012851f7-g1.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260927223607&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210969/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre210969_1.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
       "alt": "",
       "w": 720,
-      "h": 417
+      "h": 417,
+      "graphic": true,
+      "cover_ok": false
     }
   ],
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre--210969",
-    "src": "https://www.donanimhaber.com/images/images/haber/210969/1200x675xiaomi-nin-dev-yapay-zeka-modeli-tanitildi-1-trilyon-parametre.jpg"
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "super-zeka-1",
+    "cover_v": 1
   },
   "slug": "xiaomi-mimo-v2-6-yapay-zeka-modeli-tanitildi",
   "published_at": "2026-09-27T19:47:35Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

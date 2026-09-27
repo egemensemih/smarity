@@ -53,9 +53,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "12d3a78a09-g0.webp",
     "credit": "TechCrunch",
     "page": "https://techcrunch.com/2026/09/25/at-meta-connect-the-companys-smart-glasses-were-everywhere/",
-    "src": "https://techcrunch.com/wp-content/uploads/2026/09/P1110274-rotated.jpg?resize=901,1200"
+    "src": "https://techcrunch.com/wp-content/uploads/2026/09/P1110274-rotated.jpg?resize=901,1200",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "meta-akilli-gozluk-modelleri-ve-ozellikleri",
   "published_at": "2026-09-26T09:35:34Z",
@@ -63,13 +66,15 @@
   "photos_tried": "2026-09-26T12:33:29Z",
   "photos": [
     {
-      "file": "12d3a78a09.webp",
+      "file": "12d3a78a09-g0.webp",
       "src": "https://techcrunch.com/wp-content/uploads/2026/09/P1110274-rotated.jpg?resize=901,1200",
       "credit": "TechCrunch",
       "page": "https://techcrunch.com/2026/09/25/at-meta-connect-the-companys-smart-glasses-were-everywhere/",
       "alt": "",
       "w": 901,
-      "h": 1200
+      "h": 1200,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "12d3a78a09-g1.webp",
@@ -78,8 +83,11 @@
       "page": "https://techcrunch.com/2026/09/25/at-meta-connect-the-companys-smart-glasses-were-everywhere/",
       "alt": "",
       "w": 1280,
-      "h": 961
+      "h": 961,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-26T09:35:34Z"
+  "updated_at": "2026-09-26T09:35:34Z",
+  "photos_v": 2
 }

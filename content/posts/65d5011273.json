@@ -54,9 +54,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "65d5011273-g0.webp",
     "credit": "Polygon",
     "page": "https://www.polygon.com/world-of-warcraft-forever-interview-blizzcon-2026-blizzard/",
-    "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/wow_forever_cinematic_still_8.jpeg?w=1600&h=900&fit=crop"
+    "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/wow_forever_cinematic_still_8.jpeg?w=1600&h=900&fit=crop",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "world-of-warcraft-forever-cikis-tarihi-duyuruldu",
   "published_at": "2026-09-26T12:22:43Z",
@@ -64,14 +67,17 @@
   "photos_tried": "2026-09-26T12:33:18Z",
   "photos": [
     {
-      "file": "65d5011273.webp",
+      "file": "65d5011273-g0.webp",
       "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/wow_forever_cinematic_still_8.jpeg?w=1600&h=900&fit=crop",
       "credit": "Polygon",
       "page": "https://www.polygon.com/world-of-warcraft-forever-interview-blizzcon-2026-blizzard/",
       "alt": "",
       "w": 1600,
-      "h": 900
+      "h": 900,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
-  "updated_at": "2026-09-26T12:22:43Z"
+  "updated_at": "2026-09-26T12:22:43Z",
+  "photos_v": 2
 }

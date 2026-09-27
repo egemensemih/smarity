@@ -53,9 +53,12 @@
   },
   "image": {
     "source": "photo",
+    "photo": "e0c6c18ad3-g0.webp",
     "credit": "LOG",
     "page": "https://www.log.com.tr/openai-chatgpt-icin-ayri-bir-haritalar-bolumu-devreye-aldi/",
-    "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_11-44-32_tddOP.jpg"
+    "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_11-44-32_tddOP.jpg",
+    "layout": "isim",
+    "cover_v": 1
   },
   "slug": "chatgpt-haritalar-ozelligi-web-surumune-eklendi",
   "published_at": "2026-09-26T09:36:28Z",
@@ -63,13 +66,15 @@
   "photos_tried": "2026-09-26T12:33:20Z",
   "photos": [
     {
-      "file": "e0c6c18ad3.webp",
+      "file": "e0c6c18ad3-g0.webp",
       "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_11-44-32_tddOP.jpg",
       "credit": "LOG",
       "page": "https://www.log.com.tr/openai-chatgpt-icin-ayri-bir-haritalar-bolumu-devreye-aldi/",
       "alt": "",
       "w": 1600,
-      "h": 900
+      "h": 900,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "e0c6c18ad3-g1.webp",
@@ -78,8 +83,11 @@
       "page": "https://www.log.com.tr/openai-chatgpt-icin-ayri-bir-haritalar-bolumu-devreye-aldi/",
       "alt": "",
       "w": 1280,
-      "h": 720
+      "h": 720,
+      "graphic": true,
+      "cover_ok": false
     }
   ],
-  "updated_at": "2026-09-26T09:36:28Z"
+  "updated_at": "2026-09-26T09:36:28Z",
+  "photos_v": 2
 }

@@ -65,10 +65,10 @@
     "message_id": 174
   },
   "image": {
-    "source": "photo",
-    "credit": "LOG",
-    "page": "https://www.log.com.tr/playstation-5-oyunlarini-emulasyona-ihtiyac-duymadan-pcde-calistirmak-icin-yeni-bir-proje-gelistiriliyor/",
-    "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_09-54-33_Xe00R.jpg"
+    "source": "cover",
+    "layout": "isim",
+    "palette": "gaming-3",
+    "cover_v": 1
   },
   "slug": "anyps5-projesi-ps5-oyunlarini-pce-tasiyor",
   "published_at": "2026-09-26T09:36:13Z",
@@ -76,41 +76,39 @@
   "photos_tried": "2026-09-26T12:33:21Z",
   "photos": [
     {
-      "file": "283567453f.webp",
-      "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_09-54-33_Xe00R.jpg",
-      "credit": "LOG",
-      "page": "https://www.log.com.tr/playstation-5-oyunlarini-emulasyona-ihtiyac-duymadan-pcde-calistirmak-icin-yeni-bir-proje-gelistiriliyor/",
-      "alt": "",
-      "w": 1600,
-      "h": 900
-    },
-    {
-      "file": "283567453f-g1.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210934/1200x675ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor--210934",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "283567453f-g2.webp",
+      "file": "283567453f-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260926045141&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210934/ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor210934_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor--210934",
       "alt": "",
       "w": 720,
-      "h": 405
+      "h": 405,
+      "graphic": false,
+      "cover_ok": true
     },
     {
-      "file": "283567453f-g3.webp",
+      "file": "283567453f-g1.webp",
+      "src": "https://www.log.com.tr/wp-content/uploads/2026/09/2026-09-26_09-54-33_Xe00R.jpg",
+      "credit": "LOG",
+      "page": "https://www.log.com.tr/playstation-5-oyunlarini-emulasyona-ihtiyac-duymadan-pcde-calistirmak-icin-yeni-bir-proje-gelistiriliyor/",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "graphic": true,
+      "cover_ok": false
+    },
+    {
+      "file": "283567453f-g2.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260926045141&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210934/ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor210934_1.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/ps5-oyunlari-emulatorsuz-pc-ye-uyarlanabilir-anyps5-geliyor--210934",
       "alt": "",
       "w": 720,
-      "h": 345
+      "h": 345,
+      "graphic": true,
+      "cover_ok": false
     }
   ],
-  "updated_at": "2026-09-26T09:36:13Z"
+  "updated_at": "2026-09-26T09:36:13Z",
+  "photos_v": 2
 }

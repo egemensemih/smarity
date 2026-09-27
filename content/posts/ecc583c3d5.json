@@ -77,13 +77,15 @@
   },
   "photos": [
     {
-      "file": "ecc583c3d5.webp",
+      "file": "ecc583c3d5-g0.webp",
       "src": "https://fdn.gsmarena.com/imgroot/news/26/09/weekly-poll-xiaomi-18-pro-18-pro-max/-952x498w6/gsmarena_000.jpg",
       "credit": "GSMArena",
       "page": "https://www.gsmarena.com/weekly_poll_what_do_you_think_of_the_xiaomi_18_pro_and_xiaomi_18_pro_max-news-74753.php",
       "alt": "",
       "w": 952,
-      "h": 498
+      "h": 498,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "ecc583c3d5-g1.webp",
@@ -92,16 +94,22 @@
       "page": "https://www.gsmarena.com/weekly_poll_what_do_you_think_of_the_xiaomi_18_pro_and_xiaomi_18_pro_max-news-74753.php",
       "alt": "Weekly poll: what do you think of the Xiaomi 18 Pro and Xiaomi 18 Pro Max?",
       "w": 1200,
-      "h": 617
+      "h": 617,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
     "source": "photo",
+    "photo": "ecc583c3d5-g0.webp",
     "credit": "GSMArena",
     "page": "https://www.gsmarena.com/weekly_poll_what_do_you_think_of_the_xiaomi_18_pro_and_xiaomi_18_pro_max-news-74753.php",
-    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/weekly-poll-xiaomi-18-pro-18-pro-max/-952x498w6/gsmarena_000.jpg"
+    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/weekly-poll-xiaomi-18-pro-18-pro-max/-952x498w6/gsmarena_000.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "xiaomi-18-pro-serisi-tanitildi",
   "published_at": "2026-09-27T16:45:39Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

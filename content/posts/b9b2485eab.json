@@ -54,13 +54,15 @@
   },
   "photos": [
     {
-      "file": "b9b2485eab.webp",
+      "file": "b9b2485eab-g0.webp",
       "src": "https://fdn.gsmarena.com/imgroot/news/26/09/vivo-x500-pro-max-ifr/-952x498w6/gsmarena_000.jpg",
       "credit": "GSMArena",
       "page": "https://www.gsmarena.com/vivo_x500_pro_max_in_for_review-news-74773.php",
       "alt": "",
       "w": 952,
-      "h": 498
+      "h": 498,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "b9b2485eab-g1.webp",
@@ -69,7 +71,9 @@
       "page": "https://www.gsmarena.com/vivo_x500_pro_max_in_for_review-news-74773.php",
       "alt": "",
       "w": 1220,
-      "h": 526
+      "h": 526,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "b9b2485eab-g2.webp",
@@ -78,7 +82,9 @@
       "page": "https://www.gsmarena.com/vivo_x500_pro_max_in_for_review-news-74773.php",
       "alt": "vivo X500 Pro Max unboxing and hands-on",
       "w": 1200,
-      "h": 799
+      "h": 799,
+      "graphic": false,
+      "cover_ok": true
     },
     {
       "file": "b9b2485eab-g3.webp",
@@ -87,16 +93,22 @@
       "page": "https://www.gsmarena.com/vivo_x500_pro_max_in_for_review-news-74773.php",
       "alt": "vivo X500 Pro Max unboxing and hands-on",
       "w": 1200,
-      "h": 799
+      "h": 799,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
     "source": "photo",
+    "photo": "b9b2485eab-g0.webp",
     "credit": "GSMArena",
     "page": "https://www.gsmarena.com/vivo_x500_pro_max_in_for_review-news-74773.php",
-    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/vivo-x500-pro-max-ifr/-952x498w6/gsmarena_000.jpg"
+    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/vivo-x500-pro-max-ifr/-952x498w6/gsmarena_000.jpg",
+    "layout": "sayi",
+    "cover_v": 1
   },
   "slug": "vivo-x500-pro-max-kutu-acilisi",
   "published_at": "2026-09-27T19:47:24Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }

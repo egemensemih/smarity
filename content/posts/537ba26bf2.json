@@ -52,31 +52,25 @@
   },
   "photos": [
     {
-      "file": "537ba26bf2.webp",
-      "src": "https://www.donanimhaber.com/images/images/haber/210945/1200x675tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor--210945",
-      "alt": "",
-      "w": 1200,
-      "h": 675
-    },
-    {
-      "file": "537ba26bf2-g1.webp",
+      "file": "537ba26bf2-g0.webp",
       "src": "https://www.donanimhaber.com/cache-v2/?t=20260926205127&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210945/tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor210945_0.jpg",
       "credit": "DonanımHaber",
       "page": "https://www.donanimhaber.com/tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor--210945",
       "alt": "",
       "w": 720,
-      "h": 405
+      "h": 405,
+      "graphic": false,
+      "cover_ok": true
     }
   ],
   "image": {
-    "source": "photo",
-    "credit": "DonanımHaber",
-    "page": "https://www.donanimhaber.com/tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor--210945",
-    "src": "https://www.donanimhaber.com/images/images/haber/210945/1200x675tesla-optimus-uretimini-artirdi-ancak-buyuk-sorun-devam-ediyor.jpg"
+    "source": "cover",
+    "layout": "isim",
+    "palette": "teknoloji-2",
+    "cover_v": 1
   },
   "slug": "tesla-optimus-uretim-sorunlari",
   "published_at": "2026-09-27T16:46:55Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "photos_v": 2
 }
