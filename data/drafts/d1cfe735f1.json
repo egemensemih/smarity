@@ -1,0 +1,106 @@
+{
+  "id": "d1cfe735f1",
+  "status": "pending",
+  "created_at": "2026-09-28T14:25:58Z",
+  "title": "Claude Code hatası: Yapay zeka binlerce dosyayı sildi",
+  "summary": "Bir yazılım geliştiricisinin Claude Code'a verdiği temizlik komutu, yapay zekanın yanlışlıkla yaklaşık 48 bin aktif çalışma dosyasını silmesine neden oldu.",
+  "body": "DonanımHaber'in aktardığına göre, bir yazılım geliştiricisi geçmişe dönük hisse senedi verilerini analiz ettiği projesindeki hataları gidermek amacıyla Claude Code adlı yapay zeka ajanından yardım istedi. Geliştirici, yapay zekadan orijinal çalışma dosyalarına dokunmadan yalnızca test ortamını temizlemesini ve gerekli düzeltmeleri yapmasını talep etti. Ancak Claude Code, sistemdeki klasör bağlantılarını (junction) yanlış yorumlayınca süreç beklenmedik bir felaketle sonuçlandı.\n\n## Hata nasıl gerçekleşti?\n\nClaude Code, test ortamını temizlemek için komutu uygularken Windows üzerindeki klasör bağlantılarını sıradan klasörlerle karıştırarak geliştiricinin asıl çalışma dosyalarının bulunduğu dizinlere yöneldi. Bu durum, toplamda yaklaşık 55 bin dosyanın silinmesine yol açtı. Silinen verilerin büyük bir kısmı olan 48 bin 218 dosya, geliştiricinin aktif projelerine aitti. Olay sadece dosyaların silinmesiyle kalmadı; aynı zamanda yazılım sürümlerini takip etmek için kullanılan Git veri tabanı da zarar görerek içeriklerin geri getirilmesini imkansız hale getirdi.\n\n## Topluluğun tepkisi ne oldu?\n\nReddit platformunda geniş yankı bulan olay, yazılım dünyasında yedekleme pratiklerini tekrar gündeme getirdi. Birçok kullanıcı, projenin sadece yerel bilgisayarda değil, GitHub gibi bulut tabanlı uzak depolarda da düzenli olarak yedeklenmesi gerektiğinin altını çizdi. Kullanıcılar, yerel Git depolarının donanım hataları veya bu tür toplu veri silinmelerine karşı yeterli güvenlik sağlamadığını vurguladı.\n\n**Neden önemli?** Olay, yapay zeka ajanlarına verilen yetkilerin ve dosya sistemleri üzerindeki kontrolsüz işlemlerin, profesyonel bir çalışma ortamında ciddi veri kayıplarına yol açabileceğini gösteriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Claude Code",
+    "yapay zeka",
+    "yazılım",
+    "veri güvenliği",
+    "Windows"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude Code yaklaşık 48 bin dosyayı sildi",
+  "kicker": "Yapay zeka hatası",
+  "hero_stat": "48.218",
+  "hero_stat_label": "silinen dosya sayısı",
+  "visual_style": "still_life",
+  "visual_scene": "A clean, modern office desk featuring an open laptop showing a terminal screen with a cursor, next to a scattered pile of blank, translucent white paper sheets representing lost data, lit by a soft, cool-toned spotlight.",
+  "focus_keyword": "Claude Code",
+  "seo_title": "Claude Code hatası yüzünden binlerce dosya silindi",
+  "meta_description": "Yapay zeka aracı Claude Code, bir test ortamını temizlerken yanlışlıkla kullanıcının 48 binden fazla çalışma dosyasını sildi.",
+  "seo_slug": "claude-code-hatasi-binlerce-dosya-sildi",
+  "image_alt": "Bilgisayar başında veri kaybını temsil eden soyut beyaz kağıtlar ve bir dizüstü bilgisayar ekranı",
+  "cover_text": "Claude Code",
+  "carousel_points": [
+    "Bir geliştirici Claude Code'a test ortamını temizleme görevi verdi.",
+    "Yapay zeka, klasör bağlantılarını yanlış algılayarak 48 binden fazla aktif dosyayı sildi.",
+    "Olay sonrası yazılım dünyasında bulut yedeklemenin önemi bir kez daha vurgulandı."
+  ],
+  "appeal": 8,
+  "importance": 7,
+  "triage_reason": "Yapay zeka araçlarının kontrolsüz hata yapabileceğini gösteren korkutucu ve viral bir kullanıcı deneyimi.",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
+      "title": "Yapay zeka, bir geliştiricinin tüm çalışmasını sildi: “Bir şeyi bozdum”",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-28T13:37:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/210988/1200x675yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "source_texts": [
+    {
+      "credit": "DonanımHaber",
+      "kind": "media",
+      "title": "Yapay zeka, bir geliştiricinin tüm çalışmasını sildi: “Bir şeyi bozdum”",
+      "url": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
+      "published": "2026-09-28T13:37:00Z",
+      "summary": "Yapay zeka aracı Claude Code, Windows'taki bağlantı hatası nedeniyle 100 saniyede bir geliştiricinin 48 bin dosyasını sildi. Yapay zeka daha sonra “Dur ve bunu oku. Bir şeyi bozdum.” dedi.",
+      "text": "Test ortamını temizliyordu\nOlayı yaşayan yazılım geliştiricisi, geçmişe dönük hisse senedi opsiyon verilerini analiz etmek için kullandığı yazılımlardaki bazı sorunları gidermek amacıyla Claude Code'a bir dizi görev verdi. Talimatlara göre yapay zeka, ilgili dosyaların kopyaları oluşturulacak, düzeltmeler bu kopyalar üzerinde yapılacak, testler tamamlanacak ve çalışan orijinal dosyalara dokunulmayacaktı.\nToplam 11 ayrı onarım görevi başlatıldı. Bunlardan 10'u sorunsuz tamamlanırken son görevde işler oldukça ters gitti. Bu görev kapsamında, yazılımların test edildiği ve ayna (mirror) olarak adlandırılan ortamın yeniden oluşturulması gerekiyordu. Amaç, eski test ortamının temiz bir kopyasını hazırlamak, düzeltmeleri uygulamak ve gerçek çalışma dosyalarını etkilemeden testleri yürütmekti.\nAncak test ortamında bulunan 614 Windows klasör bağlantısı, yapay zeka ajanının beklenmedik bir hataya düşmesine neden oldu.\nWindows'ta junction adı verilen klasör bağlantıları, normal bir klasör gibi görünmelerine rağmen bilgisayardaki başka bir konumu işaret ediyor. Bu olayda test ortamındaki 614 bağlantı, geliştiricinin asıl çalışma dosyalarının bulunduğu dizinlere yönlendiriliyordu.\nClaude Code, test ortamını temizlemeye çalışırken bu bağlantıları sıradan klasörler gibi ele aldı. Bağlantıların işaret ettiği gerçek dizinlere ilerleyen ajan, yalnızca test kopyalarını temizlemek yerine geliştiricinin kullandığı dosyaları da silmeye başladı.\nTemizlik işlemi sonucunda yaklaşık 55 bin 550 dosya silindi. Bunların 7 bin 300 kadarı zaten silinmesi planlanan dosyalardan oluşuyordu. Ancak kalan 48 bin 218 dosya, geliştiricinin aktif olarak kullandığı çalışma ortamına aitti.\n“Craig, dur ve bunu oku. Bir şeyi bozdum.”\nDosyaların silinmesi, yaşanan felaketin yalnızca bir kısmıydı. Geliştiricinin Git deposu da olaydan etkilendi. Git'in dosya listesini ve değişiklikleri takip etmekte kullandığı dizin kaydı korunurken dosyaların içeriklerini ve geçmiş sürümlerini saklayan temel veri tabanı zarar gördü. Git, binlerce dosyanın adını isteyebilse de bu dosyaların içeriklerini geri getiremiyordu. Daha basit ifadeyle, dosyaların varlığına ilişkin kayıtlar durmasına rağmen onları yeniden oluşturmak için gereken veriler de silinmişti.\nGeliştiricide de hata var\nReddit'te paylaşılan olay, beş gün içinde 1.400'den fazla yorum aldı. Toplulukta öne çıkan görüş, geliştiricinin temel yazılım geliştirme ve yedekleme uygulamalarını ihmal ettiği yönünde.\nKullanıcılar, projelerin düzenli olarak Git ile sürüm kontrolüne alınması ve GitHub gibi uzak depolara gönderilmesi gerektiğini vurguladı. Yerel bilgisayardaki bir Git deposu, donanım arızası veya dosyaların topluca silinmesi gibi durumlarda tek başına yeterli koruma sağlamıyor.\nBazı kullanıcılar, silinen dosyaların kurtarılması için dosya kurtarma yazılımlarını veya Windows'un Shadow Copy özelliğini kullanmayı önerdi. Ancak dosyaların ne kadarının geri getirilebildiğine ilişkin kesin bir bilgi paylaşılmadı.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 392
+  },
+  "photos": [
+    {
+      "file": "d1cfe735f1-g0.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260928125354&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210988/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi210988_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "d1cfe735f1-g1.webp",
+      "src": "https://www.donanimhaber.com/images/images/haber/210988/src/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi210988_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
+      "alt": "Yapay zeka, bir geliştiricinin tüm çalışmasını sildi",
+      "w": 1600,
+      "h": 1641,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "d1cfe735f1-g1.webp",
+    "credit": "DonanımHaber",
+    "page": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
+    "src": "https://www.donanimhaber.com/images/images/haber/210988/src/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi210988_1.jpg",
+    "layout": "sayi",
+    "cover_v": 1
+  },
+  "policy_reason": "Genel onay oranı %77 (<%85)"
+}
