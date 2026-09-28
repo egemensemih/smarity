@@ -34,7 +34,6 @@ SLOW_ACTIONS = {
     "g": ("⏳ Fotoğraf değiştiriliyor…", "🖼 Fotoğraf değişti"),
     "n": ("⏳ Fotoğraflar kaldırılıyor…", "🚫 Fotoğraflar kaldırıldı"),
     "w": ("⏳ Yeniden yazılıyor…", "🔁 Yeniden yazıldı"),
-    "s": ("⏳ Görseller hazırlanıyor…", "📱 Gönderildi"),
 }
 IG_WINDOW_DEFAULT = [8, 24]
 CONF_LABEL = {"yuksek": "yüksek", "orta": "orta", "dusuk": "düşük"}
@@ -51,7 +50,7 @@ COMMANDS = [
     ("yardim", "Nasıl kullanılır"),
 ]
 COMMANDS_VERSION = 3
-KEYBOARD_VERSION = 3          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
+KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
 
@@ -540,8 +539,7 @@ class App:
         if kind in ("published", "auto"):
             return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])},
                      {"text": "🗑 Kaldır", "callback_data": f"d:{did}"}],
-                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
-                     {"text": "📱 Instagram", "callback_data": f"s:{did}"}], self._visual_buttons(d),
+                    [{"text": "📄 Tam metin", "callback_data": f"f:{did}"}], self._visual_buttons(d),
                     [{"text": "⭐ Manşetten çıkar" if d.get("home") == "pin" else "⭐ Manşete al", "callback_data": f"m:{did}"},
                      {"text": "🏠 Ana sayfada göster" if d.get("home") == "hide" else "🙈 Ana sayfada gösterme",
                       "callback_data": f"h:{did}"}]]
@@ -834,11 +832,12 @@ class App:
             self._update_preview(d, "rewritten")
             self._send_preview(d, kind)
             return msg
-        if action == "s":
+        if action == "s":   # eski mesajlardaki "Instagram" düğmesi: görseller artık Telegram'a gelmez
             if where != "post":
                 return "Önce yayınlanmalı."
-            self._send_social(d, force=True)
-            return "📱 Gönderildi"
+            if self.ig_enabled:
+                return "📸 Instagram sırasına eklendi" if self.ig_enqueue(d) else "Zaten sırada ya da paylaşıldı."
+            return "📸 Instagram bağlanınca haberler kendiliğinden paylaşılacak."
         if action == "w":
             if where != "draft" or d.get("status") != "pending":
                 return "Sadece bekleyen haberler yeniden yazılabilir. Yayındakini düzeltmek için mesajı yanıtla."

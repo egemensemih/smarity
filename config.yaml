@@ -91,8 +91,9 @@ social:
   instagram_min_gap_minutes: 15    # iki paylaşım arasında en az bu kadar dakika olsun (akış boğulmasın)
   instagram_max_per_day: 0         # günlük üst sınır (0 = sınır yok; Instagram'ın kendi sınırı 100)
   instagram_max_wait_hours: 12     # bundan uzun sırada bekleyen haber artık paylaşılmaz (bayatlamasın)
-  # IG_ACCESS_TOKEN yokken: Instagram post + story görsellerini elle paylaşman için Telegram'a gönder
-  send_to_telegram: true
+  # Instagram post + story görselleri Telegram'a gönderilmez; IG_ACCESS_TOKEN eklenince paylaşım kendiliğinden yapılır.
+  # (true yapılırsa, Instagram bağlı değilken görseller elle paylaşım için Telegram'a gelir.)
+  send_to_telegram: false
   # Instagram görsel tarzı:
   # ozet  : logo, kategori etiketi, vurgulu büyük başlık ve kısa özet; renkler habere göre değişir (önerilen)
   # kapak : dev rakam / ürün adı kapağı (sitedeki kapakla aynı)

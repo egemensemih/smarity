@@ -101,6 +101,7 @@ def test_pin_and_hide_buttons():
         a.store.save_post(_post(1, 2, publish_mode="manual"))
         kb = a._keyboard(a.store.load_post("p01"), "published")
         assert [b["callback_data"][0] for b in kb[-1]] == ["m", "h"]
+        assert not any(b.get("callback_data", "").startswith("s:") for row in kb for b in row)   # Instagram düğmesi yok
         assert a._on_button("m", "p01").startswith("⭐")
         p = a.store.load_post("p01")
         assert p["home"] == "pin" and a._keyboard(p, "published")[-1][0]["text"].endswith("Manşetten çıkar")
@@ -143,6 +144,14 @@ def test_publish_with_pin_and_manset_command():
         a._cb_mid = a.state["manset_mid"]
         assert a._on_button("m", "p01").startswith("⭐")
         assert a._manset_keyboard()[1][0]["text"].startswith("📌")
+        # Instagram görselleri Telegram'a gelmez (bağlanınca otomatik paylaşılır)
+        outbox = a.tg.dir / "outbox.jsonl"
+        before = outbox.read_text(encoding="utf-8") if outbox.exists() else ""
+        assert not a.ig_enabled
+        a._send_social(a.store.load_post("p02"))
+        assert "kendiliğinden" in a._on_button("s", "p02")
+        after = outbox.read_text(encoding="utf-8") if outbox.exists() else ""
+        assert "sendMediaGroup" not in after[len(before):] and "sendPhoto" not in after[len(before):]
         # eski mesajların düğmeleri bir kez yenilenir
         a.refresh_keyboards()
         assert a.state["keyboard_v"] == appmod.KEYBOARD_VERSION
