@@ -30,7 +30,7 @@
     },
     "DonanımHaber": {
       "approved": 16,
-      "rejected": 12
+      "rejected": 13
     },
     "ShiftDelete.Net": {
       "approved": 11,
@@ -50,7 +50,7 @@
     },
     "Carscoops": {
       "approved": 3,
-      "rejected": 3
+      "rejected": 4
     },
     "TechCrunch": {
       "approved": 10,
@@ -1004,6 +1004,18 @@
       "t": "2026-09-28T18:27:00Z",
       "id": "aaca477ad5",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T18:36:33Z",
+      "id": "fde356b12d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T18:36:38Z",
+      "id": "2c3073ecad",
+      "ok": false,
       "manual": true
     }
   ]
