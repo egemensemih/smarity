@@ -287,11 +287,14 @@ Output fields:
 Cover fields (the big text printed on the article's cover image on the homepage, in feeds and on Instagram; it must make
 a scrolling reader stop and want to read — the cover is our headline):
 - cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own without the title: the key
-  name (company/product/game/car) or the key number plus what is new or surprising. Factual and grounded in the sources;
-  no question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing ("şok", "inanılmaz", "herkes
-  bunu konuşuyor"). Word it differently from the title; sentence case. Never just a name or just a number.
-  Examples of the style (do not reuse): "Starship ilk kez yörüngede", "TikTok'ta gençlere 2 saat sınırı",
-  "Apple'a 5,7 milyar dolar ceza", "Honor'dan 11.000 mAh'lik pil", "OpenAI en güçlü modelini durdurdu".
+  name (company/product/game/car) plus the single most striking concrete fact — the number, the first-ever, the standout
+  feature, the consequence — not a shortened copy of the title and not a bare "X tanıtıldı / duyurdu / açıklandı".
+  Keep the certainty of the sources: if something may happen, is claimed or rumoured, the hook says so ("… gelebilir",
+  "… iddiası"). Factual; no question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing ("şok",
+  "inanılmaz", "herkes bunu konuşuyor"). Sentence case. Never just a name or just a number.
+  Weak → strong (style only, do not reuse): "Honor Watch 6 Pro tanıtıldı" → "Honor'un yeni saati 35 gün dayanıyor";
+  "ElevenLabs v4 tanıtıldı" → "ElevenLabs sesi 90 dilde konuşturuyor"; "Starship yörüngeye ulaştı" → "Starship ilk kez
+  yörüngede"; "TikTok yeni kural getirdi" → "TikTok'ta gençlere 2 saat sınırı".
 - cover_highlight: 1–3 consecutive words copied exactly from cover_headline that carry the punch (the number, the key
   name or the twist); they are coloured on the cover.
 - update_note: "" normally. Only when the input contains a PREVIOUS ARTICLE marked as an update: one Turkish sentence
@@ -421,14 +424,19 @@ def coverline_system(site_name: str) -> str:
 article's image on the homepage, in feeds and on Instagram; it must make a scrolling reader stop and want to read.
 For each story write:
 - cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own: the key name
-  (company/product/game/car) or the key number plus what is new or surprising. Use only facts in the given title and
-  summary. No question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing. Word it differently from
-  the title; sentence case; correct Turkish characters; keep brand spellings (iPhone, eFootball). Never just a name or just
-  a number. Style examples (do not reuse): "Starship ilk kez yörüngede", "TikTok'ta gençlere 2 saat sınırı",
-  "Apple'a 5,7 milyar dolar ceza", "Honor'dan 11.000 mAh'lik pil".
+  (company/product/game/car) plus the single most striking concrete fact from the title or summary — the number, the
+  first-ever, the standout feature, the consequence — not a shortened copy of the title and not a bare "X tanıtıldı /
+  duyurdu / açıklandı". Use only facts in the given title and summary and keep their certainty: if something may happen,
+  is claimed or rumoured, the hook says so ("… gelebilir", "… iddiası"). No question marks, no exclamation marks, no
+  ellipsis, no emojis, no clickbait teasing. Sentence case; correct Turkish characters; keep brand spellings (iPhone,
+  eFootball). Never just a name or just a number.
+  Weak → strong (style only, do not reuse): "Honor Watch 6 Pro tanıtıldı" → "Honor'un yeni saati 35 gün dayanıyor";
+  "ElevenLabs v4 tanıtıldı" → "ElevenLabs sesi 90 dilde konuşturuyor"; "Starship yörüngeye ulaştı" → "Starship ilk kez
+  yörüngede"; "TikTok yeni kural getirdi" → "TikTok'ta gençlere 2 saat sınırı".
 - cover_highlight: 1–3 consecutive words copied exactly from cover_headline that carry the punch.
 Return one line per id."""
 
 
 def coverline_user(posts: list[dict]) -> str:
-    return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')}" for p in posts)
+    return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')} "
+                     f"{' '.join((p.get('carousel_points') or [])[:3])}".rstrip() for p in posts)

@@ -52,6 +52,7 @@ COMMANDS = [
     ("yardim", "Nasıl kullanılır"),
 ]
 COMMANDS_VERSION = 4
+COVERLINE_V = 2               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
 KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
@@ -552,7 +553,8 @@ class App:
         """Kapak başlığı olmayan haberlere toplu kapak başlığı yaz (kapaklar ardından bu başlıkla yenilenir)."""
         if not self.llm:
             return
-        todo = [p for p in self.store.posts() if not p.get("cover_headline") and not p.get("cover_line_skip")][:batch]
+        todo = [p for p in self.store.posts()
+                if p.get("cover_line_v") != COVERLINE_V and not p.get("cover_line_skip")][:batch]
         if not todo:
             return
         try:
@@ -566,8 +568,12 @@ class App:
         for p in todo:
             line = self._cover_line((got.get(p["id"]) or {}).get("cover_headline"), (got.get(p["id"]) or {}).get("cover_highlight"))
             if line:
+                changed = line.get("cover_headline") != p.get("cover_headline")
                 p.update(line)
+                p["cover_line_v"] = COVERLINE_V
                 self.fixer.post(p)
+                if changed and p.get("image"):
+                    p["image"]["cover_v"] = 0          # kapak yeni başlıkla yeniden üretilsin
                 n += 1
             else:
                 p["cover_line_tries"] = int(p.get("cover_line_tries", 0)) + 1
@@ -579,7 +585,7 @@ class App:
     @staticmethod
     def _cover_ready(p: dict) -> bool:
         """Kapak yenilemesi için kapak başlığı hazır mı (ya da artık beklenmiyor mu)."""
-        return bool(p.get("cover_headline") or p.get("cover_line_skip"))
+        return bool((p.get("cover_headline") and p.get("cover_line_v") == COVERLINE_V) or p.get("cover_line_skip"))
 
     def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None) -> dict:
         cfg = self.cfg
@@ -615,6 +621,8 @@ class App:
             "update_note": clip((out.get("update_note") or "").strip(), 160),
             **self._cover_line(out.get("cover_headline"), out.get("cover_highlight")),
         }
+        if res.get("cover_headline"):
+            res["cover_line_v"] = COVERLINE_V
         self.fixer.post(res)          # Türkçe karakter ve marka yazımı düzeltmeleri
         return res
 
@@ -677,7 +685,7 @@ class App:
     # ── mevcut haberi geliştirme ────────────────────────────
     UPDATE_FIELDS = ("title", "summary", "body", "tags", "short_title", "kicker", "hero_stat", "hero_stat_label",
                      "focus_keyword", "seo_title", "meta_description", "image_alt", "cover_text", "carousel_points",
-                     "cover_headline", "cover_highlight", "confidence", "flags", "editor_note")
+                     "cover_headline", "cover_highlight", "cover_line_v", "confidence", "flags", "editor_note")
 
     def create_update(self, post: dict, story: dict, its: list[dict]) -> dict | None:
         """Yayındaki habere yeni gelişme geldi: yeni haber yerine güncelleme taslağı (onaylanınca haber yerinde güncellenir)."""
@@ -1251,7 +1259,7 @@ class App:
         if new_visual:
             text = visual_only.strip()
             if text and len(text) <= 56:   # kısa ifade: kapak başlığı olsun (fotoğraflı kapakta da)
-                d["cover_headline"], d["cover_highlight"] = text, ""
+                d["cover_headline"], d["cover_highlight"], d["cover_line_v"] = text, "", COVERLINE_V
                 d["cover_variant"] = int(d.get("cover_variant", 0)) + 1
             elif text:                      # uzun ifade: yapay zeka görseli sahnesi
                 d["visual_scene"] = text
