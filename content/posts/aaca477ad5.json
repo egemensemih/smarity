@@ -1,6 +1,5 @@
 {
   "id": "aaca477ad5",
-  "status": "pending",
   "created_at": "2026-09-28T18:21:28Z",
   "title": "Florida başsavcılığından OpenAI için acil model durdurma talebi",
   "summary": "Florida başsavcılığı, OpenAI'ın bağımsız denetim olmaksızın yeni yapay zeka modelleri eğitmesini ve çocukların ChatGPT'ye erişmesini engellemek için mahkemeye başvurdu.",
@@ -50,17 +49,6 @@
   "source_keys": [
     "Engadget"
   ],
-  "source_texts": [
-    {
-      "credit": "Engadget",
-      "kind": "media",
-      "title": "Florida AG requests emergency order to stop OpenAI model development",
-      "url": "https://www.engadget.com/2270988/florida-ag-requests-emergency-order-to-stop-openai-model-development/",
-      "published": "2026-09-28T17:11:33Z",
-      "summary": "This follows a lawsuit from this summer where ChatGPT was allegedly connected to a mass shooting.",
-      "text": "Florida AG requests emergency order to stop OpenAI model development\nThe state sued OpenAI this past June.\nIn a motion filed on Monday, the Florida attorney general James Uthmeier requested that a state court prevent OpenAI from training new models without independent oversight, and that it cut minors off from ChatGPT. Uthmeier's office first sued OpenAI in June, after launching a criminal investigation into the company this past April in the aftermath of the 2025 mass shooting at Florida State University. The suspect in that case allegedly used ChatGPT in the lead up to the shooting.\n\"No new model development without independent safety guardrails; no more harvesting children's data; no more calling this product safe, accurate, or reliable; no more pretending it's human; no more tricks designed to keep users talking past the point of danger,\" Uthmeier said Monday in a video shared on X. \"If Sam Altman meant what he said about slowing down, he can join our ask to the court. If he will not, we ask the court to do what OpenAI will not do for itself — protect Florida families.\"\nOpenAI did not immediately respond to Engadget's comment request.\n\"Last year's mass shooting at Florida State University was a tragedy, but ChatGPT is not responsible for this terrible crime... ChatGPT is a general-purpose tool used by hundreds of millions of people every day for legitimate purposes. We work continuously to strengthen our safeguards to detect harmful intent, limit misuse, and respond appropriately when safety risks arise,\" OpenAI told Engadget after Uthmeier's office first launched its criminal investigation into the company.\nUthmeier's office points to OpenAI's recent security disclosures, including the one it made after the hacking of Hugging Face, as well as Sam Altman's own calls for the AI industry to slow down the pace of frontier model development, as justification for the injunction. \"It is a rare request for an injunction where the Defendants themselves have publicly endorsed it,\" Uthmeier writes in the brief. \"They have asked the government to tie them to the mast. Plaintiff brings good news to the Defendants: The Florida Attorney General is answering your cry for help with a motion to enjoin you from harming Floridians with your reckless, unacceptably risky product.\"\nFlorida's lawsuit isn't the first time OpenAI has been connected to a mass shooting. In February, Canadian regulators called for OpenAI to change how it approaches threats of harm following a Wall Street Journal report that claimed the company flagged the account of alleged Tumbler Ridge shooter Jesse Van Rootselaar in 2025 but failed to bring their threats to law enforcement. Following the tragedy, the company agreed to new policies around how it works with Canadian law enforcement."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 409
@@ -89,5 +77,7 @@
     "layout": "isim",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %80 (<%85)"
+  "slug": "florida-basvurusundan-openai-icin-acil-durdurma-talebi",
+  "published_at": "2026-09-28T18:27:00Z",
+  "publish_mode": "manual"
 }

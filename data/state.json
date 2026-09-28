@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815781,
+  "telegram_offset": 872815787,
   "last_collect": "2026-09-28T18:20:35Z",
   "last_summary_date": "2026-09-28",
   "mode_override": null,
@@ -209,14 +209,14 @@
       "tok_out": 89639,
       "cost_usd": 0.0,
       "drafts": 55,
-      "published": 39,
-      "approved": 39,
-      "rejected": 11
+      "published": 44,
+      "approved": 44,
+      "rejected": 12
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-28T17:35:03Z",
+  "last_build": "2026-09-28T18:29:52Z",
   "build_sig": "03d356f7cabac86a",
   "commands_version": 3,
   "queue": [
@@ -283,8 +283,14 @@
       "at": "2026-09-28T18:20:48Z"
     }
   ],
-  "last_activity": "2026-09-28T17:31:48Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-28T18:26:59Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/detectifai-akilli-telefon-ses-guvenligi/",
+    "https://smarity.com.tr/haber/byd-seagull-yenileniyor-boyutlar-ve-ozellikler/",
+    "https://smarity.com.tr/haber/anthropic-sonnet-5-5-tanitildi/",
+    "https://smarity.com.tr/haber/openai-model-egitimini-durdurdu/",
+    "https://smarity.com.tr/haber/florida-basvurusundan-openai-icin-acil-durdurma-talebi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370
