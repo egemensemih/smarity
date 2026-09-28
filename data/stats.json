@@ -22,7 +22,7 @@
     },
     "Webrazzi": {
       "approved": 5,
-      "rejected": 1
+      "rejected": 2
     },
     "Electrek": {
       "approved": 3,
@@ -49,7 +49,7 @@
       "rejected": 0
     },
     "Carscoops": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 3
     },
     "TechCrunch": {
@@ -83,6 +83,10 @@
     "Ars Technica": {
       "approved": 0,
       "rejected": 1
+    },
+    "Autocar": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -792,6 +796,18 @@
       "t": "2026-09-28T10:19:14Z",
       "id": "958da72af8",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T10:52:32Z",
+      "id": "860321c23a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T10:52:36Z",
+      "id": "c2a41725e1",
+      "ok": false,
       "manual": true
     }
   ]
