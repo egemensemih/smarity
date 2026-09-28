@@ -1,6 +1,5 @@
 {
   "id": "b329272d38",
-  "status": "pending",
   "created_at": "2026-09-27T20:45:53Z",
   "title": "Anthropic Donald Trump ile Beyaz Saray'da bir araya geliyor",
   "summary": "Anthropic CEO'su Dario Amodei, yapay zekâ güvenliği konusundaki görüş ayrılıklarının ardından ABD Başkanı Donald Trump ile akşam yemeğinde buluşuyor.",
@@ -53,17 +52,6 @@
   "source_keys": [
     "TechCrunch"
   ],
-  "source_texts": [
-    {
-      "credit": "TechCrunch",
-      "kind": "media",
-      "title": "Anthropic’s CEO is about to have dinner with President Trump",
-      "url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/",
-      "published": "2026-09-27T20:34:28Z",
-      "summary": "This will be the first one-on-one meeting between Dario Amodei and Donald Trump",
-      "text": "Anthropic CEO Dario Amodei seems to be everywhere this weekend: He was lampooned on the season premiere of Saturday Night Live, and tonight, he’s set to have dinner with President Donald Trump at the White House.\nAxios first broke the news of Amodei’s dinner plans, which TechCrunch subsequently confirmed with a source familiar with his plans.\nThis will be the first one-on-one meeting between the two men, who recently found themselves on opposite sides of the AI safety debate. Amodei released a plan to slow AI development (or at least proceed with more caution), while Trump has insisted, without evidence, that the AI backlash is a Democratic hoax; he also wants to rebrand the technology as “super intelligence.”\nEven before the current back-and-forth, Amodei and Anthropic have to had a fraught relationship with Trump’s administration. Earlier this year, the Pentagon designated Anthropic a supply-chain risk in response to the company’s attempt to put guardrails around the use of its technology (Anthropic has been fighting the designation in court), although other administration officials have been friendlier."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 287
@@ -92,5 +80,7 @@
     "layout": "isim",
     "cover_v": 1
   },
-  "policy_reason": "Uyarı işareti var"
+  "slug": "anthropic-donald-trump-beyaz-saray-gorusmesi",
+  "published_at": "2026-09-28T06:22:24Z",
+  "publish_mode": "manual"
 }

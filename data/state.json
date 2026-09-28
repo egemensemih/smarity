@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815724,
+  "telegram_offset": 872815730,
   "last_collect": "2026-09-28T06:15:37Z",
   "last_summary_date": "2026-09-27",
   "mode_override": null,
@@ -208,16 +208,25 @@
       "tok_in": 94602,
       "tok_out": 9607,
       "cost_usd": 0.0,
-      "drafts": 5
+      "drafts": 5,
+      "published": 5,
+      "approved": 5,
+      "rejected": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-28T05:59:24Z",
+  "last_build": "2026-09-28T06:24:28Z",
   "build_sig": "54a9c3c90bc1d6be",
   "commands_version": 2,
   "queue": [],
-  "last_activity": "2026-09-27T19:47:35Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-28T06:23:20Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/anthropic-donald-trump-beyaz-saray-gorusmesi/",
+    "https://smarity.com.tr/haber/yeni-bmw-3-series-tanitim-tarihi-ve-ozellikleri/",
+    "https://smarity.com.tr/haber/peugeot-e-208-gti-turkiye-cikis-tarihi/",
+    "https://smarity.com.tr/haber/honor-watch-6-turkiye-fiyati-ve-ozellikleri/",
+    "https://smarity.com.tr/haber/gemini-skills-ozelligi-tanitildi/"
+  ],
   "last_prune": "2026-09-27"
 }

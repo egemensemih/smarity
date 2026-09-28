@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 2
     },
     "The Verge": {
@@ -26,18 +26,18 @@
     },
     "Electrek": {
       "approved": 3,
-      "rejected": 5
+      "rejected": 6
     },
     "DonanımHaber": {
       "approved": 12,
       "rejected": 7
     },
     "ShiftDelete.Net": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 5
     },
     "Webtekno": {
-      "approved": 5,
+      "approved": 7,
       "rejected": 2
     },
     "Anadolu Ajansı": {
@@ -49,11 +49,11 @@
       "rejected": 0
     },
     "Carscoops": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 3
     },
     "TechCrunch": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 1
     },
     "Egirisim": {
@@ -659,6 +659,42 @@
     {
       "t": "2026-09-27T19:47:35Z",
       "id": "50012851f7",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:22:27Z",
+      "id": "b329272d38",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:22:42Z",
+      "id": "392c9aac4c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:22:44Z",
+      "id": "427f5862d2",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:22:56Z",
+      "id": "6c1efaff06",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:23:08Z",
+      "id": "cc99121368",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T06:23:21Z",
+      "id": "16ff552bb1",
       "ok": true,
       "manual": true
     }
