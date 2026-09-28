@@ -1,6 +1,5 @@
 {
   "id": "03463c3df8",
-  "status": "pending",
   "created_at": "2026-09-28T12:34:36Z",
   "title": "SpaceX yeni nesil Starlink uyduları için hazırlanıyor",
   "summary": "SpaceX ilk Starlink V3 uydularını fırlatmaya hazırlanırken, Amazon'un uydu internet projesi fırlatma ortaklarındaki sorunlar yüzünden gecikiyor.",
@@ -51,17 +50,6 @@
   "source_keys": [
     "The Verge"
   ],
-  "source_texts": [
-    {
-      "credit": "The Verge",
-      "kind": "media",
-      "title": "SpaceX preps next-gen Starlink as Amazon’s competitor stalls",
-      "url": "https://www.theverge.com/science/1001259/spacex-starlink-satellites-starship-amazon-leo",
-      "published": "2026-09-28T12:09:17Z",
-      "summary": "SpaceX is gearing up for a monumental flight today that's sure to be closely watched by Amazon. If successful, SpaceX will deploy its first Starlink V3 satellites, which tout meaningful upgrades to the ever-expanding Starlink constellation. The 26 satellites will be riding atop Starship, which SpaceX will also attempt to deploy into Earth orbit for […]",
-      "text": "SpaceX is gearing up for a monumental flight today that’s sure to be closely watched by Amazon. If successful, SpaceX will deploy its first Starlink V3 satellites, which tout meaningful upgrades to the ever-expanding Starlink constellation. The 26 satellites will be riding atop Starship, which SpaceX will also attempt to deploy into Earth orbit for the first time. The mission arrives amid Amazon’s ongoing setbacks with launch partners that are keeping its own Leo satellites grounded, and falling further behind its plan to offer a meaningful rival to Elon Musk’s space internet service.\nSpaceX preps next-gen Starlink as Amazon’s competitor stalls\nAmazon leo is struggling to get off the ground.\nAmazon leo is struggling to get off the ground.\nIt’s been twelve weeks since Amazon’s last successful Leo deployment with 29 satellites carried into orbit aboard United Launch Alliance’s (ULA) Atlas V rocket on July 2nd. That brings Leo’s launched satellite total to 396 — far below the over 11,000 satellites that Starlink currently has in operation, or even the 552 Starlink satellites that have launched since July 2nd. Following its last launch, Amazon Leo launch systems director Melissa Wuerl said that the company had “a clear path to increase launch and deployment cadence,” but that evidently hasn’t happened.\nIssues blighting Leo’s launch partners are largely to blame for the setbacks. Vulcan, ULA’s successor to the soon retiring Atlas V rocket that Amazon has relied on, has been grounded by the US Space Force since February 2026 following a booster anomaly that’s still under investigation. Blue Origin, the space company owned by Amazon founder Jeff Bezos, is similarly contracted to launch Leo satellites, but its New Glenn rocket has also been grounded since its only launchpad was destroyed in May.\nEarlier this month, Amazon announced that it had ordered six additional launches for Arianespace’s A64 heavy lift rocket, bringing its total contracted launches from 18 to 24. This is also facing delays, however, following issues with an unspecified Ariane 6 component that’s expected to disrupt launches “for the remainder of 2026.” 36 Leo satellites were previously expected to launch aboard Ariane 64 in October, but those missions have since been scrubbed from the European spaceport website.\nAll of this begs the question: when will Amazon next expand its Leo constellation? The service is only in its early stages and has already received an extension for its FCC deadline to launch half of its planned 3,232 satellites, which came with the condition that the company needs to move quickly. Amazon previously said that the almost 400 satellites it has in operation are enough to switch on a limited version of its internet service, but the “mid-2026” deadline it set for commercial availability has passed with no update. At this rate, it’ll be years before Leo can seriously compete with Starlink globally."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 381
@@ -90,5 +78,9 @@
     "layout": "sayi",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %80 (<%85)"
+  "home": "pin",
+  "home_at": "2026-09-28T13:06:39Z",
+  "slug": "spacex-yeni-nesil-starlink-uydulari",
+  "published_at": "2026-09-28T13:06:39Z",
+  "publish_mode": "manual"
 }
