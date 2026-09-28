@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815744,
+  "telegram_offset": 872815749,
   "last_collect": "2026-09-28T10:11:08Z",
   "last_summary_date": "2026-09-27",
   "mode_override": null,
@@ -209,14 +209,14 @@
       "tok_out": 31753,
       "cost_usd": 0.0,
       "drafts": 21,
-      "published": 15,
-      "approved": 15,
+      "published": 17,
+      "approved": 17,
       "rejected": 5
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-28T10:16:16Z",
+  "last_build": "2026-09-28T10:20:54Z",
   "build_sig": "03d356f7cabac86a",
   "commands_version": 3,
   "queue": [
@@ -283,8 +283,12 @@
       "at": "2026-09-28T10:11:14Z"
     }
   ],
-  "last_activity": "2026-09-28T09:49:13Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-28T10:19:44Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/alpine-a110-yeni-tasarimi-paris-otomobil-fuarinda/",
+    "https://smarity.com.tr/haber/oneplus-16-tanitim-tarihi-ve-ozellikleri-aciklandi/"
+  ],
   "last_prune": "2026-09-27",
-  "keyboard_v": 4
+  "keyboard_v": 4,
+  "manset_mid": 370
 }
