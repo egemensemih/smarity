@@ -1,6 +1,5 @@
 {
   "id": "d1cfe735f1",
-  "status": "pending",
   "created_at": "2026-09-28T14:25:58Z",
   "title": "Claude Code hatası: Yapay zeka binlerce dosyayı sildi",
   "summary": "Bir yazılım geliştiricisinin Claude Code'a verdiği temizlik komutu, yapay zekanın yanlışlıkla yaklaşık 48 bin aktif çalışma dosyasını silmesine neden oldu.",
@@ -51,17 +50,6 @@
   "source_keys": [
     "DonanımHaber"
   ],
-  "source_texts": [
-    {
-      "credit": "DonanımHaber",
-      "kind": "media",
-      "title": "Yapay zeka, bir geliştiricinin tüm çalışmasını sildi: “Bir şeyi bozdum”",
-      "url": "https://www.donanimhaber.com/yapay-zeka-bir-gelistiricinin-tum-calismasini-sildi--210988",
-      "published": "2026-09-28T13:37:00Z",
-      "summary": "Yapay zeka aracı Claude Code, Windows'taki bağlantı hatası nedeniyle 100 saniyede bir geliştiricinin 48 bin dosyasını sildi. Yapay zeka daha sonra “Dur ve bunu oku. Bir şeyi bozdum.” dedi.",
-      "text": "Test ortamını temizliyordu\nOlayı yaşayan yazılım geliştiricisi, geçmişe dönük hisse senedi opsiyon verilerini analiz etmek için kullandığı yazılımlardaki bazı sorunları gidermek amacıyla Claude Code'a bir dizi görev verdi. Talimatlara göre yapay zeka, ilgili dosyaların kopyaları oluşturulacak, düzeltmeler bu kopyalar üzerinde yapılacak, testler tamamlanacak ve çalışan orijinal dosyalara dokunulmayacaktı.\nToplam 11 ayrı onarım görevi başlatıldı. Bunlardan 10'u sorunsuz tamamlanırken son görevde işler oldukça ters gitti. Bu görev kapsamında, yazılımların test edildiği ve ayna (mirror) olarak adlandırılan ortamın yeniden oluşturulması gerekiyordu. Amaç, eski test ortamının temiz bir kopyasını hazırlamak, düzeltmeleri uygulamak ve gerçek çalışma dosyalarını etkilemeden testleri yürütmekti.\nAncak test ortamında bulunan 614 Windows klasör bağlantısı, yapay zeka ajanının beklenmedik bir hataya düşmesine neden oldu.\nWindows'ta junction adı verilen klasör bağlantıları, normal bir klasör gibi görünmelerine rağmen bilgisayardaki başka bir konumu işaret ediyor. Bu olayda test ortamındaki 614 bağlantı, geliştiricinin asıl çalışma dosyalarının bulunduğu dizinlere yönlendiriliyordu.\nClaude Code, test ortamını temizlemeye çalışırken bu bağlantıları sıradan klasörler gibi ele aldı. Bağlantıların işaret ettiği gerçek dizinlere ilerleyen ajan, yalnızca test kopyalarını temizlemek yerine geliştiricinin kullandığı dosyaları da silmeye başladı.\nTemizlik işlemi sonucunda yaklaşık 55 bin 550 dosya silindi. Bunların 7 bin 300 kadarı zaten silinmesi planlanan dosyalardan oluşuyordu. Ancak kalan 48 bin 218 dosya, geliştiricinin aktif olarak kullandığı çalışma ortamına aitti.\n“Craig, dur ve bunu oku. Bir şeyi bozdum.”\nDosyaların silinmesi, yaşanan felaketin yalnızca bir kısmıydı. Geliştiricinin Git deposu da olaydan etkilendi. Git'in dosya listesini ve değişiklikleri takip etmekte kullandığı dizin kaydı korunurken dosyaların içeriklerini ve geçmiş sürümlerini saklayan temel veri tabanı zarar gördü. Git, binlerce dosyanın adını isteyebilse de bu dosyaların içeriklerini geri getiremiyordu. Daha basit ifadeyle, dosyaların varlığına ilişkin kayıtlar durmasına rağmen onları yeniden oluşturmak için gereken veriler de silinmişti.\nGeliştiricide de hata var\nReddit'te paylaşılan olay, beş gün içinde 1.400'den fazla yorum aldı. Toplulukta öne çıkan görüş, geliştiricinin temel yazılım geliştirme ve yedekleme uygulamalarını ihmal ettiği yönünde.\nKullanıcılar, projelerin düzenli olarak Git ile sürüm kontrolüne alınması ve GitHub gibi uzak depolara gönderilmesi gerektiğini vurguladı. Yerel bilgisayardaki bir Git deposu, donanım arızası veya dosyaların topluca silinmesi gibi durumlarda tek başına yeterli koruma sağlamıyor.\nBazı kullanıcılar, silinen dosyaların kurtarılması için dosya kurtarma yazılımlarını veya Windows'un Shadow Copy özelliğini kullanmayı önerdi. Ancak dosyaların ne kadarının geri getirilebildiğine ilişkin kesin bir bilgi paylaşılmadı.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 392
@@ -102,5 +90,7 @@
     "layout": "sayi",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %77 (<%85)"
+  "slug": "claude-code-hatasi-binlerce-dosya-sildi",
+  "published_at": "2026-09-28T15:23:55Z",
+  "publish_mode": "manual"
 }
