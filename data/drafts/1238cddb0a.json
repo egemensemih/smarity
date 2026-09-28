@@ -1,0 +1,106 @@
+{
+  "id": "1238cddb0a",
+  "status": "pending",
+  "created_at": "2026-09-28T13:17:10Z",
+  "title": "Quantum bilgisayar uzayda ilk kez çalıştırıldı",
+  "summary": "Viyana Üniversitesi araştırmacıları, zorlu uzay koşullarına rağmen bir kuantum bilgisayarı yörüngede başarıyla çalıştırmayı başardı.",
+  "body": "Viyana Üniversitesi'nden bir grup araştırmacı, bir kuantum bilgisayarı uzay ortamında çalıştırmayı başararak dünya çapında bir ilke imza attı. Haziran 2025'te bir Falcon 9 roketiyle yörüngeye fırlatılan cihaz, zorlu uzay koşulları ve karşılaşılan teknik engeller nedeniyle ancak uzun süren çalışmaların ardından aktif hale getirilebildi. Çalışmanın temel amacı, uyduların veri işleme kapasitesini artırarak dünyadan bağımsız hale gelmelerini sağlamak.\n\n## Uzayda kuantum zorlukları\n\nKuantum bilgisayarların temel yapı taşı olan kübitler, çevresel etkileşimlere karşı oldukça hassas yapılar. Araştırmacılar, fırlatma sırasındaki sarsıntılara karşı cihaz bileşenlerini titanyum taban plakaları ve epoksi ile güçlendirdi. Ancak yörüngeye ulaşan altı foton dedektöründen sadece üçü çalışır durumda kaldı. Ayrıca güneş ışığının yarattığı arka plan gürültüsünü aşmak için bilim insanları, uydunun Dünya'nın gölgesinde kaldığı 30 dakikalık zaman dilimlerini kullanmak zorunda kaldı.\n\n## Radyasyon ve teknik engeller\n\nUzaydaki radyasyon etkileri de sistem üzerinde yıpratıcı bir rol oynadı. Cihaz, alüminyum bir muhafaza ile korunmasına rağmen, parçacıkların dedektörlere verdiği zararlar ve vakum ortamında yapıştırıcıların bozunması nedeniyle lazer çıkış gücü önemli oranda düştü. Tüm bu zorluklara rağmen ekip, fotonların cihaz devreleri içindeki hareketini gözlemleyerek deneylerini tamamladı. \n\n**Neden önemli?** Bu deney, kuantum işlemcilerin uzay koşullarında çalışabileceğini ve ileride uydular ile yeryüzü arasında güvenli kuantum bağlantıları kurmak için kullanılabileceğini kanıtlıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "kuantum bilgisayar",
+    "uzay",
+    "bilim",
+    "uydu",
+    "Türkiye"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Uzayda kuantum bilgisayar deneyi",
+  "kicker": "Bilim dünyası",
+  "hero_stat": "2025",
+  "hero_stat_label": "fırlatma yılı",
+  "visual_style": "sculpture",
+  "visual_scene": "A cluster of translucent geometric prisms floating in a dark vacuum, with thin shimmering laser lines connecting them, surrounded by scattered metallic dust reflecting distant starlight.",
+  "focus_keyword": "kuantum bilgisayar",
+  "seo_title": "Kuantum bilgisayar uzayda ilk kez çalıştırıldı",
+  "meta_description": "Viyana Üniversitesi, bir kuantum bilgisayarı yörüngede çalıştırmayı başardı. Uzayda veri işlemenin önünü açan bu kritik deneyi Smarity'de keşfedin.",
+  "seo_slug": "kuantum-bilgisayar-uzayda-calistirildi",
+  "image_alt": "Uzay boşluğunda parlayan soyut prizmatik kuantum bilgisayar yapısı",
+  "cover_text": "Kuantum bilgisayar",
+  "carousel_points": [
+    "Viyana Üniversitesi ekibi, bir kuantum bilgisayarı ilk kez uzayda çalıştırdı.",
+    "Sistem güneş ışığı ve radyasyon gibi zorlu uzay koşullarına karşı korunmaya çalışıldı.",
+    "Bu başarı, uyduların gelecekte kendi verilerini uzayda işlemesine kapı aralıyor."
+  ],
+  "appeal": 7,
+  "importance": 7,
+  "triage_reason": "Uzayda kuantum bilgisayar çalıştırılması ilk kez gerçekleşen çığır açıcı bir bilimsel gelişme.",
+  "sources": [
+    {
+      "name": "Interesting Engineering",
+      "url": "https://interestingengineering.com/innovation/quantum-computer-operates-in-space",
+      "title": "Scientists operate quantum computer in space for first time after launch challenges",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-28T12:53:29Z",
+      "image": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/QCS.jpg"
+    }
+  ],
+  "source_keys": [
+    "Interesting Engineering"
+  ],
+  "source_texts": [
+    {
+      "credit": "Interesting Engineering",
+      "kind": "media",
+      "title": "Scientists operate quantum computer in space for first time after launch challenges",
+      "url": "https://interestingengineering.com/innovation/quantum-computer-operates-in-space",
+      "published": "2026-09-28T12:53:29Z",
+      "summary": "Scientists at the University of Vienna have achieved a global first after operating a quantum...",
+      "text": "Scientists at the University of Vienna have achieved a global first after operating a quantum computer in space. The computer was launched on a Falcon 9 rocket in June 2025. It could only be operated after much tribulation, showcasing the challenges of operating new technologies in the harsh environments of space.\nThe idea to launch a quantum computer to space was also a response to another challenge being faced in space- the data bottleneck for satellites. While companies like SpaceX have made it easier to launch missions into orbit, the challenges of operating them are much the same.\nSatellites are great at collecting raw data but do not carry compute that can process it. This means that all captured data must first be sent back to Earth to make sense of it.\nHowever, this creates a bottleneck because downlink bandwidth and ground-station availability limit how much data is received. A possible alternative to this is to process the data on the satellite itself, and a quantum solution would be ideal.\nQuantum computer in space\nIt is common knowledge now that qubits, or quantum bits that store information in quantum computers, are extremely sensitive to outside disturbances. The orbital environment that satellites operate in does not offer the highly controlled environments of quantum laboratories, which can shield the system.\nBefore a quantum computer can operate, it must be launched on a rocket, and its components undergo severe mechanical stress before reaching orbit. Researchers from the University of Vienna reinforced the computer components using titanium baseplates and fragile optical fibers using epoxy,\nEven after extensive vibration testing before launch, only three of the six silicon single-photon avalanche diodes (SPADs) on the computer, needed to detect photons, survived the trip.\nThe harsh sunlight of space created huge background noise for the SPADs to make any measurements. So, scientists used the brief 30-minute periods that the satellite passes in the Earth’s shadow to make the measurements.\nRadiation and Laser problems\nIn case you were of the view that hurdles were now behind them and the team could focus on data processing, that would still have a been a smooth ride to get to this point. Once the sunlight issue was resolved, the researchers faced radiation hurdles from the Van Allen belts created by the Earth’s magnetic field and which traps photons and electrons.\nThe team anticipated this when preparing for put the quantum computer in space and encased the device in centimeter-thick, aerospace-grade aluminum. The casing worked for the electrons but couldn’t keep protons at bay, which degraded the photon detectors.\nThe adhesive used to keep the laser in place also degraded in vacuum and contaminated its optics, which reduced the laser’s output from 20 milliwatts to four milliwatts. Even after much tribulation, the researchers were finally able to test if photons traveling through the instrument’s circuits were indistinguishable.\nBased on experiments on Earth, this was expected to happen when temperatures of the crystals producing the photons reached 90.5 degrees Fahrenheit (32.5 degrees Celsius), and that’s exactly what the team saw in space.\nWhile this doesn’t help process satellite data in space yet, it shows that quantum processors can be compressed, can operate in space, and can be used to establish quantum links between satellites and the ground.\nThe research findings are on the preprint server arXiv."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 385
+  },
+  "photos": [
+    {
+      "file": "1238cddb0a-g0.webp",
+      "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/QCS.jpg",
+      "credit": "Interesting Engineering",
+      "page": "https://interestingengineering.com/innovation/quantum-computer-operates-in-space",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "1238cddb0a-g1.webp",
+      "src": "https://interestingengineering.com/_next/image?url=https%3A%2F%2Fcms.interestingengineering.com%2Fwp-content%2Fuploads%2F2026%2F09%2FLA.jpg&w=3840&q=75",
+      "credit": "Interesting Engineering",
+      "page": "https://interestingengineering.com/innovation/quantum-computer-operates-in-space",
+      "alt": "China’s HALF fires first electron beam with 2.2 billion eV of energy",
+      "w": 1600,
+      "h": 900,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "1238cddb0a-g0.webp",
+    "credit": "Interesting Engineering",
+    "page": "https://interestingengineering.com/innovation/quantum-computer-operates-in-space",
+    "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/09/QCS.jpg",
+    "layout": "sayi",
+    "cover_v": 1
+  },
+  "policy_reason": "Genel onay oranı %80 (<%85)"
+}
