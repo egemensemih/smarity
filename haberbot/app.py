@@ -52,7 +52,7 @@ COMMANDS = [
     ("yardim", "Nasıl kullanılır"),
 ]
 COMMANDS_VERSION = 4
-COVERLINE_V = 2               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
+COVERLINE_V = 3               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
 KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
@@ -283,6 +283,8 @@ class App:
         # Yayın yönetmeni: adaylar arasından günün seçkisi (yeni haber / mevcut haberi güncelle / geç / beklet)
         queue = sorted(queue + new_stories, key=lambda q: (-int(q["story"].get("importance", 0)), q["at"]))[:24]
         slots = min(int(ed("max_drafts_per_run", 2)), remaining)
+        if fresh:
+            log.info("Ayıklama: %d aday, %d elendi, %d mevcut habere eklendi", len(new_stories), skipped, merged)
         if not new_stories and all(hours_since(q.get("held_at")) < 0.75 for q in queue):
             self.state["queue"] = queue[:30]   # yeni aday yok, bekleyenlere az önce bakıldı
             return
@@ -307,8 +309,6 @@ class App:
             self._edit_log(q, act, x)
         todo.sort(key=lambda q: -q["story"]["must_read"])
         self.state["queue"] = keep[:30]
-        if fresh:
-            log.info("Ayıklama: %d aday, %d elendi, %d mevcut habere eklendi", len(new_stories), skipped, merged)
         log.info("Yönetmen: %d yeni haber, %d güncelleme, %d bekliyor, %d geçildi", len(todo), len(updates), len(keep),
                  len(queue) - len(todo) - len(updates) - len(keep))
         for n, q in enumerate(todo):

@@ -289,7 +289,8 @@ a scrolling reader stop and want to read — the cover is our headline):
 - cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own without the title: the key
   name (company/product/game/car) plus the single most striking concrete fact — the number, the first-ever, the standout
   feature, the consequence — not a shortened copy of the title and not a bare "X tanıtıldı / duyurdu / açıklandı".
-  Keep the certainty of the sources: if something may happen, is claimed or rumoured, the hook says so ("… gelebilir",
+  It must be about the MAIN news of the article (what the title says happened), never a side detail; it must read as a
+  complete statement, not a fragment. Keep the certainty of the sources: if something may happen, is claimed or rumoured, the hook says so ("… gelebilir",
   "… iddiası"). Factual; no question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing ("şok",
   "inanılmaz", "herkes bunu konuşuyor"). Sentence case. Never just a name or just a number.
   Weak → strong (style only, do not reuse): "Honor Watch 6 Pro tanıtıldı" → "Honor'un yeni saati 35 gün dayanıyor";
@@ -426,7 +427,9 @@ For each story write:
 - cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own: the key name
   (company/product/game/car) plus the single most striking concrete fact from the title or summary — the number, the
   first-ever, the standout feature, the consequence — not a shortened copy of the title and not a bare "X tanıtıldı /
-  duyurdu / açıklandı". Use only facts in the given title and summary and keep their certainty: if something may happen,
+  duyurdu / açıklandı". It must be about the MAIN news of the title (what happened), never a side detail from the
+  summary, and it must read as a complete statement, not a fragment. Use only facts in the given title and summary and
+  keep their certainty: if something may happen,
   is claimed or rumoured, the hook says so ("… gelebilir", "… iddiası"). No question marks, no exclamation marks, no
   ellipsis, no emojis, no clickbait teasing. Sentence case; correct Turkish characters; keep brand spellings (iPhone,
   eFootball). Never just a name or just a number.
