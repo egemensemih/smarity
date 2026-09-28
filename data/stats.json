@@ -21,7 +21,7 @@
       "rejected": 4
     },
     "Webrazzi": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 2
     },
     "Electrek": {
@@ -33,11 +33,11 @@
       "rejected": 9
     },
     "ShiftDelete.Net": {
-      "approved": 9,
+      "approved": 10,
       "rejected": 7
     },
     "Webtekno": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 2
     },
     "Anadolu Ajansı": {
@@ -61,15 +61,15 @@
       "rejected": 0
     },
     "Polygon": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 2
     },
     "WIRED": {
       "approved": 1,
-      "rejected": 2
+      "rejected": 3
     },
     "IGN": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 5
     },
     "New Atlas": {
@@ -85,6 +85,10 @@
       "rejected": 1
     },
     "Autocar": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "VGC": {
       "approved": 1,
       "rejected": 0
     }
@@ -813,6 +817,42 @@
     {
       "t": "2026-09-28T11:16:52Z",
       "id": "a04bb386d2",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:13Z",
+      "id": "02e941b344",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:13Z",
+      "id": "bb6a941814",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:15Z",
+      "id": "66ff5f5274",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:16Z",
+      "id": "eb29e49f71",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:18Z",
+      "id": "04802b99c9",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T12:35:19Z",
+      "id": "e441f7d7b1",
       "ok": true,
       "manual": true
     }
