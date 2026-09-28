@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815739,
+  "telegram_offset": 872815744,
   "last_collect": "2026-09-28T09:41:09Z",
   "last_summary_date": "2026-09-27",
   "mode_override": null,
@@ -209,18 +209,21 @@
       "tok_out": 28443,
       "cost_usd": 0.0,
       "drafts": 19,
-      "published": 13,
-      "approved": 13,
-      "rejected": 2
+      "published": 15,
+      "approved": 15,
+      "rejected": 5
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-28T09:12:51Z",
+  "last_build": "2026-09-28T09:50:16Z",
   "build_sig": "c47d493f3b73a771",
   "commands_version": 2,
   "queue": [],
-  "last_activity": "2026-09-28T09:08:40Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-28T09:49:13Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/world-model-egitimi-video-oyunu-verileri/",
+    "https://smarity.com.tr/haber/snapdragon-islemcili-telefonlara-pc-oyunlari-geliyor/"
+  ],
   "last_prune": "2026-09-27"
 }

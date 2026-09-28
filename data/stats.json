@@ -29,12 +29,12 @@
       "rejected": 6
     },
     "DonanımHaber": {
-      "approved": 14,
-      "rejected": 8
+      "approved": 15,
+      "rejected": 9
     },
     "ShiftDelete.Net": {
       "approved": 9,
-      "rejected": 6
+      "rejected": 7
     },
     "Webtekno": {
       "approved": 7,
@@ -65,8 +65,8 @@
       "rejected": 2
     },
     "WIRED": {
-      "approved": 0,
-      "rejected": 1
+      "approved": 1,
+      "rejected": 2
     },
     "IGN": {
       "approved": 0,
@@ -750,6 +750,36 @@
       "t": "2026-09-28T09:08:42Z",
       "id": "1bf41ad92a",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T09:48:54Z",
+      "id": "45517acfc3",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T09:49:02Z",
+      "id": "f80dd530fa",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T09:49:03Z",
+      "id": "daab0b017b",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T09:49:12Z",
+      "id": "c16fb29671",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-28T09:49:13Z",
+      "id": "da8c6d5634",
+      "ok": false,
       "manual": true
     }
   ]

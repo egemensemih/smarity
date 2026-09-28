@@ -1,6 +1,6 @@
 {
   "id": "f80dd530fa",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-28T09:18:25Z",
   "title": "Nvidia OpenShell ve Sentry ile yapay zeka ajanları güvenliğini duyurdu",
   "summary": "Nvidia, yapay zeka ajanlarının güvenliğini artırmak ve olası riskleri kontrol altına almak amacıyla OpenShell ve Sentry sistemlerini tanıttı.",
@@ -101,5 +101,6 @@
     "layout": "isim",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %80 (<%85)"
+  "policy_reason": "Genel onay oranı %80 (<%85)",
+  "rejected_at": "2026-09-28T09:49:02Z"
 }
