@@ -38,12 +38,35 @@ jobs:
           ref: main
 
       - uses: actions/setup-python@v6
+        id: py
         with:
           python-version: "3.12"
-          cache: pip
+
+      # Paketler önbellekteki hazır ortamdan gelir; PyPI'ye yalnızca requirements.txt değişince gidilir
+      # (PyPI'nin anlık yavaşlıkları botu durdurmasın)
+      - name: Paket önbelleği
+        id: venv
+        uses: actions/cache@v5
+        with:
+          path: ~/venv
+          key: venv-${{ runner.os }}-${{ steps.py.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
 
       - name: Paketleri kur
-        run: pip install -r requirements.txt
+        env:
+          PIP_DEFAULT_TIMEOUT: "60"
+          PIP_RETRIES: "10"
+          PIP_DISABLE_PIP_VERSION_CHECK: "1"
+        run: |
+          if [ "${{ steps.venv.outputs.cache-hit }}" != "true" ]; then
+            python -m venv ~/venv
+            for i in 1 2 3; do
+              ~/venv/bin/pip install -r requirements.txt && break
+              if [ "$i" = 3 ]; then exit 1; fi
+              echo "PyPI yanıt vermedi, 30 sn sonra yeniden deneniyor ($i/3)"
+              sleep 30
+            done
+          fi
+          echo "$HOME/venv/bin" >> "$GITHUB_PATH"
 
       - name: Tarayıcı önbelleği
         uses: actions/cache@v5
