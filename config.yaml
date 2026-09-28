@@ -22,7 +22,7 @@ home:
   # Ana sayfa seçkisi: her haber ana sayfaya çıkmaz. İlgi puanı (yapay zeka verir) ve tazeliğe göre en dikkat çekiciler
   # manşete ve "Öne çıkanlar"a girer; diğerleri kategori ve "Tüm haberler" sayfalarında durur.
   # Telegram'daki "⭐ Manşete al" ve "🙈 Ana sayfada gösterme" düğmeleriyle tek tek yönetebilirsin.
-  featured_count: 5        # manşetteki haber sayısı
+  featured_count: 10       # manşetteki (kaydırmalı) haber sayısı
 
 seo:
   # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması
