@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815730,
+  "telegram_offset": 872815736,
   "last_collect": "2026-09-28T08:58:53Z",
   "last_summary_date": "2026-09-27",
   "mode_override": null,
@@ -209,18 +209,24 @@
       "tok_out": 21819,
       "cost_usd": 0.0,
       "drafts": 14,
-      "published": 5,
-      "approved": 5,
-      "rejected": 1
+      "published": 10,
+      "approved": 10,
+      "rejected": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-28T08:49:35Z",
+  "last_build": "2026-09-28T09:07:30Z",
   "build_sig": "c47d493f3b73a771",
   "commands_version": 2,
   "queue": [],
-  "last_activity": "2026-09-28T06:23:20Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-28T09:07:21Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/openai-ajanlari-chatgpt-gorsellerini-sizdirdi/",
+    "https://smarity.com.tr/haber/huawei-mate-90-serisi-1-ekimde-tanitiliyor/",
+    "https://smarity.com.tr/haber/volkswagen-m6-on-satisa-cikti/",
+    "https://smarity.com.tr/haber/apple-patent-cezasi/",
+    "https://smarity.com.tr/haber/huawei-matepad-air-turkiye-fiyati-ve-ozellikleri/"
+  ],
   "last_prune": "2026-09-27"
 }
