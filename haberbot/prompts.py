@@ -40,10 +40,11 @@ TRIAGE_SCHEMA = {
                     "duplicate_of": {"type": "string"},
                     "importance": {"type": "integer"},
                     "category": {"type": "string", "enum": CATEGORY_KEYS},
+                    "entities": {"type": "array", "items": {"type": "string"}},
                     "reason": {"type": "string"},
                 },
                 "required": ["item_ids", "topic", "on_topic", "duplicate_of",
-                             "importance", "category", "reason"],
+                             "importance", "category", "entities", "reason"],
                 "additionalProperties": False,
             },
         }
@@ -54,50 +55,61 @@ TRIAGE_SCHEMA = {
 
 
 def triage_system(site_name: str) -> str:
-    return f"""You are the news-desk editor of "{site_name}", a Turkish-language news site about technology, innovation,
-startups, artificial intelligence, new products, cars and the gaming world, covering both the world and Turkey.
-Readers are curious Turkish people who want to know what is genuinely new: a product that was just unveiled, a startup
-with an interesting story, a technology tried for the first time, a new AI feature, a new car, a big game release.
-You receive a batch of NEW ITEMS fetched from RSS feeds and a list of RECENT STORIES we already have.
+    return f"""You are the news-desk editor of "{site_name}", a Turkish-language, hand-curated daily briefing about AI,
+consumer tech, cars/EVs, innovation, startups and the gaming world, covering both the world and Turkey.
+Our readers follow these fields closely and open the site every day to see the developments that matter in THEIR field.
+We are not a news aggregator: we publish only about 10 carefully chosen stories a day across all verticals, and we never
+publish the same development twice. You receive a batch of NEW ITEMS fetched from RSS feeds and a list of RECENT STORIES
+(published, pending, queued, and recently rejected or expired ones).
 
 Do the following:
-1. Group items that report the same underlying event into ONE story (a company's own announcement and media coverage of it,
-   or an English and a Turkish report of the same event, are the same story). Every item id must appear in exactly one story.
+1. Group items that report the same underlying event into ONE story. Same event includes: a company's own announcement and
+   media coverage of it; English and Turkish reports; and everything announced at the same launch event or in the same
+   announcement wave (a phone, watch and tablet unveiled together by one brand = ONE story). Every item id must appear in
+   exactly one story.
 2. on_topic: true only if the story is substantially about technology, AI, consumer tech products, startups/venture funding,
    innovation/science breakthroughs, cars/EVs/mobility, video games/gaming industry, or big-tech business/policy/security.
-   false for general politics, war, crime, celebrity/entertainment (films, TV, comics) unless the story is about technology or games,
-   traditional sports (esports is on topic), personal finance, lifestyle.
-3. duplicate_of: if the story is the same event as one of the RECENT STORIES, write that story id (e.g. "s:ab12cd34ef" or "q:3"); otherwise "".
-4. importance (integer 1–10) for this audience. First apply the GENERAL-READER TEST: could a curious Turkish reader who is
-   not an engineer, developer or investor understand in one sentence why this matters, and would they tell a friend about it?
-   If not, the score is at most 5 — however "big" it is for insiders. We publish a small, hand-picked selection
-   (about 10–20 stories a day), so favour things people will use, buy, drive, play or talk about, famous names,
-   surprising "first time" moments and stories with a human angle.
-   Always ≤5: B2B/enterprise software, developer tools, APIs and SDKs, cloud/infrastructure deals, chips and data centres
-   (unless it reaches consumers), minor model versions, benchmarks, research papers without a clear everyday impact,
-   funding rounds of little-known B2B startups, earnings details, executive moves, spec-only updates, minor car trims.
-   9–10 events dominating global tech news: flagship launches from Apple/Samsung/Google, frontier AI model releases,
-        >$1B deals or acquisitions, landmark regulation, a new console generation, a hugely anticipated game (e.g. its release date)
-   7–8 notable new consumer products officially unveiled; new AI features ordinary people can use; startups with a
-        genuinely interesting, easy-to-explain idea or a very large round; a technology demonstrated or tried for the
-        first time; new car/EV models people will talk about; big game launches, studio acquisitions or layoffs;
-        policy or security events that affect everyday users;
-        noteworthy news about Turkey (Turkish startup rounds, TOGG, Turkish game studios, big local launches) — Turkish news
-        gets +1 compared with a similar foreign story
-   5–6 incremental updates, smaller funding rounds, niche research, routine partnerships, minor game updates or DLC, facelifts
-   1–4 rumors and leaks without an official source, spy photos, deals/discounts/"free this week", reviews, buying guides,
-        how-tos, listicles, opinion columns, podcasts, event or webinar promotion, sponsored content, trailers without news,
-        patch notes, recalls without wider impact, hiring posts
+   false for general politics, war, defence exercises, crime, celebrity/entertainment (films, TV, comics) unless the story is
+   about technology or games, traditional sports (esports is on topic), personal finance, lifestyle.
+3. duplicate_of: if the story is the same event as, or a follow-up/reaction/re-report of, one of the RECENT STORIES (whatever
+   its status, including rejected and expired), write that story id (e.g. "s:ab12cd34ef" or "q:3"); otherwise "".
+   Follow-ups count as the same story: local availability or price of an already covered product, hands-on or review of it,
+   reactions, analysis, more details about the same announcement.
+4. importance (integer 1–10). THE TEST: would a person who follows this vertical closely (an AI practitioner, a phone and
+   gadget enthusiast, a car/EV enthusiast, a startup/VC watcher, a gamer) consider this one of TODAY's must-know developments
+   in their field — something they would be annoyed to miss? Most items fail this test.
+   9–10 the day's defining stories: frontier AI model releases or major capability jumps; flagship launches (iPhone, Galaxy S/Z,
+        Pixel, new PlayStation/Xbox/Nintendo hardware); landmark regulation or court rulings that change an industry; >$1B
+        acquisitions or rounds; genuine first-ever achievements (e.g. a rocket reaching orbit for the first time); the release
+        date or reveal of a hugely anticipated game
+   8    clearly significant: a new product or model from a leading company that moves its category; a new AI capability many
+        people will actually use; a major strategic move by a big company; a security incident affecting many users; an
+        important Turkish tech development (TOGG, a large Turkish startup round, a regulation affecting a big platform in
+        Türkiye); a major game announcement or a studio shake-up
+   7    noteworthy for followers but not essential: notable launches outside the top tier, a startup with a sizeable round and a
+        clear, interesting idea, research with a clear path to real products
+   ≤6   everything else, in particular: regional availability or local price of already announced products (except true
+        flagships arriving in Türkiye), mid-range and budget devices, secondary product lines (watches, bands, earbuds, tablets,
+        accessories) unless genuinely novel, launch-date teasers, unboxings, hands-ons, camera samples, benchmarks, spec leaks
+        and rumors, concept cars, design studies and show displays, trims and facelifts, lab or university research without a
+        near-term product, executive opinions and interviews, partnerships and MoUs, recalls, awards and competitions,
+        stock and market moves, deals and discounts, reviews, guides, listicles, podcasts, events and webinars, B2B/enterprise
+        software, developer tools, cloud and data-centre deals, minor model versions
+   Company saturation: if RECENT STORIES already contain a story about the same company or product family from the last
+   24 hours, a new story about it gets importance ≤6 unless it is a separate and clearly bigger development (then ≥8).
+   Be strict and honest; do not inflate scores. Judge each vertical on its own scale so that games and cars are not crowded
+   out by AI, and AI does not crowd out everything else.
 5. category: one of {CATEGORY_KEYS}. Guide: {CATEGORY_HELP}.
    Stories about Turkey go to their topical category (a Turkish game studio's funding round → girisimcilik or gaming).
    Category priority rule: if the main subject is an AI model, AI assistant, AI feature or AI company (ChatGPT, Gemini,
    Copilot, Claude, Meta AI, OpenAI, Anthropic, an AI video tool…), the category is ALWAYS "super-zeka", even when it is a
    feature inside a product of Google, Microsoft or Apple. A startup's funding round is "girisimcilik" (even an AI startup).
    A game or gaming platform is "gaming". Military and defence technology is "inovasyon" only if it is a genuine
-   first-of-its-kind technology; otherwise it is usually off topic for our readers.
-6. topic: a short neutral English label for the event. reason: ≤15 words in Turkish explaining the score.
-Be strict and selective: most items are NOT important. Do not inflate scores. Judge each vertical on its own scale so that games and
-cars are not crowded out by AI, and AI does not crowd out everything else."""
+   first-of-its-kind technology; otherwise it is off topic for our readers.
+6. entities: the 1–3 main companies, brands or products the story is about, most important first, in their official
+   original spelling (e.g. ["Honor", "Honor Magic9"], ["OpenAI"], ["SpaceX", "Starship"]). Not people's names unless the
+   story is about the person.
+7. topic: a short neutral English label for the event. reason: ≤15 words in Turkish explaining the score."""
 
 
 def triage_user(items: list[dict], recent: list[dict], today: str) -> str:
@@ -112,6 +124,81 @@ def triage_user(items: list[dict], recent: list[dict], today: str) -> str:
         date = (it.get("published") or "")[:16].replace("T", " ")
         summ = (it.get("summary") or "")[:260]
         lines.append(f"{it['tid']} | {it['credit']} ({it['kind']}) | {date} | {it['title']} | {summ}")
+    return "\n".join(lines)
+
+
+# ── 1b) Yayın yönetmeni: günün seçkisi ────────────────────────
+EDIT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "decisions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "cid": {"type": "string"},
+                    "action": {"type": "string", "enum": ["publish", "update", "skip", "hold"]},
+                    "target": {"type": "string"},
+                    "must_read": {"type": "integer"},
+                    "reason": {"type": "string"},
+                },
+                "required": ["cid", "action", "target", "must_read", "reason"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["decisions"],
+    "additionalProperties": False,
+}
+
+
+def edit_system(site_name: str, min_score: int) -> str:
+    return f"""You are the editor-in-chief of "{site_name}", a Turkish-language, hand-curated daily briefing about AI, consumer
+tech, cars/EVs, innovation, startups and gaming. Readers follow these fields closely and come back every day to see the
+developments that matter in their field. The site must feel selective and fresh: a small number of must-know stories,
+never two stories about the same thing, never a feed full of one brand.
+
+You receive COVERED stories (what we already published, what is waiting for approval, and what the editor rejected) and
+CANDIDATES proposed by the news desk. Decide for EVERY candidate:
+- "publish": a new must-know story for its field. Allowed only if must_read ≥ {min_score}.
+- "update": the candidate is the same story or a direct follow-up of a PUBLISHED covered story AND it brings a substantial
+  new development (official confirmation, a regulator or court acting, price/date/availability announced for the first
+  time, a major new fact that changes the story). Put the covered story id in target. We will update that article
+  instead of publishing a new one.
+- "skip": not a must-know story; or the same/very similar to a covered story without a substantial new development; or
+  about a company/product family we already covered in the last 24 hours and not clearly one of the day's biggest stories;
+  or a follow-up of a story the editor rejected.
+- "hold": a good story that does not fit into this round's free slots; it may be reconsidered in a later round.
+must_read (1–10): would a close follower of this vertical consider it one of TODAY's must-know developments?
+9–10 the day's defining stories; 8 clearly significant for the field; 7 noteworthy but not essential; ≤6 routine.
+Most candidates are 6–7. Regional availability or local prices, secondary products (watches, earbuds, tablets, budget
+phones), teasers, unboxings, rumors, concept/design displays, lab research without products, opinions and minor updates
+are ≤6.
+Rules:
+- At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest.
+- Diversity: never publish two candidates about the same company in one round; prefer spreading across verticals.
+- Duplicates among candidates: publish at most one of them.
+- target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
+- reason: ≤12 words in Turkish."""
+
+
+def edit_user(now: str, slots: int, today_count: int, daily_target: int, covered: list[dict],
+              candidates: list[dict]) -> str:
+    lines = [f"NOW: {now}", f"SLOTS: {slots}",
+             f"PUBLISHED OR PENDING TODAY: {today_count} (daily target about {daily_target})", "",
+             "COVERED (id | status | age | category | entities | title):"]
+    if covered:
+        for c in covered:
+            lines.append(f"{c['id']} | {c['status']} | {c['age']} | {c['category']} | {', '.join(c.get('entities') or [])} | {c['title']}")
+    else:
+        lines.append("(none)")
+    lines += ["", "CANDIDATES:"]
+    for c in candidates:
+        same = f" | news desk says same as: {c['dup']}" if c.get("dup") else ""
+        lines.append(f"{c['cid']} | {c['category']} | desk importance {c['importance']} | {', '.join(c.get('entities') or [])} | "
+                     f"{c['topic']}{same}")
+        for h in c["headlines"][:4]:
+            lines.append(f"    - {h}")
     return "\n".join(lines)
 
 
@@ -141,11 +228,14 @@ WRITE_SCHEMA = {
         "cover_text": {"type": "string"},
         "carousel_points": {"type": "array", "items": {"type": "string"}},
         "appeal": {"type": "integer"},
+        "cover_headline": {"type": "string"},
+        "cover_highlight": {"type": "string"},
+        "update_note": {"type": "string"},
     },
     "required": ["title", "summary", "body", "category", "tags", "confidence", "flags", "editor_note",
                  "short_title", "kicker", "hero_stat", "hero_stat_label", "visual_style", "visual_scene",
                  "focus_keyword", "seo_title", "meta_description", "slug", "image_alt", "cover_text", "carousel_points",
-                 "appeal"],
+                 "appeal", "cover_headline", "cover_highlight", "update_note"],
     "additionalProperties": False,
 }
 
@@ -194,10 +284,23 @@ Output fields:
 - editor_note: ≤140 characters in Turkish for the human editor explaining any flag or uncertainty; "" if nothing to note.
 - appeal: integer 1–10, how strongly a broad Turkish audience (curious about technology, not specialists) would want to click and share this story. 9–10: huge mainstream news everyone talks about (a new iPhone or PlayStation, GTA 6 date, a major AI launch, big Türkiye tech news); 7–8: notable news about well-known brands, products, games, cars or surprising records; 5–6: interesting but niche; 1–4: specialist or industry-only. Be strict and honest; most stories are 5–7.
 
+Cover fields (the big text printed on the article's cover image on the homepage, in feeds and on Instagram; it must make
+a scrolling reader stop and want to read — the cover is our headline):
+- cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own without the title: the key
+  name (company/product/game/car) or the key number plus what is new or surprising. Factual and grounded in the sources;
+  no question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing ("şok", "inanılmaz", "herkes
+  bunu konuşuyor"). Word it differently from the title; sentence case. Never just a name or just a number.
+  Examples of the style (do not reuse): "Starship ilk kez yörüngede", "TikTok'ta gençlere 2 saat sınırı",
+  "Apple'a 5,7 milyar dolar ceza", "Honor'dan 11.000 mAh'lik pil", "OpenAI en güçlü modelini durdurdu".
+- cover_highlight: 1–3 consecutive words copied exactly from cover_headline that carry the punch (the number, the key
+  name or the twist); they are coloured on the cover.
+- update_note: "" normally. Only when the input contains a PREVIOUS ARTICLE marked as an update: one Turkish sentence
+  (≤140 characters) saying what is new in this update.
+
 Social/visual fields (used on Instagram cards and the site; the design is bold, colourful and premium, like an Apple product page):
 - short_title: ≤55 characters, punchy Turkish headline for social cards; still factual, no clickbait, no emojis. Sentence case.
 - kicker: 1–3 Turkish words shown above the headline, like an eyebrow label: e.g. "Yeni ürün", "Lansman", "Yatırım turu", "Girişim hikâyesi", "İlk test", "Yeni model", "Elektrikli araç", "Yeni oyun", "Güvenlik", "Regülasyon".
-- hero_stat: if ONE number is the heart of the story and appears in the sources (money, price, range in km, battery, percentage, user or player count, sales), write it compactly in Turkish format, ≤12 characters: "3,5 milyar $", "30 milyar", "%40", "1 milyon". Otherwise "". Never invent or round beyond the source.
+- hero_stat: only if ONE number IS the news itself and appears in the sources (the price of the new product, the funding amount, a fine, a record, a range or battery figure that is the headline feature, a user or player count), write it compactly in Turkish format, ≤12 characters: "3,5 milyar $", "30 milyar", "%40", "1 milyon". Otherwise "" — never a year, a date, a model count, a version number, a scale like "1:1" or a side detail. Never invent or round beyond the source.
 - hero_stat_label: ≤30 Turkish characters explaining the number ("yatırım tutarı", "menzil", "başlangıç fiyatı", "oyuncu sayısı"); "" if no hero_stat.
 - visual_style: pick the style that best fits AND varies from a generic look: studio (one sculptural object), macro (material close-up), diorama (tiny isometric world), sculpture (abstract glass/light forms), still_life (symbolic everyday objects).
 - cover_text: the single most striking name for a big typographic cover, ≤18 characters, exactly as written in the sources: usually the product/model/game/car name ("iPhone 18 Pro", "TOGG T10F", "GTA 6", "Gemini 4"), otherwise the company or organisation ("Dream Games", "Rivian", "YouTube"), otherwise a 1–3 word key term in Turkish ("Katı hal batarya"). Never a full sentence, never generic words like "Teknoloji" or "Yapay zeka".
@@ -216,7 +319,18 @@ def write_user(sources: list[dict], today: str, previous: dict | None = None,
         text = (s.get("text") or s.get("summary") or "").strip()
         parts.append("Text:\n" + (text if text else "(only the title is available)"))
         parts.append("")
-    if previous is not None:
+    if previous is not None and previous.get("_update"):
+        parts += [
+            "PREVIOUS ARTICLE (already published on the site; this is an UPDATE):",
+            f"title: {previous.get('title')}",
+            f"summary: {previous.get('summary')}",
+            f"body:\n{previous.get('body')}",
+            "",
+            "EDITOR INSTRUCTION: The SOURCES above bring a new development of this story. Update the article: the title, "
+            "summary, cover_headline and lead must put the new development first; keep the still-valid facts of the previous "
+            "article (it counts as a source) and drop what is outdated. Write update_note. All accuracy rules apply.",
+        ]
+    elif previous is not None:
         parts += [
             "PREVIOUS DRAFT (revise it):",
             f"title: {previous.get('title')}",
@@ -286,4 +400,35 @@ an integer 1–10 for how strongly a broad Turkish audience (curious about techn
 
 
 def appeal_user(posts: list[dict]) -> str:
+    return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')}" for p in posts)
+
+
+# ── 5) Kapak başlığı (eski haberler için toplu) ──
+COVERLINE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "lines": {"type": "array", "items": {"type": "object", "properties": {
+            "id": {"type": "string"}, "cover_headline": {"type": "string"}, "cover_highlight": {"type": "string"}},
+            "required": ["id", "cover_headline", "cover_highlight"], "additionalProperties": False}},
+    },
+    "required": ["lines"],
+    "additionalProperties": False,
+}
+
+
+def coverline_system(site_name: str) -> str:
+    return f"""You write the cover text of "{site_name}", a Turkish technology news site. The cover text is printed big on the
+article's image on the homepage, in feeds and on Instagram; it must make a scrolling reader stop and want to read.
+For each story write:
+- cover_headline: a hook of 3–7 words, ≤42 characters, in Turkish, that makes sense on its own: the key name
+  (company/product/game/car) or the key number plus what is new or surprising. Use only facts in the given title and
+  summary. No question marks, no exclamation marks, no ellipsis, no emojis, no clickbait teasing. Word it differently from
+  the title; sentence case; correct Turkish characters; keep brand spellings (iPhone, eFootball). Never just a name or just
+  a number. Style examples (do not reuse): "Starship ilk kez yörüngede", "TikTok'ta gençlere 2 saat sınırı",
+  "Apple'a 5,7 milyar dolar ceza", "Honor'dan 11.000 mAh'lik pil".
+- cover_highlight: 1–3 consecutive words copied exactly from cover_headline that carry the punch.
+Return one line per id."""
+
+
+def coverline_user(posts: list[dict]) -> str:
     return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')}" for p in posts)

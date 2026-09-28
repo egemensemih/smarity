@@ -82,8 +82,16 @@ def test_categories_and_covers():
             name, pal = palette_for({"id": f"{i:06x}", "title": "Xbox, TOGG ve OpenAI", "category": cat})
             assert name.startswith(cat) and len(pal) == 6
     assert cover_word({"tags": ["Apple", "iPhone 18 Pro", "oyun"]}) == "iPhone 18 Pro"
-    d = design({"id": "abc123", "title": "BYD yeni sedanını tanıttı", "hero_stat": "1.000 km", "category": "teknoloji"})
-    assert d["layout"] == "sayi" and d["brand_name"] == "Smarity"
+    d = design({"id": "abc123", "title": "BYD yeni sedanını tanıttı", "hero_stat": "1.000 km", "category": "teknoloji",
+                "cover_headline": "BYD'den 1.000 km menzilli sedan", "cover_highlight": "1.000 km"})
+    assert d["layout"] == "manset" and d["brand_name"] == "Smarity"      # kapakta her zaman vurucu kapak başlığı
+    assert '<em class="grad-text">1.000 km</em>' in d["headline"]
+    assert design({"id": "abc123", "title": "BYD yeni sedanını tanıttı", "hero_stat": "1.000 km",
+                   "category": "teknoloji"}, caption=True)["layout"] == "sayi"   # sosyal "kapak" tarzı eski düzende
+    from haberbot.covers import photo_design
+    pd = photo_design({"id": "x1", "title": "OpenAI modelini durdurdu", "tags": ["OpenAI"], "hero_stat": "5",
+                       "cover_headline": "OpenAI en güçlü modelini durdurdu", "cover_highlight": "durdurdu"})
+    assert pd["layout"] == "manset" and pd["title"] == "OpenAI en güçlü modelini durdurdu"
     from haberbot.covers import _mark, news_card, tr_upper
     assert _mark("Circle Games'e Tencent liderliğinde yatırım", {"tags": ["Circle Games"]}).startswith("<mark>Circle Games'e</mark>")
     assert "<mark>Gemini Omni</mark>" in _mark("Google Vids'e Gemini Omni geldi", {"cover_text": "Gemini Omni", "tags": ["Google Vids"]})

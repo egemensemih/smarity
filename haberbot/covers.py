@@ -1,10 +1,11 @@
 """Tipografik haber kapakları: her habere özel renk, düzen ve tek bir güçlü öğe.
 
+Kapakta her zaman habere özel "kapak başlığı" yazar (3–7 sözcük, vurucu kısmı renkli): tek başına bir ad ya da rakam
+okuyucuya bir şey anlatmaz, başlık anlatır.
 Düzenler
-  sayi   : haberin kalbindeki rakam dev boyutta ("311 milyon $", "%40")
-  isim   : öne çıkan ürün / model / şirket adı dev boyutta ("GPT‑6 Astra", "Opus 5.5")
-  manset : açık zeminde afiş gibi büyük başlık, anahtar sözcük renkli
+  manset : afiş gibi büyük kapak başlığı, vurucu kısım renkli (varsayılan)
   isik   : karanlıkta ışık huzmesi ve başlık (regülasyon, güvenlik gibi ciddi konular)
+  sayi / isim : eski düzenler (dev rakam / dev ad); yalnızca sosyal medya "kapak" kart tarzında kalır
 
 Logo ya da marka işareti kullanılmaz; yalnızca metin, renk ve ışık.
 """
@@ -40,7 +41,7 @@ GENERIC = {"yapay zeka", "yapay zekâ", "ai", "teknoloji", "veri merkezleri", "y
            "akıllı telefon", "inovasyon", "bilim"}
 
 
-COVER_VERSION = 1
+COVER_VERSION = 2
 
 
 def _seed(d: dict) -> int:
@@ -77,6 +78,15 @@ def cover_word(d: dict) -> str:
             words.pop()
         return " ".join(words)
     return ""
+
+
+def cover_line(d: dict) -> tuple[str, str]:
+    """(kapak başlığı, renkli vurgu). Kapak başlığı yoksa kısa başlık; vurgu yoksa kapaktaki ad."""
+    head = (d.get("cover_headline") or "").strip() or (d.get("short_title") or d.get("title") or "").strip()
+    hl = (d.get("cover_highlight") or "").strip()
+    if not hl or hl.lower() not in head.lower():
+        hl = cover_word(d)
+    return head, hl
 
 
 # Her kategori kendi renk ailesinde kalır; aynı aile içinde habere göre ton değişir.
@@ -179,17 +189,23 @@ def design(d: dict, brand: bool = False, caption: bool = False, brand_name: str 
 
     variant = "center"
     pick = seed % 6
-    if stat and len(stat) <= 12 and not (word and pick in (1, 4)):
-        layout = "sayi"
-        tone, variant = [("dark", "center"), ("light", "left"), ("vivid", "center"),
-                         ("dark", "center"), ("light", "left"), ("vivid", "left")][pick]
-    elif word:
-        layout = "isim"
-        tone = ["vivid", "light", "dark", "vivid", "light", "vivid"][pick]
+    line, hl = cover_line(d)
+    if caption:   # sosyal medya "kapak" kart tarzı: eski düzen (dev rakam / ad + altta kısa başlık)
+        if stat and len(stat) <= 12 and not (word and pick in (1, 4)):
+            layout = "sayi"
+            tone, variant = [("dark", "center"), ("light", "left"), ("vivid", "center"),
+                             ("dark", "center"), ("light", "left"), ("vivid", "left")][pick]
+        elif word:
+            layout = "isim"
+            tone = ["vivid", "light", "dark", "vivid", "light", "vivid"][pick]
+        elif serious:
+            layout, tone = "isik", "dark"
+        else:
+            layout, tone = "manset", ["light", "vivid"][pick % 2]
     elif serious:
         layout, tone = "isik", "dark"
     else:
-        layout, tone = "manset", ["light", "vivid"][pick % 2]
+        layout, tone = "manset", ["light", "vivid", "dark", "vivid", "light", "dark"][pick]
 
     base = {"dark": "#040405", "light": pal[5], "vivid": pal[1]}[tone]
     if tone == "vivid":
@@ -200,8 +216,11 @@ def design(d: dict, brand: bool = False, caption: bool = False, brand_name: str 
     kw = d.get("focus_keyword") or ""
     if kw.lower() in GENERIC or len(kw.split()) > 3 or kw.lower().startswith("yapay zeka"):
         kw = ""
-    headline = _highlight(d.get("short_title") or d.get("title", ""), word or kw) if not serious else html.escape(d.get("short_title") or d.get("title", ""))
-    glyph = (word or re.sub(r"[^A-Za-zÇĞİÖŞÜçğıöşü]", "", d.get("short_title") or d.get("title") or "Y") or "Y")[:1].upper()
+    if caption:
+        headline = _highlight(d.get("short_title") or d.get("title", ""), word or kw) if not serious else html.escape(d.get("short_title") or d.get("title", ""))
+    else:
+        headline = _highlight(line, hl or word or kw)
+    glyph = (hl or word or re.sub(r"[^A-Za-zÇĞİÖŞÜçğıöşü]", "", line or "Y") or "Y")[:1].upper()
     return {
         "layout": layout, "tone": tone, "pal": pal[:4] + [base], "palette": pal_name, "seed": seed,
         "kicker": (d.get("kicker") or "") if kicker else "", "stat": stat, "stat_label": (d.get("hero_stat_label") or "").strip(),
@@ -213,7 +232,7 @@ def design(d: dict, brand: bool = False, caption: bool = False, brand_name: str 
 
 
 # ── Fotoğraflı kapak ─────────────────────────────────────────
-PHOTO_COVER_VERSION = 1
+PHOTO_COVER_VERSION = 2
 
 
 def photo_design(d: dict, brand: bool = False, kicker: str = "", credit: str = "", brand_name: str = "Smarity") -> dict:
@@ -221,19 +240,14 @@ def photo_design(d: dict, brand: bool = False, kicker: str = "", credit: str = "
     _, pal = palette_for(d)
     stat = (d.get("hero_stat") or "").strip()
     word = cover_word(d)
-    if stat and len(stat) <= 12:
-        layout = "sayi"
-    elif word:
-        layout = "isim"
-    else:
-        layout = "manset"
+    layout = "manset"
     kw = d.get("focus_keyword") or ""
     if kw.lower() in GENERIC or len(kw.split()) > 3 or kw.lower().startswith("yapay zeka"):
         kw = ""
-    title = d.get("short_title") or d.get("title", "")
+    line, hl = cover_line(d)
     return {
         "layout": layout, "pal": pal[:4], "stat": stat, "stat_label": (d.get("hero_stat_label") or "").strip(),
-        "word": word, "headline": _highlight(title, word or kw), "title": title,
+        "word": word, "headline": _highlight(line, hl or word or kw), "title": line,
         "kicker": kicker, "brand": brand, "brand_name": brand_name, "credit": credit,
         "focus": d.get("photo_focus") or "50% 42%",
     }

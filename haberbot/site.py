@@ -13,10 +13,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, category_label, category_seo, indexnow_key
 from .store import Store
-from .textfix import tag_display
+from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "10"
+ASSET_V = "11"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -90,7 +90,7 @@ def hot(p: dict, now=None) -> float:
     home = p.get("home")
     if home == "hide":
         return -1.0
-    age = max(0.0, hours_since(p.get("published_at")))
+    age = max(0.0, min(hours_since(p.get("published_at")), hours_since(p.get("refreshed_at") or p.get("published_at"))))
     base = float(p.get("appeal") or max(5, int(p.get("importance") or 6) - 1))
     if (p.get("image") or {}).get("source") == "photo":
         base += 1.0
@@ -265,6 +265,9 @@ class SiteBuilder:
             "photos": self._photos(p, short),
             "has_photo": bool(p.get("photos")),
             "updated_str": tr_date(p.get("updated_at"), cfg.tz) if p.get("updated_at") else "",
+            "ekey": primary_key(p),
+            "update_list": [{"date": tr_date(u.get("at"), cfg.tz), "iso": u.get("at", ""), "note": u.get("note", "")}
+                            for u in reversed(p.get("updates") or []) if u.get("note")],
         }
 
     def _photos(self, p: dict, short: str) -> list[dict]:
@@ -314,9 +317,24 @@ class SiteBuilder:
         visible = [p for p in posts if p["hot"] >= 0]
         ranked = sorted(visible, key=lambda p: -p["hot"])
         fresh = [p for p in ranked if hours_since(p.get("published_at")) <= 72 or p["hot"] >= 100]  # sabitlenen her zaman
-        featured = (fresh + [p for p in ranked if p not in fresh])[:n_feat]
+        # Vitrinde (manşet + öne çıkanlar) her şirketten tek haber: aynı şirketin ikinci haberi aşağıdaki listelerde kalır
+        used: set[str] = set()
+
+        def pick(pool: list[dict], n: int, shown: set[str]) -> list[dict]:
+            out = []
+            for strict in (True, False):
+                for p in pool:
+                    if len(out) >= n:
+                        return out
+                    if p["id"] in shown or p in out or (strict and p["ekey"] and p["ekey"] in used):
+                        continue
+                    out.append(p)
+                    if p["ekey"]:
+                        used.add(p["ekey"])
+            return out
+        featured = pick(fresh + [p for p in ranked if p not in fresh], n_feat, set())
         shown = {p["id"] for p in featured}
-        top = [p for p in ranked if p["id"] not in shown][:6]
+        top = pick(ranked, 6, shown)
         shown |= {p["id"] for p in top}
         latest = [p for p in visible if p["id"] not in shown and hours_since(p.get("published_at")) <= 48][:6]
         shown |= {p["id"] for p in latest}

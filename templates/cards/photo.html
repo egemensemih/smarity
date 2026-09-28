@@ -18,7 +18,7 @@ body { font-family: "IS", system-ui, sans-serif; background: #07080D; color: #ff
 .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ focus }}; z-index: -4; }
 .scrim { position: absolute; inset: 0; z-index: -3;
   background: linear-gradient(to top, rgba(var(--shade), .95) 0%, rgba(var(--shade), .80) 22%, rgba(var(--shade), .42) 44%, rgba(var(--shade), 0) 64%); }
-.l-manset .scrim { background: linear-gradient(to top, rgba(var(--shade), .96) 0%, rgba(var(--shade), .84) 28%, rgba(var(--shade), .45) 52%, rgba(var(--shade), 0) 72%); }
+.l-manset .scrim { background: linear-gradient(to top, rgba(var(--shade), .96) 0%, rgba(var(--shade), .86) 30%, rgba(var(--shade), .5) 55%, rgba(var(--shade), 0) 76%); }
 .top { position: absolute; inset: 0 0 auto; height: 30%; z-index: -3; background: linear-gradient(to bottom, rgba(var(--shade), .55), rgba(var(--shade), 0)); }
 .tint { position: absolute; z-index: -2; border-radius: 50%; mix-blend-mode: screen; filter: blur(calc(var(--u) * 9)); }
 .tint.a { left: -18%; bottom: -34%; width: 72%; height: 78%; background: var(--c2); opacity: .55; }
@@ -37,7 +37,7 @@ body { font-family: "IS", system-ui, sans-serif; background: #07080D; color: #ff
 .lab { font-weight: 700; font-size: calc(var(--u) * 4.4); letter-spacing: -.02em; color: rgba(255,255,255,.84); max-width: 26ch; text-wrap: balance; }
 .word { font-weight: 700; font-size: calc(var(--u) * 15.5); line-height: .96; letter-spacing: -.055em; text-wrap: balance; max-width: 100%;
   padding-bottom: .04em; }
-.head { font-weight: 700; font-size: calc(var(--u) * 7.4); line-height: 1.03; letter-spacing: -.04em; text-wrap: balance; max-width: 100%;
+.head { font-weight: 700; font-size: calc(var(--u) * 9.4); line-height: 1.02; letter-spacing: -.042em; text-wrap: balance; max-width: 100%;
   text-shadow: 0 calc(var(--u) * .3) calc(var(--u) * 3) rgba(0,0,0,.35); }
 .head em { font-style: normal; }
 .head .grad-text { background: linear-gradient(100deg, var(--c1) 0%, color-mix(in oklab, var(--c2) 55%, #fff) 60%, var(--c4) 100%);
@@ -70,7 +70,7 @@ body { font-family: "IS", system-ui, sans-serif; background: #07080D; color: #ff
   {% elif layout == 'isim' %}
     <div class="word grad" data-fitw data-maxh="{{ (H * 0.36)|int }}">{{ word }}</div>
   {% else %}
-    <div class="head" data-maxh="{{ (H * 0.34)|int }}">{{ headline|safe }}</div>
+    <div class="head" data-maxh="{{ (H * 0.42)|int }}">{{ headline|safe }}</div>
   {% endif %}
 </div>
 {% if credit %}<div class="credit">Görsel: {{ credit }}</div>{% endif %}

@@ -128,6 +128,25 @@ class Store:
         for f in self.gallery_files(d["id"], draft=True):
             f.unlink(missing_ok=True)
 
+    def recent_archive(self, hours: float) -> list[dict]:
+        """Son saatlerde kapanan taslaklar (reddedilen, süresi dolan, siteden kaldırılan): aynı haber tekrar önerilmesin."""
+        out = []
+        folder = self.cfg.data_dir / "archive"
+        for f in sorted(folder.glob("*.jsonl"))[-2:] if folder.exists() else []:
+            try:
+                lines = f.read_text(encoding="utf-8").splitlines()
+            except OSError:
+                continue
+            for ln in lines:
+                try:
+                    d = json.loads(ln)
+                except json.JSONDecodeError:
+                    continue
+                if hours_since(d.get("closed_at")) <= hours:
+                    out.append(d)
+        out.sort(key=lambda d: d.get("closed_at") or "", reverse=True)
+        return out
+
     # ── yayınlar ─────────────────────────────────────────────
     def post_path(self, pid: str) -> Path:
         return self.cfg.posts_dir / f"{pid}.json"

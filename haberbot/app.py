@@ -16,11 +16,12 @@ from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
-from .prompts import (APPEAL_SCHEMA, FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA, WRITE_SCHEMA, appeal_system,
-                      appeal_user, seo_system, seo_user, triage_system, triage_user, write_system, write_user)
+from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA,
+                      WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
+                      seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
 from .store import Store
-from .textfix import Fixer
+from .textfix import Fixer, entity_keys
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
                    tr_date)
@@ -46,10 +47,11 @@ COMMANDS = [
     ("devam", "Yeniden başlat"),
     ("kaynaklar", "Kaynak güven puanları"),
     ("manset", "Manşeti yönet: haberi manşete al / çıkar"),
+    ("secki", "Yayın yönetmeninin son kararları (neden seçildi / elendi)"),
     ("instagram", "Instagram paylaşımları: durum / kapat / ac"),
     ("yardim", "Nasıl kullanılır"),
 ]
-COMMANDS_VERSION = 3
+COMMANDS_VERSION = 4
 KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
@@ -61,12 +63,14 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 🖼 <b>Başka foto</b> — kapaktaki fotoğrafı sıradaki fotoğrafla değiştirir
 🎨 <b>Yazılı kapak / Yeni kapak</b> — kapağı bizim yazılı tasarımımıza çevirir ya da yenisini üretir (fotoğraflar haberde kalır)
 🚫 <b>Fotoğrafsız</b> — haberdeki tüm fotoğrafları kaldırır
-🔤 <b>Kapak yazısı</b> — mesajı yanıtlayıp <code>görsel: Galaxy S27</code> gibi kısa bir ifade yazarsan kapakta o yazar
+🔤 <b>Kapak başlığı</b> — mesajı yanıtlayıp <code>görsel: Starship ilk kez yörüngede</code> gibi kısa bir başlık yazarsan kapakta o yazar
 ✏️ <b>Düzeltme</b> — bir haber mesajını <i>yanıtlayıp</i> talimat yaz: "başlığı kısalt", "ikinci paragrafı çıkar" gibi. Yayınlanmış habere de uygulanır.
 🗑 <b>Kaldır</b> — yayınlanmış haberi siteden kaldırır
 ⭐ <b>Yayınla + manşet</b> — onay beklerken tek tuşla yayınlar ve manşete alır
 ⭐ <b>Manşete al</b> — haberi 36 saat ana sayfa manşetinin en başına koyar (<code>/manset</code> ile son haberlerden de seçebilirsin)
 🙈 <b>Ana sayfada gösterme</b> — haber ana sayfaya çıkmaz, kategoride ve "Tüm haberler"de kalır
+
+<b>Seçki:</b> Sitede aynı gün her şey yer almaz. Haber masası aynı olayı tek habere toplar; yayın yönetmeni o güne kadar yayınlananları görerek karar verir: bu alanı takip eden biri için günün kaçırılmaması gereken gelişmesi mi? Aynı şirketten 24 saatte bir haber (günün en büyük haberleri hariç), yayındaki bir haberin devamı gelirse yeni haber yerine 🔄 <b>güncelleme önerisi</b> gelir; onaylarsan mevcut haber yeni gelişmeyle güncellenir, adresi değişmez. Neyin neden elendiğini /secki gösterir.
 
 <b>Ana sayfa seçkisi:</b> Her haber ana sayfaya çıkmaz. Yapay zeka her habere bir ilgi puanı verir; puan ve tazeliğe göre en dikkat çekiciler manşete ve "Öne çıkanlar"a girer.
 
@@ -74,7 +78,7 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
-Komutlar: /manset /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
+Komutlar: /manset /secki /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
 
 
 def esc(s) -> str:
@@ -220,17 +224,22 @@ class App:
                 it["tid"] = f"i{i}"
                 by_tid[it["tid"]] = it
 
-            recent = [{"sid": f"q:{i}", "status": "queued", "title": q["story"].get("topic", "")}
-                      for i, q in enumerate(queue)]
+            recent = []
+            for p in st.posts():
+                if hours_since(p.get("published_at")) > 72:
+                    break
+                recent.append({"sid": "s:" + p["id"], "status": "published", "title": p["title"]})
             for d in st.drafts():
                 recent.append({"sid": "s:" + d["id"], "status": d.get("status", "pending"), "title": d["title"]})
-            for p in st.posts():
-                if hours_since(p.get("published_at")) < 72:
-                    recent.append({"sid": "s:" + p["id"], "status": "published", "title": p["title"]})
+            for a in st.recent_archive(72):   # reddedilen / süresi dolan haberler tekrar önerilmesin
+                if a.get("status") in ("rejected", "expired", "removed"):
+                    recent.append({"sid": "s:" + a["id"], "status": a["status"], "title": a.get("title", "")})
+            recent += [{"sid": f"q:{i}", "status": "queued", "title": q["story"].get("topic", "")}
+                       for i, q in enumerate(queue)]
 
             try:
                 tri = self.llm.json(cfg.get("ai", "triage_model", "claude-haiku-4-5-20251001"),
-                                    triage_system(self.brand), triage_user(fresh, recent[:100], today),
+                                    triage_system(self.brand), triage_user(fresh, recent[:150], today),
                                     TRIAGE_SCHEMA, max_tokens=8000)
             except LLMError as e:
                 if self._transient(e):
@@ -241,10 +250,12 @@ class App:
                     st.seen.pop(it["key"], None)
                 tri = {"stories": []}
 
+            posted = {p["id"] for p in st.posts() if hours_since(p.get("published_at")) <= 72}
             for s in tri.get("stories", []):
                 its = [by_tid[t] for t in s.get("item_ids", []) if t in by_tid]
                 if not its:
                     continue
+                s["entities"] = [clip(str(e).strip(), 40) for e in (s.get("entities") or []) if str(e).strip()][:3]
                 dup = (s.get("duplicate_of") or "").strip()
                 if dup.startswith("q:") and dup[2:].isdigit() and int(dup[2:]) < len(queue):
                     q = queue[int(dup[2:])]  # sıradaki habere yeni kaynak ekle
@@ -253,7 +264,14 @@ class App:
                     merged += 1
                     continue
                 if dup:
-                    if self._merge_sources(dup.removeprefix("s:"), its):
+                    did = dup.removeprefix("s:")
+                    if self._merge_sources(did, its):
+                        merged += 1
+                        continue
+                    # yayındaki bir haberin devamı: önemliyse yönetmen "güncelle" ya da "geç" der
+                    if did in posted and int(s.get("importance", 0)) >= min_imp and s.get("on_topic", True):
+                        new_stories.append({"story": s, "items": its, "at": iso(now_utc())})
+                    else:
                         merged += 1
                     continue
                 if not (s.get("on_topic") or s.get("ai_related")) or int(s.get("importance", 0)) < min_imp:
@@ -261,14 +279,37 @@ class App:
                     continue
                 new_stories.append({"story": s, "items": its, "at": iso(now_utc())})
 
-        # Sıra: önce önemli olanlar; eşitse önce gelen
-        queue = sorted(queue + new_stories, key=lambda q: (-int(q["story"].get("importance", 0)), q["at"]))
-        limit = min(ed("max_drafts_per_run", 2), remaining)
-        todo, queue = queue[:limit], queue[limit:]
-        self.state["queue"] = queue[:40]
+        # Yayın yönetmeni: adaylar arasından günün seçkisi (yeni haber / mevcut haberi güncelle / geç / beklet)
+        queue = sorted(queue + new_stories, key=lambda q: (-int(q["story"].get("importance", 0)), q["at"]))[:24]
+        slots = min(int(ed("max_drafts_per_run", 2)), remaining)
+        if not new_stories and all(hours_since(q.get("held_at")) < 0.75 for q in queue):
+            self.state["queue"] = queue[:30]   # yeni aday yok, bekleyenlere az önce bakıldı
+            return
+        decisions = self._edit(queue, slots) if queue else {}
+        todo, updates, keep = [], [], []
+        for i, q in enumerate(queue):
+            x = decisions.get(i) or {"action": "hold", "target": "", "must_read": 0, "reason": ""}
+            q["story"]["must_read"] = int(x.get("must_read") or 0)
+            q["story"]["editor_reason"] = x.get("reason", "")
+            act = x["action"]
+            if act == "publish":
+                todo.append(q)
+            elif act == "update":
+                updates.append((q, x["target"]))
+            elif act == "merge":
+                self._merge_sources(x["target"], q["items"])
+            elif act == "hold":
+                q["holds"] = int(q.get("holds", 0)) + 1
+                q["held_at"] = iso(now_utc())
+                if q["holds"] <= 8:
+                    keep.append(q)
+            self._edit_log(q, act, x)
+        todo.sort(key=lambda q: -q["story"]["must_read"])
+        self.state["queue"] = keep[:30]
         if fresh:
-            log.info("Ayıklama: %d yeni hikâye, %d elendi, %d mevcut habere eklendi", len(new_stories), skipped, merged)
-        log.info("Bu tur %d taslak yazılacak, sırada %d haber var", len(todo), len(self.state["queue"]))
+            log.info("Ayıklama: %d aday, %d elendi, %d mevcut habere eklendi", len(new_stories), skipped, merged)
+        log.info("Yönetmen: %d yeni haber, %d güncelleme, %d bekliyor, %d geçildi", len(todo), len(updates), len(keep),
+                 len(queue) - len(todo) - len(updates) - len(keep))
         for n, q in enumerate(todo):
             if n:
                 self.process_updates()  # yazım sürerken basılan düğmeler beklemesin
@@ -280,10 +321,151 @@ class App:
                                 len(todo) - n, str(e)[:160])
                 else:
                     self.notify_error(f"Yapay zeka (yazım) hatası: {e}")
-                self.state["queue"] = (todo[n:] + self.state["queue"])[:40]  # yazılamayanlar sırada kalsın
+                self.state["queue"] = (todo[n:] + self.state["queue"])[:30]  # yazılamayanlar sırada kalsın
                 break
             except Exception as e:  # noqa: BLE001
                 log.exception("Taslak oluşturulamadı: %s", e)
+        for q, target in updates[:2]:
+            post = st.load_post(target)
+            if not post:
+                continue
+            self.process_updates()
+            try:
+                self.create_update(post, q["story"], q["items"])
+            except LLMError as e:
+                log.warning("Güncelleme yazılamadı (%s): %s", target, str(e)[:160])
+            except Exception as e:  # noqa: BLE001
+                log.exception("Güncelleme oluşturulamadı: %s", e)
+
+    # ── yayın yönetmeni ─────────────────────────────────────
+    def _covered(self, hours: float = 48) -> list[dict]:
+        """Yönetmenin gördüğü 'elimizdekiler': yayındakiler, onay bekleyenler, reddedilen / süresi dolanlar."""
+        out = []
+
+        def add(d: dict, status: str, at: str | None) -> None:
+            h = hours_since(at)
+            if h <= hours:
+                out.append({"id": d["id"], "status": status, "age": f"{h:.0f} sa", "hours": h,
+                            "category": d.get("category", ""), "entities": list(d.get("entities") or (d.get("tags") or [])[:2]),
+                            "title": d.get("title", ""), "keys": entity_keys(d), "updated": bool(d.get("refreshed_at"))})
+        for p in self.store.posts():
+            if hours_since(p.get("published_at")) > hours:
+                break
+            add(p, "published", p.get("refreshed_at") or p.get("published_at"))
+        for d in self.store.drafts():
+            if d.get("status") in ("pending", "rejected"):
+                add(d, d["status"], d.get("created_at"))
+        for a in self.store.recent_archive(hours):
+            if a.get("status") in ("rejected", "expired", "removed"):
+                add(a, a["status"], a.get("created_at") or a.get("closed_at"))
+        out.sort(key=lambda c: c["hours"])
+        return out
+
+    def _edit(self, queue: list[dict], slots: int) -> dict[int, dict]:
+        """Her aday için yönetmen kararı: {sıra: {"action", "target", "must_read", "reason"}}."""
+        cfg = self.cfg
+        ed = lambda k, d: cfg.get("editorial", k, d)  # noqa: E731
+        min_score = int(ed("min_must_read", 8))
+        covered = self._covered(48)
+        cands = []
+        for i, q in enumerate(queue):
+            s = q["story"]
+            cands.append({"cid": f"c{i + 1}", "category": s.get("category", ""), "importance": s.get("importance", 0),
+                          "entities": s.get("entities") or [], "topic": s.get("topic", ""),
+                          "dup": (s.get("duplicate_of") or "").removeprefix("s:"),
+                          "headlines": [f"{it['credit']}: {it['title']}" for it in q["items"]]})
+        now_l = local(now_utc(), cfg.tz)
+        today_n = self.store.count(self.today(), "drafts")
+        target = int(ed("max_drafts_per_day", 0) or 0) or 10
+        raw = None
+        try:
+            out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
+                                edit_system(self.brand, min_score),
+                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, today_n, target, covered[:90], cands),
+                                EDIT_SCHEMA, max_tokens=6000)
+            raw = {str(x.get("cid")): x for x in (out.get("decisions") or []) if isinstance(x, dict)}
+        except LLMError as e:
+            log.warning("Yayın yönetmeni yanıt vermedi, masanın puanı kullanılacak: %s", str(e)[:160])
+        decisions = {}
+        for i, q in enumerate(queue):
+            imp = int(q["story"].get("importance", 0))
+            if raw is None:   # yedek: masanın puanı, yönetmen eşiğiyle
+                x = {"action": "publish" if imp >= min_score else "hold", "target": "", "must_read": imp,
+                     "reason": "masa puanı"}
+            else:
+                x = dict(raw.get(f"c{i + 1}") or {"action": "hold", "target": "", "must_read": 0, "reason": ""})
+            try:
+                x["must_read"] = max(0, min(10, int(x.get("must_read") or 0)))
+            except (TypeError, ValueError):
+                x["must_read"] = 0
+            x["target"] = (x.get("target") or "").strip().removeprefix("s:")
+            x["reason"] = clip(str(x.get("reason") or ""), 120)
+            if x.get("action") not in ("publish", "update", "skip", "hold"):
+                x["action"] = "hold"
+            decisions[i] = x
+        return self._guard(queue, decisions, slots, min_score, covered)
+
+    def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
+               covered: list[dict]) -> dict[int, dict]:
+        """Yönetmen kararlarına kurallı emniyet: eşik, günlük şirket sınırı, tur başına yer, aynı turda aynı şirket yok."""
+        cap = int(self.cfg.get("editorial", "max_per_company_per_day", 1) or 1)
+        day_keys: dict[str, int] = {}
+        for c in covered:
+            if c["status"] in ("published", "pending") and c["hours"] <= 24:
+                for k in c["keys"]:
+                    day_keys[k] = day_keys.get(k, 0) + 1
+        published = {c["id"] for c in covered if c["status"] == "published"}
+        published |= {p["id"] for p in self.store.posts()[:200] if hours_since(p.get("published_at")) <= 72}
+        pending = {c["id"] for c in covered if c["status"] == "pending"}
+        refreshed = {c["id"] for c in covered if c["status"] == "published" and c.get("updated") and c["hours"] < 6}
+        used, round_keys, round_targets = 0, set(), set()
+        for i in sorted(decisions, key=lambda i: -decisions[i]["must_read"]):
+            x, s = decisions[i], queue[i]["story"]
+            keys = entity_keys(s)
+            mr = x["must_read"]
+            if x["action"] == "update":
+                if x["target"] in pending:
+                    x["action"] = "merge"
+                    continue
+                if x["target"] not in published:
+                    dup = (s.get("duplicate_of") or "").removeprefix("s:")
+                    x["action"], x["target"] = ("update", dup) if dup in published else ("publish", "")
+                if x["action"] == "update":
+                    if mr < min_score - 1:
+                        x["action"], x["reason"] = "skip", x["reason"] or "yeni gelişme yeterince önemli değil"
+                    elif x["target"] in round_targets or (x["target"] in refreshed and mr < 9):
+                        x["action"], x["reason"] = "skip", "haber az önce güncellendi"
+                    else:
+                        round_targets.add(x["target"])
+                    continue
+            if x["action"] != "publish":
+                continue
+            dup = (s.get("duplicate_of") or "").removeprefix("s:")
+            if dup in published:            # masa "aynı haber" dedi: yeni haber değil, olsa olsa güncelleme
+                ok = mr >= min_score and dup not in round_targets and (dup not in refreshed or mr >= 9)
+                x["action"], x["target"] = ("update", dup) if ok else ("skip", dup)
+                if ok:
+                    round_targets.add(dup)
+                continue
+            if mr < min_score:
+                x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
+            elif keys & round_keys:
+                x["action"] = "hold"
+            elif mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
+                x["action"], x["reason"] = "skip", "aynı şirketten son 24 saatte haber var"
+            elif used >= slots:
+                x["action"] = "hold"
+            else:
+                used += 1
+                round_keys |= keys
+        return decisions
+
+    def _edit_log(self, q: dict, action: str, x: dict) -> None:
+        """Yönetmenin son kararları (/secki komutu ve günlük özet için)."""
+        lg = self.state.setdefault("edit_log", [])
+        lg.append({"t": iso(now_utc()), "topic": clip(q["story"].get("topic", ""), 90), "action": action,
+                   "score": x.get("must_read", 0), "reason": x.get("reason", ""), "target": x.get("target", "")})
+        del lg[:-200]
 
     def _queue(self, max_age: float) -> list[dict]:
         """Seçilmiş ama henüz yazılmamış haberler (eskiyenler düşer)."""
@@ -366,6 +548,39 @@ class App:
             self.store.save_post(p)
         log.info("İlgi puanı verildi: %d haber", sum(1 for p in todo if p.get("appeal")))
 
+    def backfill_cover_lines(self, batch: int = 25) -> None:
+        """Kapak başlığı olmayan haberlere toplu kapak başlığı yaz (kapaklar ardından bu başlıkla yenilenir)."""
+        if not self.llm:
+            return
+        todo = [p for p in self.store.posts() if not p.get("cover_headline") and not p.get("cover_line_skip")][:batch]
+        if not todo:
+            return
+        try:
+            out = self.llm.json(self.cfg.get("ai", "writer_model", "gemini-flash-latest"),
+                                coverline_system(self.brand), coverline_user(todo), COVERLINE_SCHEMA, max_tokens=5000)
+        except LLMError as e:
+            log.warning("Kapak başlıkları alınamadı: %s", e)
+            return
+        got = {str(x.get("id")): x for x in (out.get("lines") or []) if isinstance(x, dict)}
+        n = 0
+        for p in todo:
+            line = self._cover_line((got.get(p["id"]) or {}).get("cover_headline"), (got.get(p["id"]) or {}).get("cover_highlight"))
+            if line:
+                p.update(line)
+                self.fixer.post(p)
+                n += 1
+            else:
+                p["cover_line_tries"] = int(p.get("cover_line_tries", 0)) + 1
+                if p["cover_line_tries"] >= 3:
+                    p["cover_line_skip"] = True
+            self.store.save_post(p)
+        log.info("Kapak başlığı yazıldı: %d haber", n)
+
+    @staticmethod
+    def _cover_ready(p: dict) -> bool:
+        """Kapak yenilemesi için kapak başlığı hazır mı (ya da artık beklenmiyor mu)."""
+        return bool(p.get("cover_headline") or p.get("cover_line_skip"))
+
     def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None) -> dict:
         cfg = self.cfg
         out = self.llm.json(
@@ -397,9 +612,22 @@ class App:
             "cover_text": clip((out.get("cover_text") or "").strip(), 24),
             "carousel_points": [clip(x.strip(), 130) for x in (out.get("carousel_points") or []) if x and x.strip()][:4],
             "appeal": self._appeal(out.get("appeal")),
+            "update_note": clip((out.get("update_note") or "").strip(), 160),
+            **self._cover_line(out.get("cover_headline"), out.get("cover_highlight")),
         }
         self.fixer.post(res)          # Türkçe karakter ve marka yazımı düzeltmeleri
         return res
+
+    @staticmethod
+    def _cover_line(head, hl) -> dict:
+        """Kapak başlığını denetle: çok uzunsa ya da boşsa kullanılmaz (kısa başlığa düşülür)."""
+        head = re.sub(r"\s+", " ", str(head or "")).strip().rstrip(".!?…")
+        hl = re.sub(r"\s+", " ", str(hl or "")).strip()
+        if not head or len(head) > 56 or len(head.split()) < 2:
+            return {}
+        if not hl or hl.lower() not in head.lower() or len(hl) >= len(head):
+            hl = ""
+        return {"cover_headline": head, "cover_highlight": hl}
 
     def create_draft(self, story: dict, its: list[dict]) -> dict:
         cfg, st = self.cfg, self.store
@@ -419,8 +647,10 @@ class App:
             "created_at": iso(now_utc()),
             **w,
             "category": w["category"] or story.get("category") or DEFAULT_CATEGORY,
-            "importance": int(story.get("importance", 5)),
-            "triage_reason": story.get("reason", ""),
+            "importance": int(story.get("must_read") or story.get("importance", 5)),
+            "triage_reason": story.get("editor_reason") or story.get("reason", ""),
+            "entities": list(story.get("entities") or []),
+            "topic": story.get("topic", ""),
             "sources": [self._source_entry(it) for it in its],
             "source_keys": list(dict.fromkeys(it["source"] for it in its)),
             "source_texts": texts,
@@ -443,6 +673,95 @@ class App:
             st.save_draft(d)
             self._send_preview(d, "pending")
         return d
+
+    # ── mevcut haberi geliştirme ────────────────────────────
+    UPDATE_FIELDS = ("title", "summary", "body", "tags", "short_title", "kicker", "hero_stat", "hero_stat_label",
+                     "focus_keyword", "seo_title", "meta_description", "image_alt", "cover_text", "carousel_points",
+                     "cover_headline", "cover_highlight", "confidence", "flags", "editor_note")
+
+    def create_update(self, post: dict, story: dict, its: list[dict]) -> dict | None:
+        """Yayındaki habere yeni gelişme geldi: yeni haber yerine güncelleme taslağı (onaylanınca haber yerinde güncellenir)."""
+        cfg, st = self.cfg, self.store
+        known = {x["url"] for x in post.get("sources") or []}
+        its = [it for it in sorted(its, key=lambda x: KIND_ORDER.get(x["kind"], 3)) if it["url"] not in known][:3]
+        if not its:
+            return None
+        texts = []
+        for it in its:
+            txt = ""
+            if cfg.get("editorial", "fetch_full_text", True) and not cfg.mock and not cfg.fixtures_dir:
+                txt = full_text(it["url"])
+            texts.append({"credit": it["credit"], "kind": it["kind"], "title": it["title"], "url": it["url"],
+                          "published": it.get("published"), "summary": it.get("summary", ""), "text": txt})
+        prev = {"_update": True, "title": post["title"], "summary": post["summary"], "body": post["body"]}
+        w = self._write(texts, previous=prev)
+        did = short_hash("u", post["id"], *sorted(it["key"] for it in its))
+        d = {
+            "id": did,
+            "status": "pending",
+            "update_of": post["id"],
+            "created_at": iso(now_utc()),
+            **w,
+            "category": post.get("category") or w["category"] or DEFAULT_CATEGORY,
+            "importance": int(story.get("must_read") or story.get("importance", 5)),
+            "triage_reason": story.get("editor_reason") or story.get("reason", ""),
+            "entities": list(story.get("entities") or post.get("entities") or []),
+            "topic": story.get("topic", ""),
+            "sources": [self._source_entry(it) for it in its],
+            "source_keys": list(dict.fromkeys(it["source"] for it in its)),
+            "source_texts": texts,
+            "rewrites": 0,
+            "telegram": {},
+            "image": dict(post.get("image") or {}),
+        }
+        st.bump(self.today(), "updates")
+        decision, reason = policy.decide(cfg, self.state, self.stats, d)
+        d["policy_reason"] = reason
+        log.info("Güncelleme taslağı %s → %s: %s (%s)", did, post["id"], decision, reason)
+        if decision == "auto" and not self.state.get("paused"):
+            new = self.apply_update(d)
+            if new:
+                self._send_preview({**d, "slug": new["slug"]}, "updated")
+        else:
+            st.save_draft(d)
+            self._send_preview(d, "pending")
+        return d
+
+    def apply_update(self, d: dict) -> dict | None:
+        """Güncelleme taslağını yayındaki habere işle: adres aynı kalır, yeni kaynaklar eklenir, kapak yeni başlıkla yenilenir."""
+        st = self.store
+        post = st.load_post(d.get("update_of") or "")
+        if not post:
+            return None
+        for k in self.UPDATE_FIELDS:
+            if d.get(k) not in (None, "", []):
+                post[k] = d[k]
+        known = {x["url"] for x in post.get("sources") or []}
+        post["sources"] = (post.get("sources") or []) + [x for x in d.get("sources") or [] if x["url"] not in known]
+        post["source_keys"] = list(dict.fromkeys((post.get("source_keys") or []) + (d.get("source_keys") or [])))
+        now = iso(now_utc())
+        post["updated_at"] = post["refreshed_at"] = now
+        post.setdefault("updates", []).append({"at": now, "note": d.get("update_note") or "",
+                                               "sources": list(dict.fromkeys(x["name"] for x in d.get("sources") or []))})
+        post["importance"] = max(int(post.get("importance") or 0), int(d.get("importance") or 0))
+        if d.get("appeal"):
+            post["appeal"] = max(int(post.get("appeal") or 0), int(d["appeal"]))
+        if d.get("entities") and not post.get("entities"):
+            post["entities"] = d["entities"]
+        try:
+            if post.get("photos") and (post.get("image") or {}).get("source") == "photo":
+                self._build_cover(post, draft=False)
+            elif (post.get("image") or {}).get("source") in ("cover", "fallback", None):
+                post["image"] = {**self.vis.make_hero(post, st.post_image(post["id"])), "cover_v": COVER_VERSION}
+            self._make_og(post)
+        except Exception as e:  # noqa: BLE001
+            log.warning("Güncellenen haberin kapağı yenilenemedi (%s): %s", post["id"], e)
+        st.save_post(post)
+        self.queue_indexnow(self.cfg.post_url(post["slug"]))
+        st.draft_path(d["id"]).unlink(missing_ok=True)
+        st.bump(self.today(), "updated")
+        log.info("Haber güncellendi: %s", post["id"])
+        return post
 
     def _credits(self, d: dict) -> list[str]:
         return list(dict.fromkeys(s["name"] for s in d.get("sources", [])))
@@ -504,10 +823,20 @@ class App:
             "expired": "⌛ <b>SÜRESİ DOLDU</b>",
             "removed": "🗑 <b>SİTEDEN KALDIRILDI</b>",
             "rewritten": "🔁 <b>YENİDEN YAZILDI</b> (yeni sürüm aşağıda)",
+            "updated": "🔄 <b>HABER GÜNCELLENDİ</b>",
         }[kind]
+        upd = d.get("update_of")
+        if upd and kind == "pending":
+            head = "🔄 <b>GÜNCELLEME ÖNERİSİ</b> (yeni haber değil, mevcut haber geliştirilir)"
         meta = f"🏷 {esc(category_label(d['category']))} · Önem {d.get('importance', '?')}/10 · Güven {CONF_LABEL.get(d.get('confidence'), '?')}"
-        lines = [head, "", f"<b>{esc(d['title'])}</b>", "", "{SUMMARY}", "",
-                 "📰 " + esc(", ".join(self._credits(d))), meta]
+        lines = [head, "", f"<b>{esc(d['title'])}</b>", "", "{SUMMARY}", ""]
+        if upd and kind in ("pending", "updated", "rejected", "expired"):
+            orig = self.store.load_post(upd) or {}
+            if orig.get("title") and orig.get("title") != d.get("title"):
+                lines.append(f"📌 Mevcut haber: <i>{esc(clip(orig['title'], 110))}</i>")
+            if d.get("update_note"):
+                lines.append(f"🆕 {esc(d['update_note'])}")
+        lines += ["📰 " + esc(", ".join(self._credits(d))), meta]
         if d.get("focus_keyword") and kind in ("pending", "auto"):
             lines.append(f"🔎 Google: <i>{esc(d['focus_keyword'])}</i>")
         if d.get("flags"):
@@ -518,7 +847,7 @@ class App:
             lines.append(f"📝 {esc(d['editor_note'])}")
         if kind == "pending" and d.get("policy_reason"):
             lines.append(f"<i>Neden sordum: {esc(d['policy_reason'])}</i>")
-        if kind in ("published", "auto"):
+        if kind in ("published", "auto", "updated") and d.get("slug"):
             lines.append(f'🔗 <a href="{esc(self.cfg.post_url(d["slug"]))}">Sitede aç</a>')
         cap = "\n".join(lines)
         room = 1024 - len(cap) + len("{SUMMARY}") - 5
@@ -527,6 +856,19 @@ class App:
     def _keyboard(self, d: dict, kind: str):
         did = d["id"]
         src = d["sources"][0]["url"] if d.get("sources") else None
+        if kind == "pending" and d.get("update_of"):
+            kb = [[{"text": "🔄 Güncelle", "callback_data": f"p:{did}"},
+                   {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
+                  [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
+                   {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}]]
+            orig = self.store.load_post(d["update_of"])
+            links = ([{"text": "🔗 Mevcut haber", "url": self.cfg.post_url(orig["slug"])}] if orig else []) + \
+                    ([{"text": "🔗 Yeni kaynak", "url": src}] if src else [])
+            if links:
+                kb.append(links)
+            return kb
+        if kind == "updated":
+            return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])}]] if d.get("slug") else []
         if kind == "pending":
             kb = [[{"text": "✅ Yayınla", "callback_data": f"p:{did}"},
                    {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
@@ -552,7 +894,10 @@ class App:
             return
         st = self.store
         try:
-            img = self._hero(d) if d.get("photos") and self._hero(d).exists() else self._card(d, "post")
+            if d.get("update_of") and st.post_image(d["update_of"]).exists():
+                img = st.post_image(d["update_of"])       # güncelleme: haberin mevcut kapağı
+            else:
+                img = self._hero(d) if d.get("photos") and self._hero(d).exists() else self._card(d, "post")
         except Exception as e:  # noqa: BLE001
             log.warning("Önizleme kartı üretilemedi: %s", e)
             img = self._hero(d)
@@ -571,6 +916,8 @@ class App:
                 return
         except OSError as e:
             log.warning("Önizleme görseli okunamadı: %s", e)
+            return
+        if kind == "updated":
             return
         d.setdefault("telegram", {})["message_id"] = res.get("message_id")
         if kind in ("published", "auto"):
@@ -713,6 +1060,18 @@ class App:
         where, d = st.find_any(did)
         if not d:
             return "Bu haber artık yok."
+        if action in ("p", "P") and where == "draft" and d.get("update_of"):
+            if d.get("status") not in ("pending", "rejected"):
+                return "Bu taslak kapanmış."
+            if d.get("status") == "rejected":
+                self._undo_decision(d)
+            post = self.apply_update(d)
+            if not post:
+                st.archive_draft(d, "expired")
+                return "Asıl haber artık yayında değil."
+            policy.record(self.stats, d, ok=True)
+            self._update_preview({**d, "slug": post["slug"]}, "updated")
+            return "🔄 Haber güncellendi"
         if action == "P":                     # yayınla ve manşete al
             if where == "post":
                 return self._on_button("m", did) if d.get("home") != "pin" else "Zaten manşette."
@@ -891,8 +1250,8 @@ class App:
         new_visual = visual_only is not None
         if new_visual:
             text = visual_only.strip()
-            if text and len(text) <= 24:   # kısa ifade: kapaktaki büyük yazı olsun (fotoğraflı kapakta da)
-                d["cover_text"] = text
+            if text and len(text) <= 56:   # kısa ifade: kapak başlığı olsun (fotoğraflı kapakta da)
+                d["cover_headline"], d["cover_highlight"] = text, ""
                 d["cover_variant"] = int(d.get("cover_variant", 0)) + 1
             elif text:                      # uzun ifade: yapay zeka görseli sahnesi
                 d["visual_scene"] = text
@@ -969,6 +1328,8 @@ class App:
                 self.notify("\n".join(lines), silent=True)
         elif cmd == "kaynaklar":
             self.notify(self.sources_text(), silent=True)
+        elif cmd in ("secki", "seçki"):
+            self.notify(self.edit_text(), silent=True)
         elif cmd in ("manset", "manşet"):
             res = self.tg.send_message(self.chat_id, self._manset_text(), keyboard=self._manset_keyboard(), silent=True)
             if isinstance(res, dict) and res.get("message_id"):
@@ -987,6 +1348,24 @@ class App:
 
     def _cost(self, c: dict) -> float:
         return c.get("cost_usd", 0) + c.get("images", 0) * float(self.cfg.get("images", "cost_per_image", 0.035))
+
+    def edit_text(self) -> str:
+        """/secki: yayın yönetmeninin son kararları."""
+        lg = self.state.get("edit_log") or []
+        if not lg:
+            return "Henüz karar yok."
+        icon = {"publish": "✅", "update": "🔄", "merge": "➕", "skip": "⏭", "hold": "⏳"}
+        label = {"publish": "yazılıyor", "update": "güncelleme", "merge": "kaynak eklendi", "skip": "elendi", "hold": "bekliyor"}
+        lines = ["🧭 <b>Yayın yönetmeni — son kararlar</b>"]
+        for x in reversed(lg[-20:]):
+            why = f" — {esc(x['reason'])}" if x.get("reason") else ""
+            lines.append(f"{icon.get(x['action'], '•')} <b>{x.get('score', 0)}</b>/10 {esc(clip(x.get('topic', ''), 70))} "
+                         f"<i>({label.get(x['action'], x['action'])}{why})</i>")
+        today = [x for x in lg if (x.get("t") or "")[:10] == iso(now_utc())[:10]]
+        if today:
+            n = {k: sum(1 for x in today if x["action"] == k) for k in ("publish", "update", "skip")}
+            lines.append(f"\nBugün: {n['publish']} seçildi, {n['update']} güncelleme, {n['skip']} elendi")
+        return "\n".join(lines)
 
     def status_text(self) -> str:
         t = self.today()
@@ -1100,7 +1479,7 @@ class App:
             return
         todo = [p for p in self.store.posts()
                 if (p.get("image") or {}).get("source") in ("cover", "fallback", None)
-                and (p.get("image") or {}).get("cover_v") != COVER_VERSION][:limit]
+                and (p.get("image") or {}).get("cover_v") != COVER_VERSION and self._cover_ready(p)][:limit]
         for p in todo:
             try:
                 p["image"] = {**self.vis.make_hero(p, self.store.post_image(p["id"])), "cover_v": COVER_VERSION}
@@ -1124,7 +1503,10 @@ class App:
             return
         text = (f"🌙 <b>Günün özeti</b>\n"
                 f"Yayın: {c.get('published', 0)} ({c.get('auto', 0)} otomatik, {c.get('approved', 0)} senin onayınla)\n"
+                f"Güncellenen haber: {c.get('updated', 0)}\n"
                 f"Ret: {c.get('rejected', 0)} · Süresi dolan: {c.get('expired', 0)} · Kaldırılan: {c.get('removed', 0)}\n"
+                f"Seçki: {sum(1 for x in self.state.get('edit_log') or [] if (x.get('t') or '')[:10] == iso(now_utc())[:10] and x['action'] == 'skip')} "
+                f"aday elendi (/secki)\n"
                 f"Instagram: {c.get('instagram', 0)} paylaşım\n"
                 f"Tahmini maliyet: ${self._cost(c):.2f} ({c.get('images', 0)} yapay zeka görseli)\n"
                 f"Mod: {policy.MODES[policy.current_mode(self.cfg, self.state)]}")
@@ -1613,7 +1995,8 @@ class App:
             if not p.get("photos"):
                 return False
             img = p.get("image") or {}
-            return p.get("photos_v") != self.PHOTOS_V or (img.get("source") == "photo" and img.get("cover_v") != PHOTO_COVER_VERSION)
+            return p.get("photos_v") != self.PHOTOS_V or (img.get("source") == "photo" and img.get("cover_v") != PHOTO_COVER_VERSION
+                                                          and self._cover_ready(p))
         todo = [p for p in self.store.posts() if due(p)][:limit]
         for p in todo:
             try:
@@ -1671,6 +2054,7 @@ class App:
             try:
                 self.fix_texts()
                 self.backfill_appeal()
+                self.backfill_cover_lines()
             except Exception as e:  # noqa: BLE001
                 log.exception("Metin/ilgi puanı hatası: %s", e)
             try:

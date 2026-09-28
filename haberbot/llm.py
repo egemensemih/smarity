@@ -325,6 +325,22 @@ class MockLLM:
             self.usage_cb(model, len(user) // 4, 300)
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
+        if "decisions" in schema.get("properties", {}):   # yayın yönetmeni: masanın puanına göre
+            out = []
+            for ln in user.split("CANDIDATES:", 1)[-1].splitlines():
+                m = re.match(r"(c\d+) \| [^|]* \| desk importance (\d+)", ln.strip())
+                if m:
+                    imp = int(m.group(2))
+                    same = re.search(r"same as: (\w+)", ln)
+                    act = ("update" if imp >= 8 else "skip") if same else ("publish" if imp >= 8 else "skip")
+                    out.append({"cid": m.group(1), "action": act, "target": same.group(1) if same else "",
+                                "must_read": imp, "reason": "Test modu kararı"})
+            return {"decisions": out}
+        if "lines" in schema.get("properties", {}):       # kapak başlıkları
+            return {"lines": [{"id": ln.split(" | ")[0].strip(),
+                               "cover_headline": " ".join(ln.split(" | ")[1].split()[:5]),
+                               "cover_highlight": ln.split(" | ")[1].split()[0]}
+                              for ln in user.splitlines() if " | " in ln]}
         if "scores" in schema.get("properties", {}):     # ilgi puanı
             return {"scores": [{"id": ln.split(" | ")[0].strip(), "appeal": 6 + len(ln) % 3}
                                for ln in user.splitlines() if " | " in ln]}
@@ -357,7 +373,7 @@ class MockLLM:
                 imp = 3
             stories.append({"item_ids": [tid], "topic": title[:60], "on_topic": True,
                             "duplicate_of": "", "importance": imp, "category": self._cat(title),
-                            "reason": "Test modu puanı"})
+                            "entities": [credit.split(" (")[0]], "reason": "Test modu puanı"})
         return {"stories": stories}
 
     def _write(self, user: str) -> dict:
@@ -391,6 +407,9 @@ class MockLLM:
             "slug": "",
             "image_alt": f"{title[:80]} haberini temsil eden 3D görsel",
             "appeal": 7 if kind == "official" else 6,
+            "cover_headline": " ".join(title.split()[:5]),
+            "cover_highlight": title.split()[0] if title.split() else "",
+            "update_note": "Yeni gelişme eklendi (test)." if "PREVIOUS ARTICLE" in user else "",
             "carousel_points": [f"{credit} bu gelişmeyi duyurdu (test maddesi).",
                                 "Gerçek kurulumda burada kaynaktan alınan somut bir bilgi yer alır.",
                                 "Üçüncü madde: fiyat, tarih ya da kullanıcı sayısı gibi bir ayrıntı."],

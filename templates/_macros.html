@@ -44,7 +44,7 @@
     <span class="slide-txt">
       <span class="slide-top">
         <span class="chip">{{ p.cat_label }}</span>
-        {% if p.hero_stat and not p.stat_on_cover %}<span class="chip stat-chip"><b>{{ p.hero_stat }}</b>{% if p.hero_stat_label %} {{ p.hero_stat_label }}{% endif %}</span>{% endif %}
+        {% if p.update_list %}<span class="chip upd-chip">Güncellendi</span>{% endif %}
       </span>
       <h2>{{ p.title_disp }}</h2>
       <span class="slide-dek">{{ p.summary }}</span>

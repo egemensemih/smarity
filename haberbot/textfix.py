@@ -131,7 +131,8 @@ class Fixer:
         """Bir haberin metin alanlarını düzelt; değişen alan adlarını döndür."""
         changed = []
         for k in ("title", "short_title", "summary", "body", "seo_title", "meta_description", "kicker",
-                  "hero_stat_label", "image_alt", "cover_text", "focus_keyword"):
+                  "hero_stat_label", "image_alt", "cover_text", "focus_keyword", "cover_headline", "cover_highlight",
+                  "update_note"):
             v = p.get(k)
             if isinstance(v, str) and v:
                 nv = self.text(v)
@@ -160,3 +161,32 @@ def tag_display(tag: str) -> str:
     if not t or any(ch.isupper() for ch in t):
         return t
     return tr_upper_first(t)
+
+
+# Şirket / ürün adından karşılaştırma anahtarı ("HONOR Watch 6" → "honor"): aynı şirketin haberlerini tanımak için
+_EKEY_STOP = {"the", "a", "an", "new", "yeni"}
+_EKEY_GENERIC = {"turkiye", "abd", "cin", "avrupa", "japonya", "kore", "yapay", "elektrikli", "akilli", "otonom", "oyun",
+                 "otomobil", "teknoloji", "girisim", "yatirim", "uzay", "robot", "robotlar", "insansi", "batarya",
+                 "siber", "veri", "bulut", "kripto", "bitcoin", "ai", "ev", "suv", "5g", "6g"}
+
+
+def entity_key(name: str) -> str:
+    words = [w.strip(".'’-") for w in re.split(r"[\s/,:;()]+", fold(name or "").lower().strip())]
+    words = [w for w in words if w and w not in _EKEY_STOP]
+    if not words or len(words[0]) < 2 or words[0] in _EKEY_GENERIC:
+        return ""
+    return words[0]
+
+
+def primary_key(p: dict) -> str:
+    """Haberin ana şirket/ürün anahtarı: önce ayıklamanın verdiği adlar, yoksa ilk etiketler."""
+    for e in list(p.get("entities") or []) + list(p.get("tags") or [])[:2]:
+        k = entity_key(e)
+        if k:
+            return k
+    return ""
+
+
+def entity_keys(p: dict) -> set[str]:
+    names = list(p.get("entities") or []) or list(p.get("tags") or [])[:1]
+    return {k for k in (entity_key(e) for e in names) if k}

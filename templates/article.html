@@ -51,6 +51,10 @@
     </div>
     <h1>{{ post.title_disp }}</h1>
     <p class="dek">{{ post.summary }}</p>
+    {% if post.update_list %}
+    {% set u = post.update_list[0] %}
+    <p class="upd"><b>Güncellendi</b> <time datetime="{{ u.iso }}">{{ u.date }}</time> <span>{{ u.note }}</span></p>
+    {% endif %}
     <div class="share" aria-label="Paylaş">
       <button type="button" class="sh-native" data-share data-title="{{ post.title }}" data-url="{{ post.abs_url }}" hidden>Paylaş</button>
       <a href="https://wa.me/?text={{ (post.title ~ ' ' ~ post.abs_url)|urlencode }}" rel="noopener" target="_blank">WhatsApp</a>
