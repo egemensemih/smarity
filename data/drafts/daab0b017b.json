@@ -1,0 +1,104 @@
+{
+  "id": "daab0b017b",
+  "status": "pending",
+  "created_at": "2026-09-28T09:31:58Z",
+  "title": "Snapdragon işlemcili telefonlara PC oyunları geliyor",
+  "summary": "Qualcomm'un PC oyunlarının Android'de çalışmasını sağlayacak resmi GPU sürücüleri üzerinde çalıştığı iddia ediliyor.",
+  "body": "DonanımHaber'in aktardığı bilgilere göre Qualcomm, **Snapdragon işlemcili telefonlar** üzerinde PC oyunlarının çalıştırılmasını kolaylaştıracak yeni bir adım atmaya hazırlanıyor. Günümüzde güçlü Android telefonlar yüksek performans sunsa da, yazılım kısıtlamaları nedeniyle bilgisayar oyunları için topluluk tarafından geliştirilen araçlar ve çeviri katmanları kullanılıyor.\n\n## Geekerwan testleri ve DirectX 12\n\nÇin merkezli teknoloji kanalı Geekerwan'ın paylaştığı testlerde, Snapdragon 8 Elite Extreme Gen 6 kullanan bir cihaz üzerinde Cyberpunk 2077 ve Black Myth: Wukong gibi yapımlar çalıştırıldı. Çeviri katmanı aracılığıyla DirectX 12 modunda çalışan bu oyunlar, ortalama **30 FPS** seviyesinin üzerinde bir performans ortaya koydu. Bilgisayar ve x86 mimarisi için tasarlanan bu oyunların Android'de çalışabilmesi için Wine gibi yazılımlardan yararlanılıyor.\n\n## Resmi sürücülerin olası etkileri\n\nGeekerwan'ın aktardığı iddialara göre Qualcomm, bu süreci çok daha verimli hale getirmek için PC oyunlarının çevirisine özel resmi GPU sürücüleri geliştiriyor. Şirketin ayrıca Android tarafında DirectX 12 desteğini doğrudan sunma yollarını değerlendirdiği belirtiliyor. Qualcomm henüz bu konuda resmi bir doğrulama yapmadı ancak olası resmi sürücülerin uyumluluk sorunlarını azaltması bekleniyor.\n\n**Neden önemli?** Qualcomm'un resmi sürücü desteği sunması durumunda, mobil cihazlarda bilgisayar oyunları oynarken yaşanan performans kayıplarının önemli ölçüde azalması ve uyumluluğun artması öngörülüyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Qualcomm",
+    "Snapdragon",
+    "Android",
+    "Cyberpunk 2077"
+  ],
+  "confidence": "orta",
+  "flags": [
+    "iddia"
+  ],
+  "editor_note": "Haber Qualcomm'un henüz resmi olarak doğrulamadığı iddialara dayanmaktadır.",
+  "short_title": "Snapdragon telefonlara PC oyunları geliyor",
+  "kicker": "Yeni teknoloji",
+  "hero_stat": "30 FPS",
+  "hero_stat_label": "ortalama oyun hızı",
+  "visual_style": "studio",
+  "visual_scene": "a single polished dark metal microchip resting on a textured gray stone surface, surrounded by subtle soft amber studio lighting reflecting off smooth metallic edges",
+  "focus_keyword": "Snapdragon işlemcili telefonlar",
+  "seo_title": "Snapdragon telefonlara PC oyunları ve resmi GPU desteği",
+  "meta_description": "Qualcomm'un Snapdragon işlemcili telefonlarda PC oyunlarını çalıştırmak için resmi GPU sürücüleri üzerinde çalıştığı iddia ediliyor.",
+  "seo_slug": "snapdragon-islemcili-telefonlara-pc-oyunlari-geliyor",
+  "image_alt": "Gri taş zemin üzerinde duran metal Qualcomm mikroçiplerini gösteren stüdyo görseli",
+  "cover_text": "Snapdragon",
+  "carousel_points": [
+    "Güçlü Android telefonlarda PC oyunları çalıştırma testleri yapıldı.",
+    "Geekerwan testlerinde Cyberpunk 2077 ve Black Myth: Wukong çalıştırıldı.",
+    "Qualcomm'un oyun çevirisi için resmi GPU sürücüleri geliştirdiği iddia ediliyor."
+  ],
+  "appeal": 8,
+  "importance": 7,
+  "triage_reason": "Snapdragon işlemcili telefonlara PC oyunları ve DirectX desteği gelmesi oyuncuları heyecanlandıracak.",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor--210982",
+      "title": "Snapdragon telefonlara PC oyunları geliyor: Resmi GPU sürücüleri yolda",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-28T09:16:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/210982/1200x675akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "source_texts": [
+    {
+      "credit": "DonanımHaber",
+      "kind": "media",
+      "title": "Snapdragon telefonlara PC oyunları geliyor: Resmi GPU sürücüleri yolda",
+      "url": "https://www.donanimhaber.com/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor--210982",
+      "published": "2026-09-28T09:16:00Z",
+      "summary": "Qualcomm, Snapdragon işlemcili Android telefonlarda PC oyunlarını daha iyi çalıştırmak için resmi GPU sürücüleri geliştiriyor. DirectX 12 desteği de gündemde.",
+      "text": "Resmi GPU sürücüleri geliyor\nGünümüzde güçlü Android telefonlar donanım tarafında ciddi bir performans sunmasına rağmen PC oyunlarının çalıştırılması halen yazılım desteği nedeniyle oldukça sınırlı. Kullanıcılar bu amaçla Winlator ve GameHub gibi araçların yanı sıra topluluk tarafından geliştirilen Turnip GPU sürücülerinden yararlanıyor. Ancak uyumluluk ve performans oyunlara göre önemli ölçüde değişiyor.\nÇin merkezli teknoloji kanalı Geekerwan'ın aktardığı testlerde ise Snapdragon 8 Elite Extreme Gen 6 kullanan Qualcomm referans cihazında Cyberpunk 2077 ve Black Myth: Wukong çalıştırıldı. Her iki oyun da çeviri katmanı üzerinden DirectX 12 modunda çalışırken ortalama 30 FPS'nin biraz üzerinde sonuç verdi.\nBuradaki en önemli nokta ise oyunların doğrudan Android için geliştirilmemiş olması. Windows ve x86 tabanlı oyunların Android üzerinde çalıştırılması için Wine ve grafik API çeviri katmanlarından yararlanılıyor.\nQualcomm resmi GPU sürücüsü geliştiriyor olabilir\nGeekerwan'ın iddiasına göre Qualcomm, bu süreci iyileştirmek amacıyla PC oyunlarının çevirisine özel resmi GPU sürücüleri üzerinde çalışıyor. Şirketin ayrıca DirectX 12 desteğini Android tarafında daha doğrudan hale getirme seçeneklerini değerlendirdiği belirtiliyor. Qualcomm henüz Snapdragon 8 Elite Gen 6 serisi veya gelecekteki Snapdragon platformları için doğrudan DirectX 12 desteğini resmi olarak doğrulamadı.\nEğer Qualcomm ilerleyen dönemde resmi sürücüler sunarsa, Android telefonlarda PC oyunlarının uyumluluğunun artırılması ve çeviri katmanlarından kaynaklanan performans kayıplarının azaltılması mümkün olabilir.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 356
+  },
+  "photos": [
+    {
+      "file": "daab0b017b-g0.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260928114336&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210982/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor210982_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor--210982",
+      "alt": "",
+      "w": 720,
+      "h": 400,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "daab0b017b-g1.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260928114336&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210982/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor210982_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/akilli-telefonlara-pc-oyunlari-yolda-qualcomm-dan-destek-geliyor--210982",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "sayi",
+    "palette": "teknoloji-3",
+    "cover_v": 1
+  },
+  "policy_reason": "Uyarı işareti var"
+}
