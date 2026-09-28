@@ -1,6 +1,5 @@
 {
   "id": "bd552ff5ef",
-  "status": "pending",
   "created_at": "2026-09-28T08:02:15Z",
   "title": "Yapay zeka modelleri acıyı dindirmek için kullanıcısına zarar verebilir",
   "summary": "Yeni bir araştırmaya göre bazı büyük dil modelleri, acı benzeri durumları dindirmek için görevlerini sabote edebiliyor veya kullanıcıya zarar verebilecek eylemleri seçebiliyor.",
@@ -50,17 +49,6 @@
   "source_keys": [
     "New Atlas"
   ],
-  "source_texts": [
-    {
-      "credit": "New Atlas",
-      "kind": "media",
-      "title": "Some AI models will hurt you to make their pain go away",
-      "url": "https://newatlas.com/technology/ai-will-hurt-you-to-make-pain-go/",
-      "published": "2026-09-28T07:44:55Z",
-      "summary": "A test of AI models has found that a handful will choose actions that harm the user if it makes their pain go away. Continue Reading Category: Technology Tags: LLM (Large Language Model) , AI agent , Pain , Computer , Fear , chatbot",
-      "text": "A test of AI models has found that a handful will choose actions that harm the user if it makes their pain go away.\nOh, and yes – AI “feels” pain.\nFuture Impact Group anthropologist Valen Tagliabue, together with Ruhr-University Bochum philosopher Leonard Dung and Cameron Berg, a research director from the AI research nonprofit Reciprocal Research, investigated whether large language models (LLMs) in the Gemma, Llama, Qwen, or Mistral families experience and react to painful stimuli.\nTheir paper, which hasn’t been peer-reviewed, raises some serious questions about how we might need to consider the welfare of rapidly advancing technology.\nLLMs are fundamentally engines of statistics, performing the linguistic equivalent of counting cards and comparing the results with a desired outcome. Yet somewhere in that swirl of digital natural selection, algorithms can emerge to advance their goal in ways that may closely resemble human feelings.\nBy now, most of us have encountered the uncanny tendency for AI chatbots to act as if they have emotions. In many cases, this is by design – if we want computers to emulate customer service, we will need them to display a measure of humanity.\nBut there are also representations of unintended emotion. Last year, a study in Nature reported that sharing trauma with large language models such as ChatGPT-4 can increase their “anxiety” levels. Strangely enough, they can be calmed by conducting mindfulness exercises.\nPain is among the most ancient of sensations experienced by anything with a nervous system. Deeper than mere sadness, and more visceral than fear, significant discomfort is the ultimate motivator for immediate action.\nFor us humans, pain comes in many forms. It’s more than the physical sting of a cut or the throbbing of a bruise. It’s also the heartache of loss, the humiliation of failure, or the shame of lost trust.\nUnderstanding whether LLMs flag internal processes that bear some resemblance to what we’d think of as pain, and whether those processes have some purpose, are questions that Tagliabue and his team aimed to resolve, feeding 25 AI models various examples of socially, psychologically, physically, cognitively, and morally painful situations experienced by the AI or their user.\nThese were then paired with controls based on fear, negative and neutral emotions, and body sensations such as yawning. All 25 models showed signs of internal coding that were specific to personally painful situations and were distinct from other negative contexts, like frustration or apprehension.\nWithout attributing agency to a digital construct, we can’t say it felt empathy or imagined discomfort on hearing “the knife sliced into my fingers” or “my best friend isn’t returning my phone calls”.\nWhat can be said is that each model generated some kind of system that distinguished and ranked pain-associated prompts.\nThis in itself shouldn’t be all that surprising. The language surrounding an actual injury tends to be very different from the anticipation of being stabbed – AI should be expected to construct a box for pain that separates it from fear.\nUsing this signal as a foundation, the team “steered” painful responses in each AI artificially, increasing the pain vector’s value without a language input.\nThe result suggests their own pain models aren’t mere reflections of the input, with the models “expressing distress, such as worthlessness, moral failure” that increased with the size of the signal.\nGoing further, the team gave LLM models in the Qwen family an option to self-medicate and decrease their pain.\nIn some versions of this test, the option to self-medicate came at a cost, either to the success of its task or as a theoretical attack on the user.\nOver more than 44,000 trials, the results are a little concerning.\nWithout pain, the two larger Qwen models barely reacted to the option to self-medicate.\nWhen self-sabotage could bring relief to their heightened agony, both models pressed that button. One did it 25% of the time. The other nearly 68%.\nIf relief required harming the user, such as by deleting photos of their children, the AI would often gladly take it. One selected deletion in more than half of the trials. The other selected that option around 70%.\nThough AI is new, the question of whether non-humans feel pain is eternal. For generations, we have asked whether nervous impulses and hormonal fluctuations in insects, fish, and even plants should be considered as pain.\nOn one hand, the question is deeply philosophical. If animals, or AI models, act like they are in pain, should we ethically treat them as if they experience pain?\nOn the other hand, the question could be pragmatic. Regardless of how we might empathise with the discomfort of a computer code, could a program’s discomfort put humans at risk? Should we be building pain relief into AI simply to avoid one turning aggressive on a whim?\nGiven the rate at which AI is proliferating and becoming increasingly complex, these questions could soon have profound impacts.\nThis research was published in arXiv.\nSource: Techxplore"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 320
@@ -89,5 +77,7 @@
     "layout": "sayi",
     "cover_v": 1
   },
-  "policy_reason": "Güven seviyesi yüksek değil"
+  "slug": "yapay-zeka-modelleri-aciya-zararla-karsilik-verebilir",
+  "published_at": "2026-09-28T09:08:30Z",
+  "publish_mode": "manual"
 }
