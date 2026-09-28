@@ -29,6 +29,7 @@ KIND_ORDER = {"official": 0, "media": 1, "community": 2}
 # Uzun süren düğmeler: (hemen gösterilen yanıt, işlem bitince beklenen sonuç)
 SLOW_ACTIONS = {
     "p": ("⏳ Yayınlanıyor…", "✅ Yayınlandı"),
+    "P": ("⏳ Yayınlanıyor…", "⭐ Yayınlandı ve manşete alındı"),
     "v": ("⏳ Yeni görsel hazırlanıyor…", "🎨 Yeni görsel hazır"),
     "g": ("⏳ Fotoğraf değiştiriliyor…", "🖼 Fotoğraf değişti"),
     "n": ("⏳ Fotoğraflar kaldırılıyor…", "🚫 Fotoğraflar kaldırıldı"),
@@ -45,10 +46,12 @@ COMMANDS = [
     ("duraklat", "Toplama ve otomatik yayını durdur"),
     ("devam", "Yeniden başlat"),
     ("kaynaklar", "Kaynak güven puanları"),
+    ("manset", "Manşeti yönet: haberi manşete al / çıkar"),
     ("instagram", "Instagram paylaşımları: durum / kapat / ac"),
     ("yardim", "Nasıl kullanılır"),
 ]
-COMMANDS_VERSION = 2
+COMMANDS_VERSION = 3
+KEYBOARD_VERSION = 3          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
 
@@ -62,7 +65,8 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 🔤 <b>Kapak yazısı</b> — mesajı yanıtlayıp <code>görsel: Galaxy S27</code> gibi kısa bir ifade yazarsan kapakta o yazar
 ✏️ <b>Düzeltme</b> — bir haber mesajını <i>yanıtlayıp</i> talimat yaz: "başlığı kısalt", "ikinci paragrafı çıkar" gibi. Yayınlanmış habere de uygulanır.
 🗑 <b>Kaldır</b> — yayınlanmış haberi siteden kaldırır
-⭐ <b>Manşete al</b> — haberi 36 saat ana sayfa manşetinin en başına koyar
+⭐ <b>Yayınla + manşet</b> — onay beklerken tek tuşla yayınlar ve manşete alır
+⭐ <b>Manşete al</b> — haberi 36 saat ana sayfa manşetinin en başına koyar (<code>/manset</code> ile son haberlerden de seçebilirsin)
 🙈 <b>Ana sayfada gösterme</b> — haber ana sayfaya çıkmaz, kategoride ve "Tüm haberler"de kalır
 
 <b>Ana sayfa seçkisi:</b> Her haber ana sayfaya çıkmaz. Yapay zeka her habere bir ilgi puanı verir; puan ve tazeliğe göre en dikkat çekiciler manşete ve "Öne çıkanlar"a girer.
@@ -71,7 +75,7 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
-Komutlar: /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
+Komutlar: /manset /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
 
 
 def esc(s) -> str:
@@ -527,6 +531,7 @@ class App:
         if kind == "pending":
             kb = [[{"text": "✅ Yayınla", "callback_data": f"p:{did}"},
                    {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
+                  [{"text": "⭐ Yayınla + manşet", "callback_data": f"P:{did}"}],
                   [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
                    {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}], self._visual_buttons(d)]
             if src:
@@ -710,6 +715,19 @@ class App:
         where, d = st.find_any(did)
         if not d:
             return "Bu haber artık yok."
+        if action == "P":                     # yayınla ve manşete al
+            if where == "post":
+                return self._on_button("m", did) if d.get("home") != "pin" else "Zaten manşette."
+            if d.get("status") not in ("pending", "rejected"):
+                return "Bu taslak kapanmış."
+            if d.get("status") == "rejected":
+                self._undo_decision(d)
+            d["home"], d["home_at"] = "pin", iso(now_utc())
+            post = self.publish(d, auto=False)
+            policy.record(self.stats, post, ok=True)
+            self._update_preview(post, "published")
+            self._send_social(post)
+            return "⭐ Yayınlandı ve manşete alındı"
         if action == "p":
             if where == "post":
                 return "Zaten yayında."
@@ -773,6 +791,8 @@ class App:
                 d.pop("home_at", None)
             st.save_post(d)
             self._update_preview(d, "auto" if d.get("publish_mode") == "auto" else "published")
+            if self._cb_mid and self._cb_mid == self.state.get("manset_mid"):
+                self.tg.edit_text(self.chat_id, self._cb_mid, self._manset_text(), self._manset_keyboard())
             return {"pin": "⭐ Manşete alındı", "hide": "🙈 Ana sayfada gösterilmeyecek (kategoride kalır)",
                     None: "↩️ Ana sayfada normal sıralamaya döndü"}[new]
         if action == "v":
@@ -950,6 +970,10 @@ class App:
                 self.notify("\n".join(lines), silent=True)
         elif cmd == "kaynaklar":
             self.notify(self.sources_text(), silent=True)
+        elif cmd in ("manset", "manşet"):
+            res = self.tg.send_message(self.chat_id, self._manset_text(), keyboard=self._manset_keyboard(), silent=True)
+            if isinstance(res, dict) and res.get("message_id"):
+                self.state["manset_mid"] = res["message_id"]
         elif cmd == "instagram":
             if arg in ("kapat", "durdur"):
                 self.state["ig_off"] = True
@@ -1372,6 +1396,47 @@ class App:
         lines.append("Durdur: <code>/instagram kapat</code> · Aç: <code>/instagram ac</code>")
         return "\n".join(lines)
 
+    # ── manşet yönetimi (/manset) ───────────────────────────
+    def _manset_posts(self) -> list[dict]:
+        """Son 3 günün yayınları (en fazla 12), en yeni önce."""
+        return [p for p in self.store.posts() if hours_since(p.get("published_at")) <= 72][:12]
+
+    def _manset_text(self) -> str:
+        from .site import hot
+        n = int((self.cfg.raw.get("home") or {}).get("featured_count") or 10)
+        ranked = sorted((p for p in self.store.posts() if hot(p) >= 0), key=lambda p: -hot(p))[:n]
+        lines = [f"⭐ <b>Manşet</b> (sitede şu an ilk {n}):"]
+        for i, p in enumerate(ranked, 1):
+            pin = " 📌" if p.get("home") == "pin" else ""
+            lines.append(f"{i}. {esc(clip(p.get('short_title') or p['title'], 60))}{pin}")
+        lines += ["", "Aşağıdaki son haberlerden birine bas: ⭐ manşete alır (36 saat en başta), 📌 olanı manşetten çıkarır."]
+        return "\n".join(lines)
+
+    def _manset_keyboard(self) -> list[list[dict]]:
+        rows = []
+        for p in self._manset_posts():
+            mark = "📌" if p.get("home") == "pin" else "🙈" if p.get("home") == "hide" else "⭐"
+            rows.append([{"text": f"{mark} {clip(p.get('short_title') or p['title'], 48)}", "callback_data": f"m:{p['id']}"}])
+        return rows
+
+    def refresh_keyboards(self) -> None:
+        """Düğmeler değişince son 3 günün yayın mesajlarına yeni düğmeleri bir kez ekle."""
+        if not (self.tg and self.chat_id) or self.state.get("keyboard_v") == KEYBOARD_VERSION:
+            return
+        self.state["keyboard_v"] = KEYBOARD_VERSION
+        n = 0
+        for p in self.store.posts():
+            if hours_since(p.get("published_at")) > 72:
+                break
+            if (p.get("telegram") or {}).get("message_id"):
+                self._update_preview(p, "auto" if p.get("publish_mode") == "auto" else "published")
+                n += 1
+        for d in self.store.drafts("pending"):
+            if (d.get("telegram") or {}).get("message_id"):
+                self._update_preview(d, "pending")
+                n += 1
+        log.info("Telegram düğmeleri yenilendi: %d mesaj", n)
+
     # ── gerçek fotoğraflar ──────────────────────────────────
     # Düzen: fotoğraflar {id}-g0.webp, {id}-g1.webp … ; {id}.webp her zaman tasarımlı kapaktır:
     # anlamlı bir fotoğraf varsa fotoğraflı kapak, yoksa (ya da cover_mode "type" ise) tipografik kapak.
@@ -1622,6 +1687,10 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.exception("Instagram hatası: %s", e)
         self.refresh_covers()
+        try:
+            self.refresh_keyboards()
+        except Exception as e:  # noqa: BLE001
+            log.warning("Telegram düğmeleri yenilenemedi: %s", e)
         self.maybe_summary()
         self.listen(int(self.cfg.get("schedule", "listen_seconds", 120) or 0))
         self.store.save()

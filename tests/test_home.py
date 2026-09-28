@@ -121,6 +121,33 @@ def test_write_fixes_text_and_scores_appeal():
         assert a.store.load_post("p02")["appeal"]
 
 
+def test_publish_with_pin_and_manset_command():
+    with _App() as (cfg, a):
+        from haberbot.telegram import MockTelegram
+        a.tg = a.tg or MockTelegram(cfg.root / "tg")
+        a.store.save_post(_post(1, 2, publish_mode="manual", telegram={"message_id": 11}))
+        d = {**_post(2, 0), "status": "pending", "created_at": iso(now_utc()), "telegram": {"message_id": 12}}
+        d.pop("published_at")
+        d.pop("slug")
+        a.store.save_draft(d)
+        kb = a._keyboard(a.store.load_draft("p02"), "pending")
+        assert any(b["callback_data"] == "P:p02" for row in kb for b in row)       # onayda "yayınla + manşet"
+        assert a._on_button("P", "p02").startswith("⭐")
+        p = a.store.load_post("p02")
+        assert p["home"] == "pin" and hot(p) >= 100
+        # /manset: son haberler düğmeleriyle; listeden basınca liste yenilenir
+        a._on_command("manset", "")
+        assert a.state.get("manset_mid")
+        rows = a._manset_keyboard()
+        assert [r[0]["callback_data"] for r in rows][:2] == ["m:p02", "m:p01"] and rows[0][0]["text"].startswith("📌")
+        a._cb_mid = a.state["manset_mid"]
+        assert a._on_button("m", "p01").startswith("⭐")
+        assert a._manset_keyboard()[1][0]["text"].startswith("📌")
+        # eski mesajların düğmeleri bir kez yenilenir
+        a.refresh_keyboards()
+        assert a.state["keyboard_v"] == appmod.KEYBOARD_VERSION
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
