@@ -11,10 +11,10 @@ import requests
 from lxml import etree
 
 from .config import Config
-from .util import (clip, domain_of, iso, log, normalize_url, now_utc, parse_iso,
+from .util import (clip, domain_of, hours_since, iso, log, normalize_url, now_utc, parse_iso,
                    publisher_name, short_hash, slugify, strip_html)
 
-UA = "Mozilla/5.0 (compatible; SmarityBot/1.0; +https://github.com/)"
+UA = "Mozilla/5.0 (compatible; SmarityBot/1.0; +https://smarity.com.tr)"
 
 NS = {
     "atom": "http://www.w3.org/2005/Atom",
@@ -155,7 +155,7 @@ def parse_html_listing(html_bytes: bytes, base_url: str, pattern: str) -> list[d
     return out
 
 
-def _fetch(url: str, timeout: int = 20) -> bytes:
+def _fetch(url: str, timeout: int = 15) -> bytes:
     r = requests.get(url, headers={"User-Agent": UA, "Accept": "*/*"}, timeout=timeout)
     r.raise_for_status()
     return r.content[:5_000_000]
@@ -176,10 +176,15 @@ def _load_source(cfg: Config, src: dict) -> list[dict]:
     return parse_feed(raw)
 
 
+def _resting(h: dict) -> bool:
+    """Üst üste 6 kez okunamayan kaynak dinlenir: 6 saatte bir yeniden denenir (turlar yavaşlamasın)."""
+    return h.get("fails", 0) >= 6 and hours_since(h.get("last_try")) < 6
+
+
 def fetch_all(cfg: Config, store) -> list[dict]:
     """Tüm kaynakları paralel okur. Kaynak sağlığını store.state'e yazar."""
-    sources = cfg.sources
     health = store.state.setdefault("source_health", {})
+    sources = [s for s in cfg.sources if cfg.fixtures_dir or not _resting(health.get(s["name"], {}))]
     results: list[dict] = []
 
     def work(src):
@@ -188,9 +193,10 @@ def fetch_all(cfg: Config, store) -> list[dict]:
         except Exception as e:  # noqa: BLE001
             return src, [], f"{type(e).__name__}: {e}"[:200]
 
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         for src, entries, err in ex.map(work, sources):
             h = health.setdefault(src["name"], {})
+            h["last_try"] = iso(now_utc())
             if err:
                 h["fails"] = h.get("fails", 0) + 1
                 h["last_error"] = err

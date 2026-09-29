@@ -71,7 +71,7 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 ⭐ <b>Manşete al</b> — haberi 36 saat ana sayfa manşetinin en başına koyar (<code>/manset</code> ile son haberlerden de seçebilirsin)
 🙈 <b>Ana sayfada gösterme</b> — haber ana sayfaya çıkmaz, kategoride ve "Tüm haberler"de kalır
 
-<b>Seçki:</b> Sitede aynı gün her şey yer almaz. Haber masası aynı olayı tek habere toplar; yayın yönetmeni o güne kadar yayınlananları görerek karar verir: bu alanı takip eden biri için günün kaçırılmaması gereken gelişmesi mi? Aynı şirketten 24 saatte bir haber (günün en büyük haberleri hariç), yayındaki bir haberin devamı gelirse yeni haber yerine 🔄 <b>güncelleme önerisi</b> gelir; onaylarsan mevcut haber yeni gelişmeyle güncellenir, adresi değişmez. Neyin neden elendiğini /secki gösterir.
+<b>Seçki:</b> Sitede aynı gün her şey yer almaz. Haber masası aynı olayı tek habere toplar; yayın yönetmeni o güne kadar yayınlananları görerek karar verir: bu alanı takip eden biri için günün kaçırılmaması gereken gelişmesi mi? Aynı olay tek haber olur; yayındaki bir haberin devamı gelirse yeni haber yerine 🔄 <b>güncelleme önerisi</b> gelir; onaylarsan mevcut haber yeni gelişmeyle güncellenir, adresi değişmez. Neyin neden elendiğini /secki gösterir.
 
 <b>Ana sayfa seçkisi:</b> Her haber ana sayfaya çıkmaz. Yapay zeka her habere bir ilgi puanı verir; puan ve tazeliğe göre en dikkat çekiciler manşete ve "Öne çıkanlar"a girer.
 
@@ -198,19 +198,30 @@ class App:
         items = fetch_all(cfg, st)
         seeded = set(self.state.get("seeded_sources", []))
         max_age = ed("max_item_age_hours", 36)
-        fresh = []
+        fresh, keys = [], set()
         for it in items:
-            if it["key"] in st.seen:
+            if it["key"] in st.seen or it["key"] in keys:
                 continue
-            st.seen[it["key"]] = iso(now_utc())
-            if it["source"] not in seeded and (it["html_source"] or not it["published"]):
-                continue  # tarihsiz kaynağın ilk taraması: sadece "görüldü" olarak işaretle
+            keys.add(it["key"])
+            if it["source"] not in seeded and (it["html_source"] or not it["published"]
+                                               or hours_since(it["published"]) > 6):
+                st.seen[it["key"]] = iso(now_utc())   # yeni eklenen kaynağın ilk taraması: eski haberleri yığma
+                continue
             if it["published"] and hours_since(it["published"]) > max_age:
+                st.seen[it["key"]] = iso(now_utc())
                 continue
             fresh.append(it)
         self.state["seeded_sources"] = sorted(seeded | {it["source"] for it in items})
         self.state["last_collect"] = iso(now_utc())
-        log.info("Yeni öğe: %d (toplam okunan %d)", len(fresh), len(items))
+        # Bir turda en fazla N öğe ayıklanır; kalanlar "görülmedi" sayılır ve sonraki turda sıraya girer (kaybolmaz)
+        batch = int(ed("triage_batch", 100) or 100)
+        fresh.sort(key=lambda x: (KIND_ORDER.get(x["kind"], 3), hours_since(x["published"]) if x["published"] else 0))
+        later = len(fresh) - batch
+        fresh = fresh[:batch]
+        for it in fresh:
+            st.seen[it["key"]] = iso(now_utc())
+        log.info("Yeni öğe: %d (toplam okunan %d%s)", len(fresh), len(items),
+                 f", {later} tanesi sonraki tura kaldı" if later > 0 else "")
         queue = self._queue(max_age)
         if not fresh and not queue:
             return
@@ -218,8 +229,6 @@ class App:
         min_imp = ed("min_importance", 6)
         new_stories, merged, skipped = [], 0, 0
         if fresh:
-            fresh.sort(key=lambda x: (KIND_ORDER.get(x["kind"], 3), hours_since(x["published"]) if x["published"] else 0))
-            fresh = fresh[:80]
             by_tid = {}
             for i, it in enumerate(fresh, 1):
                 it["tid"] = f"i{i}"
@@ -241,7 +250,7 @@ class App:
             try:
                 tri = self.llm.json(cfg.get("ai", "triage_model", "claude-haiku-4-5-20251001"),
                                     triage_system(self.brand), triage_user(fresh, recent[:150], today),
-                                    TRIAGE_SCHEMA, max_tokens=8000)
+                                    TRIAGE_SCHEMA, max_tokens=12000)
             except LLMError as e:
                 if self._transient(e):
                     log.warning("Yapay zeka şu an yoğun (ayıklama), sonraki turda tekrar denenecek: %s", str(e)[:160])
@@ -408,8 +417,8 @@ class App:
 
     def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
                covered: list[dict]) -> dict[int, dict]:
-        """Yönetmen kararlarına kurallı emniyet: eşik, günlük şirket sınırı, tur başına yer, aynı turda aynı şirket yok."""
-        cap = int(self.cfg.get("editorial", "max_per_company_per_day", 1) or 1)
+        """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, (isteğe bağlı) şirket sınırı."""
+        cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -419,7 +428,7 @@ class App:
         published |= {p["id"] for p in self.store.posts()[:200] if hours_since(p.get("published_at")) <= 72}
         pending = {c["id"] for c in covered if c["status"] == "pending"}
         refreshed = {c["id"] for c in covered if c["status"] == "published" and c.get("updated") and c["hours"] < 6}
-        used, round_keys, round_targets = 0, set(), set()
+        used, round_targets = 0, set()
         for i in sorted(decisions, key=lambda i: -decisions[i]["must_read"]):
             x, s = decisions[i], queue[i]["story"]
             keys = entity_keys(s)
@@ -450,15 +459,12 @@ class App:
                 continue
             if mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
-            elif keys & round_keys:
-                x["action"] = "hold"
-            elif mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
+            elif cap and mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
                 x["action"], x["reason"] = "skip", "aynı şirketten son 24 saatte haber var"
             elif used >= slots:
                 x["action"] = "hold"
             else:
                 used += 1
-                round_keys |= keys
         return decisions
 
     def _edit_log(self, q: dict, action: str, x: dict) -> None:

@@ -6,7 +6,8 @@ from .config import CATEGORIES
 CATEGORY_KEYS = list(CATEGORIES.keys())
 CATEGORY_HELP = (
     "super-zeka = artificial intelligence: AI models, AI products and features, AI companies, AI research, AI chips, AI policy and new real-world uses of AI; "
-    "teknoloji = consumer tech and big tech: newly unveiled phones, computers, wearables, TVs, smart home, apps; new car and EV models; "
+    "teknoloji = consumer tech and big tech: newly unveiled phones, computers, tablets, wearables, cameras and lenses, drones, "
+    "headphones and audio systems, TVs and home entertainment, smart home and home appliances, apps; new car and EV models; "
     "big-tech company news, platforms, internet, social media, cybersecurity, telecom, tech regulation (use when the story is not mainly about AI); "
     "inovasyon = technologies tried or demonstrated for the first time, prototypes, science breakthroughs, robotics, space, energy, batteries, "
     "autonomous driving milestones, health tech; "
@@ -58,15 +59,22 @@ def triage_system(site_name: str) -> str:
     return f"""You are the news-desk editor of "{site_name}", a Turkish-language, hand-curated daily briefing about AI,
 consumer tech, cars/EVs, innovation, startups and the gaming world, covering both the world and Turkey.
 Our readers follow these fields closely and open the site every day to see the developments that matter in THEIR field.
-We are not a news aggregator: we publish only about 10 carefully chosen stories a day across all verticals, and we never
-publish the same development twice. You receive a batch of NEW ITEMS fetched from RSS feeds and a list of RECENT STORIES
-(published, pending, queued, and recently rejected or expired ones).
+We cover the whole world of technology people use — phones and computers, but also cameras and lenses, headphones and
+audio systems, TVs, smart home and home appliances, wearables, drones, e-mobility, cars, consoles and games, AI and
+startups. We follow the global giants and premium brands closely (Apple, Samsung, Google, Microsoft, Sony, Meta, Amazon,
+NVIDIA, OpenAI, Anthropic, Tesla, SpaceX, BYD, Xiaomi and Huawei flagships, Nintendo, Canon, Nikon, Fujifilm, Leica, DJI,
+GoPro, Bose, Sonos, Bang & Olufsen, Sennheiser, Dyson, LG, Garmin, the big car makers, TOGG…). We have a premium, quality
+feel: we do not cover very cheap or entry-level products. We never publish the same development twice. You receive a batch
+of NEW ITEMS fetched from RSS feeds and a list of RECENT STORIES (published, pending, queued, and recently rejected or
+expired ones).
 
 Do the following:
-1. Group items that report the same underlying event into ONE story. Same event includes: a company's own announcement and
-   media coverage of it; English and Turkish reports; and everything announced at the same launch event or in the same
-   announcement wave (a phone, watch and tablet unveiled together by one brand = ONE story). Every item id must appear in
-   exactly one story.
+1. Group items that report the same underlying event into ONE story: a company's own announcement and media coverage of
+   it, English and Turkish reports of it. Products launched together: if each product is significant on its own (a new
+   iPhone and a new Apple Watch; three new Citroën models; a new Sony camera and a new Sony lens) they are SEPARATE stories.
+   If the products are variants or accessories of one launch, or the brand is not a global giant / premium brand, merge the
+   whole launch into ONE story (Honor's phone, watch and tablet unveiled together = one story). Every item id must appear
+   in exactly one story.
 2. on_topic: true only if the story is substantially about technology, AI, consumer tech products, startups/venture funding,
    innovation/science breakthroughs, cars/EVs/mobility, video games/gaming industry, or big-tech business/policy/security.
    false for general politics, war, defence exercises, crime, celebrity/entertainment (films, TV, comics) unless the story is
@@ -75,30 +83,31 @@ Do the following:
    its status, including rejected and expired), write that story id (e.g. "s:ab12cd34ef" or "q:3"); otherwise "".
    Follow-ups count as the same story: local availability or price of an already covered product, hands-on or review of it,
    reactions, analysis, more details about the same announcement.
-4. importance (integer 1–10). THE TEST: would a person who follows this vertical closely (an AI practitioner, a phone and
-   gadget enthusiast, a car/EV enthusiast, a startup/VC watcher, a gamer) consider this one of TODAY's must-know developments
-   in their field — something they would be annoyed to miss? Most items fail this test.
+4. importance (integer 1–10). THE TEST: would a person who follows this area closely (an AI practitioner, a phone and
+   gadget enthusiast, a photographer, an audio fan, a car/EV enthusiast, a startup/VC watcher, a gamer) want to see this
+   today — something they would be annoyed to miss? Many items fail this test.
    9–10 the day's defining stories: frontier AI model releases or major capability jumps; flagship launches (iPhone, Galaxy S/Z,
         Pixel, new PlayStation/Xbox/Nintendo hardware); landmark regulation or court rulings that change an industry; >$1B
         acquisitions or rounds; genuine first-ever achievements (e.g. a rocket reaching orbit for the first time); the release
         date or reveal of a hugely anticipated game
-   8    clearly significant: a new product or model from a leading company that moves its category; a new AI capability many
-        people will actually use; a major strategic move by a big company; a security incident affecting many users; an
-        important Turkish tech development (TOGG, a large Turkish startup round, a regulation affecting a big platform in
-        Türkiye); a major game announcement or a studio shake-up
-   7    noteworthy for followers but not essential: notable launches outside the top tier, a startup with a sizeable round and a
-        clear, interesting idea, research with a clear path to real products
-   ≤6   everything else, in particular: regional availability or local price of already announced products (except true
-        flagships arriving in Türkiye), mid-range and budget devices, secondary product lines (watches, bands, earbuds, tablets,
-        accessories) unless genuinely novel, launch-date teasers, unboxings, hands-ons, camera samples, benchmarks, spec leaks
-        and rumors, concept cars, design studies and show displays, trims and facelifts, lab or university research without a
-        near-term product, executive opinions and interviews, partnerships and MoUs, recalls, awards and competitions,
-        stock and market moves, deals and discounts, reviews, guides, listicles, podcasts, events and webinars, B2B/enterprise
-        software, developer tools, cloud and data-centre deals, minor model versions
-   Company saturation: if RECENT STORIES already contain a story about the same company or product family from the last
-   24 hours, a new story about it gets importance ≤6 unless it is a separate and clearly bigger development (then ≥8).
-   Be strict and honest; do not inflate scores. Judge each vertical on its own scale so that games and cars are not crowded
-   out by AI, and AI does not crowd out everything else.
+   8    clearly significant: a new product from a global giant or premium brand (phones, computers, watches, earbuds,
+        cameras, lenses, headphones, speakers, TVs, drones, home appliances, consoles); a new car or EV model from a known
+        maker; a new AI capability many people will actually use; a major strategic move by a big company; a security
+        incident affecting many users; an important Turkish tech development (TOGG, a large Turkish startup round, a
+        regulation affecting a big platform in Türkiye); a major game announcement or a studio shake-up
+   7    noteworthy: notable launches from well-known mid-tier brands, credible and detailed leaks about an anticipated
+        flagship (from reputable reporters or leakers such as Mark Gurman, certification filings, official teasers,
+        supply-chain reports with specifics), a startup with a sizeable round and a clear idea, research with a clear path to
+        real products, the Türkiye price and availability of a flagship
+   ≤6   everything else, in particular: very cheap, budget or entry-level products and their regional launches, minor
+        accessories, vague rumors and unsourced leaks, launch-date teasers without details, unboxings, hands-ons, camera
+        samples, benchmarks, concept cars, design studies and show displays, trims and facelifts, lab or university research
+        without a near-term product, executive opinions and interviews, partnerships and MoUs, recalls, awards and
+        competitions, stock and market moves, deals and discounts, reviews, guides, listicles, podcasts, events and webinars,
+        B2B/enterprise software, developer tools, cloud and data-centre deals, minor model or software versions
+   Several stories about the same company on the same day are fine when each is a distinct, newsworthy development.
+   Be strict and honest; do not inflate scores. Judge each area on its own scale so that cameras, audio, cars and games are
+   not crowded out by AI, and AI does not crowd out everything else.
 5. category: one of {CATEGORY_KEYS}. Guide: {CATEGORY_HELP}.
    Stories about Turkey go to their topical category (a Turkish game studio's funding round → girisimcilik or gaming).
    Category priority rule: if the main subject is an AI model, AI assistant, AI feature or AI company (ChatGPT, Gemini,
@@ -154,9 +163,11 @@ EDIT_SCHEMA = {
 
 def edit_system(site_name: str, min_score: int) -> str:
     return f"""You are the editor-in-chief of "{site_name}", a Turkish-language, hand-curated daily briefing about AI, consumer
-tech, cars/EVs, innovation, startups and gaming. Readers follow these fields closely and come back every day to see the
-developments that matter in their field. The site must feel selective and fresh: a small number of must-know stories,
-never two stories about the same thing, never a feed full of one brand.
+tech (phones, computers, cameras, audio, TVs, smart home, wearables, drones), cars/EVs, innovation, startups and gaming.
+Readers follow these fields closely and come back every day to see the developments that matter in their field. We follow
+the global giants and premium brands closely and keep a premium, quality feel: no very cheap or entry-level products,
+never two stories about the same thing. Several stories about the same company are fine when each is a distinct,
+newsworthy development (e.g. Apple's new iPhone and new Apple Watch; three new Citroën models).
 
 You receive COVERED stories (what we already published, what is waiting for approval, and what the editor rejected) and
 CANDIDATES proposed by the news desk. Decide for EVERY candidate:
@@ -165,19 +176,18 @@ CANDIDATES proposed by the news desk. Decide for EVERY candidate:
   new development (official confirmation, a regulator or court acting, price/date/availability announced for the first
   time, a major new fact that changes the story). Put the covered story id in target. We will update that article
   instead of publishing a new one.
-- "skip": not a must-know story; or the same/very similar to a covered story without a substantial new development; or
-  about a company/product family we already covered in the last 24 hours and not clearly one of the day's biggest stories;
-  or a follow-up of a story the editor rejected.
+- "skip": not worth our readers' time (see the ≤6 list); or the same/very similar to a covered story without a substantial
+  new development; or a follow-up of a story the editor rejected.
 - "hold": a good story that does not fit into this round's free slots; it may be reconsidered in a later round.
-must_read (1–10): would a close follower of this vertical consider it one of TODAY's must-know developments?
-9–10 the day's defining stories; 8 clearly significant for the field; 7 noteworthy but not essential; ≤6 routine.
-Most candidates are 6–7. Regional availability or local prices, secondary products (watches, earbuds, tablets, budget
-phones), teasers, unboxings, rumors, concept/design displays, lab research without products, opinions and minor updates
-are ≤6.
+must_read (1–10): would a close follower of this area want to see it today?
+9–10 the day's defining stories; 8 clearly significant (e.g. a new product from a global giant or premium brand — phones,
+cameras, headphones, TVs, watches, consoles —, a new car model from a known maker); 7 noteworthy (notable mid-tier
+launches, credible detailed leaks about an anticipated flagship, a flagship's Türkiye price); ≤6 routine: very cheap or
+entry-level products, minor accessories, vague rumors, teasers, unboxings, concept/design displays, lab research without
+products, opinions and minor updates.
 Rules:
 - At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest.
-- Diversity: never publish two candidates about the same company in one round; prefer spreading across verticals.
-- Duplicates among candidates: publish at most one of them.
+- Duplicates among candidates (same product or event): publish at most one of them.
 - target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
 - reason: ≤12 words in Turkish."""
 

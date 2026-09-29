@@ -46,13 +46,15 @@ schedule:
 editorial:
   # Seçki iki aşamalı: haber masası kaynakları ayıklar ve aynı olayı tek habere toplar (min_importance), ardından
   # yayın yönetmeni o güne kadar yayınlananları görerek karar verir: yeni haber / mevcut haberi güncelle / geç / beklet.
-  # Ölçüt: "Bu alanı yakından takip eden biri bunu bugünün kaçırılmaması gereken gelişmelerinden sayar mı?"
+  # Ölçüt: "Bu alanı yakından takip eden biri bunu bugün görmek ister mi?" Dünya devleri ve premium markalar yakından
+  # izlenir; çok ucuz / giriş seviyesi ürünler, söylentiler, kutu açılışları vb. elenir.
   min_importance: 7              # 1-10. Haber masasının aday eşiği
-  min_must_read: 8               # 1-10. Yayın yönetmeninin yeni haber eşiği (seçici: 8)
-  max_per_company_per_day: 1     # Aynı şirketten 24 saatte en fazla kaç haber (günün en büyük haberleri, 9+, hariç)
-  max_drafts_per_run: 2          # Bir taramada en fazla kaç yeni haber taslağı yazılsın (haberler tek tek, düzenli gelsin)
-  max_drafts_per_day: 12         # Günlük üst sınır; gün boyuna yayılır (sabah hepsi birden tükenmez)
-  burst: 2                       # Günün başında sınırın önüne geçebilecek taslak sayısı
+  min_must_read: 7               # 1-10. Yayın yönetmeninin yeni haber eşiği (daha seçici: 8)
+  max_per_company_per_day: 0     # Aynı şirketten 24 saatte en fazla kaç haber (0 = sınır yok)
+  max_drafts_per_run: 3          # Bir taramada en fazla kaç yeni haber taslağı yazılsın (haberler tek tek, düzenli gelsin)
+  max_drafts_per_day: 0          # Günlük üst sınır (0 = sınır yok)
+  burst: 2                       # Günlük sınır varsa: günün başında sınırın önüne geçebilecek taslak sayısı
+  triage_batch: 100              # Bir turda ayıklanan en fazla öğe (fazlası sonraki tura kalır, kaybolmaz)
   active_hours: [7, 24]          # Taslakların yayıldığı saatler (gece en fazla birkaç haber gelir, kalanlar sabaha kalır)
   max_item_age_hours: 36         # Bundan eski haberler atlanır
   pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer
@@ -178,10 +180,10 @@ sources:
     url: https://interestingengineering.com/feed
     kind: media
 
-  # ── Girişimler (uzman okura hitap eden kaynaklar kapalı; istersen # işaretini kaldır) ──
-  # - name: Crunchbase News
-  #   url: https://news.crunchbase.com/feed/
-  #   kind: media
+  # ── Girişimler ──
+  - name: Crunchbase News
+    url: https://news.crunchbase.com/feed/
+    kind: media
   # - name: EU-Startups
   #   url: https://www.eu-startups.com/feed/
   #   kind: media
@@ -233,6 +235,252 @@ sources:
     kind: media
   - name: Anadolu Ajansı
     url: https://www.aa.com.tr/tr/rss/default?cat=bilim-teknoloji
+    kind: media
+
+  # ── Resmi duyurular (ek) ──
+  - name: Microsoft
+    url: https://blogs.microsoft.com/feed/
+    kind: official
+  - name: Meta
+    url: https://about.fb.com/feed/
+    kind: official
+  - name: Google DeepMind
+    url: https://deepmind.google/blog/rss.xml
+    kind: official
+  - name: PlayStation Blog
+    url: https://blog.playstation.com/feed/
+    kind: official
+  - name: Xbox Wire
+    url: https://news.xbox.com/en-us/feed/
+    kind: official
+  - name: NASA
+    url: https://www.nasa.gov/news-release/feed/
+    kind: official
+
+  # ── Dünya: teknoloji ve ürünler (ek) ──
+  - name: 9to5Mac
+    url: https://9to5mac.com/feed/
+    kind: media
+  - name: MacRumors
+    url: https://feeds.macrumors.com/MacRumors-All
+    kind: media
+  - name: AppleInsider
+    url: https://appleinsider.com/rss/news/
+    kind: media
+  - name: 9to5Google
+    url: https://9to5google.com/feed/
+    kind: media
+  - name: Android Authority
+    url: https://www.androidauthority.com/feed/
+    kind: media
+  - name: Android Police
+    url: https://www.androidpolice.com/feed/
+    kind: media
+  - name: Android Central
+    url: https://www.androidcentral.com/feed
+    kind: media
+  - name: SamMobile
+    url: https://www.sammobile.com/feed/
+    kind: media
+  - name: XDA
+    url: https://www.xda-developers.com/feed/
+    kind: media
+  - name: Tom's Guide
+    url: https://www.tomsguide.com/feeds/all
+    kind: media
+  - name: TechRadar
+    url: https://www.techradar.com/rss
+    kind: media
+  - name: Digital Trends
+    url: https://www.digitaltrends.com/feed/
+    kind: media
+  - name: CNET
+    url: https://www.cnet.com/rss/news/
+    kind: media
+  - name: ZDNET
+    url: https://www.zdnet.com/news/rss.xml
+    kind: media
+  - name: Gizmodo
+    url: https://gizmodo.com/rss
+    kind: media
+  - name: Tom's Hardware
+    url: https://www.tomshardware.com/feeds/all
+    kind: media
+  - name: Wccftech
+    url: https://wccftech.com/feed/
+    kind: media
+  - name: VideoCardz
+    url: https://videocardz.com/feed
+    kind: media
+  - name: The Next Web
+    url: https://thenextweb.com/feed
+    kind: media
+  - name: Pocket-lint
+    url: https://www.pocket-lint.com/feed/
+    kind: media
+  - name: Stuff
+    url: https://www.stuff.tv/feed/
+    kind: media
+  - name: T3
+    url: https://www.t3.com/feeds/all
+    kind: media
+
+  # ── Dünya: büyük haber kuruluşlarının teknoloji bölümleri ──
+  - name: BBC Teknoloji
+    url: https://feeds.bbci.co.uk/news/technology/rss.xml
+    kind: media
+  - name: The Guardian Teknoloji
+    url: https://www.theguardian.com/uk/technology/rss
+    kind: media
+  - name: New York Times Teknoloji
+    url: https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+    kind: media
+  - name: Bloomberg Teknoloji
+    url: https://feeds.bloomberg.com/technology/news.rss
+    kind: media
+  - name: CNBC Teknoloji
+    url: https://www.cnbc.com/id/19854910/device/rss/rss.html
+    kind: media
+
+  # ── Tasarım ve yeni ürünler ──
+  - name: Yanko Design
+    url: https://www.yankodesign.com/feed/
+    kind: media
+  - name: Dezeen Teknoloji
+    url: https://www.dezeen.com/technology/feed/
+    kind: media
+  - name: designboom Teknoloji
+    url: https://www.designboom.com/technology/feed/
+    kind: media
+
+  # ── Fotoğraf makinesi, objektif ve drone ──
+  - name: DPReview
+    url: https://www.dpreview.com/feeds/news.xml
+    kind: media
+  - name: PetaPixel
+    url: https://petapixel.com/feed/
+    kind: media
+  - name: Digital Camera World
+    url: https://www.digitalcameraworld.com/feeds/all
+    kind: media
+  - name: Fstoppers
+    url: https://fstoppers.com/rss.xml
+    kind: media
+  - name: DIY Photography
+    url: https://www.diyphotography.net/feed/
+    kind: media
+  - name: DroneDJ
+    url: https://dronedj.com/feed/
+    kind: media
+
+  # ── Sızıntılar (yalnızca güvenilir ve ayrıntılı olanlar haber olur) ──
+  - name: Photo Rumors
+    url: https://photorumors.com/feed/
+    kind: community
+  - name: Sony Alpha Rumors
+    url: https://www.sonyalpharumors.com/feed/
+    kind: community
+  - name: Canon Rumors
+    url: https://www.canonrumors.com/feed/
+    kind: community
+  - name: Nikon Rumors
+    url: https://nikonrumors.com/feed/
+    kind: community
+  - name: Fuji Rumors
+    url: https://www.fujirumors.com/feed/
+    kind: community
+
+  # ── Ses sistemleri, TV, giyilebilir ──
+  - name: What Hi-Fi
+    url: https://www.whathifi.com/feeds/all
+    kind: media
+  - name: SoundGuys
+    url: https://www.soundguys.com/feed/
+    kind: media
+  - name: Wareable
+    url: https://www.wareable.com/rss
+    kind: media
+  - name: DC Rainmaker
+    url: https://www.dcrainmaker.com/feed
+    kind: media
+
+  # ── Otomobil ve elektrikli araç (ek) ──
+  - name: Motor1
+    url: https://www.motor1.com/rss/news/all/
+    kind: media
+  - name: InsideEVs
+    url: https://insideevs.com/rss/news/all/
+    kind: media
+  - name: Car and Driver
+    url: https://www.caranddriver.com/rss/all.xml/
+    kind: media
+  - name: The Drive
+    url: https://www.thedrive.com/feed
+    kind: media
+  - name: Autoblog
+    url: https://www.autoblog.com/rss.xml
+    kind: media
+  - name: Teslarati
+    url: https://www.teslarati.com/feed/
+    kind: media
+  - name: CarNewsChina
+    url: https://carnewschina.com/feed/
+    kind: media
+
+  # ── Oyun (ek) ──
+  - name: Eurogamer
+    url: https://www.eurogamer.net/feed
+    kind: media
+  - name: PC Gamer
+    url: https://www.pcgamer.com/rss/
+    kind: media
+  - name: Kotaku
+    url: https://kotaku.com/rss
+    kind: media
+  - name: GameSpot
+    url: https://www.gamespot.com/feeds/news/
+    kind: media
+  - name: Rock Paper Shotgun
+    url: https://www.rockpapershotgun.com/feed
+    kind: media
+  - name: Nintendo Life
+    url: https://www.nintendolife.com/feeds/latest
+    kind: media
+  - name: Game Developer
+    url: https://www.gamedeveloper.com/rss.xml
+    kind: media
+
+  # ── Yapay zeka (ek) ──
+  - name: The Decoder
+    url: https://the-decoder.com/feed/
+    kind: media
+  - name: VentureBeat
+    url: https://venturebeat.com/category/ai/feed/
+    kind: media
+
+  # ── Uzay ──
+  - name: Space.com
+    url: https://www.space.com/feeds/all
+    kind: media
+  - name: SpaceNews
+    url: https://spacenews.com/feed/
+    kind: media
+
+  # ── Türkiye (ek) ──
+  - name: Teknoseyir
+    url: https://teknoseyir.com/feed
+    kind: media
+  - name: Technopat
+    url: https://www.technopat.net/feed/
+    kind: media
+  - name: Donanım Arşivi
+    url: https://donanimarsivi.com/feed/
+    kind: media
+  - name: Chip Online
+    url: https://www.chip.com.tr/rss
+    kind: media
+  - name: Swipeline
+    url: https://swipeline.co/feed/
     kind: media
 
   # ── Topluluk (kapalı: çoğu haber uzman okura yönelik) ──

@@ -23,26 +23,29 @@ def _q(topic, imp, ents, dup="", cat="teknoloji"):
 def test_guard_rules():
     with _App() as (cfg, a):
         a.store.save_post(_post(1, 3, tags=["Honor"], entities=["Honor", "Honor Magic9"]))
-        queue = [_q("Honor Watch 6 Pro launched", 8, ["Honor"]),           # aynı şirket bugün var → geç
+        queue = [_q("Honor Watch 6 Pro launched", 8, ["Honor"]),           # aynı şirketten ikinci haber: sorun değil
                  _q("Starship reaches orbit", 9, ["SpaceX", "Starship"]),   # yayınla
-                 _q("Falcon 9 retirement date", 8, ["SpaceX"]),             # aynı turda aynı şirket → beklet
-                 _q("Minor app update", 7, ["Foo"]),                        # eşik altı → geç
-                 _q("Big AI launch", 9, ["Anthropic"]),                     # yer yok → beklet (slots=1)
+                 _q("Falcon 9 retirement date", 8, ["SpaceX"]),             # yer yok → beklet
+                 _q("Minor app update", 6, ["Foo"]),                        # eşik altı → geç
+                 _q("Big AI launch", 9, ["Anthropic"]),                     # yayınla
                  _q("Honor Magic9 price in Europe", 8, ["Honor"], dup="s:p01"),   # yayındaki haberin devamı → güncelle
                  ]
-        dec = {i: {"action": "publish", "target": "", "must_read": q["story"]["importance"], "reason": ""}
-               for i, q in enumerate(queue)}
-        out = a._guard(queue, dec, slots=1, min_score=8, covered=a._covered(48))
+        dec = lambda: {i: {"action": "publish", "target": "", "must_read": q["story"]["importance"], "reason": ""}  # noqa: E731
+                       for i, q in enumerate(queue)}
+        out = a._guard(queue, dec(), slots=3, min_score=7, covered=a._covered(48))
         acts = [out[i]["action"] for i in range(len(queue))]
-        assert acts[1] == "publish"
-        assert acts[0] == "skip" and "24 saat" in out[0]["reason"]
-        assert acts[2] == "hold" and acts[3] == "skip" and acts[4] == "hold"
+        assert acts[1] == "publish" and acts[4] == "publish" and acts[0] == "publish"
+        assert acts[2] == "hold" and acts[3] == "skip"
         assert acts[5] == "update" and out[5]["target"] == "p01"
+        # ayarlardan şirket sınırı açılırsa: aynı şirketten 24 saatte ikinci haber (9 altı) elenir
+        cfg.raw.setdefault("editorial", {})["max_per_company_per_day"] = 1
+        out = a._guard(queue, dec(), slots=3, min_score=7, covered=a._covered(48))
+        assert out[0]["action"] == "skip" and "24 saat" in out[0]["reason"]
 
 
 def test_edit_uses_llm_and_falls_back():
     with _App() as (cfg, a):
-        queue = [_q("Starship reaches orbit", 9, ["SpaceX"]), _q("Vivo unboxing", 7, ["Vivo"])]
+        queue = [_q("Starship reaches orbit", 9, ["SpaceX"]), _q("Vivo unboxing", 6, ["Vivo"])]
         dec = a._edit(queue, slots=2)                                      # test modu yönetmeni: masa puanı ≥8 → yayınla
         assert dec[0]["action"] == "publish" and dec[1]["action"] == "skip"
         for i, q in enumerate(queue):
