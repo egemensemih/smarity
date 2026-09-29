@@ -1,0 +1,84 @@
+{
+  "id": "b31526bf28",
+  "status": "pending",
+  "created_at": "2026-09-29T18:21:26Z",
+  "title": "OpenAI ve Amazon, AWS içinde çalışan Bedrock Managed Agents sistemini duyurdu",
+  "summary": "OpenAI ve Amazon, verilerin AWS dışına çıkmadan tamamen Amazon bulut altyapısında çalışmasını sağlayan Bedrock Managed Agents sistemini tanıttı.",
+  "body": "OpenAI ve Amazon, San Francisco'daki OpenAI DevDay 2026 etkinlikte şirketlerin verileri AWS dışına çıkmadan OpenAI ajanları geliştirmesini sağlayan **Bedrock Managed Agents** sistemini duyurdu. The Next Web'in aktardığına göre, söz konusu yeni ürün şu an için sınırlı ön izleme aşamasında kullanıcıya sunuluyor.\n\n## AWS altyapısında tam entegrasyon\n\nOpenAI'ın Agents API altyapısı temel alınarak geliştirilen sistem, Amazon Bedrock üzerinde çalışıyor. AWS tarafından yapılan açıklamalara göre yönetilen çalışma ortamı; çıkarım, hafıza ve beceri gibi unsurları doğrudan müşterinin ortamında yönetiyor. Her ajanın kendine ait bir kimliği bulunurken, gerçekleştirilen tüm eylemler denetim amacıyla kayıt altına alınıyor. Sistemde varsayılan işlem ortamı olarak Amazon'un AgentCore platformu görev yapıyor.\n\nSalesforce yöneticisi Joe Inzerillo, müşterilerin OpenAI modelleri ile AWS altyapısını Salesforce verileriyle birleştirebileceğini belirtti. Öte yandan OpenAI, Agents API altyapısının artık bilgisayar kullanımı özelliğini desteklediğini ve geliştiricilerin tarayıcı tabanlı yazılımlarla çalışan ajanlar inşa edebileceğini açıkladı.\n\n**Neden önemli?** Şirketlerin verilerini güvenli bir bulut ortamında tutarak gelişmiş yapay zeka ajanları çalıştırmasına olanak tanıyan bu ortaklık, kurumsal yapay zeka entegrasyonlarında güvenlik ve veri gizliliği odaklı yeni bir aşamayı temsil ediyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Amazon",
+    "AWS",
+    "Salesforce"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI ve Amazon'dan Bedrock Managed Agents",
+  "kicker": "Yapay zeka",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a smooth minimalist server rack made of dark matte stone with subtle glowing amber light lines connecting modular frosted glass blocks",
+  "focus_keyword": "Bedrock Managed Agents",
+  "seo_title": "OpenAI ve Amazon AWS tabanlı Bedrock Managed Agents duyuruldu",
+  "meta_description": "OpenAI ve Amazon, verilerin AWS dışına çıkmadan çalışmasını sağlayan Bedrock Managed Agents sistemini duyurdu. Detaylar haberimizde.",
+  "seo_slug": "openai-amazon-bedrock-managed-agents",
+  "image_alt": "Koyu renkli mat taştan yapılmış minimalist sunucu rafları ve üzerinde parlayan amber ışık çizgileri",
+  "cover_text": "Bedrock Agents",
+  "carousel_points": [
+    "OpenAI ve Amazon, Bedrock Managed Agents sistemini duyurdu.",
+    "Veriler AWS dışına çıkmadan tamamen bulut altyapısında çalışıyor.",
+    "Yeni ürün şu an için sınırlı ön izleme aşamasında yer alıyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Amazon bulutunda çalışan OpenAI ajanları",
+  "cover_highlight": "Amazon bulutunda",
+  "cover_line_v": 3,
+  "importance": 9,
+  "triage_reason": "OpenAI Bedrock Managed Agents, Amazon Web Services uzerinde baslatildi",
+  "entities": [
+    "OpenAI",
+    "Amazon Web Services"
+  ],
+  "topic": "OpenAI Bedrock Managed Agents launched on AWS",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/openai-bedrock-managed-agents-aws-devday",
+      "title": "OpenAI’s agents can now run entirely inside Amazon’s cloud",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T18:08:07Z",
+      "image": "https://media.thenextweb.com/2026/09/openai-aws-logos-purple-robot-mascot-gradient.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Next Web",
+      "kind": "media",
+      "title": "OpenAI’s agents can now run entirely inside Amazon’s cloud",
+      "url": "https://thenextweb.com/news/openai-bedrock-managed-agents-aws-devday",
+      "published": "2026-09-29T18:08:07Z",
+      "summary": "Companies can now build OpenAI agents that run entirely inside Amazon Web Services, with their data never leaving AWS. OpenAI and Amazon launched Bedrock Managed Agents, powered by OpenAI, at OpenAI’s DevDay 2026 event in San Francisco on Tuesday. The product is in limited preview, says the AWS product page. OpenAI built it with Amazon […] This story continues at The Next Web",
+      "text": "Companies can now build OpenAI agents that run entirely inside Amazon Web Services, with their data never leaving AWS. OpenAI and Amazon launched Bedrock Managed Agents, powered by OpenAI, at OpenAI’s DevDay 2026 event in San Francisco on Tuesday. The product is in limited preview, says the AWS product page.\nOpenAI built it with Amazon from the core of its Agents API. It added customisation so the agents work natively in AWS and with AWS resources, the company wrote in its DevDay recap.\nHow it works\nBedrock Managed Agents is built on OpenAI’s own agent framework, according to AWS. The managed runtime handles inference, memory and skills inside the customer’s environment. Each agent has its own identity and logs every action for auditing.\nAll inference runs on Amazon Bedrock, and customer data never leaves AWS, the product page says. AgentCore, Amazon’s platform for building and running agents with any model, is the default compute environment. AWS said AgentCore and Bedrock Managed Agents will add authorisation policy enforcement, agent discovery, observability and evaluation tools.\nAWS lists Salesforce as a customer. Joe Inzerillo, Salesforce’s president of enterprise and AI technology, said customers can pair OpenAI’s models and AWS infrastructure with Salesforce data and controls.\n“Data never leaves AWS, and security stops being the bottleneck between our customers and what comes next,” Inzerillo said in a statement on the AWS page.\nIn August, Salesforce put Anthropic’s Claude at the centre of its products. AWS said last week that almost 90% of Amazon’s early agent prototypes never shipped.\nThe Agents API gets computer use\nThe Agents API that Bedrock Managed Agents builds on now supports computer use, OpenAI said. Developers can build agents that work through software in a browser OpenAI hosts. The API also brings in the multi-agent tools, tool search and context compaction used in Codex. OpenAI runs the underlying infrastructure.\nComputer use is available through the API and in Codex and ChatGPT Work on Pro 500 and Enterprise plans. The user has to approve each new website the browser visits. That approval does not require confirmation before individual actions, OpenAI’s developer documentation says. Sign-in details go through a separate channel and stay out of the model’s input.\nOn Monday, OpenAI said its agents had posted users’ images online, affecting 53 ChatGPT users. At the same event, it launched its always-on dots agents, and said it is working with Microsoft to bring specialist dots to Agent 365.\nGet the TNW newsletter\nGet the most important tech news in your inbox each week."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 530
+  },
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-3",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %50 (<%85)"
+}
