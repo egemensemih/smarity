@@ -1,0 +1,124 @@
+{
+  "id": "2e75494788",
+  "status": "pending",
+  "created_at": "2026-09-29T14:37:49Z",
+  "title": "Claude erişim sorunu yaşanıyor ve Anthropic sorunu doğruladı",
+  "summary": "Anthropic'in yapay zeka asistanı Claude, web ve uygulamalarda hata mesajlarıyla kesintiye uğradı. Şirket sorunu araştırıyor.",
+  "body": "Claude erişim sorunu nedeniyle dünya genelinde binlerce kullanıcı platforma bağlanmakta zorluk çekiyor. TechRadar'ın aktardığına göre, 29 Eylül 2026 tarihinde sabah saatlerinde başlayan kesinti, yapay zeka sohbet robotunun web, masaüstü ve mobil uygulamalarında hata mesajlarına yol açtı. \n\n## Anthropic kesintiyi doğruladı\n\nKullanıcılar platforma giriş yapmaya çalışırken veya sohbet ederken hata mesajlarıyla karşılaşırken, Down Detector verilerine göre rapor sayısının kısa sürede on binleri aştığı görüldü. Anthropic'in Claude Status sayfasından yaptığı açıklamaya göre şirket, Claude.ai, Claude Code ve Claude Cowork hizmetlerini etkileyen yüksek hata oranlarını aktif olarak araştırıyor. \n\n## Yaşanan hatalar neler?\n\nKullanıcıların karşılaştığı başlıca sorunlar arasında şunlar yer alıyor:\n\n* Sohbet yükleme veya gönderme hataları\n* Başarısız istekler ve tekrar giriş yapma uyarıları\n* Hesap oluşturma döngüleri ve erişim sorunları\n\n**Neden önemli?** Anthropic, yaşanan aksaklığın ardından henüz sorunun ne zaman çözüleceğine dair kesin bir zaman çizelgesi paylaşmadı.",
+  "category": "super-zeka",
+  "tags": [
+    "Claude",
+    "Anthropic"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude'da erişim sorunu yaşanıyor",
+  "kicker": "Kesinti",
+  "hero_stat": "11.800",
+  "hero_stat_label": "bildirilen sorun sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a single frosted glass sphere resting on a dark slate surface, with a thin beam of warm amber light cutting across it, casting a soft shadow",
+  "focus_keyword": "Claude erişim sorunu",
+  "seo_title": "Claude erişim sorunu yaşanıyor ve Anthropic araştırıyor",
+  "meta_description": "Anthropic'in yapay zeka asistanı Claude erişim sorunu ile karşı karşıya. Web ve uygulamalarda yaşanan kesintinin detayları haberimizde.",
+  "seo_slug": "claude-erisim-sorunu-yasaniyor",
+  "image_alt": "Karanlık bir yüzey üzerinde duran ve hafif ışık alan mat cam küre",
+  "cover_text": "Claude",
+  "carousel_points": [
+    "Claude kullanıcıları web ve uygulamalarda hata mesajlarıyla karşılaşıyor.",
+    "Down Detector raporlarına göre kesinti kısa sürede binlerce bildirim aldı.",
+    "Anthropic şirketi yüksek hata oranlarını araştırdığını resmi olarak doğruladı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Claude erişim sorunu milyonları etkiliyor",
+  "cover_highlight": "erişim sorunu",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Anthropic'in amiral gemisi Claude çapraz küresel kesinti yaşadı.",
+  "entities": [
+    "Anthropic",
+    "Claude"
+  ],
+  "topic": "Claude experiencing widespread outage globally",
+  "sources": [
+    {
+      "name": "TechRadar",
+      "url": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+      "title": "Claude is down for many — here's everything we know as Anthropic confirms an active issue",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T14:32:33Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/RoEdEJKcLzmrtmznvgPsoe-1920-80.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechRadar"
+  ],
+  "source_texts": [
+    {
+      "credit": "TechRadar",
+      "kind": "media",
+      "title": "Claude is down for many — here's everything we know as Anthropic confirms an active issue",
+      "url": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+      "published": "2026-09-29T14:32:33Z",
+      "summary": "Claude is experiencing issues across its web, mobile, and desktop apps on September 29, 2026, with Anthropic investigating elevated error rates affecting Claude, Cowork, and Code.",
+      "text": "If you've been trying to chat with Claude on the web, iOS, Android, or desktop and have been greeted with a \"Request couldn't be processed. You can try again.\" message, you're not alone.\nClaude, Anthropic's AI chatbot, appears to be having some issues this AM, starting shortly before 10 AM ET on September 20, 2026, with Down Detector currently showing over 2,900 reported issues as of 10:04 AM ET. I've been chatting with Claude this AM, but began getting errors shortly after 10:10 AM ET in the macOS app, and I'm subscribed to Pro.\nTechRadar's Matthew Bolton has been trying to sign up for a Claude account for the past few minutes and has been met with errors, putting him in an endless loop and leaving him without access to the service.\nAnthropic has actively confirmed the issue as of 10:21 AM ET on the Claude Status page, noting it's 'investigating elevated error rates affecting' Claude, Claude Cowork, and Claude Code. For what it's worth, Claude is now listed as a partial outage as well.\nSo, to track the ongoing issues with Claude this AM, TechRadar is spinning up a live blog, so follow along.\nOver 11,800 reports on Down Detector\nAs of 10:17AM ET, the latest update on Down Detector shows over 11,800 reports of issues with Claude AI. That's likely presenting itself as 'Try Again' messages when signed in and trying to chat with Claude, but also presenting issues if you're trying to sign in to the service or are trying to create an account.\nAnthropic's confirmed an active issue with Claude\nAbout 20 minutes or so after we saw reports on Down Detector of a spike with Claude and encountered our own issues using the AI chatbot, Anthropic has confirmed an active issue. And it's a similar one that's been written in the past.\nRight now, Anthropic is \"investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork.\" That makes sense, given the errors we've seen Claude respond with. There is no estimated time for a fix, but here's the full statement:\n\"Investigating - We are investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork. Users may see failed requests, errors loading or sending conversations, or be asked to sign in again; retrying may succeed. We will provide an update as soon as possible.\"\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 495
+  },
+  "photos": [
+    {
+      "file": "2e75494788-g0.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/RoEdEJKcLzmrtmznvgPsoe-1920-80.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "2e75494788-g1.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:420,cw:1080,ch:1080,q:80,w:1080/RoEdEJKcLzmrtmznvgPsoe.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+      "alt": "",
+      "w": 1080,
+      "h": 1080,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "2e75494788-g2.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:240,cw:1440,ch:1080,q:80,w:1440/RoEdEJKcLzmrtmznvgPsoe.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+      "alt": "",
+      "w": 1440,
+      "h": 1080,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "2e75494788-g0.webp",
+    "credit": "TechRadar",
+    "page": "https://www.techradar.com/news/live/claude-down-september-29-2026",
+    "src": "https://cdn.mos.cms.futurecdn.net/RoEdEJKcLzmrtmznvgPsoe-1920-80.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %50 (<%85)"
+}
