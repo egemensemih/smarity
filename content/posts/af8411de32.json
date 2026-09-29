@@ -1,0 +1,164 @@
+{
+  "id": "af8411de32",
+  "created_at": "2026-09-29T17:22:27Z",
+  "title": "OpenAI Codex yeni bulut ortamları ve güvenlik tarama araçlarıyla güncellendi",
+  "summary": "OpenAI, DevDay etkinliğinde yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları, sesle kontrol edilen komut satırı ve otomatik güvenlik tarama araçlarını duyurdu.",
+  "body": "OpenAI, San Francisco'daki DevDay geliştirici konferansında yazılım mühendisliği asistanı **Codex** için yeniden kullanılabilir bulut geliştirme ortamları, sesle kontrol edilen komut satırı ve otomatik güvenlik tarama araçları dahil olmak üzere yeni yetenekler tanıttı. TechCrunch'ın aktardığına göre, bu yenilikler sayesinde geliştiriciler Codex'i bilgisayarlarından, telefonlarından veya buluttan herhangi bir cihaz üzerinden ortak bir çalışma alanıyla erişebilir hale getirdi.\n\n## Codex için yeni bulut ve güvenlik araçları\n\nGüncellemeyle birlikte yenilenen Codex CLI (komut satırı arayüzü), kullanıcıların sesli komutlarla görevleri başlatıp yönlendirmesine olanak tanıyor. Ayrıca, birden fazla görevi aynı anda takip etmeyi kolaylaştıran yeni bir /agents görünümü sisteme eklendi. The Decoder'ın haberine göre, Codex Security Cloud adı verilen yeni araç seti ise GitHub depolarını talep üzerine veya düzenli bir programda tarayarak güvenlik açıklarını buluyor ve geliştiricilerin dizüstü bilgisayarları kapalıyken bile bulutta otomatik düzeltmeler hazırlıyor.\n\n## API yenilikleri ve yeni abonelik planı\n\nOpenAI, Agents API'ye yazılımları kendi başına çalıştırabilen \"Computer Use\" özelliğini eklerken, önceden tanımlanmış yanıtlarla hızlı karar alma süreçleri sunan **Decisions API**'yi de sınırlı önizlemeye açtı. Öte yandan, token üretim hızını artıran Ultrafast kademesi duyuruldu. Bu yeni hız kademesi, Enterprise planlarının yanı sıra ayda 500 dolar olarak fiyatlandırılan yeni Pro 500 abonelik planına dahil edildi.\n\n**Neden önemli?** OpenAI'ın Codex ve API altyapısında yaptığı bu kapsamlı güncellemeler, yazılım geliştiricilerin bulut tabanlı projeleri her cihazdan daha güvenli ve hızlı bir şekilde yönetmesini sağlayarak yapay zekâ destekli kodlama araçlarının kullanım alanlarını genişletiyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Codex",
+    "ChatGPT",
+    "GitHub",
+    "AWS"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI Codex yeni özelliklerle güncellendi",
+  "kicker": "Yapay zekâ",
+  "hero_stat": "500 $",
+  "hero_stat_label": "Pro 500 plan aylık fiyatı",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "OpenAI Codex",
+  "seo_title": "OpenAI Codex yeni bulut ortamları ve güvenlik araçları kazandı",
+  "meta_description": "OpenAI, DevDay etkinliğinde yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları ve güvenlik tarama araçlarını duyurdu.",
+  "seo_slug": "openai-codex-yeni-bulut-ortamlari-ve-guvenlik-araclari",
+  "image_alt": "Yeniden kullanılabilir bulut ortamlarını ve yapay zekâ asistanı güncellemelerini temsil eden şeffaf cam küpler",
+  "cover_text": "Codex",
+  "carousel_points": [
+    "OpenAI, yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları duyurdu.",
+    "Codex Security Cloud, GitHub depolarını tarayarak otomatik güvenlik düzeltmeleri hazırlıyor.",
+    "Yeni Ultrafast hız kademesi ve aylık 500 dolarlık Pro 500 abonelik planı kullanıma sunuldu."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "importance": 8,
+  "triage_reason": "OpenAI DevDay'de Codex API ve bulut ortamları duyuruldu.",
+  "entities": [
+    "OpenAI",
+    "Codex"
+  ],
+  "topic": "openai expands codex devday",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "title": "OpenAI gives Codex reusable cloud environments that work across devices",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T17:15:00Z",
+      "image": null
+    },
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "title": "OpenAI expands Codex and its API at DevDay with security scans, a Decisions API, and Ultrafast",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/#respond",
+      "published": "2026-09-29T17:14:41Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-01-codex-cloud-environments.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechCrunch",
+    "The Decoder"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 522
+  },
+  "photos": [
+    {
+      "file": "af8411de32-g0.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news8.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1082,
+      "h": 614,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g1.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news5.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1082,
+      "h": 612,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g2.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news1.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1068,
+      "h": 594,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false
+    },
+    {
+      "file": "af8411de32-g3.webp",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-05-agents-api-computer-use.jpg",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "alt": "Schema mit drei Kästen, die eigene Anwendung schickt Aufgaben an die Agents API mit \"Managed Codex harness\" bei OpenAI, diese ruft Werkzeuge in einer Sandbox be",
+      "w": 1600,
+      "h": 900,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g4.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news2.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1104,
+      "h": 604,
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false
+    },
+    {
+      "file": "af8411de32-g5.webp",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-07-decisions-api.jpg",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "alt": "Balkendiagramm zur Bearbeitungszeit einer Aufgabe, die Decisions API braucht 150 Millisekunden, die GPT-6 Luna API 1,6 Sekunden.",
+      "w": 1600,
+      "h": 900,
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "af8411de32-g0.webp",
+    "credit": "TechCrunch",
+    "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+    "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news8.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "slug": "openai-codex-yeni-bulut-ortamlari-ve-guvenlik-araclari",
+  "published_at": "2026-09-29T17:41:01Z",
+  "publish_mode": "manual",
+  "cover_headline": "Codex otomatik güvenlik taraması yapacak",
+  "cover_highlight": "otomatik güvenlik taraması",
+  "cover_line_v": 3
+}
