@@ -1,6 +1,6 @@
 {
   "id": "a85b95e30d",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-29T07:25:51Z",
   "title": "Gemini ve Google Wallet entegrasyonu duyuruldu",
   "summary": "Google, yapay zeka asistanı Gemini'yı Google Wallet ile buluşturdu. Yeni entegrasyon ile kullanıcılar harcamalarını analiz edebiliyor ve cüzdanlarındaki biletlere erişebiliyor.",
@@ -110,5 +110,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %77 (<%85)"
+  "policy_reason": "Genel onay oranı %77 (<%85)",
+  "rejected_at": "2026-09-29T07:44:01Z"
 }
