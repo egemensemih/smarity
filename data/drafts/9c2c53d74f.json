@@ -1,0 +1,159 @@
+{
+  "id": "9c2c53d74f",
+  "status": "pending",
+  "created_at": "2026-09-29T13:21:42Z",
+  "title": "Google Firebase arızası nedeniyle binlerce iPhone uygulaması çöktü",
+  "summary": "Google'ın Firebase altyapısında yaşanan bir sorun nedeniyle binlerce iPhone ve iPad uygulaması gece saatlerinde açılırken çöktü, sorun çözüldü.",
+  "body": "Google Firebase altyapısında meydana gelen bir hata, 28 Eylül Pazartesi akşamı binlerce iPhone ve iPad uygulamasının açılış sırasında çökmesine yol açtı. 9to5Mac'in aktardığına göre, 9to5Mac ve MacRumors sitelerinin haberlerinde, sorunun iOS güncellemeleriyle ilgili olmadığı ve tamamen Google kaynaklı olduğu belirtildi.\n\n## Sorunun nedeni neydi?\n\n9to5Mac'in Google açıklamalarına dayandırdığı habere göre, sorun Google Analytics for Firebase iOS+ sistemindeki hatalı bir veri paketinden kaynaklandı. Geliştiricilerin müdahale edemediği bu hata yüzünden pek çok uygulama kullanıcısı binlerce çökme raporuyla karşılaştı. MacRumors ise sorunun Apple'ın çıkardığı yeni yazılım sürümüyle aynı zamana denk geldiğini ancak bu durumun tamamen tesadüf olduğunu, çökmelerin diğer işletim sistemi sürümlerinde de görüldüğünü vurguladı.\n\n## Düzeltme tamamlandı mı?\n\nGoogle yazılım mühendisi Nick Cooke'un paylaştığı zaman çizelgesine göre, hata 28 Eylül'de saat 17.41'de başladı ve aynı gün saat 19.52'de tamamen çözüldü. Geliştiricilerin veya kullanıcıların herhangi bir güncelleme yapması gerekmiyor. Önbellekleme nedeniyle bazı cihazlarda birkaç saat daha devam eden problemlerin kendiliğinden düzeldiği açıklandı.\n\n**Neden önemli?** Binlerce popüler uygulamayı etkileyen bu küresel çaplı kesinti, mobil uygulama ekosisteminin arka plandaki üçüncü taraf servislerine ne kadar bağımlı olduğunu bir kez daha gösterdi.",
+  "category": "teknoloji",
+  "tags": [
+    "Google",
+    "iPhone",
+    "iPad",
+    "iOS"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Google Firebase iPhone çökme sorunu çözüldü",
+  "kicker": "Uygulama arızası",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a smartphone resting on a dark surface with soft glowing geometric shapes floating around it, representing digital data flow and system stability",
+  "focus_keyword": "iPhone uygulaması çöktü",
+  "seo_title": "Google Firebase arızası yüzünden iPhone uygulamaları çöktü",
+  "meta_description": "Google Firebase altyapısındaki hata nedeniyle binlerce iPhone uygulaması çöktü. Sorunun detayları ve Google'ın yayınladığı düzeltme hakkında her şey.",
+  "seo_slug": "google-firebase-arizasi-iphone-uygulamalari",
+  "image_alt": "Karanlık zeminde duran ve dijital veri akışını temsil eden ışık şekilleriyle çevrili akıllı telefon",
+  "cover_text": "Firebase çökmesi",
+  "carousel_points": [
+    "Google Firebase hatası binlerce iPhone uygulamasını etkiledi.",
+    "Sorun geliştiricilerden bağımsız olarak Google tarafında çözüldü.",
+    "Kullanıcıların veya geliştiricilerin güncelleme yapması gerekmiyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Google Firebase hatası iPhone uygulamalarını çöktürdü",
+  "cover_highlight": "Firebase hatası",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Google Firebase hatası binlerce iPhone uygulamasının çökmesine yol açtı.",
+  "entities": [
+    "Google",
+    "Firebase",
+    "Apple"
+  ],
+  "topic": "Google Firebase bug causes widespread iPhone app crashes",
+  "sources": [
+    {
+      "name": "9to5Mac",
+      "url": "https://9to5google.com/2026/09/29/google-firebase-iphone-app-crash-fixed/",
+      "title": "Google has fixed an issue that caused thousands of iPhone apps to crash overnight",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5google.com/2026/09/29/google-firebase-iphone-app-crash-fixed/#respond",
+      "published": "2026-09-29T13:19:10Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iPhone-18-Pro-homescreen.jpg?quality=82&#038;strip=all&#038;w=1600"
+    },
+    {
+      "name": "MacRumors",
+      "url": "https://www.macrumors.com/2026/09/29/heres-why-iphone-apps-were-crashing/",
+      "title": "Here's Why iPhone Apps Were Crashing",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://forums.macrumors.com/threads/heres-why-iphone-apps-were-crashing.2490721/",
+      "published": "2026-09-29T13:11:14Z",
+      "image": "https://images.macrumors.com/article-new/2025/12/iOS-App-Store.jpg"
+    }
+  ],
+  "source_keys": [
+    "9to5Mac",
+    "MacRumors"
+  ],
+  "source_texts": [
+    {
+      "credit": "9to5Mac",
+      "kind": "media",
+      "title": "Google has fixed an issue that caused thousands of iPhone apps to crash overnight",
+      "url": "https://9to5google.com/2026/09/29/google-firebase-iphone-app-crash-fixed/",
+      "published": "2026-09-29T13:19:10Z",
+      "summary": "An issue with Google’s Firebase left thousands of iPhone apps crashing overnight, but a fix has already been applied. more…",
+      "text": "An issue with Google’s Firebase left thousands of iPhone apps crashing overnight, but a fix has already been applied.\nIf you found apps on your iPhone or iPad were crashing last night, you’re not alone. Google confirmed last night that an issue with Analytics for Firebase was causing crashes when apps tried to launch. The issue was on Google’s end with an “incorrectly formatted payload” for the SDK.\nYou wouldn’t think of Google when a widespread crashing issue surfaces on iPhone, but Firebase is a valuable tool for developers on both Android and iOS, and is integrated into thousands of apps. The crashing issue was out of the developer’s hands and required a fix on Google’s end. The impact was huge, with some developers seeing tens of thousands of crashes – some far more – from their app’s users.\nThat fix has already been rolled out, Google confirmed.\nNick Cooke, a software engineer at Google, summarized a timeline of events:\n- Starting on Monday, 2026-09-28 at 17:41 US/PDT. Google Analytics for Firebase iOS+ experienced an issue causing crashes on launch due to an incorrectly formatted payload received by the SDK.\n- We fully rolled out a fix by Monday, 2026-09-28 at 19:52 US/PDT.\n- No SDK updates are required on your end to apply this fix.\n- Due to caching behavior, some app instances may still experience crashes for up to 4 hours after the rollout completed. These remaining cases should automatically resolve themselves by 2026-09-28 at 23:52 US/PDT.\nAt this point, crashing issues should be resolved. The patch for this problem was fully rolled out by around midnight Pacific Time last night; no app updates needed. Affected apps should be fully working again at this point.\nFollow Ben: Twitter/X, Threads, Bluesky, and Instagram"
+    },
+    {
+      "credit": "MacRumors",
+      "kind": "media",
+      "title": "Here's Why iPhone Apps Were Crashing",
+      "url": "https://www.macrumors.com/2026/09/29/heres-why-iphone-apps-were-crashing/",
+      "published": "2026-09-29T13:11:14Z",
+      "summary": "iPhone apps with Google Analytics for Firebase integration were briefly crashing on Monday due to an issue with the analytics platform that has since been resolved . Affected apps should no longer be crashing, with no action required from developers. While the issue began shortly after Apple released iOS 27.0.1 , the timing was coincidental, as apps were crashing on other iOS versions too. This article, \" Here's Why iPhone Apps Were Crashing \" first appeared on MacRumors.com Discuss this article in our forums",
+      "text": "iPhone apps with Google Analytics for Firebase integration were briefly crashing on Monday due to an issue with the analytics platform that has since been resolved. Affected apps should no longer be crashing, with no action required from developers.\nWhile the issue began shortly after Apple released iOS 27.0.1, the timing was coincidental, as apps were crashing on other iOS versions too."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 486
+  },
+  "photos": [
+    {
+      "file": "9c2c53d74f-g0.webp",
+      "src": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iPhone-18-Pro-homescreen.jpg?quality=82&#038;strip=all&#038;w=1600",
+      "credit": "9to5Mac",
+      "page": "https://9to5google.com/2026/09/29/google-firebase-iphone-app-crash-fixed/",
+      "alt": "",
+      "w": 1600,
+      "h": 800,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "9c2c53d74f-g1.webp",
+      "src": "https://images.macrumors.com/article-new/2025/12/iOS-App-Store.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/29/heres-why-iphone-apps-were-crashing/",
+      "alt": "",
+      "w": 1306,
+      "h": 736,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "9c2c53d74f-g2.webp",
+      "src": "https://images.macrumors.com/t/trTkwHnsQ9-H9cFrQQvsQY2WSNQ=/1600x1200/smart/article-new/2025/12/iOS-App-Store.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/29/heres-why-iphone-apps-were-crashing/",
+      "alt": "",
+      "w": 1600,
+      "h": 1200,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "9c2c53d74f-g3.webp",
+      "src": "https://images.macrumors.com/t/5VAq5nI--ou5hdDwWKOOit_ilHg=/1200x1200/article-new/2025/12/iOS-App-Store.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/29/heres-why-iphone-apps-were-crashing/",
+      "alt": "",
+      "w": 1200,
+      "h": 1200,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "9c2c53d74f-g0.webp",
+    "credit": "9to5Mac",
+    "page": "https://9to5google.com/2026/09/29/google-firebase-iphone-app-crash-fixed/",
+    "src": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/iPhone-18-Pro-homescreen.jpg?quality=82&#038;strip=all&#038;w=1600",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %57 (<%85)"
+}
