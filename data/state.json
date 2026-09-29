@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815896,
+  "telegram_offset": 872815907,
   "last_collect": "2026-09-29T18:35:36Z",
   "last_summary_date": "2026-09-29",
   "mode_override": null,
@@ -756,16 +756,16 @@
       "tok_out": 288096,
       "cost_usd": 0.0,
       "drafts": 111,
-      "published": 59,
-      "approved": 59,
-      "rejected": 43,
+      "published": 63,
+      "approved": 63,
+      "rejected": 48,
       "updates": 4,
-      "updated": 1
+      "updated": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-29T18:45:13Z",
+  "last_build": "2026-09-29T18:49:54Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -809,8 +809,14 @@
       "held_at": "2026-09-29T18:35:48Z"
     }
   ],
-  "last_activity": "2026-09-29T17:41:03Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-29T18:46:50Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/openai-dot-yapay-zeka-ajanlari-ve-ofis-araclari/",
+    "https://smarity.com.tr/haber/openai-30-milyar-dolar-yatirim-ariyor/",
+    "https://smarity.com.tr/haber/apple-ceo-su-john-ternus-yapay-zeka/",
+    "https://smarity.com.tr/haber/chatgpt-is-birligi-araclari-tanitildi/",
+    "https://smarity.com.tr/haber/huawei-mate-90-serisi-1-ekimde-tanitiliyor/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
