@@ -1,6 +1,5 @@
 {
   "id": "97320cbe25",
-  "status": "pending",
   "created_at": "2026-09-28T20:51:14Z",
   "title": "AMD, World Labs'ı 8,2 milyar dolara satın alıyor",
   "summary": "AMD, fiziksel dünyayı anlamaya odaklanan yapay zeka girişimi World Labs'ı 8,2 milyar dolar karşılığında bünyesine katacağını duyurdu.",
@@ -51,17 +50,6 @@
   "source_keys": [
     "TechCrunch"
   ],
-  "source_texts": [
-    {
-      "credit": "TechCrunch",
-      "kind": "media",
-      "title": "AMD will acquire Fei-Fei Li’s World Labs for $8.2 billion",
-      "url": "https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/",
-      "published": "2026-09-28T20:39:33Z",
-      "summary": "The acquisition will see World Labs founder Fei-Fei Li join AMD as executive vice president and chief scientist.",
-      "text": "AMD is acquiring World Labs, one of the leading developers of deep learning models intended to understand physical reality, in a $8.2 billion deal, the two companies said today.\nWorld Labs justified the deal in a statement saying that AI development required “close collaboration across model research, systems and compute.” AMD, in turn, says that understanding frontier workloads like those created at World Labs will shape its chip-making roadmap.\nThe acquisition will see World Labs founder Fei-Fei Li join AMD as executive vice president and chief scientist. The two companies formed an inference optimization and training partnership last year, and ties have remained close. Notably, Li was a guest at AMD’s CES presentation earlier this year.\nLi, a Stanford computer science professor, is considered a pioneer of AI, particularly computer vision, for her role pioneering the ImageNet database and subsequent challenges. In 2024, Li founded World Labs to develop deep learning models with a more robust understanding of reality, arguing that true general intelligence required a grounding in physics and the ability to understand and reason about data beyond text.\nIn a post announcing the deal, Li described the partnership as the result of a desire to scale World Labs’ technical breakthroughs beyond the lab. “Now that we have tangible proof of the possibilities, we want to do everything we can to accelerate the future,” Li wrote in the post. “To do this requires scaling our efforts, widening our reach, and getting closer to the hardware.”\n“World model” remains a loose term, encompassing everything from language models trained to understand visual inputs, to models capable of generating and sustaining a high-fidelity simulation of reality. World Labs’ first product, Marble, is pitched for creating entertainment experiences, but also for the ability to create simulated environments for robot training.\nThe acquisition is likely to help AMD compete with long-standing rival Nvidia in creating an ecosystem for AI-specific chips. While Nvidia already has a suite of open-weight world models like Cosmos, AMD has only offered text- and video-based models to the public.\nWorld models are seen as vital in efforts to deploy generative AI models on robotic platforms, from autonomous vehicles to industrial robots and general-purpose humanoids. In particular, the dearth of useful data to train general purpose robots means that synthetic data from world models will be key to realizing the vision put forward by companies like Tesla and Figure.\nThe acqusition is expected to close before the end of the year, subject to regulatory approval."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 415
@@ -90,5 +78,7 @@
     "layout": "sayi",
     "cover_v": 1
   },
-  "policy_reason": "Genel onay oranı %77 (<%85)"
+  "slug": "amd-world-labs-satin-alim",
+  "published_at": "2026-09-29T05:27:37Z",
+  "publish_mode": "manual"
 }

@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815792,
+  "telegram_offset": 872815794,
   "last_collect": "2026-09-29T05:22:08Z",
   "last_summary_date": "2026-09-28",
   "mode_override": null,
@@ -217,17 +217,22 @@
       "tok_in": 256829,
       "tok_out": 24532,
       "cost_usd": 0.0,
-      "drafts": 1
+      "drafts": 1,
+      "published": 2,
+      "approved": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-29T04:55:22Z",
+  "last_build": "2026-09-29T05:30:36Z",
   "build_sig": "c5c0c6e95082b7e6",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-09-28T20:23:14Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-29T05:27:49Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/amd-world-labs-satin-alim/",
+    "https://smarity.com.tr/haber/modal-labs-750-milyon-dolar-yatirim/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
