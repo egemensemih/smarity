@@ -33,7 +33,7 @@
       "rejected": 15
     },
     "ShiftDelete.Net": {
-      "approved": 13,
+      "approved": 14,
       "rejected": 7
     },
     "Webtekno": {
@@ -42,7 +42,7 @@
     },
     "Anadolu Ajansı": {
       "approved": 3,
-      "rejected": 6
+      "rejected": 7
     },
     "GamesIndustry.biz": {
       "approved": 1,
@@ -109,7 +109,7 @@
       "rejected": 1
     },
     "TechRadar": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "Android Authority": {
@@ -126,7 +126,7 @@
     },
     "CNBC Teknoloji": {
       "approved": 2,
-      "rejected": 1
+      "rejected": 2
     },
     "Digital Camera World": {
       "approved": 1,
@@ -183,6 +183,10 @@
     "PC Gamer": {
       "approved": 1,
       "rejected": 0
+    },
+    "Tom's Hardware": {
+      "approved": 1,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -1401,6 +1405,42 @@
     {
       "t": "2026-09-29T11:13:14Z",
       "id": "58b4e0890f",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:47:53Z",
+      "id": "6177bbcdfd",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:47:55Z",
+      "id": "d1e01d6d92",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:48:01Z",
+      "id": "dd6f3647ae",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:48:02Z",
+      "id": "8cabaa40bb",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:48:12Z",
+      "id": "6adb73986a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T11:48:15Z",
+      "id": "ca6540fce7",
       "ok": true,
       "manual": true
     }
