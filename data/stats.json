@@ -54,7 +54,7 @@
     },
     "TechCrunch": {
       "approved": 12,
-      "rejected": 1
+      "rejected": 2
     },
     "Egirisim": {
       "approved": 2,
@@ -138,11 +138,11 @@
     },
     "Tom's Guide": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "The Next Web": {
       "approved": 0,
-      "rejected": 3
+      "rejected": 5
     },
     "InsideEVs": {
       "approved": 1,
@@ -203,6 +203,14 @@
     "PetaPixel": {
       "approved": 1,
       "rejected": 0
+    },
+    "9to5Mac": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "MacRumors": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -1530,6 +1538,30 @@
       "t": "2026-09-29T13:09:13Z",
       "id": "4fc8463df8",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T13:54:29Z",
+      "id": "3f31b98fb0",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T13:54:33Z",
+      "id": "9c2c53d74f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T13:54:36Z",
+      "id": "bfc53f0f6c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T13:54:44Z",
+      "id": "25c839c079",
+      "ok": false,
       "manual": true
     }
   ]

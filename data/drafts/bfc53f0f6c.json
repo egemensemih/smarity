@@ -1,6 +1,6 @@
 {
   "id": "bfc53f0f6c",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-29T13:37:01Z",
   "title": "Apple eski iPhone ve Mac modelleri için acil güvenlik güncellemesi yayınladı",
   "summary": "Apple, aktif olarak hedefli saldırılarda kullanıldığı belirtilen bir güvenlik açığı için eski iPhone, iPad ve Mac modelleri için acil güncellemeler yayınladı.",
@@ -154,5 +154,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %57 (<%85)"
+  "policy_reason": "Genel onay oranı %57 (<%85)",
+  "rejected_at": "2026-09-29T13:54:36Z"
 }
