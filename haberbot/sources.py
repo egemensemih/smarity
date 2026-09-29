@@ -155,8 +155,17 @@ def parse_html_listing(html_bytes: bytes, base_url: str, pattern: str) -> list[d
     return out
 
 
-def _fetch(url: str, timeout: int = 15) -> bytes:
-    r = requests.get(url, headers={"User-Agent": UA, "Accept": "*/*"}, timeout=timeout)
+# Bot tanıtan tarayıcı kimliğini reddeden (403) kaynaklar için ayarlarda browser_ua: true
+BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+              "Chrome/128.0 Safari/537.36")
+
+
+def _fetch(url: str, timeout: int = 15, browser: bool = False) -> bytes:
+    headers = {"User-Agent": BROWSER_UA if browser else UA,
+               "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, */*;q=0.8"}
+    if browser:
+        headers["Accept-Language"] = "tr-TR,tr;q=0.9,en;q=0.8"
+    r = requests.get(url, headers=headers, timeout=timeout)
     r.raise_for_status()
     return r.content[:5_000_000]
 
@@ -170,7 +179,7 @@ def _load_source(cfg: Config, src: dict) -> list[dict]:
             return []
         raw = path.read_bytes()
     else:
-        raw = _fetch(src["url"])
+        raw = _fetch(src["url"], browser=bool(src.get("browser_ua")))
     if stype == "html":
         return parse_html_listing(raw, src["url"], src.get("link_pattern", "."))
     return parse_feed(raw)

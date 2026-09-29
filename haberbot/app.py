@@ -1409,18 +1409,22 @@ class App:
         return "\n".join(lines)
 
     def sources_text(self) -> str:
-        lines = ["🧭 <b>Kaynak güveni</b> (✅ = otomatik yayına uygun)"]
         names = [s["name"] for s in self.cfg.sources]
+        health = self.state.get("source_health", {})
+        broken = [n for n in names if health.get(n, {}).get("fails", 0) >= 3]
+        lines = [f"📡 <b>{len(names)} kaynak</b> · {len(names) - len(broken)} okunuyor"
+                 + (f" · ⚠️ okunamayan: {esc(', '.join(broken))}" if broken else ""),
+                 "", "🧭 <b>Kaynak güveni</b> (✅ = otomatik yayına uygun; yalnızca karar verdiğin kaynaklar)"]
+        rows = []
         for name in names:
             ok, n, rate = policy.source_trust(self.cfg, self.stats, name)
-            h = self.state.get("source_health", {}).get(name, {})
-            health = " ⚠️ okunamıyor" if h.get("fails", 0) >= 3 else ""
-            detail = f"{n} karar, %{rate * 100:.0f} onay" if n else "henüz karar yok"
-            lines.append(f"{'✅' if ok else '▫️'} {esc(name)}: {detail}{health}")
+            if n:
+                rows.append((not ok, -n, f"{'✅' if ok else '▫️'} {esc(name)}: {n} karar, %{rate * 100:.0f} onay"))
+        lines += [r[2] for r in sorted(rows)[:40]] or ["Henüz karar yok."]
         need = self.cfg.get("autonomy", "source_min_decisions", 10)
         pct = self.cfg.get("autonomy", "source_min_approval", 0.9) * 100
         lines.append(f"\nGüven için: en az {need} karar ve %{pct:.0f} onay.")
-        return "\n".join(lines)
+        return "\n".join(lines)[:4000]
 
     # ── bakım ───────────────────────────────────────────────
     def expire(self) -> None:

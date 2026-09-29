@@ -122,6 +122,8 @@ ai:
 #  type: rss (varsayılan) | html (RSS'i olmayan sayfalar için)
 #  Bir kaynağı kapatmak için satırlarının başına # koy.
 #  photo_cover: false → kaynağın paylaşım görseline yazı basılıysa o görsel alınmaz, sadece haberdeki fotoğraflar.
+#  browser_ua: true → kaynak bot kimliğini reddediyorsa (403) normal tarayıcı kimliğiyle okunur.
+#  Üst üste 6 kez okunamayan kaynak otomatik dinlenir, 6 saatte bir yeniden denenir (/kaynaklar ile görebilirsin).
 # ─────────────────────────────────────────────────────────────
 sources:
   # ── Resmi duyurular ──
@@ -303,6 +305,7 @@ sources:
   - name: Gizmodo
     url: https://gizmodo.com/rss
     kind: media
+    browser_ua: true      # bot kimliğini reddediyor
   - name: Tom's Hardware
     url: https://www.tomshardware.com/feeds/all
     kind: media
@@ -312,6 +315,7 @@ sources:
   - name: VideoCardz
     url: https://videocardz.com/feed
     kind: media
+    browser_ua: true      # bot kimliğini reddediyor
   - name: The Next Web
     url: https://thenextweb.com/feed
     kind: media
@@ -397,9 +401,6 @@ sources:
   - name: SoundGuys
     url: https://www.soundguys.com/feed/
     kind: media
-  - name: Wareable
-    url: https://www.wareable.com/rss
-    kind: media
   - name: DC Rainmaker
     url: https://www.dcrainmaker.com/feed
     kind: media
@@ -420,6 +421,7 @@ sources:
   - name: Autoblog
     url: https://www.autoblog.com/rss.xml
     kind: media
+    browser_ua: true      # bot kimliğini reddediyor
   - name: Teslarati
     url: https://www.teslarati.com/feed/
     kind: media
@@ -459,9 +461,6 @@ sources:
     kind: media
 
   # ── Uzay ──
-  - name: Space.com
-    url: https://www.space.com/feeds/all
-    kind: media
   - name: SpaceNews
     url: https://spacenews.com/feed/
     kind: media
@@ -470,9 +469,11 @@ sources:
   - name: Teknoseyir
     url: https://teknoseyir.com/feed
     kind: media
+    browser_ua: true      # bot kimliğini reddediyor
   - name: Technopat
     url: https://www.technopat.net/feed/
     kind: media
+    browser_ua: true      # bot kimliğini reddediyor
   - name: Donanım Arşivi
     url: https://donanimarsivi.com/feed/
     kind: media
