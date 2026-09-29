@@ -1,6 +1,6 @@
 {
   "id": "1659b8586f",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-29T18:51:38Z",
   "title": "Stanford ve NVIDIA'dan CLM: Yapay zekâ kararları 9 kata kadar daha hızlı",
   "summary": "Stanford ve NVIDIA araştırmacılarının geliştirdiği Contrastive Language Models, yapay zekâ ajanlarının karar süreçlerini JEV modeline göre 9 kata kadar hızlandırıyor.",
@@ -107,5 +107,6 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %40 (<%85)"
+  "policy_reason": "Genel onay oranı %40 (<%85)",
+  "rejected_at": "2026-09-29T20:08:36Z"
 }
