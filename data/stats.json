@@ -9,7 +9,7 @@
       "rejected": 4
     },
     "Engadget": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 1
     },
     "Google": {
@@ -106,7 +106,7 @@
     },
     "Digital Trends": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "TechRadar": {
       "approved": 3,
@@ -117,7 +117,7 @@
       "rejected": 1
     },
     "SoundGuys": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "Motor1": {
@@ -142,7 +142,7 @@
     },
     "The Next Web": {
       "approved": 0,
-      "rejected": 2
+      "rejected": 3
     },
     "InsideEVs": {
       "approved": 1,
@@ -153,7 +153,7 @@
       "rejected": 1
     },
     "CarNewsChina": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 1
     },
     "The Decoder": {
@@ -186,6 +186,14 @@
     },
     "Tom's Hardware": {
       "approved": 1,
+      "rejected": 1
+    },
+    "What Hi-Fi": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Stuff": {
+      "approved": 0,
       "rejected": 1
     }
   },
@@ -1442,6 +1450,36 @@
       "t": "2026-09-29T11:48:15Z",
       "id": "ca6540fce7",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T12:18:14Z",
+      "id": "cbf7c5a606",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T12:18:15Z",
+      "id": "f98e74a832",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T12:18:16Z",
+      "id": "2c8d6c727d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T12:18:18Z",
+      "id": "c05052ae07",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T12:18:19Z",
+      "id": "45593e027d",
+      "ok": false,
       "manual": true
     }
   ]
