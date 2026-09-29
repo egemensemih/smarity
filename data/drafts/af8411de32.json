@@ -1,0 +1,180 @@
+{
+  "id": "af8411de32",
+  "status": "pending",
+  "created_at": "2026-09-29T17:22:27Z",
+  "title": "OpenAI Codex yeni bulut ortamları ve güvenlik tarama araçlarıyla güncellendi",
+  "summary": "OpenAI, DevDay etkinliğinde yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları, sesle kontrol edilen komut satırı ve otomatik güvenlik tarama araçlarını duyurdu.",
+  "body": "OpenAI, San Francisco'daki DevDay geliştirici konferansında yazılım mühendisliği asistanı **Codex** için yeniden kullanılabilir bulut geliştirme ortamları, sesle kontrol edilen komut satırı ve otomatik güvenlik tarama araçları dahil olmak üzere yeni yetenekler tanıttı. TechCrunch'ın aktardığına göre, bu yenilikler sayesinde geliştiriciler Codex'i bilgisayarlarından, telefonlarından veya buluttan herhangi bir cihaz üzerinden ortak bir çalışma alanıyla erişebilir hale getirdi.\n\n## Codex için yeni bulut ve güvenlik araçları\n\nGüncellemeyle birlikte yenilenen Codex CLI (komut satırı arayüzü), kullanıcıların sesli komutlarla görevleri başlatıp yönlendirmesine olanak tanıyor. Ayrıca, birden fazla görevi aynı anda takip etmeyi kolaylaştıran yeni bir /agents görünümü sisteme eklendi. The Decoder'ın haberine göre, Codex Security Cloud adı verilen yeni araç seti ise GitHub depolarını talep üzerine veya düzenli bir programda tarayarak güvenlik açıklarını buluyor ve geliştiricilerin dizüstü bilgisayarları kapalıyken bile bulutta otomatik düzeltmeler hazırlıyor.\n\n## API yenilikleri ve yeni abonelik planı\n\nOpenAI, Agents API'ye yazılımları kendi başına çalıştırabilen \"Computer Use\" özelliğini eklerken, önceden tanımlanmış yanıtlarla hızlı karar alma süreçleri sunan **Decisions API**'yi de sınırlı önizlemeye açtı. Öte yandan, token üretim hızını artıran Ultrafast kademesi duyuruldu. Bu yeni hız kademesi, Enterprise planlarının yanı sıra ayda 500 dolar olarak fiyatlandırılan yeni Pro 500 abonelik planına dahil edildi.\n\n**Neden önemli?** OpenAI'ın Codex ve API altyapısında yaptığı bu kapsamlı güncellemeler, yazılım geliştiricilerin bulut tabanlı projeleri her cihazdan daha güvenli ve hızlı bir şekilde yönetmesini sağlayarak yapay zekâ destekli kodlama araçlarının kullanım alanlarını genişletiyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Codex",
+    "ChatGPT",
+    "GitHub",
+    "AWS"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI Codex yeni özelliklerle güncellendi",
+  "kicker": "Yapay zekâ",
+  "hero_stat": "500 $",
+  "hero_stat_label": "Pro 500 plan aylık fiyatı",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "OpenAI Codex",
+  "seo_title": "OpenAI Codex yeni bulut ortamları ve güvenlik araçları kazandı",
+  "meta_description": "OpenAI, DevDay etkinliğinde yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları ve güvenlik tarama araçlarını duyurdu.",
+  "seo_slug": "openai-codex-yeni-bulut-ortamlari-ve-guvenlik-araclari",
+  "image_alt": "Yeniden kullanılabilir bulut ortamlarını ve yapay zekâ asistanı güncellemelerini temsil eden şeffaf cam küpler",
+  "cover_text": "Codex",
+  "carousel_points": [
+    "OpenAI, yazılım geliştirme asistanı Codex için yeniden kullanılabilir bulut ortamları duyurdu.",
+    "Codex Security Cloud, GitHub depolarını tarayarak otomatik güvenlik düzeltmeleri hazırlıyor.",
+    "Yeni Ultrafast hız kademesi ve aylık 500 dolarlık Pro 500 abonelik planı kullanıma sunuldu."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "importance": 8,
+  "triage_reason": "OpenAI DevDay'de Codex API ve bulut ortamları duyuruldu.",
+  "entities": [
+    "OpenAI",
+    "Codex"
+  ],
+  "topic": "openai expands codex devday",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "title": "OpenAI gives Codex reusable cloud environments that work across devices",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T17:15:00Z",
+      "image": null
+    },
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "title": "OpenAI expands Codex and its API at DevDay with security scans, a Decisions API, and Ultrafast",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/#respond",
+      "published": "2026-09-29T17:14:41Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-01-codex-cloud-environments.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechCrunch",
+    "The Decoder"
+  ],
+  "source_texts": [
+    {
+      "credit": "TechCrunch",
+      "kind": "media",
+      "title": "OpenAI gives Codex reusable cloud environments that work across devices",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "published": "2026-09-29T17:15:00Z",
+      "summary": "OpenAI is expanding Codex with reusable cloud development environments, a revamped CLI with voice controls, new code review tools and a security-focused product for scanning repositories and preparing fixes.",
+      "text": "OpenAI introduced new capabilities for its software engineering agent Codex, making it more useful beyond a developer’s laptop with reusable cloud development environments that can be accessed from any device.\nThe update, announced at OpenAI’s Dev Day on Tuesday, is one of several for Codex. OpenAI also announced a refreshed Codex CLI, a new code review experience, tools to harden infrastructure, and other API enhancements.\nWhile Codex could already spin up cloud tasks to do work remotely, today’s announcement shows that OpenAI is making those cloud environments more persistent and configurable, rather than treating each cloud task as an isolated remote sandbox.\nAs the company explains, developers will now be able to run Codex wherever they need it, whether that’s on a computer, remotely from a phone, or in the cloud. The reusable development environments are designed to help tasks start more quickly and give teams a shared workspace with approved settings and permissions, OpenAI said.\nMeanwhile, the Codex CLI is getting an update that allows developers to start and direct tasks using their voice.\nA new /agents view is meant to make it easier to delegate work and track multiple tasks at the same time. Other changes include improvements to everyday tasks such as editing prompts, resuming sessions, and using worktrees. OpenAI is also rolling out a “cleaner” terminal user interface designed to make longer sessions easier to read.\nCodex can also be pulled into a new code review experience within the ChatGPT desktop app, where users can read summaries, explore code changes, or ask Codex about potential issues before sharing feedback on GitHub pull requests or GitLab merge requests.\nAutomatic code reviews also let Codex perform an initial review while users step away from their computers.\nOn the security side, OpenAI is rolling out a new set of tools called Codex Security Cloud, designed to help developers secure their infrastructure. Developers can use the tools to scan entire GitHub repositories on demand or on a regular schedule, as well as whenever new commits arrive. Codex will then investigate findings, remove duplicates, and prepare fixes in the cloud — even when the user isn’t active and their laptop is closed.\nNotably, the toolset includes access to the models offered through OpenAI’s cybersecurity initiative Daybreak Blue, without requiring developers to submit a separate application.\nOpenAI also announced several API updates, including a new Decisions API for real-time decision-making. The API uses Luna to answer a set of user-defined questions with predefined answers. The company also introduced an updated a version of the Agents API that now supports computer use and the ability to use Amazon’s Bedrock Managed Agents to build OpenAI agents that run entirely on AWS."
+    },
+    {
+      "credit": "The Decoder",
+      "kind": "media",
+      "title": "OpenAI expands Codex and its API at DevDay with security scans, a Decisions API, and Ultrafast",
+      "url": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "published": "2026-09-29T17:14:41Z",
+      "summary": "At DevDay 2026, OpenAI gave Codex reusable cloud environments, automatic security scans for GitHub repositories, and a code review view in the desktop app. The Agents API now supports Computer Use, and a new Decisions API handles fast, single decisions. The Ultrafast premium tier promises up to eight times the speed at six times the price. The article OpenAI expands Codex and its API at DevDay with security scans, a Decisions API, and Ultrafast appeared first on The Decoder .",
+      "text": "OpenAI expands Codex and its API at DevDay with security scans, a Decisions API, and Ultrafast\nKey Points\n- OpenAI is expanding its Codex coding assistant with reusable cloud development environments, a voice-controlled CLI, and a code review feature in the desktop app. A new tool called Codex Security Cloud also scans repositories for security holes and prepares fixes automatically.\n- For developers, OpenAI is adding \"Computer Use\" to the Agents API, which lets agents operate software on their own. It's also launching a Decisions API built on GPT-6 Luna for fast, single decisions and classification tasks.\n- The new \"Ultrafast\" tier speeds up token generation considerably and costs six times the standard rate in the API. It's available for GPT-6 Astra on Enterprise plans and on the new Pro 500 subscription, which costs $500 a month.\nCodex now gets reusable cloud environments and can scan repositories for security holes. The Agents API picks up Computer Use, and OpenAI is adding a Decisions API and Ultrafast, a pricey new speed tier.\nOpenAI announced the updates at its DevDay 2026 developer conference in San Francisco. Developers also get a revamped Codex CLI, a code review view in the ChatGPT desktop app, and a new technical foundation for the agent platform OpenAI runs with Amazon.\nReusable environments let teams get Codex tasks running faster\nAccording to OpenAI, Codex now works on your own computer, from your phone, or in the cloud from any device. OpenAI already added control through the ChatGPT app on smartphones in May. What's new are reusable development environments that are supposed to get tasks started faster. Teams can use them to share one configuration with approved settings and permissions. Codex in the cloud is available on Plus, Pro, Business, Enterprise, Edu, and Healthcare plans.\nOpenAI has also reworked the Codex CLI. Users can now start and steer tasks by voice. A new \"/agents\" view is meant to make delegating easier and shows several tasks at once. OpenAI also improved prompt editing, session resuming, and work with Git worktrees, and cleaned up the terminal interface. The new CLI is available on all plans.\nCodex reviews code on the desktop and hunts for vulnerabilities in the cloud\nThe ChatGPT desktop app gets its own code review view for changes across multiple projects. Developers can read summaries, go through diffs, and ask Codex about possible problems before leaving feedback on GitHub pull requests or GitLab merge requests. With automatic reviews, Codex does a first pass in the cloud while the developer is away from their computer. The feature is available on all plans.\nCodex Security Cloud is aimed at security teams. It scans entire GitHub repositories on demand or on a schedule and keeps checking new commits as they come in. Codex investigates what it finds, filters out duplicates, and prepares fixes in the cloud, even when the laptop is closed. In July, OpenAI released the Codex Security CLI as an open-source tool that checks repositories from the command line and in CI/CD pipelines.\nUsers of the cloud version also get access to the Daybreak Blue models without having to apply for Daybreak separately. Daybreak Blue is the defensive tier of OpenAI's cybersecurity program, built for tasks like malware analysis. Until now, it required identity verification, among other things. Codex Security Cloud is available for Pro, Business, Enterprise, and Edu on desktop and web.\nAgents built on the API can now operate software themselves\nThe Agents API has been in public beta since September 11 and runs on the same infrastructure as Codex and ChatGPT. The new addition is Computer Use, which lets agents operate software on their own to get tasks done. OpenAI has offered the feature in Codex and ChatGPT on macOS since April and on Windows 11 since May.\nOpenAI says the API now also includes Codex's multi-agent features, Tool Search, and Context Compaction, which automatically condenses long contexts.\nAWS and OpenAI announced Bedrock Managed Agents as a limited preview in April. The platform now takes on the core features of the Agents API, can be customized for AWS, and connects directly to AWS resources. That means developers can build OpenAI agents that run entirely on AWS.\nOpenAI joins the push for fast decision models\nWith the Decisions API, OpenAI is moving into the field of so-called System One models. In mid-September, Diogo Almeida's startup TypeSafe AI introduced one such model called Jev, and the former OpenAI researcher's release set off a wave of hype among developers. Pairing a stronger model as an orchestrator with a fast decision model looks promising. One Minecraft agent, for example, has GPT-6 Astra plan goals and waypoints while Jev picks individual actions like mining, crafting, or fighting.\nFor the Decisions API, OpenAI uses a version of GPT-6 Luna, its low-cost model. Developers define questions with a limited set of predefined answers, pass in context as text or images, and get an answer back. They can use it to classify content, route requests, or decide an agent's next step. The API launches as a limited preview, with broad availability expected in the coming days.\nUltrafast speed comes at six times the price\nAccording to OpenAI, the new Ultrafast premium tier speeds up token generation in Codex by up to eight times, to 300 tokens per second. In the API, it's up to six times faster. API pricing for Ultrafast is six times the standard rate. For GPT-6 Astra, that works out to $60 per million input tokens and $300 per million output tokens.\nOpenAI offers Astra's Fast mode at double the price for 2.5 times the speed. GPT-5.3-Codex-Spark was much faster, hitting more than 1,000 tokens per second on Cerebras hardware, but it was a smaller model with weaker benchmark scores.\nGPT-6 Astra Ultrafast is available now in the API. It's also in ChatGPT Work and Codex for Enterprise customers and subscribers to the new Pro 500 plan. That plan costs $500 and is supposed to offer the highest usage allowance of any subscription, though OpenAI doesn't say exactly how high it is. The existing $200 Pro plan will now include only ten times Plus usage in ChatGPT Work and Codex instead of twenty times. GPT-6 Pro messages in chat also get cut in half, from 200 to 100 per week. Existing customers keep their current limits for a transition period and get a one-time credit.\nThe new GPT-6.1 Sol costs the same in the API as its predecessor, $2 per million input tokens and $10 per million output tokens. An Ultrafast version is expected in the coming days.\nAI News Without the Hype – Curated by Humans\n\t\t\t\t\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 522
+  },
+  "photos": [
+    {
+      "file": "af8411de32-g0.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news8.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1082,
+      "h": 614,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g1.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news5.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1082,
+      "h": 612,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g2.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news1.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1068,
+      "h": 594,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false
+    },
+    {
+      "file": "af8411de32-g3.webp",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-05-agents-api-computer-use.jpg",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "alt": "Schema mit drei Kästen, die eigene Anwendung schickt Aufgaben an die Agents API mit \"Managed Codex harness\" bei OpenAI, diese ruft Werkzeuge in einer Sandbox be",
+      "w": 1600,
+      "h": 900,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "af8411de32-g4.webp",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news2.jpg",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "alt": "",
+      "w": 1104,
+      "h": 604,
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false
+    },
+    {
+      "file": "af8411de32-g5.webp",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/09/openai-devday-codex-api-07-decisions-api.jpg",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/",
+      "alt": "Balkendiagramm zur Bearbeitungszeit einer Aufgabe, die Decisions API braucht 150 Millisekunden, die GPT-6 Luna API 1,6 Sekunden.",
+      "w": 1600,
+      "h": 900,
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "af8411de32-g0.webp",
+    "credit": "TechCrunch",
+    "page": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+    "src": "https://techcrunch.com/wp-content/uploads/2026/09/openai-dev-day-codex-and-api-news8.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %53 (<%85)"
+}
