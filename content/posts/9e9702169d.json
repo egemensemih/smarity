@@ -1,6 +1,5 @@
 {
   "id": "9e9702169d",
-  "status": "pending",
   "created_at": "2026-09-29T09:44:44Z",
   "title": "Bose gürültü engelleme özellikli kablolu kulaklığını duyurdu",
   "summary": "Bose, aktif gürültü engelleme teknolojisine ve USB Tip-C bağlantısına sahip yeni kablolu kulaklığını tanıttı.",
@@ -56,17 +55,6 @@
   "source_keys": [
     "DonanımHaber"
   ],
-  "source_texts": [
-    {
-      "credit": "DonanımHaber",
-      "kind": "media",
-      "title": "Bose gürültü engelleme özellikli kablolu kulaklığını duyurdu",
-      "url": "https://www.donanimhaber.com/bose-den-kablolu-kulaklik--211015",
-      "published": "2026-09-29T09:32:00Z",
-      "summary": "Bose Noise Cancelling Wired Earbuds adıyla tanıtılan kulaklık modeli kablolu kulak içi sınıfında çok da rastlamadığımız aktif gürültü engelleme özelliğiyle rekabet etmeyi amaçlıyor.",
-      "text": "Bose Noise Cancelling Wired Earbuds\nKablosuz modellerin seri isimlerinin aksine standart bir isim belirlenen Bose kablolu kulaklığı gürültü engelleme özelliği ile dikkat çekiyor. QuietControl teknolojisi iki mikrofonu kullanarak tamamen sessiz mod ya da çevreye duyarlı mod şeklinde gürültü engelleme yapabiliyor. Ya da özelliği tamamen kapatıyor.\nUSB Tip-C ile bağlandığı için daha yüksek ses kalitesine ulaşabilirken gecikmeleri de en aza indiriyor. Ayrıca uyumlu cihazlarda kayıpsız ses de sunuyor. Kablo üzerinde yer alan kontrol modülü ses, çağrı ve ANC için tuşlar barındırırken üzerinde yer alan üçüncü mikrofon da görüşmeler esnasında arka plan gürültülerini azaltıyor. Fiyatı 99$ olan kablo Ekim ayında satışa sunulacak.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 452
@@ -92,5 +80,7 @@
     "palette": "teknoloji-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "slug": "bose-kablolu-kulaklik",
+  "published_at": "2026-09-29T09:49:43Z",
+  "publish_mode": "manual"
 }
