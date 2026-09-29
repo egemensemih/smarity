@@ -1,6 +1,5 @@
 {
   "id": "bd00706de8",
-  "status": "pending",
   "created_at": "2026-09-29T08:28:20Z",
   "title": "Google Assistant dönemi kapandı, Android'de yerini Gemini alıyor",
   "summary": "Google, mobil cihazlarda uzun süredir kullanılan Google Assistant uygulamasını emekliye ayırarak yerine Gemini modelini getirmeye başladı.",
@@ -71,26 +70,6 @@
     "Android Authority",
     "LOG"
   ],
-  "source_texts": [
-    {
-      "credit": "Android Authority",
-      "kind": "media",
-      "title": "Google has started killing Assistant on phones in favor of Gemini",
-      "url": "https://www.androidauthority.com/google-now-killing-assistant-gemini-3716545/",
-      "published": "2026-09-29T08:21:36Z",
-      "summary": "Credit: Megan Ellis / Android Authority TL;DR Google has started killing off Google Assistant in favor of Gemini on mobile devices. Users have noticed that the option to switch to Assistant is no longer available in the Gemini app. This comes almost two months after Google issued a timeline for phasing out Assistant. Google started emailing users last month to warn them that it was killing off Google Assistant on phones in favor of Gemini. The company noted at the time that this process would start on September 4 and continue for a few weeks. Now, it looks like plenty of users are starting…",
-      "text": "Google has started killing Assistant on phones in favor of Gemini\nSep 29, 2026 — 4:21 AM ET\n- Google has started killing off Google Assistant in favor of Gemini on mobile devices.\n- Users have noticed that the option to switch to Assistant is no longer available in the Gemini app.\n- This comes almost two months after Google issued a timeline for phasing out Assistant.\nGoogle started emailing users last month to warn them that it was killing off Google Assistant on phones in favor of Gemini. The company noted at the time that this process would start on September 4 and continue for a few weeks. Now, it looks like plenty of users are starting to lose Assistant on their Android phones.\n9to5Google reports that they’re no longer seeing the “Switch to Google Assistant” option in the Gemini app’s account menu. I’m not seeing this option on my Samsung Galaxy S23 Ultra, POCO F9 Ultra, or vivo X300 Pro after updating my Google app to the latest beta version on the Play Store (v17.62). Some Redditors also report that they’re no longer seeing the option to switch to Google Assistant.\nWhat do you think of Google killing off Assistant in favor of Gemini?\nThis news isn’t a surprise, but it’s still the end of an era and a disappointing turn of events for many people. There’s no shortage of users who were happy with Google Assistant and thought it worked well for their needs. In fact, Redditors in the aforementioned threads noted that Assistant was more reliable for smart home controls, automation, and routines. Google Assistant also offered some offline commands, which are missing altogether in the Gemini app.\nThere are also plenty of people opposed to Gemini because it (and other generative AI models) still hallucinates and gets simple facts wrong. And that’s before we get into generative AI’s environmental concerns, copyright issues, and other factors.\nIt’s worth noting that this change only affects Google Assistant on mobile devices and accessories that pair to your phone (e.g., watches, Android Auto, earbuds). Google previously stated that smart speakers and smart displays still support Assistant."
-    },
-    {
-      "credit": "LOG",
-      "kind": "media",
-      "title": "Android’de Google Assistant’ın yerini artık Gemini alıyor",
-      "url": "https://www.log.com.tr/androidde-google-assistantin-yerini-artik-gemini-aliyor/",
-      "published": "2026-09-29T08:18:45Z",
-      "summary": "Google, son birkaç haftadır “Assistant” kullanıcılarını Gemini’ye geçiriyor ve artık bu sürecin geniş çapta devreye alındığı aktarılıyor. Assistant’ın kullanımdan kaldırılacağı tarihi daha önce 4 Eylül 2026 olarak açıklayan internet devi, Gemini ile kullanıcılarına çok daha güçlü bir dijital asistan deneyimi sunuyor. Android’de Google Assistant’ın yerini artık Gemini alıyor yazısı ilk olarak Teknoloji haberleri - LOG üzerinde yayınlandı.",
-      "text": "Google, son birkaç haftadır “Assistant” kullanıcılarını Gemini’ye geçiriyor ve artık bu sürecin geniş çapta devreye alındığı aktarılıyor. Assistant’ın kullanımdan kaldırılacağı tarihi daha önce 4 Eylül 2026 olarak açıklayan internet devi, Gemini ile kullanıcılarına çok daha güçlü bir dijital asistan deneyimi sunuyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 442
@@ -131,5 +110,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %63 (<%85)"
+  "slug": "google-assistant-yerini-gemini-aliyor",
+  "published_at": "2026-09-29T09:03:02Z",
+  "publish_mode": "manual"
 }

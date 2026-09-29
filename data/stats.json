@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 16,
+      "approved": 17,
       "rejected": 3
     },
     "The Verge": {
@@ -33,7 +33,7 @@
       "rejected": 13
     },
     "ShiftDelete.Net": {
-      "approved": 12,
+      "approved": 13,
       "rejected": 7
     },
     "Webtekno": {
@@ -113,7 +113,7 @@
       "rejected": 0
     },
     "Android Authority": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 1
     },
     "SoundGuys": {
@@ -121,12 +121,12 @@
       "rejected": 0
     },
     "Motor1": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 0
     },
     "CNBC Teknoloji": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Digital Camera World": {
       "approved": 1,
@@ -155,6 +155,10 @@
     "CarNewsChina": {
       "approved": 0,
       "rejected": 1
+    },
+    "The Decoder": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -1230,6 +1234,36 @@
       "t": "2026-09-29T08:21:09Z",
       "id": "c0d977587c",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:03:14Z",
+      "id": "bd00706de8",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:03:16Z",
+      "id": "a3a57e423a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:03:18Z",
+      "id": "23f73f27fa",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:03:18Z",
+      "id": "6d56c06145",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:03:23Z",
+      "id": "7d374ac762",
+      "ok": true,
       "manual": true
     }
   ]

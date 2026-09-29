@@ -1,6 +1,5 @@
 {
   "id": "7d374ac762",
-  "status": "pending",
   "created_at": "2026-09-29T08:57:27Z",
   "title": "Manus 2.0 yapay zeka platformu telefondan yönetim imkanıyla çıktı",
   "summary": "Manus 2.0 yapay zeka platformu, kullanıcıların akıllı telefonlarından uzaktan ajan çalıştırmasına, video düzenlemesine ve sunucu barındırmasına olanak tanıyor.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "Manus 2.0 lets users edit videos, host multiplayer games, and run agents remotely from their phone",
-      "url": "https://the-decoder.com/manus-2-0-lets-users-edit-videos-host-multiplayer-games-and-run-agents-remotely-from-their-phone/",
-      "published": "2026-09-29T08:47:37Z",
-      "summary": "Manus is turning its AI agent into a platform with version 2.0, letting users edit videos, host multiplayer games, and run personal agents with their own phone numbers. The article Manus 2.0 lets users edit videos, host multiplayer games, and run agents remotely from their phone appeared first on The Decoder .",
-      "text": "Manus 2.0 lets users edit videos, host multiplayer games, and run agents remotely from their phone\nManus is turning its AI agent into a platform with version 2.0, letting users edit videos, host multiplayer games, and run personal agents with their own phone numbers. In one tested configuration, the new Cascade agent harness used 23.2 percent fewer tokens and cost 32 percent less to run than the previous system. Automations can now fire on events like incoming emails or Slack messages. With Computer Use, Manus works with approved files and apps on the user's own machine, which users can also direct remotely from their phone.\nThe desktop app is now called Manus Studio and adds two environments, Video Editor and Game Dev, where users can adjust the output by hand. Dedicated cloud computers keep game servers running. A separate app called Cue gives each agent its own email address, wallet, and computer. Manus 2.0 is available now, and Cue is in free early access with an invite code.\nMeta acquired Manus in late 2025 but had to unwind the deal after Beijing blocked it. Tencent has since been negotiating for the largest stake in the startup. Meta is now betting on its own agent, Muse, which also gives every user a cloud computer.\nAI News Without the Hype – Curated by Humans\n\t\t\t\t\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 447
@@ -79,5 +67,7 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %63 (<%85)"
+  "slug": "manus-2-0-yapay-zeka-platformu-cikti",
+  "published_at": "2026-09-29T09:03:22Z",
+  "publish_mode": "manual"
 }
