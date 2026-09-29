@@ -1,6 +1,6 @@
 {
   "id": "e1c60dcd63",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-29T10:13:02Z",
   "title": "OpenAI 200 dolarlık Pro aboneliğini API kredilerini yarıya indirerek yeniden açtı",
   "summary": "OpenAI, aylık 200 dolarlık Pro aboneliğini yeniden satışa sunarken abonelik kapsamındaki API kredilerini yarı yarıya azalttı.",
@@ -53,10 +53,21 @@
       "via_url": "https://the-decoder.com/openai-reopens-its-200-pro-plan-but-cuts-api-credits-in-half-as-it-nudges-users-toward-pay-per-use/#respond",
       "published": "2026-09-29T10:05:14Z",
       "image": "https://the-decoder.com/wp-content/uploads/2026/09/openai_logo_astra-1.png"
+    },
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/cool-tech/chatgpts-200-pro-plan-is-returning-with-a-change-youll-want-to-know-about/",
+      "title": "ChatGPT’s $200 Pro plan is returning with a change you’ll want to know about",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T10:55:42Z",
+      "image": "https://www.digitaltrends.com/tachyon/2026/08/ChatGPT-Work-mode-on-Pro-version.jpg?resize=440%2C292"
     }
   ],
   "source_keys": [
-    "The Decoder"
+    "The Decoder",
+    "Digital Trends"
   ],
   "source_texts": [
     {
@@ -79,5 +90,6 @@
     "palette": "super-zeka-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %73 (<%85)"
+  "policy_reason": "Genel onay oranı %73 (<%85)",
+  "rejected_at": "2026-09-29T11:12:26Z"
 }

@@ -1,6 +1,5 @@
 {
   "id": "1f0474e622",
-  "status": "pending",
   "created_at": "2026-09-29T10:28:47Z",
   "title": "TCL CSOT'tan 500 nit tam ekran parlaklık sunan yeni nesil OLED panel",
   "summary": "TCL CSOT, IFA 2026'da tanıttığı yeni inkjet baskı teknolojili OLED paneli ile tam ekran parlaklığında önemli bir artış vadediyor.",
@@ -59,17 +58,6 @@
   "source_keys": [
     "PC Gamer"
   ],
-  "source_texts": [
-    {
-      "credit": "PC Gamer",
-      "kind": "media",
-      "title": "This new super-bright 500 nit 'inkjet' tech promises to fix OLED's full-screen brightness limitation",
-      "url": "https://www.pcgamer.com/hardware/gaming-monitors/this-new-super-bright-500-nit-inkjet-tech-promises-to-fix-oleds-full-screen-brightness-limitation/",
-      "published": "2026-09-29T09:47:05Z",
-      "summary": "Ignoring the teensy tiny issue of burn-in , there's one remaining limitation afflicting large OLED displays including PC monitors. Yup, it's full-screen brightness. But now there's a new OLED panel tech that promises to fix that with a full-screen capability of fully 500 nits. The new OLED panel is from Chinese manufacturer TCL CSOT and is derived from technology first developed by now-defunct Japanese OLED specialist JOLED. We've already seen the first PC monitor based on the TCL CSOT's novel inkjet-print OLED panel from MSI . But now a new generation of the inkjet-based tech has already…",
-      "text": "Ignoring the teensy tiny issue of burn-in, there's one remaining limitation afflicting large OLED displays including PC monitors. Yup, it's full-screen brightness. But now there's a new OLED panel tech that promises to fix that with a full-screen capability of fully 500 nits.\nThe new OLED panel is from Chinese manufacturer TCL CSOT and is derived from technology first developed by now-defunct Japanese OLED specialist JOLED. We've already seen the first PC monitor based on the TCL CSOT's novel inkjet-print OLED panel from MSI. But now a new generation of the inkjet-based tech has already been announced and it's much brighter than before.\nThis panel tech from TCL CSOT is known as \"inkjet\" because the OLED material is \"printed\" onto the display substrate using a process akin to inkjet printers. That's in contrast to the evaporation and metal-mask deposition techniques typically used by Samsung and LG in existing OLED panels.\nShowcased by Vincent from YouTube channel HDTV Test at the IFA 2026 event, the demo panel is a 27-inch 4K model running at 120 Hz. The first-generation inkjet OLED panel from TCL CSOT in the MSI Pro Max topped out at 300 nits for full-screen brightness. That's roughly on par with the latest QD-OLED and WOLED panels from Samsung and LG, which are capable of 300 nits and 335 nits respectively.\nSamsung and LG's panel's have been getting incrementally brighter with each generation, with both lines of OLEDs kicking off at 250 nits full-screen when they debuted in PC monitors a few years ago. But that process has been pretty long winded. At 500 nits full-screen, this new inkjet OLED therefore promises the single biggest leap in OLED full-screen brightness since the technology has been widely adopted for PC monitors.\nFor now, the wider specifications of the panel and exactly how this increased brightness is achieved isn't clear. We know the DCI-P3 coverage is 99% and, like the first-gen inkjet panel, this new technology offers true RGB-stripe subpixel structure, which bodes well for both clarity and colour brightness and vibrancy.\nSpeaking of colour coverage, one other detail that TCL CSOT has revealed is that inkjet OLED has another advantage in terms of colour volume. Apparently, both Samsung QD-OLED and LG WOLED have limitations maintaining full colour volume or coverage at lower brightness levels.\nThe PC Gamer Circuit Breaker newsletter breaks down the latest PC gaming tech, and finds you the best deals on the best products\nHowever, the new inkjet panel is claimed to maintain its colour volume regardless of brightness. The extent to which this is visible to the naked eye, I cannot comment.\nAnywho, I've long taken the view that the problem of OLED panel full-screen brightness can be considered \"solved\" once it hits 500 nits. I can't see that in terms of full-screen brightness as opposed to small detail brightness, where currently available OLED monitors are already capable of 1,500 nits, anything much above 500 nits would be needed. Indeed, 500 nits full screen is well above what most people would find comfortable, day-to-day.\nYes, there will always be niche scenarios, perhaps involving strong ambient light and specialist displays for use outdoors, where well beyond 500 nits is needed. But for conventional PC monitor use cases, I think 500 nits has got to be enough to ensure a vibrant experience.\nSo, if TCL CSOT's claims are accurate and we soon see retail monitors with that capability, that will be game over in a good way for OLED monitors. Well, barring ye olde burn-in.\nThere's no word on when we might see this new panel tech in a monitor you can actually buy. Likewise, it's unclear what formats it may become available beyond the 27-inch 4K demo panel shown as IFA 2026. Watch this space.\n1. Best overall / 4K: \nMSI MPG 322UR X24\n2. Best budget 4K: \nAsus ROG Strix XG27UCG\n3. Best budget OLED\nAlienware AW2726DM\n4. Best 1440p: \nMSI MPG 271QRX\n5. Best budget 1440p: \nKTC H27T22C-3\n6. Best 1080p: \nAOC Gaming C27G4ZXE\n7. Best Ultrawide: \nGigabyte MO34WQC2\n8. Best budget ultrawide: \nKoorui 34E6UC\n9. Best competitive \nKTC 25M1\nJeremy has been writing about technology and PCs since the 90nm Netburst era (Google it!) and enjoys nothing more than a serious dissertation on the finer points of monitor input lag and overshoot followed by a forensic examination of advanced lithography. Or maybe he just likes machines that go “ping!” He also has a thing for tennis and cars.\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 459
@@ -122,5 +110,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %73 (<%85)"
+  "slug": "tcl-csot-500-nit-inkjet-oled-panel",
+  "published_at": "2026-09-29T11:12:40Z",
+  "publish_mode": "manual"
 }
