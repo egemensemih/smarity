@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 14,
-      "rejected": 2
+      "rejected": 3
     },
     "The Verge": {
       "approved": 7,
@@ -1040,6 +1040,12 @@
       "t": "2026-09-29T05:27:50Z",
       "id": "efe5177c7c",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T06:16:23Z",
+      "id": "d53ddfa94e",
+      "ok": false,
       "manual": true
     }
   ]
