@@ -1,6 +1,5 @@
 {
   "id": "2e75494788",
-  "status": "pending",
   "created_at": "2026-09-29T14:37:49Z",
   "title": "Claude erişim sorunu yaşanıyor ve Anthropic sorunu doğruladı",
   "summary": "Anthropic'in yapay zeka asistanı Claude, web ve uygulamalarda hata mesajlarıyla kesintiye uğradı. Şirket sorunu araştırıyor.",
@@ -90,17 +89,6 @@
     "Digital Trends",
     "The Next Web"
   ],
-  "source_texts": [
-    {
-      "credit": "TechRadar",
-      "kind": "media",
-      "title": "Claude is down for many — here's everything we know as Anthropic confirms an active issue",
-      "url": "https://www.techradar.com/news/live/claude-down-september-29-2026",
-      "published": "2026-09-29T14:32:33Z",
-      "summary": "Claude is experiencing issues across its web, mobile, and desktop apps on September 29, 2026, with Anthropic investigating elevated error rates affecting Claude, Cowork, and Code.",
-      "text": "If you've been trying to chat with Claude on the web, iOS, Android, or desktop and have been greeted with a \"Request couldn't be processed. You can try again.\" message, you're not alone.\nClaude, Anthropic's AI chatbot, appears to be having some issues this AM, starting shortly before 10 AM ET on September 20, 2026, with Down Detector currently showing over 2,900 reported issues as of 10:04 AM ET. I've been chatting with Claude this AM, but began getting errors shortly after 10:10 AM ET in the macOS app, and I'm subscribed to Pro.\nTechRadar's Matthew Bolton has been trying to sign up for a Claude account for the past few minutes and has been met with errors, putting him in an endless loop and leaving him without access to the service.\nAnthropic has actively confirmed the issue as of 10:21 AM ET on the Claude Status page, noting it's 'investigating elevated error rates affecting' Claude, Claude Cowork, and Claude Code. For what it's worth, Claude is now listed as a partial outage as well.\nSo, to track the ongoing issues with Claude this AM, TechRadar is spinning up a live blog, so follow along.\nOver 11,800 reports on Down Detector\nAs of 10:17AM ET, the latest update on Down Detector shows over 11,800 reports of issues with Claude AI. That's likely presenting itself as 'Try Again' messages when signed in and trying to chat with Claude, but also presenting issues if you're trying to sign in to the service or are trying to create an account.\nAnthropic's confirmed an active issue with Claude\nAbout 20 minutes or so after we saw reports on Down Detector of a spike with Claude and encountered our own issues using the AI chatbot, Anthropic has confirmed an active issue. And it's a similar one that's been written in the past.\nRight now, Anthropic is \"investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork.\" That makes sense, given the errors we've seen Claude respond with. There is no estimated time for a fix, but here's the full statement:\n\"Investigating - We are investigating elevated error rates affecting Claude.ai (including the desktop and mobile apps), Claude Code and Claude Cowork. Users may see failed requests, errors loading or sending conversations, or be asked to sign in again; retrying may succeed. We will provide an update as soon as possible.\"\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 495
@@ -153,5 +141,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %50 (<%85)"
+  "home": "pin",
+  "home_at": "2026-09-29T15:04:45Z",
+  "slug": "claude-erisim-sorunu-yasaniyor",
+  "published_at": "2026-09-29T15:04:45Z",
+  "publish_mode": "manual"
 }

@@ -2,15 +2,15 @@
   "sources": {
     "LOG": {
       "approved": 17,
-      "rejected": 3
+      "rejected": 4
     },
     "The Verge": {
       "approved": 7,
-      "rejected": 4
+      "rejected": 5
     },
     "Engadget": {
       "approved": 9,
-      "rejected": 1
+      "rejected": 2
     },
     "Google": {
       "approved": 1,
@@ -21,15 +21,15 @@
       "rejected": 5
     },
     "Webrazzi": {
-      "approved": 8,
+      "approved": 9,
       "rejected": 3
     },
     "Electrek": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 6
     },
     "DonanımHaber": {
-      "approved": 18,
+      "approved": 19,
       "rejected": 16
     },
     "ShiftDelete.Net": {
@@ -81,7 +81,7 @@
       "rejected": 2
     },
     "Ars Technica": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 1
     },
     "Autocar": {
@@ -105,19 +105,19 @@
       "rejected": 1
     },
     "Digital Trends": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 2
     },
     "TechRadar": {
-      "approved": 4,
-      "rejected": 0
+      "approved": 5,
+      "rejected": 1
     },
     "Android Authority": {
       "approved": 3,
       "rejected": 1
     },
     "SoundGuys": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 0
     },
     "Motor1": {
@@ -137,11 +137,11 @@
       "rejected": 1
     },
     "Tom's Guide": {
-      "approved": 1,
-      "rejected": 2
+      "approved": 2,
+      "rejected": 3
     },
     "The Next Web": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 5
     },
     "InsideEVs": {
@@ -182,7 +182,7 @@
     },
     "PC Gamer": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Tom's Hardware": {
       "approved": 1,
@@ -190,15 +190,15 @@
     },
     "What Hi-Fi": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Stuff": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "T3": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "PetaPixel": {
       "approved": 1,
@@ -211,6 +211,18 @@
     "MacRumors": {
       "approved": 0,
       "rejected": 1
+    },
+    "9to5Google": {
+      "approved": 2,
+      "rejected": 0
+    },
+    "XDA": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "New York Times Teknoloji": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -1561,6 +1573,78 @@
     {
       "t": "2026-09-29T13:54:44Z",
       "id": "25c839c079",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:31Z",
+      "id": "24b645f5ec",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:33Z",
+      "id": "10e5b76366",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:34Z",
+      "id": "9348dd3797",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:36Z",
+      "id": "070ccf6e46",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:42Z",
+      "id": "fbf5a9843c",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:45Z",
+      "id": "2e75494788",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:49Z",
+      "id": "16259655d4",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:54Z",
+      "id": "041ef5b76b",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:04:58Z",
+      "id": "d0939d30e9",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:05:03Z",
+      "id": "5e729e49c8",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:05:05Z",
+      "id": "8d8b8c7571",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T15:05:10Z",
+      "id": "68f33d2481",
       "ok": false,
       "manual": true
     }

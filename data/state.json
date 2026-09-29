@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815862,
+  "telegram_offset": 872815874,
   "last_collect": "2026-09-29T14:52:00Z",
   "last_summary_date": "2026-09-28",
   "mode_override": null,
@@ -756,16 +756,16 @@
       "tok_out": 209133,
       "cost_usd": 0.0,
       "drafts": 81,
-      "published": 40,
-      "approved": 40,
-      "rejected": 28,
+      "published": 50,
+      "approved": 50,
+      "rejected": 30,
       "updates": 1,
       "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-29T14:31:39Z",
+  "last_build": "2026-09-29T15:06:02Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -849,8 +849,19 @@
       "held_at": "2026-09-29T14:52:16Z"
     }
   ],
-  "last_activity": "2026-09-29T13:54:44Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-29T15:05:10Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/firefox-157-guncellemesi-yayinda/",
+    "https://smarity.com.tr/haber/spotify-coktu-mu-muzik-platformunda-kesinti/",
+    "https://smarity.com.tr/haber/bose-quietcomfort-ultra-auracast-guncellemesi/",
+    "https://smarity.com.tr/haber/hyundai-ioniq-4-ve-7-modelleri-tanitiliyor/",
+    "https://smarity.com.tr/haber/sima-ai-150-milyon-dolar-yatirim-aldi/",
+    "https://smarity.com.tr/haber/claude-erisim-sorunu-yasaniyor/",
+    "https://smarity.com.tr/haber/xbox-game-pass-ekim-2026-oyunlari/",
+    "https://smarity.com.tr/haber/dell-xps-16-tanitildi/",
+    "https://smarity.com.tr/haber/samsung-android-17-guncellemesi-galaxy-s26/",
+    "https://smarity.com.tr/haber/anthropic-claude-modellerine-ahlak-kazandirmak-istiyor/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,

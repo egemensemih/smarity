@@ -1,6 +1,5 @@
 {
   "id": "24b645f5ec",
-  "status": "pending",
   "created_at": "2026-09-29T14:53:09Z",
   "title": "Firefox 157 güncellemesi tarayıcı pazarı için yayınlandı",
   "summary": "Mozilla, Firefox 157 güncellemesi ile hem masaüstü hem de mobil platformlarda yeni bir arayüz tasarımını kullanıma sunuyor.",
@@ -59,17 +58,6 @@
   "source_keys": [
     "Ars Technica"
   ],
-  "source_texts": [
-    {
-      "credit": "Ars Technica",
-      "kind": "media",
-      "title": "Interview: Firefox's chief on why he hopes a redesign will help win users from Chrome",
-      "url": "https://arstechnica.com/gadgets/2026/09/mozillas-head-of-firefox-talks-product-priorities-ai-skepticism-and-browser-choice/",
-      "published": "2026-09-29T13:00:19Z",
-      "summary": "Today, the Firefox 157 update will roll out a redesign of the web browser across desktop and mobile platforms. The team that made it hopes it will help expand the browser's audience beyond privacy-conscious techies and open-web or open source advocates to a broader audience who might simply pick the browser because they prefer its user experience over competitors like Chrome, Edge, and Safari. In advance of the redesign's launch, I spent half an hour chatting with Mozilla's head of Firefox, Ajit Varma, about Firefox's current market position and product strategy, and what barriers or…",
-      "text": "Today, the Firefox 157 update will roll out a redesign of the web browser across desktop and mobile platforms. The team that made it hopes it will help expand the browser’s audience beyond privacy-conscious techies and open-web or open source advocates to a broader audience who might simply pick the browser because they prefer its user experience over competitors like Chrome, Edge, and Safari.\nIn advance of the redesign’s launch, I spent half an hour chatting with Mozilla’s head of Firefox, Ajit Varma, about Firefox’s current market position and product strategy, and what barriers or opportunities there are for gaining ground in a Chromium-dominated landscape.\nFirefox’s interface has recently felt more conservative than niche browsers. And when I asked Paddy Harrington, a senior analyst at Forrester who covers this space, what Firefox’s main barrier to adoption is, he was frank.\n“The biggest is they’re not Chrome,” he replied. “That sounds simplistic, but it’s the clear truth. Safari and Edge are built into the leading operating systems in business and consumer markets, yet people still download and deploy Chrome.”\nThat said, for many of the people who have chosen to use Firefox, “it’s not Chrome” is much of the appeal. Google-led Chromium dominates the web. It doesn’t just power Google’s own Chrome browser (which has majority market share by a wide margin), it powers most of the rest of the competition, too, including Microsoft Edge.\nFirefox, which is built on the open source Gecko, serves as a Chromium-free alternative and has become one of the go-to choices for users who don’t want to contribute to one company’s dominance of the open web—though there is even tension there, and a deal to offer Google search as Firefox’s default provides Mozilla with the majority of its revenue. For now, Firefox seeks independence for the web while remaining financially dependent on its dominant competitor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 500
@@ -110,5 +98,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %50 (<%85)"
+  "slug": "firefox-157-guncellemesi-yayinda",
+  "published_at": "2026-09-29T15:04:22Z",
+  "publish_mode": "manual"
 }
