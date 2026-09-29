@@ -1,0 +1,111 @@
+{
+  "id": "1659b8586f",
+  "status": "pending",
+  "created_at": "2026-09-29T18:51:38Z",
+  "title": "Stanford ve NVIDIA'dan CLM: Yapay zekâ kararları 9 kata kadar daha hızlı",
+  "summary": "Stanford ve NVIDIA araştırmacılarının geliştirdiği Contrastive Language Models, yapay zekâ ajanlarının karar süreçlerini JEV modeline göre 9 kata kadar hızlandırıyor.",
+  "body": "DonanımHaber'in aktardığına göre, Stanford ve NVIDIA araştırmacıları tarafından geliştirilen Contrastive Language Models (CLM), yapay zekâ ajanlarının karar süreçlerini hızlandırmak amacıyla yeni bir mimari sunuyor. JEV gibi modeller, büyük dil modellerinin her karar için uzun uzun düşünmesi yerine önceden belirlenmiş seçenekler arasından doğrudan karar vermesini sağlayarak heyecan uyandırmıştı. Ancak CLM, durum ile olası eylemler arasındaki ilişkiyi öğrenen farklı bir yaklaşımla sahneye çıktı.\n\n## CLM nasıl çalışıyor?\n\nDonanımHaber'in haberinde yer alan detaylara göre, CLM mevcut durumu ve olası eylemleri aynı uzayda temsil ediyor ve hangilerinin birbirine daha çok uyduğunu ölçüyor. Model eğitim sırasında doğru durum-eylem çiftlerini birbirine yaklaştırırken yanlış eşleşmeleri birbirinden uzaklaştırmayı öğreniyor. Araştırma testlerinde CLM, özellikle çok sayıda aday eylemin bulunduğu veya aynı eylemlerin tekrar tekrar kullanıldığı senaryolarda JEV'e kıyasla 9 kata kadar daha düşük gecikme süresi sundu. Ancak bu oran her kullanım senaryosu için geçerli değil. Sistemlerin en büyük avantajlarından biri de eylem temsillerinin önbelleğe alınabilmesi; böylece binlerce araç tanımının her seferinde yeniden hesaplanması gerekmiyor.\n\n## Yapay zekâ ajanlarında yeni dönem\n\nBu tür karar modelleri sayesinde yapay zekâ sistemleri tek bir büyük model yerine birden fazla \"beyin\" ile çalışabiliyor. Planlama ve kod yazma gibi karmaşık işler büyük bir dil modeline bırakılırken, araç seçme ve doğrulama gibi çok sayıda küçük karar CLM veya JEV gibi özel modellerle daha hızlı ve düşük maliyetle alınabiliyor.\n\n**Neden önemli?** Stanford ve NVIDIA'nın geliştirdiği CLM, yapay zekâ ajanlarının gereksiz token üretimini azaltarak kurumsal sistemlerde ve çoklu araç kullanımında karar süreçlerini önemli ölçüde hızlandırıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "NVIDIA",
+    "Stanford",
+    "yapay zeka",
+    "yapay zeka ajanı"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "CLM yapay zekâ kararlarını 9 kat hızlandırıyor",
+  "kicker": "Yapay zekâ",
+  "hero_stat": "9 kat",
+  "hero_stat_label": "daha düşük gecikme",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "CLM",
+  "seo_title": "Stanford ve NVIDIA'dan CLM: Yapay zekâ kararları hızlanıyor",
+  "meta_description": "Stanford ve NVIDIA tarafından geliştirilen CLM modeli, yapay zekâ ajanlarının karar süreçlerini JEV'e kıyasla 9 kata kadar daha hızlı hale getiriyor.",
+  "seo_slug": "stanford-nvidia-clm-yapay-zeka-kararlari",
+  "image_alt": "Saydam cam küplerden oluşan grafik, CLM yapay zekâ modelinin hızlı karar verme sürecini temsil ediyor",
+  "cover_text": "CLM",
+  "carousel_points": [
+    "Stanford ve NVIDIA araştırmacıları yeni bir karar modeli geliştirdi.",
+    "CLM, yapay zekâ ajanlarında JEV modeline göre 9 kata kadar daha düşük gecikme sunuyor.",
+    "Model, durum ve eylem temsillerini karşılaştırarak en uygun seçeneği hızla belirliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "CLM yapay zekâ kararlarını 9 kat hızlandırıyor",
+  "cover_highlight": "9 kat",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Stanford ve NVIDIA iş birliğiyle geliştirilen CLM yapay zekayı hızlandırıyor",
+  "entities": [
+    "NVIDIA",
+    "Stanford University"
+  ],
+  "topic": "Stanford and NVIDIA develop CLM for faster AI",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm--211037",
+      "title": "Stanford ve NVIDIA'nın geliştirdiği CLM, yapay zekâyı çok daha hızlı hâle getirebilir",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-29T18:45:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/211037/1200x675yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "source_texts": [
+    {
+      "credit": "DonanımHaber",
+      "kind": "media",
+      "title": "Stanford ve NVIDIA'nın geliştirdiği CLM, yapay zekâyı çok daha hızlı hâle getirebilir",
+      "url": "https://www.donanimhaber.com/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm--211037",
+      "published": "2026-09-29T18:45:00Z",
+      "summary": "Yapay zekâ ajanlarının her karar için büyük dil modellerine başvurması gerekmeyebilir. JEV'in sunduğu yeni yaklaşım konuşulurken, Stanford ve NVIDIA'dan çok daha hızlı bir alternatif geldi.",
+      "text": "JEV gibi modellerin temel fikri, her karar için büyük bir dil modelinin uzun uzun düşünmesine gerek olmadığı fikrine dayanıyor. Bunun yerine model, önceden belirlenmiş seçenekler arasından doğrudan bir karar verebiliyor. Örneğin bir AI ajanının “hangi aracı kullanmalıyım?” sorusuna cevap vermesi gerekiyorsa, uzun bir metin üretmek yerine mevcut seçenekleri değerlendirip en uygun aracı seçiyor. Böylece hem çıktının yapısı daha öngörülebilir hâle geliyor hem de gereksiz token üretiminin önüne geçilerek karar süreci hızlandırılabiliyor.\nDolayısıyla JEV yapay zekâ dünyasında heyecan uyandırdı. Ancak spot ışıkları altındaki süresi pek uzun olmadı. Çünkü daha şimdiden onu gölgede bırakabilecek bir başka model sahneye çıktı.\nCLM, JEV'den 9 Kat Daha Hızlı Çalışıyor\nStanford ve NVIDIA araştırmacıları tarafından geliştirilen Contrastive Language Models (CLM), aynı problemi farklı bir mimariyle çözmeye çalışıyor. CLM, yalnızca seçenekler arasından karar vermek yerine mevcut durum ile olası eylemler arasındaki ilişkiyi öğreniyor. Araştırmacıların testlerinde CLM, özellikle çok sayıda aday eylemin bulunduğu veya aynı eylemlerin tekrar tekrar kullanılabildiği senaryolarda JEV'e kıyasla 9 kata kadar daha düşük gecikme süresi sundu.\nAncak buradaki “9 kat” ifadesinin tüm kullanım senaryoları için geçerli olmadığını belirtmekte fayda var. CLM'nin avantajı özellikle çok sayıda aday eylemin bulunduğu veya aynı eylemlerin farklı durumlarda tekrar tekrar kullanıldığı senaryolarda ortaya çıkıyor. JEV, sınırlı seçenekler arasından hızlı ve yapılandırılmış kararlar vermeye odaklanırken CLM, durum-eylem ilişkisini öğrenerek bu iki tarafı birbirleriyle eşleştirmeye çalışıyor.\nCLM Modeli Nasıl Çalışıyor?\nCLM modelinin nasıl işlediğini anlamak için bir AI ajanının nasıl çalıştığını düşünelim. Örneğin bir bankanın müşteri hizmetlerinde kullanılan bir AI ajanı, “Kredi kartımdan aynı işlem için iki kez ücret alındı.” şeklinde bir mesaj aldığında önünde birkaç seçenek oluyor: Müşteriye para iadesi yapmak, müşteriden daha fazla bilgi istemek, konuyu insan bir çalışana aktarmak veya herhangi bir işlem yapmamak. Bugün kullanılan yaklaşımda sistem, bu mesajı büyük bir dil modeline gönderir ve modelden uygun eylemi belirlemesini ister. Model de isteği analiz eder, bir düşünce süreci yürütür ve sonunda “Bu durumda para iadesi seçeneği uygun görünüyor.” şeklinde bir çıktı üretir. Ama aslında sistemin böyle bir cevaba ihtiyacı yok. İhtiyaç duyduğu tek şey \"Para İadesi\" seçeneğinin seçilmesi. İşte JEV ve CLM gibi yeni nesil karar modelleri tam olarak bu noktada devreye giriyor. Bu yaklaşım, büyük dil modellerinin her problemi metin üreterek çözmeye çalışmak yerine, karar verilmesi gereken durumlarda daha küçük ve özel modeller kullanılabileceği fikrine dayanıyor. JEV, bu tür modeller için “System One” kavramını öne çıkarırken, Stanford ve NVIDIA araştırmacılarının geliştirdiği CLM ise aynı probleme farklı bir mimariyle yaklaşıyor.\nCLM'nin temelinde oldukça basit görünen ancak önemli sonuçlar doğuran bir fikir bulunuyor: Mevcut durumu ve olası eylemleri aynı uzayda temsil etmek ve hangilerinin birbirine daha çok uyduğunu ölçmek.\nÖrneğin sistemin karşısında şu durum olduğunu düşünelim:\n“Müşterinin kredi kartından aynı işlem için iki kez ücret alınmış.”\nSistemin kullanabileceği eylemler ise şöyle olsun:\n- \n\tREFUND (Para iadesi)\n- \n\tASK_FOR_DETAILS (Daha fazla detay iste)\n- \n\tIGNORE (Yok say)\nCLM öncelikle mevcut durumu sayısal bir temsile dönüştürüyor. Benzer şekilde bu eylemlerin her biri de birer sayısal temsil hâline getiriliyor. Daha sonra model, mevcut durum ile hangi eylemin birbirine en çok benzediğini hesaplıyor.\nBasitleştirilmiş şekilde sistem şöyle çalışıyor:\nMevcut durum → Durum temsili → Eylemlerle karşılaştırma → En uygun eylem\nSonuçta “kredi kartından iki kez ücret alınması” durumu ile Para İadesi eylemi diğer seçeneklere kıyasla daha güçlü bir eşleşme gösteriyorsa model doğrudan bu seçeneği belirliyor. CLM'deki “contrastive” yani karşılaştırmalı yaklaşım da adını buradan alıyor. Model eğitim sırasında doğru durum-eylem çiftlerini birbirine yaklaştırırken, yanlış eşleşmeleri birbirinden uzaklaştırmayı öğreniyor. Böylece model yalnızca “doğru cevap nedir?” sorusuna değil, “Bu durum hangi seçenekle en iyi eşleşiyor?” sorusuna odaklanıyor.\nCLM'nin En İlginç Özelliklerinden Biri de Eylemlerin Önbelleğe Alınabilmesi\nCLM'yi özellikle AI ajanları açısından ilgi çekici hâle getiren noktalardan biri de durum ve eylem temsillerinin birbirinden bağımsız olarak hesaplanabilmesi. Örneğin bir şirketin AI ajanında 500 farklı araç bulunduğunu düşünelim. Bunların arasında e-posta gönderme, veritabanında arama yapma, destek kaydı oluşturma, sunucuyu yeniden başlatma, ödeme iadesi yapma veya bir güvenlik olayını ilgili ekibe aktarma gibi araçlar olabilir. Geleneksel bir sistemde bu araçların açıklamalarının her yeni istekte modele aktarılması gerekebilir. Böylece modelin karşısına kabaca şu çıkar:\nKullanıcının isteği + 500 araç tanımı + büyük dil modeli → uygun aracı seç\nBu hem bağlamı büyütüyor hem de her karar için yeniden hesaplama yapılmasını gerektiriyor.\nCLM ise burada farklı davranabiliyor. Mevcut araçların temsilleri önceden hesaplanıp önbelleğe alınabiliyor. Daha sonra yeni bir kullanıcı isteği geldiğinde yalnızca değişen durumun temsili hesaplanıyor ve daha önce hazırlanmış eylem temsilleriyle karşılaştırılıyor. Örneğin kullanıcı “Üretim ortamındaki ödeme işlemleri HTTP 503 hatası veriyor.” dediğinde CLM, bu yeni durumu mevcut araçlarla karşılaştırarak Splunk'ta arama, sunucuyu yeniden başlatma veya ödeme iadesi gibi seçenekler arasından uygun olanı seçebiliyor. Buradaki avantaj özellikle aynı eylemlerin tekrar tekrar kullanıldığı sistemlerde ortaya çıkıyor. Çünkü eylem temsilleri bir kez hesaplandıktan sonra farklı durumlarda yeniden kullanılabiliyor.\nAI Ajanlarının Birden Fazla “Beyni” Olabilir\nBüyük dil modeli: Planlama, akıl yürütme, kod yazma ve karmaşık problemleri çözme\nCLM/JEV gibi karar modeli: Araç seçme, sonuçları sıralama, doğrulama, yeniden deneme veya işlemi durdurma\nBöyle bir sistemde büyük model yalnızca gerçekten ihtiyaç duyulan noktalarda çalıştırılırken, çok sayıda küçük karar daha hızlı ve daha düşük hesaplama maliyetiyle alınabilir. Bu özellikle yüzlerce farklı araçla çalışan kurumsal yapay zekâ ajanlarında önem kazanabilir. Örneğin bir ajan GitHub, Jira, Slack, ServiceNow, Splunk, veritabanları ve farklı API'lere erişebiliyorsa, her seferinde bütün bu araçların tanımlarını büyük bir dil modelinin bağlamına taşımak yerine CLM benzeri bir model önce en uygun birkaç seçeneği belirleyebilir. Ardından asıl akıl yürütme modeli yalnızca bu seçenekler üzerinde daha kapsamlı bir değerlendirme yapabilir.\nBelki de geleceğin ajanlarında tek bir büyük “beyin” yerine, her biri farklı bir görevi üstlenen birkaç farklı model birlikte çalışacak.\nKaynakça https://milind-divre.medium.com/jev-was-fast-then-nvidia-stanford-built-clm-and-made-ai-decisions-even-more-interesting-c8658299b748 https://venturebe"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 536
+  },
+  "photos": [
+    {
+      "file": "1659b8586f-g0.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260929145654&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/211037/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm211037_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm--211037",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "1659b8586f-g1.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20260929145654&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/211037/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm211037_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/yapay-zeka-ajanlarinda-jev-in-karsisina-yeni-rakip-cikti-clm--211037",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-1",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %40 (<%85)"
+}
