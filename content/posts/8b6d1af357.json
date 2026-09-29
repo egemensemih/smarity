@@ -1,6 +1,5 @@
 {
   "id": "8b6d1af357",
-  "status": "pending",
   "created_at": "2026-09-29T09:29:09Z",
   "title": "Geely akıllı şarj istasyonları ile elektrikli araç şarj süresini kısalttı",
   "summary": "Geely, Çin'in beş şehrinde devreye aldığı yeni akıllı şarj istasyonlarıyla elektrikli araçların bataryalarını kısa sürede dolduruyor.",
@@ -59,17 +58,6 @@
   ],
   "source_keys": [
     "CarNewsChina"
-  ],
-  "source_texts": [
-    {
-      "credit": "CarNewsChina",
-      "kind": "media",
-      "title": "Geely has deployed 2,250 kWh charging stations in five cities across China",
-      "url": "https://carnewschina.com/2026/09/29/geely-has-deployed-2250-kwh-charging-stations-in-five-cities-across-china/",
-      "published": "2026-09-29T09:11:52Z",
-      "summary": "Geely has deployed 12C fast-charging stations with a power output of 2,250 kW in five cities across China to counter BYD’s flash chargers. The post Geely has deployed 2,250 kWh charging stations in five cities across China appeared first on CarNewsChina.com .",
-      "text": "Geely has deployed 12C fast-charging stations in five cities across China to counter BYD’s flash chargers. Geely’s charging station boasts a peak output of 2,250 kWh DC per connector. It allows Zeekr– and Lynk & Co-branded EVs to charge from 10% to 97% in 8 minutes and 40 seconds.\nAccording to National Business Daily, Geely launched its fast charging stations called “Smart Charging C12” in five cities: Hangzhou, Shanghai, Ningbo, Jiaxing, and Xi’an. These chargers feature a peak power output of 2,250 kWh per charging gun while maintaining the maximum battery temperature below 65 degrees Celsius. Geely reported that its AI-powered temperature-rise prediction algorithm can anticipate internal battery temperature changes 30 seconds in advance, dynamically allocating charging power. It reportedly allows extending battery life cycle by over 20%.\nGeely released the “Smart Charging C12” station on September 23. This technology is reportedly powered by the large model developed jointly by the Hangzhou-based Chinese automaker and StepOne. As a result, it supports AI charging. The charging pile supports a peak voltage of 1,500 V and a peak current of 1,500 A. This means two vehicles can be charged with a power of 1 MWh simultaneously at this charging station.\nAccording to Geely Automobile, two models can charge at these “Smart Chargers” with a charging rate of 12C (power 12 times the battery capacity). They are the Zeekr 001 station wagon and the Lynk & Co 10 sedan. The Zeekr 001 offers a 783.3 V ternary NMC battery, while the Lynk & Co 10 offers a 95 kWh pack for 772.8 V. They charge from 10% to 70% in 4 minutes and 30 seconds, and from 10% to 97% in 8 minutes and 40 seconds.\nThe Zeekr 001 and the Lynk & Co 10 currently receive a peak charging power of 1,100 kW. However, Geely is developing the 1,000V high-voltage architecture to go beyond a 5.5-minute 10% to 80% charging time. The future vehicles from the Hangzhou automaker will likely be able to charge at 2,250 kW. Geely plans to deploy 15,000 “Smart Charging” stations with 50,000 connectors across China in 2027."
-    }
   ],
   "rewrites": 0,
   "telegram": {
@@ -135,5 +123,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "slug": "geely-sarj-istasyonlari-hizli-sarj",
+  "published_at": "2026-09-29T09:38:10Z",
+  "publish_mode": "manual"
 }
