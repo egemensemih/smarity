@@ -91,6 +91,34 @@
     "VGC": {
       "approved": 1,
       "rejected": 0
+    },
+    "BBC Teknoloji": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "The Guardian Teknoloji": {
+      "approved": 2,
+      "rejected": 0
+    },
+    "Bloomberg Teknoloji": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Digital Trends": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "TechRadar": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Android Authority": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "SoundGuys": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -1046,6 +1074,24 @@
       "t": "2026-09-29T06:16:23Z",
       "id": "d53ddfa94e",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T06:55:22Z",
+      "id": "ebe0fde4ff",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T06:55:25Z",
+      "id": "2860f0ff6f",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T06:55:28Z",
+      "id": "5aad660bca",
+      "ok": true,
       "manual": true
     }
   ]
