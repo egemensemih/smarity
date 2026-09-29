@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815810,
+  "telegram_offset": 872815813,
   "last_collect": "2026-09-29T08:10:29Z",
   "last_summary_date": "2026-09-28",
   "mode_override": null,
@@ -756,15 +756,16 @@
       "tok_out": 68772,
       "cost_usd": 0.0,
       "drafts": 22,
-      "published": 11,
-      "approved": 11,
-      "rejected": 6,
-      "updates": 1
+      "published": 12,
+      "approved": 12,
+      "rejected": 7,
+      "updates": 1,
+      "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-29T07:45:35Z",
+  "last_build": "2026-09-29T08:20:25Z",
   "build_sig": "b8c3824547b947dd",
   "commands_version": 4,
   "queue": [
@@ -808,8 +809,11 @@
       "held_at": "2026-09-29T08:11:20Z"
     }
   ],
-  "last_activity": "2026-09-29T07:44:20Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-29T08:20:20Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/2027-mercedes-g-580-ev-nacs-portu-menzil/",
+    "https://smarity.com.tr/haber/samsung-galaxy-s27-ultra-ozellikleri-sizdirildi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,

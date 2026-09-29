@@ -113,7 +113,7 @@
       "rejected": 0
     },
     "Android Authority": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 1
     },
     "SoundGuys": {
@@ -143,6 +143,14 @@
     "The Next Web": {
       "approved": 0,
       "rejected": 2
+    },
+    "InsideEVs": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Chip Online": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -1182,6 +1190,24 @@
       "t": "2026-09-29T07:44:20Z",
       "id": "ff8a842cf1",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T08:20:05Z",
+      "id": "c25a88bb1e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T08:20:14Z",
+      "id": "5981c20e66",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T08:20:23Z",
+      "id": "9fe9694a20",
+      "ok": true,
       "manual": true
     }
   ]
