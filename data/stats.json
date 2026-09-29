@@ -159,6 +159,10 @@
     "The Decoder": {
       "approved": 1,
       "rejected": 0
+    },
+    "SamMobile": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
@@ -1269,6 +1273,12 @@
     {
       "t": "2026-09-29T09:16:47Z",
       "id": "32c5eef19a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T09:37:35Z",
+      "id": "d0045cf2bd",
       "ok": true,
       "manual": true
     }

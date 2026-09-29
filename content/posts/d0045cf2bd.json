@@ -1,6 +1,5 @@
 {
   "id": "d0045cf2bd",
-  "status": "pending",
   "created_at": "2026-09-29T09:27:45Z",
   "title": "SmartThings yenilenen tasarımıyla önce iPhone'lara geldi",
   "summary": "Samsung, ev otomasyon uygulaması SmartThings için hazırladığı büyük arayüz yenilemesini Android cihazlardan önce iPhone kullanıcılarına sunmaya başladı.",
@@ -60,17 +59,6 @@
   ],
   "source_keys": [
     "SamMobile"
-  ],
-  "source_texts": [
-    {
-      "credit": "SamMobile",
-      "kind": "media",
-      "title": "Samsung’s new SmartThings redesign is coming to iPhones before Galaxy phones",
-      "url": "https://www.sammobile.com/news/samsung-smartthings-redesign-update-released-iphones-first/",
-      "published": "2026-09-29T09:15:00Z",
-      "summary": "Samsung has been working on a major UI redesign for its SmartThings app over the past few months, and we exclusively gave you a first look at that new interface a couple of months ago. Now, the company has released the redesigned version of the app, arriving on iPhones before its own Galaxy (or other […]",
-      "text": "Last updated: September 29th, 2026 at 11:15 UTC+02:00\nIt brings the Liquid Glass design language.\nAbhijeet Mishra / SamMobile\nSamsung has been working on a major UI redesign for its SmartThings app over the past few months, and we exclusively gave you a first look at that new interface a couple of months ago. Now, the company has released the redesigned version of the app, arriving on iPhones before its own Galaxy (or other Android) devices.\nA new update (version 1.7.51) for the SmartThings iOS app went live earlier today, introducing Apple's Liquid Glass design language alongside an overall lighter color scheme, which makes the app look more lively. While the app retains five main tabs, it now features a compact, floating navigation bar with a Liquid Glass look.\nBy default, the new app uses more compact cards for each device or routine, but you can still resize them if you prefer larger cards. Tapping a device’s icon turns it on or off (or triggers its assigned action), while tapping anywhere else on the card opens its full controls.\nAsif Iqbal Shaik / SamMobile\nAt the top of the Home tab, a dynamic summary card highlights key insights, such as weekly or monthly energy usage, quick remote access for TVs, family care alerts, and suggested automations. You can dismiss this card if you prefer to see your connected devices right away.\nThe Favorites section, which shows pinned devices and routines, is also featured in the Home tab. At the top of the screen, your home’s QR code, the location drop-down selector, and the overflow menu are now enclosed in individual pill-shaped outlines rather than being borderless.\nThe built-in virtual remote for TVs and smart monitors now supports a dedicated Light Mode. It can be resized for easier one-handed reach and moved to any of the four corners of the screen. The dedicated TV hub page also adopts the floating tab bar layout, divided into three sections: For You, Featured, and Settings, with a persistent Remote shortcut on the bottom right corner.\nDeeper sub-menus, such as specific device plugins for air conditioners, soundbars, wireless speakers, and washers/dryers, have not yet received the redesign. Samsung will likely roll out updated designs for those individual device plugins with future updates."
-    }
   ],
   "rewrites": 0,
   "telegram": {
@@ -136,5 +124,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "home": "pin",
+  "home_at": "2026-09-29T09:37:21Z",
+  "slug": "smartthings-yenilenen-tasarimi-iphones",
+  "published_at": "2026-09-29T09:37:21Z",
+  "publish_mode": "manual"
 }
