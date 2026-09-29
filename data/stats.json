@@ -5,11 +5,11 @@
       "rejected": 4
     },
     "The Verge": {
-      "approved": 7,
-      "rejected": 5
+      "approved": 8,
+      "rejected": 7
     },
     "Engadget": {
-      "approved": 9,
+      "approved": 10,
       "rejected": 2
     },
     "Google": {
@@ -34,7 +34,7 @@
     },
     "ShiftDelete.Net": {
       "approved": 14,
-      "rejected": 8
+      "rejected": 9
     },
     "Webtekno": {
       "approved": 10,
@@ -53,8 +53,8 @@
       "rejected": 4
     },
     "TechCrunch": {
-      "approved": 12,
-      "rejected": 2
+      "approved": 13,
+      "rejected": 3
     },
     "Egirisim": {
       "approved": 2,
@@ -62,10 +62,10 @@
     },
     "Polygon": {
       "approved": 3,
-      "rejected": 2
+      "rejected": 4
     },
     "WIRED": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 3
     },
     "IGN": {
@@ -78,7 +78,7 @@
     },
     "GSMArena": {
       "approved": 4,
-      "rejected": 2
+      "rejected": 3
     },
     "Ars Technica": {
       "approved": 2,
@@ -94,19 +94,19 @@
     },
     "BBC Teknoloji": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "The Guardian Teknoloji": {
       "approved": 3,
       "rejected": 0
     },
     "Bloomberg Teknoloji": {
-      "approved": 4,
-      "rejected": 1
+      "approved": 6,
+      "rejected": 2
     },
     "Digital Trends": {
       "approved": 2,
-      "rejected": 2
+      "rejected": 3
     },
     "TechRadar": {
       "approved": 5,
@@ -133,11 +133,11 @@
       "rejected": 0
     },
     "Wccftech": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 1
     },
     "Tom's Guide": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 3
     },
     "The Next Web": {
@@ -157,7 +157,7 @@
       "rejected": 1
     },
     "The Decoder": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 1
     },
     "SamMobile": {
@@ -205,12 +205,12 @@
       "rejected": 0
     },
     "9to5Mac": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 1
     },
     "MacRumors": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "9to5Google": {
       "approved": 2,
@@ -221,8 +221,32 @@
       "rejected": 0
     },
     "New York Times Teknoloji": {
+      "approved": 2,
+      "rejected": 0
+    },
+    "CNET": {
       "approved": 1,
       "rejected": 0
+    },
+    "DroneDJ": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "DIY Photography": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "Xbox Wire": {
+      "approved": 1,
+      "rejected": 0
+    },
+    "Kotaku": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "Android Police": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
@@ -1645,6 +1669,84 @@
     {
       "t": "2026-09-29T15:05:10Z",
       "id": "68f33d2481",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:20Z",
+      "id": "d812f5b013",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:22Z",
+      "id": "a97cd8b180",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:25Z",
+      "id": "93bfe3a18e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:33Z",
+      "id": "a1d48e7e48",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:40Z",
+      "id": "7c3b4c0b42",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:43Z",
+      "id": "5db4e8a22c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:48Z",
+      "id": "423fe877ba",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:50Z",
+      "id": "d8be11ee84",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:55Z",
+      "id": "4a36c9a1ec",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:39:57Z",
+      "id": "d3939f0b45",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:40:00Z",
+      "id": "ea88e46f61",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:40:03Z",
+      "id": "3d2d979e1e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-29T17:40:06Z",
+      "id": "47c665ed71",
       "ok": false,
       "manual": true
     }
