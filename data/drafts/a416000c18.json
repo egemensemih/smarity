@@ -1,0 +1,82 @@
+{
+  "id": "a416000c18",
+  "status": "pending",
+  "created_at": "2026-09-30T19:10:26Z",
+  "title": "Reddit RSS desteğini yapay zeka kazıma faaliyetleri nedeniyle sonlandırıyor",
+  "summary": "Reddit, yapay zeka tarafından gerçekleştirilen veri kazıma ve otomatik suiistimalleri gerekçe göstererek RSS desteğini 13 Kasım'da sonlandıracağını açıkladı.",
+  "body": "Reddit'in açıklamasına göre, platformdaki **RSS** beslemeleri büyük ölçekli veri kazıma ve otomatik suiistimallerde kullanıldığı gerekçesiyle 13 Kasım tarihinde kapatılacak. The Next Web'in aktardığı bilgilere göre, site üzerindeki yeni gönderileri takip etmeyi sağlayan bu özellik, normal kullanıcılar için tamamen ortadan kalkacak. Topluluk moderatörleri için ise uyarılar amacıyla Discord Relay uygulamasına geçiş yapma imkanı sunulacak.\n\n## Eski Reddit ve API erişimi daralıyor\n\nŞirket, klasik yazı ağırlıklı tasarım olan Old Reddit erişimini de daraltmaya hazırlanıyor. Önümüzdeki aylarda bu arayüze yalnızca moderatörler ve son altı ayda kullanan kişiler erişebilecek. Bunun yanı sıra, halka açık API erişiminin Mart 2027'de sona ereceği duyuruldu. Platform, yeni API başvurularını 31 Ekim'de durduracak ve kayıt yaptırmayan uygulamaların bağlantısını 12 Ocak'tan itibaren kesecek. Geliştirici Platformu'na taşınmak üzere kayıt yapan 14 binden fazla uygulama arasından uygun bulunanlara 1 milyon dolarlık fondan biner dolar ödeme yapılacak.\n\n## Moderatör araçlarında değişiklikler\n\nYeni topluluklar ve daha önce Automod kullanmamış olanlar, gönderileri kaldırma, filtreleme veya onaylama özelliklerini kaybedecek. Kuralların uygulanmasında Kurallar Merkezi ve Otomasyonlar varsayılan sistem olacak. Karara tepki gösteren bazı moderatörler, bu değişikliklerin yasaklamaları artıracağını ifade etti.\n\n**Neden önemli?** Platformun aldığı bu kararlar, internet genelinde yapay zeka botlarının veri toplamasını engelleme çabalarının artan etkisini gösteriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Reddit",
+    "yapay zeka",
+    "API"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Reddit RSS desteğini sonlandırıyor",
+  "kicker": "Platform kararı",
+  "hero_stat": "1 milyon $",
+  "hero_stat_label": "geliştirici fonu",
+  "visual_style": "studio",
+  "visual_scene": "a single physical server rack made of dark matte metal, with a single amber LED light glowing steadily on the front panel, casting a soft shadow on a neutral gray background",
+  "focus_keyword": "Reddit RSS desteği",
+  "seo_title": "Reddit RSS desteğini yapay zeka nedeniyle kapatıyor",
+  "meta_description": "Reddit, yapay zeka veri kazıma faaliyetlerini gerekçe göstererek RSS beslemelerini 13 Kasım'da sonlandıracağını açıkladı.",
+  "seo_slug": "reddit-rss-destegi-sonlandiriliyor",
+  "image_alt": "Karanlık mat metal sunucu rafı ve tek bir turuncu LED ışık",
+  "cover_text": "Reddit RSS",
+  "carousel_points": [
+    "Reddit, RSS beslemelerini 13 Kasım tarihinde kapatma kararı aldı.",
+    "Kapatılma gerekçesi olarak yapay zeka veri kazıma faaliyetleri gösterildi.",
+    "Klasik tasarım Old Reddit ve genel API erişimi de daraltılıyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Reddit RSS desteğini 13 Kasım'da kapatıyor",
+  "cover_highlight": "13 Kasım'da",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Reddit, yapay zeka kazıma gerekçesiyle RSS beslemelerini kapatıyor.",
+  "entities": [
+    "Reddit"
+  ],
+  "topic": "Reddit killing RSS feeds due to AI scraping",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/reddit-rss-feeds-shut-down-old-reddit-ai-scraping",
+      "title": "Reddit is killing RSS feeds on 13 November, blaming AI scraping",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T18:38:05Z",
+      "image": "https://media.thenextweb.com/2026/09/reddit-app-icon-iphone-home-screen-close-up.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Next Web",
+      "kind": "media",
+      "title": "Reddit is killing RSS feeds on 13 November, blaming AI scraping",
+      "url": "https://thenextweb.com/news/reddit-rss-feeds-shut-down-old-reddit-ai-scraping",
+      "published": "2026-09-30T18:38:05Z",
+      "summary": "Reddit will stop supporting RSS feeds on 13 November, blaming AI scraping. RSS is now widely used for large-scale scraping and automated abuse, the company said in a post to moderators on Wednesday. RSS lets people follow a site’s new posts in a feed reader. Moderators who use it for alerts can move to a […] This story continues at The Next Web",
+      "text": "Reddit will stop supporting RSS feeds on 13 November, blaming AI scraping. RSS is now widely used for large-scale scraping and automated abuse, the company said in a post to moderators on Wednesday.\nRSS lets people follow a site’s new posts in a feed reader. Moderators who use it for alerts can move to a Discord Relay app instead, Reddit said. Everyone else loses it.\n“If you use RSS for feeds outside of a community you moderate, there is no replacement,” Reddit wrote.\nOld Reddit and the API\nReddit is also tightening access to Old Reddit, the site’s classic text-heavy design. It already requires people to log in. In the next few months, only moderators and people who used it in the past six months will keep access. That covers “the vast majority” of its users, Reddit said.\nPublic API access ends in March 2027, Reddit said in a separate post for developers. It will stop accepting new API requests on 31 October. From 12 January, it will start cutting off apps that have not registered.\nMore than 14,000 apps and bots have registered to move to its Developer Platform. Reddit is paying $1,000 to each eligible app that completes the move, from a $1m fund.\nNew communities, and those that have never used Automod, also lose the tool’s power to remove, filter or approve posts. Rules Hub and Automations become the default for enforcing rules.\nModerators push back\nModerators criticised the changes in the replies. Some said losing Automod would lead to more bans.\n“RSS is the only way I find out about posts in subs like this one,” one moderator wrote.\nReddit first set out these plans in August, when it replaced parts of Automod with AI rules enforcement. In July, Reddit was weighing whether to cut Google off from its content. Cloudflare’s chief executive said this week that bot traffic could reach 1,000 times human traffic.\nGet the TNW newsletter\nGet the most important tech news in your inbox each week."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 682
+  },
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-3",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %13 (<%85)"
+}
