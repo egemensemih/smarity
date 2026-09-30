@@ -14,11 +14,11 @@
     },
     "Google": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Interesting Engineering": {
       "approved": 6,
-      "rejected": 9
+      "rejected": 10
     },
     "Webrazzi": {
       "approved": 10,
@@ -62,7 +62,7 @@
     },
     "Polygon": {
       "approved": 4,
-      "rejected": 6
+      "rejected": 7
     },
     "WIRED": {
       "approved": 2,
@@ -102,7 +102,7 @@
     },
     "Bloomberg Teknoloji": {
       "approved": 10,
-      "rejected": 12
+      "rejected": 13
     },
     "Digital Trends": {
       "approved": 4,
@@ -114,7 +114,7 @@
     },
     "Android Authority": {
       "approved": 5,
-      "rejected": 5
+      "rejected": 6
     },
     "SoundGuys": {
       "approved": 6,
@@ -126,7 +126,7 @@
     },
     "CNBC Teknoloji": {
       "approved": 3,
-      "rejected": 2
+      "rejected": 3
     },
     "Digital Camera World": {
       "approved": 2,
@@ -142,7 +142,7 @@
     },
     "The Next Web": {
       "approved": 2,
-      "rejected": 16
+      "rejected": 18
     },
     "InsideEVs": {
       "approved": 2,
@@ -214,7 +214,7 @@
     },
     "9to5Google": {
       "approved": 3,
-      "rejected": 0
+      "rejected": 1
     },
     "XDA": {
       "approved": 1,
@@ -222,7 +222,7 @@
     },
     "New York Times Teknoloji": {
       "approved": 2,
-      "rejected": 2
+      "rejected": 3
     },
     "CNET": {
       "approved": 1,
@@ -254,11 +254,11 @@
     },
     "NASA": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "Game Developer": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "Rock Paper Shotgun": {
       "approved": 0,
@@ -286,7 +286,7 @@
     },
     "Google DeepMind": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "Nintendo Life": {
       "approved": 0,
@@ -303,63 +303,13 @@
     "GameSpot": {
       "approved": 0,
       "rejected": 1
+    },
+    "Donanım Arşivi": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-28T09:07:22Z",
-      "id": "e331b8589c",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:08:19Z",
-      "id": "d4baddc316",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:08:30Z",
-      "id": "bd552ff5ef",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:08:42Z",
-      "id": "1bf41ad92a",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:48:54Z",
-      "id": "45517acfc3",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:49:02Z",
-      "id": "f80dd530fa",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:49:03Z",
-      "id": "daab0b017b",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:49:12Z",
-      "id": "c16fb29671",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-28T09:49:13Z",
-      "id": "da8c6d5634",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-28T10:19:12Z",
       "id": "21f231df8d",
@@ -2103,6 +2053,60 @@
     {
       "t": "2026-09-30T19:58:03Z",
       "id": "103e05cf5d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:26Z",
+      "id": "0f521cf7f9",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:27Z",
+      "id": "5e8caf833c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:28Z",
+      "id": "bbd63a06c8",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:29Z",
+      "id": "7429887545",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:30Z",
+      "id": "3902ecf6f1",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:31Z",
+      "id": "684d07185e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:32Z",
+      "id": "aac2a5d637",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:33Z",
+      "id": "c10ec3092e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:05:34Z",
+      "id": "21f760374a",
       "ok": false,
       "manual": true
     }
