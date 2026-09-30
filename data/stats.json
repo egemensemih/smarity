@@ -54,7 +54,7 @@
     },
     "TechCrunch": {
       "approved": 19,
-      "rejected": 8
+      "rejected": 9
     },
     "Egirisim": {
       "approved": 2,
@@ -310,12 +310,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-28T10:19:12Z",
-      "id": "21f231df8d",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-28T10:19:14Z",
       "id": "958da72af8",
@@ -2107,6 +2101,12 @@
     {
       "t": "2026-09-30T21:05:34Z",
       "id": "21f760374a",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T21:55:24Z",
+      "id": "20a6e371fb",
       "ok": false,
       "manual": true
     }
