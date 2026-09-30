@@ -1,0 +1,123 @@
+{
+  "id": "218eafbfc1",
+  "status": "pending",
+  "created_at": "2026-09-30T14:53:14Z",
+  "title": "DeepSeek ve Huawei, yapay zeka çiplerini geliştirmek için ortaklık kurdu",
+  "summary": "DeepSeek, Huawei'nin Ascend çipleri için açık kaynaklı programlama araçları ve TileLang dilini yayınlayarak Nvidia'nın yazılım üstünlüğüne karşı güç birliği yaptı.",
+  "body": "Yapay zeka geliştiricisi **DeepSeek** ile teknoloji devi Huawei, Çin'in yapay zeka alanındaki bağımsızlık çabaları kapsamında kritik bir ortaklığa imza attı. The Decoder ve The New York Times'ın aktardığına göre DeepSeek, Huawei'nin Ascend çiplerinde çalışmak üzere hesaplama kütüphaneleri ve veri taşıma araçlarını içeren açık kaynaklı yazılımlar yayınladı. İki şirket, 128 adet Ascend 950 çipinden oluşan bir süper düğüm sistemini de optimize etti. \n\n## TileLang ve CUDA rakip yazılım ekosistemi\n\nOrtaklığın merkezinde, Peking Üniversitesi araştırmacıları tarafından geliştirilen **TileLang** adlı açık kaynaklı programlama dili yer alıyor. DeepSeek, yaklaşık bir yıldır kullandığı bu dilin, Nvidia'nın yaygın yazılım platformu CUDA'ya kıyasla daha basit bir programlama modeli sunduğunu savunuyor. Çin'in yapay zeka endüstrisindeki en büyük engellerden biri olan çip yazılımı eksikliği, bu hamleyle aşılmaya çalışılıyor. Nvidia'nın gücünü sadece donanımından değil, dünya genelindeki milyonlarca geliştiricinin kullandığı CUDA ekosisteminden aldığı biliniyor.\n\n## Küresel çip paktı ve pazar durumu\n\nHuawei, artan yerel talebe yetişemediği için ABD ihracat kontrolleri ve arz sıkıntıları nedeniyle çiplerini yurt dışına daha az satmayı planlıyor. Öte yandan pazar araştırması firması SemiAnalysis, OpenAI'ın kendi özel çipi Jalapeño ile yaptığı testlerde Nvidia'nın yazılım avantajının bazı alanlarda zayıfladığını belirtirken, karmaşık yapay zeka ajan iş yüklerinde Nvidia'nın hala önde olduğunu vurguluyor.\n\n**Neden önemli?** Çin yapay zeka sektörünün yerli çipleri en verimli şekilde kullanabilmesi için bağımsız yazılım ekosistemleri kurması gerekiyor; DeepSeek ve Huawei iş birliği bu alandaki dışa bağımlılığı azaltmayı hedefliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "DeepSeek",
+    "Huawei",
+    "Nvidia",
+    "Çin",
+    "yapay zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "DeepSeek ve Huawei'den yapay zeka çip ortaklığı",
+  "kicker": "Yazılım ortaklığı",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a dense cluster of translucent dark silicon blocks connected by glowing amber threads of light, resting on a matte dark surface",
+  "focus_keyword": "DeepSeek Huawei",
+  "seo_title": "DeepSeek ve Huawei'den Yapay Zeka Çip Yazılımı Ortaklığı",
+  "meta_description": "DeepSeek ve Huawei, Nvidia'nın yazılım üstünlüğüne karşı Ascend çipler için açık kaynaklı TileLang programlama araçlarını duyurdu.",
+  "seo_slug": "deepseek-huawei-yapay-zeka-cip-yazilimi",
+  "image_alt": "Koyu renkli silikon bloklar arasında yayılan kehribar rengi bağlantı çizgilerini temsil eden stüdyo görseli",
+  "cover_text": "DeepSeek Huawei",
+  "carousel_points": [
+    "DeepSeek ve Huawei, Huawei Ascend çiplerine yönelik açık kaynaklı programlama araçları yayınladı.",
+    "Merkezde yer alan TileLang dili, Nvidia'nın CUDA platformuna kıyasla daha basit bir alternatif sunuyor.",
+    "Ortaklık, Çin'in yapay zeka donanımlarında dışa bağımlılığını azaltmayı hedefliyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "DeepSeek ve Huawei Ascend çipler için güç birliği yaptı",
+  "cover_highlight": "DeepSeek ve Huawei",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "DeepSeek ve Huawei Ascend çipler için güç birliği yaptı.",
+  "entities": [
+    "DeepSeek",
+    "Huawei"
+  ],
+  "topic": "DeepSeek and Huawei collaborate on Ascend chip tools",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/chinas-ai-industry-closes-ranks-as-deepseek-ships-open-source-software-for-huaweis-ascend-chips/",
+      "title": "China's AI industry closes ranks as Deepseek ships open-source software for Huawei's Ascend chips",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/chinas-ai-industry-closes-ranks-as-deepseek-ships-open-source-software-for-huaweis-ascend-chips/#respond",
+      "published": "2026-09-30T14:37:24Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/08/deepseek_deepseek_logo.png"
+    },
+    {
+      "name": "New York Times Teknoloji",
+      "url": "https://www.nytimes.com/2026/09/30/business/china-ai-deepseek-huawei.html",
+      "title": "DeepSeek and Huawei Target a Key Source of Nvidia’s A.I. Dominance",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T13:36:53Z",
+      "image": "https://static01.nyt.com/images/2026/09/30/world/30biz-china-ai-DeepSeek/30biz-china-ai-DeepSeek-mediumSquareAt3X.jpg"
+    }
+  ],
+  "source_keys": [
+    "The Decoder",
+    "New York Times Teknoloji"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Decoder",
+      "kind": "media",
+      "title": "China's AI industry closes ranks as Deepseek ships open-source software for Huawei's Ascend chips",
+      "url": "https://the-decoder.com/chinas-ai-industry-closes-ranks-as-deepseek-ships-open-source-software-for-huaweis-ascend-chips/",
+      "published": "2026-09-30T14:37:24Z",
+      "summary": "Deepseek and Huawei have built open-source programming tools for Huawei's Ascend AI chips. At the center is TileLang, a language designed to offer a simpler programming model than Nvidia's CUDA. The partnership targets the biggest obstacle for China's AI industry, which is software that gets the most out of domestic chips. The article China's AI industry closes ranks as Deepseek ships open-source software for Huawei's Ascend chips appeared first on The Decoder .",
+      "text": "China's AI industry closes ranks as Deepseek ships open-source software for Huawei's Ascend chips\nDeepseek is releasing open-source programming tools for Huawei's AI chips. The centerpiece is TileLang, a language meant to be easier to work with than Nvidia's CUDA software platform.\nChinese AI developer Deepseek has teamed up with Huawei to build programming tools for Huawei's Ascend chips, according to a post on Deepseek's official WeChat channel. The software includes libraries for computation and for moving data between chips, and Deepseek is making all of it open source, Reuters reports.\nAccording to Deepseek, Huawei \"fully supported\" the work. The two companies also optimized a so-called supernode, a cluster of 128 Ascend 950 chips.\nTileLang is at the core of the release. The open-source programming language for AI chips was originally developed by researchers at Peking University, and Deepseek has been using it for about a year. Deepseek argues that anyone trying to build an independent software ecosystem for AI chips first needs a universal language that's easy to program but still gets full performance out of the hardware. In the company's view, TileLang offers a simpler programming model than CUDA.\nDeepseek first tested the language on older Nvidia chips. TileLang is now the company's main tool for its work on artificial general intelligence (AGI), The New York Times reports.\nSoftware will decide how far China's chip push goes\nThe partnership goes after one of the biggest problems facing China's AI industry. Domestic chips need software that can get the most out of them.\nNvidia's dominance doesn't come from chip design alone. It also rests on an estimated four million developers worldwide who build with CUDA. That ecosystem is the moat rivals like AMD haven't been able to cross, even when their hardware looked just as strong on paper.\nSo far, Chinese model makers like Z.ai and Moonshot AI have moved faster than the country's chipmakers, according to the NYT. Huawei wants to close that gap. Two weeks before Deepseek's announcement, the company unveiled new AI processors and supernode systems and said they would be widely used for model training next year.\nHuawei also admits it can't keep up with demand at home, so it plans to sell fewer chips abroad. Referring to US export controls, Huawei's current rotating chairman Eric Xu said the company can't accept a future that hinges on whether others are willing to sell chips to China.\nCUDA's moat is weakening, but Nvidia still leads on agent workloads\nResearch firm SemiAnalysis has been looking at how much of that moat is left. After testing Jalapeño, OpenAI's inference chip, the analysts called the CUDA moat \"potentially dead\" because OpenAI gets new models running on its own hardware so quickly.\nJalapeño beat Nvidia's Blackwell on performance per watt in most of the scenarios tested. According to SemiAnalysis, OpenAI models also helped design the chip, and those models run on Nvidia GPUs.\nThe analysts added their own caveats. They only tested scenarios that are relatively easy to optimize, with about 8,000 input tokens and 1,000 output tokens. They haven't yet run AgentX, a benchmark that measures how AI agents handle multistep tasks.\nThat's exactly where SemiAnalysis found Nvidia well ahead back in August. With AMD's current software stack, Nvidia would still come out cheaper per token even if AMD gave its hardware away. The authors don't see Nvidia's lasting advantage in the silicon itself. They see it in the software that links many chips into one system.\nHuawei's chips weren't part of the AgentX comparison. In an earlier analysis of DeepSeek V4, however, SemiAnalysis pointed out that Huawei's CANN software stack was the only one besides CUDA to support the model on day one.\nAI News Without the Hype – Curated by Humans\n\t\t\t\t\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
+    },
+    {
+      "credit": "New York Times Teknoloji",
+      "kind": "media",
+      "title": "DeepSeek and Huawei Target a Key Source of Nvidia’s A.I. Dominance",
+      "url": "https://www.nytimes.com/2026/09/30/business/china-ai-deepseek-huawei.html",
+      "published": "2026-09-30T13:36:53Z",
+      "summary": "In China’s push for self-reliance in artificial intelligence, DeepSeek and Huawei have teamed up to develop software tools for advanced chips.",
+      "text": ""
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 638
+  },
+  "photos": [
+    {
+      "file": "218eafbfc1-g0.webp",
+      "src": "https://static01.nyt.com/images/2026/09/30/world/30biz-china-ai-DeepSeek/30biz-china-ai-DeepSeek-mediumSquareAt3X.jpg",
+      "credit": "New York Times Teknoloji",
+      "page": "https://www.nytimes.com/2026/09/30/business/china-ai-deepseek-huawei.html",
+      "alt": "",
+      "w": 1600,
+      "h": 1600,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "218eafbfc1-g0.webp",
+    "credit": "New York Times Teknoloji",
+    "page": "https://www.nytimes.com/2026/09/30/business/china-ai-deepseek-huawei.html",
+    "src": "https://static01.nyt.com/images/2026/09/30/world/30biz-china-ai-DeepSeek/30biz-china-ai-DeepSeek-mediumSquareAt3X.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %37 (<%85)"
+}
