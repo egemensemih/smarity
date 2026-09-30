@@ -1,0 +1,103 @@
+{
+  "id": "d58300d572",
+  "status": "pending",
+  "created_at": "2026-09-30T18:37:36Z",
+  "title": "OpenAI, Kimi K3'ün geliştiricisi Moonshot AI'ı model kopyalama kampanyasıyla suçladı",
+  "summary": "Wccftech'in aktardığına göre OpenAI, Kimi K3 modelinin geliştiricisi Moonshot AI'ı şifreli muhakeme yeteneklerini kopyalamaya çalışmakla suçladı.",
+  "body": "Wccftech'in aktardığına göre **OpenAI**, popüler **Kimi K3** modelinin arkasındaki yapay zeka laboratuvarı Moonshot AI'ı, gizli muhakeme verilerini kopyalamak amacıyla koordine bir model damıtma kampanyası düzenlemekle suçladı. OpenAI'ın yayınladığı rapora göre, temmuz ayının başından itibaren tespit edilen bu girişimler, şirketin veri tabanlarına doğrudan bir sızma veya şifre kırma başarısı sağlayamasa da, kullanıcı etkileşimlerinin manipüle edilmesiyle korunan muhakeme biçimlerinin görünür kılınmasını hedefledi.\n\n## Kapsamlı istekler ve tespit detayları\n\nOpenAI'ın açıklamalarına göre kampanya, 1 Temmuz tarihinde düşük hacimli olarak başladı ve 24-25 Temmuz tarihlerinde 4.000'den fazla kullanıcı üzerinden gerçekleştirilen 16.000 istekle zirve yaptı. Bu süreçte şifreli muhakeme içerikleri başka bir konuşmadaki modele deşifre ettirildi. Şirket, yürütülen çalışmalar sonucunda bu faaliyeti 28 Temmuz itibarıyla tamamen durdurduğunu açıkladı. Benzer şekilde, temmuz ayının sonlarında ABD yönetimi de Moonshot AI'ın kendi modellerini Anthropic sistemlerinden damıtarak geliştirdiğine dair ellerinde bilgi olduğunu açıklamıştı.\n\n## Kimi K3 ve model damıtma tartışmaları\n\nÖte yandan, yapılan bazı bağımsız çalışmalar Kimi K3 modelinin diğer modellere kıyasla Claude ve GPT tarzı muhakeme kalıplarını taklit etmeye çok daha yatkın olduğunu gösterdi. Bununla birlikte uzmanlar, Kimi K3 modelinin çok sayıda ekran kartı üzerinde çalışan verimli mimari optimizasyonları sayesinde veri merkezi ölçeğinde yüksek verimlilik sunduğunu da belirtiyor.\n\n**Neden önemli?** Yapay zeka sektöründe gelişmiş modellerin gizli muhakeme yeteneklerinin izinsiz kopyalanması ve damıtılması, şirketler ile düzenleyiciler arasındaki güvenlik ve rekabet tartışmalarını hızlandırıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Moonshot AI",
+    "Kimi K3",
+    "Anthropic"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI'dan Moonshot AI'a model kopyalama suçlaması",
+  "kicker": "Yapay zeka",
+  "hero_stat": "16.000",
+  "hero_stat_label": "şüpheli istek sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling offilor edge onto a soft surface",
+  "focus_keyword": "Moonshot AI Kimi K3",
+  "seo_title": "OpenAI'dan Moonshot AI'a kopyalama suçlaması",
+  "meta_description": "Wccftech'in haberine göre OpenAI, Kimi K3 modelinin geliştiricisi Moonshot AI'ı şifreli muhakeme verilerini kopyalamaya çalışmakla suçladı.",
+  "seo_slug": "openai-moonshot-ai-model-kopyalama-suclamasi",
+  "image_alt": "Buzlu cam küplerden yükselen grafik: yapay zeka model damıtma kampanyasını temsil eden görsel",
+  "cover_text": "Kimi K3",
+  "carousel_points": [
+    "OpenAI, Moonshot AI'ı model damıtma kampanyası düzenlemekle suçladı.",
+    "Kampanya kapsamında şifreli muhakeme verilerini kopyalamak için 16.000 istek yapıldı.",
+    "OpenAI yönetimi şüpheli faaliyetleri 28 Temmuz'da tamamen durdurdu."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Moonshot AI'dan şifreli verileri kopyalama girişimi",
+  "cover_highlight": "Moonshot AI'dan",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Moonshot AI'ın OpenAI verilerini sızdırma girişimi doğrulandı.",
+  "entities": [
+    "Moonshot AI",
+    "OpenAI",
+    "Kimi"
+  ],
+  "topic": "Moonshot AI tried to extract OpenAI reasoning data",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/moonshot-ai-of-kimi-k3-fame-tried-to-crack-openais-encrypted-reasoning-through-16000-requests-bolstering-trump-administrations-distillation-claims/",
+      "title": "Moonshot AI Of Kimi K3 Fame Tried To Crack OpenAI’s Encrypted Reasoning Through 16,000 Requests, Bolstering Trump Administration’s Distillation Claims",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T18:27:10Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/09/Moonshot-Kimi-K3-OpenAI-1.jpg"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "source_texts": [
+    {
+      "credit": "Wccftech",
+      "kind": "media",
+      "title": "Moonshot AI Of Kimi K3 Fame Tried To Crack OpenAI’s Encrypted Reasoning Through 16,000 Requests, Bolstering Trump Administration’s Distillation Claims",
+      "url": "https://wccftech.com/moonshot-ai-of-kimi-k3-fame-tried-to-crack-openais-encrypted-reasoning-through-16000-requests-bolstering-trump-administrations-distillation-claims/",
+      "published": "2026-09-30T18:27:10Z",
+      "summary": "Once or twice can be a fluke, but thrice is a pattern, and OpenAI is now making sure that Moonshot AI - the lab behind the wildly successful Kimi K3 model - is tagged as a serial violator when it comes to orchestrating model distillation campaign, echoing similar calls from Anthropic and the Trump administration earlier this summer. OpenAI: \"We attribute a core cluster of the [model distillation] activity to individuals associated with Moonshot AI, the developer of Kimi\" OpenAI has just penned a post titled \"Disrupting a coordinated model-distillation campaign,\" detailing efforts to extract…",
+      "text": "Once or twice can be a fluke, but thrice is a pattern, and OpenAI is now making sure that Moonshot AI - the lab behind the wildly successful Kimi K3 model - is tagged as a serial violator when it comes to orchestrating model distillation campaign, echoing similar calls from Anthropic and the Trump administration earlier this summer.\nOpenAI: \"We attribute a core cluster of the [model distillation] activity to individuals associated with Moonshot AI, the developer of Kimi\"\nOpenAI has just penned a post titled \"Disrupting a coordinated model-distillation campaign,\" detailing efforts to extract \"protected reasoning\" from its models, with the first such \"observed activity occurring in the first week of July,\" which is right around the time that the Kimi K3 model debuted.\nOpenAI adds that the campaign was unable to \"break our encryption, compromise a database, or gain direct access to stored user conversations,\" but did manage to manipulate \"model interactions so that protected reasoning could be reproduced in forms visible to the requester in a coordinated, scaled manner that violated our terms of service.\"\nOpenAI also found that:\n- The campaign copied encrypted reasoning from one conversation and asked a model in another conversation to decrypt and transcribe the hidden reasoning content.\n- \"The activity began on July 1, initially at a low volume until we observed high-volume spikes on July 24 and 25 consisting of 16,000 requests using a relevant extraction pattern from over 4,000 users.\"\n- The prompt-pattern activity was spread across a cluster of more than 15,000 users.\n- OpenAI was able to fully disrupt the campaign by July 28.\n- \"We attribute a core cluster of the activity to individuals associated with Moonshot AI, the developer of Kimi.\"\nInterestingly, it was also in late July that the current Chief Science and Technology Advisor and the Director of the White House Office of Science and Technology Policy (OSTP), Michael Kratsios, declared that the US government had \"information\" that Moonshot distilled its Kimi K3 model from Anthropic's models.\nWe also recently discussed a study where the authors fed just a 1 percent fragment of Claude Opus 4.8's decoded reasoning into Kimi K3, and the Kimi K3's subsequent thinking and final answer shifted dramatically to match Claude's style and wording.\nIn fact, according to the authors \"specific Claude and GPT reasoning spans are up to ~6 orders of magnitude easier to extract from Kimi-K3 than from the next-closest model.\"\nBasically, the study demonstrated that Moonshot's Kimi K3 exhibits an unusually high statistical probability of predicting and continuing Claude's text compared to other open models like DeepSeek-V4-Flash, suggesting strong behavioral compatibility with the reasoning patterns of Claude Opus.\nOf course, this is not to say that Moonshot AI did not add any value on its own. After all, the Kimi K3 model is quite efficient to run on data center-scale hardware, courtesy of its dramatically reduced KV cache and built-in optimizations for per-token memory use - achieved by distributing its 896 experts across a large number of GPUs.\nMeanwhile, Z.ai (Zhipu) was the only China-based AI lab that was able to approach Claude Mythos-level capability in Anthropic's recent testing, where its GLM-5.3 model managed to develop full control hijacks in 4 percent of the trials versus Mythos' 6 percent. This shows that China's models are increasingly gaining ground, partly through their own research and partly via distilling reasoning traces of advanced models from Anthropic and OpenAI.\nFollow Wccftech on Google to get more of our news coverage in your feeds."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 676
+  },
+  "photos": [
+    {
+      "file": "d58300d572-g0.webp",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/09/Moonshot-Kimi-K3-OpenAI-1.jpg",
+      "credit": "Wccftech",
+      "page": "https://wccftech.com/moonshot-ai-of-kimi-k3-fame-tried-to-crack-openais-encrypted-reasoning-through-16000-requests-bolstering-trump-administrations-distillation-claims/",
+      "alt": "",
+      "w": 1380,
+      "h": 1128,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "d58300d572-g0.webp",
+    "credit": "Wccftech",
+    "page": "https://wccftech.com/moonshot-ai-of-kimi-k3-fame-tried-to-crack-openais-encrypted-reasoning-through-16000-requests-bolstering-trump-administrations-distillation-claims/",
+    "src": "https://cdn.wccftech.com/wp-content/uploads/2026/09/Moonshot-Kimi-K3-OpenAI-1.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %13 (<%85)"
+}
