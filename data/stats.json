@@ -33,12 +33,12 @@
       "rejected": 18
     },
     "ShiftDelete.Net": {
-      "approved": 16,
+      "approved": 17,
       "rejected": 11
     },
     "Webtekno": {
       "approved": 11,
-      "rejected": 4
+      "rejected": 5
     },
     "Anadolu Ajansı": {
       "approved": 3,
@@ -190,7 +190,7 @@
     },
     "What Hi-Fi": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "Stuff": {
       "approved": 1,
@@ -270,24 +270,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-25T15:07:38Z",
-      "id": "3e23120379",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:07:39Z",
-      "id": "69999242b3",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:58:29Z",
-      "id": "74cc97382c",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-25T15:58:39Z",
       "id": "f473c44f92",
@@ -2067,6 +2049,24 @@
     {
       "t": "2026-09-30T14:31:10Z",
       "id": "6a88e1bc5c",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T15:29:49Z",
+      "id": "6b36a17bea",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T15:29:51Z",
+      "id": "09ac54682a",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T15:30:05Z",
+      "id": "9267ea702f",
       "ok": true,
       "manual": true
     }

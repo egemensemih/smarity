@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815995,
+  "telegram_offset": 872815998,
   "last_collect": "2026-09-30T15:20:43Z",
   "last_summary_date": "2026-09-29",
   "mode_override": null,
@@ -768,16 +768,16 @@
       "cost_usd": 0.0,
       "drafts": 80,
       "updates": 7,
-      "rejected": 22,
-      "published": 9,
-      "approved": 9,
+      "rejected": 24,
+      "published": 10,
+      "approved": 10,
       "removed": 1,
       "updated": 3
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-30T14:32:49Z",
+  "last_build": "2026-09-30T15:30:06Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -1052,8 +1052,10 @@
       "held_at": "2026-09-30T15:21:01Z"
     }
   ],
-  "last_activity": "2026-09-30T14:30:13Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-30T15:29:53Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/anthropic-spacex-yapay-zeka-anlasmasi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
