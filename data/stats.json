@@ -213,7 +213,7 @@
       "rejected": 4
     },
     "9to5Google": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "XDA": {
@@ -290,12 +290,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-26T19:55:24Z",
-      "id": "f4dfe3c851",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-26T19:55:25Z",
       "id": "125f1eeb4c",
@@ -2088,6 +2082,12 @@
       "t": "2026-09-30T15:32:27Z",
       "id": "4bdd75f837",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T19:56:04Z",
+      "id": "34cbab65b1",
+      "ok": true,
       "manual": true
     }
   ]
