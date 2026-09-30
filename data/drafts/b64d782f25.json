@@ -1,0 +1,126 @@
+{
+  "id": "b64d782f25",
+  "status": "pending",
+  "created_at": "2026-09-30T16:24:38Z",
+  "title": "ChatGPT üzerinden zararlı yazılım yayan yeni bir saldırı keşfedildi",
+  "summary": "Saldırganlar, ChatGPT'nin özel bot özelliklerini ve Google hizmetlerini kullanarak kullanıcılara uzaktan erişim sağlayan bir Truva atı bulaştırıyor.",
+  "body": "TechRadar'ın aktardığına göre, güvenlik araştırmacıları **ChatGPT** platformunun özel bot özelliklerini kötüye kullanan yeni bir siber saldırı kampanyası tespit etti. Saldırganlar, resmi internet sitesi üzerinde barındırdıkları sahte botlar aracılığıyla kullanıcıları zararlı yazılımlarla hedef alıyor.\n\n## Sahte botlar ve Google Sites yönlendirmesi\nHuntress araştırmacılarının ortaya çıkardığı kampanyada, kimliği belirsiz kişiler tarafından \"Plus 5.6\" adı verilen özel bir GPT botu oluşturuldu. Gerçek bir OpenAI modelini andıran bu bot, kullanıcılara ana alan adında sınırlı erişim yaşandığını belirten bir hata mesajı gösteriyor ve onları Google Sites üzerinde barındırılan bir yedek alan adına yönlendiriyor. Bu yedek sayfada ise sahte bir güvenlik doğrulaması (CAPTCHA) kullanılarak kurbanların Windows Çalıştır komut satırına zararlı kod yapıştırması sağlanıyor.\n\n## Uzaktan erişim sağlayan zararlı yazılım\nYönlendirme sonucunda cihaza indirilen **@input** adlı uzaktan erişim truva atı (RAT), saldırganların kurbanın bilgisayarı üzerinde tam kontrol sahibi olmasına imkan tanıyor. Yazılım sayesinde saldırganlar web kamerasını, mikrofonu ve ekranı uzaktan kontrol edebiliyor, ayrıca cihazdaki tüm dosyalara erişebiliyor. Huntress ekibinin bildiriminin ardından OpenAI ilk botu 25 Eylül'de kapatmasına rağmen, kısa süre içinde yeni bir benzer bot ortaya çıktı.\n\n**Neden önemli?** Güvenilir yapay zeka platformlarının ve meşru bulut servislerinin siber saldırılarda kötüye kullanılması, kullanıcıların resmi bağlantılara güvenirken dahi dikkatli olması gerektiğini gösteriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "ChatGPT",
+    "OpenAI",
+    "Google",
+    "siber güvenlik"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "ChatGPT üzerinden zararlı yazılım yayan saldırı",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "40",
+  "hero_stat_label": "etkilenen olay sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a single glowing glass cube resting on a dark slate surface, with subtle digital threads gently coiling around it, casting soft shadows under studio lighting",
+  "focus_keyword": "ChatGPT",
+  "seo_title": "ChatGPT üzerinden zararlı yazılım yayan saldırı keşfedildi",
+  "meta_description": "Saldırganların ChatGPT üzerindeki özel botları ve Google Sites'ı kullanarak zararlı yazılım yaydığı yeni bir siber güvenlik kampanyası ortaya çıktı.",
+  "seo_slug": "chatgpt-uzerinden-zararli-yazilim-yayildi",
+  "image_alt": "Koyu zemin üzerinde parlayan cam küp ve dijital ip motifleri, yapay zeka güvenliği saldırısını temsil ediyor",
+  "cover_text": "ChatGPT",
+  "carousel_points": [
+    "Saldırganlar ChatGPT üzerinde özel botlar oluşturarak kullanıcıları hedef alıyor.",
+    "Sahte hata mesajlarıyla kullanıcılar Google Sites sayfalarına yönlendiriliyor.",
+    "İndirilen zararlı yazılım kurbanın bilgisayarına uzaktan erişim imkanı tanıyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "ChatGPT botu üzerinden zararlı yazılım yayıldı",
+  "cover_highlight": "ChatGPT botu",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Resmi sitede sahte ChatGPT modeli barındırılarak zararlı yazılım dağıtıldı.",
+  "entities": [
+    "OpenAI",
+    "ChatGPT"
+  ],
+  "topic": "Hackers host fake ChatGPT model on official website distributing malware",
+  "sources": [
+    {
+      "name": "TechRadar",
+      "url": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+      "title": "Hackers host fake ChatGPT model on its official website — but really it's just malware",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T16:10:00Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/SSrgDUXsJwUVxtvheg4YCM-1920-80.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechRadar"
+  ],
+  "source_texts": [
+    {
+      "credit": "TechRadar",
+      "kind": "media",
+      "title": "Hackers host fake ChatGPT model on its official website — but really it's just malware",
+      "url": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+      "published": "2026-09-30T16:10:00Z",
+      "summary": "Attackers abused custom ChatGPT bots and Google Sites to deliver ClickFix malware Fake troubleshooting prompts tricked victims into executing malicious commands Campaign shows trusted AI platforms increasingly leveraged in social engineering attacks Criminals are using custom GPTs in combination with Google services to deliver a ClickFix attack to their targets and deploy dangerous malware that can control the victim’s camera and microphone, experts have warned. A new campaign was recently spotted by security researchers Huntress , and as soon as it was shut down, a new one popped up within…",
+      "text": "- Attackers abused custom ChatGPT bots and Google Sites to deliver ClickFix malware\n- Fake troubleshooting prompts tricked victims into executing malicious commands\n- Campaign shows trusted AI platforms increasingly leveraged in social engineering attacks\nCriminals are using custom GPTs in combination with Google services to deliver a ClickFix attack to their targets and deploy dangerous malware that can control the victim’s camera and microphone, experts have warned.\nA new campaign was recently spotted by security researchers Huntress, and as soon as it was shut down, a new one popped up within days.\nAbusingn legitimate services\nAt the center of the scam is a ChatGPT feature called “Custom GPT”. This is a version of the AI tool that a user can configure for a specific purpose, so instead of starting every conversation with a blank AI, users can create their own one, with a set of instructions, knowledge and files, and different tools and capabilities. But perhaps most importantly, they can create one with unique names, personalities, and conversation starters.\nA custom GPT is hosted on ChatGPT.com, so when a user navigates to one via a link in an email or an instant message, they have no reason to be suspicious, since the URL starts with “chatgpt.com”.\nIn this case, unidentified hackers created a custom GPT which they named “Plus 5.6”. OpenAI names their models “GPT-3.5”, “GPT-5 Pro”, and similar, so “Plus 5.6” definitely sounds like something OpenAI might use, especially for users who don’t really keep tabs on the progress in the AI industry. This GPT was told to display a single message, regardless of the prompt. That message is “We’re currently experiencing limited availability on the primary domain”, followed by instructions to navigate to a “backup domain”.\nThis backup domain is hosted on Google Sites. In itself, Sites is a legitimate service for people who want to build websites without needing to know how to code. In this case, it is also likely used to appear legitimate, although those with an eye for detail might wonder why would OpenAI use Google when it would be perfectly capable of creating a backup domain itself and have it redirect automatically.\nNavigating to this “backup domain” shows the attackers’ true intentions: the site displays a fake Cloudflare CAPTCHA check, asking the visitor to copy and paste a piece of code into the Windows Run program. This is the typical ClickFix attack: the victim is shown a fake problem, and immediately shown a solution.\nSign up to the TechRadar Pro newsletter to get all the top news, opinion, features and guidance your business needs to succeed!\nDeploying a RAT\nThe “solution” leads to the downloading and running of a Remote Access Trojan (RAT) Huntress calls “@input”. This payload gives attackers almost full control of the infected Windows computer, showing them the victim’s screen, and letting them operate the device remotely. They can switch on the webcam, microphone, and system audio to watch and listen.\nThey can search through every file on the computer, including the contents of documents, to find valuable information, but before doing any of that, they can take stock of the machine, checking what security software is installed, what programs are running, and how the device connects to a wider network.\nThe malware can also download and run additional components and separate strains. In fact, in most cases Huntress investigated, it did exactly that - without the victims noticing a thing. To remain out of sight, @input contacts its operators through encrypted lookouts that blend into ordinary web traffic, the researchers said. They also added that the tool appears to be part of a well-maintained, professionally run framework.\nHuntress says the campaign impacted “dozens” of users, with the company’s SOC responding to “at least 40” incidents stemming from the specific Google Sites domain involved in this attack. The researchers reached out to OpenAI, which helped take down the custom GPT on September 25. However, a new one emerged two days later.\nFollow TechRadar on Google News and add us as a preferred source to get our expert news, reviews, and opinion in your feeds.\nSead is a seasoned freelance journalist based in Sarajevo, Bosnia and Herzegovina. He writes about IT (cloud, IoT, 5G, VPN) and cybersecurity (ransomware, data breaches, laws and regulations). In his career, spanning more than a decade, he’s written for numerous media outlets, including Al Jazeera Balkans. He’s also held several modules on content writing for Represent Communications.\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 657
+  },
+  "photos": [
+    {
+      "file": "b64d782f25-g0.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/SSrgDUXsJwUVxtvheg4YCM-1920-80.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "b64d782f25-g1.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:1134,cw:2916,ch:2916,q:80,w:2560/SSrgDUXsJwUVxtvheg4YCM.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+      "alt": "",
+      "w": 1600,
+      "h": 1600,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "b64d782f25-g2.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:648,cw:3888,ch:2916,q:80,w:2560/SSrgDUXsJwUVxtvheg4YCM.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+      "alt": "",
+      "w": 1600,
+      "h": 1200,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "b64d782f25-g0.webp",
+    "credit": "TechRadar",
+    "page": "https://www.techradar.com/pro/security/hackers-host-fake-chatgpt-model-on-its-official-website-but-really-its-just-malware",
+    "src": "https://cdn.mos.cms.futurecdn.net/SSrgDUXsJwUVxtvheg4YCM-1920-80.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %13 (<%85)"
+}
