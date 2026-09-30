@@ -1,6 +1,5 @@
 {
   "id": "cf9c22ad72",
-  "status": "pending",
   "created_at": "2026-09-30T10:45:58Z",
   "title": "Apple akıllı ev pazarına giriyor",
   "summary": "Apple, yeni Üst Yöneticisi John Ternus döneminde akıllı ev pazarına 13 Ekim'de giriş yapmaya hazırlanıyor.",
@@ -79,26 +78,75 @@
     "The Verge",
     "MacRumors"
   ],
-  "source_texts": [
-    {
-      "credit": "Bloomberg Teknoloji",
-      "kind": "media",
-      "title": "Apple Is Finally Ready to Enter Its Next Big Category: the Smart Home",
-      "url": "https://www.bloomberg.com/news/articles/2026-09-30/apple-is-finally-ready-to-enter-its-next-big-category-the-smart-home",
-      "published": "2026-09-30T10:30:00Z",
-      "summary": "Apple Inc. plans to make its long-delayed push into the smart-home market on Oct. 13, marking a critical product expansion for the company under new Chief Executive Officer John Ternus.",
-      "text": ""
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 599
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "cf9c22ad72-g0.webp",
+    "credit": "The Verge",
+    "page": "https://www.theverge.com/news/1002563/apple-smart-home-hub-homepad-rumor-launch-date",
+    "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/STK071_APPLE_H.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "layout": "manset",
-    "palette": "inovasyon-2",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %33 (<%85)"
+  "home": "pin",
+  "home_at": "2026-09-30T15:31:15Z",
+  "slug": "apple-akilli-ev-pazari",
+  "published_at": "2026-09-30T15:31:15Z",
+  "publish_mode": "manual",
+  "photos_tried": "2026-09-30T15:31:35Z",
+  "photos": [
+    {
+      "file": "cf9c22ad72-g0.webp",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/STK071_APPLE_H.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/news/1002563/apple-smart-home-hub-homepad-rumor-launch-date",
+      "alt": "",
+      "w": 1600,
+      "h": 1067,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "cf9c22ad72-g1.webp",
+      "src": "https://images.macrumors.com/article-new/2026/09/HomePod-minis-on-gradient-feature-1-1.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/30/apple-home-products-coming-on-october-13/",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "cf9c22ad72-g2.webp",
+      "src": "https://images.macrumors.com/t/e0TqNYVeoDwzijDh-bHP_t5K_e4=/1600x1200/smart/article-new/2026/09/HomePod-minis-on-gradient-feature-1-1.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/30/apple-home-products-coming-on-october-13/",
+      "alt": "",
+      "w": 1600,
+      "h": 1200,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "cf9c22ad72-g3.webp",
+      "src": "https://images.macrumors.com/t/fzyB8-7HFc9lxG6wH_IzvUY1U58=/1200x1200/article-new/2026/09/HomePod-minis-on-gradient-feature-1-1.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/09/30/apple-home-products-coming-on-october-13/",
+      "alt": "",
+      "w": 1200,
+      "h": 1200,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-09-30T15:31:15Z"
 }

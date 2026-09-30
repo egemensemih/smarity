@@ -1,6 +1,6 @@
 {
   "id": "4a0737e663",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-30T11:46:08Z",
   "title": "Apple, özel kişileri hedef alan iPhone açığını yama ile kapattı",
   "summary": "Apple, iPhone cihazlarda belirli kişilere karşı kullanılmış olabilecek bir güvenlik açığını kapatmak için yeni bir güncelleme yayınladı.",
@@ -110,5 +110,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %33 (<%85)"
+  "policy_reason": "Genel onay oranı %33 (<%85)",
+  "rejected_at": "2026-09-30T15:31:25Z"
 }
