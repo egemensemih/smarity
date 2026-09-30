@@ -1,0 +1,84 @@
+{
+  "id": "e13bff0653",
+  "status": "pending",
+  "created_at": "2026-09-30T22:38:02Z",
+  "title": "Zimbra güvenlik açığı kritik e-posta hırsızlığı için kullanılıyor",
+  "summary": "Microsoft, Zimbra Collaboration Suite yazılımındaki kritik bir güvenlik açığının saldırganlar tarafından e-posta ve kimlik bilgilerini çalmak için kullanıldığını açıkladı.",
+  "body": "Zimbra güvenlik açığı, Microsoft'un yaptığı uyarıya göre saldırganlar tarafından e-posta yedeklerini ve kimlik bilgilerini ele geçirmek amacıyla aktif olarak istismar ediliyor. CVE-2026-73570 takip numaralı kritik güvenlik açığı, saldırganların kimlik doğrulaması gerektirmeden uzaktan işletim sistemi komutları çalıştırmasına imkan tanıyor.\n\n## Güvenlik açığı nasıl kullanılıyor?\n\nArs Technica'nın aktardığına göre, saldırganlar savunmasız sunucuları tespit etmek için internet taramaları gerçekleştirdi. İstismarın başarılı olduğunu doğrulayan saldırganlar, zararlı yazılımlar yükleyerek yetki yükseltme ve kalıcı uzaktan erişim araçları konuşlandırdı. Yapılan incelemelerde, birden fazla bölgeden ve sektörden etkilenen kuruluşlar tespit edildi.\n\n## Yamalar ve etkilenen sistemler\n\nZimbra geliştiricisi Synacor tarafından 20 Temmuz'da bir yama yayınlanmıştı. Güvenlik odaklı Shadowserver Foundation, geçtiğimiz hafta yaptığı taramalarda tehlikeye giren 274 ayrı Zimbra Collaboration Suite örneği bulduğunu bildirdi. Güncel durumda dünya genelinde yaklaşık 10.000 sunucunun bu yazılımı çalıştırmaya devam ettiği takip ediliyor.\n\n**Neden önemli?** Kimlik doğrulaması gerektirmeyen bu açık, saldırganların hedeflenen posta sunucularından e-posta verilerini toplayıp arşivlemesine ve hassas bilgileri dışarı aktarmasına yol açıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Zimbra Collaboration Suite",
+    "Synacor",
+    "Shadowserver Foundation"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Zimbra kritik güvenlik açığıyla hedefte",
+  "kicker": "Güvenlik",
+  "hero_stat": "10.000",
+  "hero_stat_label": "takip edilen sunucu",
+  "visual_style": "studio",
+  "visual_scene": "a single frosted glass server rack standing in a dark room, a single translucent amber light pulsing softly from the upper module, casting subtle shadows on a matte surface",
+  "focus_keyword": "Zimbra güvenlik açığı",
+  "seo_title": "Zimbra güvenlik açığı e-posta hırsızlığı için kullanılıyor",
+  "meta_description": "Microsoft'un uyarısına göre Zimbra Collaboration Suite yazılımındaki kritik güvenlik açığı e-posta ve kimlik bilgilerini çalmak için kullanılıyor.",
+  "seo_slug": "zimbra-guvenlik-acigi-saldiri",
+  "image_alt": "Buzlu cam sunucu rafı ve üzerinde parlayan amber rengi ışık, güvenlik açıklarını temsil ediyor",
+  "cover_text": "Zimbra",
+  "carousel_points": [
+    "Zimbra Collaboration Suite yazılımında kritik bir güvenlik açığı tespit edildi.",
+    "Saldırganlar kimlik doğrulaması olmadan sunucularda komut çalıştırıyor.",
+    "Microsoft, e-posta ve kimlik bilgilerinin çalındığı konusunda uyarıda bulundu."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Zimbra açığı e-posta çalmak için kullanılıyor",
+  "cover_highlight": "Zimbra açığı",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Zimbra iş birliği paketindeki kritik açık siber saldırılarda kullanılıyor.",
+  "entities": [
+    "Zimbra",
+    "Microsoft"
+  ],
+  "topic": "Zimbra collaboration suite critical vulnerability",
+  "sources": [
+    {
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/security/2026/09/attackers-have-been-exploiting-critical-zimbra-flaw-to-steal-emails/",
+      "title": "Attackers have been exploiting critical Zimbra flaw to steal emails",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T20:44:48Z",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/07/exploit-vulnerability-security-500x500.jpg"
+    }
+  ],
+  "source_keys": [
+    "Ars Technica"
+  ],
+  "source_texts": [
+    {
+      "credit": "Ars Technica",
+      "kind": "media",
+      "title": "Attackers have been exploiting critical Zimbra flaw to steal emails",
+      "url": "https://arstechnica.com/security/2026/09/attackers-have-been-exploiting-critical-zimbra-flaw-to-steal-emails/",
+      "published": "2026-09-30T20:44:48Z",
+      "summary": "Hackers have been exploiting a critical vulnerability in the Zimbra Collaboration Suite in an attempt to obtain email backups and authentication credentials of vulnerable organzations, Microsoft has warned . The vulnerability, tracked as CVE-2026-73570, lets attackers remotely issue operating system commands without authentication. Zimbra maintainer Synacor issued a patch on July 20, but didn’t disclose the vulnerability for more than three weeks after that. The security-focused Shadowserver Foundation said last week that its scans found that 274 separate instances of the Zimbra…",
+      "text": "Hackers have been exploiting a critical vulnerability in the Zimbra Collaboration Suite in an attempt to obtain email backups and authentication credentials of vulnerable organzations, Microsoft has warned.\nThe vulnerability, tracked as CVE-2026-73570, lets attackers remotely issue operating system commands without authentication. Zimbra maintainer Synacor issued a patch on July 20, but didn’t disclose the vulnerability for more than three weeks after that. The security-focused Shadowserver Foundation said last week that its scans found that 274 separate instances of the Zimbra Collaboration Suite had been compromised. The number of servers running the software has fluctuated from 19,000 in the week following the patch to about 12,000 in the weeks following that. Currently, Shadowserver is tracking about 10,000 instances.\nLook, ma, no authorization\nFrom July 28 to August 7, Microsoft said Wednesday, the company detected two distinct scanning tools probing the Internet for vulnerable endpoints. The attackers first validated their exploit worked by sending HTTP, requests and DNS, ICMP, and out-of-band identity checks to domains hosted on public services. The probes allowed the attackers to confirm the exploit successfully executed commands on vulnerable servers without actually compromising them. Eventually, the attackers began using their command injection capability to install malicious payloads. Microsoft wrote:\nFollowing successful exploitation, observed activity included deployment of JSP web shells and reverse shells, privilege escalation, persistent remote-access tooling, and memory-backed execution. Threat actors also accessed email and collected authentication and mailbox data, with archive creation and subsequent transfer activity observed. The activity included both automated payload delivery and hands-on-keyboard operations on compromised mail servers. Microsoft observed affected organizations in more than one region and industry. Based on the environments investigated, exploitation was not limited to a single sector or geographic area.\nCVE-2026-73570 allows remote attackers with no credentials to run operating system commands through a crafted email that targets the ZCS SNMP notification path but only when an optional zimbra-snmp package is in place and SNMP notifications are enabled."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 707
+  },
+  "image": {
+    "source": "cover",
+    "layout": "isik",
+    "palette": "teknoloji-3",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %17 (<%85)"
+}
