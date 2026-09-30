@@ -181,7 +181,7 @@
       "rejected": 1
     },
     "PC Gamer": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 1
     },
     "Tom's Hardware": {
@@ -270,12 +270,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-25T15:07:28Z",
-      "id": "87c365590d",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-25T15:07:38Z",
       "id": "3e23120379",
@@ -2068,6 +2062,12 @@
       "t": "2026-09-30T10:13:30Z",
       "id": "75c34172f6",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T14:31:10Z",
+      "id": "6a88e1bc5c",
+      "ok": true,
       "manual": true
     }
   ]

@@ -1,6 +1,5 @@
 {
   "id": "6a88e1bc5c",
-  "status": "pending",
   "created_at": "2026-09-30T14:09:00Z",
   "title": "Pentagon veri sızıntısı: 3 milyon kişinin bilgileri ele geçirildi",
   "summary": "ABD Savunma Bakanlığı, milyonlarca çalışanın kişisel bilgilerinin yetkisiz kişilerce ele geçirildiği büyük bir veri sızıntısı yaşandığını açıkladı.",
@@ -56,17 +55,6 @@
   "source_keys": [
     "PC Gamer"
   ],
-  "source_texts": [
-    {
-      "credit": "PC Gamer",
-      "kind": "media",
-      "title": "The Pentagon says 'hold my beer,' falls victim to massive data breach affecting roughly 3,000,000 people",
-      "url": "https://www.pcgamer.com/software/security/the-pentagon-says-hold-my-beer-falls-victim-to-massive-data-breach-affecting-roughly-3-000-000-people/",
-      "published": "2026-09-30T13:49:19Z",
-      "summary": "After the FBI data breach we reported on last week, in which a hacking group claimed it had stolen data on \"all FBI employees\", a US defence official has confirmed that the Pentagon also fell victim to a cybersecurity breach. Except this one appears to be much larger, lasted for longer, and is potentially very worrying for many civilian US government employees and serving military personnel alike. According to ABC News , the official said that the \"Defense Manpower Data Center (DMDC) information system experienced unauthorized access of personally identifiable information by a small number…",
-      "text": "After the FBI data breach we reported on last week, in which a hacking group claimed it had stolen data on \"all FBI employees\", a US defence official has confirmed that the Pentagon also fell victim to a cybersecurity breach. Except this one appears to be much larger, lasted for longer, and is potentially very worrying for many civilian US government employees and serving military personnel alike.\nAccording to ABC News, the official said that the \"Defense Manpower Data Center (DMDC) information system experienced unauthorized access of personally identifiable information by a small number of unauthorized users between October 2025 and July 2026.\"\nThe DMDC is one of the Pentagon's main data repositories for personnel records, including info on active-duty and reserve troops, alongside civilian employees, contractors, and military veterans. All told, the breach is said to affect 2.76 million living people, and around 294,000 who are deceased.\nOnce the unauthorized access was discovered, the DMDC \"immediately remediated the vulnerability.\" The data is said to have included Social Security numbers and details about military and civilian job positions, but defence officials say they've found no evidence so far that the exposed information was misused.\nIt could have been worse. The DMDC is said to hold records on more than 60 million people, so the three million affected figure would amount to around one in twenty of the total individual records breached. Still, CNN reports that the \"occupational specialty\" of military service members was accessed, which, when combined with Social Security numbers, could allow foreign adversaries to get a better idea of the deployment and purposes of US operatives around the world.\nAccording to the outlet, the stolen data was not encrypted, which means it would be relatively trivial to cross-reference it with other leaked info. It seems that no hacking group has yet claimed public responsibility for the breach.\nStill, it looks like hackers have managed to successfully breach two bastions of US government information over the past year or so, which may represent a marked escalation in their capabilities. Will 2026 be remembered as the year of the US government-bothering hacker? I guess we've got a few more months to find out.\nKeep up to date with the most important stories and the best deals, as picked by the PC Gamer team.\nAndy built his first gaming PC at the tender age of 12, when IDE cables were a thing and high resolution wasn't. 26 years later (yes he's getting old), he now spends his days writing about and reviewing graphics cards, CPUs, keyboards, mice, gaming headsets and much, much more. You name it, if it's PC gaming hardware he'll write words about it, with opinions and everything.\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 628
@@ -119,5 +107,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %33 (<%85)"
+  "slug": "pentagon-veri-sizintisi-3-milyon-kisi",
+  "published_at": "2026-09-30T14:30:15Z",
+  "publish_mode": "manual"
 }
