@@ -103,10 +103,13 @@ jobs:
             exit 0
           fi
           git commit -q -m "bot: $(date -u +'%Y-%m-%d %H:%M') güncellemesi"
-          for i in 1 2 3; do
+          # GitHub anlık hata verirse (ör. "Internal Server Error") artan aralıklarla yeniden dene (~2,5 dk)
+          for wait in 10 20 30 45 60; do
             git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0
-            sleep 5
+            echo "Gönderilemedi, ${wait} sn sonra yeniden denenecek"
+            sleep "$wait"
           done
+          git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0
           echo "::error::Değişiklikler gönderilemedi"
           exit 1
 
