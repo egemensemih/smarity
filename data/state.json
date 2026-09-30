@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872815919,
+  "telegram_offset": 872815946,
   "last_collect": "2026-09-30T06:20:35Z",
   "last_summary_date": "2026-09-29",
   "mode_override": null,
@@ -768,12 +768,15 @@
       "tok_out": 53940,
       "cost_usd": 0.0,
       "drafts": 18,
-      "updates": 3
+      "updates": 3,
+      "rejected": 3,
+      "published": 1,
+      "approved": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-09-30T05:44:31Z",
+  "last_build": "2026-09-30T06:34:42Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -817,8 +820,10 @@
       "held_at": "2026-09-30T06:20:42Z"
     }
   ],
-  "last_activity": "2026-09-29T20:09:41Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-09-30T06:34:34Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/vivo-x-fold6-avrupa-fiyati-ve-ozellikleri/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
