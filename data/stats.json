@@ -29,12 +29,12 @@
       "rejected": 8
     },
     "DonanımHaber": {
-      "approved": 20,
+      "approved": 21,
       "rejected": 18
     },
     "ShiftDelete.Net": {
       "approved": 16,
-      "rejected": 10
+      "rejected": 11
     },
     "Webtekno": {
       "approved": 11,
@@ -110,18 +110,18 @@
     },
     "TechRadar": {
       "approved": 5,
-      "rejected": 1
+      "rejected": 2
     },
     "Android Authority": {
       "approved": 5,
       "rejected": 3
     },
     "SoundGuys": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 0
     },
     "Motor1": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 0
     },
     "CNBC Teknoloji": {
@@ -141,7 +141,7 @@
       "rejected": 4
     },
     "The Next Web": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 10
     },
     "InsideEVs": {
@@ -263,45 +263,13 @@
     "Rock Paper Shotgun": {
       "approved": 0,
       "rejected": 1
+    },
+    "designboom Teknoloji": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-25T15:05:28Z",
-      "id": "21a6c2a8ef",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:05:42Z",
-      "id": "c7e5a4ac03",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:05:57Z",
-      "id": "c58bc92f1f",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:06:09Z",
-      "id": "c972178f74",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:07:03Z",
-      "id": "23753fdf9d",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-25T15:07:16Z",
-      "id": "105b9953b6",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-25T15:07:28Z",
       "id": "87c365590d",
@@ -2063,6 +2031,42 @@
     {
       "t": "2026-09-30T09:18:13Z",
       "id": "cf6b654600",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:12Z",
+      "id": "57c5cdf981",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:26Z",
+      "id": "52f08396ef",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:26Z",
+      "id": "0406138bd0",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:28Z",
+      "id": "f2bcdc5859",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:30Z",
+      "id": "b00eaefe24",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-09-30T10:13:30Z",
+      "id": "75c34172f6",
       "ok": false,
       "manual": true
     }
