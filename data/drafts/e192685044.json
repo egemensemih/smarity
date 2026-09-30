@@ -1,0 +1,146 @@
+{
+  "id": "e192685044",
+  "status": "pending",
+  "created_at": "2026-09-30T17:36:55Z",
+  "title": "OpenAI yapay zeka modellerine yönelik veri sızdırma girişimini engelledi",
+  "summary": "OpenAI, modellerinin gizli mantık yürütme adımlarını kopyalamaya çalışan organize bir veri sızdırma kampanyasını engellediğini duyurdu.",
+  "body": "OpenAI'ın duyurusuna göre şirket, yapay zeka modellerinin korunan mantık yürütme süreçlerini hedef alan ve düşmanca damıtma olarak bilinen organize bir kampanyayı tespit ederek engelledi. İlk olarak temmuz ayında başlayan ve temmuz sonunda yoğunlaşan bu faaliyetlerin, Kimi adlı yapay zekanın geliştiricisi olan Moonshot AI ile ilişkili kişilerden kaynaklandığı belirtildi.\n\n## Veri sızdırma girişimi nasıl işledi?\n\nŞirketin açıklamasına göre saldırganlar doğrudan şifreleme sistemlerini kırmadı veya veritabanlarına sızmadı; bunun yerine model etkileşimlerini manipüle ederek gizli mantık yürütme verilerini görünür hale getirmeye çalıştı. Operatörler, şifrelenmiş mantık verilerini başka bir sohbette çözmeye çalışmak gibi yeni yöntemler kullandı. Temmuz ayının başlarında düşük hacimli başlayan girişimler, 24-25 Temmuz tarihlerinde 16 bin istekle doruk noktasına ulaştı ve faaliyetler 28 Temmuz itibarıyla tamamen durduruldu.\n\n## Alınan güvenlik önlemleri\n\nOpenAI, bu kampanya sonrasında hesap kısıtlamaları, teknik kontroller ve ortak koordinasyonu gibi çok katmanlı önlemler devreye soktu. Dolandırıcılık şüphesi olan hesaplar yasaklanırken, gizli verilerin yeniden oynatılmasını sağlayan bir yol kapatıldı ve akış halindeki verileri denetleyen ek kontroller eklendi. Ayrıca Bloomberg'in aktardığına göre OpenAI, Çin merkezli rakibi Moonshot AI'ı GPT modellerinden veri çekmekle suçladı.\n\n**Neden önemli?** Düşmanca damıtma faaliyetleri, gelişmiş yapay zeka modellerinin yeteneklerinin güvenlik denetimlerinden geçirilmeden kopyalanmasına yol açarak ulusal güvenlik ve güvenlik riskleri barındırıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Moonshot AI",
+    "GPT",
+    "Kimi"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI yapay zeka modellerine sızma girişimini engelledi",
+  "kicker": "Yapay zeka güvenliği",
+  "hero_stat": "16 bin",
+  "hero_stat_label": "şüpheli istek sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "OpenAI yapay zeka modelleri",
+  "seo_title": "OpenAI yapay zeka modellerine yönelik sızdırma girişimini…",
+  "meta_description": "OpenAI, yapay zeka modellerinin gizli mantık yürütme adımlarını kopyalamaya çalışan organize veri sızdırma kampanyasını engellediğini açıkladı.",
+  "seo_slug": "openai-yapay-zeka-modelleri-sizdirma-girisimi",
+  "image_alt": "Yarı saydam cam küplerden oluşan soyut bir yapay zeka güvenlik görseli",
+  "cover_text": "OpenAI",
+  "carousel_points": [
+    "OpenAI, modellerinin gizli mantık verilerini hedef alan organize bir kampanyayı engelledi.",
+    "Faaliyetlerin çekirdek kümesinin Moonshot AI ile ilişkili kişilere ait olduğu açıklandı.",
+    "Şirket, güvenlik açıklarını kapatmak için teknik kontrolleri ve hesap kısıtlamalarını artırdı."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "OpenAI veri sızdırma girişimini engelledi",
+  "cover_highlight": "veri sızdırma",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "OpenAI, Moonshot AI'ın veri çekme operasyonunu engellediğini duyurdu.",
+  "entities": [
+    "OpenAI",
+    "Moonshot AI"
+  ],
+  "topic": "OpenAI disrupts Moonshot AI model-distillation and data extraction campaign",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "kind": "official",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T10:30:00Z",
+      "image": null
+    },
+    {
+      "name": "Bloomberg Teknoloji",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-30/openai-blames-moonshot-for-mass-data-extraction-on-its-ai-models",
+      "title": "OpenAI Blames Moonshot for Mass Data Extraction on Its AI Models",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-09-30T17:17:58Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "OpenAI",
+    "Bloomberg Teknoloji"
+  ],
+  "source_texts": [
+    {
+      "credit": "OpenAI",
+      "kind": "official",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "published": "2026-09-30T10:30:00Z",
+      "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+      "text": "We recently identified and disrupted a coordinated campaign designed to extract protected reasoning from our models, with the earliest observed activity occurring in the first week of July. This activity is consistent with adversarial distillation: the systematic and unauthorized use of one model’s outputs or reasoning to help train, reproduce, or improve another model. Protected reasoning is the model’s internal record for working through a task; extracting it can reveal information withheld from the final answer and help others reproduce the model’s capabilities.\nThe operators did not break our encryption, compromise a database, or gain direct access to stored user conversations. Instead, they manipulated model interactions so that protected reasoning could be reproduced in forms visible to the requester in a coordinated, scaled manner that violated our terms of service. This manipulation is not a vulnerability unique to OpenAI’s models, and we have shared information about it with industry partners through the Frontier Model Forum in order to strengthen collective defenses against adversarial distillation.\nBefore publishing, we investigated the scope and potential impact, deployed our own mitigations, and shared with and took feedback from researchers and industry partners to ensure protections against this type of attack are in place. Additional mitigation and investigation work is continuing. We believe sharing what we have learned now will help the broader ecosystem strengthen its defenses.\nWe saw operators attempt to extract protected reasoning in novel ways, including by copying encrypted reasoning from one conversation and asking a model in another conversation to decrypt and transcribe the hidden reasoning content.\nIndependent security researchers(opens in a new window) also brought related cross-model and conversation-compaction vulnerabilities to our attention through responsible disclosure. We investigated their findings and confirmed that the attack paths they identified were real. Their work helped us understand the broader attack class and accelerate mitigations.\nThe activity began on July 1, initially at a low volume until we observed high-volume spikes on July 24 and 25 consisting of 16,000 requests using a relevant extraction pattern from over 4,000 users. Further investigation identified related prompt-pattern activity across a cluster of more than 15,000 users, which we fully disrupted by July 28.\nThe activity evolved over time, reinforcing that adversarial distillation is a broader security challenge that requires layered, adaptive defenses.\nIt is unclear whether all operators we observed during the relevant time period originated from a single actor. However, we attribute a core cluster of the activity to individuals associated with Moonshot AI, the developer of Kimi.\nAdversarial distillation poses safety and national security risks. Extracted reasoning could be used to train another model without preserving the safeguards applied to the original model’s user-facing outputs. At scale, distillation can also accelerate the transfer of advanced capabilities without requiring the same investment in safety. These concerns become heightened as models gain capabilities in dual use domains.\nThis risk is not unique to OpenAI. As cited above, similar techniques may affect other advanced AI systems, making this a shared security challenge that requires coordination across the industry.\nWe mitigated this recent distillation campaign through a combination of account enforcement, technical controls, and partner coordination. We banned or restricted fraudulent accounts, strengthened signup and infrastructure controls, and expanded monitoring for related networks.\nWe also strengthened protections for hidden reasoning across users, workspaces, organizations, and model families. We closed a pathway that allowed someone who already possessed another user's encrypted reasoning to replay it and recover its contents, and added checks to detect and hold streamed output that might expose reasoning. When related activity moved through third-party services, we worked with those providers to identify and disrupt the accounts involved.\nFinally, we shared relevant findings through the Frontier Model Forum and appropriate government information-sharing channels so that other frontier developers and public-sector partners could look for similar activity and strengthen their own defenses. Systems that support portable or replayable reasoning artifacts may face related risks.\nWe expect adversarial distillation attempts to become more sophisticated as frontier models improve and as actors look for cheaper ways to mimic their capabilities. Defending against this activity requires layered controls and continual adaptation.\nThis work is not finished. Partner-hosted deployments need the same protections as first-party services, and tool-output attacks require protections that examine more than ordinary visible text. We are continuing to improve tool defenses, classifier coverage, model refusals, and propagate relevant controls across cloud partners.\nOur response will continue to focus on three areas: stronger technical protections against extraction, better detection and enforcement against coordinated campaigns, and deeper threat-information sharing across industry and government."
+    },
+    {
+      "credit": "Bloomberg Teknoloji",
+      "kind": "media",
+      "title": "OpenAI Blames Moonshot for Mass Data Extraction on Its AI Models",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-30/openai-blames-moonshot-for-mass-data-extraction-on-its-ai-models",
+      "published": "2026-09-30T17:17:58Z",
+      "summary": "OpenAI accused its Chinese rival Moonshot AI of being responsible for a wide-scale effort to extract data from its GPT artificial intelligence systems that could be used to reproduce the reasoning and capabilities of the company’s most advanced models.",
+      "text": ""
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 668
+  },
+  "photos": [
+    {
+      "file": "e192685044-g0.webp",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7MP5Bq8wKRpAAnnhqfdA8o/3ca1f00ae7ec16c5a569eb6195e24c90/disrupting-a-coordinated-model-distillation-campaign-seo.png?w=1600&h=900&fit=fill",
+      "credit": "OpenAI",
+      "page": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "alt": "Disrupting a coordinated model-distillation campaign on a pink, purple, and orange gradient.",
+      "w": 1600,
+      "h": 900,
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "e192685044-g1.webp",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/3iCwHSjR2bfJPdDiWomsis/86d511413c2b0338bd211b41545be495/Option_65___1080_1080.png?w=3840&q=90&fm=webp",
+      "credit": "OpenAI",
+      "page": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "alt": "Daybreak for Critical Infrastructure — cover",
+      "w": 1080,
+      "h": 1080,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "e192685044-g2.webp",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/4BabvjDCQdlYN2ISzOkgF9/78d35947274e9b3ac2483377782b007e/astra-cover-v001.png?w=3840&q=90&fm=webp",
+      "credit": "OpenAI",
+      "page": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "alt": "Path to Astra — Clean square cover — Neutral Option 062 v1",
+      "w": 1080,
+      "h": 1080,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "e192685044-g0.webp",
+    "credit": "OpenAI",
+    "page": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+    "src": "https://images.ctfassets.net/kftzwdyauwt9/7MP5Bq8wKRpAAnnhqfdA8o/3ca1f00ae7ec16c5a569eb6195e24c90/disrupting-a-coordinated-model-distillation-campaign-seo.png?w=1600&h=900&fit=fill",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %13 (<%85)"
+}
