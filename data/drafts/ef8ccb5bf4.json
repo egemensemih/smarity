@@ -1,6 +1,6 @@
 {
   "id": "ef8ccb5bf4",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-29T21:36:43Z",
   "title": "Steam İndirimler ve Etkinlikler sekmesi tamamen yapay zekaya geçiyor",
   "summary": "Steam, İndirimler ve Etkinlikler sekmesindeki manuel takvim sistemini kaldırarak tamamen kişiselleştirilmiş ve algoritmik bir yapıya geçeceğini duyurdu.",
@@ -133,5 +133,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %43 (<%85)"
+  "policy_reason": "Genel onay oranı %43 (<%85)",
+  "rejected_at": "2026-09-30T06:36:04Z"
 }
