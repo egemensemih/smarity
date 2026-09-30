@@ -1,6 +1,6 @@
 {
   "id": "e192685044",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-09-30T17:36:55Z",
   "title": "OpenAI yapay zeka modellerine yönelik veri sızdırma girişimini engelledi",
   "summary": "OpenAI, modellerinin gizli mantık yürütme adımlarını kopyalamaya çalışan organize bir veri sızdırma kampanyasını engellediğini duyurdu.",
@@ -153,5 +153,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "policy_reason": "Genel onay oranı %13 (<%85)",
+  "rejected_at": "2026-09-30T19:57:09Z"
 }

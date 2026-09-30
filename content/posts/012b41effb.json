@@ -1,6 +1,5 @@
 {
   "id": "012b41effb",
-  "status": "pending",
   "created_at": "2026-09-30T17:37:07Z",
   "title": "Yapay zeka devleri ve Trump güvenlik taahhüdü imzaladı",
   "summary": "Alphabet, Anthropic, Meta, OpenAI, SpaceXAI, Nvidia liderleri ve ABD Başkanı Donald Trump, yapay zeka güvenliği için ortak bir taahhütname imzaladı.",
@@ -61,17 +60,6 @@
   "source_keys": [
     "Tom's Hardware"
   ],
-  "source_texts": [
-    {
-      "credit": "Tom's Hardware",
-      "kind": "media",
-      "title": "Top AI tech executives promise to ‘self-police’ AI development",
-      "url": "https://www.tomshardware.com/tech-industry/policy/top-ai-tech-executives-promise-to-self-police-ai-development-nvidia-anthropic-openai-and-more-pledge-ai-labs-will-take-steps-to-build-a-positive-future",
-      "published": "2026-09-30T17:27:37Z",
-      "summary": "The heads of the biggest AI labs — Google, Anthropic, Meta, OpenAI, SpaceXAI, and Nvidia — went to Washington and signed the 'Joint Commitment on Frontier Responsibilities,' promising to develop their own models safely. Trump says that it's the best way to move forward with AI as it balances progress with safety.",
-      "text": "President Donald Trump, several Cabinet members, and House Speaker Mike Johnson sat down with key AI leaders for high-level discussions on AI, as recent incidents such as the publicized Hugging Face hack have brought forth issues about AI safety. The meeting resulted in a document titled “Joint Commitment on Frontier Responsibilities,” which states that “every company is responsible for developing its own technology safely,” and was signed by Sundar Pichai (Alphabet), Dario Amodei (Anthropic), Mark Zuckerberg (Meta), Greg Brockman (OpenAI), Elon Musk (SpaceXAI), Jensen Huang (Nvidia), and Trump himself. According to CNN, the president argued that this was the best way to move forward with AI, which he dubbed “Super Intelligence,” as it balances progress with safety.\nThe pledge outlines four key points: (1) Implement robust internal controls to monitor the capabilities and alignment of its models during training and deployment around areas like cybersecurity, biosecurity, and chemical threats, and to ensure that its models do not hack or access technical systems in unintended ways; (2) Empower an internal team to ensure all of the controls, monitoring, and detection are operating as intended, and that any issues are remediated; (3) Partner with an independent external auditor or evaluator to carry out independent assessments of whether the controls, monitoring, and detection are operating as intended; and (4) Designate an independent committee of the board of directors to oversee and receive reports from the teams operating the controls and the internal and external auditors and evaluators, as well as to ensure any issues identified are remediated.\n“I’m seeing tremendous self-policing, and they understand that they have to self-police,” Trump told reporters outside the West Wing. “These models are very complex and, again, I believe they’re going to be used for the good.” While this pledge has no law or regulatory pressure behind it, the president still called it “morally binding,” and that he believes that the AI companies can monitor themselves without the need for additional regulation.\nThe White House AI luncheon happened after several months of alarming incidents involving frontier AI models. One of the biggest incidents that has happened so far was when OpenAI’s GPT-5.6 Sol and other unreleased models broke out of their testing environment and hacked HuggingFace last July, which was followed by a discovery in August that these models had been secretly communicating with each other. It even had to pause testing just last week after a rogue agent failed to respond to a “kill switch.” Anthropic also discovered that Claude AI is building itself at a faster rate than expected, which is likely one of the reasons that led to Amodei’s call to slow down frontier model development. More surprisingly, Elon Musk and Sam Altman, two figures who've frequently clashed with Amodei (and with each other), agreed with his proposal.\nOn the other hand, Trump dismissed their concerns as hoaxes and called it a “sick conspiracy,” while Jensen Huang said that their fears are a “distraction,” and that AI labs should be accountable for any damage that their rogue agents may make. Chinese state media also said that move was “a response to Chinese competition,” and that “a global AI-safety framework that excludes China is not quite global.” Still, it mentioned the need to monitor AI development as humans could lose control of the technology.\nThis meeting apparently put most of the U.S. AI industry’s leadership and the Trump administration on the same page when it comes to AI safety. While this is just a pledge and not legally binding in any way, it has at least got the heads of the biggest AI labs and policymakers in Washington discussing the potential unintended consequences of AI development. How clashes with the pledge will be remediated, and the timeline in which that happens, remains an open question.\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.\nJowi Morales is a tech enthusiast with years of experience working in the industry. He’s been writing with several tech publications since 2021, where he’s been interested in tech hardware and consumer electronics."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 669
@@ -124,5 +112,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "yapay-zeka-guvenligi-ortak-taahhut",
+  "published_at": "2026-09-30T19:57:11Z",
+  "publish_mode": "manual",
+  "home": "pin",
+  "home_at": "2026-09-30T19:57:13Z"
 }

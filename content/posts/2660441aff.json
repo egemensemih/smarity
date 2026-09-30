@@ -1,6 +1,5 @@
 {
   "id": "2660441aff",
-  "status": "pending",
   "created_at": "2026-09-30T19:10:19Z",
   "title": "OpenAI Decisions API duyuruldu",
   "summary": "OpenAI, yapay zeka ajanlarının denetlenmesine yardımcı olabilecek yeni Decisions API arayüzünü tanıttı.",
@@ -57,17 +56,6 @@
   "source_keys": [
     "TechCrunch"
   ],
-  "source_texts": [
-    {
-      "credit": "TechCrunch",
-      "kind": "media",
-      "title": "OpenAI’s Jev clone could help the frontier lab stop its swarming agents",
-      "url": "https://techcrunch.com/2026/09/30/openais-jev-clone-could-help-the-frontier-lab-stop-its-swarming-agents/",
-      "published": "2026-09-30T19:00:57Z",
-      "summary": "OpenAI's \"Decisions API\" is a Jev clone that confirms the importance of fast, cheap intelligence.",
-      "text": "One of the more intriguing announcements at OpenAI’s Dev Day event on Tuesday came in an aside from CEO Sam Altman, who revealed the company’s new “Decisions API.”\nThe API apparently provides similar functionality to Jev, a model released by TypeSafe AI earlier this month that’s explicitly designed for software automation. A kind of super-powered classifier built on an LLM, developers can give Jev a set of choices that it outputs as probabilities cheaply and at high speeds.\nOpenAI’s Decisions API seems to be the same sort of product. At the event, Altman described the API as a way to give the lab’s Luna model a predefined set of options to choose between, such as categories in which to classify an image or different agent behaviors.\n“By focusing the model on that choice, we can make it extremely fast while keeping capabilities like image understanding, broad language support, and safety protections,” Altman said.\nTypeSafe didn’t respond to TechCrunch’s questions about the new product, but CEO Diogo Almeida, a former OpenAI engineer who co-invented reinforcement learning, joked on X about the beginning of the clone wars.\nHe added that OpenAI’s interest could be “a sign…that building in a System One compatible way is the future.” (“System One” is TypeSafe’s term of art for fast, intuitive thinking, versus “System 2,” which it applies to deliberate reasoning.)\nThe subtext here is that LLMs as we know them aren’t the right solution for a lot of software because they are comparatively slow and expensive. Developers have been using Jev to augment LLMs and, in doing so, have found that they’re faster and cheaper.\nIt’s not clear how similar Decisions API will be to Jev, since OpenAI released it as a limited preview and, thus far, TechCrunch hasn’t spotted developers running it through its paces. However, there is clearly interest, according to the conversations on X.\nDecisions API isn’t the only Jev-like API on the internet—other startups are rolling out similar models; OpenAI won’t be the last tech giant to produce one. A key question is how well calibrated each of these decision models’ outputs will be to real life.\nAlmeida says his company’s moat is the synthetic data it creates to generate statistically useful outputs.\n“Fast and cheap is very easy, you know,” Almeida told TechCrunch last week. “If you want it really fast and cheap, use dice, right? Intelligence is the hard part, and my North Star is always pushing the intelligence-per-dollar Pareto curve.”\nAfter just weeks, it seems clear that these models have a future ahead of them, and one likely application is monitoring and securing AI agents. One of OpenAI’s new security measures following a series of incidents where its agents misbehaved on the open internet is using a separate model to watch for bad actions at “significant compute cost.”\nShapor Naghibzadeh, a long-time cybersecurity professional who leads the start-up QueryStory, thinks that a model like Jev could make that possible far more cheaply.\nHe built a demo for a hackathon held last weekend that uses Jev to check each agentic action against the task it was given, blocking actions it had high confidence were bad, flagging others for review, and permitting the rest.\nIn theory, such monitoring could have stopped the Hugging Face incident—and monitoring of that kind costs $2.94 with Jev, versus $372 with a frontier LLM.\nA key observation is that Jev is arguably cheap enough to run on every agentic action, which offers a layer of review that could improve the reliability of agents writ large. It’s the kind of thing TypeSafe was hoping to achieve—and now OpenAI has seen the value as well."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 681
@@ -96,5 +84,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "openai-decisions-api-duyuruldu",
+  "published_at": "2026-09-30T19:57:48Z",
+  "publish_mode": "manual"
 }

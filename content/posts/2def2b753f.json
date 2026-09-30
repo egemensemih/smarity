@@ -1,6 +1,5 @@
 {
   "id": "2def2b753f",
-  "status": "pending",
   "created_at": "2026-09-30T16:07:23Z",
   "title": "DoorDash yapay zeka asistanı ile mesajlaşarak yemek siparişi devri",
   "summary": "DoorDash, kullanıcıların Apple Messages üzerinden mesaj yazarak yemek siparişi verebileceği yeni yapay zeka asistanını duyurdu.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "TechCrunch"
   ],
-  "source_texts": [
-    {
-      "credit": "TechCrunch",
-      "kind": "media",
-      "title": "DoorDash launches an AI agent you can text to order food",
-      "url": "https://techcrunch.com/2026/09/30/doordash-launches-an-ai-agent-you-can-text-to-order-food/",
-      "published": "2026-09-30T16:00:24Z",
-      "summary": "By launching an AI agent for food ordering, DoorDash is looking to gain an edge over rivals Uber Eats and Grubhub.",
-      "text": "DoorDash announced on Wednesday that it’s launching a text-to-order AI agent that lets users place orders through Apple Messages. The new tool allows users to send prompts like “order my usual,” and the agent will understand that they mean their Friday night order.\nDoorDash says users can also ask for a specific dish and request a local recommendation. The agent will then search local spots and suggest a cart based on the prompt, and even text photos of the food it recommends. When ordering for a group, DoorDash says the agent can handle mixed dietary preferences and different quantities in one order.\nBy launching an AI agent for food ordering, DoorDash is looking to gain an edge over rivals Uber Eats and Grubhub. The launch also comes amid a growing push to adopt personal AI agents that can handle tasks without requiring users to navigate apps or websites themselves.\nDoorDash is opening up a waitlist for users in the U.S. to try out the new feature.\nIn addition to the new AI agent, DoorDash announced that it will begin testing its delivery drones with select restaurants in Northern California."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 654
@@ -94,5 +82,7 @@
     "palette": "super-zeka-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "doordash-yapay-zeka-asistani-ile-siparis",
+  "published_at": "2026-09-30T19:56:43Z",
+  "publish_mode": "manual"
 }
