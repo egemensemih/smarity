@@ -1,6 +1,6 @@
 {
   "telegram_offset": 872815995,
-  "last_collect": "2026-09-30T14:22:52Z",
+  "last_collect": "2026-09-30T14:38:04Z",
   "last_summary_date": "2026-09-29",
   "mode_override": null,
   "paused": false,
@@ -104,296 +104,296 @@
   "source_health": {
     "Apple": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:00Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:00Z"
     },
     "Samsung": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 50,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "Google": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "OpenAI": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 1238,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "Anthropic": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 11,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "TechCrunch": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "The Verge": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "Engadget": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "WIRED": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 50,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "Ars Technica": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:45Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:45Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "GSMArena": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:46Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:46Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "MIT Technology Review": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:46Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:46Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "New Atlas": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:46Z",
+      "last_ok": "2026-09-30T14:38:01Z",
       "count": 60,
-      "last_try": "2026-09-30T14:22:46Z"
+      "last_try": "2026-09-30T14:38:01Z"
     },
     "Interesting Engineering": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Electrek": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Carscoops": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 18,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Autocar": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 31,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "IGN": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Polygon": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "VGC": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "GamesIndustry.biz": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Webrazzi": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Egirisim": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Webtekno": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "ShiftDelete.Net": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "DonanımHaber": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "LOG": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Anadolu Ajansı": {
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30,
-      "last_try": "2026-09-30T14:22:48Z"
+      "last_try": "2026-09-30T14:38:04Z"
     },
     "Crunchbase News": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Microsoft": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Meta": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Google DeepMind": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100
     },
     "PlayStation Blog": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Xbox Wire": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "NASA": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "9to5Mac": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100
     },
     "MacRumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "AppleInsider": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "9to5Google": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100
     },
     "Android Authority": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 80
     },
     "Android Police": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Android Central": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "SamMobile": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "XDA": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Tom's Guide": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
-      "count": 40
+      "last_ok": "2026-09-30T14:38:04Z",
+      "count": 39
     },
     "TechRadar": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "Digital Trends": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30
     },
     "CNET": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 25
     },
     "ZDNET": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 25
     },
     "Gizmodo": {
@@ -402,15 +402,15 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://gizmodo.com/rss"
     },
     "Tom's Hardware": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "Wccftech": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "VideoCardz": {
@@ -419,153 +419,153 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://videocardz.com/feed"
     },
     "The Next Web": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Pocket-lint": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Stuff": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 71
     },
     "T3": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "BBC Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 21
     },
     "The Guardian Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 31
     },
     "New York Times Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 32
     },
     "Bloomberg Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "CNBC Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30
     },
     "Yanko Design": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 16
     },
     "Dezeen Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "designboom Teknoloji": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "DPReview": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30
     },
     "PetaPixel": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "Digital Camera World": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "Fstoppers": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30
     },
     "DIY Photography": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "DroneDJ": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 25
     },
     "Photo Rumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "Sony Alpha Rumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 7
     },
     "Canon Rumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Nikon Rumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "Fuji Rumors": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 5
     },
     "What Hi-Fi": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "SoundGuys": {
-      "last_try": "2026-09-30T14:22:48Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:48Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Wareable": {
@@ -574,34 +574,34 @@
       "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.wareable.com/rss.xml"
     },
     "DC Rainmaker": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 8
     },
     "Motor1": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "InsideEVs": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "Car and Driver": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "The Drive": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
-      "count": 13
+      "last_ok": "2026-09-30T14:38:04Z",
+      "count": 14
     },
     "Autoblog": {
       "last_try": "2026-09-30T08:45:39Z",
@@ -609,63 +609,63 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.autoblog.com/rss.xml"
     },
     "Teslarati": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "CarNewsChina": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "Eurogamer": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100
     },
     "PC Gamer": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "Kotaku": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 20
     },
     "GameSpot": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 30
     },
     "Rock Paper Shotgun": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 100
     },
     "Nintendo Life": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 25
     },
     "Game Developer": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "The Decoder": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 10
     },
     "VentureBeat": {
@@ -680,9 +680,9 @@
       "count": 0
     },
     "SpaceNews": {
-      "last_try": "2026-09-30T14:22:51Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:51Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 16
     },
     "Teknoseyir": {
@@ -696,21 +696,21 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.technopat.net/feed/"
     },
     "Donanım Arşivi": {
-      "last_try": "2026-09-30T14:22:52Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:52Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 12
     },
     "Chip Online": {
-      "last_try": "2026-09-30T14:22:52Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:52Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 50
     },
     "Swipeline": {
-      "last_try": "2026-09-30T14:22:52Z",
+      "last_try": "2026-09-30T14:38:04Z",
       "fails": 0,
-      "last_ok": "2026-09-30T14:22:52Z",
+      "last_ok": "2026-09-30T14:38:04Z",
       "count": 1493
     }
   },
@@ -763,10 +763,10 @@
       "updated": 2
     },
     "2026-09-30": {
-      "tok_in": 1114955,
-      "tok_out": 192446,
+      "tok_in": 1141788,
+      "tok_out": 200074,
       "cost_usd": 0.0,
-      "drafts": 68,
+      "drafts": 71,
       "updates": 7,
       "rejected": 22,
       "published": 9,
@@ -797,7 +797,7 @@
         ],
         "reason": "Amazon, Alexa Plus asistanını yeni yeteneklerle güncelliyor.",
         "must_read": 8,
-        "editor_reason": "Alexa Plus güncellemeleri önemli fakat bu turda yer yok."
+        "editor_reason": "Alexa Plus yenilikleri önemli ancak şu an yerimiz dolu."
       },
       "items": [
         {
@@ -817,141 +817,48 @@
         }
       ],
       "at": "2026-09-30T13:21:37Z",
-      "holds": 5,
-      "held_at": "2026-09-30T14:23:12Z"
+      "holds": 6,
+      "held_at": "2026-09-30T14:38:23Z"
     },
     {
       "story": {
         "item_ids": [
-          "i21"
+          "i35"
         ],
-        "topic": "Laowa announces world's first 35mm F2.8 macro lens with autofocus",
+        "topic": "Azerbaijan Hürkuş-II UAV procurement contract",
         "on_topic": true,
         "duplicate_of": "",
         "importance": 8,
-        "category": "teknoloji",
+        "category": "inovasyon",
         "entities": [
-          "Laowa",
-          "Laowa 35mm F2.8 Macro"
+          "TAI",
+          "Hürkuş-II",
+          "Azerbaycan"
         ],
-        "reason": "Laowa'nın autofocus özellikli ilk tam kare 35mm F2.8 makro lensini duyurması.",
+        "reason": "Azerbaycan ile Türkiye arasında 14 adet Hürkuş-II ve savunma sistemleri tedariki için resmi sözleşme imzalanması.",
         "must_read": 8,
-        "editor_reason": "Laowa otomatik odaklı ilk 35mm makro lensi duyurdu."
+        "editor_reason": "Azerbaycan'a Hürkuş-II satışı önemli ancak slotlar doldu."
       },
       "items": [
         {
-          "key": "31d0908c30d28e8c",
-          "source": "DPReview",
+          "key": "3e6ef89a629eec39",
+          "source": "Anadolu Ajansı",
           "kind": "media",
-          "credit": "DPReview",
-          "url": "https://www.dpreview.com/news/laowa-35mm-2p8-macro-lens-announcement-autofocus/",
-          "via": null,
-          "via_url": "https://www.dpreview.com/news/laowa-35mm-2p8-macro-lens-announcement-autofocus/#respond",
-          "title": "Laowa says its new 35mm F2.8 macro lens is the first of its kind",
-          "summary": "The full-frame lens for mirrorless systems provides up to 1x reproduction and has autofocus.",
-          "published": "2026-09-30T14:00:00Z",
-          "html_source": false,
-          "image": "https://www.dpreview.com/wp-content/uploads/2026/09/m-pi-laowa-35mm-2p8-macro-badge-16x9-Lead-1.jpg",
-          "tid": "i21"
-        }
-      ],
-      "at": "2026-09-30T14:05:47Z",
-      "holds": 2,
-      "held_at": "2026-09-30T14:23:12Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i6",
-          "i8"
-        ],
-        "topic": "Apple October 13 smart home event and new devices",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 8,
-        "category": "teknoloji",
-        "entities": [
-          "Apple",
-          "HomePod mini"
-        ],
-        "reason": "Apple'ın yeni akıllı ev cihazlarını tanıtacağı 13 Ekim etkinliği önemli bir gelişme.",
-        "must_read": 8,
-        "editor_reason": "Apple akıllı ev etkinlik tarihi açıklandı."
-      },
-      "items": [
-        {
-          "key": "329fe6f130d36d9b",
-          "source": "DonanımHaber",
-          "kind": "media",
-          "credit": "DonanımHaber",
-          "url": "https://www.donanimhaber.com/yeni-apple-akilli-ev-urunleri-13-ekim-de-geliyor--211085",
+          "credit": "Anadolu Ajansı",
+          "url": "https://www.aa.com.tr/tr/bilim-teknoloji/azerbaycana-14-hurkus-ii-tedariki-icin-sozlesme-imzalandi/4073872",
           "via": null,
           "via_url": null,
-          "title": "Apple, yeni akıllı ev cihazlarını 13 Ekim'de tanıtacak: İşte lansman ürünleri",
-          "summary": "Apple'ın yeni akıllı ev ürünlerini tanıtacağı tarih belli oldu. Uzun zamandır beklenen smart home hub ile birlikte yeni HomePod mini ve 4. nesil Apple TV 4K, 13 Ekim'de geliyor.",
-          "published": "2026-09-30T14:17:00Z",
+          "title": "Azerbaycan'a 14 Hürkuş-II tedariki için sözleşme imzalandı",
+          "summary": "Cumhurbaşkanlığı Savunma Sanayii Başkanı Haluk Görgün, Azerbaycan'a 14 HÜRKUŞ-II ve çeşitli sistemlerin tedariki için sözleşmelerin imzalandığını bildirdi.",
+          "published": "2026-09-30T13:41:27Z",
           "html_source": false,
-          "image": "https://www.donanimhaber.com/images/images/haber/211085/1200x675yeni-apple-akilli-ev-urunleri-13-ekim-de-geliyor.jpg",
-          "tid": "i6"
-        },
-        {
-          "key": "ae15941111062a9f",
-          "source": "9to5Mac",
-          "kind": "media",
-          "credit": "9to5Mac",
-          "url": "https://9to5mac.com/2026/09/30/apples-new-hardware-october-13-wont-include-one-rumored-product-report/",
-          "via": null,
-          "via_url": "https://9to5mac.com/2026/09/30/apples-new-hardware-october-13-wont-include-one-rumored-product-report/#respond",
-          "title": "Apple’s new hardware October 13 won’t include one rumored product: report",
-          "summary": "New Apple products are reportedly launching October 13, including the rumored ‘HomePad’ device. But according to Mark Gurman at Bloomberg , there’s one rumored product not coming next month: a new full-size HomePod with Siri AI. more…",
-          "published": "2026-09-30T14:15:30Z",
-          "html_source": false,
-          "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/10/john-ternus-apple-park.jpeg?quality=82&#038;strip=all&#038;w=1600",
-          "tid": "i8"
+          "image": null,
+          "tid": "i35"
         }
       ],
-      "at": "2026-09-30T14:23:04Z",
+      "at": "2026-09-30T14:38:18Z",
       "holds": 1,
-      "held_at": "2026-09-30T14:23:12Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i27"
-        ],
-        "topic": "US President Trump signs AI safety agreement with tech leaders",
-        "on_topic": true,
-        "duplicate_of": "44a09c91d8",
-        "importance": 8,
-        "category": "super-zeka",
-        "entities": [
-          "Donald Trump",
-          "OpenAI"
-        ],
-        "reason": "ABD Başkanı Trump ve teknoloji liderlerinin imzaladığı yapay zeka güvenlik mutabakatı önemli bir politika gelişmesi.",
-        "must_read": 8,
-        "editor_reason": "ABD Başkanı Trump yapay zeka güvenlik anlaşması imzaladı."
-      },
-      "items": [
-        {
-          "key": "2a443f9a7fceee09",
-          "source": "Swipeline",
-          "kind": "media",
-          "credit": "Swipeline",
-          "url": "https://swipeline.co/abd-baskani-trump-yapay-zeka-sirketleriyle-guvenlik-mutabakati-imzaladi/",
-          "via": null,
-          "via_url": null,
-          "title": "ABD Başkanı Trump, yapay zeka şirketleriyle güvenlik mutabakatı imzaladı",
-          "summary": "ABD Başkanı Donald Trump ve teknoloji şirketlerinin yöneticileri, gelişmiş yapay zeka modellerinin güvenli şekilde geliştirilmesine yönelik gönüllü bir mutabakata imza attı.",
-          "published": "2026-09-30T13:52:35Z",
-          "html_source": false,
-          "image": "https://swipeline.co/cdn/2026/09/trump-3.webp",
-          "tid": "i27"
-        }
-      ],
-      "at": "2026-09-30T14:23:04Z",
-      "holds": 1,
-      "held_at": "2026-09-30T14:23:12Z"
+      "held_at": "2026-09-30T14:38:23Z"
     }
   ],
   "last_activity": "2026-09-30T14:30:13Z",
@@ -960,142 +867,6 @@
   "keyboard_v": 4,
   "manset_mid": 370,
   "edit_log": [
-    {
-      "t": "2026-09-30T10:17:02Z",
-      "topic": "Samsung flagship OLED TVs comparison",
-      "action": "publish",
-      "score": 7,
-      "reason": "Samsung'un amiral gemisi OLED TV'lerinin karşılaştırma detayları meraklılar için değerli.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:17:02Z",
-      "topic": "New jailbreak released for PS5 and PS5 Pro",
-      "action": "publish",
-      "score": 7,
-      "reason": "PlayStation 5 ve PS5 Pro için yayınlanan yeni jailbreak konsol dünyasında önemli.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:17:02Z",
-      "topic": "Sony requires proof of playtime for PS5 Pro buyers in Japan",
-      "action": "skip",
-      "score": 6,
-      "reason": "Benzer konsol güvenlik ve korsanlık haberleriyle mükerrer içerik oluşturuyor.",
-      "target": "d8be11ee84"
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "Anthropic and SpaceX sign 84.5 billion dollar AI infrastructure deal",
-      "action": "publish",
-      "score": 9,
-      "reason": "Anthropic ve SpaceX milyarlarca dolarlık dev altyapı anlaşması imzaladı.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "Sam Altman explains why OpenAI cannot launch an IPO yet",
-      "action": "skip",
-      "score": 6,
-      "reason": "Sam Altman'ın halka arz açıklaması yeterince yeni bir gelişme değil.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "Flourish 1 home robot unveiled with 30-minute task learning",
-      "action": "publish",
-      "score": 8,
-      "reason": "Flourish 1 ev robotu 30 dakikada görev öğrenme yeteneğiyle tanıtıldı.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "OpenAI sued over rogue AI cyberattack on Hugging Face",
-      "action": "skip",
-      "score": 6,
-      "reason": "Hugging Face siber saldırısı davası daha önce reddedilen haberin tekrarı.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "Deadlock update pushes Valve's game to top of Steam charts",
-      "action": "publish",
-      "score": 8,
-      "reason": "Deadlock yeni güncellemesi ile Steam listelerinin zirvesine yerleşti.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:31:13Z",
-      "topic": "Google publisher compensation report for AI search answers",
-      "action": "skip",
-      "score": 6,
-      "reason": "Google'ın yapay zeka içerik telifleri raporu rutin bir analiz.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Pentagon data breach exposes millions of personnel records",
-      "action": "skip",
-      "score": 6,
-      "reason": "Siber güvenlik haberi, tüketici teknolojisi veya donanım kapsamımıza girmiyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Apple preparing for smart home market entry",
-      "action": "publish",
-      "score": 9,
-      "reason": "Apple sonunda yeni akıllı ev pategori pazarına girmeye hazırlanıyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Xbox disc-to-digital program goes live",
-      "action": "skip",
-      "score": 6,
-      "reason": "Daha önce bekleyen haberle aynı gelişme.",
-      "target": "5ab5f2900a"
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Mazda continues rotary engine development",
-      "action": "publish",
-      "score": 8,
-      "reason": "Mazda efsanevi rotary motor geliştirmeye devam edeceğini duyurdu.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Loewe Leo Bluetooth speaker announced",
-      "action": "publish",
-      "score": 8,
-      "reason": "Loewe ses odaklı yeni premium Leo Bluetooth hoparlörünü duyurdu.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Apple Pay rolls out in India",
-      "action": "skip",
-      "score": 6,
-      "reason": "Daha önce reddedilen Apple Pay Hindistan gelişmesinin tekrarı.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T10:45:50Z",
-      "topic": "Deep Rock Galactic: Survivor coming to Switch",
-      "action": "hold",
-      "score": 7,
-      "reason": "Switch platformuna gelen popüler oyun, sonraki turda değerlendirilebilir.",
-      "target": ""
-    },
-    {
-      "t": "2026-09-30T11:01:27Z",
-      "topic": "Xbox Mythic Achievements rollout for Insiders",
-      "action": "publish",
-      "score": 8,
-      "reason": "Xbox Mythic Achievements sistemi Insiders için kullanıma sunuluyor.",
-      "target": ""
-    },
     {
       "t": "2026-09-30T11:01:27Z",
       "topic": "EliseAI raises $350 million at $4 billion valuation",
@@ -2558,6 +2329,142 @@
       "action": "publish",
       "score": 8,
       "reason": "Grasshopper Manufacture NetEase'den ayrılıp bağımsızlaşıyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Amazon upgrades Alexa Plus with new features",
+      "action": "hold",
+      "score": 8,
+      "reason": "Alexa Plus yenilikleri önemli ancak şu an yerimiz dolu.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Laowa announces world's first 35mm F2.8 macro lens with autofocus",
+      "action": "publish",
+      "score": 8,
+      "reason": "Dünyanın ilk otomatik netlemeli 35mm F2.8 makro lensi.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Apple October 13 smart home event and new devices",
+      "action": "publish",
+      "score": 8,
+      "reason": "Apple'ın yeni akıllı ev cihazları için 13 Ekim tarihi kesinleşti.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "US President Trump signs AI safety agreement with tech leaders",
+      "action": "skip",
+      "score": 8,
+      "reason": "Daha önce işlenen Trump ve yapay zeka haberiyle aynı.",
+      "target": "44a09c91d8"
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Instagram AI creative assistant for creators",
+      "action": "publish",
+      "score": 8,
+      "reason": "Instagram içerik üreticileri için yeni yapay zeka asistanı duyuruldu.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Samsung Galaxy Tab S12 Ultra and Galaxy SmartTag 3 launch",
+      "action": "skip",
+      "score": 6,
+      "reason": "Benzer ürün sızıntıları ve haberleri daha önce işlendi.",
+      "target": "2e3dde6a81"
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Tesla secures $30B in fresh credit lines",
+      "action": "skip",
+      "score": 6,
+      "reason": "Tesla kredi hatları haberi benzer içerikle daha önce reddedildi.",
+      "target": "1e618d6731"
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Azerbaijan Hürkuş-II UAV procurement contract",
+      "action": "hold",
+      "score": 8,
+      "reason": "Azerbaycan'a Hürkuş-II satışı önemli ancak slotlar doldu.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Apple iPhone Duo sales forecast and security warning",
+      "action": "skip",
+      "score": 6,
+      "reason": "iPhone Duo satış tahminleri ve sahte bağlantı uyarıları rutin.",
+      "target": "328038158f"
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Japan 2040 robot workforce strategy",
+      "action": "skip",
+      "score": 6,
+      "reason": "Uzun vadeli strateji ve hedefler günlük akış için uzak.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Crimson Desert expansion Charting the Unknown delayed",
+      "action": "skip",
+      "score": 6,
+      "reason": "Oyun erteleme haberi, rutin geliştirme süreci.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Minisforum AtomMan G1 Pro mini PC with AMD GPU",
+      "action": "skip",
+      "score": 6,
+      "reason": "Niş bir mini PC modeli, okuyucu kitlesi için öncelikli değil.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Restate $20M funding round for AI infrastructure",
+      "action": "skip",
+      "score": 6,
+      "reason": "Erken aşama girişim yatırımları günlük akışımıza uymuyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Amazon Fire TV Stick 4K Vega OS upgrade",
+      "action": "skip",
+      "score": 6,
+      "reason": "Fire TV Stick 4K güncellemesi daha önce işlenen konunun devamı.",
+      "target": "add7f81337"
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "DoorDash AI food ordering via Apple Messages",
+      "action": "skip",
+      "score": 6,
+      "reason": "Yemek siparişi entegrasyonu rutin bir yazılım güncellemesi.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Honor 700 Pro rear screen and upcoming lineup",
+      "action": "skip",
+      "score": 6,
+      "reason": "Orta segment telefon serisi sızıntısı.",
+      "target": ""
+    },
+    {
+      "t": "2026-09-30T14:38:23Z",
+      "topic": "Sigma October 24 product launch event announcement",
+      "action": "skip",
+      "score": 6,
+      "reason": "Sigma etkinlik duyurusu, ürün tanıtılana kadar beklemeli.",
       "target": ""
     }
   ]
