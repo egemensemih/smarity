@@ -1,0 +1,100 @@
+{
+  "id": "7b302a4da5",
+  "status": "pending",
+  "created_at": "2026-10-01T12:46:42Z",
+  "title": "DeepSeek, Huawei işlemcileri için açık kaynaklı TileLang araçlarını duyurdu",
+  "summary": "DeepSeek, Nvidia’nın CUDA platformuna alternatif olarak geliştirdiği TileLang programlama dilini ve yeni araçlarını Huawei Ascend işlemcileri için açık kaynak olarak yayımladı.",
+  "body": "DeepSeek, Huawei Ascend yapay zeka çipleri için geliştirilen altı yeni yazılım modülünü ve TileLang programlama dilini açık kaynak olarak kullanıma sundu. Çinli yapay zeka laboratuvarının WeChat üzerinden yaptığı açıklamaya göre, söz konusu araçlar Nvidia’nın yaygın kullanılan CUDA platformuna daha basit bir alternatif sunmayı hedefliyor. Geliştirme sürecinde Huawei'den tam destek alındığı ve iki şirketin 128 adet Ascend 950 çipinden oluşan bir süper düğüm sistemi üzerinde ortak çalıştırdığı belirtildi.\n\n## Yeni yazılım modülleri ve hedef\n\nReuters ve diğer kaynakların aktardığına göre DeepSeek, bağımsız bir donanım yazılımı ekosistemi kurmak için evrensel ve programlaması kolay yüksek seviyeli bir dilin öncelikli olduğunu vurguluyor. Ücretsiz olarak indirilebilen altı modül, şirketin daha önce Nvidia çipleri için yayımladığı araçların işlevlerini yansıtıyor. Bloomberg'in aktardığı bilgilere göre DeepSeek, İç Moğolistan'daki bir veri merkezinde en az 160 bin Huawei hızlandırıcı konuşlandırmayı planlıyor ve şirketler gelecekte başka projelerde de birlikte çalışmayı hedefliyor.\n\n## Huawei ve çip sektörü\n\nBu hamle, Huawei'nin yeni nesil Ascend çiplerini tanıtmasından iki hafta sonra geldi. The New York Times'ın haberine göre Huawei, yapay zeka çipleri için artan talebi karşılamakta zorlanıyor ve satışları Çin dışıyla sınırlandırmayı planlıyor. Amerika Birleşik Devletleri'nin ihracat kontrolleri, Çinli şirketlerin en gelişmiş Nvidia çiplerine erişimini kısıtlıyor. \n\n**Neden önemli?** DeepSeek'in Huawei işlemcileri için sunduğu bu alternatif programlama araçları, Çin'in yerli yapay zeka donanım ekosistemini güçlendirme ve dışa bağımlılığı azaltma stratejisinde kritik bir adım olarak öne çıkıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "DeepSeek",
+    "Huawei",
+    "Nvidia",
+    "Çin",
+    "Ascend"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "DeepSeek, Huawei çipleri için TileLang araçlarını açtı",
+  "kicker": "Açık kaynak",
+  "hero_stat": "160.000",
+  "hero_stat_label": "huawei hızlandırıcı",
+  "visual_style": "studio",
+  "visual_scene": "a single dark metallic computer chip resting on a neutral gray surface, surrounded by glowing threads of amber light connecting to small frosted glass blocks, studio lighting, clean tech minimalist aesthetic",
+  "focus_keyword": "DeepSeek Huawei",
+  "seo_title": "DeepSeek, Huawei işlemcileri için araçlarını açtı",
+  "meta_description": "DeepSeek, Huawei Ascend yapay zeka çipleri için geliştirdiği TileLang programlama dili ve yeni araçlarını açık kaynak olarak kullanıma sundu.",
+  "seo_slug": "deepseek-huawei-islemcileri-icin-araclari-acti",
+  "image_alt": "Koyu renkli bir bilgisayar çipi ve etrafında parlayan amber renkli ışık çizgileriyle temsil edilen yapay zeka donanım görseli",
+  "cover_text": "DeepSeek Huawei",
+  "carousel_points": [
+    "DeepSeek, Huawei Ascend çipleri için yazılım araçlarını açık kaynak olarak yayımladı.",
+    "TileLang dili, Nvidia'nın CUDA platformuna daha basit bir alternatif sunuyor.",
+    "İki şirket, İç Moğolistan'daki veri merkezinde Huawei hızlandırıcılar kullanmayı planlıyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "DeepSeek'ten Huawei çiplerine özel açık kaynak araç",
+  "cover_highlight": "açık kaynak araç",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "DeepSeek, Huawei Ascend çipleri için CUDA alternatifi araçları açık kaynak yaptı.",
+  "entities": [
+    "DeepSeek",
+    "Huawei"
+  ],
+  "topic": "DeepSeek open-sources Huawei Ascend chip programming tools",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/deepseek-huawei-ascend-tilelang-open-source-cuda",
+      "title": "DeepSeek open-sources Huawei chip tools as a simpler alternative to CUDA",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-01T12:32:36Z",
+      "image": "https://media.thenextweb.com/2026/04/DeepSeek.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Next Web",
+      "kind": "media",
+      "title": "DeepSeek open-sources Huawei chip tools as a simpler alternative to CUDA",
+      "url": "https://thenextweb.com/news/deepseek-huawei-ascend-tilelang-open-source-cuda",
+      "published": "2026-10-01T12:32:36Z",
+      "summary": "DeepSeek has open-sourced a set of programming tools for Huawei’s Ascend AI chips. They include a version of TileLang, a programming language DeepSeek offers as a simpler alternative to Nvidia’s CUDA. The Chinese AI lab announced the release on Wednesday in a post on its WeChat account. The release includes compute and communication libraries for […] This story continues at The Next Web",
+      "text": "DeepSeek has open-sourced a set of programming tools for Huawei’s Ascend AI chips. They include a version of TileLang, a programming language DeepSeek offers as a simpler alternative to Nvidia’s CUDA. The Chinese AI lab announced the release on Wednesday in a post on its WeChat account.\nThe release includes compute and communication libraries for the Ascend platform, Che Pan and Farah Master reported for Reuters. DeepSeek said Huawei gave full support during development. The two companies also worked together on a “supernode” system built from 128 Ascend 950 chips.\n“To build a new generation of independent, self-controlled GPU software ecosystems, the first priority is establishing a high-level language that is universal, easy to program, and still capable of reaching the hardware’s full performance potential,” DeepSeek said, according to Reuters.\nSix modules, free to download\nDeepSeek released six software modules for Huawei’s chips, Coco Feng reported for the South China Morning Post. They mirror the open-source tools it had already published for Nvidia chips.\nDeepSeek first tested TileLang on older Nvidia chips, Steve Lohr reported for The New York Times. It now uses the language as its “core tool” for work on artificial general intelligence. Nvidia’s CUDA platform has an estimated four million developers, according to the Times.\nThe tools are free to download, Luz Ding reported for Bloomberg. The two companies plan to work together on more projects. It plans to deploy at least 160,000 Huawei accelerators in a data centre in Inner Mongolia, according to Bloomberg. It is also raising funds at a valuation close to 500bn yuan ($74bn).\nHuawei’s chip push\nThe announcement came two weeks after Huawei unveiled its next-generation Ascend chips. Huawei cannot meet demand for its AI chips, the Times reported. The company plans to restrict sales outside China.\n“We cannot accept a destiny where we cannot control our fate,” Eric Xu, Huawei’s rotating chairman, said, according to the Times.\nUS export controls limit Chinese companies’ access to Nvidia’s most advanced chips. Earlier this month, Xu said China must build AI faster to see its dangers. Last week, DeepSeek’s annualised revenue run rate reached $1bn, according to a report.\nGet the TNW newsletter\nGet the most important tech news in your inbox each week."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 767
+  },
+  "photos": [
+    {
+      "file": "7b302a4da5-g0.webp",
+      "src": "https://media.thenextweb.com/2026/04/DeepSeek.avif",
+      "credit": "The Next Web",
+      "page": "https://thenextweb.com/news/deepseek-huawei-ascend-tilelang-open-source-cuda",
+      "alt": "",
+      "w": 868,
+      "h": 488,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-2",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %37 (<%85)"
+}
