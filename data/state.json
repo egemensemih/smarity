@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816159,
+  "telegram_offset": 872816172,
   "last_collect": "2026-10-01T13:01:08Z",
   "last_summary_date": "2026-09-30",
   "mode_override": null,
@@ -776,21 +776,21 @@
       "expired": 2
     },
     "2026-10-01": {
-      "rejected": 51,
+      "rejected": 62,
       "tok_in": 1032768,
       "tok_out": 171983,
       "cost_usd": 0.0,
       "drafts": 67,
       "expired": 7,
-      "published": 14,
-      "approved": 14,
+      "published": 15,
+      "approved": 15,
       "updates": 5,
-      "updated": 2
+      "updated": 3
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-01T13:12:43Z",
+  "last_build": "2026-10-01T13:17:26Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -1027,8 +1027,11 @@
       "held_at": "2026-10-01T13:02:30Z"
     }
   ],
-  "last_activity": "2026-10-01T12:09:51Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-01T13:14:05Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/volvo-es90-turkiyede-satis-sunuldu/",
+    "https://smarity.com.tr/haber/amazon-yeni-kindle-serisi-tanitildi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,

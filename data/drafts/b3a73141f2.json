@@ -1,6 +1,6 @@
 {
   "id": "b3a73141f2",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-01T12:31:35Z",
   "title": "GLM-5.3 siber saldırı yetenekleriyle Mythos'a yaklaştı",
   "summary": "Anthropic'in araştırmasına göre, Çinli Zhipu AI'ın açık ağırlıklı modeli GLM-5.3, siber saldırı yeteneklerinde Claude Mythos Preview ile neredeyse aynı seviyede.",
@@ -96,5 +96,6 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %37 (<%85)"
+  "policy_reason": "Genel onay oranı %37 (<%85)",
+  "rejected_at": "2026-10-01T13:13:35Z"
 }
