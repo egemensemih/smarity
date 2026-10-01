@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816102,
+  "telegram_offset": 872816122,
   "last_collect": "2026-10-01T05:50:34Z",
   "last_summary_date": "2026-09-30",
   "mode_override": null,
@@ -776,22 +776,27 @@
       "expired": 2
     },
     "2026-10-01": {
-      "rejected": 10,
+      "rejected": 28,
       "tok_in": 449698,
       "tok_out": 51337,
       "cost_usd": 0.0,
       "drafts": 22,
-      "expired": 1
+      "expired": 1,
+      "published": 2,
+      "approved": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-01T05:29:42Z",
+  "last_build": "2026-10-01T05:59:27Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-09-30T21:55:25Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-01T05:59:02Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/spacex-ayni-gun-uclu-roket-firlatmasi/",
+    "https://smarity.com.tr/haber/lego-playstation-seti-satisa-cikti/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
