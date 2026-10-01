@@ -1,0 +1,117 @@
+{
+  "id": "ca7575de02",
+  "status": "pending",
+  "created_at": "2026-10-01T21:45:49Z",
+  "title": "GrayKey geliştiricisi iPhone Inactivity Reboot özelliğini atlamayı başardı",
+  "summary": "Magnet Forensics şirketinin geliştirdiği GrayKey aracı, iPhone'ların 72 saat kilitli kalındığında devreye giren otomatik yeniden başlatma korumasını aşabiliyor.",
+  "body": "404 Media'nın aktardığına göre, GrayKey telefon kilidi açma aracının arkasındaki şirket olan Magnet Forensics, iPhone cihazlarda bulunan güvenlik önlemini atlamanın bir yolunu buldu. Yaklaşık iki yıl önce iOS 18.1 güncellemesiyle kullanıma sunulan Inactivity Reboot (Hareketsizlik Nedeniyle Yeniden Başlatma) özelliği, cihazlar 72 saat boyunca kilidi açılmadığında otomatik olarak yeniden başlamasını zorunlu kılıyordu.\n\n## GrayKey Preserve ve Evidence Preservation Mode\n\nKolluk kuvvetleri için hazırlanan ve 2025 yılının başlarına ait olduğu belirtilen bir eğitsel videoya dayandırılan rapora göre, Magnet Forensics bu sorunu çözmek için GrayKey Preserve adlı yeni bir cihaz ve mevcut donanımlar için Evidence Preservation Mode geliştirdi. Söz konusu araçlar, cihazın adlı tıp durumunu korumak ve verilerin açığa çıkmasını engellemek üzere tasarlandı.\n\nVideodaki bir çalışanın aktardığına göre, bu sistemler sayesinde cihaz yeniden başlasa bile telefonun daha az kısıtlayıcı olan veri durumu korunabiliyor. Şirket çalışanının ifadesiyle, \"Hatta o cihaz herhangi bir nedenle yeniden başlasa bile, veri durumu kaybolmuyor; GrayKey Preserve ve Evidence Preservation Mode fonksiyonunun gerçek sihri burada yatıyor.\" Araştırmacılar, bu yöntemin telefonun saatini manipüle etmekten veya veri süre aşımından sorumlu süreçleri kapatmaktan kaynaklanabileceğini tahmin ediyor.\n\n## Apple ve Magnet Forensics sessizliğini koruyor\n\nKonuyla ilgili olarak 404 Media'nın ulaştığı Apple ve Magnet Forensics herhangi bir açıklama yapmadı. Söz konusu videonun erken bir döneme ait olması nedeniyle, bu teknolojinin ne kadar süredir kullanımda olduğu veya en son iOS sürümlerine karşı hâlâ etkili olup olmadığı henüz bilinmiyor.\n\n**Neden önemli?** Inactivity Reboot özelliği, kolluk kuvvetlerinin veya kötü niyetli kişilerin kilitli bir iPhone'un verilerine erişmesini zorlaştırmak amacıyla geliştirilmişti. Geliştirilen yeni yöntem, bu güvenlik kalkanının adlı incelemeler sırasında aşılabilmesine kapı aralıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Apple",
+    "iPhone",
+    "iOS",
+    "Magnet Forensics"
+  ],
+  "confidence": "orta",
+  "flags": [
+    "iddia"
+  ],
+  "editor_note": "Kaynak haber 404 Media'nın sızan bir eğitsel videoya dayandırdığı iddialara dayanmaktadır.",
+  "short_title": "GrayKey iPhone güvenlik kilidini aşabiliyor",
+  "kicker": "Güvenlik",
+  "hero_stat": "72 saat",
+  "hero_stat_label": "kilit süresi sınırı",
+  "visual_style": "studio",
+  "visual_scene": "a sleek dark metal smartphone resting on a reflective obsidian surface, casting soft blue light upwards, with abstract translucent glass shards hovering nearby to represent digital security layers",
+  "focus_keyword": "iPhone Inactivity Reboot",
+  "seo_title": "GrayKey iPhone Inactivity Reboot özelliğini atlıyor",
+  "meta_description": "Magnet Forensics tarafından geliştirilen GrayKey aracının, iPhone'ların Inactivity Reboot güvenlik özelliğini aşabildiği bildirildi.",
+  "seo_slug": "graykey-iphone-inactivity-reboot-ozelligini-atladi",
+  "image_alt": "Siyah bir zemin üzerinde duran akıllı telefon ve dijital güvenliği temsil eden soyut cam katmanlar",
+  "cover_text": "GrayKey Preserve",
+  "carousel_points": [
+    "Magnet Forensics, iPhone'ların otomatik yeniden başlatma özelliğini aşan bir yöntem buldu.",
+    "iOS 18.1 ile gelen Inactivity Reboot koruması, cihazlar 72 saat açılmadığında devreye giriyordu.",
+    "Geliştirilen araçlar sayesinde cihaz yeniden başlasa bile verilerin adlı durumu korunabiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "GrayKey iPhone güvenlik kilidini atladı",
+  "cover_highlight": "GrayKey",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "iPhone güvenlik kilidinin aşılması dikkat çeken bir siber güvenlik gelişmesi.",
+  "entities": [
+    "Apple",
+    "Magnet Forensics",
+    "GrayKey"
+  ],
+  "topic": "GrayKey maker bypasses iPhone Inactivity Reboot security feature",
+  "sources": [
+    {
+      "name": "9to5Mac",
+      "url": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/",
+      "title": "GrayKey maker can reportedly bypass the iPhone’s ‘Inactivity Reboot’ security feature",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/#respond",
+      "published": "2026-10-01T21:36:16Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2024/02/how-to-get-imessage-quantum-security-1.jpg?quality=82&#038;strip=all&#038;w=1600"
+    }
+  ],
+  "source_keys": [
+    "9to5Mac"
+  ],
+  "source_texts": [
+    {
+      "credit": "9to5Mac",
+      "kind": "media",
+      "title": "GrayKey maker can reportedly bypass the iPhone’s ‘Inactivity Reboot’ security feature",
+      "url": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/",
+      "published": "2026-10-01T21:36:16Z",
+      "summary": "As reported by 404 Media , Magnet Forensics says it has found a way to bypass the iPhone security feature that automatically reboots devices if they haven’t been unlocked for 72 hours. Here are the details. more…",
+      "text": "As reported by 404 Media, Magnet Forensics says it has found a way to bypass the iPhone security feature that automatically reboots devices if they haven’t been unlocked for 72 hours. Here are the details.\nA bit of context\nNearly two years ago, the iOS 18.1 update introduced Inactivity Reboot, a feature that forces iPhone reboots in case they haven’t been unlocked for 72 hours.\nIn essence, this feature makes it harder for law enforcement and forensic tools to access data on a locked iPhone, since a reboot causes the device to return to a Before First Unlock (BFU) state, rather than remaining in the less restrictive After First Unlock (AFU) state.\nWhen an iPhone is in BFU, certain sensitive data remains protected by encryption keys that only become available after the user enters their passcode for the first time, thus putting the device in AFU.\nFrom that point on, more of the device’s data remains accessible until the iPhone is rebooted again, which returns it to BFU.\nAutomatically rebooting an iPhone means that even if a device is seized by law enforcement, it can return to BFU before investigators can access it, since obtaining a warrant or transporting the device to a forensic lab can take time.\nAs 404 Media noted when iOS 18.1 was released, the feature can also make it harder for thieves or other bad actors to keep a stolen iPhone in AFU long enough to develop or use a way to break into it.\nGrayKey reportedly gets around Inactivity Reboot\n404 Media reported today that, based on an “educational and tutorial video, which was made exclusively for law enforcement agents and appears to be dated early 2025,” Magnet Forensics, the company behind the GrayKey phone unlocking tool, appears to have developed a way to bypass the iPhone’s Inactivity Reboot feature.\nAccording to the report, Magnet developed a new device called GrayKey Preserve, as well as an Evidence Preservation Mode for its existing GrayKey hardware.\nBoth are reportedly designed to maintain an iPhone’s forensic state without immediately exposing the data stored on the device, allowing law enforcement to keep that state intact while waiting for authorization to search it.\nThe report notes that while the video doesn’t detail the technical mechanism behind the workaround, it explains that GrayKey can preserve an iPhone’s AFU state even if the device reboots.\nFrom the report:\n“That AFU state is captured,” by GrayKey Preserve and Evidence Preservation Mode, the employee says. “Even if that device does reboot for any number of reasons, memory maintenance or the power is lost or whatever, the AFU state is not lost. This is the true magic behind the GrayKey Preserve and the Evidence Preservation Mode function.”\n404 Media reached out to Apple and Magnet Forensics, but neither responded to a request for comment. They also consulted iPhone security researcher Jiska Classen, who said Magnet may have found a way to manipulate the iPhone’s clock, or to turn off the processes responsible for expiring certain data altogether.\nWhile the video appears to date from early 2025, it is unclear how long the technology has been available to law enforcement, whether it has been used in actual investigations, or whether the workaround remains effective against the latest versions of iOS.\nTo read 404 Media’s full report, follow this link."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 829
+  },
+  "photos": [
+    {
+      "file": "ca7575de02-g0.webp",
+      "src": "https://9to5mac.com/wp-content/uploads/sites/6/2024/02/how-to-get-imessage-quantum-security-1.jpg?quality=82&#038;strip=all&#038;w=1600",
+      "credit": "9to5Mac",
+      "page": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/",
+      "alt": "",
+      "w": 1600,
+      "h": 800,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "ca7575de02-g1.webp",
+      "src": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/08/ipados-27.jpg?w=1500&quality=82&strip=all&ssl=1",
+      "credit": "9to5Mac",
+      "page": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/",
+      "alt": "iPadOS 27",
+      "w": 1500,
+      "h": 750,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "ca7575de02-g0.webp",
+    "credit": "9to5Mac",
+    "page": "https://9to5mac.com/2026/10/01/graykey-maker-can-reportedly-bypass-the-iphones-inactivity-reboot-security-feature/",
+    "src": "https://9to5mac.com/wp-content/uploads/sites/6/2024/02/how-to-get-imessage-quantum-security-1.jpg?quality=82&#038;strip=all&#038;w=1600",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Uyarı işareti var"
+}
