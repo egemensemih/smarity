@@ -1,6 +1,5 @@
 {
   "id": "ef64cd17d4",
-  "status": "pending",
   "created_at": "2026-10-01T10:16:50Z",
   "title": "Mac Studio M5 Ultra incelemesi: Yapay zeka ve güç odaklı yeni masaüstü",
   "summary": "Apple'ın yeni Mac Studio modeli, yerleşik yapay zeka araçları ve güçlü donanımıyla profesyonellere hitap ediyor.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "WIRED"
   ],
-  "source_texts": [
-    {
-      "credit": "WIRED",
-      "kind": "media",
-      "title": "Apple Mac Studio (M5 Ultra) Review: Unlimited Power",
-      "url": "https://www.wired.com/review/apple-mac-studio-m5-ultra-2026/",
-      "published": "2026-10-01T10:00:00Z",
-      "summary": "The Mac Studio can run frontier-level AI language models locally. It’s only a preview of what’s to come.",
-      "text": "The Mac Studio has a new calling in life. For awhile, it seemed like overkill for just about anyone, regardless of profession.\nBut these days, computers with over 64 GB of RAM and tons of GPU performance have an entire playground of on-device AI tools to exclusively explore. With a Mac Studio, you can have a full-on agentic AI framework, generate high-end video all on-device, or run the latest foundation-level large language models (LLMs). The Mac Studio is relatively unique among the available options—at least, for now.\nBut beware: If you're tired of hearing about AI, turn away now.\nPower Box\nApple has always catered to a high-performance crowd, and with the surge of interest in local AI, its systems are uniquely set up to excel in that area. But first, the box itself. It's about as tall as a coffee mug, but it's a 7-inch-square footprint. I bet most people have never seen a Mac Studio in person, and if you get the chance, you might be surprised by how large it actually is.\nThe Mac Studio remains the only Mac to keep USB-A ports around. That alone's worth the souped-up $11,000 model, right? (That's a joke). Here, you get two, along with four, Thunderbolt 5 ports, Ethernet, HDMI, and a headphone jack. You can connect up to four 5K external displays at 120 Hz using the Thunderbolt and HDMI ports, if that's your jam. Interestingly, as compared to the Mac Mini, the Studio swaps the front-facing headphone jack with a full SD card slot. Photographers and videographers will appreciate that."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 740
@@ -97,5 +85,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %10 (<%85)"
+  "slug": "mac-studio-m5-ultra-incelemesi",
+  "published_at": "2026-10-01T12:09:05Z",
+  "publish_mode": "manual"
 }

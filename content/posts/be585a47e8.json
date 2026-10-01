@@ -1,6 +1,5 @@
 {
   "id": "be585a47e8",
-  "status": "pending",
   "created_at": "2026-10-01T07:50:53Z",
   "title": "Gemini 4 Argon tanıtıldı: Google'ın en güçlü yapay zeka modeli",
   "summary": "Google, şimdiye kadarki en güçlü yapay zekası olan Gemini 4 Argon'u duyurdu. Model, kodlama, siber güvenlik ve veri optimizasyonunda iddialı özelliklerle geliyor.",
@@ -57,17 +56,6 @@
   ],
   "source_keys": [
     "DonanımHaber"
-  ],
-  "source_texts": [
-    {
-      "credit": "DonanımHaber",
-      "kind": "media",
-      "title": "Google sessizliğini bozdu: En güçlü yapay zeka Gemini 4 Argon tanıtıldı",
-      "url": "https://www.donanimhaber.com/google-en-guclu-yapay-zeka-gemini-4-argon-u-tanitti--211103",
-      "published": "2026-10-01T07:47:47Z",
-      "summary": "Google, yeni yapay zeka modeli Gemini 4 Argon'u duyurdu. 1 milyon token çıktı kapasitesine sahip olan model, kodlama ve siber güvenlikte güçlü yetenekler sunuyor.",
-      "text": "Gemini 4 Argon şimdilik sınırlı erişime sahip\nGoogle, yüksek kapasiteli modellerin güvenli şekilde kullanıma sunulması için kademeli bir dağıtım süreci izliyor. Bu nedenle Gemini 4 Argon'un ilk kullanıcıları, Fairwind Programı kapsamındaki güvenilir siber savunma ekipleri olacak. Google, bu süreçte modelin güvenlik önlemlerini gerçek kullanım senaryolarından gelen geri bildirimlerle geliştirmeyi planlıyor. Daha geniş erişimin ise ilerleyen dönemde geliştiriciler, şirketler ve bireysel kullanıcılarla başlaması bekleniyor.\nArgon'un Google içerisindeki kullanımı ise şimdiden başlamış durumda. Şirket, binlerce çalışanının modeli hata ayıklama, araştırma, kod geliştirme ve büyük ölçekli kod dönüşümleri gibi görevlerde kullandığını belirtiyor. Modelin ajanları, Google genelindeki C ve C++ kodlarını Rust'a taşımak için de kullanılıyor. Çalışmalar, on binlerce satırlık temel kütüphanelerden 800 binden fazla satırlık Fuchsia Zircon çekirdeğine kadar uzanıyor. Kritik sistemlerde yapılan bu dönüşümler üretime alınmadan önce otomatik ve manuel denetimlerden geçiriliyor.\nGoogle'ın paylaştığı örneklerden biri de açık kaynaklı libgav1 video çözücüsü. Argon ajanları, bu yazılımın Rust sürümündeki 32 bin satırlık SIMD kodunu yeniden ele alarak derleyicinin vektörleştirme yapabileceği güvenli Rust koduna dönüştürdü. Google'a göre ortaya çıkan sürüm, önceki Rust uygulamasından 2,7 kat daha hızlı çalışıyor ve aynı video çıktısını üretiyor.\nTek seferde 1 milyon token çıktı üretebiliyor\nModelin Google'daki kullanım alanları yalnızca yazılımla sınırlı kalmıyor. Şirket, Argon'un veri merkezlerindeki profil oluşturma verilerini analiz ederek bellek optimizasyonlarını otomatik şekilde tespit ettiğini ve uygulanan değişikliklerle 300 TiB'tan fazla belleğin serbest bırakıldığını açıkladı. Google, tüm sistemlerde uygulanması halinde toplam tasarrufun 500 TiB ile 1 PiB arasında olabileceğini tahmin ediyor.\nKuantum bilişim tarafında da dikkat çekici bir örnek paylaşıldı. Google, Argon'un kuantum bilgisayarlarda önemli uygulamaların önündeki darboğazlardan birini oluşturan bir alt program için gerekli hesaplama kaynaklarını optimize ettiğini ve yayımlanmış temel sonuca kıyasla yüzde 40 daha az kaynak kullanan bir yaklaşımı dakikalar içerisinde bulduğunu belirtiyor.\nKodlama ve uzun görevlerde yüksek performans\nBununla birlikte Google'ın sunduğu benchmark sonuçları her alanda aynı tabloyu göstermiyor. Paylaşılan verilerde Argon bazı bağımsız yazılım mühendisliği ve terminal görevlerinde rakip modellerin gerisinde kalıyor. Örneğin FrontierSWE testinde yüzde 55, Terminal-Bench 4.0 testinde ise yüzde 57,4 skor açıklanıyor.\nAna kullanım alanı siber güvenlik\nSiber güvenlik şirketi Wiz de Argon'u erken test eden kuruluşlar arasında yer alıyor. Google'ın aktardığına göre model, dünya genelindeki hastanelerde kullanılan sağlık yazılımlarından birinde hassas kişisel bilgileri açığa çıkarabilecek kritik bir güvenlik açığı tespit etti. Şirket, önceki frontier modellerinin bu açığı tespit edemediğini belirtiyor.\nArgon, güvenlik açıklarının giderilmesini ölçen CWE-bench v1 testinde yüzde 68 skorla liderliği paylaşıyor. Google ayrıca kendi kapsamlı güvenlik açığı testinde modelin 20 programlama dilini kapsayan karmaşık kod tabanlarında çok sayıda açığı tespit ettiğini ve Wiz'in kaynak koduna erişmeden gerçekleştirilen testlerinde de saldırı yüzeyini belirleme, açık tespit etme ve kanıt üretme konusunda gelişmiş sonuçlar aldığını belirtiyor.\nGemini 4 Argon fiyatı ne kadar?\nGoogle, Gemini 4 Argon için sınırlı süreli bir tanıtım fiyatı da açıkladı. API kullanımında 1 milyon giriş tokenı 2 dolar, 1 milyon çıkış tokenı ise 10 dolar olarak fiyatlandırılıyor.\nTanıtım dönemi sona erdikten sonra, 1 milyon giriş tokeni için 4 dolar ve 1 milyon çıkış tokeni için 20 dolar fiyat uygulanacak.\nModelin genel kullanıma ne zaman açılacağı konusunda ise Google henüz kesin bir tarih vermiyor. Siber güvenlik testlerinin ardından erişimin önce ücretli API kullanıcıları ve Google AI Ultra aboneleriyle genişletilmesi, daha sonra geliştiriciler, işletmeler ve tüketicilere açılması planlanıyor.\nKaynakça https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/ https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/ Bu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
-    }
   ],
   "rewrites": 0,
   "telegram": {
@@ -130,5 +118,9 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %10 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-01T12:08:37Z",
+  "slug": "gemini-4-argon-tanitildi",
+  "published_at": "2026-10-01T12:08:37Z",
+  "publish_mode": "manual"
 }

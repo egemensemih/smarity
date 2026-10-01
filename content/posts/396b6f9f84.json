@@ -1,6 +1,5 @@
 {
   "id": "396b6f9f84",
-  "status": "pending",
   "created_at": "2026-10-01T11:31:40Z",
   "title": "Anthropic, Claude for Government sürümünü genel kullanıma sundu",
   "summary": "Anthropic, devlet kurumları için özel olarak geliştirilen Claude for Government platformunu genel kullanıma sundu ve yeni fiyatlandırma modelini duyurdu.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "TechRadar"
   ],
-  "source_texts": [
-    {
-      "credit": "TechRadar",
-      "kind": "media",
-      "title": "Anthropic wants to get Claude working across all Government arms",
-      "url": "https://www.techradar.com/pro/anthropic-wants-to-get-claude-working-across-all-government-arms",
-      "published": "2026-10-01T11:05:00Z",
-      "summary": "Claude for Government runs in a FedRAMP High-authorized environment Pricing is now based on pre-allocated spend, not per seat Claude for Microsoft 365 is also being added Anthropic has announced the general availability of Claude for Government specifically for government agencies. First launched as a public beta in July 2026, the industry-specific variant is designed to give government employees access to the same sorts of tools as commercial Claude customers, within a FedRAMP High-authorized environment. But better still, now that Claude for Government is officially available, Anthropic…",
-      "text": "- Claude for Government runs in a FedRAMP High-authorized environment\n- Pricing is now based on pre-allocated spend, not per seat\n- Claude for Microsoft 365 is also being added\nAnthropic has announced the general availability of Claude for Government specifically for government agencies.\nFirst launched as a public beta in July 2026, the industry-specific variant is designed to give government employees access to the same sorts of tools as commercial Claude customers, within a FedRAMP High-authorized environment.\nBut better still, now that Claude for Government is officially available, Anthropic has implied that new features will land on this platform at the same time as they do on commercial versions of Claude, so that government workers don't risk being left behind.\nClaude for Government is now generally available\nNaturally, security is one of the biggest messages that coincides with the launch of Claude for Government, and the company notes that admins can set model restrictions, monitor usage, allocate spending, control external connections and more.\nBut Anthropic has also made some changes to its pricing structure in a bid to make spending more predictable, given public sector scrutiny and AI costs that can quickly spiral out of control. Rather than per-seat billing, Claude for Government works on the basis of having fixed increments.\nUnder this new model, agencies would need to commit to a specific amount, and Claude usage cannot exceed that amount.\n\"Administrators define user tiers with spend and model limits per group, track usage by user and by model, and get burndown alerts before a balance runs low,\" the company explained.\nSign up to the TechRadar Pro newsletter to get all the top news, opinion, features and guidance your business needs to succeed!\nAt the same time, Claude for Microsoft 365 is also being made available via early access, which puts Claude tools directly within Microsoft's three biggest pieces of office software – Word, Excel and PowerPoint – as well as Outlook (in beta).\nBy confirming that it will be adding new features at the standard public cadence and including Claude for Microsoft 365, Anthropic is acknowledging that governments don't want to compromise on features or security.\nFollow TechRadar on Google News and add us as a preferred source to get our expert news, reviews, and opinion in your feeds.\nWith several years’ experience freelancing in tech and automotive circles, Craig’s specific interests lie in technology that is designed to better our lives, including AI and ML, productivity aids, and smart fitness. He is also passionate about cars and the decarbonisation of personal transportation. As an avid bargain-hunter, you can be sure that any deal Craig finds is top value!\nYou must confirm your public display name before commenting\nPlease logout and then login again, you will then be prompted to enter your display name."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 748
@@ -123,5 +111,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %10 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-01T12:09:32Z",
+  "slug": "anthropic-claude-for-government-yayinda",
+  "published_at": "2026-10-01T12:09:32Z",
+  "publish_mode": "manual"
 }

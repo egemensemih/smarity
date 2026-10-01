@@ -1,6 +1,5 @@
 {
   "id": "97845dd9cd",
-  "status": "pending",
   "created_at": "2026-10-01T08:21:17Z",
   "title": "Tesla Model 3 yenilendi ve araçtan cihaza güç aktarımı kazandı",
   "summary": "Tesla Model 3, yurtdışındaki yeni teslimatlarla birlikte V2L teknolojisine ve daha büyük bir ekrana kavuştu, ancak ABD pazarı bu güncellemenin dışında kaldı.",
@@ -58,17 +57,6 @@
   ],
   "source_keys": [
     "InsideEVs"
-  ],
-  "source_texts": [
-    {
-      "credit": "InsideEVs",
-      "kind": "media",
-      "title": "The Tesla Model 3 Gets A Big Upgrade, But The U.S. Is Left Out",
-      "url": "https://insideevs.com/news/810402/tesla-model-3-v2l-export/",
-      "published": "2026-10-01T07:38:12Z",
-      "summary": "The electric sedan is finally getting vehicle-to-load (V2L) functionality, but you’ll need to move out of the country to get one.",
-      "text": "The Tesla Model 3 Gets A Big Upgrade, But The U.S. Is Left Out\nThe electric sedan is finally getting vehicle-to-load (V2L) functionality, but you’ll need to move out of the country to get one.\n- Tesla has updated the Model 3 EV overseas.\n- The electric four-door sedan now finally comes with vehicle-to-load (V2L) functionality via an adapter.\n- The infotainment screen is also larger, and the headliner color has been switched to black.\nThe Tesla Model 3 is getting a few improvements, but American customers will have to wait a little longer, as the company has decided to start the rollout outside of the U.S.\nModel 3s delivered starting in the fourth quarter of this year will finally be capable of exporting energy from their high-voltage batteries through a feature called vehicle-to-load (V2L). It’s something that EVs from other automakers have been equipped with for years, and now Tesla has added it to the Model 3.\nThe feature will only be available on cars sold in China, Australia, New Zealand, and South Korea, but other countries are expected to get in on the action in the following months. By using an adapter that plugs into the vehicle’s charging port, owners can power tools, appliances, or camping equipment with a combined power draw of up to 2.2 kilowatts.\nWhat’s more, all Model Y versions sold in these countries are also getting V2L functionality. In the United States, the only Tesla vehicles that come with V2L out of the box are the Cybertruck, Model Y Premium, Model Y L, and Model Y Performance. The entry-level Model Y is left out, but that’s probably going to change after Tesla ramps up the distribution of the updated hardware that enables bidirectional charging.\nIn the U.S., all Model Y EVs that can export power need an adapter that plugs into the mobile charger. With it, the car can deliver up to 2.4 kW through a pair of outlets.\nGetting back to the Model 3, its central infotainment screen is also getting a minor update, with a 16-inch touchscreen with an improved pixel density replacing the 15.4-inch display of the outgoing model. Tesla didn’t say it out loud, but it’s probably the same 16-inch screen that made its way into the Model Y earlier this year.\nOther changes include a black headliner, a new Zen Grey seat color, and 19-inch Dark Nova wheels.\nIt’s worth noting that retrofitting V2L to an older Model Y or Model 3 is not possible, as the hardware that enables the function differs. That may change in the future, but for now, it’s a no-go. What’s more, owners won’t be able to power an entire house off the V2L adapter, as its power output is quite limited, but it should be enough to power a fridge and some essential gear during an outage."
-    }
   ],
   "rewrites": 0,
   "telegram": {
@@ -134,5 +122,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %10 (<%85)"
+  "slug": "tesla-model-3-v2l-guncellemesi",
+  "published_at": "2026-10-01T12:08:39Z",
+  "publish_mode": "manual"
 }
