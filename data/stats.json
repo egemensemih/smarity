@@ -33,7 +33,7 @@
       "rejected": 21
     },
     "ShiftDelete.Net": {
-      "approved": 17,
+      "approved": 18,
       "rejected": 12
     },
     "Webtekno": {
@@ -314,12 +314,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-28T15:23:57Z",
-      "id": "d1cfe735f1",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-28T15:24:03Z",
       "id": "9976fc4746",
@@ -2112,6 +2106,12 @@
       "t": "2026-10-01T05:59:02Z",
       "id": "cc8bdc9334",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T06:33:06Z",
+      "id": "7a823154ac",
+      "ok": true,
       "manual": true
     }
   ]
