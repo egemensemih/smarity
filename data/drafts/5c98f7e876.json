@@ -1,6 +1,6 @@
 {
   "id": "5c98f7e876",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-01T17:47:52Z",
   "title": "Ideogram 4.5 duyuruldu: Görselin sadece istenen yeri değişiyor",
   "summary": "Ideogram'ın yeni yapay zeka modeli Ideogram 4.5, görsellerde sadece istenen bölgeyi değiştirerek diğer kısımların bozulmasını önlüyor.",
@@ -98,5 +98,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %30 (<%85)"
+  "policy_reason": "Genel onay oranı %30 (<%85)",
+  "rejected_at": "2026-10-01T19:08:32Z"
 }

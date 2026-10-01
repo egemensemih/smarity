@@ -1,6 +1,6 @@
 {
   "id": "f732d12548",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-01T13:19:34Z",
   "title": "Sahte Zoom uygulaması Mac güvenliğini nasıl aşıyor",
   "summary": "Siber güvenlik firması Jamf, Mac kullanıcılarını hedef alan sahte bir Zoom uygulamasının Apple’ın güvenlik önlemlerini nasıl atlattığını ortaya çıkardı.",
@@ -100,5 +100,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %30 (<%85)"
+  "policy_reason": "Genel onay oranı %30 (<%85)",
+  "rejected_at": "2026-10-01T19:06:04Z"
 }

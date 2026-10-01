@@ -2,43 +2,43 @@
   "sources": {
     "LOG": {
       "approved": 20,
-      "rejected": 6
+      "rejected": 8
     },
     "The Verge": {
       "approved": 13,
-      "rejected": 14
+      "rejected": 17
     },
     "Engadget": {
       "approved": 12,
-      "rejected": 4
+      "rejected": 6
     },
     "Google": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "Interesting Engineering": {
       "approved": 6,
-      "rejected": 11
+      "rejected": 15
     },
     "Webrazzi": {
       "approved": 10,
       "rejected": 4
     },
     "Electrek": {
-      "approved": 8,
+      "approved": 9,
       "rejected": 11
     },
     "DonanımHaber": {
       "approved": 24,
-      "rejected": 21
+      "rejected": 25
     },
     "ShiftDelete.Net": {
       "approved": 19,
-      "rejected": 13
+      "rejected": 14
     },
     "Webtekno": {
       "approved": 15,
-      "rejected": 8
+      "rejected": 10
     },
     "Anadolu Ajansı": {
       "approved": 3,
@@ -53,7 +53,7 @@
       "rejected": 8
     },
     "TechCrunch": {
-      "approved": 20,
+      "approved": 21,
       "rejected": 10
     },
     "Egirisim": {
@@ -62,7 +62,7 @@
     },
     "Polygon": {
       "approved": 5,
-      "rejected": 9
+      "rejected": 11
     },
     "WIRED": {
       "approved": 3,
@@ -70,7 +70,7 @@
     },
     "IGN": {
       "approved": 1,
-      "rejected": 10
+      "rejected": 13
     },
     "New Atlas": {
       "approved": 3,
@@ -90,7 +90,7 @@
     },
     "VGC": {
       "approved": 2,
-      "rejected": 3
+      "rejected": 5
     },
     "BBC Teknoloji": {
       "approved": 1,
@@ -102,7 +102,7 @@
     },
     "Bloomberg Teknoloji": {
       "approved": 10,
-      "rejected": 16
+      "rejected": 17
     },
     "Digital Trends": {
       "approved": 4,
@@ -110,11 +110,11 @@
     },
     "TechRadar": {
       "approved": 6,
-      "rejected": 5
+      "rejected": 8
     },
     "Android Authority": {
       "approved": 6,
-      "rejected": 8
+      "rejected": 9
     },
     "SoundGuys": {
       "approved": 6,
@@ -134,7 +134,7 @@
     },
     "Wccftech": {
       "approved": 3,
-      "rejected": 5
+      "rejected": 7
     },
     "Tom's Guide": {
       "approved": 3,
@@ -142,7 +142,7 @@
     },
     "The Next Web": {
       "approved": 2,
-      "rejected": 21
+      "rejected": 26
     },
     "InsideEVs": {
       "approved": 3,
@@ -150,7 +150,7 @@
     },
     "Chip Online": {
       "approved": 2,
-      "rejected": 4
+      "rejected": 5
     },
     "CarNewsChina": {
       "approved": 5,
@@ -158,7 +158,7 @@
     },
     "The Decoder": {
       "approved": 4,
-      "rejected": 8
+      "rejected": 11
     },
     "SamMobile": {
       "approved": 1,
@@ -174,7 +174,7 @@
     },
     "Car and Driver": {
       "approved": 0,
-      "rejected": 5
+      "rejected": 6
     },
     "The Drive": {
       "approved": 0,
@@ -182,11 +182,11 @@
     },
     "PC Gamer": {
       "approved": 2,
-      "rejected": 3
+      "rejected": 5
     },
     "Tom's Hardware": {
       "approved": 3,
-      "rejected": 4
+      "rejected": 6
     },
     "What Hi-Fi": {
       "approved": 2,
@@ -202,7 +202,7 @@
     },
     "PetaPixel": {
       "approved": 1,
-      "rejected": 2
+      "rejected": 3
     },
     "9to5Mac": {
       "approved": 3,
@@ -214,11 +214,11 @@
     },
     "9to5Google": {
       "approved": 3,
-      "rejected": 1
+      "rejected": 2
     },
     "XDA": {
       "approved": 1,
-      "rejected": 1
+      "rejected": 2
     },
     "New York Times Teknoloji": {
       "approved": 2,
@@ -234,22 +234,22 @@
     },
     "DIY Photography": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "Xbox Wire": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Kotaku": {
       "approved": 0,
-      "rejected": 3
+      "rejected": 4
     },
     "Android Police": {
       "approved": 2,
-      "rejected": 3
+      "rejected": 4
     },
     "AppleInsider": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 2
     },
     "NASA": {
@@ -302,7 +302,7 @@
     },
     "GameSpot": {
       "approved": 0,
-      "rejected": 1
+      "rejected": 2
     },
     "Donanım Arşivi": {
       "approved": 0,
@@ -311,279 +311,17 @@
     "Teslarati": {
       "approved": 1,
       "rejected": 0
+    },
+    "Fstoppers": {
+      "approved": 0,
+      "rejected": 1
+    },
+    "PlayStation Blog": {
+      "approved": 0,
+      "rejected": 1
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-29T09:49:42Z",
-      "id": "c6696ddda0",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T09:49:44Z",
-      "id": "9e9702169d",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:11Z",
-      "id": "f5f99696eb",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:15Z",
-      "id": "562934c07e",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:26Z",
-      "id": "e1c60dcd63",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:31Z",
-      "id": "374b1f89a8",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:32Z",
-      "id": "7a2d65f99b",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:38Z",
-      "id": "a6bf02bc1c",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:41Z",
-      "id": "1f0474e622",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:46Z",
-      "id": "977ed93be7",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:51Z",
-      "id": "b31e32f029",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:54Z",
-      "id": "a45d5e9c08",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:12:59Z",
-      "id": "a04f7424a5",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:13:04Z",
-      "id": "44a09c91d8",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:13:07Z",
-      "id": "2f6ec62e58",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:13:14Z",
-      "id": "58b4e0890f",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:47:53Z",
-      "id": "6177bbcdfd",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:47:55Z",
-      "id": "d1e01d6d92",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:48:01Z",
-      "id": "dd6f3647ae",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:48:02Z",
-      "id": "8cabaa40bb",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:48:12Z",
-      "id": "6adb73986a",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T11:48:15Z",
-      "id": "ca6540fce7",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T12:18:14Z",
-      "id": "cbf7c5a606",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T12:18:15Z",
-      "id": "f98e74a832",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T12:18:16Z",
-      "id": "2c8d6c727d",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T12:18:18Z",
-      "id": "c05052ae07",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T12:18:19Z",
-      "id": "45593e027d",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:08:35Z",
-      "id": "c2ca86065e",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:08:47Z",
-      "id": "1e5bb76e66",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:08:51Z",
-      "id": "c4f7daacaf",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:09:00Z",
-      "id": "b5248e7e93",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:09:03Z",
-      "id": "881c66aacc",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:09:11Z",
-      "id": "0d8fc788f0",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:09:13Z",
-      "id": "4fc8463df8",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:54:29Z",
-      "id": "3f31b98fb0",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:54:33Z",
-      "id": "9c2c53d74f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:54:36Z",
-      "id": "bfc53f0f6c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T13:54:44Z",
-      "id": "25c839c079",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:31Z",
-      "id": "24b645f5ec",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:33Z",
-      "id": "10e5b76366",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:34Z",
-      "id": "9348dd3797",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:36Z",
-      "id": "070ccf6e46",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:42Z",
-      "id": "fbf5a9843c",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:45Z",
-      "id": "2e75494788",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T15:04:49Z",
-      "id": "16259655d4",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-29T15:04:54Z",
       "id": "041ef5b76b",
@@ -2111,6 +1849,276 @@
     {
       "t": "2026-10-01T13:14:05Z",
       "id": "5e9e361f95",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:04Z",
+      "id": "f732d12548",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:06Z",
+      "id": "7ed669118c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:09Z",
+      "id": "7f9c08c11d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:11Z",
+      "id": "a24c649519",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:14Z",
+      "id": "e9d5d55fcf",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:17Z",
+      "id": "a7370750af",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:19Z",
+      "id": "970ac47d1f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:21Z",
+      "id": "2dc7e0a4fe",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:23Z",
+      "id": "b02f6c9e4f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:26Z",
+      "id": "93c7c8d91c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:30Z",
+      "id": "e4a99f05a9",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:42Z",
+      "id": "bae5bfd893",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:45Z",
+      "id": "ac31ca8d26",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:55Z",
+      "id": "30abb3d74f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:06:57Z",
+      "id": "e9b3d9e901",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:01Z",
+      "id": "bbef71de77",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:03Z",
+      "id": "76fd8a48b6",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:05Z",
+      "id": "66c94f9edb",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:34Z",
+      "id": "5cc82a5f6a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:36Z",
+      "id": "3b73f3002b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:37Z",
+      "id": "8ac7afbd59",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:38Z",
+      "id": "e112575b23",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:40Z",
+      "id": "6b8cee21db",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:41Z",
+      "id": "a0b010b71e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:42Z",
+      "id": "a466d591aa",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:43Z",
+      "id": "c6502b2e78",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:44Z",
+      "id": "6f3c91b9f6",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:45Z",
+      "id": "428b1843cc",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:49Z",
+      "id": "dbd8962975",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:50Z",
+      "id": "0ceaaedef3",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:51Z",
+      "id": "658214e0c5",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:53Z",
+      "id": "481069137c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:56Z",
+      "id": "aae2174b6d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:07:59Z",
+      "id": "974d07ca1b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:05Z",
+      "id": "105276fdb5",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:07Z",
+      "id": "2775e78668",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:13Z",
+      "id": "8724eedc6d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:17Z",
+      "id": "5d67912a56",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:22Z",
+      "id": "0c03e38891",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:25Z",
+      "id": "753b581d33",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:32Z",
+      "id": "5c98f7e876",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:37Z",
+      "id": "c97e21c467",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:41Z",
+      "id": "8ea3274fdb",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:43Z",
+      "id": "95683e0db0",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-01T19:08:47Z",
+      "id": "ca49a30fd4",
       "ok": false,
       "manual": true
     }

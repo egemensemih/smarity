@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816172,
+  "telegram_offset": 872816218,
   "last_collect": "2026-10-01T19:01:08Z",
   "last_summary_date": "2026-10-01",
   "mode_override": null,
@@ -777,21 +777,21 @@
       "expired": 2
     },
     "2026-10-01": {
-      "rejected": 62,
+      "rejected": 104,
       "tok_in": 1528583,
       "tok_out": 298432,
       "cost_usd": 0.0,
       "drafts": 112,
       "expired": 9,
-      "published": 15,
-      "approved": 15,
+      "published": 18,
+      "approved": 18,
       "updates": 5,
       "updated": 3
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-01T18:29:40Z",
+  "last_build": "2026-10-01T19:09:46Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [
@@ -915,8 +915,12 @@
       "held_at": "2026-10-01T19:01:15Z"
     }
   ],
-  "last_activity": "2026-10-01T13:14:05Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-01T19:08:47Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/oled-ekranli-macbook-pro-ekim-kasim-cikis/",
+    "https://smarity.com.tr/haber/bmw-uygun-fiyatli-yeni-elektrikli-otomobil/",
+    "https://smarity.com.tr/haber/shopify-canvas-yapay-zeka-site-kurma/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
