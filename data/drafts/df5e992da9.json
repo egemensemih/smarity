@@ -1,0 +1,99 @@
+{
+  "id": "df5e992da9",
+  "status": "pending",
+  "created_at": "2026-10-01T12:01:41Z",
+  "title": "Moonshot AI bağlantılı kişilerin OpenAI'ın gizli akıl yürütme verilerini hedeflediği açıklandı",
+  "summary": "Tom's Hardware'in aktardığına göre OpenAI, Çin merkezli Moonshot AI ile bağlantılı kişilerin modellerin gizli akıl yürütme verilerini çekmeye çalıştığını duyurdu.",
+  "body": "Moonshot AI bağlantılı kişilerin OpenAI modellerinin gizli akıl yürütme verilerini hedeflediği açıklandı. Tom's Hardware'in aktardığına göre OpenAI, Temmuz ayında gerçekleşen koordineli bir kampanyanın, modellerin korunan akıl yürütme süreçlerini çekmeyi amaçladığını duyurdu. Şirket, bu girişimin rakip modelleri eğitmek veya geliştirmek için yapıldığını belirtti.\n\n## Temmuz ayındaki girişimler\n\nOpenAI'ın açıklamasına göre faaliyetler 1 Temmuz'da düşük hacimle başladı ve 24-25 Temmuz tarihlerinde zirve yaptı. 4 binden fazla kullanıcıdan gelen 16 bin istek, bir çıkarma kalıbı kullandı. Girişimler tamamen durdurulurken, şifrelenmiş olan iç akıl yürütme verilerinin çözülemediği ve veritabanlarının ele geçirilmediği ifade edildi. Şirket, açığı kapatmak için bir yolun kapatıldığını ve ek güvenlik kontrollerinin eklendiğini kaydetti.\n\n## Benzer tehditler ve Anthropic raporu\n\nÖte yandan Anthropic de eylül ayında benzer bir durum bildirmiş, Moonshot'ın sahte hesaplar üzerinden **Claude** modellerine yüz binlerce istek yönelttiğini ve akıl yürütme imzalarını kaydettiğini açıklamıştı. Moonshot ise temmuz ayında Kimi K3 modelinin damıtma yöntemiyle yapılmadığını savunmuştu.\n\n**Neden önemli?** Yapay zeka sağlayıcıları, modellerin gizli düşünce adımlarını kopyalamaya çalışan gelişmiş girişimlere karşı güvenlik önlemlerini artırıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Moonshot AI",
+    "Claude",
+    "Anthropic"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI: Moonshot AI gizli verileri hedefledi",
+  "kicker": "Yapay zeka güvenliği",
+  "hero_stat": "16.000",
+  "hero_stat_label": "istek denemesi",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "Moonshot AI",
+  "seo_title": "OpenAI ve Moonshot AI Arasında Veri Sızıntısı İddiası",
+  "meta_description": "Tom's Hardware'e göre OpenAI, Çin merkezli Moonshot AI ile bağlantılı kişilerin gizli akıl yürütme verilerini hedeflediğini açıkladı.",
+  "seo_slug": "moonshot-ai-openai-gizli-verileri-hedefledi",
+  "image_alt": "Yapay zeka modellerinin veri güvenliğini temsil eden buzlu cam küpler ve seramik küreler",
+  "cover_text": "Moonshot AI",
+  "carousel_points": [
+    "OpenAI, temmuz ayında modellerin gizli akıl yürütme verilerini hedefleyen bir kampanya tespit etti.",
+    "Faaliyetlerin Çin merkezli Moonshot AI ile bağlantılı kişiler tarafından yürütüldüğü açıklandı.",
+    "Şirket şifreleme sayesinde verilerin çözülemediğini ve güvenlik önlemlerinin artırıldığını duyurdu."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "importance": 9,
+  "triage_reason": "OpenAI, Moonshot AI modellerinin gizli mantık yürütme süreçlerini çaldığını iddia etti.",
+  "entities": [
+    "OpenAI",
+    "Moonshot AI"
+  ],
+  "topic": "OpenAI alleges Moonshot AI reasoning extraction",
+  "sources": [
+    {
+      "name": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-says-actors-linked-to-moonshot-ai-spearheaded-a-campaign-to-extract-its-models-hidden-reasoning-logged-attempts-peaked-at-16-000-users-over-two-days",
+      "title": "OpenAI says actors linked to China-based Moonshot AI spearheaded a campaign to extract its models’ hidden reasoning",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-01T12:00:00Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/ZAD3iv3s8sBSmZNAoBfxGj-1920-80.png"
+    }
+  ],
+  "source_keys": [
+    "Tom's Hardware"
+  ],
+  "source_texts": [
+    {
+      "credit": "Tom's Hardware",
+      "kind": "media",
+      "title": "OpenAI says actors linked to China-based Moonshot AI spearheaded a campaign to extract its models’ hidden reasoning",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-says-actors-linked-to-moonshot-ai-spearheaded-a-campaign-to-extract-its-models-hidden-reasoning-logged-attempts-peaked-at-16-000-users-over-two-days",
+      "published": "2026-10-01T12:00:00Z",
+      "summary": "OpenAI says operators copied its models’ encrypted reasoning and asked a model in a separate conversation to decrypt it.",
+      "text": "OpenAI said in a company blog post that people associated with China-based Moonshot AI were at the core of an effort to pull hidden reasoning from its models. The post says that a “coordinated campaign” to extract “protected reasoning” from its models, which was “consistent with adversarial distillation,” occurred in July. OpenAI isn’t sure whether all of the operators it saw were a single actor.\nActivity began on July 1st, “initially at a low volume.” After that came “high-volume spikes” on July 24 and 25, with 16,000 requests using an extraction pattern. The requests came from over 4,000 users. The activity attempted extraction but was “not necessarily successful,” and the campaign was “fully disrupted by July 28.” The post did not clarify any measure of success rate, which models were specifically targeted, or how many of the users were Moonshot-linked.\nOpenAI defines protected reasoning as “the model’s internal record for working through a task” and adversarial distillation as the “systematic and unauthorized use of one model’s outputs or reasoning” to train or improve another model. This data is encrypted to hide the model’s chain of thought and is handed to the client as an encrypted block. The client sends that block back with each request, so the provider doesn’t have to store it. One method the operators tried took the encrypted reasoning from one conversation and asked a model in another to decrypt it.\nOpenAI says the encryption, in this case, was not broken. There was no direct access to stored user conversations, and no database was compromised. One fix closed a pathway that let someone who already had another user’s encrypted reasoning replay it and recover its contents. Separately, it added checks to detect and hold streamed output that might expose reasoning. It also strengthened protections for hidden reasoning across users, workspaces, organizations, and model families, and worked with third-party providers to disrupt accounts whose activity moved through their services.\nIndependent security researchers had also brought “related cross-model and conversation-compaction vulnerabilities” to OpenAI through responsible disclosure, and the company confirmed the attack paths they found were real. The paper “Stealing Reasoning Traces from Proprietary LLM APIs,” dated Aug. 10, is explicitly linked by the post. Testing OpenAI, Anthropic, and Google, the researchers fed a frontier model’s encrypted reasoning to a corresponding weaker model, which then wrote it out in plain text. The researchers ran their test in early July and, after the providers acknowledged their report, they were “unable to launch the same attacks.”\nOpenAI is not alone in facing such threats. Earlier this month, Anthropic’s report “Detecting and countering misuse of AI: September 2026” detailed a single ten-day period in which Moonshot relayed almost 300,000 customer requests to Anthropic using a proxy network of 5,380 fraudulent accounts. The report also says Moonshot saved Claude’s reasoning signatures and, in new sessions, got Claude to convert them back into full reasoning traces, which Anthropic calls “cross-session replay attacks.” In July, Moonshot denied that Kimi K3 was created from a distillation, and at the time OpenAI President Greg Brockman said it was “too early” to tell whether Moonshot had distilled OpenAI’s models.\nOpenAI’s next step, meanwhile, is to ensure partner-hosted deployments have the same protections as first-party tools. Additional checks are needed to prevent tool-output attacks. It shared its findings with the Frontier Model Forum and government information-sharing channels, noting that “systems that support portable or replayable reasoning artifacts may face related risks.” The company expects distillation attempts to grow more sophisticated as frontier models improve and as attackers look for cheaper ways to mimic them. The work to protect against those attempts is ongoing.\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.\nFollow Tom’s Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 754
+  },
+  "photos": [
+    {
+      "file": "df5e992da9-g0.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/ZAD3iv3s8sBSmZNAoBfxGj-1920-80.png",
+      "credit": "Tom's Hardware",
+      "page": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-says-actors-linked-to-moonshot-ai-spearheaded-a-campaign-to-extract-its-models-hidden-reasoning-logged-attempts-peaked-at-16-000-users-over-two-days",
+      "alt": "",
+      "w": 1104,
+      "h": 621,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "df5e992da9-g0.webp",
+    "credit": "Tom's Hardware",
+    "page": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-says-actors-linked-to-moonshot-ai-spearheaded-a-campaign-to-extract-its-models-hidden-reasoning-logged-attempts-peaked-at-16-000-users-over-two-days",
+    "src": "https://cdn.mos.cms.futurecdn.net/ZAD3iv3s8sBSmZNAoBfxGj-1920-80.png",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %10 (<%85)"
+}
