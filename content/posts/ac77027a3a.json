@@ -1,6 +1,5 @@
 {
   "id": "ac77027a3a",
-  "status": "pending",
   "created_at": "2026-10-01T19:31:08Z",
   "title": "ChatGPT sanal kıyafet deneme özelliğiyle alışverişe açılıyor",
   "summary": "OpenAI, ChatGPT için kullanıcıların kıyafetleri ve aksesuarları sanal olarak denemesini sağlayan yeni alışveriş özelliklerini küresel çapta kullanıma sundu.",
@@ -70,17 +69,6 @@
     "TechCrunch",
     "Digital Trends"
   ],
-  "source_texts": [
-    {
-      "credit": "TechCrunch",
-      "kind": "media",
-      "title": "ChatGPT can now virtually try on clothes for you",
-      "url": "https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/",
-      "published": "2026-10-01T19:21:53Z",
-      "summary": "OpenAI is rolling out new shopping features for ChatGPT that let users virtually try on clothing and accessories using their own photos and save products they like to a Favorites library.",
-      "text": "OpenAI is again experimenting with how its conversational AI assistant, ChatGPT, can help users as they shop online. On Thursday, the company announced the global launch of two new shopping features, including a way to virtually try on clothing and accessories and a new favoriting function that can help users save products they like for later reference.\nThe updates arrive at a time when AI assistants are exploring consumer use cases around shopping. OpenAI already had to pivot from one of its earlier ideas in this space, an instant checkout feature that ended up not performing well. More recently, agentic AI startup Instinct began pushing product recommendations to users, but some felt that the proactive recommendations were an overreach, more akin to ads than helpful suggestions.\nOpenAI said its new shopping features leverage the newly launched ChatGPT Images 2.5 model, which the company claims produces more natural lighting and richer textures, follows editing instructions more reliably, and reduces image generation latency.\nTo start, virtual try-on allows ChatGPT users to upload a selfie or a full-body photo in order to visualize how an article of clothing or an accessory might look on them. This option will appear as a new “try on” button in ChatGPT’s shopping results. You can also upload an image of an item, like a web screenshot, and ask ChatGPT to try it on for you.\nThe other new option, Favorites, lets you save products you discover to a Library in the app so you can come back to them later. (These items will be saved alongside your try-on images, the company notes.)\nOpenAI said that ChatGPT can help users shop in other ways, too.\nFor instance, you could describe a style that you’d like to try, then ask it to shop for the pieces needed to complete the look. Or, you could upload photos of celebrities’ outfits and ask it to find the items they’re wearing that are available for purchase.\nThe latter sees the assistant moving into areas that Pinterest and Google have dominated in recent years as sources for fashion inspiration and discovery that can convert to sales for online retailers.\nWhether ChatGPT will become people’s first choice for this type of activity, however, remains to be seen — especially given that Google launched virtual try-on last year."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 819
@@ -109,5 +97,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %10 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-02T05:52:29Z",
+  "slug": "chatgpt-sanal-kiyafet-deneme-ozelligi",
+  "published_at": "2026-10-02T05:52:29Z",
+  "publish_mode": "manual"
 }

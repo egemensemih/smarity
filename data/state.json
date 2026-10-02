@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816218,
+  "telegram_offset": 872816244,
   "last_collect": "2026-10-02T05:45:30Z",
   "last_summary_date": "2026-10-01",
   "mode_override": null,
@@ -792,17 +792,25 @@
       "tok_out": 46121,
       "cost_usd": 0.0,
       "drafts": 20,
-      "updates": 1
+      "updates": 1,
+      "rejected": 22,
+      "published": 4,
+      "approved": 4
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-02T05:50:14Z",
+  "last_build": "2026-10-02T05:54:51Z",
   "build_sig": "8ef898b8b54aab04",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-10-01T19:08:47Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-02T05:54:15Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/haber/chatgpt-sanal-kiyafet-deneme-ozelligi/",
+    "https://smarity.com.tr/haber/kia-seltos-turkiyede-satisa-cikti/",
+    "https://smarity.com.tr/haber/2027-hyundai-tucson-ozellikleri/",
+    "https://smarity.com.tr/haber/byd-seal-07-ozellikleri-aciklandi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
