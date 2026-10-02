@@ -1,0 +1,113 @@
+{
+  "id": "92ce1cce71",
+  "status": "pending",
+  "created_at": "2026-10-02T13:26:10Z",
+  "title": "Nvidia 64GB DGX Spark modelini duyurdu",
+  "summary": "Nvidia, artan bellek maliyetleri ve yapay zeka modellerindeki gelişmeler doğrultusunda daha uygun fiyatlı 64GB DGX Spark sürümünü tanıttı.",
+  "body": "Tom's Hardware'in aktardığına göre Nvidia, yapay zeka pazarındaki bellek sıkıntıları ve değişen ihtiyaçlar doğrultusunda popüler DGX Spark platformunun 64GB'lık yeni bir versiyonunu tanıttı. Başlangıçta 128GB bellek seçeneğiyle sunulan sistem, Qwen 3.8 27B gibi yoğun yapay zeka modellerinin daha düşük bellek kapasitelerinde de çalışabilmesi ve artan RAM fiyatları nedeniyle daha erişilebilir bir alternatif olarak geliştirildi.\n\n## Fiyat ve çıkış tarihi\n\nAcer, Asus, Dell, Gigabyte, HP ve MSI gibi üreticilerin imzasını taşıyan 64GB GB10 sistemler, **4.999 dolar** başlangıç fiyatıyla 23 Ekim'de raflardaki yerini alacak. Mevcut 128GB sistemlerin fiyatları piyasa koşullarına bağlı olarak 7.000 ila 9.000 dolar arasında değişirken, yeni model daha düşük bütçeli kullanıcıları hedefliyor. Cihaz, bellek kapasitesi dışında orijinal modelin 20 çekirdekli Arm işlemcisi ve ConnectX 7 RDMA ağ kartı gibi temel özelliklerini koruyor.\n\n## Yeni yazılım araçları\n\nNvidia ayrıca sistemlerin birbirine bağlanmasını kolaylaştıran Nvidia Sync Cluster Assistant aracını ve modellerin otomatik olarak indirilip çalıştırılmasını sağlayan Model Launcher özelliğini kullanıma sunuyor. Bu araçlar, kullanıcıların yerel yapay zeka iş akışlarını daha kolay yönetmesine olanak tanıyor.\n\n**Neden önemli?** Artan donanım maliyetleri karşısında yapay zeka meraklılarına daha uygun fiyatlı bir seçenek sunan bu yeni model, yerel sistem geliştiricilerinin bütçe dostu alternatiflere erişimini artırıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Nvidia",
+    "DGX Spark",
+    "GB10",
+    "yapay zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Nvidia 64GB DGX Spark tanıtıldı",
+  "kicker": "Yeni donanım",
+  "hero_stat": "4.999 $",
+  "hero_stat_label": "başlangıç fiyatı",
+  "visual_style": "studio",
+  "visual_scene": "a sleek compact black metallic box resting on a concrete surface, subtle ambient blue light reflecting off its minimalist cooling vents, next to a stack of translucent frosted glass tiles",
+  "focus_keyword": "64GB DGX Spark",
+  "seo_title": "Nvidia 64GB DGX Spark duyuruldu: Fiyatı ve özellikleri",
+  "meta_description": "Nvidia, artan bellek maliyetlerine karşı daha uygun fiyatlı 64GB DGX Spark modelini tanıttı. Cihazın fiyatı ve özellikleri hakkında detaylar.",
+  "seo_slug": "nvidia-64gb-dgx-spark-tanitildi",
+  "image_alt": "Gri metalik yüzey üzerinde konumlandırılmış kompakt yapay zeka donanımı ve yanındaki cam bloklar",
+  "cover_text": "64GB DGX Spark",
+  "carousel_points": [
+    "Nvidia, yapay zeka meraklıları için daha uygun fiyatlı 64GB DGX Spark modelini duyurdu.",
+    "Acer, Asus, Dell, Gigabyte, HP ve MSI gibi üreticilerin yeni sistemleri 4.999 dolardan başlayan fiyatlarla 23 Ekim'de satışa…",
+    "Yeni model, artan bellek maliyetleri karşısında kullanıcılar için daha bütçe dostu bir alternatif sunuyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "64GB DGX Spark 4999 dolardan çıkıyor",
+  "cover_highlight": "4999 dolar",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Nvidia 64GB DGX Spark yerel yapay zeka iş istasyonunu duyurdu.",
+  "entities": [
+    "Nvidia"
+  ],
+  "topic": "Nvidia introduces 64GB DGX Spark local AI workstation",
+  "sources": [
+    {
+      "name": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less",
+      "title": "Nvidia introduces 64GB DGX Spark to throw local AI fans a lifeline amid the RAMpocalypse",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-02T13:00:00Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/D4D8sJFKUe4PFUpqUAPSfB-1920-80.jpg"
+    }
+  ],
+  "source_keys": [
+    "Tom's Hardware"
+  ],
+  "source_texts": [
+    {
+      "credit": "Tom's Hardware",
+      "kind": "media",
+      "title": "Nvidia introduces 64GB DGX Spark to throw local AI fans a lifeline amid the RAMpocalypse",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less",
+      "published": "2026-10-02T13:00:00Z",
+      "summary": "Nvidia is introducing a 64GB version of its DGX Spark local AI workstation that's tailored for a new generation of highly intelligent yet compact local models. Starting at $4999, the more affordable configuration is otherwise identical to the original 128GB Spark and its GB10 siblings.",
+      "text": "Nvidia is tailoring its popular DGX Spark platform and the GB10 SoC to better fit the realities of today's AI models and the broader silicon supply crunch. The company is introducing a 64GB version of the Spark that's meant to be more affordable to local AI trailblazers who just don't need 128GB of RAM.\nBack when we first began exploring the capabilities of the DGX Spark and similar systems, the general assumption was that lots of RAM would be necessary to hold the most intelligent models one might want to run, and so unified memory systems built around AMD's Strix Halo, Nvidia's GB10, and Apple's M-series chips could all be configured with 128GB of memory or more.\nBut the AI field moves fast. Highly intelligent dense models like Qwen 3.8 27B can now fit comfortably within 32GB of RAM (albeit with limited context), so the original Spark's 128GB of memory isn't essential for local inference alone. And skyrocketing RAM prices mean that a chip that’s permanently paired with too much costly LPDDR5X is more of a barrier to entry than an asset. So a more affordable Spark with less RAM makes sense for those who need the capabilities and supporting software stack of Nvidia's GB10 Superchip and can live with less memory.\nA \"more affordable\" DGX Spark is of course relative in today's market. 64GB GB10 systems from Acer, Asus, Dell, Gigabyte, HP, and MSI are slated to start at $4999 when they launch on October 23. Given the ever-shifting prices of memory and storage right now, they might not stay there for long. Assuming you can find a 128GB GB10 system in stock, you can expect to pay roughly $7000 to $9000 for one right now, far above even Nvidia's adjusted MSRP.\nMemory capacity change aside, 64 GB Sparks will retain the same ConnectX 7 RDMA NIC as their 128 GB stablemates, meaning that they can still be clustered to boost memory capacity and inference performance if a user does eventually outgrow the bounds of 64GB of RAM. The same 20-core Arm CPU complex from the original Spark carries over unchanged, as does the 273 GB/s of shared memory bandwidth for the CPU and GPU.\nTo help make use of that ConnectX 7 NIC, Nvidia is also making it easier to join Sparks together with a new software tool, the Nvidia Sync Cluster Assistant, that automates the process of yoking those systems together. (Sync is a remote connectivity and management app for the Spark that allows users to use their Spark’s AI horsepower from other Macs and PCs.)\nThat tool supplements a variety of community-developed utilities that have sprung up over the past year to make clustering a more seamless process, as we used in our experiments with clustering two Dell GB10 systems together earlier this year.\nGet Tom's Hardware's best news and in-depth reviews, straight to your inbox.\nNvidia is also adding a feature to Sync called Model Launcher that automatically downloads and starts models like the aforementioned Qwen 3.8 27B across one or more systems and links them to the OpenCode browser-based coding agent so that users can start using their local token factories right away for agentic workflows.\nThe 128GB DGX Spark and Spark-alikes will remain available for those who need space for larger models and for scaling across clusters, or for more memory-hungry local AI work like model fine-tuning, so there’s basically no downside to this addition to the DGX Spark lineup. In today’s volatile market, it’s good to have options, and a 64 GB Spark gives local AI enthusiasts another choice to better fit their budgets and workflows.\nFollow Tom's Hardware on Google News, or add us as a preferred source, to get our latest news, analysis, & reviews in your feeds.\nAs the Senior Analyst, Graphics at Tom's Hardware, Jeff Kampman covers everything that has to do with graphics cards, gaming performance, and more. From integrated graphics processors to discrete graphics cards to the hyperscale installations powering our AI future, if it's got a GPU in it, Jeff is on it."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 891
+  },
+  "photos": [
+    {
+      "file": "92ce1cce71-g0.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/D4D8sJFKUe4PFUpqUAPSfB-1920-80.jpg",
+      "credit": "Tom's Hardware",
+      "page": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "92ce1cce71-g1.webp",
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:560,cw:1440,ch:1440,q:80,w:1440/D4D8sJFKUe4PFUpqUAPSfB.jpg",
+      "credit": "Tom's Hardware",
+      "page": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less",
+      "alt": "",
+      "w": 1440,
+      "h": 1440,
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "92ce1cce71-g0.webp",
+    "credit": "Tom's Hardware",
+    "page": "https://www.tomshardware.com/pc-components/gpus/nvidia-introduces-64gb-dgx-spark-to-throw-local-ai-fans-a-lifeline-amid-the-rampocalypse-new-gb10-config-starts-at-usd4999-for-those-who-can-work-with-less",
+    "src": "https://cdn.mos.cms.futurecdn.net/D4D8sJFKUe4PFUpqUAPSfB-1920-80.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %30 (<%85)"
+}
