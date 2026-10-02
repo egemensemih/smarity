@@ -1,0 +1,104 @@
+{
+  "id": "2974ea32c3",
+  "status": "pending",
+  "created_at": "2026-10-02T14:42:03Z",
+  "title": "Microsoft Advanced Shader Delivery teknolojisi duyuruldu",
+  "summary": "Microsoft'un yeni Advanced Shader Delivery teknolojisi, Gears of War: E-Day oyununda gölgelendirici derleme sürelerini yüzde 95 oranında kısaltıyor.",
+  "body": "Microsoft'un duyurusuna göre, Windows 11 için geliştirilen Advanced Shader Delivery teknolojisi, bilgisayar oyunlarındaki gölgelendirici derleme sürelerini büyük ölçüde azaltıyor. Wccftech'in aktardığına göre bu teknoloji, ilk açılışta veya oyun sırasında yaşanan donma ve takılma sorunlarını ortadan kaldırmayı amaçlıyor.\n\n## Gears of War: E-Day ilk örnek oldu\n\nTeknolojinin ilk kez kullanıldığı Gears of War: E-Day oyununda, normalde birkaç dakika süren ilk açılış derleme süreci sadece birkaç saniyeye iniyor. Bu da yaklaşık yüzde 95 oranında bir süre kazancı sağlıyor. Sistemi kullanabilmek için Windows 11 sürüm 24H2 veya daha yenisi gerekiyor. Ayrıca kullanıcıların XBOX PC uygulamasını kurması şart koşuluyor.\n\n## Destek genişliyor\n\nSistem şu an belirli AMD ve Qualcomm grafik işlemcilerini desteklerken, ay sonuna doğru NVIDIA RTX, Intel Arc ve çeşitli tümleşik grafik yongalarını da kapsayacak şekilde genişleyecek. Şirket, Call of Duty: Modern Warfare 4 oyununun da gelecekte bu teknolojiyi destekleyeceğini doğruladı.\n\n**Neden önemli?** Wccftech'in aktardığına göre bu gelişme, Windows 11 üzerinde oynanan oyunlarda performansın artmasını sağlayarak bilgisayar oyunlarının en büyük sorunlarından biri olan derleme takılmalarına sistem düzeyinde bir çözüm sunuyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Windows 11",
+    "AMD",
+    "NVIDIA",
+    "Intel",
+    "Qualcomm"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Microsoft'tan yeni shader teknolojisi",
+  "kicker": "Yeni teknoloji",
+  "hero_stat": "%95",
+  "hero_stat_label": "süre azalması",
+  "visual_style": "studio",
+  "visual_scene": "a single sleek translucent glass prism catching sharp light reflections, casting a soft shadow on a minimal matte surface, surrounded by subtle floating geometric shapes",
+  "focus_keyword": "Advanced Shader Delivery",
+  "seo_title": "Advanced Shader Delivery ile oyunlarda derleme süreleri…",
+  "meta_description": "Microsoft'un Advanced Shader Delivery teknolojisi, Gears of War: E-Day ile gölgelendirici derleme sürelerini yüzde 95 oranında azaltıyor.",
+  "seo_slug": "advanced-shader-delivery-teknolojisi-duyuruldu",
+  "image_alt": "Şeffaf prizma ve geometrik formların minimalist stüdyo ortamındaki görünümü",
+  "cover_text": "Shader Delivery",
+  "carousel_points": [
+    "Microsoft yeni Advanced Shader Delivery teknolojisini tanıttı.",
+    "Gears of War: E-Day oyununda derleme sürelerini yüzde 95 kısaltıyor.",
+    "Teknoloji ekim ayı sonundan itibaren çok sayıda ekran kartını destekleyecek."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Shader derleme süreleri yüzde 95 kısalıyor",
+  "cover_highlight": "yüzde 95",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Gears of War oyununda gölgelendirici derleme süresi yüzde 95 azaldı.",
+  "entities": [
+    "Microsoft",
+    "Gears of War"
+  ],
+  "topic": "Microsoft Advanced Shader Delivery cuts compilation times in Gears of War",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/microsofts-advanced-shader-delivery-cuts-shader-compilation-times-by-around-95-in-gears-of-war-e-day-expanding-to-nvidia-intel-qualcomm-gpus/",
+      "title": "Microsoft’s Advanced Shader Delivery Cuts Shader Compilation Times By Around 95% In Gears of War: E-Day, Expanding To NVIDIA, Intel & Qualcomm GPUs",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-02T14:32:36Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/10/Gears-of-War-E-Day-Shader-Delivery-1456x819.jpg"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "source_texts": [
+    {
+      "credit": "Wccftech",
+      "kind": "media",
+      "title": "Microsoft’s Advanced Shader Delivery Cuts Shader Compilation Times By Around 95% In Gears of War: E-Day, Expanding To NVIDIA, Intel & Qualcomm GPUs",
+      "url": "https://wccftech.com/microsofts-advanced-shader-delivery-cuts-shader-compilation-times-by-around-95-in-gears-of-war-e-day-expanding-to-nvidia-intel-qualcomm-gpus/",
+      "published": "2026-10-02T14:32:36Z",
+      "summary": "Microsoft is expanding its Advanced Shader Delivery (ASD) technology across Windows 11, with Gears of War: E-Day becoming the first game to support the feature across a broad range of AMD, NVIDIA, Intel, and Qualcomm-powered systems. Advanced Shader Delivery is designed to address one of the more persistent issues affecting modern PC games: shader/Pipeline State Object (PSO) compilation. Instead of requiring the user's CPU to compile large numbers of shaders during the game's first launch — or just-in-time compiling them dynamically during gameplay — ASD allows precompiled shaders to be…",
+      "text": "Microsoft is expanding its Advanced Shader Delivery (ASD) technology across Windows 11, with Gears of War: E-Day becoming the first game to support the feature across a broad range of AMD, NVIDIA, Intel, and Qualcomm-powered systems.\nAdvanced Shader Delivery is designed to address one of the more persistent issues affecting modern PC games: shader/Pipeline State Object (PSO) compilation. Instead of requiring the user's CPU to compile large numbers of shaders during the game's first launch — or just-in-time compiling them dynamically during gameplay — ASD allows precompiled shaders to be delivered alongside the game download. Microsoft says this can both significantly shorten first-launch compilation times and reduce shader compilation-related stutter during gameplay.\nThe company says Gears of War: E-Day demonstrates just how significant the improvement can be. On a typical PC without ASD, first-launch shader compilation can take several minutes. With Advanced Shader Delivery enabled, Microsoft says the process is reduced to just a few seconds, representing an approximately 95% reduction in shader compilation time.\nSupport does come with a few requirements. Users need Windows 11 version 24H2 or newer, while AMD support currently covers GPUs based on RDNA 1, RDNA 2, RDNA 3, RDNA 3.5, and RDNA 4 architectures with Adrenalin 26.6.1 or later. Qualcomm Snapdragon X2 devices are also supported.\nMicrosoft says support will expand later this month to all NVIDIA RTX GPUs, including RTX Spark, alongside Intel Arc B570 and B580 GPUs as well as Core Ultra Series 2 and Series 3 integrated graphics chips. That should make ASD available across a substantially larger portion of the Windows 11 gaming ecosystem.\nFor Gears of War: E-Day, users will need to install the XBOX PC app before downloading the game to take advantage of ASD. When the feature is working correctly, the game's launch window will display a “Precompiled shaders installed” message.\nAnd Gears of War: E-Day is only the beginning. Microsoft has already confirmed that Call of Duty: Modern Warfare 4 will also support Advanced Shader Delivery in the future, with additional titles also planned.\nIf adoption becomes widespread — especially on other popular PC game stores such as Steam — ASD could provide Windows 11 with a system-level solution to one of PC gaming's most frustrating recurring problems, particularly in titles that would otherwise rely heavily on runtime shader compilation.\nFollow Wccftech on Google to get more of our news coverage in your feeds."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 901
+  },
+  "photos": [
+    {
+      "file": "2974ea32c3-g0.webp",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/10/Gears-of-War-E-Day-Shader-Delivery-1456x819.jpg",
+      "credit": "Wccftech",
+      "page": "https://wccftech.com/microsofts-advanced-shader-delivery-cuts-shader-compilation-times-by-around-95-in-gears-of-war-e-day-expanding-to-nvidia-intel-qualcomm-gpus/",
+      "alt": "",
+      "w": 1456,
+      "h": 819,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "2974ea32c3-g0.webp",
+    "credit": "Wccftech",
+    "page": "https://wccftech.com/microsofts-advanced-shader-delivery-cuts-shader-compilation-times-by-around-95-in-gears-of-war-e-day-expanding-to-nvidia-intel-qualcomm-gpus/",
+    "src": "https://cdn.wccftech.com/wp-content/uploads/2026/10/Gears-of-War-E-Day-Shader-Delivery-1456x819.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %30 (<%85)"
+}
