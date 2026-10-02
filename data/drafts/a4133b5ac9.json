@@ -1,0 +1,112 @@
+{
+  "id": "a4133b5ac9",
+  "status": "pending",
+  "created_at": "2026-10-02T10:42:09Z",
+  "title": "Google Android APK yükleme sürecine 24 saatlik bekleme şartı getiriyor",
+  "summary": "Google, doğrulanmamış kaynaklardan uygulama yüklemek isteyen Android kullanıcıları için 24 saatlik bekleme ve kimlik doğrulaması şartı içeren yeni bir güvenlik adımı başlattı.",
+  "body": "Google, işletim sistemindeki dolandırıcılık ve zararlı yazılımların önüne geçmek amacıyla **Android APK yükleme** sürecine yeni güvenlik kısıtlamaları getirdi. Şirketin başlattığı yeni doğrulama sistemi, doğrulanmamış geliştiricilerden uygulama yüklemek isteyen kullanıcılar için ek adımlar ve bekleme süresi şartı koşuyor.\n\n## Android APK yükleme süreci nasıl işliyor?\n\nDonanımHaber'in aktardığına göre, Android 7 ve üzeri sürüme sahip cihazlarda geçerli olan yeni sistem kapsamında, doğrulanmamış kaynaklardan gelen dosyalar doğrudan kurulamıyor. Kullanıcıların ilk olarak **Geliştirici Seçenekleri** üzerinden gelişmiş yükleme sürecini açması, kimlik doğrulaması gerçekleştirmesi ve telefonunu yeniden başlatması gerekiyor. Bu adımların ardından yaklaşık 24 saatlik bir bekleme süresi başlıyor. Süre tamamlandığında kullanıcı yeniden kimlik doğrulaması yaparak uygulamayı telefonuna yükleyebiliyor.\n\n## Hangi mağazalar kısıtlamadan muaf tutuluyor?\n\nGoogle'ın açıklamasına göre bu güvenlik denetimi yalnızca resmi olarak doğrulanmamış kaynakları hedefliyor. Google Play Store'un yanı sıra Samsung Galaxy Store, HONOR App Market, OPPO App Market, Xiaomi GetApps, vivo V-Appstore ve Transsion Palm Store gibi bilinen mağazalar doğrulanmış platformlar arasında yer alıyor. Bu mağazalardan indirilen uygulamalarda herhangi bir bekleme süresi uygulanmıyor. Ayrıca teknik kullanıcılar için Android Debug Bridge (ADB) üzerinden uygulama kurma seçeneği de korunuyor.\n\n**Neden önemli?** Dört ülkede başlayan uygulamanın 2027 ve sonrasında küresel ölçekte yaygınlaştırılması planlanıyor. Google bu adımla, anonim geliştiriciler üzerinden yayılan kötü amaçlı yazılımları engellemeyi ve kullanıcı güvenliğini artırmayı hedefliyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Google",
+    "Android",
+    "APK",
+    "sideloading",
+    "güvenlik"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Android'de APK yüklemeye 24 saat engeli",
+  "kicker": "Yeni güvenlik kuralı",
+  "hero_stat": "24 saat",
+  "hero_stat_label": "bekleme süresi",
+  "visual_style": "still_life",
+  "visual_scene": "A translucent glass smartphone resting on a dark slate surface next to a glowing hourglass made of frosted orange crystal, casting soft amber reflections.",
+  "focus_keyword": "Android APK yükleme",
+  "seo_title": "Android APK yükleme sürecine 24 saatlik bekleme şartı",
+  "meta_description": "Google Android APK yükleme adımlarına kimlik doğrulaması ve 24 saatlik bekleme şartı getiriyor. Yeni kısıtlamanın tüm detayları haberimizde.",
+  "seo_slug": "android-apk-yukleme-surecine-24-saatlik-bekleme-sarti",
+  "image_alt": "Bir akıllı telefon ve yanında 24 saatlik bekleme süresini simgeleyen saydam bir kum saati görseli",
+  "cover_text": "Android",
+  "carousel_points": [
+    "Google, doğrulanmamış kaynaklardan APK yükleme sürecine ilave güvenlik adımları ekliyor.",
+    "Yeni süreçte kullanıcıların kimlik doğrulaması yapıp 24 saat beklemesi gerekecek.",
+    "Resmi uygulama mağazalarından yapılan indirmeler bu kısıtlamadan etkilenmeyecek."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Android'de APK yüklemeye 24 saat şartı",
+  "cover_highlight": "24 saat şartı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Android ekosisteminde APK yükleme kısıtlamaları önemli bir değişiklik getiriyor.",
+  "entities": [
+    "Google",
+    "Android"
+  ],
+  "topic": "Android sideloading restrictions in four countries",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda--211148",
+      "title": "Android telefonlarda APK dönemi sona eriyor: Kısıtlama yolda",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-02T10:02:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/211148/1200x675android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "source_texts": [
+    {
+      "credit": "DonanımHaber",
+      "kind": "media",
+      "title": "Android telefonlarda APK dönemi sona eriyor: Kısıtlama yolda",
+      "url": "https://www.donanimhaber.com/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda--211148",
+      "published": "2026-10-02T10:02:00Z",
+      "summary": "Google, Android'de doğrulanmamış uygulamaların yüklenmesini zorlaştıran yeni sistemi dört ülkede devreye aldı. İşte yeni sideloading sürecinin detayları.",
+      "text": "Uygulama yüklemek için 24 saat beklemek gerekecek\nGoogle, uygulama dolandırıcılıklarını azaltmayı amaçlayan bu değişiklikle birlikte doğrulanmamış geliştiricilerden uygulama yükleme sürecine ek güvenlik kontrolleri getiriyor. Yeni sistem, söz konusu dört ülkedeki Android 7 ve üzeri sürümlere sahip sertifikalı cihazlarda uygulanıyor. Kullanıcılar doğrulanmamış bir geliştiriciye ait uygulamayı yüklemek istediğinde artık doğrudan APK dosyasını kuramayacak.\nBunun yerine kullanıcıların Geliştirici Seçenekleri üzerinden gelişmiş sideloading sürecini etkinleştirmesi gerekiyor. Ardından kimlik doğrulaması yapılması, telefonun yeniden başlatılması ve yaklaşık 24 saatlik bekleme süresinin tamamlanması gerekiyor. Bekleme sürecinin ardından kullanıcı yeniden kimlik doğrulaması yaparak doğrulanmamış geliştiricilere ait uygulamaları yükleyebiliyor.\nHangi uygulama mağazaları etkilenmeyecek?\nGoogle'ın yeni doğrulama sistemi yalnızca doğrulanmamış kaynaklardan yüklenen uygulamaları hedefliyor. Başlangıç aşamasında Google Play'in yanı sıra Samsung Galaxy Store, HONOR App Market, OPPO App Market, Xiaomi GetApps, vivo V-Appstore ve Transsion Palm Store doğrulanmış mağazalar arasında yer alıyor.\nDolayısıyla bu mağazalardan uygulama indiren kullanıcıların normal uygulama yükleme deneyiminde aynı değişiklik yaşanmayacak. Google, yeni sistemin Android'deki sideloading özelliğini ortadan kaldırmadığını özellikle vurguluyor. Güç kullanıcıları için hazırlanan gelişmiş yükleme yöntemi sayesinde doğrulanmamış geliştiricilerin uygulamaları yine kurulabilecek.\nAyrıca Android Debug Bridge (ADB) üzerinden uygulama yükleme seçeneği de korunuyor. Google'ın açıklamasına göre yeni uygulama doğrulama sistemi 2027 ve sonrasında küresel olarak daha fazla pazara genişletilecek. Şirket böylece uygulama geliştiricilerinin kimliklerini doğrulayarak kötü amaçlı yazılımların anonim geliştiriciler üzerinden yayılmasını zorlaştırmayı hedefliyor.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 864
+  },
+  "photos": [
+    {
+      "file": "a4133b5ac9-g0.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20261002105625&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/211148/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda211148_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda--211148",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    },
+    {
+      "file": "a4133b5ac9-g1.webp",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20261002105625&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/211148/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda211148_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/android-telefonlarda-apk-donemi-sona-eriyor-kisitlama-yolda--211148",
+      "alt": "",
+      "w": 720,
+      "h": 405,
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-1",
+    "cover_v": 2
+  },
+  "policy_reason": "Güven seviyesi yüksek değil"
+}
