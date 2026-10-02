@@ -1,0 +1,103 @@
+{
+  "id": "beb295da16",
+  "status": "pending",
+  "created_at": "2026-10-02T19:12:57Z",
+  "title": "NVIDIA Vera Rubin NVL72 ve Vera CPU bulut ortamında kullanıma sunuldu",
+  "summary": "NVIDIA ve CoreWeave, Vera Rubin NVL72 platformu ile Vera CPU'yu bulut altyapısında başlattı. Yeni sistemler yapay zeka iş akışlarında büyük hız artışı vadediyor.",
+  "body": "Wccftech'in aktardığına göre, CoreWeave Fully Connected 2026 etkinliklerinde NVIDIA ve CoreWeave, NVIDIA Vera Rubin NVL72 sistemlerini CoreWeave Cloud üzerinde erişime açtı. Erken yazılım mühendisliği testlerinde önceki nesil sunuculara kıyasla daha yüksek bir token üretme kapasitesi sunan bu yeni altyapı, yapay zeka iş süreçlerini hızlandırmayı amaçlıyor. İlk olarak Cognition firması tarafından kullanılmaya başlanan platform, binlerce grafik işlemciye haftalar yerine günler içinde ulaşılmasını sağladı.\n\n## Vera Rubin ve Vera CPU yenilikleri neler?\n\nNVIDIA'nın paylaştığı bilgilere göre, CoreWeave altyapısında yer alan eski nesil V100 grafik işlemciler aradan geçen yaklaşık on yıla rağmen hâlâ çalışmaya devam ediyor. Yeni duyurulan Vera Rubin NVL72 ise yazılım mühendisliği çıkarım testlerinde önceki nesil GB200 NVL72 sistemlerine göre daha yüksek token akışı sunuyor. Ayrıca yapay zeka ajanlarının iş akışlarını desteklemek için tasarlanan Vera işlemciler, ajan tabanlı sandbox başlangıç sürelerinde hız kazandırıyor ve testlerde performans artışı sağlıyor.\n\n## Yeni platformlar ve araçlar\n\nBulut ortamına ek olarak CoreWeave Forge adında yeni bir ortam da duyuruldu. Bu sistem; veri takibi, model geliştirme ve kod inceleme gibi süreçleri tek çatı altında birleştiriyor. Kullanıcıların ajanları izlemesini sağlayan Agent Lens ve sunucusuz çalışma ortamları sunan Sandboxes gibi araçlar da sistemle birlikte kullanıma sunuldu.\n\n**Neden önemli?** Yeni nesil Vera Rubin platformu ve Vera işlemcileri, yapay zeka modellerinin daha hızlı eğitilmesine ve çalıştırılmasına olanak tanıyarak şirketlerin bilgi işlem süreçlerini kısaltıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "NVIDIA",
+    "CoreWeave",
+    "Cognition",
+    "Bulut Bilişim",
+    "Yapay Zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "NVIDIA Vera Rubin NVL72 bulutta",
+  "kicker": "Yapay zeka altyapısı",
+  "hero_stat": "4,8x",
+  "hero_stat_label": "daha yüksek token üretimi",
+  "visual_style": "studio",
+  "visual_scene": "a single polished server rack made of dark brushed metal, glowing with a soft cool blue light along its vertical edges, placed on a dark reflective surface in a minimal concrete room",
+  "focus_keyword": "NVIDIA Vera Rubin NVL72",
+  "seo_title": "NVIDIA Vera Rubin NVL72 bulut sistemlerinde yayında",
+  "meta_description": "NVIDIA ve CoreWeave, yapay zeka iş akışlarını hızlandıran yeni NVIDIA Vera Rubin NVL72 platformunu ve Vera CPU'yu bulut altyapısında kullanıma sundu.",
+  "seo_slug": "nvidia-vera-rubin-nvl72-bulutta",
+  "image_alt": "Koyu renkli metal sunucu rack kabini ve mavi ışık yansımaları",
+  "cover_text": "Vera Rubin NVL72",
+  "carousel_points": [
+    "NVIDIA ve CoreWeave, Vera Rubin NVL72 sistemlerini bulutta kullanıma sundu.",
+    "Yeni platform, önceki nesle kıyasla daha yüksek token üretim hızı ve performans vadediyor.",
+    "Cognition gibi erken erişim ortakları yeni sunucularda binlerce grafik işlemciyi test ediyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "NVIDIA Vera Rubin NVL72 bulutta",
+  "cover_highlight": "Vera Rubin NVL72",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Nvidia Vera Rubin NVL72 ve CoreWeave ortaklığı önemli.",
+  "entities": [
+    "NVIDIA",
+    "CoreWeave"
+  ],
+  "topic": "NVIDIA Vera Rubin NVL72 and CoreWeave Partnership",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/coreweave-deploys-nvidia-vera-rubin-nvl72-in-cloud-up-to-4-8x-token-generation/",
+      "title": "NVIDIA’s Ian Buck Says CoreWeave’s V100 GPUs Still Run Nearly A Decade Later, Even As Vera Rubin NVL72 Goes Live With a 4.8x Token Generation Speedup",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-02T19:00:05Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/10/CoreWeave-Vera-Rubin-1456x1052.avif"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "source_texts": [
+    {
+      "credit": "Wccftech",
+      "kind": "media",
+      "title": "NVIDIA’s Ian Buck Says CoreWeave’s V100 GPUs Still Run Nearly A Decade Later, Even As Vera Rubin NVL72 Goes Live With a 4.8x Token Generation Speedup",
+      "url": "https://wccftech.com/coreweave-deploys-nvidia-vera-rubin-nvl72-in-cloud-up-to-4-8x-token-generation/",
+      "published": "2026-10-02T19:00:05Z",
+      "summary": "NVIDIA & CoreWeave are now offering Vera Rubin NVL72 & Vera-standalone in the cloud, taking the fastest AI platform into full production. NVIDIA's Vera Rubin Platform Sees Full Adoption By CoreWeave, Bringing Higher Token Generation To Propel Agentic AI Workflows At CoreWeave Fully Connected 2026, NVIDIA and CoreWeave announce the availability of NVIDIA Vera Rubin NVL72 on CoreWeave Cloud. The platform brings a massive performance upgrade vs. Blackwell servers, allowing customers to complete work in days instead of weeks. Cognition is the first to secure a hold on these latest server…",
+      "text": "NVIDIA & CoreWeave are now offering Vera Rubin NVL72 & Vera-standalone in the cloud, taking the fastest AI platform into full production.\nNVIDIA's Vera Rubin Platform Sees Full Adoption By CoreWeave, Bringing Higher Token Generation To Propel Agentic AI Workflows\nAt CoreWeave Fully Connected 2026, NVIDIA and CoreWeave announce the availability of NVIDIA Vera Rubin NVL72 on CoreWeave Cloud. The platform brings a massive performance upgrade vs. Blackwell servers, allowing customers to complete work in days instead of weeks.\n- Up to 4.8x higher total token throughput in early software engineering inference tests compared with GB200 NVL72.\n- Faster code generation and more responsive multistep reasoning for Devin, Cognition’s AI software engineer.\nCognition is the first to secure a hold on these latest server installations at CoreWeave, and has been able to scale to thousands of GPUs within nine months. Earlier in September, Cognition was the first to benchmark Vera Rubin against Grace Blackwell in inference, and was able to record a 4.8x gain in total token throughput for SWE-2 inference workloads.\n“NVIDIA accelerated computing delivers value across generations,” said Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA. “CoreWeave’s NVIDIA V100 GPUs are still running customer workloads nearly a decade after Volta launched, even as CoreWeave brings Vera Rubin NVL72 into production. That’s the strength of the NVIDIA platform: infrastructure that keeps earning for years, and the flexibility to put the right GPU on the right workload.”\nCognition is just one of the many partners that will leverage CoreWeave's Vera Rubin installation. The company is providing early-access customers the ability to put the performance of NVIDIA’s full-stack AI factory platform to work quickly on CoreWeave Cloud.\nIn days, CoreWeave stood up a production Vera Rubin cluster for Cognition, achieved as a result of the co-design and collaboration between NVIDIA and CoreWeave up and down the stack, from infrastructure to tokens served.\nIn addition to the Vera Rubin NVL72 servers in the cloud, CoreWeave is also bringing the Vera CPU to its cloud offerings. CPUs have become the foundation for Agentic AI workflows, and with Vera's design fully tailored towards it, the chip is showcasing massive potential, such as 3x faster agentic sandbox startup times.\nEarly-access customers can put the performance of NVIDIA’s full-stack AI factory platform to work quickly on CoreWeave Cloud. In days, CoreWeave stood up a production Vera Rubin cluster for Cognition, achieved as a result of the codesign and collaboration between NVIDIA and CoreWeave up and down the stack, from infrastructure to tokens served.\nCapacity can be operated through CoreWeave Kubernetes Service, SUNK, CoreWeave Mission Control, CoreWeave Sandboxes and CoreWeave Inference.\nAt the moment, CoreWeave has 128 Vera CPUs or 11,264 cores within a single rack, which is enough to handle over 11,000 concurrent environments. On Terminal-Bench, the same Vera processors are offering a 1.7x performance increase across all passing tasks.\nCoreWeave delivers lower total cost than hyperscaler clouds for 3-year AI deployments on NVIDIA Blackwell GPUs (via Signal65):\n- Up to 41% lower cost on NVIDIA HGX B200\n- Up to 65% lower cost on NVIDIA GB200 NVL72\n- Up to 52% lower cost on NVIDIA HGX B300\nIn addition to NVIDIA's Vera Rubin and Vera deployment, CoreWeave also announced CoreWeave Forge, which unifies Weights & Biases, post-training expertise from OpenPipe, and the open-source marimo notebook project in one connected environment built for continuous model and agent improvement. The main highlights include:\n- CoreWeave ARIA — now generally available — helps users learn, research, code, and iterate across the AI loop, analyzing runs, proposing experiments, recommending code changes and storing them in GitHub, and bringing back actionable evidence that analyzes experiment data, surfaces what drove a change, and proposes the next experiments to run.\n- CoreWeave Agent Lens — a new service — turns production agent observability into continuous improvement and understandable insights. It improves failure detection by 20% and fixes issues at half the cost, which turns tens of millions of production agent traces into insights that drive fixes.\n- CoreWeave Sandboxes — now generally available — let users run agents, tool calls, RL and evaluations in isolated CPU or GPU execution environments, on serverless infrastructure or on the infrastructure they already train on, providing a fresh, isolated environment for every agent tool call, RL run or evaluation.\n- Post-training improves model quality and cuts latency and costs by harnessing users’ own production signals, with no training cluster required. Serverless supervised fine-tuning and serverless RL let users experiment with their own training recipes. Serverless RL trains 1.4x faster at 40% lower cost than a self-managed setup.\nFrom securing record performance within MLPerf benchmarks, to achieving record deployment time across real-world use cases, NVIDIA's Vera Rubin platform has unleashed a new era of AI on the tech industry, all enabled through the Extreme Co-Design strategy which keeps on propelling NVIDIA and the AI industry ahead.\nFollow Wccftech on Google to get more of our news coverage in your feeds."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 933
+  },
+  "photos": [
+    {
+      "file": "beb295da16-g0.webp",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/10/CoreWeave-Vera-Rubin-1456x1052.avif",
+      "credit": "Wccftech",
+      "page": "https://wccftech.com/coreweave-deploys-nvidia-vera-rubin-nvl72-in-cloud-up-to-4-8x-token-generation/",
+      "alt": "",
+      "w": 1456,
+      "h": 1052,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "beb295da16-g0.webp",
+    "credit": "Wccftech",
+    "page": "https://wccftech.com/coreweave-deploys-nvidia-vera-rubin-nvl72-in-cloud-up-to-4-8x-token-generation/",
+    "src": "https://cdn.wccftech.com/wp-content/uploads/2026/10/CoreWeave-Vera-Rubin-1456x1052.avif",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %30 (<%85)"
+}
