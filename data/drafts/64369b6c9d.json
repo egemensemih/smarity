@@ -1,0 +1,102 @@
+{
+  "id": "64369b6c9d",
+  "status": "pending",
+  "created_at": "2026-10-02T17:56:29Z",
+  "title": "Orijinal Halo oyun tarayıcısında oynanabilir hale geldi",
+  "summary": "Yazılımcı Mitchell Hynes, orijinal Xbox sürümü Halo: Combat Evolved oyununu çok oyunculu ve bölünmüş ekran desteğiyle web tarayıcısına taşıdı.",
+  "body": "Orijinal Halo oyunu, yazılımcı Mitchell Hynes tarafından yapılan gayriresmî bir projeyle herhangi bir eklenti gerektirmeden doğrudan web tarayıcıları üzerinden oynanabilir durumda. Polygon'un aktardığına göre, orijinal Xbox sürümü olan bu tarayıcı tabanlı port; çok oyunculu mod, bölünmüş ekran eşli oyun desteği ve 128 oyuncuya kadar katılım imkânı sunuyor. Hynes'ın paylaştığı bilgilere göre, oyunun tarayıcı sürümünü ilk beş saat içinde 20.000 kişi oynadı. Bu tür projelerin artmasında, modcuların oyunların kaynak kodlarına ulaşmasını hızlandıran yeni yapay zeka araçlarının etkili olduğu belirtiliyor. Projenin Discord kanalında Claude modeline dair çok sayıda referans yer alıyor.\n\n## Microsoft'un tepkisi bekleniyor\n\nPolygon'un haberinde, Microsoft'un bu izinsiz porta karşı ilerleyen süreçte hukuki veya teknik adımlar atmasının muhtemel olduğu ifade ediliyor. Daha önce Xbox, oyunun yıl dönümü sürümünü ve Halo: The Master Chief Collection paketini piyasaya sürmüş, ayrıca yılın başında hikâye modunu yenileyen Halo: Campaign Evolved oyununu çıkararak seriyi genişletmişti.\n\n**Neden önemli?** Yapay zeka destekli araçlar ve kod çözme süreçleri, klasik video oyunlarının web tarayıcıları gibi farklı platformlara taşınmasını kolaylaştırırken telif hakları ve yasal sorunları da beraberinde getiriyor.",
+  "category": "gaming",
+  "tags": [
+    "Halo",
+    "Microsoft",
+    "Xbox",
+    "Claude"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Orijinal Halo tarayıcıda oynanıyor",
+  "kicker": "Yeni oyun",
+  "hero_stat": "128",
+  "hero_stat_label": "maksimum oyuncu sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a classic retro game cartridge resting on a clean minimalist surface, soft warm light casting a gentle shadow, subtle metallic textures reflecting ambient light",
+  "focus_keyword": "orijinal Halo oyunu",
+  "seo_title": "Orijinal Halo oyunu tarayıcıda oynanabilir hale geldi",
+  "meta_description": "Orijinal Xbox sürümü Halo: Combat Evolved, Mitchell Hynes tarafından çok oyunculu ve bölünmüş ekran desteğiyle web tarayıcısına taşındı.",
+  "seo_slug": "orijinal-halo-oyunu-tarayicida-oynanabilir-hale-geldi",
+  "image_alt": "Klasik oyun kartuşunu temsil eden sade stüdyo ortamı",
+  "cover_text": "Halo tarayıcıda",
+  "carousel_points": [
+    "Orijinal Halo: Combat Evolved oyunu web tarayıcısında oynanabiliyor.",
+    "Proje, bölünmüş ekran ve 128 oyuncuya kadar çok oyunculu destek sunuyor.",
+    "Yazılımcı Mitchell Hynes tarafından geliştirilen port ilk beş saatte 20 bin kişiye ulaştı."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Orijinal Halo tarayıcıda 128 oyuncuyla oynanıyor",
+  "cover_highlight": "128 oyuncuyla",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Orijinal Halo oyunu tarayıcıda çoklu oyuncu desteğiyle oynanabiliyor.",
+  "entities": [
+    "Microsoft",
+    "Halo"
+  ],
+  "topic": "Original Halo playable in web browsers with multiplayer",
+  "sources": [
+    {
+      "name": "Polygon",
+      "url": "https://www.polygon.com/halo-web-browser-ai-game-mods/",
+      "title": "The Original 'Halo' Is Now Playable in Web Browsers With Multiplayer Support",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-02T17:54:00Z",
+      "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/ss_567cd7abbf4dc976c707fb6b73be93e21bfbba0a-1920x1080.jpg"
+    }
+  ],
+  "source_keys": [
+    "Polygon"
+  ],
+  "source_texts": [
+    {
+      "credit": "Polygon",
+      "kind": "media",
+      "title": "The Original 'Halo' Is Now Playable in Web Browsers With Multiplayer Support",
+      "url": "https://www.polygon.com/halo-web-browser-ai-game-mods/",
+      "published": "2026-10-02T17:54:00Z",
+      "summary": "The Xbox version of Halo is playable in a web browser as AI-driven decompilations and mashups flood social media.",
+      "text": "If you’ve been on X over the last few days, you’ve probably noticed that things have gotten very weird when it comes to modded video games. There are clips of Call of Duty operators doing kickflips and other tricks from Skate, people playing Black Ops 1’s zombie mode in Skyrim, and Miles Morales swinging through Gotham. Here’s another to add to the list: someone has gotten the Xbox version of Halo: Combat Evolved running in a web browser with multiplayer and split-screen support.\nSoftware developer Mitchell Hynes is behind bringing Halo to web browser. As he posted on X, this version of the game features split-screen co-op and multiplayer of up to 128 players. He's currently running a Cloudflare-powered website to host the port— which is the original Xbox version of Combat Evolved, not Gearbox’s maligned PC release — and he included the link to the site in a reply to his original post. According to Hynes, 20,000 people played the web browser port in its first five hours.\nWhat made this unofficial port possible?\nThe simple explanation for why everyone’s social media feeds are suddenly full of browser ports and hallucinatory mash-ups is that there's a new version of Claude that makes creating these much easier. Because of AI, modders can decompile games (a process that gives access to the games’ original source code) much faster than before, making it easier to bring them to web browsers and other platforms (also through AI, ususally). Halo: Combat Evolved was recently decompiled for the first time, and while the associated GitHub page doesn’t confirm whether AI was involved in this process, the project’s Discord channel is full of references to Claude.\nAs for the game mash-ups surfacing on social media, many are using LLMs like Claude Opus 5.5 with a specific universal-modder plugin. “Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos,” the tool's description reads.\nOf course, this situation comes with plenty of moral, legal, and technical pitfalls. As existing tech experts have pointed out, these decompilations and mods are more likely to be full of bugs because they were created through vibe coding. In response, X user Funky90sLion created a list of existing decompilation projects handled by humans.\nAs for legal issues, many publishers likely aren’t happy to see their games used in these mashups, even if the modders acquired the original games legally. Then there's the fact that using Claude to create these mods comes with the technology’s typical ecological and ethical concerns. And while these mods make for good social media clips, they're tech gimmicks compared to the more authored experience offered by the original games. As with all cases of AI used for \"creative\" purposes, the end result is always a remix built on existing work that was pulled into the AI's dataset, generally without the creator's permission.\nFor Halo: Combat Evolved in web browsers, it’s fair to expect Microsoft will eventually take action against the unsanctioned port, which, at the time of publishing, is still playable. Xbox previously released Halo: Combat Evolved Anniversary, a remaster of the original game, and then ported it to PC through Halo: The Master Chief Collection. Earlier this year, Xbox released Halo: Campaign Evolved, a full remake of the original game’s story mode with additional missions."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 925
+  },
+  "photos": [
+    {
+      "file": "64369b6c9d-g0.webp",
+      "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/ss_567cd7abbf4dc976c707fb6b73be93e21bfbba0a-1920x1080.jpg",
+      "credit": "Polygon",
+      "page": "https://www.polygon.com/halo-web-browser-ai-game-mods/",
+      "alt": "",
+      "w": 1600,
+      "h": 900,
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "64369b6c9d-g0.webp",
+    "credit": "Polygon",
+    "page": "https://www.polygon.com/halo-web-browser-ai-game-mods/",
+    "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/ss_567cd7abbf4dc976c707fb6b73be93e21bfbba0a-1920x1080.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %30 (<%85)"
+}
