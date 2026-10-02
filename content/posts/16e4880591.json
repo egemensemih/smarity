@@ -1,6 +1,5 @@
 {
   "id": "16e4880591",
-  "status": "pending",
   "created_at": "2026-10-02T08:01:50Z",
   "title": "Flux 3 Image duyuruldu: Çok adımlı düzenleme ve 4K çözünürlük",
   "summary": "Black Forest Labs, fotoğrafın geri kalanını bozmadan çok adımlı düzenleme yapabilen yeni yapay zeka görsel modeli Flux 3 Image'ı duyurdu.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "Black Forest Labs launches Flux 3 Image with multi-step editing that leaves the rest of your picture alone",
-      "url": "https://the-decoder.com/black-forest-labs-launches-flux-3-image-with-multi-step-editing-that-leaves-the-rest-of-your-picture-alone/",
-      "published": "2026-10-02T07:44:44Z",
-      "summary": "Black Forest Labs has released Flux 3 Image, the image side of its Flux 3 model family. It supports multi-step edits without changing other parts of the image, lets users compose scenes with bounding boxes and up to ten reference images, and outputs up to 4K. Open weights are coming in the next few weeks. The article Black Forest Labs launches Flux 3 Image with multi-step editing that leaves the rest of your picture alone appeared first on The Decoder .",
-      "text": "Black Forest Labs launches Flux 3 Image with multi-step editing that leaves the rest of your picture alone\nBlack Forest Labs has released Flux 3 Image, the image side of its Flux 3 model family. The model supports multi-step edits without changing other parts of the image, BFL claims, and covers text-to-image, image-to-image, text rendering, and photorealism. Users can compose scenes with bounding boxes, include up to ten reference images, and output up to 4K. A free demo is available here.\nAPI access is 50 percent off through October 8. Companies can license commercial weights to run and fine-tune the model on their own infrastructure. An open-weight version is expected in the coming weeks. Shortly before the launch, Ideogram announced its own editing-focused model with version 4.5, which is also set to ship as open weights soon.\nAI News Without the Hype – Curated by Humans\n\t\t\t\t\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 851
@@ -94,5 +82,7 @@
     "palette": "super-zeka-2",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "flux-3-image-duyuruldu",
+  "published_at": "2026-10-02T10:59:38Z",
+  "publish_mode": "manual"
 }

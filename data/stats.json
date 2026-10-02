@@ -2,10 +2,10 @@
   "sources": {
     "LOG": {
       "approved": 20,
-      "rejected": 8
+      "rejected": 10
     },
     "The Verge": {
-      "approved": 13,
+      "approved": 14,
       "rejected": 18
     },
     "Engadget": {
@@ -18,10 +18,10 @@
     },
     "Interesting Engineering": {
       "approved": 6,
-      "rejected": 17
+      "rejected": 18
     },
     "Webrazzi": {
-      "approved": 10,
+      "approved": 11,
       "rejected": 4
     },
     "Electrek": {
@@ -30,11 +30,11 @@
     },
     "DonanımHaber": {
       "approved": 25,
-      "rejected": 25
+      "rejected": 28
     },
     "ShiftDelete.Net": {
-      "approved": 20,
-      "rejected": 14
+      "approved": 22,
+      "rejected": 15
     },
     "Webtekno": {
       "approved": 16,
@@ -50,14 +50,14 @@
     },
     "Carscoops": {
       "approved": 7,
-      "rejected": 8
+      "rejected": 9
     },
     "TechCrunch": {
       "approved": 22,
       "rejected": 11
     },
     "Egirisim": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 0
     },
     "Polygon": {
@@ -122,7 +122,7 @@
     },
     "Motor1": {
       "approved": 7,
-      "rejected": 4
+      "rejected": 5
     },
     "CNBC Teknoloji": {
       "approved": 4,
@@ -134,7 +134,7 @@
     },
     "Wccftech": {
       "approved": 3,
-      "rejected": 8
+      "rejected": 11
     },
     "Tom's Guide": {
       "approved": 3,
@@ -142,22 +142,22 @@
     },
     "The Next Web": {
       "approved": 2,
-      "rejected": 27
+      "rejected": 28
     },
     "InsideEVs": {
       "approved": 3,
       "rejected": 2
     },
     "Chip Online": {
-      "approved": 2,
-      "rejected": 5
+      "approved": 3,
+      "rejected": 7
     },
     "CarNewsChina": {
       "approved": 5,
       "rejected": 2
     },
     "The Decoder": {
-      "approved": 4,
+      "approved": 6,
       "rejected": 11
     },
     "SamMobile": {
@@ -198,7 +198,7 @@
     },
     "T3": {
       "approved": 1,
-      "rejected": 3
+      "rejected": 4
     },
     "PetaPixel": {
       "approved": 1,
@@ -270,7 +270,7 @@
     },
     "Eurogamer": {
       "approved": 0,
-      "rejected": 4
+      "rejected": 5
     },
     "Samsung": {
       "approved": 1,
@@ -310,7 +310,7 @@
     },
     "Teslarati": {
       "approved": 1,
-      "rejected": 0
+      "rejected": 1
     },
     "Fstoppers": {
       "approved": 0,
@@ -326,138 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-29T17:41:04Z",
-      "id": "a8251b02ee",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:07Z",
-      "id": "37659e1776",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:09Z",
-      "id": "ccdf59f622",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:11Z",
-      "id": "bf67f1112c",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:14Z",
-      "id": "ca1ec9545c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:22Z",
-      "id": "f84a01b523",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:32Z",
-      "id": "b31526bf28",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:38Z",
-      "id": "72e69ca979",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:41Z",
-      "id": "f4ae6065b3",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:46Z",
-      "id": "733a8833d1",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T18:46:53Z",
-      "id": "6b5da5b550",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:08:36Z",
-      "id": "1659b8586f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:08:42Z",
-      "id": "f2caa3d0a7",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:08:44Z",
-      "id": "9caa0510a2",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:08:47Z",
-      "id": "e7bf5ee0e1",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:08:56Z",
-      "id": "cf1e68fb8b",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:00Z",
-      "id": "107d1d8575",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:12Z",
-      "id": "e9d26faa73",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:19Z",
-      "id": "14e00425bd",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:24Z",
-      "id": "ab8ac79630",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:33Z",
-      "id": "bf8147a059",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-29T20:09:38Z",
-      "id": "7a56fb18bc",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-29T20:09:41Z",
       "id": "756d7b3d7e",
@@ -2123,6 +1991,138 @@
     {
       "t": "2026-10-02T05:54:15Z",
       "id": "bd99b7e45a",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:20Z",
+      "id": "27e7d56875",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:21Z",
+      "id": "a2aa1821dc",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:24Z",
+      "id": "ab7f47647d",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:25Z",
+      "id": "0b2902ab5c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:30Z",
+      "id": "eaeb0c1f2b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:32Z",
+      "id": "bb8337c727",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:35Z",
+      "id": "428c506318",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:39Z",
+      "id": "16e4880591",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:40Z",
+      "id": "11be4a2639",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:44Z",
+      "id": "2d652c84d8",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:46Z",
+      "id": "00b88cbf82",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:54Z",
+      "id": "4cda0d1081",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T10:59:57Z",
+      "id": "76e3f0a97b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:01Z",
+      "id": "62b926f27e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:02Z",
+      "id": "bae092ebb9",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:08Z",
+      "id": "476d355d9b",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:09Z",
+      "id": "30192ed620",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:11Z",
+      "id": "9fa7cc2784",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:15Z",
+      "id": "511da00083",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:18Z",
+      "id": "e40d756a58",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:19Z",
+      "id": "a4133b5ac9",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-02T11:00:21Z",
+      "id": "be5d8f9baa",
       "ok": false,
       "manual": true
     }

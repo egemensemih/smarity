@@ -1,6 +1,5 @@
 {
   "id": "e40d756a58",
-  "status": "pending",
   "created_at": "2026-10-02T10:10:56Z",
   "title": "Suno konuşma özelliği ile ses ve müziği bir arada üretiyor",
   "summary": "Popüler yapay zeka müzik üreticisi Suno, metinleri ve senaryoları yapay zeka seslerine dönüştüren yeni konuşma özelliğini genel beta olarak duyurdu.",
@@ -57,17 +56,6 @@
   "source_keys": [
     "The Verge"
   ],
-  "source_texts": [
-    {
-      "credit": "The Verge",
-      "kind": "media",
-      "title": "AI music maker Suno now generates spoken words",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1003925/suno-speech-ai-voice-feature-beta-availability",
-      "published": "2026-10-02T09:42:19Z",
-      "summary": "Suno is branching out from the world of AI music, launching a new feature that generates spoken voices based on scripts or prompted descriptions. Speech is now available in public beta across Suno's web and mobile platforms, and allows you to simultaneously generate voiceovers and background music to accompany them. \"Music will always be at […]",
-      "text": "Suno is branching out from the world of AI music, launching a new feature that generates spoken voices based on scripts or prompted descriptions. Speech is now available in public beta across Suno’s web and mobile platforms, and allows you to simultaneously generate voiceovers and background music to accompany them.\nAI music maker Suno now generates spoken words\nThe new Speech feature provides synthetic voiceovers embellished with AI background music.\n“Music will always be at the heart of Suno and what we build. At the same time, our vision has always extended to other forms of human expression,” Suno chief product officer, Jack Brody, said in the announcement. “Today, we’re expanding what’s possible in Suno with Speech: the first audio model that generates voice and music together as one cohesive track.”\nAI-generated speech is hardly new — DeepMind has been experimenting with deep learning speech synthesis for a decade, Adobe has a text-to-speech tool, and ElevenLabs has become one of the most recognizable platforms for it since launching in 2023. Suno is just throwing its hat into the ring — likely in an attempt to diversify the platform, given its music generator has attracted so many lawsuits.\nPairing AI music with generated voices is Suno’s spin on text-to-speech tools. It’s optional, meaning you can easily turn off the background music with a toggle if you just want clean speech, but the idea is that it’ll compliment certain use cases for generative spoken word — such as having a calming soundtrack for poems, or something more energetic for dramatic voiceovers and encouraging speeches.\nTo use the feature, select the “Create” tab, and navigate to the Speech option. There are two modes: Simple, which allows you to describe what you want to create via the provided prompt box (such as “a pirate captain rallying his crew”), or the Advanced mode that lets you add a custom script if you already know exactly what you want it to say. Advanced settings also let you adjust the gender of the AI voice, speech style, and how much variety each voice generation will have. Speech has a maximum duration of around eight minutes.\nSuno admits that the feature is far from perfect, but says it’ll keep improving Speech around user feedback. “Beta really does mean beta,” said Brody. “Occasionally, British accents can wander off to Australia and back. Dramatic pauses may be very dramatic. You will almost certainly discover uses for this that never occurred to us.”"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 863
@@ -96,5 +84,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "suno-yapay-zeka-konusma-ve-muzik-ozelligi",
+  "published_at": "2026-10-02T11:00:17Z",
+  "publish_mode": "manual"
 }

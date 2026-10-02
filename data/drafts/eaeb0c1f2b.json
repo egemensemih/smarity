@@ -1,6 +1,6 @@
 {
   "id": "eaeb0c1f2b",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-02T06:46:05Z",
   "title": "Tesla'dan şarj kablosu takılıyken kaçış sağlayan acil durum modu",
   "summary": "Tesla, acil durumlarda sürücülerin şarj kablosu takılıyken Supercharger istasyonlarından hızla uzaklaşmasını sağlayan Emergency Drive Away özelliğini duyurdu.",
@@ -164,5 +164,6 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "policy_reason": "Genel onay oranı %13 (<%85)",
+  "rejected_at": "2026-10-02T10:59:30Z"
 }

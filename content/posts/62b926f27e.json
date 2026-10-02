@@ -1,6 +1,5 @@
 {
   "id": "62b926f27e",
-  "status": "pending",
   "created_at": "2026-10-02T08:44:18Z",
   "title": "Polis kilitli iPhone cihazlara erişebilecek: Yeni yöntem ortaya çıktı",
   "summary": "Kolluk kuvvetlerinin, iPhone'lardaki hareketsizlikte yeniden başlatma güvenlik duvarını aşmak için yeni araçlar geliştirdiği ortaya çıktı.",
@@ -62,17 +61,6 @@
   "source_keys": [
     "ShiftDelete.Net"
   ],
-  "source_texts": [
-    {
-      "credit": "ShiftDelete.Net",
-      "kind": "media",
-      "title": "Polis Kilitli iPhone Cihazlara Erişebilecek: İşte Yeni Yöntem",
-      "url": "https://shiftdelete.net/polis-kilitli-iphone-erisim-yontemleri",
-      "published": "2026-10-02T08:30:39Z",
-      "summary": "Polis, kilitli iPhone cihazlara erişmek için Magnet Forensics araçlarını kullanıyor. iPhone hareketsizlikte yeniden başlatma özelliği nasıl aşılıyor?",
-      "text": "Polis Kilitli iPhone Cihazlara Erişebilecek: İşte Yeni Yöntem\nApple, 2024 yılı itibarıyla iPhone cihazlara iPhone hareketsizlikte yeniden başlatma özelliğini entegre ederek kullanıcı gizliliğini bir üst seviyeye taşıdı. Bu özellik, 72 saat boyunca kilidi açılmayan cihazların otomatik olarak yeniden başlamasını sağlayarak kolluk kuvvetlerinin veri erişimini önemli ölçüde kısıtlıyordu.\nAncak son dönemde ortaya çıkan bilgiler, kolluk kuvvetlerinin bu güvenlik duvarını aşmak için yeni yöntemler geliştirdiğini gösteriyor. 404 Media tarafından paylaşılan bir eğitim videosu, Magnet Forensics şirketinin geliştirdiği araçların bu süreci nasıl etkisiz kıldığını gözler önüne seriyor.\niPhone Güvenlik Önlemlerinde Yeni Gelişmeler\nMagnet Forensics, özellikle polis birimlerine akıllı telefonların kilidini açmaları için sunduğu GrayKey adlı araçla tanınıyor. Şirketin hazırladığı eğitim videosunda, GrayKey Preserve ve Evidence Preservation Mode adlı yeni özelliklerin, iPhone cihazlardaki hareketsizlik sonrası yeniden başlatma engelini aştığı belirtiliyor.\nVideoda yer alan bilgilere göre, bu yeni araçlar cihazı “İlk Kilidin Açılmasından Sonra” (AFU) olarak bilinen bir durumda tutmayı başarıyor. AFU durumu, cihazın “İlk Kilitten Önce” (BFU) olduğu duruma kıyasla çok daha fazla veriye erişim imkanı sağlıyor.\nBFU durumunda cihazın şifresini sahibinden başkasının açması oldukça zordur ve verilerin büyük bir kısmı şifreli halde tutulur. Magnet Forensics çalışanları, geliştirdikleri yeni yöntemle cihazın yeniden başlatılması durumunda bile AFU durumunun kaybolmadığını ifade ediyor.\nBu durum, cihazın bellek bakımı veya güç kaybı gibi nedenlerle yeniden başlaması halinde dahi verilerin korunmaya devam ettiği anlamına geliyor. Şirket yetkilileri, bu yöntemin iOS adli bilişim süreçlerinde büyük bir değişim yarattığını vurguluyor.\nVeri Silme Özellikleri ve Gizlilik Tartışmaları\nYeni geliştirilen bu araçların, iPhone cihazların belirli bir süre sonra otomatik olarak veri silme özelliklerini de devre dışı bırakabildiği iddia ediliyor. Bu özellik, cihazdaki önbelleğe alınmış konum verilerinin yanı sıra yakın zamanda silinen iMessage mesajları ve fotoğrafların korunmasını sağlıyor.\nApple, gizliliği temel prensiplerinden biri olarak kabul etse de, kolluk kuvvetlerinin bu tür araçlara erişimi dijital mahremiyet tartışmalarını yeniden alevlendiriyor. Yerel polis birimleri ve çeşitli federal kurumlar, dijital gizlilik sınırlarını zorlamakla suçlanıyor.\nMagnet Forensics tarafından sunulan bu yeni çözümler, adli bilişim dünyasında önemli bir dönüm noktası olarak değerlendiriliyor. Apple’ın yüksek güvenlikli cihazlarına karşı geliştirilen bu yöntemler, dijital delil toplama süreçlerinde yeni bir dönemi temsil ediyor.\nTeknolojinin sunduğu güvenlik önlemleri ile kolluk kuvvetlerinin erişim talepleri arasındaki bu denge, gelecekte daha fazla tartışmaya konu olacağa benziyor. Sizce Apple’ın sunduğu bu güvenlik önlemleri, kolluk kuvvetlerinin erişim yöntemleri karşısında ne kadar yeterli kalıyor?"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 857
@@ -113,5 +101,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Uyarı işareti var"
+  "slug": "polis-kilitli-iphone-erisim-yontemi",
+  "published_at": "2026-10-02T11:00:00Z",
+  "publish_mode": "manual"
 }

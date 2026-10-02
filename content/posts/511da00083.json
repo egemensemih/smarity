@@ -1,6 +1,5 @@
 {
   "id": "511da00083",
-  "status": "pending",
   "created_at": "2026-10-02T09:56:13Z",
   "title": "Microsoft AI ses modelleri tanıtıldı: 100 milisaniyede deşifre",
   "summary": "Microsoft AI, gerçek zamanlı deşifre ve ses klonlama yeteneklerine sahip yeni yapay zekâ ses modellerini kullanıma sundu.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "Microsoft AI releases new transcription and text-to-speech models for voice agents",
-      "url": "https://the-decoder.com/microsoft-ai-releases-new-transcription-and-text-to-speech-models-for-voice-agents/",
-      "published": "2026-10-02T09:20:39Z",
-      "summary": "Microsoft AI has released MAI-Transcribe-2-Streaming, a new model for real-time transcription. The article Microsoft AI releases new transcription and text-to-speech models for voice agents appeared first on The Decoder .",
-      "text": "Microsoft AI releases new transcription and text-to-speech models for voice agents\nMicrosoft AI has released MAI-Transcribe-2-Streaming, a new model for real-time transcription. Microsoft says it ranks first for accuracy on Artificial Analysis. The model transcribes 60 languages and delivers its first partial results in just over 100 milliseconds. Microsoft says this lets voice agents respond while someone is still mid-sentence. Through the end of the year, an hour of audio costs $0.54 at the introductory price.\nMicrosoft also released two new text-to-speech models. MAI-Voice-2.1 is designed to speak 23 languages in the same voice, with a native accent in each one. According to Microsoft, the MAI-Voice-2.1-Flash variant hits a latency of 150 milliseconds and costs $15 per million characters instead of $22.\nBoth voice models can clone a voice from just a few seconds of reference audio, and built-in safeguards are meant to prevent misuse. The models are available through Microsoft Foundry and the MAI Playground, among other platforms, and the two voice models are also on OpenRouter. In one test, about half of the 4,000 participants thought the voices belonged to a real person.\nAI News Without the Hype – Curated by Humans\n\t\t\t\t\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 862
@@ -99,5 +87,7 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %13 (<%85)"
+  "slug": "microsoft-ai-ses-modelleri-tanitildi",
+  "published_at": "2026-10-02T11:00:14Z",
+  "publish_mode": "manual"
 }
