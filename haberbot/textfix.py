@@ -219,3 +219,25 @@ def is_car_story(d: dict) -> bool:
     if names & CAR_BRANDS or first & (CAR_BRANDS - {"seat", "scout", "alpine", "genesis", "lotus", "smart"}):
         return True
     return bool(CAR_WORDS.search(d.get("title", "")))
+
+
+# ── Dil denetimi: başlık İngilizce mi kalmış? ─────────────────
+EN_WORDS = {"the", "of", "for", "on", "in", "to", "with", "and", "its", "is", "are", "a", "an", "from", "by", "at", "as",
+            "after", "says", "gets", "launches", "announces", "reveals", "adds", "pins", "focus", "reboot", "new", "will",
+            "could", "over", "into", "how", "why", "what", "customers", "business", "about", "this", "that", "now"}
+
+
+def looks_english(text: str) -> bool:
+    """Türkçe harf hiç yok ve en az iki İngilizce bağlaç/sözcük var → İngilizce."""
+    if not text or re.search(r"[çğıöşüÇĞİÖŞÜ]", text):
+        return False
+    words = re.findall(r"[a-z']+", text.lower().replace("’", "'"))
+    if set(words) & TR_WORDS:
+        return False
+    hits = [w for w in words if w in EN_WORDS or w.endswith("'s")]
+    strong = [w for w in hits if w not in {"the", "of", "a", "an"}]   # "The Last of Us" gibi adlar sayılmaz
+    return len(hits) >= 3 or (len(hits) >= 2 and bool(strong))
+
+
+TR_WORDS = {"ve", "ile", "bir", "yeni", "icin", "oldu", "geliyor", "tanitildi", "aciklandi", "sezon", "tarihi", "fiyati",
+            "fiyat", "satis", "ozellikleri", "cikti", "duyurdu", "geldi", "artik"}

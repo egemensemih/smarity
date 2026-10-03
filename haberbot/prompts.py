@@ -380,6 +380,8 @@ def write_user(sources: list[dict], today: str, previous: dict | None = None,
             "",
             f"EDITOR INSTRUCTION (follow it, while keeping all accuracy rules): {instruction or 'Metni daha akıcı ve net hale getir.'}",
         ]
+    if instruction and (previous is None or previous.get("_update")):
+        parts += ["", f"EDITOR INSTRUCTION (follow it, while keeping all accuracy rules): {instruction}"]
     return "\n".join(parts)
 
 

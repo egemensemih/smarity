@@ -23,20 +23,22 @@
 {% block main %}
 <header class="home-head wrap">
   <h1 class="sr-only">{{ site.home_h1 }}</h1>
-  <div class="home-day">
+  <div class="home-row">
     <p class="home-date"><time datetime="{{ site.built_iso[:10] }}" data-today>{{ site.today_str }}</time></p>
-    <ul class="mkt" data-mkt aria-label="Piyasalar" hidden>
-      <li data-k="USD"><span>Dolar</span><b></b><i></i></li>
-      <li data-k="EUR"><span>Euro</span><b></b><i></i></li>
-      <li data-k="GBP"><span>Sterlin</span><b></b><i></i></li>
-      <li data-k="GRA"><span>Gram altın</span><b></b><i></i></li>
-      <li data-k="XU100"><span>BIST 100</span><b></b><i></i></li>
-      <li data-k="BTC"><span>Bitcoin</span><b></b><i></i></li>
-    </ul>
+    {% if featured %}
+    <p class="live" role="status"><span class="dot" aria-hidden="true"></span>Son haber <b><time datetime="{{ latest_iso }}" data-rel data-live>{{ latest_str }}</time></b>{% if site.today_count %} · Bugün <b>{{ site.today_count }}</b> gelişme{% endif %}</p>
+    {% endif %}
   </div>
-  {% if featured %}
-  <p class="live" role="status"><span class="dot" aria-hidden="true"></span>Son haber <b><time datetime="{{ latest_iso }}" data-rel data-live>{{ latest_str }}</time></b>{% if site.today_count %} · Bugün <b>{{ site.today_count }}</b> gelişme{% endif %}</p>
-  {% endif %}
+  {# Canlı piyasalar: veri gelene kadar iskelet görünür (sayfa kaymaz), hiç veri gelmezse kaybolur #}
+  <div class="mkt loading" data-mkt role="list" aria-label="Piyasalar">
+    {% for k, name, sym, col in [("USD", "Dolar", "$", "#16A34A"), ("EUR", "Euro", "€", "#2563EB"), ("GBP", "Sterlin", "£", "#7C3AED"),
+                                 ("GRA", "Gram altın", "Au", "#C9930A"), ("XU100", "BIST 100", "B", "#E11D48"), ("BTC", "Bitcoin", "₿", "#F7931A")] %}
+    <div class="mkt-item" role="listitem" data-k="{{ k }}" style="--ic:{{ col }}">
+      <span class="mkt-ic" aria-hidden="true">{{ sym }}</span>
+      <span class="mkt-tx"><span class="mkt-n">{{ name }}</span><span class="mkt-v"><b>00,00</b><i></i></span></span>
+    </div>
+    {% endfor %}
+  </div>
 </header>
 
 {% if not featured %}

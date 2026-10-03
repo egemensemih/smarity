@@ -15,7 +15,7 @@ import io
 import json
 import re
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 
 import requests
 from PIL import Image, ImageChops, ImageOps, ImageStat
@@ -174,9 +174,9 @@ def _similar(a: int, b: int) -> bool:
     return bin(a ^ b).count("1") <= 8
 
 
-def fetch_image(url: str, referer: str = "", timeout: int = 20) -> Image.Image | None:
+def fetch_image(url: str, referer: str = "", timeout: int = 20, ua: str = "") -> Image.Image | None:
     try:
-        r = requests.get(url, headers={"User-Agent": UA, "Referer": referer or url,
+        r = requests.get(url, headers={"User-Agent": ua or UA, "Referer": referer or url,
                                        "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"},
                          timeout=timeout, stream=True)
         if r.status_code >= 400 or not r.headers.get("content-type", "image").startswith("image"):
@@ -242,8 +242,54 @@ def usable(im: Image.Image) -> bool:
     return st.stddev[0] >= 14  # düz/boş görseller (logo zemini, yer tutucu) elenir
 
 
+# ── yedek: Wikipedia'daki ürün / şirket / kişi görseli ─────
+WIKI_UA = "SmarityBot/1.0 (https://smarity.com.tr; haber sitesi gorsel arama)"
+GENERIC_NAMES = {"türkiye", "turkey", "yapay zeka", "ai", "elektrikli otomobil", "abd", "avrupa", "çin"}
+
+
+def _wiki_names(names: list[str]) -> list[str]:
+    """Aranacak adlar: özel adlar (büyük harf içeren), en belirgin olan önce (ürün adı şirket adından önce)."""
+    out = []
+    for n in names:
+        n = (n or "").strip()
+        if n and n.lower() not in GENERIC_NAMES and any(c.isupper() for c in n) and n not in out:
+            out.append(n)
+    return sorted(out[:5], key=lambda n: -len(n.split()))
+
+
+def wiki_photo(names: list[str]) -> dict | None:
+    """Kaynaklarda hiç fotoğraf yoksa: haberin ürününün / şirketinin / kişisinin Wikipedia görseli (kaynağıyla)."""
+    for name in _wiki_names(names):
+        for lang in ("tr", "en"):
+            try:
+                r = requests.get(f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{quote(name.replace(' ', '_'))}",
+                                 headers={"User-Agent": WIKI_UA}, timeout=10)
+                if r.status_code != 200:
+                    continue
+                j = r.json()
+            except (requests.RequestException, ValueError):
+                continue
+            if j.get("type") == "disambiguation":
+                continue
+            org = j.get("originalimage") or {}
+            src = org.get("source") or ""
+            if not src or src.lower().endswith(".svg") or (org.get("width") or 0) > 2400:
+                th = (j.get("thumbnail") or {}).get("source") or ""
+                src = re.sub(r"/\d+px-", "/960px-", th) if "/thumb/" in th else src
+            if not src or src.lower().endswith(".svg"):
+                continue
+            im = fetch_image(src, "https://wikipedia.org/", ua=WIKI_UA)
+            if im is None or not usable(im):
+                continue
+            page = ((j.get("content_urls") or {}).get("desktop") or {}).get("page") or f"https://{lang}.wikipedia.org/"
+            log.info("Fotoğraf: kaynaklarda yok, Wikipedia görseli kullanıldı (%s)", name)
+            return {"image": im, "src": src, "credit": "Wikipedia", "page": page, "alt": j.get("title") or name,
+                    "kind": "wiki", **classify(im)}
+    return None
+
+
 def gather(sources: list[dict], limit: int = 16, per_source: int = 12, pages: int = 3,
-           skip_cover: set[str] | frozenset = frozenset()) -> list[dict]:
+           skip_cover: set[str] | frozenset = frozenset(), entities: list[str] | None = None) -> list[dict]:
     """Kaynaklardan fotoğraf topla. Dönen her öğe: {'image': PIL, 'src', 'credit', 'page', 'alt', 'kind', 'graphic'}
 
     skip_cover: paylaşım görseline yazı basan kaynakların adları (bunlarda besleme/og görseli alınmaz).
@@ -280,6 +326,10 @@ def gather(sources: list[dict], limit: int = 16, per_source: int = 12, pages: in
             n += 1
         if len(picked) >= limit:
             break
+    if not picked and entities:
+        w = wiki_photo(entities)
+        if w:
+            picked.append(w)
     picked.sort(key=lambda p: p["graphic"])  # kararlı sıralama: kaynak sırası korunur
     log.info("Fotoğraf: %d bulundu, %d grafik (%s)", len(picked), sum(p["graphic"] for p in picked),
              ", ".join(dict.fromkeys(p["credit"] for p in picked)) or "-")

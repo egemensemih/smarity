@@ -13,6 +13,8 @@ from haberbot import photos  # noqa: E402
 from haberbot.config import ROOT, Config  # noqa: E402
 from haberbot.util import iso, now_utc  # noqa: E402
 
+_REAL_GATHER = photos.gather          # bazı testler gather'ı geçici olarak değiştiriyor
+
 HTML = """<html><head>
 <meta property="og:image" content="https://cdn.site.com/2026/09/car-1200x675.jpg">
 <meta name="twitter:image" content="https://cdn.site.com/2026/09/car.jpg?w=800">
@@ -238,6 +240,54 @@ def test_more_photos_only_when_more_found():
         a.more_photos()
         ph = a.store.load_post("p1")["photos"]
         assert len(ph) == 7 and sum(1 for r in ph if r.get("file")) == 4 and sum(1 for r in ph if r.get("remote")) == 3
+
+
+def test_wikipedia_fallback_and_missing_photo_fill():
+    assert photos._wiki_names(["Apple", "MacBook Pro", "Türkiye", "yapay zeka"]) == ["MacBook Pro", "Apple"]
+    real_gather, real_wiki = _REAL_GATHER, photos.wiki_photo
+    photos.gather = _REAL_GATHER
+    try:
+        photos.wiki_photo = lambda names: {"image": _photo("#335", seed=3), "src": "https://upload.wikimedia.org/x.jpg",
+                                           "credit": "Wikipedia", "page": "https://tr.wikipedia.org/wiki/X", "alt": "X",
+                                           "kind": "wiki", "graphic": False, "cover_ok": True}
+        got = _REAL_GATHER([], entities=["MacBook Pro"])               # kaynaklarda fotoğraf yok → Wikipedia
+        assert len(got) == 1 and got[0]["credit"] == "Wikipedia"
+        assert _REAL_GATHER([], entities=None) == []
+        with _App() as (cfg, a):
+            a.store.save_post(_post(photos_tried=iso(now_utc())))        # yakın zamanda denenmiş, yine de doldurulur
+            appmod.photos.gather = lambda *a_, **k: [photos.wiki_photo(k.get("entities"))]
+            a.fill_missing_photos()
+            p = a.store.load_post("p1")
+            assert p["photos"][0]["credit"] == "Wikipedia" and p["photos_filled"]
+            from haberbot.site import SiteBuilder
+            assert SiteBuilder(cfg)._post_view(p)["disp"]["kind"] == "photo"
+            a.fill_missing_photos()                                       # artık fotoğraflı: tekrar denenmez
+            assert a.store.load_post("p1")["photos"] == p["photos"]
+    finally:
+        photos.gather, photos.wiki_photo = real_gather, real_wiki
+        appmod.photos.gather = real_gather
+
+
+def test_english_title_is_rewritten():
+    from haberbot.textfix import looks_english
+    assert looks_english("Microsoft's Copilot reboot pins focus on business customers")
+    assert not looks_english("The Last of Us 3. sezon tarihi") and not looks_english("iPhone 18 Pro tanıtıldı")
+    with _App() as (cfg, a):
+        from haberbot.llm import MockLLM
+        a.llm = MockLLM()
+        calls = []
+        real = a.llm.json
+
+        def fake(model, system, user, schema, **k):
+            out = real(model, system, user, schema, **k)
+            calls.append(user)
+            if "body" in schema.get("properties", {}) and len(calls) == 1:
+                out["title"] = "Microsoft's Copilot reboot pins focus on business customers"
+            return out
+        a.llm.json = fake
+        res = a._write([{"credit": "Bloomberg", "kind": "media", "title": "Copilot reboot", "url": "https://b.com/x",
+                         "published": iso(now_utc()), "summary": "s", "text": "t"}])
+        assert len(calls) == 2 and "Türkçe olmalı" in calls[1] and not looks_english(res["title"])
 
 
 def test_migrate_old_layout():

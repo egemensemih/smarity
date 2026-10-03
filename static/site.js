@@ -256,7 +256,8 @@
     } catch (e) {}
   }
 
-  // Canlı piyasa şeridi: dolar, euro, sterlin, gram altın, BIST 100, bitcoin (dakikada bir yenilenir; veri gelmezse gizli kalır)
+  // Canlı piyasalar: dolar, euro, sterlin, gram altın, BIST 100, bitcoin. Dakikada bir yenilenir;
+  // veri gelmeyen kalem gizlenir, hiç veri gelmezse şerit tamamen kaybolur.
   var mkt = document.querySelector("[data-mkt]");
   if (mkt && window.fetch && window.Promise) {
     var nf = function (v, d) { return new Intl.NumberFormat("tr-TR", { minimumFractionDigits: d, maximumFractionDigits: d }).format(v); };
@@ -265,16 +266,22 @@
       x = String(x || "").replace(/[^0-9,.-]/g, "");
       return parseFloat(x.indexOf(",") >= 0 ? x.replace(/\./g, "").replace(",", ".") : x);   // "6.542,72" ya da "84812.33"
     };
+    var seenK = {};
     var put = function (k, val, ch, dec, pre) {
-      var li = mkt.querySelector('[data-k="' + k + '"]');
-      if (!li || !isFinite(val) || val <= 0) return false;
-      li.querySelector("b").textContent = (pre || "") + nf(val, dec);
-      var i = li.querySelector("i");
+      var it = mkt.querySelector('[data-k="' + k + '"]');
+      if (!it || !isFinite(val) || val <= 0) return false;
+      var b = it.querySelector("b"), txt = (pre || "") + nf(val, dec);
+      if (b.textContent !== txt) {
+        if (seenK[k]) { b.classList.remove("flash"); void b.offsetWidth; b.classList.add("flash"); }
+        b.textContent = txt;
+      }
+      seenK[k] = 1;
+      var i = it.querySelector("i");
       if (isFinite(ch)) {
-        i.textContent = (ch > 0.004 ? "▲" : ch < -0.004 ? "▼" : "") + "%" + nf(Math.abs(ch), 2);
+        i.textContent = (ch > 0.004 ? "▲ " : ch < -0.004 ? "▼ " : "") + "%" + nf(Math.abs(ch), 2);
         i.className = ch > 0.004 ? "up" : ch < -0.004 ? "dn" : "eq";
       } else { i.textContent = ""; }
-      li.hidden = false;
+      it.hidden = false;
       return true;
     };
     var get = function (u) {
@@ -283,23 +290,26 @@
       return fetch(u, { cache: "no-store", signal: c ? c.signal : undefined }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
     };
     var loadMkt = function () {
-      var any = false;
       var fx = get("https://finans.truncgil.com/v4/today.json?t=" + Date.now()).then(function (j) {
         [["USD", 2], ["EUR", 2], ["GBP", 2], ["GRA", 0], ["XU100", 0]].forEach(function (x) {
           var o = j[x[0]];
-          if (o && put(x[0], num(o.Selling) || num(o.Buying), num(o.Change), x[1])) any = true;
+          if (o) put(x[0], num(o.Selling) || num(o.Buying), num(o.Change), x[1]);
         });
       }).catch(function () {
         return get("https://api.frankfurter.dev/v1/latest?base=TRY&symbols=USD,EUR,GBP").then(function (j) {
-          ["USD", "EUR", "GBP"].forEach(function (k) { if (j.rates && j.rates[k] && put(k, 1 / j.rates[k], NaN, 2)) any = true; });
+          ["USD", "EUR", "GBP"].forEach(function (k) { if (j.rates && j.rates[k]) put(k, 1 / j.rates[k], NaN, 2); });
         }).catch(function () {});
       });
       var btc = get("https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT").then(function (j) {
-        if (put("BTC", num(j.lastPrice), num(j.priceChangePercent), 0, "$")) any = true;
+        put("BTC", num(j.lastPrice), num(j.priceChangePercent), 0, "$");
       }).catch(function () {});
-      Promise.all([fx, btc]).then(function () { if (any) mkt.hidden = false; });
+      Promise.all([fx, btc]).then(function () {
+        if (!mkt.classList.contains("loading")) return;
+        mkt.classList.remove("loading");
+        mkt.querySelectorAll("[data-k]").forEach(function (it) { if (!seenK[it.getAttribute("data-k")]) it.hidden = true; });
+        if (!Object.keys(seenK).length) mkt.classList.add("gone");
+      });
     };
-    mkt.querySelectorAll("li").forEach(function (li) { li.hidden = true; });
     loadMkt();
     setInterval(function () { if (!document.hidden) loadMkt(); }, 60000);
   }

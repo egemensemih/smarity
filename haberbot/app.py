@@ -21,7 +21,7 @@ from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
 from .store import Store
-from .textfix import Fixer, entity_keys, is_car_story
+from .textfix import Fixer, entity_keys, is_car_story, looks_english
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
                    tr_date)
@@ -603,7 +603,8 @@ class App:
         """Kapak yenilemesi için kapak başlığı hazır mı (ya da artık beklenmiyor mu)."""
         return bool((p.get("cover_headline") and p.get("cover_line_v") == COVERLINE_V) or p.get("cover_line_skip"))
 
-    def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None) -> dict:
+    def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None,
+               _retry: bool = True) -> dict:
         cfg = self.cfg
         out = self.llm.json(
             cfg.get("ai", "writer_model", "claude-sonnet-5"),
@@ -639,8 +640,25 @@ class App:
         }
         if res.get("cover_headline"):
             res["cover_line_v"] = COVERLINE_V
+        if _retry and looks_english(res["title"]):   # kaynak başlığı çevrilmeden kalmış: bir kez daha yazdır
+            log.warning("Başlık İngilizce kaldı, yeniden yazılıyor: %s", res["title"])
+            fix = "Başlık ve metnin tamamı Türkçe olmalı; kaynağın İngilizce başlığını olduğu gibi kullanma."
+            return self._write(sources, previous, f"{instruction}\n{fix}" if instruction else fix, _retry=False)
         self.fixer.post(res)          # Türkçe karakter ve marka yazımı düzeltmeleri
         return res
+
+    def fix_english_titles(self) -> None:
+        """Tek seferlik: başlığı İngilizce kalmış yayındaki haberleri Türkçe yeniden yaz (adres değişmez)."""
+        if self.state.get("english_fix_v") == 1 or not self.llm:
+            return
+        self.state["english_fix_v"] = 1
+        for p in [p for p in self.store.posts() if looks_english(p.get("title", ""))][:5]:
+            try:
+                self._rewrite(p, "Başlık ve metnin tamamı Türkçe olmalı; kaynağın İngilizce başlığını olduğu gibi kullanma.",
+                              "post")
+                log.info("İngilizce başlık Türkçeleştirildi: %s → %s", p["id"], p.get("title"))
+            except Exception as e:  # noqa: BLE001
+                log.warning("İngilizce başlık düzeltilemedi (%s): %s", p["id"], e)
 
     @staticmethod
     def _cover_line(head, hl) -> dict:
@@ -1500,7 +1518,7 @@ class App:
             try:
                 got = photos.gather(p.get("sources") or [], limit=int(self.cfg.get("images", "photo_limit", 16) or 16),
                                     per_source=int(self.cfg.get("images", "photos_per_source", 12) or 12),
-                                    skip_cover=self._no_cover_sources())
+                                    skip_cover=self._no_cover_sources(), entities=self._photo_names(p))
             except Exception as e:  # noqa: BLE001
                 log.warning("Fotoğraflar alınamadı (%s): %s", p["id"], e)
                 continue
@@ -2017,6 +2035,32 @@ class App:
                 log.warning("Fotoğraflı kapak üretilemedi (%s), yazılı kapak kullanılacak: %s", d.get("id"), e)
         d["image"] = self.vis.make_hero(d, hero)
 
+    @staticmethod
+    def _photo_names(d: dict) -> list[str]:
+        """Kaynaklarda fotoğraf yoksa Wikipedia'da aranacak adlar: haberin şirketi / ürünü / kişisi."""
+        return list(dict.fromkeys((d.get("entities") or []) + (d.get("tags") or [])[:3]))
+
+    @staticmethod
+    def _has_display_photo(p: dict, folder) -> bool:
+        return any(r.get("file") and (r.get("w") or 0) >= 600 and (folder / r["file"]).exists() for r in p.get("photos") or [])
+
+    def fill_missing_photos(self, per_run: int = 8) -> None:
+        """Tek seferlik + sürekli: sitede fotoğrafsız görünen haberler için yeniden fotoğraf ara
+        (kaynak sayfaları, yoksa Wikipedia). Bulunamayan haber 3 gün sonra tekrar denenir."""
+        if self.cfg.mock or self.cfg.fixtures_dir or not self.cfg.get("images", "photos", True):
+            return
+        folder = self.cfg.images_dir
+        todo = [p for p in self.store.posts()
+                if not p.get("photos_removed") and (p.get("image") or {}).get("source") != "ai"
+                and not self._has_display_photo(p, folder) and hours_since(p.get("photos_filled")) > 72][:per_run]
+        for p in todo:
+            p["photos_filled"] = iso(now_utc())
+            before = len(p.get("photos") or [])
+            if self._attach_photos(p, draft=False):
+                p["updated_at"] = p.get("updated_at") or p.get("published_at")
+                log.info("Fotoğrafsız habere fotoğraf bulundu: %s (%d → %d)", p["id"], before, len(p["photos"]))
+            self.store.save_post(p)
+
     def _attach_photos(self, d: dict, draft: bool, got: list[dict] | None = None) -> bool:
         """Kaynaklardan gerçek fotoğrafları al ve kapağı üret. Bulunamazsa False."""
         cfg = self.cfg
@@ -2026,7 +2070,7 @@ class App:
             if got is None:
                 got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 16) or 16),
                                     per_source=int(cfg.get("images", "photos_per_source", 12) or 12),
-                                    skip_cover=self._no_cover_sources())
+                                    skip_cover=self._no_cover_sources(), entities=self._photo_names(d))
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False
@@ -2204,6 +2248,7 @@ class App:
             log.exception("Adres geçişi hatası: %s", e)
         try:
             self.reselect_pending()
+            self.fix_english_titles()
         except Exception as e:  # noqa: BLE001
             log.exception("Bekleyen taslak seçkisi hatası: %s", e)
         every = self.cfg.get("schedule", "collect_every_minutes", 60)
@@ -2225,6 +2270,7 @@ class App:
                 log.exception("Metin/ilgi puanı hatası: %s", e)
             try:
                 self.more_photos()
+                self.fill_missing_photos()
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
             except Exception as e:  # noqa: BLE001
                 log.exception("Fotoğraf işlemi hatası: %s", e)
