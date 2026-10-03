@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "13"
+ASSET_V = "14"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -307,12 +307,15 @@ class SiteBuilder:
         pick = None
         if img.get("source") == "photo" and img.get("photo"):
             pick = next((r for r in recs if r["file"] == img["photo"]), None)
-        if pick is None and p.get("cover_mode") != "type":
-            pick = next((r for r in recs if not r.get("graphic") and r.get("cover_ok", True) and (r.get("w") or 0) >= 900), None)
+        # Yazı basılmayacağı için düz zeminli tanıtım görselleri ve 720 px'lik fotoğraflar da olur; boş renk ağı son çare.
+        # Önce gerçek fotoğraflar (en büyüğü), yoksa ekran görüntüsü / grafik (kırpılmadan, sığdırılarak).
+        if pick is None:
+            big = sorted((r for r in recs if (r.get("w") or 0) >= 600), key=lambda r: (bool(r.get("graphic")), -(r.get("w") or 0)))
+            pick = big[0] if big else None
         if pick:
             return {"kind": "photo", "file": pick["file"], "url": f"{b}/img/{pick['file']}", "w": pick.get("w") or 1600,
                     "h": pick.get("h") or 900, "credit": pick.get("credit") or "", "page": pick.get("page") or "",
-                    "focus": p.get("photo_focus") or "50% 40%"}
+                    "focus": p.get("photo_focus") or "50% 40%", "fit": bool(pick.get("graphic"))}
         if img.get("source") in ("ai", "fallback") and (cfg.images_dir / f"{p['id']}.webp").exists():
             return {"kind": "image", "file": f"{p['id']}.webp", "url": f"{b}/img/{p['id']}.webp", "w": 1280, "h": 960,
                     "credit": "", "page": "", "focus": "50% 50%"}

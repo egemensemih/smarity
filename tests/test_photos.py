@@ -191,8 +191,8 @@ def test_attach_cover_slides_inline_and_buttons():
         assert p["image"]["source"] == "cover" and len(p["photos"]) == 5 and p["cover_mode"] == "type"
         assert a._visual_buttons(p)[0]["text"].endswith("Fotoğraflı kapak")
         view = SiteBuilder(cfg)._post_view(p)
-        assert view["cover_photo"] is None and view["disp"]["kind"] == "art"
-        assert view["body_html"].count('<figure class="inl') == 5
+        assert view["cover_photo"]["file"] == "p1-g0.webp" and view["disp"]["kind"] == "photo"   # sitede yine fotoğraf
+        assert view["body_html"].count('<figure class="inl') == 4
         a._on_button("g", "p1")                                # fotoğraflı kapağa dönüş
         assert a.store.load_post("p1")["image"]["source"] == "photo"
         a._on_button("n", "p1")                                # fotoğrafsız
@@ -213,8 +213,13 @@ def test_small_or_graphic_photos_get_type_cover():
         assert p["image"]["source"] == "cover" and len(p["photos"]) == 2    # küçük fotoğraf ve grafik kapak olmaz
         from haberbot.site import SiteBuilder
         view = SiteBuilder(cfg)._post_view(p)
-        assert view["disp"]["kind"] == "art" and view["slides"] == []        # küçük fotoğraf ana görsel olmaz
-        assert view["body_html"].count('<figure class="inl') == 2 and 'class="inl graphic"' in view["body_html"]
+        # sitede yazı basılmadığı için 720 px'lik fotoğraf da ana görsel olur (boş renk ağı yerine)
+        assert view["disp"]["kind"] == "photo" and view["disp"]["file"] == "p1-g0.webp" and view["slides"] == []
+        assert view["body_html"].count('<figure class="inl') == 1 and 'class="inl graphic"' in view["body_html"]
+        # yalnızca ekran görüntüsü varsa o gösterilir, kırpılmadan
+        p["photos"] = [r for r in p["photos"] if r.get("graphic")]
+        view = SiteBuilder(cfg)._post_view(p)
+        assert view["disp"]["fit"] and view["disp"]["file"] == p["photos"][0]["file"]
 
 
 def test_more_photos_only_when_more_found():

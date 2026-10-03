@@ -3,7 +3,7 @@
 {% if p.disp.kind == 'art' %}
 <span class="ph-art {{ cls }}" role="img" aria-label="{{ p.img_alt }}" style="{{ p.disp.style }}; view-transition-name: v{{ p.id }}"></span>
 {% else %}
-<img src="{{ p.img }}" alt="{{ p.img_alt }}" width="{{ p.disp.w }}" height="{{ p.disp.h }}"{% if not eager %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async" class="{{ cls }}" style="object-position: {{ p.disp.focus }}; view-transition-name: v{{ p.id }}">
+<img src="{{ p.img }}" alt="{{ p.img_alt }}" width="{{ p.disp.w }}" height="{{ p.disp.h }}"{% if not eager %} loading="lazy"{% endif %}{% if priority %} fetchpriority="high"{% endif %} decoding="async" class="{{ cls }}{{ ' is-fit' if p.disp.fit }}" style="object-position: {{ p.disp.focus }}; view-transition-name: v{{ p.id }}">
 {% endif %}
 {% endmacro %}
 

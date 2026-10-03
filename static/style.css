@@ -313,6 +313,11 @@ button { font: inherit; color: inherit; }
 .ph-art { display: block; width: 100%; aspect-ratio: 4 / 3; position: relative; overflow: hidden; }
 .ph-art::after { content: ""; position: absolute; inset: 0; opacity: .14; mix-blend-mode: overlay; pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+/* renk ağının ortasında hafif marka işareti: boş değil, bilinçli bir görsel */
+.ph-art::before { content: ""; position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  opacity: .32; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.6 7.2A4.8 4.8 0 1 0 10.8 12a4.8 4.8 0 1 1-4.8 4.8' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='19' cy='3.2' r='1.9' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat; }
+/* ekran görüntüsü / grafik ana görsel olunca kırpılmaz */
+img.is-fit { object-fit: contain !important; background: #F5F5F7; }
 .slide-media .ph-art, .art-media .ph-art { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
 .card .ph-art { transition: transform .8s var(--ease); }
 /* haberin sonundaki galeri (metne yerleşmeyen fotoğraflar) */
