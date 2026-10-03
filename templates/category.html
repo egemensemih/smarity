@@ -8,7 +8,7 @@
   <span class="eyebrow">{{ cat.label }}</span>
   <h1>{{ cat.seo_title }}.</h1>
   <p>{{ cat.intro }}</p>
-  <p class="muted small">{% if cat.count %}{{ cat.count }} haber{% else %}Bu kategoride henüz haber yok.{% endif %}</p>
+  {% if not cat.count %}<p class="muted small">Bu kategoride henüz haber yok.</p>{% endif %}
 </header>
 {% if posts %}
 <section class="wrap"><div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div></section>

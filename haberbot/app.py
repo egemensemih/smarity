@@ -53,6 +53,7 @@ COMMANDS = [
 ]
 COMMANDS_VERSION = 4
 COVERLINE_V = 3               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
+RESELECT_V = 1                # seçki ölçütleri değişince artır: onay bekleyen yığın bir kez yeniden elden geçer
 KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
 Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil ve oyun dünyasından önemli haberler Türkçe yazılıp buraya düşer.
@@ -386,7 +387,7 @@ class App:
                           "headlines": [f"{it['credit']}: {it['title']}" for it in q["items"]]})
         now_l = local(now_utc(), cfg.tz)
         today_n = self.store.count(self.today(), "drafts")
-        target = int(ed("max_drafts_per_day", 0) or 0) or 10
+        target = self._daily_target()
         raw = None
         try:
             out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
@@ -415,10 +416,17 @@ class App:
             decisions[i] = x
         return self._guard(queue, decisions, slots, min_score, covered)
 
+    def _daily_target(self) -> int:
+        """Günlük yeni haber hedefi: aşılınca yalnızca çok büyük (önem ≥ 9) haberler yazılır."""
+        ed = lambda k, d: self.cfg.get("editorial", k, d)  # noqa: E731
+        return int(ed("max_drafts_per_day", 0) or 0) or int(ed("daily_target", 20) or 0) or 10 ** 6
+
     def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
                covered: list[dict]) -> dict[int, dict]:
-        """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, (isteğe bağlı) şirket sınırı."""
+        """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, günlük hedef,
+        (isteğe bağlı) şirket sınırı."""
         cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
+        today_n, target = self.store.count(self.today(), "drafts"), self._daily_target()
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -459,6 +467,8 @@ class App:
                 continue
             if mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
+            elif mr < 9 and today_n + used >= target:
+                x["action"], x["reason"] = "skip", f"günlük hedef ({target}) doldu; yalnızca çok büyük haberler"
             elif cap and mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
                 x["action"], x["reason"] = "skip", "aynı şirketten son 24 saatte haber var"
             elif used >= slots:
@@ -838,6 +848,7 @@ class App:
             "removed": "🗑 <b>SİTEDEN KALDIRILDI</b>",
             "rewritten": "🔁 <b>YENİDEN YAZILDI</b> (yeni sürüm aşağıda)",
             "updated": "🔄 <b>HABER GÜNCELLENDİ</b>",
+            "culled": "🧹 <b>SEÇKİ DIŞI</b> (yeni ölçütlere göre elendi)",
         }[kind]
         upd = d.get("update_of")
         if upd and kind == "pending":
@@ -998,6 +1009,9 @@ class App:
             if timeout:
                 time.sleep(min(timeout, 10))
             return 0
+        if ups:
+            log.info("Telegram: %d yeni girdi (offset %s → %s)", len(ups), self.state.get("telegram_offset", 0),
+                     ups[-1]["update_id"] + 1)
         for u in ups:
             self.state["telegram_offset"] = u["update_id"] + 1
             try:
@@ -1021,6 +1035,7 @@ class App:
             self.state["last_activity"] = iso(now_utc())
             action, _, did = (cq.get("data") or "").partition(":")
             self._cb_mid = (cq.get("message") or {}).get("message_id")
+            log.info("Telegram düğmesi: %s %s", action, did)
             slow = SLOW_ACTIONS.get(action)
             if slow:  # uzun süren işlerde düğme hemen yanıt versin
                 self.tg.answer_callback(cq["id"], slow[0])
@@ -1048,6 +1063,7 @@ class App:
         if not self._authorized(chat):
             return
         self.state["last_activity"] = iso(now_utc())
+        log.info("Telegram mesajı: %s", clip(text, 40))
         self.tg.typing(chat)
 
         reply_to = (msg.get("reply_to_message") or {}).get("message_id")
@@ -1438,6 +1454,67 @@ class App:
             elif d.get("status") == "rejected" and hours_since(d.get("rejected_at")) > 24:
                 st.archive_draft(d, "rejected")
 
+    def reselect_pending(self) -> None:
+        """Seçki ölçütleri değişince (tek seferlik): onay bekleyen yığını yeni ölçütlerle yeniden elden geçir;
+        geniş okur kitlesine hitap etmeyenler "seçki dışı" olarak arşivlenir."""
+        st = self.state
+        if st.get("reselect_v") == RESELECT_V or not self.llm:
+            return
+        pend = [d for d in self.store.drafts("pending") if not d.get("update_of")]
+        if len(pend) <= 5 or int(st.get("reselect_try", 0)) >= 3:
+            st["reselect_v"] = RESELECT_V
+            return
+        st["reselect_try"] = int(st.get("reselect_try", 0)) + 1
+        cfg = self.cfg
+        min_score = int(cfg.get("editorial", "min_must_read", 8))
+        keep_max = int(cfg.get("editorial", "daily_target", 20) or 20)
+        covered = [c for c in self._covered(48) if c["status"] != "pending"]
+        scores: dict[str, tuple[str, int, str]] = {}
+        for i in range(0, len(pend), 45):
+            chunk = pend[i:i + 45]
+            cands = [{"cid": f"c{n + 1}", "category": d.get("category", ""), "importance": d.get("importance", 0),
+                      "entities": list(d.get("entities") or (d.get("tags") or [])[:2]), "topic": d.get("title", ""),
+                      "dup": "", "headlines": [clip(d.get("summary", ""), 200)]} for n, d in enumerate(chunk)]
+            try:
+                out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
+                                    edit_system(self.brand, min_score),
+                                    edit_user(local(now_utc(), cfg.tz).strftime("%Y-%m-%d %H:%M"), keep_max, 0, keep_max,
+                                              covered[:90], cands), EDIT_SCHEMA, max_tokens=8000)
+            except LLMError as e:
+                log.warning("Bekleyen taslaklar yeniden seçilemedi (sonra denenecek): %s", str(e)[:160])
+                return
+            for x in out.get("decisions") or []:
+                cid = str(x.get("cid") or "")
+                if cid.startswith("c") and cid[1:].isdigit() and 0 < int(cid[1:]) <= len(chunk):
+                    try:
+                        mr = max(0, min(10, int(x.get("must_read") or 0)))
+                    except (TypeError, ValueError):
+                        mr = 0
+                    scores[chunk[int(cid[1:]) - 1]["id"]] = (str(x.get("action") or ""), mr, clip(str(x.get("reason") or ""), 120))
+        good = sorted((d for d in pend if d["id"] in scores and scores[d["id"]][0] in ("publish", "hold")
+                       and scores[d["id"]][1] >= min_score), key=lambda d: -scores[d["id"]][1])
+        keep = {d["id"] for d in good[:keep_max]} | {d["id"] for d in pend if d["id"] not in scores}
+        culled = 0
+        for d in pend:
+            if d["id"] in keep:
+                continue
+            act, mr, why = scores[d["id"]]
+            d["editor_note"] = clip(f"Seçki dışı: {why or f'önem {mr}/10'}", 140)
+            self._update_preview(d, "culled")
+            self.store.bump(self.today(), "culled")
+            self.store.archive_draft(d, "expired")
+            self._edit_log({"story": {"topic": d.get("title", "")}}, "skip",
+                           {"must_read": mr, "reason": "yığın temizliği: " + why})
+            culled += 1
+            if not cfg.mock:
+                time.sleep(0.4)   # Telegram hız sınırı
+        st["reselect_v"] = RESELECT_V
+        log.info("Bekleyen taslaklar yeni ölçütlerle elden geçirildi: %d kaldı, %d seçki dışı", len(pend) - culled, culled)
+        if culled:
+            self.notify(f"🧹 <b>Seçki daraltıldı</b>\nOnay bekleyen {len(pend)} haberden geniş okura hitap etmeyen {culled} "
+                        f"tanesi elendi; {len(pend) - culled} haber onayında. Bundan sonra günde yaklaşık "
+                        f"{self._daily_target()} haber gelecek (çok büyük haberler hedefi aşabilir).", silent=True)
+
     # ── ARAMA MOTORLARI ─────────────────────────────────────
     def queue_indexnow(self, url: str) -> None:
         q = self.state.setdefault("indexnow_queue", [])
@@ -1543,13 +1620,8 @@ class App:
                 self.collect()
 
     def _should_listen(self) -> bool:
-        """Telegram'ı canlı dinle: son 10 dakikada sen bir şey yaptıysan her zaman;
-        onay bekleyen haber varsa sessiz saatler dışında."""
-        if self.force_collect:
-            return True
-        if hours_since(self.state.get("last_activity")) * 60 < 10:
-            return True
-        return bool(self.store.drafts("pending")) and not self.quiet()
+        """Telegram'ı her turda canlı dinle (gece de): düğmeler beklemeden işlensin."""
+        return True
 
     # ── 5) INSTAGRAM ────────────────────────────────────────
     def _ig_cfg(self, key: str, default):
@@ -2058,6 +2130,10 @@ class App:
         self.flush_indexnow()
         self.process_updates()
         self.expire()
+        try:
+            self.reselect_pending()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Bekleyen taslak seçkisi hatası: %s", e)
         every = self.cfg.get("schedule", "collect_every_minutes", 60)
         due = hours_since(self.state.get("last_collect")) * 60 >= every - 2
         if not self.state.get("paused") and (due or self.force_collect):

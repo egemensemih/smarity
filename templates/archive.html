@@ -10,7 +10,7 @@
 {{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), ("Tüm haberler", site.base ~ "/haberler/", site.url ~ "/haberler/")]) }}
 <header class="page-head wrap"><span class="eyebrow" style="--c:#6E6E73">Arşiv</span><h1>Tüm haberler.</h1><p>En yeniden eskiye, {{ total }} haber{% if pages > 1 %} · Sayfa {{ page }} / {{ pages }}{% endif %}</p></header>
 <nav class="chips wrap center" aria-label="Kategoriler">
-  {% for c in site.categories if c.count %}<a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}<span>{{ c.count }}</span></a>{% endfor %}
+  {% for c in site.categories if c.count %}<a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}</a>{% endfor %}
 </nav>
 <section class="wrap sec-tight"><div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div></section>
 {% if pages > 1 %}

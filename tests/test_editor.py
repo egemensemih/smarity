@@ -122,6 +122,30 @@ def test_home_one_story_per_company_in_showcase():
         assert ents.count("Honor") == 1
 
 
+def test_daily_target_and_backlog_reselection():
+    with _App() as (cfg, a):
+        cfg.raw.setdefault("editorial", {})["daily_target"] = 2
+        a.store.bump(a.today(), "drafts", 2)                               # bugün hedef doldu
+        queue = [_q("Starship reaches orbit", 9, ["SpaceX"]), _q("New Sony camera", 8, ["Sony"])]
+        dec = {i: {"action": "publish", "target": "", "must_read": q["story"]["importance"], "reason": ""}
+               for i, q in enumerate(queue)}
+        out = a._guard(queue, dec, slots=3, min_score=8, covered=a._covered(48))
+        assert out[0]["action"] == "publish" and out[1]["action"] == "skip" and "hedef" in out[1]["reason"]
+        # onay bekleyen yığın yeni ölçütlerle bir kez elden geçer
+        for i in range(8):
+            d = {**_post(10 + i, 1, entities=[f"E{i}"]), "status": "pending", "created_at": iso(now_utc()),
+                 "importance": 9 if i < 3 else 6, "telegram": {"message_id": 100 + i}}
+            a.store.save_draft(d)
+        a.reselect_pending()
+        left = a.store.drafts("pending")
+        assert len(left) == 2 and all(d["importance"] == 9 for d in left)   # en iyiler (hedef kadar) kalır
+        assert a.state["reselect_v"] and a.store.count(a.today(), "culled") == 6
+        outbox = (cfg.data_dir / "_mock" / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "SEÇKİ DIŞI" in outbox and "Seçki daraltıldı" in outbox
+        a.reselect_pending()                                               # ikinci kez çalışmaz
+        assert len(a.store.drafts("pending")) == 2
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

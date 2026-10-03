@@ -60,7 +60,7 @@
 
   <nav class="chips wrap" aria-label="Kategoriler">
     {% for c in site.categories if c.count %}
-    <a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}<span>{{ c.count }}</span></a>
+    <a class="chip-link" href="{{ c.url }}" style="--c:{{ c.color }}"><i aria-hidden="true"></i>{{ c.label }}</a>
     {% endfor %}
     <a class="chip-link all" href="{{ all_url }}">Tüm haberler<span>›</span></a>
   </nav>
@@ -100,7 +100,7 @@
   {% if tags %}
   <section class="sec wrap" aria-labelledby="h-konu">
     <div class="sec-head"><h2 id="h-konu">Popüler konular.</h2></div>
-    <div class="tags">{% for t in tags %}<a href="{{ t.url }}">{{ t.label }}<span>{{ t.count }}</span></a>{% endfor %}</div>
+    <div class="tags">{% for t in tags %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}</div>
   </section>
   {% endif %}
 

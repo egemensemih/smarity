@@ -185,6 +185,9 @@ def _load_source(cfg: Config, src: dict) -> list[dict]:
     return parse_feed(raw)
 
 
+MAX_ITEMS = 60   # bir kaynaktan bir turda bakılan en fazla öğe
+
+
 def _resting(h: dict) -> bool:
     """Üst üste 6 kez okunamayan kaynak dinlenir: 6 saatte bir yeniden denenir (turlar yavaşlamasın)."""
     return h.get("fails", 0) >= 6 and hours_since(h.get("last_try")) < 6
@@ -215,6 +218,9 @@ def fetch_all(cfg: Config, store) -> list[dict]:
             h["last_ok"] = iso(now_utc())
             h["count"] = len(entries)
             h.pop("last_error", None)
+            if len(entries) > MAX_ITEMS:   # bazı akışlar tüm arşivi verir (ör. 1500 öğe): en yenileri yeter
+                entries = sorted(entries, key=lambda e: iso(e["published"]) if e.get("published") else "",
+                                 reverse=True)[:MAX_ITEMS]
             for e in entries:
                 if not e.get("title") or not e.get("link"):
                     continue
