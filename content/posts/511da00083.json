@@ -65,16 +65,16 @@
   },
   "photos": [
     {
-      "file": "511da00083-g0.webp",
       "src": "https://the-decoder.com/wp-content/uploads/2026/10/MAI-quotation_marks_swarm_hq-1920x1167-1.webp",
       "credit": "The Decoder",
       "page": "https://the-decoder.com/microsoft-ai-releases-new-transcription-and-text-to-speech-models-for-voice-agents/",
       "alt": "",
-      "w": 1600,
-      "h": 972,
       "kind": "feed",
       "graphic": false,
-      "cover_ok": true
+      "cover_ok": true,
+      "file": "511da00083-g0.webp",
+      "w": 1600,
+      "h": 972
     }
   ],
   "photos_v": 2,
@@ -89,5 +89,6 @@
   },
   "slug": "microsoft-ai-ses-modelleri-tanitildi",
   "published_at": "2026-10-02T11:00:14Z",
-  "publish_mode": "manual"
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/microsoft-ai-ses-modelleri-tanitildi"
 }
