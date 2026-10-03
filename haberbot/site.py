@@ -12,11 +12,12 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, category_label, category_seo, indexnow_key
+from .covers import art_style
 from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "12"
+ASSET_V = "13"
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -46,8 +47,9 @@ def figure_html(ph: dict) -> str:
             f'{cap}</figure>')
 
 
-def inline_figures(body_html: str, figs: list[dict], first: int = 1, every: int = 3) -> tuple[str, list[dict]]:
-    """Fotoğrafları metnin paragrafları arasına yerleştir (2. paragraftan sonra, sonra her 3 paragrafta bir).
+def inline_figures(body_html: str, figs: list[dict], first: int = 0, every: int = 1) -> tuple[str, list[dict]]:
+    """Fotoğrafları metnin paragrafları arasına yerleştir (ilk paragraftan sonra başlayarak her paragrafın ardına bir
+    fotoğraf; haber görsellerle akar).
 
     Liste, alıntı ve "Neden önemli?" kutularının içine girmez. Yer kalmazsa artanlar geri döner.
     """
@@ -206,7 +208,6 @@ class SiteBuilder:
         pub = p.get("published_at")
         dt = parse_iso(pub) or now_utc()
         mod = parse_iso(p.get("updated_at")) or dt
-        ext = "webp" if (cfg.images_dir / f"{p['id']}.webp").exists() else "jpg"
         has_og = (cfg.images_dir / f"{p['id']}-og.jpg").exists()
         title = p.get("title", "")
         short = p.get("short_title") or title
@@ -221,9 +222,13 @@ class SiteBuilder:
             if ts and ts not in self.skip_tags and len(tags) < 6:
                 tags.append({"label": tag_display(t), "slug": ts, "url": f"{b}/etiket/{ts}/"})
         cat = p.get("category", DEFAULT_CATEGORY)
+        disp = self._display(p)
+        disp_url = disp.get("url") or ""
         return {
             **p,
-            "url": f"{b}/haber/{p['slug']}/",
+            "url": f"{b}/{cfg.post_path(p)}/",
+            "path": cfg.post_path(p),
+            "disp": disp,
             "ts": int(dt.timestamp()),
             "hot": hot(p),
             "photo_cover": (p.get("image") or {}).get("source") == "photo",
@@ -235,16 +240,16 @@ class SiteBuilder:
             "ai_image": (p.get("image") or {}).get("source") == "ai",
             "cover_image": (p.get("image") or {}).get("source") == "cover",
             # rakam kapakta yazıyorsa "öne çıkanlar" kutusunda tekrar edilmez
-            "stat_on_cover": (p.get("image") or {}).get("source") in ("cover", "photo") and (p.get("image") or {}).get("layout") == "sayi",
+            "stat_on_cover": False,   # sitede görsellerin üstünde yazı yok: rakam "öne çıkanlar" kutusunda görünür
             "img_alt": clip(p.get("image_alt") or f"{short}: habere ait görsel", 125),
             "seo_title": seo_title,
             "meta_description": clip(meta, 158),
             "focus_keyword": p.get("focus_keyword", ""),
             "tag_list": tags,
-            "abs_url": cfg.post_url(p["slug"]),
-            "img": f"{b}/img/{p['id']}.{ext}",
-            "abs_img": f"{cfg.site_url}/img/{p['id']}.{ext}",
-            "abs_og": f"{cfg.site_url}/img/{p['id']}-og.jpg" if has_og else f"{cfg.site_url}/static/og-default.jpg",
+            "abs_url": cfg.post_url(p),
+            "img": disp_url,
+            "abs_og": (og := f"{cfg.site_url}/img/{p['id']}-og.jpg" if has_og else f"{cfg.site_url}/static/og-default.jpg"),
+            "abs_img": f"{cfg.site_url}{disp_url[len(b):]}" if disp_url else og,
             "date_str": tr_date(pub, cfg.tz),
             "date_short": tr_date(pub, cfg.tz, with_time=False),
             "iso": iso(dt),
@@ -253,8 +258,8 @@ class SiteBuilder:
             "cat_label": category_label(cat),
             "cat_seo": category_seo(cat)[0],
             "cat_color": category_color(cat),
-            "cat_url": f"{b}/kategori/{cat}/",
-            "abs_cat_url": f"{cfg.site_url}/kategori/{cat}/",
+            "cat_url": f"{b}/{cat}/",
+            "abs_cat_url": f"{cfg.site_url}/{cat}/",
             "credits": list(dict.fromkeys(s["name"] for s in p.get("sources", []))),
             "minutes": reading_minutes(p.get("body", "")),
             "words": len(plain(p.get("body", "")).split()),
@@ -290,20 +295,50 @@ class SiteBuilder:
             })
         return out
 
-    def _media(self, p: dict, short: str, body_html: str) -> dict:
-        """Kapak (ilk kare) + kaydırınca gelen fotoğraflar + metnin içine yerleşen fotoğraflar.
-
-        Kapakta kullanılan fotoğraf tekrar gösterilmez. Kaydırmalı alana en fazla 2 gerçek fotoğraf konur;
-        kalan fotoğraflar ve grafikler (ekran görüntüsü, tablo) paragrafların arasına yerleşir.
-        """
-        ph = self._photos(p, short)
+    def _display(self, p: dict) -> dict:
+        """Sitede görünen görsel — üstünde yazı yok, başlık sayfada HTML olarak durur (tek parça görünüm):
+        haberin gerçek fotoğrafı; yoksa yapay zeka görseli; o da yoksa habere özel renk ağı (CSS)."""
+        cfg, b = self.cfg, self.base
         img = p.get("image") or {}
-        cover = next((x for x in ph if x["file"] and x["file"] == img.get("photo")), None) if img.get("source") == "photo" else None
+        recs = [r for r in p.get("photos") or [] if r.get("file") and (cfg.images_dir / r["file"]).exists()]
+        pick = None
+        if img.get("source") == "photo" and img.get("photo"):
+            pick = next((r for r in recs if r["file"] == img["photo"]), None)
+        if pick is None and p.get("cover_mode") != "type":
+            pick = next((r for r in recs if not r.get("graphic") and r.get("cover_ok", True) and (r.get("w") or 0) >= 900), None)
+        if pick:
+            return {"kind": "photo", "file": pick["file"], "url": f"{b}/img/{pick['file']}", "w": pick.get("w") or 1600,
+                    "h": pick.get("h") or 900, "credit": pick.get("credit") or "", "page": pick.get("page") or "",
+                    "focus": p.get("photo_focus") or "50% 40%"}
+        if img.get("source") in ("ai", "fallback") and (cfg.images_dir / f"{p['id']}.webp").exists():
+            return {"kind": "image", "file": f"{p['id']}.webp", "url": f"{b}/img/{p['id']}.webp", "w": 1280, "h": 960,
+                    "credit": "", "page": "", "focus": "50% 50%"}
+        style, base = art_style(p)
+        return {"kind": "art", "style": style, "base": base, "url": ""}
+
+    def _media(self, p: dict, short: str, body_html: str) -> dict:
+        """Ana görsel (yazısız) + metnin içine paragraf paragraf yerleşen fotoğraflar + sona kalanlar için galeri.
+
+        Ana görselde kullanılan fotoğraf tekrar gösterilmez."""
+        ph = self._photos(p, short)
+        disp = self._display(p)
+        cover = next((x for x in ph if x["file"] and x["file"] == disp.get("file")), None)
         rest = [x for x in ph if x is not cover]
         good = [x for x in rest if not x["graphic"]]
         graphics = [x for x in rest if x["graphic"]]
-        body_html, left = inline_figures(body_html, good[2:] + graphics)
-        return {"body_html": body_html, "cover_photo": cover, "slides": good[:2] + left}
+        body_html, left = inline_figures(body_html, good + graphics)
+        return {"body_html": body_html, "cover_photo": cover, "slides": left}
+
+    def _redirect(self, rel: str, target: str, title: str) -> None:
+        """GitHub Pages'te sunucu yönlendirmesi yok: anında yenileme + kanonik adres (Google bunu kalıcı yönlendirme sayar)."""
+        if (self.cfg.out_dir / rel).exists():
+            return
+        t = htmlmod.escape(target, quote=True)
+        name = htmlmod.escape(title or "Smarity")
+        self._write(rel, f'<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>{name}</title>'
+                         f'<link rel="canonical" href="{t}"><meta http-equiv="refresh" content="0; url={t}">'
+                         f'<script>location.replace({json.dumps(target)} + location.hash)</script></head>'
+                         f'<body><a href="{t}">{name}</a></body></html>')
 
     def _write(self, rel: str, content: str) -> None:
         path = self.cfg.out_dir / rel
@@ -359,7 +394,8 @@ class SiteBuilder:
             latest_by_cat.setdefault(p["category"], p["mod_iso"])
         cats = [{"slug": k, "label": v[0], "color": v[1], "count": counts.get(k, 0),
                  "seo_title": category_seo(k)[0], "intro": category_seo(k)[1],
-                 "url": f"{b}/kategori/{k}/", "lastmod": latest_by_cat.get(k)} for k, v in CATEGORIES.items()]
+                 "url": f"{b}/{k}/", "abs_url": f"{cfg.site_url}/{k}/", "lastmod": latest_by_cat.get(k)}
+                for k, v in CATEGORIES.items()]
 
         # etiketler (konular)
         tag_posts: dict[str, list[dict]] = {}
@@ -412,7 +448,9 @@ class SiteBuilder:
                     log.warning("Logo üretilemedi: %s", e)
         (out / "img").mkdir()
         for p in posts:
-            names = [f"{p['id']}.webp", f"{p['id']}.jpg", f"{p['id']}-og.jpg"]
+            # yazılı kapak ({id}.webp) sitede kullanılmaz (paylaşım görseli -og.jpg ayrı); yalnızca görünen görsel kopyalanır
+            names = [p["disp"]["file"]] if p["disp"].get("file") else []
+            names += [f"{p['id']}-og.jpg"]
             names += [ph["file"] for ph in p.get("photos") or [] if ph.get("file") and not ph.get("remote")]
             for name in dict.fromkeys(names):
                 src = cfg.images_dir / name
@@ -424,8 +462,10 @@ class SiteBuilder:
         home = self._home(posts, n_feat)
         featured = home["featured"]
         for p in featured:
-            src = cfg.images_dir / p["img"].rsplit("/", 1)[-1]
-            p["slide_bg"], p["slide_dark"] = edge_color(src)
+            if p["disp"].get("file"):
+                p["slide_bg"], p["slide_dark"] = edge_color(cfg.images_dir / p["disp"]["file"])
+            else:
+                p["slide_bg"], p["slide_dark"] = p["disp"]["base"], True
         shown = set(home["shown"])
         rails = []
         for c in sorted(cats, key=lambda c: -c["count"]):
@@ -467,15 +507,29 @@ class SiteBuilder:
             pool = [q for q in home["ranked"][:24] if q["id"] != p["id"]]
             nxt = next((q for q in pool if q["category"] == p["category"]), pool[0] if pool else None)
             related = [q for q in related if not nxt or q["id"] != nxt["id"]]
-            self._write(f"haber/{p['slug']}/index.html", self.env.get_template("article.html").render(
+            self._write(f"{p['path']}/index.html", self.env.get_template("article.html").render(
                 **ctx, post=p, related=related, next_post=nxt, canonical=p["abs_url"]))
+            # eski adres (/haber/slug/) yeni adrese yönlenir
+            self._redirect(f"haber/{p['slug']}/index.html", p["abs_url"], p["title"])
+            for old in p.get("old_paths") or []:
+                if old != p["path"]:
+                    self._redirect(f"{old}/index.html", p["abs_url"], p["title"])
 
-        # kategoriler
+        # kategoriler: /teknoloji/ ; yıl ve ay adresleri (/teknoloji/2026/10/) kategori sayfasına yönlenir
+        months: set[str] = set()
+        for p in posts:
+            parts = p["path"].split("/")
+            if len(parts) == 4:
+                months |= {"/".join(parts[:2]), "/".join(parts[:3])}
         for c in cats:
             cp = [p for p in posts if p["category"] == c["slug"]][:120]
-            self._write(f"kategori/{c['slug']}/index.html", self.env.get_template("category.html").render(
-                **ctx, cat=c, posts=cp, active_cat=c["slug"], canonical=f"{cfg.site_url}/kategori/{c['slug']}/",
-                noindex=not cp))
+            self._write(f"{c['slug']}/index.html", self.env.get_template("category.html").render(
+                **ctx, cat=c, posts=cp, active_cat=c["slug"], canonical=c["abs_url"], noindex=not cp))
+            self._redirect(f"kategori/{c['slug']}/index.html", c["abs_url"], c["seo_title"])
+        for m in sorted(months):
+            cat = m.split("/")[0]
+            if cat in CATEGORIES:
+                self._redirect(f"{m}/index.html", f"{cfg.site_url}/{cat}/", category_seo(cat)[0])
 
         # konu (etiket) sayfaları: tek haberlik konular dizine eklenmez (ince içerik)
         for t in tags:

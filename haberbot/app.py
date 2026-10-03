@@ -21,7 +21,7 @@ from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
 from .store import Store
-from .textfix import Fixer, entity_keys
+from .textfix import Fixer, entity_keys, is_car_story
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
                    tr_date)
@@ -538,7 +538,7 @@ class App:
             if changed:
                 p["updated_at"] = p.get("updated_at") or p.get("published_at")
                 self.store.save_post(p)
-                self.queue_indexnow(self.cfg.post_url(p["slug"]))
+                self.queue_indexnow(self.cfg.post_url(p))
                 log.info("Metin düzeltildi: %s (%s)", p["id"], ", ".join(changed))
 
     def backfill_appeal(self, batch: int = 25) -> None:
@@ -745,7 +745,7 @@ class App:
         if decision == "auto" and not self.state.get("paused"):
             new = self.apply_update(d)
             if new:
-                self._send_preview({**d, "slug": new["slug"]}, "updated")
+                self._send_preview({**d, "slug": new["slug"], "path": self.cfg.post_path(new)}, "updated")
         else:
             st.save_draft(d)
             self._send_preview(d, "pending")
@@ -781,7 +781,7 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Güncellenen haberin kapağı yenilenemedi (%s): %s", post["id"], e)
         st.save_post(post)
-        self.queue_indexnow(self.cfg.post_url(post["slug"]))
+        self.queue_indexnow(self.cfg.post_url(post))
         st.draft_path(d["id"]).unlink(missing_ok=True)
         st.bump(self.today(), "updated")
         log.info("Haber güncellendi: %s", post["id"])
@@ -822,7 +822,9 @@ class App:
             slug, n = f"{base}-{n}", n + 1
         post = {k: v for k, v in d.items() if k not in ("source_texts", "status", "policy_reason")}
         post.update({"slug": slug, "published_at": iso(now_utc()), "publish_mode": "auto" if auto else "manual"})
-        self.queue_indexnow(self.cfg.post_url(slug))
+        post.pop("path", None)
+        post["path"] = self.cfg.post_path(post)        # kalıcı adres: kategori/yıl/ay/slug
+        self.queue_indexnow(self.cfg.post_url(post))
         st.move_image_to_post(d["id"])
         img = post.get("image") or {}
         if img.get("source") in ("cover", "fallback") and img.get("cover_v") != COVER_VERSION:
@@ -834,7 +836,7 @@ class App:
         st.draft_path(d["id"]).unlink(missing_ok=True)
         st.bump(self.today(), "published")
         st.bump(self.today(), "auto" if auto else "approved")
-        log.info("Yayınlandı: %s → %s", post["id"], self.cfg.post_url(slug))
+        log.info("Yayınlandı: %s → %s", post["id"], self.cfg.post_url(post))
         return post
 
     # ── Telegram önizlemeleri ───────────────────────────────
@@ -873,7 +875,7 @@ class App:
         if kind == "pending" and d.get("policy_reason"):
             lines.append(f"<i>Neden sordum: {esc(d['policy_reason'])}</i>")
         if kind in ("published", "auto", "updated") and d.get("slug"):
-            lines.append(f'🔗 <a href="{esc(self.cfg.post_url(d["slug"]))}">Sitede aç</a>')
+            lines.append(f'🔗 <a href="{esc(self.cfg.post_url(d))}">Sitede aç</a>')
         cap = "\n".join(lines)
         room = 1024 - len(cap) + len("{SUMMARY}") - 5
         return cap.replace("{SUMMARY}", esc(clip(d.get("summary", ""), max(60, room))))
@@ -887,13 +889,13 @@ class App:
                   [{"text": "📄 Tam metin", "callback_data": f"f:{did}"},
                    {"text": "🔁 Yeniden yaz", "callback_data": f"w:{did}"}]]
             orig = self.store.load_post(d["update_of"])
-            links = ([{"text": "🔗 Mevcut haber", "url": self.cfg.post_url(orig["slug"])}] if orig else []) + \
+            links = ([{"text": "🔗 Mevcut haber", "url": self.cfg.post_url(orig)}] if orig else []) + \
                     ([{"text": "🔗 Yeni kaynak", "url": src}] if src else [])
             if links:
                 kb.append(links)
             return kb
         if kind == "updated":
-            return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])}]] if d.get("slug") else []
+            return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d)}]] if d.get("slug") else []
         if kind == "pending":
             kb = [[{"text": "✅ Yayınla", "callback_data": f"p:{did}"},
                    {"text": "❌ Reddet", "callback_data": f"r:{did}"}],
@@ -904,7 +906,7 @@ class App:
                 kb.append([{"text": "🔗 Kaynağı aç", "url": src}])
             return kb
         if kind in ("published", "auto"):
-            return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d["slug"])},
+            return [[{"text": "🔗 Haberi aç", "url": self.cfg.post_url(d)},
                      {"text": "🗑 Kaldır", "callback_data": f"d:{did}"}],
                     [{"text": "📄 Tam metin", "callback_data": f"f:{did}"}], self._visual_buttons(d),
                     [{"text": "⭐ Manşetten çıkar" if d.get("home") == "pin" else "⭐ Manşete al", "callback_data": f"m:{did}"},
@@ -976,7 +978,7 @@ class App:
             return
         if not force and not self.cfg.get("social", "send_to_telegram", True):
             return
-        url = self.cfg.post_url(post["slug"])
+        url = self.cfg.post_url(post)
         try:
             kinds = self.vis.CAROUSEL if self.vis.summary_style else ["post"]
             files = [self._card(post, k) for k in kinds]
@@ -1100,7 +1102,7 @@ class App:
                 st.archive_draft(d, "expired")
                 return "Asıl haber artık yayında değil."
             policy.record(self.stats, d, ok=True)
-            self._update_preview({**d, "slug": post["slug"]}, "updated")
+            self._update_preview({**d, "slug": post["slug"], "path": self.cfg.post_path(post)}, "updated")
             return "🔄 Haber güncellendi"
         if action == "P":                     # yayınla ve manşete al
             if where == "post":
@@ -1454,6 +1456,50 @@ class App:
             elif d.get("status") == "rejected" and hours_since(d.get("rejected_at")) > 24:
                 st.archive_draft(d, "rejected")
 
+    URL_V = 1
+
+    def migrate_urls(self) -> None:
+        """Tek seferlik: otomotiv kategorisi ve yeni adres yapısı (kategori/yıl/ay/slug).
+
+        Araba haberleri otomotive taşınır; her habere kalıcı adres yazılır, eski /haber/slug/ adresi yeni adrese yönlenir."""
+        st = self.state
+        if st.get("url_v") == self.URL_V:
+            return
+        moved = 0
+        for p in self.store.posts():
+            if p.get("category") in ("teknoloji", "inovasyon") and is_car_story(p):
+                p["category"] = "otomotiv"
+                moved += 1
+            if not p.get("path"):
+                p["path"] = self.cfg.post_path(p)
+                self.queue_indexnow(self.cfg.post_url(p))
+            self.store.save_post(p)
+        for d in self.store.drafts("pending"):
+            if d.get("category") in ("teknoloji", "inovasyon") and is_car_story(d):
+                d["category"] = "otomotiv"
+                self.store.save_draft(d)
+        st["url_v"] = self.URL_V
+        self.store.site_dirty = True
+        log.info("Yeni adres yapısı: tüm haberlere kalıcı adres yazıldı, %d haber otomotive taşındı", moved)
+
+    def more_photos(self, per_run: int = 3) -> None:
+        """Tek seferlik: son 6 habere daha çok fotoğraf (haberin içine paragraf paragraf yerleşir)."""
+        if self.cfg.mock or self.cfg.fixtures_dir or not self.cfg.get("images", "photos", True):
+            return
+        done = self.state.setdefault("more_photos", [])
+        if len(done) >= 6:
+            return
+        for p in self.store.posts()[:6]:
+            if p["id"] in done or per_run <= 0:
+                continue
+            done.append(p["id"])
+            per_run -= 1
+            if p.get("photos_removed") or (p.get("image") or {}).get("source") == "ai":
+                continue
+            if self._attach_photos(p, draft=False):
+                log.info("Daha çok fotoğraf: %s (%d)", p["id"], len(p["photos"]))
+                self.store.save_post(p)
+
     def reselect_pending(self) -> None:
         """Seçki ölçütleri değişince (tek seferlik): onay bekleyen yığını yeni ölçütlerle yeniden elden geçir;
         geniş okur kitlesine hitap etmeyenler "seçki dışı" olarak arşivlenir."""
@@ -1565,7 +1611,7 @@ class App:
                 p["tags"] = tags
             self.store.save_post(p)
             self.store.site_dirty = True
-            self.queue_indexnow(self.cfg.post_url(p["slug"]))
+            self.queue_indexnow(self.cfg.post_url(p))
             log.info("SEO bilgisi eklendi: %s → %s", p["id"], p["seo_title"])
 
     def refresh_covers(self, limit: int = 30) -> None:
@@ -1967,7 +2013,8 @@ class App:
         if not cfg.get("images", "photos", True) or cfg.mock or cfg.fixtures_dir:
             return False
         try:
-            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 6) or 6),
+            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 16) or 16),
+                                per_source=int(cfg.get("images", "photos_per_source", 12) or 12),
                                 skip_cover=self._no_cover_sources())
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
@@ -1977,13 +2024,22 @@ class App:
         folder = self._photo_dir(draft)
         for f in self.store.gallery_files(d["id"], draft):
             f.unlink(missing_ok=True)
+        # İlk birkaç fotoğraf siteye kopyalanır (kapak, Telegram, Instagram bunlardan); kalanlar haberin içinde
+        # kaynaktaki adresinden gösterilir (depo ve site boyutu şişmesin).
+        keep = int(cfg.get("images", "photo_local", 4) or 4)
         recs = []
         for i, p in enumerate(got):
-            name = f"{d['id']}-g{i}.webp"
-            w, h = photos.save_webp(p["image"], folder / name, 1600, 80 if p.get("graphic") else 78)
-            recs.append({"file": name, "src": p["src"], "credit": p["credit"], "page": p["page"], "alt": p["alt"],
-                         "w": w, "h": h, "kind": p.get("kind", ""), "graphic": bool(p.get("graphic")),
-                         "cover_ok": bool(p.get("cover_ok", not p.get("graphic")))})
+            rec = {"src": p["src"], "credit": p["credit"], "page": p["page"], "alt": p["alt"], "kind": p.get("kind", ""),
+                   "graphic": bool(p.get("graphic")), "cover_ok": bool(p.get("cover_ok", not p.get("graphic")))}
+            if len([r for r in recs if r.get("file")]) < keep:
+                name = f"{d['id']}-g{len([r for r in recs if r.get('file')])}.webp"
+                w, h = photos.save_webp(p["image"], folder / name, 1600, 80 if p.get("graphic") else 78)
+                rec["file"] = name
+            else:
+                w, h = p["image"].size
+                rec["remote"] = True
+            rec.update({"w": w, "h": h})
+            recs.append(rec)
         d["photos"] = recs
         d["photos_v"] = self.PHOTOS_V
         d.pop("cover_mode", None)
@@ -1996,6 +2052,7 @@ class App:
         """Fotoğraf sırasını değiştir (dosyalar yeniden adlandırılır, yeniden sıkıştırılmaz) ve kapağı yenile."""
         draft = where == "draft"
         folder = self._photo_dir(draft)
+        remote = [r for r in d.get("photos") or [] if not r.get("file")]
         moved = []
         for i, rec in enumerate(order):
             f = folder / rec["file"] if rec.get("file") else None
@@ -2010,7 +2067,7 @@ class App:
             rec["file"] = f"{d['id']}-g{len(recs)}.webp"
             t.rename(folder / rec["file"])
             recs.append(rec)
-        d["photos"] = recs
+        d["photos"] = recs + remote
         d["photos_v"] = self.PHOTOS_V
         self._build_cover(d, draft)
 
@@ -2131,6 +2188,10 @@ class App:
         self.process_updates()
         self.expire()
         try:
+            self.migrate_urls()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Adres geçişi hatası: %s", e)
+        try:
             self.reselect_pending()
         except Exception as e:  # noqa: BLE001
             log.exception("Bekleyen taslak seçkisi hatası: %s", e)
@@ -2152,6 +2213,7 @@ class App:
             except Exception as e:  # noqa: BLE001
                 log.exception("Metin/ilgi puanı hatası: %s", e)
             try:
+                self.more_photos()
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
             except Exception as e:  # noqa: BLE001
                 log.exception("Fotoğraf işlemi hatası: %s", e)

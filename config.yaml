@@ -76,11 +76,13 @@ autonomy:
 
 images:
   # Gerçek fotoğraflar: önce şirketin resmi görseli, yoksa kaynak haberin görselleri (kaynağı fotoğrafın altında yazar).
-  # Kapak her zaman bizim tasarımımızdır: anlamlı bir fotoğraf varsa üstüne dev rakam / isim / manşet yazılır,
-  # yoksa (ekran görüntüsü, grafik, yazılı paylaşım görseli) tipografik kapak kullanılır. Diğer fotoğraflar
-  # kaydırmalı alanda ve haberin paragrafları arasında, kaynağıyla gösterilir. Fotoğraflar hiç silinmez.
+  # Sitede görsellerin üstünde yazı yoktur: başlık bir kez, sayfada yazılır. Fotoğrafı olmayan haberde habere özel
+  # yazısız renk ağı görünür. Yazılı kapak yalnızca paylaşım görselinde (Google, WhatsApp, Instagram) kullanılır.
+  # Diğer fotoğraflar haberin paragrafları arasına, kalanlar sondaki galeriye kaynağıyla yerleşir.
   photos: true
-  photo_limit: 6                  # haber başına en fazla fotoğraf
+  photo_limit: 16                 # haber başına en fazla fotoğraf (haberin içine paragraf paragraf yerleşir)
+  photo_local: 4                  # bunların kaçı siteye kopyalanır (kalanlar kaynaktaki adresinden gösterilir)
+  photos_per_source: 12           # bir kaynak sayfasından en fazla kaç fotoğraf
   photo_backfill_per_run: 5       # eski haberlere her turda kaç tanesine fotoğraf eklensin
   # kapak: habere özel tipografik kapak (dev rakam / isim / manşet), ücretsiz (önerilen)
   # 3d   : renkli 3D şekiller

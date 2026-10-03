@@ -79,7 +79,7 @@ def test_update_story_in_place():
         assert p["title"] != post["title"]                                  # metin yeni gelişmeyle yenilendi
         sb = SiteBuilder(cfg)
         sb.build()
-        art = (cfg.out_dir / "haber" / "haber-1" / "index.html").read_text(encoding="utf-8")
+        art = (cfg.out_dir / cfg.post_path(p) / "index.html").read_text(encoding="utf-8")
         assert 'class="upd"' in art and "Güncellendi" in art
 
 

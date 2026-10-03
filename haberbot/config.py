@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CATEGORIES: dict[str, tuple[str, str]] = {
     "super-zeka":   ("Süper Zeka",   "#7C5CFF"),
     "teknoloji":    ("Teknoloji",    "#326EF0"),
+    "otomotiv":     ("Otomotiv",     "#E5332A"),
     "inovasyon":    ("İnovasyon",    "#10B981"),
     "girisimcilik": ("Girişimcilik", "#F59E0B"),
     "gaming":       ("Gaming",       "#EC4899"),
@@ -25,7 +26,9 @@ CATEGORY_SEO: dict[str, tuple[str, str]] = {
     "super-zeka": ("Süper Zeka: yapay zeka haberleri",
                    "ChatGPT, Gemini, Claude ve yeni çıkan yapay zeka modelleri; yapay zekanın yeni özellikleri, şirketleri ve hayatımıza giren yeni kullanım alanları."),
     "teknoloji": ("Teknoloji haberleri",
-                  "Yeni tanıtılan telefonlar, bilgisayarlar, giyilebilir cihazlar ve otomobiller; Apple, Samsung, Google gibi teknoloji devleri, internet ve siber güvenlik."),
+                  "Yeni tanıtılan telefonlar, bilgisayarlar, kameralar, kulaklıklar ve giyilebilir cihazlar; Apple, Samsung, Google gibi teknoloji devleri, internet ve siber güvenlik."),
+    "otomotiv": ("Otomotiv haberleri",
+                 "Yeni otomobiller ve elektrikli araçlar, TOGG ve Türkiye'ye gelen modeller, fiyatlar, şarj ağları, otonom sürüş ve robotaksiler."),
     "inovasyon": ("İnovasyon ve bilim haberleri",
                   "İlk kez denenen teknolojiler, prototipler, robotik, uzay, enerji, batarya, otonom sürüş ve sağlık alanındaki buluşlar."),
     "girisimcilik": ("Girişimcilik ve yatırım haberleri",
@@ -112,8 +115,22 @@ class Config:
         """IG_ACCESS_TOKEN tanımlı ve ayarlarda kapatılmamışsa haberler Instagram'a kendiliğinden gider."""
         return bool(self.instagram_token) and bool(self.get("social", "instagram_auto", True))
 
-    def post_url(self, slug: str) -> str:
-        return f"{self.site_url}/haber/{slug}/"
+    def post_path(self, p: dict) -> str:
+        """Haberin kalıcı adresi: kategori/yıl/ay/slug (ör. teknoloji/2026/10/iphone-duo-tanitildi).
+
+        Yayında bir kez belirlenir ve post["path"] olarak saklanır; kategori sonradan değişse bile adres değişmez."""
+        if p.get("path"):
+            return p["path"]
+        from .util import local, now_utc
+        dt = local(p.get("published_at"), self.tz) or local(now_utc(), self.tz)
+        cat = p.get("category") if p.get("category") in CATEGORIES else DEFAULT_CATEGORY
+        return f"{cat}/{dt:%Y}/{dt:%m}/{p['slug']}"
+
+    def post_url(self, p) -> str:
+        """Haberin tam adresi. Eski kullanım (yalnızca slug) eski adresi verir; o adres yeni adrese yönlendirir."""
+        if isinstance(p, str):
+            return f"{self.site_url}/haber/{p}/"
+        return f"{self.site_url}/{self.post_path(p)}/"
 
 
 def _derive_site_url(cfg_url: str) -> str:

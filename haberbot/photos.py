@@ -93,7 +93,7 @@ def _ld_images(obj, out: list[str]) -> None:
                 out.append(it.get("url") or it.get("contentUrl") or "")
 
 
-def candidates(html: str, base_url: str, limit: int = 14) -> list[dict]:
+def candidates(html: str, base_url: str, limit: int = 48) -> list[dict]:
     """Sayfadaki fotoğraf adayları: paylaşım görseli, yapılandırılmış veri, metin içi fotoğraflar."""
     from bs4 import BeautifulSoup
 
@@ -242,7 +242,7 @@ def usable(im: Image.Image) -> bool:
     return st.stddev[0] >= 14  # düz/boş görseller (logo zemini, yer tutucu) elenir
 
 
-def gather(sources: list[dict], limit: int = 6, per_source: int = 4, pages: int = 3,
+def gather(sources: list[dict], limit: int = 16, per_source: int = 12, pages: int = 3,
            skip_cover: set[str] | frozenset = frozenset()) -> list[dict]:
     """Kaynaklardan fotoğraf topla. Dönen her öğe: {'image': PIL, 'src', 'credit', 'page', 'alt', 'kind', 'graphic'}
 

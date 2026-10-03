@@ -2,7 +2,7 @@
 {% from "_macros.html" import card, slide, rail, row, follow %}
 
 {% block head %}
-{% if featured %}<link rel="preload" as="image" href="{{ featured[0].img }}" fetchpriority="high">{% endif %}
+{% if featured and featured[0].img %}<link rel="preload" as="image" href="{{ featured[0].img }}" fetchpriority="high">{% endif %}
 {% set org = {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name, "url": site.url ~ "/",
      "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512},
      "publishingPrinciples": site.url ~ "/hakkinda/", "ethicsPolicy": site.url ~ "/hakkinda/",
@@ -23,7 +23,17 @@
 {% block main %}
 <header class="home-head wrap">
   <h1 class="sr-only">{{ site.home_h1 }}</h1>
-  <p class="home-date"><time datetime="{{ site.built_iso[:10] }}">{{ site.today_str }}</time></p>
+  <div class="home-day">
+    <p class="home-date"><time datetime="{{ site.built_iso[:10] }}" data-today>{{ site.today_str }}</time></p>
+    <ul class="mkt" data-mkt aria-label="Piyasalar" hidden>
+      <li data-k="USD"><span>Dolar</span><b></b><i></i></li>
+      <li data-k="EUR"><span>Euro</span><b></b><i></i></li>
+      <li data-k="GBP"><span>Sterlin</span><b></b><i></i></li>
+      <li data-k="GRA"><span>Gram altın</span><b></b><i></i></li>
+      <li data-k="XU100"><span>BIST 100</span><b></b><i></i></li>
+      <li data-k="BTC"><span>Bitcoin</span><b></b><i></i></li>
+    </ul>
+  </div>
   {% if featured %}
   <p class="live" role="status"><span class="dot" aria-hidden="true"></span>Son haber <b><time datetime="{{ latest_iso }}" data-rel data-live>{{ latest_str }}</time></b>{% if site.today_count %} · Bugün <b>{{ site.today_count }}</b> gelişme{% endif %}</p>
   {% endif %}

@@ -41,7 +41,7 @@ STYLE_KEYS = list(STYLES)
 # Kategoriye göre arka plan tonu (açık, Apple tarzı)
 BACKDROPS = {
     "super-zeka": "soft lavender white", "teknoloji": "cool silver white", "inovasyon": "pale mint white",
-    "girisimcilik": "warm ivory", "gaming": "soft pink-violet white",
+    "girisimcilik": "warm ivory", "gaming": "soft pink-violet white", "otomotiv": "warm light grey",
 }
 
 NEGATIVE = ("Strictly no text, no letters, no numbers, no captions, no logos, no brand marks, no watermarks, "
@@ -150,7 +150,7 @@ class GoogleImage:
 # ── yedek 3D görsel paleti ──────────────────────────────────
 ACCENTS = {
     "super-zeka": ("#7C5CFF", "#FF8FB1"), "teknoloji": ("#326EF0", "#54D59C"), "inovasyon": ("#10B981", "#0EA5E9"),
-    "girisimcilik": ("#F59E0B", "#3B82F6"), "gaming": ("#EC4899", "#8B5CF6"),
+    "girisimcilik": ("#F59E0B", "#3B82F6"), "gaming": ("#EC4899", "#8B5CF6"), "otomotiv": ("#E5332A", "#F59E0B"),
 }
 
 

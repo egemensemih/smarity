@@ -112,6 +112,11 @@ CATEGORY_SCALES: dict[str, list[list[str]]] = {
         ["#FED7AA", "#FB923C", "#EA580C", "#FDBA74", "#160904", "#FFF3EA"],
         ["#FEF08A", "#FACC15", "#CA8A04", "#FDE047", "#141002", "#FFFBE6"],
     ],
+    "otomotiv": [     # kırmızı
+        ["#FECACA", "#EF4444", "#B91C1C", "#FCA5A5", "#160505", "#FFF1F1"],
+        ["#FED7AA", "#F2542D", "#C2410C", "#FDBA74", "#170804", "#FFF3EC"],
+        ["#FFE4E6", "#DC2626", "#7F1D1D", "#F87171", "#0F0707", "#FFF2F2"],
+    ],
     "gaming": [       # pembe / magenta
         ["#FBCFE8", "#EC4899", "#BE185D", "#F9A8D4", "#16060F", "#FFF0F7"],
         ["#F5D0FE", "#D946EF", "#A21CAF", "#F0ABFC", "#130616", "#FDF0FF"],
@@ -126,6 +131,18 @@ def palette_for(d: dict) -> tuple[str, list[str]]:
     scales = CATEGORY_SCALES.get(cat) or CATEGORY_SCALES["teknoloji"]
     i = _seed(d) % len(scales)
     return f"{cat or 'teknoloji'}-{i + 1}", scales[i]
+
+
+def art_style(d: dict) -> tuple[str, str]:
+    """Fotoğrafı olmayan haberler için sitede yazısız, habere özel renk ağı: (CSS arka planı, kenar rengi).
+
+    Başlık sitede HTML olarak yazılır; görselin üstünde ikinci bir başlık olmaz."""
+    _, pal = palette_for(d)
+    rnd = random.Random(_seed(d) + 7)
+    spots = [(rnd.randint(0, 35), rnd.randint(0, 40), pal[0], 55), (rnd.randint(65, 100), rnd.randint(0, 45), pal[3], 60),
+             (rnd.randint(25, 75), rnd.randint(60, 100), pal[1], 70)]
+    layers = [f"radial-gradient(circle at {x}% {y}%, {c} 0, {c}00 {r}%)" for x, y, c, r in spots]
+    return f"background:{', '.join(layers)}, linear-gradient(135deg, {pal[2]}, {pal[4]})", pal[4]
 
 
 def _highlight(title: str, key: str) -> str:

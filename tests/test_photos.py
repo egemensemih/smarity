@@ -156,7 +156,9 @@ def test_attach_cover_slides_inline_and_buttons():
         a.backfill_photos(5)
         p = a.store.load_post("p1")
         assert len(p["photos"]) == 5 and p["photos_v"] == 2
-        assert [r["file"] for r in p["photos"]] == [f"p1-g{i}.webp" for i in range(5)]
+        # ilk 4 fotoğraf siteye kopyalanır, kalanlar kaynaktaki adresinden gösterilir
+        assert [r.get("file") for r in p["photos"]] == [f"p1-g{i}.webp" for i in range(4)] + [None]
+        assert p["photos"][4]["remote"] and p["photos"][4]["src"] == "https://x/doc.jpg" and p["photos"][4]["w"]
         assert p["image"]["source"] == "photo" and p["image"]["photo"] == "p1-g0.webp"
         hero = cfg.images_dir / "p1.webp"
         assert hero.exists() and Image.open(hero).size == (1280, 960)
@@ -166,17 +168,17 @@ def test_attach_cover_slides_inline_and_buttons():
         cv = Image.open(hero).convert("L").resize((64, 48))
         from PIL import ImageChops, ImageStat
         assert ImageStat.Stat(ImageChops.difference(ph.crop((0, 36, 64, 48)), cv.crop((0, 36, 64, 48)))).mean[0] > 20
-        # site: ilk kare kapak, kaydırınca 2 fotoğraf, kalanlar ve grafik metnin içinde
+        # site: ana görsel yazısız fotoğrafın kendisi; diğer fotoğraflar ve grafik paragraf paragraf metnin içinde
         from haberbot.site import SiteBuilder
         view = SiteBuilder(cfg)._post_view(p)
-        assert view["cover_photo"]["file"] == "p1-g0.webp"
-        assert [x["file"] for x in view["slides"]] == ["p1-g1.webp", "p1-g2.webp"]
-        assert view["body_html"].count('<figure class="inl') == 2 and 'class="inl graphic"' in view["body_html"]
+        assert view["cover_photo"]["file"] == "p1-g0.webp" and view["disp"]["file"] == "p1-g0.webp"
+        assert view["img"] == "/img/p1-g0.webp" and view["slides"] == []
+        assert view["body_html"].count('<figure class="inl') == 4 and 'class="inl graphic"' in view["body_html"]
         SiteBuilder(cfg).build()
-        assert (cfg.out_dir / "img" / "p1-g4.webp").exists()
-        html = (cfg.out_dir / "haber" / "ornek" / "index.html").read_text(encoding="utf-8")
-        assert 'class="gal-slide cover"' in html and "/img/p1-g3.webp" in html and "Görsel: Marka" in html
-        assert html.index("/img/p1-g1.webp") < html.index('class="art-body"') < html.index("/img/p1-g3.webp")
+        assert not (cfg.out_dir / "img" / "p1.webp").exists()            # yazılı kapak sitede kullanılmıyor
+        html = (cfg.out_dir / cfg.post_path(p) / "index.html").read_text(encoding="utf-8")
+        assert "/img/p1-g3.webp" in html and "Görsel: Marka" in html and "https://x/doc.jpg" in html
+        assert html.index("/img/p1-g0.webp") < html.index('class="art-body"') < html.index("/img/p1-g1.webp")
         # düğmeler: başka foto, yazılı kapak, fotoğrafsız
         assert [b["callback_data"][0] for b in a._visual_buttons(p)] == ["g", "v", "n"]
         a._on_button("g", "p1")                                # sonraki fotoğraf kapak olur
@@ -188,7 +190,8 @@ def test_attach_cover_slides_inline_and_buttons():
         assert p["image"]["source"] == "cover" and len(p["photos"]) == 5 and p["cover_mode"] == "type"
         assert a._visual_buttons(p)[0]["text"].endswith("Fotoğraflı kapak")
         view = SiteBuilder(cfg)._post_view(p)
-        assert view["cover_photo"] is None and len(view["slides"]) >= 2
+        assert view["cover_photo"] is None and view["disp"]["kind"] == "art"
+        assert view["body_html"].count('<figure class="inl') == 5
         a._on_button("g", "p1")                                # fotoğraflı kapağa dönüş
         assert a.store.load_post("p1")["image"]["source"] == "photo"
         a._on_button("n", "p1")                                # fotoğrafsız
@@ -209,7 +212,8 @@ def test_small_or_graphic_photos_get_type_cover():
         assert p["image"]["source"] == "cover" and len(p["photos"]) == 2    # küçük fotoğraf ve grafik kapak olmaz
         from haberbot.site import SiteBuilder
         view = SiteBuilder(cfg)._post_view(p)
-        assert [x["file"] for x in view["slides"]] == ["p1-g0.webp"] and 'class="inl graphic"' in view["body_html"]
+        assert view["disp"]["kind"] == "art" and view["slides"] == []        # küçük fotoğraf ana görsel olmaz
+        assert view["body_html"].count('<figure class="inl') == 2 and 'class="inl graphic"' in view["body_html"]
 
 
 def test_migrate_old_layout():

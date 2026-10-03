@@ -7,10 +7,12 @@ CATEGORY_KEYS = list(CATEGORIES.keys())
 CATEGORY_HELP = (
     "super-zeka = artificial intelligence: AI models, AI products and features, AI companies, AI research, AI chips, AI policy and new real-world uses of AI; "
     "teknoloji = consumer tech and big tech: newly unveiled phones, computers, tablets, wearables, cameras and lenses, drones, "
-    "headphones and audio systems, TVs and home entertainment, smart home and home appliances, apps; new car and EV models; "
+    "headphones and audio systems, TVs and home entertainment, smart home and home appliances, apps; "
     "big-tech company news, platforms, internet, social media, cybersecurity, telecom, tech regulation (use when the story is not mainly about AI); "
+    "otomotiv = cars and mobility: new car and EV models, car makers (TOGG, Tesla's cars, BYD, Toyota, BMW…), car prices and "
+    "availability in Türkiye, charging networks, autonomous driving and robotaxis, motorcycles and e-scooters; "
     "inovasyon = technologies tried or demonstrated for the first time, prototypes, science breakthroughs, robotics, space, energy, batteries, "
-    "autonomous driving milestones, health tech; "
+    "health tech; "
     "girisimcilik = startups and entrepreneurship: founding stories, founders, funding rounds, valuations, acquisitions of startups, unusual new business ideas "
     "(an AI startup's funding round also goes here); "
     "gaming = video games, consoles, PC gaming, esports, game studios and publishers, game industry business"
@@ -124,7 +126,8 @@ Do the following:
    Category priority rule: if the main subject is an AI model, AI assistant, AI feature or AI company (ChatGPT, Gemini,
    Copilot, Claude, Meta AI, OpenAI, Anthropic, an AI video tool…), the category is ALWAYS "super-zeka", even when it is a
    feature inside a product of Google, Microsoft or Apple. A startup's funding round is "girisimcilik" (even an AI startup).
-   A game or gaming platform is "gaming". Military and defence technology is "inovasyon" only if it is a genuine
+   A game or gaming platform is "gaming". Cars, EVs, car makers, charging, autonomous driving and robotaxis are
+   "otomotiv" (Tesla's humanoid robot Optimus is "inovasyon"; an EV startup's funding round is "girisimcilik"). Military and defence technology is "inovasyon" only if it is a genuine
    first-of-its-kind technology; otherwise it is off topic for our readers.
 6. entities: the 1–3 main companies, brands or products the story is about, most important first, in their official
    original spelling (e.g. ["Honor", "Honor Magic9"], ["OpenAI"], ["SpaceX", "Starship"]). Not people's names unless the
@@ -306,7 +309,7 @@ Output fields:
 - title: the H1. ≤90 characters, informative and specific (who did what), starts with or contains the focus_keyword. Sentence case (only first word and proper nouns capitalized). No trailing period, no clickbait.
 - summary: 1–2 plain sentences, ≤180 characters, the core news in everyday language (shown under the headline and on Instagram).
 - body: Markdown, 180–320 words. Structure: a 2–3 sentence lead paragraph that answers who/what/when and contains the focus_keyword; then 2 sections (3 only if really needed), each starting with a "## " subheading (short, informative, natural search-style phrase such as "## iPhone 18 Pro neler sunuyor?", "## Fiyat ve çıkış tarihi" or "## Girişim ne yapıyor?"), each followed by 1–2 short paragraphs. Use a bullet list only for 3+ concrete items from the sources. Bold at most 2 key terms. The LAST paragraph (not under a new heading) must start with "**Neden önemli?** " followed by 1–2 grounded sentences (no speculation beyond what sources support). Do not include a sources list or links; the site adds them. If the sources are thin, write fewer, shorter sections rather than padding — accuracy beats length.
-- category: one of the allowed keys. If the main subject is an AI model, assistant, feature or AI company (ChatGPT, Gemini, Copilot, Claude…), always "super-zeka", even inside a Google/Microsoft/Apple product; a startup's funding round → "girisimcilik"; games and gaming platforms → "gaming".
+- category: one of the allowed keys. If the main subject is an AI model, assistant, feature or AI company (ChatGPT, Gemini, Copilot, Claude…), always "super-zeka", even inside a Google/Microsoft/Apple product; a startup's funding round → "girisimcilik"; games and gaming platforms → "gaming"; cars, EVs, car makers, charging and robotaxis → "otomotiv".
 - tags: 3–6 tags that people search for: companies, products, models, games, car models, technologies, places (e.g. "Apple", "iPhone 18", "TOGG", "elektrikli otomobil", "GTA 6", "OpenAI"). Use the official spelling consistently. If the story is mainly about Turkey or a Turkish company, include the tag "Türkiye". Never use generic words like "teknoloji", "yapay zeka", "oyun", "otomobil", "girişim", "haber", and never use the names of news outlets (TechCrunch, The Verge, Webrazzi…).
 - focus_keyword: as described above.
 - seo_title: ≤58 characters, the title shown in Google results. Starts with the focus_keyword or puts it near the start; specific and compelling but not clickbait; may differ from title. Sentence case. No site name, no trailing period.

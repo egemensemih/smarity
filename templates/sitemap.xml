@@ -7,7 +7,7 @@
   <url><loc>{{ site.url }}/haberler/sayfa/{{ n }}/</loc></url>
   {% endfor %}
   {% for c in cats %}
-  <url><loc>{{ site.url }}/kategori/{{ c.slug }}/</loc>{% if c.lastmod %}<lastmod>{{ c.lastmod }}</lastmod>{% endif %}</url>
+  <url><loc>{{ c.abs_url }}</loc>{% if c.lastmod %}<lastmod>{{ c.lastmod }}</lastmod>{% endif %}</url>
   {% endfor %}
   {% for t in tags %}
   <url><loc>{{ site.url }}/etiket/{{ t.slug }}/</loc><lastmod>{{ t.lastmod }}</lastmod></url>

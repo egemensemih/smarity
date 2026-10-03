@@ -190,3 +190,32 @@ def primary_key(p: dict) -> str:
 def entity_keys(p: dict) -> set[str]:
     names = list(p.get("entities") or []) or list(p.get("tags") or [])[:1]
     return {k for k in (entity_key(e) for e in names) if k}
+
+
+# ── Otomotiv: araba haberini tanı (kategori geçişi için) ─────
+CAR_BRANDS = {
+    "toyota", "lexus", "honda", "acura", "nissan", "infiniti", "mazda", "subaru", "mitsubishi", "suzuki", "hyundai", "kia",
+    "genesis", "bmw", "mini cooper", "rolls-royce", "mercedes", "mercedes-benz", "mercedes-amg", "maybach", "audi", "volkswagen",
+    "vw", "porsche", "lamborghini", "bentley", "bugatti", "skoda", "škoda", "seat", "cupra", "ferrari", "maserati",
+    "alfa romeo", "fiat", "lancia", "jeep", "chrysler", "dodge", "chevrolet", "cadillac", "gmc", "buick",
+    "general motors", "ford", "lincoln", "tesla", "rivian", "lucid", "lucid motors", "polestar", "volvo", "renault",
+    "dacia", "peugeot", "citroën", "citroen", "opel", "ds automobiles", "stellantis", "jaguar", "land rover",
+    "range rover", "aston martin", "mclaren", "lotus", "byd", "nio", "xpeng", "li auto", "zeekr", "geely", "chery",
+    "omoda", "jaecoo", "mg motor", "togg", "waymo", "zoox", "leapmotor", "lynk & co", "denza", "yangwang",
+    "aito", "rimac", "koenigsegg", "pagani", "alpine", "abarth", "isuzu", "scout", "fisker", "vinfast",
+}
+CAR_WORDS = re.compile(r"\b(otomobil|elektrikli araç|elektrikli otomobil|elektrikli suv|suv\b|sedan|hatchback|pikap|"
+                       r"motosiklet|robotaksi|şarj istasyon|menzilli|beygir|model y\b|model 3\b|cybertruck|su7|yu7)", re.I)
+NOT_CAR = re.compile(r"optimus|insansı robot|humanoid|starlink|spacex|carplay|android auto", re.I)
+
+
+def is_car_story(d: dict) -> bool:
+    """Haber bir araba / elektrikli araç / araç üreticisi haberi mi? (Tesla'nın robotu, CarPlay vb. hariç)"""
+    text = f"{d.get('title', '')} {d.get('summary', '')}"
+    if NOT_CAR.search(text):
+        return False
+    names = {str(x).strip().lower() for x in (d.get("entities") or []) + (d.get("tags") or [])}
+    first = {n.split()[0] for n in names if n}
+    if names & CAR_BRANDS or first & (CAR_BRANDS - {"seat", "scout", "alpine", "genesis", "lotus", "smart"}):
+        return True
+    return bool(CAR_WORDS.search(d.get("title", "")))
