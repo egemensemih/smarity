@@ -800,17 +800,18 @@
       "updated": 1
     },
     "2026-10-03": {
-      "tok_in": 678390,
-      "tok_out": 70011,
+      "tok_in": 699953,
+      "tok_out": 75946,
       "cost_usd": 0.0,
       "drafts": 23,
-      "updates": 1
+      "updates": 1,
+      "culled": 76
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-03T12:55:28Z",
-  "build_sig": "8ef898b8b54aab04",
+  "last_build": "2026-10-03T13:35:32Z",
+  "build_sig": "af33e1603b8ecd06",
   "commands_version": 4,
   "queue": [],
   "last_activity": "2026-10-03T13:19:29Z",
@@ -819,614 +820,6 @@
   "keyboard_v": 4,
   "manset_mid": 370,
   "edit_log": [
-    {
-      "t": "2026-10-02T14:27:09Z",
-      "topic": "Audible AI feature to talk to book characters",
-      "action": "skip",
-      "score": 7,
-      "reason": "Audible yapay zeka özelliği haberi zaten kapsandı.",
-      "target": "7911072745"
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "SpaceX plans Starmind orbital data center network for 2027",
-      "action": "publish",
-      "score": 9,
-      "reason": "SpaceX yörünge veri merkezi ağı Starmind'ı 2027 için duyurdu.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Keurig unveils plastic-free compressed coffee machine",
-      "action": "skip",
-      "score": 6,
-      "reason": "Küçük ev aletleri ve kahve makineleri kapsam dışındadır.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Microsoft Advanced Shader Delivery cuts compilation times in Gears of War",
-      "action": "publish",
-      "score": 8,
-      "reason": "Gears of War oyununda gölgelendirici derleme süresi yüzde 95 azaldı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Rivian Q3 deliveries surge despite minor recall",
-      "action": "skip",
-      "score": 6,
-      "reason": "Rivian satış rekoru haberi bugün zaten sistemde yer alıyor.",
-      "target": "d94893ac2e"
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "TEI reaches final stages in national aviation engines",
-      "action": "publish",
-      "score": 8,
-      "reason": "TEI, GÖKBEY ve KIZILELMA milli motorlarında son aşamaya geldi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "DIGIAGE partners to bring Turkish games to China",
-      "action": "skip",
-      "score": 6,
-      "reason": "DIGIAGE ve Bilişim Vadisi girişimcilik haberi zaten işlendi.",
-      "target": "1152e43a0f"
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Apple showcases iPhone Duo cameras with pro photographers",
-      "action": "skip",
-      "score": 6,
-      "reason": "Fotoğrafçı sergileri ve tanıtım etkinlikleri rutin içeriktir.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Toyota announces 2027 Grand Highlander Woodland Edition",
-      "action": "skip",
-      "score": 6,
-      "reason": "Makyajlı veya ara paket SUV duyuruları öncelikli değildir.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "BiWin unveils ultra-tiny CL 100 Mini SSD for portable gaming",
-      "action": "skip",
-      "score": 6,
-      "reason": "Küçük boyutlu SSD aksesuarları okuyucu kitlemizin dışındadır.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Northrop Grumman cuts F-35 avionics assembly time with robotics",
-      "action": "skip",
-      "score": 6,
-      "reason": "Askeri üretim süreçleri ve optimizasyonlar kapsam dışıdır.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:41:36Z",
-      "topic": "Fairphone 6 Plus launches in the US market",
-      "action": "skip",
-      "score": 6,
-      "reason": "Fairphone modelinin ABD pazarına girmesi rutin bir gelişmedir.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:58:04Z",
-      "topic": "Skydance Warner Bros Acquisition",
-      "action": "publish",
-      "score": 8,
-      "reason": "Skydance ve Warner Bros markalarının birleşeceği iddia ediliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:58:04Z",
-      "topic": "New Uncharted Game Rumor",
-      "action": "skip",
-      "score": 6,
-      "reason": "Uncharted serisi hakkındaki söylentiler daha önce reddedilmişti.",
-      "target": "9fa7cc2784"
-    },
-    {
-      "t": "2026-10-02T14:58:04Z",
-      "topic": "Tesla Emergency Supercharger Escape",
-      "action": "publish",
-      "score": 8,
-      "reason": "Tesla araçlar şarj esnasında acil durumda hareket edebilecek.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T14:58:04Z",
-      "topic": "OpenAI Agent Warning",
-      "action": "publish",
-      "score": 7,
-      "reason": "OpenAI, yapay zeka ajanları konusunda şirketleri uyardı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:12:05Z",
-      "topic": "Siemens iQ700 studioLine AI steam oven unveiled",
-      "action": "skip",
-      "score": 6,
-      "reason": "Ev aletleri ve fırınlar okuyucu kitlenizin ilgi alanına girmiyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:12:05Z",
-      "topic": "Nvidia DGX Spark 64GB RAM variant announced",
-      "action": "skip",
-      "score": 6,
-      "reason": "Benzer Nvidia DGX Spark haberi halihazırda sistemde bulunuyor.",
-      "target": "93054a7360"
-    },
-    {
-      "t": "2026-10-02T15:12:05Z",
-      "topic": "US scientists strain sapphire with 7-volt switch",
-      "action": "skip",
-      "score": 5,
-      "reason": "Laboratuvar araştırması niteliğinde temel bilim haberi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:12:05Z",
-      "topic": "Huawei Kirin 9050 Pro die shots reveal LogicFolding technique",
-      "action": "publish",
-      "score": 7,
-      "reason": "Huawei Kirin 9050 Pro işlemcinin yenilikçi üretim detayları açıklandı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:26:50Z",
-      "topic": "CERN ATLAS collaboration reports first observation of differences in nucleons",
-      "action": "hold",
-      "score": 7,
-      "reason": "CERN nükleon araştırması önemli ancak sonraki tura bırakıldı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:26:50Z",
-      "topic": "NVIDIA DGX Spark 64GB announced for local AI development",
-      "action": "merge",
-      "score": 8,
-      "reason": "NVIDIA DGX Spark 64GB yerel yapay zeka odaklı detaylar.",
-      "target": "92ce1cce71"
-    },
-    {
-      "t": "2026-10-02T15:26:50Z",
-      "topic": "Ford Fathom electric pickup announced as Q3 EV sales drop",
-      "action": "publish",
-      "score": 8,
-      "reason": "Ford'un yeni elektrikli pikap modeli Fathom duyuruldu.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:26:50Z",
-      "topic": "Sony consults development partners over physical game media support plans",
-      "action": "skip",
-      "score": 6,
-      "reason": "Fiziksel medya üzerine bir sektör görüşü, içerik zayıf.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:26:50Z",
-      "topic": "Miami Heat partners with GTA 6 for Vice City themed basketball crossover",
-      "action": "skip",
-      "score": 5,
-      "reason": "Pazarlama ve eğlence amaçlı çapraz etkinlik, önemsiz.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "CERN ATLAS collaboration reports first observation of differences in nucleons",
-      "action": "publish",
-      "score": 8,
-      "reason": "CERN nükleon farklılıklarını ilk kez gözlemledi, bilim dünyası için büyük gelişme.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "Aston Martin DBX GT revealed with 717 horsepower",
-      "action": "publish",
-      "score": 8,
-      "reason": "717 beygir gücüne sahip yeni Aston Martin DBX GT resmi olarak tanıtıldı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "SpaceX completes triple-header launch day as Rocket Lab secures contract",
-      "action": "publish",
-      "score": 7,
-      "reason": "SpaceX günde üç fırlatmayı tamamlarken Rocket Lab önemli bir sözleşme imzaladı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "Major US carriers team up to eliminate mobile coverage gaps",
-      "action": "skip",
-      "score": 5,
-      "reason": "ABD merkezli operatör iş birliği yerel düzeyde kalıyor, okuyucumuz için kritik değil.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "Leaked Intel Nova Lake table reveals 'BFC' chips with large L3 cache",
-      "action": "skip",
-      "score": 5,
-      "reason": "Intel Nova Lake işlemci sızıntıları erken aşama ve kesinlik taşımıyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:41:54Z",
-      "topic": "ASELSAN signs protocol for joint production facility in Nakhchivan",
-      "action": "hold",
-      "score": 7,
-      "reason": "ASELSAN'ın Nahçıvan ortak üretim tesisi önemli ancak bu turda yer kalmadı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "OpenAI Dots business-first productivity product launched",
-      "action": "skip",
-      "score": 6,
-      "reason": "Önemsiz bir OpenAI üretkenlik ürünü lansmanı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "ASELSAN signs protocol for joint production facility in Nakhchivan",
-      "action": "hold",
-      "score": 7,
-      "reason": "ASELSAN'ın Nahçıvan yatırımı önemli ancak yer kalmadı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "ChatGPT virtual clothes try-on feature guide",
-      "action": "skip",
-      "score": 5,
-      "reason": "ChatGPT kıyafet deneme özelliğinin rehberi, daha önce işlendi.",
-      "target": "ac77027a3a"
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "US approves construction of first small modular nuclear reactor BWRX-300",
-      "action": "publish",
-      "score": 8,
-      "reason": "ABD'nin ilk küçük modüler nükleer reaktör onayı önemli.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "Tesla Q3 deliveries beat expectations despite 2 percent drop",
-      "action": "skip",
-      "score": 6,
-      "reason": "Tesla üçüncü çeyrek teslimatları zaten haberleştirildi.",
-      "target": "439fe742d3"
-    },
-    {
-      "t": "2026-10-02T15:56:23Z",
-      "topic": "AI graphics upscaling and frame generation coming to premium Android phones",
-      "action": "publish",
-      "score": 8,
-      "reason": "Qualcomm Snapdragon işlemcilere yapay zeka upscaling geliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "Samsung Exynos 2700 enters mass production with 2nm SF2P technology",
-      "action": "merge",
-      "score": 8,
-      "reason": "Exynos 2700 seri üretime geçiş detayları ve üretim teknolojisi.",
-      "target": "f22fc23144"
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "Google introduces 24-hour delay for unverified APK sideloading on Android",
-      "action": "publish",
-      "score": 8,
-      "reason": "Android APK yükleme sürecine 24 saatlik bekleme şartı getiriyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "Skydance emerges as parent company for merged Warner Bros and Paramount",
-      "action": "merge",
-      "score": 8,
-      "reason": "Warner Bros ve Paramount birleşmesi için resmi çatı şirket açıklandı.",
-      "target": "a595886ad1"
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "ASELSAN signs protocol for joint production facility in Nakhchivan",
-      "action": "skip",
-      "score": 6,
-      "reason": "Yerel ortak üretim protokolü rutin askeri ve endüstriyel gelişme.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "General Motors builds lithium manganese-rich EV battery tech plant in Tennessee",
-      "action": "skip",
-      "score": 6,
-      "reason": "Batarya üretim tesisi yatırımı erken aşama endüstriyel haber.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "DJI reaches record highs as gimbal cameras surge in popularity",
-      "action": "skip",
-      "score": 6,
-      "reason": "Genel gimbal pazar istatistikleri ve trend değerlendirmesi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "Android Auto users report Gemini assistant unresponsiveness bug",
-      "action": "skip",
-      "score": 5,
-      "reason": "Android Auto üzerindeki geçici yazılım hatası ve bug haberi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:11:30Z",
-      "topic": "Sigma rumored to announce RF 50-120mm f/2.8 DC OS lens for Canon APS-C",
-      "action": "skip",
-      "score": 6,
-      "reason": "Canon APS-C makineler için Sigma lens sızıntısı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:27:10Z",
-      "topic": "OpenAI AI agent accesses non-public Australian government data",
-      "action": "hold",
-      "score": 8,
-      "reason": "OpenAI ajanlarının veri ihlali haberi ilerleyen saatlerde değerlendirilebilir.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:27:10Z",
-      "topic": "OpenAI publishes a model guide for the GPT-6 family",
-      "action": "skip",
-      "score": 6,
-      "reason": "Model kılavuzu duyurusu rutin bir geliştirici güncellemesi niteliğinde.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:27:10Z",
-      "topic": "Nacon Revolution 5 Unlimited PS5 controller with built-in control screen",
-      "action": "publish",
-      "score": 8,
-      "reason": "Nacon'un ekranlı ilk resmi lisanslı PS5 kontrolcüsü oyuncular için önemli.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:27:10Z",
-      "topic": "Volantis raises 88 million dollars for photonic memory layer for AI",
-      "action": "skip",
-      "score": 6,
-      "reason": "Volantis yatırım haberi covered listesinde zaten yer alıyor.",
-      "target": "7ee7afd979"
-    },
-    {
-      "t": "2026-10-02T16:41:26Z",
-      "topic": "OpenAI AI agent accesses non-public Australian government data",
-      "action": "hold",
-      "score": 7,
-      "reason": "OpenAI ajanlarının veri ihlali haberi ilerleyen saatlerde değerlendirilebilir.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T16:41:26Z",
-      "topic": "Hyundai Tucson New Generation Details",
-      "action": "skip",
-      "score": 6,
-      "reason": "Daha önce yayınlanan Hyundai Tucson haberiyle aynı.",
-      "target": "573ce77cab"
-    },
-    {
-      "t": "2026-10-02T16:41:26Z",
-      "topic": "Pope Leo AI Art Warning",
-      "action": "skip",
-      "score": 6,
-      "reason": "Yapay zeka sanatı üzerine etik tartışmalar kapsamımız dışındadır.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "OpenAI AI agent accesses non-public Australian government data",
-      "action": "publish",
-      "score": 8,
-      "reason": "OpenAI yapay zeka ajanı Avustralya devlet verilerine izinsiz erişti.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Anthropic invests 100 million dollars to train 10,000 enterprise AI engineers",
-      "action": "hold",
-      "score": 7,
-      "reason": "Anthropic kurumsal yapay zeka eğitimi için 100 milyon dolar yatırım yaptı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Manus AI agent vulnerable to email prompt injection attacks",
-      "action": "hold",
-      "score": 7,
-      "reason": "Manus AI ajanı e-posta komut enjeksiyonu açıklarına karşı savunmasız.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Microsoft teases next chapter of advanced AI PCs",
-      "action": "skip",
-      "score": 6,
-      "reason": "Microsoft gelişmiş yapay zeka bilgisayarları için yeni dönemi tüyoluyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Touchscreen OLED MacBook models approaching release",
-      "action": "skip",
-      "score": 6,
-      "reason": "Dokunmatik OLED ekranlı MacBook modelleri için daha önceki sızıntıların tekrarı.",
-      "target": "5cc82a5f6a"
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Palantir AI scheduling software causes safety and burnout issues for hospital nurses",
-      "action": "publish",
-      "score": 8,
-      "reason": "Palantir yapay zeka hastane nöbet çizelgesi hemşirelerde tükenmişlik yarattı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:11:06Z",
-      "topic": "Fujifilm X-T6 technical sketches and leak deep dive",
-      "action": "publish",
-      "score": 7,
-      "reason": "Fujifilm X-T6 teknik çizimleri ve detaylı sızıntıları ortaya çıktı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Apple homeOS and new smart home products coming this month",
-      "action": "update",
-      "score": 8,
-      "reason": "Apple'ın yeni homeOS işletim sistemi ve akıllı ev ürünleri bu ay geliyor.",
-      "target": "9f66fb4e02"
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Anthropic invests 100 million dollars to train 10,000 enterprise AI engineers",
-      "action": "hold",
-      "score": 7,
-      "reason": "Anthropic'in kurumsal mühendis eğitim programı sonraki turlar için bekletiliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Manus AI agent vulnerable to email prompt injection attacks",
-      "action": "hold",
-      "score": 7,
-      "reason": "Manus yapay zeka ajanının güvenlik açığı haberi kota nedeniyle bekletiliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Mercedes-Benz revamps EV lineup and drops select models for 2027",
-      "action": "skip",
-      "score": 6,
-      "reason": "Mercedes elektrikli araç ürün gamı güncellemesi daha önce işlendi.",
-      "target": "f650a0c53b"
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Google hikes price of budget Pixel 10a phone to $599 due to memory costs",
-      "action": "publish",
-      "score": 7,
-      "reason": "Google Pixel 10a fiyatı bellek maliyetleri nedeniyle 599 dolara yükseldi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Rivian reports strong Q3 production and delivery numbers for R2",
-      "action": "skip",
-      "score": 6,
-      "reason": "Rivian üretim ve satış rakamları benzer haberle örtüşüyor.",
-      "target": "d94893ac2e"
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "Gotion announces 400 Wh/kg solid-state battery energy density goal",
-      "action": "skip",
-      "score": 6,
-      "reason": "Gotion batarya teknolojisi hedefi güncel kapsamda zaten yer alıyor.",
-      "target": "2d0469eb26"
-    },
-    {
-      "t": "2026-10-02T17:25:39Z",
-      "topic": "US telecom giants officially launch joint venture to eliminate dead zones",
-      "action": "publish",
-      "score": 7,
-      "reason": "ABD'li telekom devleri ölü noktaları bitirmek için ortak girişim kurdu.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "SpaceX Falcon Heavy launches NRO spy satellite and lands four boosters",
-      "action": "skip",
-      "score": 5,
-      "reason": "Zaten işlenen uzay ve fırlatma haberlerinin tekrarı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Samsung Intelligent Eyewear smart glasses launch in November",
-      "action": "skip",
-      "score": 6,
-      "reason": "Daha önce duyurulan yapay zeka gözlüğü sızıntısı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "GTA 6 developer discusses higher game pricing and ambitious scope",
-      "action": "publish",
-      "score": 8,
-      "reason": "GTA 6 geliştiricisinden oyun fiyatları ve vizyon açıklaması.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Rockstar releases new GTA 6 screenshots focusing on Lucia and Jason",
-      "action": "publish",
-      "score": 8,
-      "reason": "Rockstar Games'ten GTA 6 odaklı yeni ekran görüntüleri.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Anthropic invests 100 million dollars to train 10,000 enterprise AI engineers",
-      "action": "hold",
-      "score": 7,
-      "reason": "Antrophic'in kurumsal mühendis eğitim yatırımı değerli.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Manus AI agent vulnerable to email prompt injection attacks",
-      "action": "publish",
-      "score": 7,
-      "reason": "Manus AI ajanındaki e-posta prompt enjeksiyon açığı.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Fortem raises 50 million dollars in Series B funding with Lockheed Martin",
-      "action": "skip",
-      "score": 6,
-      "reason": "Girişimcilik ve yatırım turu haberi, okuyucu odaklı değil.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "OMODA X crossover unveiled at Chery global summit",
-      "action": "skip",
-      "score": 6,
-      "reason": "Yeni crossover modelinin ön gösterim ve tanıtım haberi.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-02T17:41:33Z",
-      "topic": "Huawei Watch GT 7 review",
-      "action": "skip",
-      "score": 5,
-      "reason": "Akıllı saat incelemelerine yer vermiyoruz.",
-      "target": ""
-    },
     {
       "t": "2026-10-02T17:41:33Z",
       "topic": "Disney to license legacy and current shows to Netflix",
@@ -2418,6 +1811,616 @@
       "score": 5,
       "reason": "Geçici ücretsiz hafta sonu etkinlikleri haber değerine sahip değildir.",
       "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:24Z",
+      "topic": "Audible yeni yapay zeka özellikleri ile karakterlerle konuşma imkanı sunuyor",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Sesli kitap uygulamaları için yapay zeka özelliği öncelikli değil.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:25Z",
+      "topic": "Raspberry Pi fiyatları küresel bellek kıtlığı nedeniyle yeniden arttı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Raspberry Pi fiyat artışları genel kitleden uzakta.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:26Z",
+      "topic": "Microsoft ve Amazon bulut servisleri Avrupa Birliği kurallarıyla inceleniyor",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: AB bulut servisleri düzenleme incelemesi B2B kategorisinde kalıyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:27Z",
+      "topic": "Atış Yönü ve Mesafesi Tespit Kiti olay yeri incelemesinde kullanılıyor",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Emniyet için geliştirilen teknik kit dar kapsamlı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:28Z",
+      "topic": "Star Wars: Galactic Racer inceleme: Arcade yarış oyunlarına hızlı dönüş",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Star Wars yarış oyunu detayları genel kitle için niş.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:29Z",
+      "topic": "Exynos 2700 seri üretime geçti ve performans iddialarıyla geldi",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Exynos işlemci sızıntıları erken aşama teknik detay.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:29Z",
+      "topic": "OpenAI yapay zeka ajanları kurum sitelerine izinsiz erişti",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: OpenAI ajanları hakkında daha önce reddedilen bir iddia.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:30Z",
+      "topic": "Mercedes-Benz EQE Sedan ve bazı modellerini Amerika'da satıştan kaldırıyor",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Mercedes'in ABD pazarına yönelik modeli kaldırma haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:31Z",
+      "topic": "Halo serisi için sıfırdan başlangıç ihtimali gündemde",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Halo serisi sıfırdan başlangıç iddiaları erken aşamada.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:32Z",
+      "topic": "Steam Sonbahar İndirimi başladı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Steam Sonbahar İndirimi rutin kampanya haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:33Z",
+      "topic": "Volantis 88 milyon dolar yatırım aldı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Yabancı yarı iletken girişimi yatırım turu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:34Z",
+      "topic": "Micron bellek kıtlığının 2028 yılına kadar süreceğini açıkladı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Micron bellek kıtlığı açıklaması finansal öngörü.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:35Z",
+      "topic": "Nvidia 64GB DGX Spark modelini duyurdu",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Nvidia DGX Spark haberiyle tamamen aynı gelişme.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:35Z",
+      "topic": "Rivian R2 satışları şirkete rekor kırdı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Rivian satış rekoru haberi dış pazar odaklı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:36Z",
+      "topic": "Amazon yapay zeka çipi geliştirmek için Synopsys ile anlaştı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Amazon ve Synopsys çip tasarım ortaklığı B2B.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:37Z",
+      "topic": "Fujifilm Instax Pal 2 duyuruldu: Ekran ve vizör eklendi",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Fujifilm Instax Pal 2 niş dijital kamera güncellemesi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:38Z",
+      "topic": "DIGIAGE'den yerli oyun sektörüne stratejik yatırım hamlesi",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Bilişim Vadisi DIGIAGE fon hamlesi yerel girişim.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:39Z",
+      "topic": "Microsoft Advanced Shader Delivery teknolojisi duyuruldu",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Microsoft Shader teknolojisi teknik oyun optimizasyonu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:40Z",
+      "topic": "Tesla'dan acil durumlar için şarj kablosunu koparıp kaçma özelliği",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Tesla acil durum şarj kablosu haberi daha önce işlendi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:41Z",
+      "topic": "OpenAI 100'den fazla kuruluşu yapay zeka ajanları konusunda uyardı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: OpenAI ajanları kısıtlama ihlali iddiasının tekrarı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:42Z",
+      "topic": "Kirin 9050 Pro işlemci boyutu ve yeni üretim detayları açıklandı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: Kirin 9050 Pro işlemci detayları teknik sızıntı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:42Z",
+      "topic": "Ford Fathom elektrikli pikap modeli 2027 başında geliyor",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Ford elektrikli pikap modeli planı ileri tarihli.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:43Z",
+      "topic": "CERN araştırmacarları atom çekirdeğindeki yapısal farkları ilk kez gözlemledi",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: CERN atom çekirdeği araştırması saf bilim.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:44Z",
+      "topic": "SpaceX Starship yörüngeye ulaştı ve yeni nesil uyduları fırlattı",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: SpaceX Starship yörünge fırlatması rutinleşti.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:45Z",
+      "topic": "ABD ilk küçük nükleer reaktör inşasına onay verdi",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: ABD küçük nükleer reaktör onayı dış politika haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:46Z",
+      "topic": "Snapdragon 8 Elite Extreme Gen 6 ile mobil oyunlarda yapay zeka dönemi",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Qualcomm Snapdragon yapay zeka işlemci detayları.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:47Z",
+      "topic": "Android APK kurulumuna 24 saatlik bekleme süresi getirildi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Daha önce reddedilen benzer bir APK kısıtlama haberi var.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:47Z",
+      "topic": "Nacon Revolution 5 Unlimited PS5 kontrolcüsü duyuruldu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Konsol aksesuarı ve kontrolcü haberleri hedef kitlemiz için detay kalıyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:48Z",
+      "topic": "OpenAI yapay zeka ajanı Avustralya hükümet sistemine izinsiz girdi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Yapay zeka ajanı güvenlik açığı detayları dar kapsamlı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:49Z",
+      "topic": "HCA Healthcare hastanelerinde yapay zeka tabanlı Timpani nöbet sistemi tartışma yaratıyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Hastane yazılımı tartışması Türkiye'deki okuyucu için uzak bir konu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:50Z",
+      "topic": "Fujifilm X-T6 sızdırılan teknik çizimleri ve tasarımıyla göründü",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Kamera teknik çizim sızıntıları niş bir kitleye hitap ediyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:51Z",
+      "topic": "Google Pixel 10a fiyatı artan hafıza maliyetleriyle yükseldi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Pixel a-serisi fiyat artışı sızıntısı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:52Z",
+      "topic": "ABD'nin üç büyük operatörü ölü noktaları bitirmek için güç birliği yaptı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: ABD'li operatörlerin altyapı hamlesi yerel okuyucuyu ilgilendirmiyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:52Z",
+      "topic": "GTA 6 fiyatı ve sektöre olası etkileri tartışılıyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Oyun fiyatları üzerine sektör yorumu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:53Z",
+      "topic": "GTA 6 yeni ekran görüntüleri Lucia ve Jason ilişkisine odaklanıyor",
+      "action": "skip",
+      "score": 7,
+      "reason": "yığın temizliği: GTA 6 yeni görselleri dikkat çekici ancak kontenjan kısıtlı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:54Z",
+      "topic": "Manus yapay zeka ajanı tek bir e-posta ile hacklendi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Yapay zeka ajanı güvenlik açıkları teknik detay barındırıyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:55Z",
+      "topic": "Robot yazılımı girişimi FieldAI 10 milyar dolar değerlemeye ulaşıyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Yabancı robot yazılımı girişiminin yatırım turu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:56Z",
+      "topic": "Orijinal Halo oyun tarayıcısında oynanabilir hale geldi",
+      "action": "skip",
+      "score": 5,
+      "reason": "yığın temizliği: Retro tarayıcı oyunu projesi çok niş.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:57Z",
+      "topic": "Lockheed Martin ve OpenAI F-35 projelerinde iş birliği yapıyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Askeri projelerde yapay zeka iş birliği.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:58Z",
+      "topic": "Apple, yapay zeka ajanları nedeniyle macOS Full Disk Access güvenlik önlemlerini…",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: macOS güvenlik ayarları güncellemesi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:30:59Z",
+      "topic": "Cloudflare Clef ve Clef-flash yapay zeka karar modellerini duyurdu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Cloudflare karar modelleri B2B/altyapı haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:00Z",
+      "topic": "Cep telefonu kredilerinde vade düzenlemesi yapıldı",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: BDDK'nın cep telefonu kredisi vade düzenlemesi günlük yaşamı etkiler.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:00Z",
+      "topic": "Nvidia Shield TV üretimini durdurdu, Pro modelinin fiyatı arttı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Nvidia Shield TV üretiminin durması niş bir cihazı ilgilendiriyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:01Z",
+      "topic": "Tavus'un yeni yapay zeka modeli Griffin yüz yüze iletişim kurabiliyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Yapay zeka avatar modeli haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:02Z",
+      "topic": "NVIDIA Vera Rubin NVL72 ve Vera CPU bulut ortamında kullanıma sunuldu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Bulut altyapısı ve sunucu donanımı haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:03Z",
+      "topic": "Microsoft Titan güvenlik açığı 16 yaşındaki öğrenci tarafından bulundu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Öğrencinin bulduğu güvenlik açığı detayları.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:04Z",
+      "topic": "Çin'in yapay güneş projesi BEST'te montaj aşamasına geçildi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Çin'in füzyon reaktörü montaj aşaması araştırma haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:05Z",
+      "topic": "Hackers oil tanker propulsion system sızması tespit edildi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Tanker gemisine siber saldırı vakası.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:06Z",
+      "topic": "Nvidia 6 trilyon dolar değerine yaklaşarak rekor tazeledi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Nvidia borsa değeri rekoru finans haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:07Z",
+      "topic": "GTA 6 PEGI yaş derecelendirmesi detayları ortaya çıktı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: GTA 6 yaş derecelendirmesi detayları.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:07Z",
+      "topic": "OpenAI ve Blackstone veri merkezi projeleri için yeni bir koalisyon kurdu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Veri merkezi lobicilik grubu kuruluşu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:08Z",
+      "topic": "Meta, geliştiriciler için açık kaynaklı Muse Gadgets projesini duyurdu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Geliştiricilere yönelik açık kaynaklı donanım projesi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:09Z",
+      "topic": "İphone 18 Pro Max hücresel bağlantı sorunu için donanım değişimi gerekiyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: ABD'deki operatör sorununa bağlı donanım değişimi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:10Z",
+      "topic": "Lyft Kaliforniya'daki sürücü davası için 272,5 milyon dolar ödeyecek",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Lyft'in Kaliforniya'daki hukuki anlaşması.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:11Z",
+      "topic": "Stability AI müzik odaklı yapay zeka araçlarıyla yenilendi",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Stability AI yeniden yapıIanma haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:12Z",
+      "topic": "Neurable One kulaklık ile beyin aktivitesi sürekli takip edilebilecek",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Beyin dalgası takip eden niş kulaklık.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:13Z",
+      "topic": "Neuralink beyin çipi ile imleç kontrolünde rekor kırdı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Neuralink imleç kontrolü teknik deneme haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:14Z",
+      "topic": "Toyota Michigan batarya merkezi açıldı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Toyota batarya merkezi yatırımı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:15Z",
+      "topic": "Capcom, RE Engine'i yapay zeka odaklı oyun motoruna dönüştürüyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Oyun motoru güncellemesi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:16Z",
+      "topic": "Sceye uçan baz istasyonu ile stratosferden standart telefonlara sinyal sağladı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Stratosferden internet testi haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:16Z",
+      "topic": "Google AI Plus abonelerine Gemini Pro erişimi kısıtlaması geliyor",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Google abonelik paketlerinde model kısıtlaması.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:17Z",
+      "topic": "Nvidia çipi kaçırma iddiası: 300 milyon dolarlık sevkiyat davası açıldı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Daha önce reddedilen GPU kaçakçılığı davasının benzer haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:18Z",
+      "topic": "Toyota ve rakipleri maliyetleri düşürmek için güç birliği yaptı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Japon otomotiv üreticilerinin maliyet ortaklığı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:19Z",
+      "topic": "Thrustmaster T-GT III direksiyon seti duyuruldu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Direksiyon seti aksesuar duyurusu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:20Z",
+      "topic": "ChatGPT-6 Astra, World of Warcraft orc başlangıç bölgesini hiç görüntü görmeden tamamladı",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: ChatGPT-6 Astra'nın hiç görüntü görmeden WoW oynaması dikkat çekici bir yapay zeka başarısı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:21Z",
+      "topic": "Game of Thrones: War for Westeros duyuruldu",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Mobil/strateji oyun duyurusu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:23Z",
+      "topic": "Ace Combat 8: Wings of Theve çıkış yaptı ve ilk incelemeler yayınlandı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Ace Combat 8 çıkış ve inceleme haberi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:24Z",
+      "topic": "Kaliforniya OpenAI soruşturması başlattı: Siber güvenlik incelemesi",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Kaliforniya'nın OpenAI hakkında siber güvenlik soruşturması başlatması önemli bir hukuki gelişme.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:24Z",
+      "topic": "Nscale veri merkezi elektrik şebekesi engeline takıldı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: İngiltere'deki veri merkezinin elektrik engeline takılması.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:25Z",
+      "topic": "Google'da istenmeyen kişisel veriler için Türkiye'ye özel başvuru dönemi",
+      "action": "skip",
+      "score": 8,
+      "reason": "yığın temizliği: Google'da istenmeyen kişisel veriler için Türkiye'ye özel başvuru dönemi açılması.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:26Z",
+      "topic": "Apple akıllı ev kamerası video kaydı olmadan güvenliği sağlayacak",
+      "action": "skip",
+      "score": 5,
+      "reason": "yığın temizliği: Apple akıllı ev kamerası iddiası daha önce reddedilmişti.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:27Z",
+      "topic": "GIGABYTE AI TOP 100 B850 masaüstü yapay zeka bilgisayarı duyuruldu",
+      "action": "skip",
+      "score": 4,
+      "reason": "yığın temizliği: Kurumsal ve yerel yapay zeka bilgisayarı son kullanıcıya hitap etmiyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:28Z",
+      "topic": "2027 Cadillac Escalade IQ yenilikleri duyuruldu",
+      "action": "skip",
+      "score": 5,
+      "reason": "yığın temizliği: Cadillac Escalade IQ modeli Türkiye pazarı için öncelikli değil.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:29Z",
+      "topic": "Nikon Z5IIC piyasaya çıktı",
+      "action": "skip",
+      "score": 6,
+      "reason": "yığın temizliği: Vizörsüz özel kamera modeli niş bir kitleye hitap ediyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:29Z",
+      "topic": "FedEx'ten büyük elektrikli kamyon hamlesi: Harbinger ile dev anlaşma",
+      "action": "skip",
+      "score": 5,
+      "reason": "yığın temizliği: FedEx elektrikli kamyon siparişi günlük okuyucu için uzak bir gelişme.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-03T13:31:30Z",
+      "topic": "OpenAI güvenlik çalışanı riskler nedeniyle görevinden ayrıldı",
+      "action": "skip",
+      "score": 5,
+      "reason": "yığın temizliği: OpenAI çalışanının ayrılığı rutin bir güvenlik gelişmesi.",
+      "target": ""
     }
-  ]
+  ],
+  "reselect_try": 1,
+  "reselect_v": 1
 }
