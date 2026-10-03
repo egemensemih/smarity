@@ -1496,8 +1496,18 @@ class App:
             per_run -= 1
             if p.get("photos_removed") or (p.get("image") or {}).get("source") == "ai":
                 continue
-            if self._attach_photos(p, draft=False):
-                log.info("Daha çok fotoğraf: %s (%d)", p["id"], len(p["photos"]))
+            before = len(p.get("photos") or [])
+            try:
+                got = photos.gather(p.get("sources") or [], limit=int(self.cfg.get("images", "photo_limit", 16) or 16),
+                                    per_source=int(self.cfg.get("images", "photos_per_source", 12) or 12),
+                                    skip_cover=self._no_cover_sources())
+            except Exception as e:  # noqa: BLE001
+                log.warning("Fotoğraflar alınamadı (%s): %s", p["id"], e)
+                continue
+            if len(got) <= before:          # yeni fotoğraf yoksa mevcutlar korunur
+                continue
+            if self._attach_photos(p, draft=False, got=got):
+                log.info("Daha çok fotoğraf: %s (%d → %d)", p["id"], before, len(p["photos"]))
                 self.store.save_post(p)
 
     def reselect_pending(self) -> None:
@@ -2007,15 +2017,16 @@ class App:
                 log.warning("Fotoğraflı kapak üretilemedi (%s), yazılı kapak kullanılacak: %s", d.get("id"), e)
         d["image"] = self.vis.make_hero(d, hero)
 
-    def _attach_photos(self, d: dict, draft: bool) -> bool:
+    def _attach_photos(self, d: dict, draft: bool, got: list[dict] | None = None) -> bool:
         """Kaynaklardan gerçek fotoğrafları al ve kapağı üret. Bulunamazsa False."""
         cfg = self.cfg
         if not cfg.get("images", "photos", True) or cfg.mock or cfg.fixtures_dir:
             return False
         try:
-            got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 16) or 16),
-                                per_source=int(cfg.get("images", "photos_per_source", 12) or 12),
-                                skip_cover=self._no_cover_sources())
+            if got is None:
+                got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 16) or 16),
+                                    per_source=int(cfg.get("images", "photos_per_source", 12) or 12),
+                                    skip_cover=self._no_cover_sources())
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False

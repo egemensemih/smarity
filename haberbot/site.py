@@ -18,6 +18,7 @@ from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
 ASSET_V = "13"
+FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
@@ -235,7 +236,9 @@ class SiteBuilder:
             "title_disp": nobr_hyphen(title),
             "short_disp": nobr_hyphen(short),
             "kicker_disp": p.get("kicker") or category_label(cat),
-            "hero_stat": (p.get("hero_stat") or "").strip(),
+            # yurtdışı fiyatı öne çıkarılmaz (Türkiye'ye haber yapıyoruz): "64.050 $" gibi rakamlar kutuda gösterilmez
+            "hero_stat": "" if FOREIGN_PRICE.search(f"{p.get('hero_stat') or ''} {p.get('hero_stat_label') or ''}")
+            else (p.get("hero_stat") or "").strip(),
             "hero_stat_label": (p.get("hero_stat_label") or "").strip(),
             "ai_image": (p.get("image") or {}).get("source") == "ai",
             "cover_image": (p.get("image") or {}).get("source") == "cover",

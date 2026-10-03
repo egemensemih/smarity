@@ -171,6 +171,7 @@ def test_attach_cover_slides_inline_and_buttons():
         # site: ana görsel yazısız fotoğrafın kendisi; diğer fotoğraflar ve grafik paragraf paragraf metnin içinde
         from haberbot.site import SiteBuilder
         view = SiteBuilder(cfg)._post_view(p)
+        assert view["hero_stat"] == ""                                     # "15 bin €" yurtdışı fiyatı öne çıkarılmaz
         assert view["cover_photo"]["file"] == "p1-g0.webp" and view["disp"]["file"] == "p1-g0.webp"
         assert view["img"] == "/img/p1-g0.webp" and view["slides"] == []
         assert view["body_html"].count('<figure class="inl') == 4 and 'class="inl graphic"' in view["body_html"]
@@ -214,6 +215,24 @@ def test_small_or_graphic_photos_get_type_cover():
         view = SiteBuilder(cfg)._post_view(p)
         assert view["disp"]["kind"] == "art" and view["slides"] == []        # küçük fotoğraf ana görsel olmaz
         assert view["body_html"].count('<figure class="inl') == 2 and 'class="inl graphic"' in view["body_html"]
+
+
+def test_more_photos_only_when_more_found():
+    with _App() as (cfg, a):
+        a.store.save_post(_post())
+        shot = lambda i: {"image": _photo("#446", seed=i), "src": f"https://x/{i}.jpg", "credit": "Marka",  # noqa: E731
+                          "page": "https://brand.com/press", "alt": "", "kind": "body", "graphic": False}
+        appmod.photos.gather = lambda *a_, **k: [shot(0), shot(1)]
+        a.backfill_photos(5)
+        assert len(a.store.load_post("p1")["photos"]) == 2
+        appmod.photos.gather = lambda *a_, **k: [shot(5)]                 # daha az fotoğraf: dokunma
+        a.more_photos()
+        assert [r["src"] for r in a.store.load_post("p1")["photos"]] == ["https://x/0.jpg", "https://x/1.jpg"]
+        a.state["more_photos"] = []
+        appmod.photos.gather = lambda *a_, **k: [shot(i) for i in range(7)]   # daha çok: 4'ü yerel, 3'ü kaynaktan
+        a.more_photos()
+        ph = a.store.load_post("p1")["photos"]
+        assert len(ph) == 7 and sum(1 for r in ph if r.get("file")) == 4 and sum(1 for r in ph if r.get("remote")) == 3
 
 
 def test_migrate_old_layout():
