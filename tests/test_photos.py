@@ -263,6 +263,12 @@ def test_wikipedia_fallback_and_missing_photo_fill():
             assert SiteBuilder(cfg)._post_view(p)["disp"]["kind"] == "photo"
             a.fill_missing_photos()                                       # artık fotoğraflı: tekrar denenmez
             assert a.store.load_post("p1")["photos"] == p["photos"]
+            # konuyla eşleşmeyen Wikipedia görseli (haber X değil başka bir şirketle ilgili) kaldırılır
+            a.store.save_post({**a.store.load_post("p1"), "entities": ["Manus"]})
+            a.recheck_wiki_photos()
+            q = a.store.load_post("p1")
+            assert "photos" not in q and not q.get("photos_removed") and q["image"]["source"] == "cover"
+            assert a._photo_names({"entities": ["Manus"], "tags": ["Manus", "Tencent"]}) == ["Manus"]
     finally:
         photos.gather, photos.wiki_photo = real_gather, real_wiki
         appmod.photos.gather = real_gather

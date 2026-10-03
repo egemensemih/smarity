@@ -2038,11 +2038,37 @@ class App:
     @staticmethod
     def _photo_names(d: dict) -> list[str]:
         """Kaynaklarda fotoğraf yoksa Wikipedia'da aranacak adlar: haberin şirketi / ürünü / kişisi."""
-        return list(dict.fromkeys((d.get("entities") or []) + (d.get("tags") or [])[:3]))
+        ents = [e for e in d.get("entities") or [] if e]      # yalnızca haberin asıl konusu (etiketteki yan şirketler değil)
+        return ents or list((d.get("tags") or [])[:3])
 
     @staticmethod
     def _has_display_photo(p: dict, folder) -> bool:
         return any(r.get("file") and (r.get("w") or 0) >= 600 and (folder / r["file"]).exists() for r in p.get("photos") or [])
+
+    def recheck_wiki_photos(self) -> None:
+        """Tek seferlik: Wikipedia görseli haberin asıl konusuyla eşleşmiyorsa (ör. Manus haberine Tencent logosu) kaldır."""
+        if self.state.get("wiki_fix_v") == 1:
+            return
+        self.state["wiki_fix_v"] = 1
+        for p in self.store.posts():
+            ph = p.get("photos") or []
+            ents = [e.lower() for e in p.get("entities") or [] if e]
+            if not ph or not ents or any(r.get("credit") != "Wikipedia" for r in ph):
+                continue
+            alt = (ph[0].get("alt") or "").lower()
+            if any(e in alt or alt in e for e in ents):
+                continue
+            for f in self.store.gallery_files(p["id"], draft=False):
+                f.unlink(missing_ok=True)
+            p.pop("photos", None)
+            p["image"] = {"source": "cover"}
+            p["photos_filled"] = iso(now_utc())
+            try:
+                self._make_og(p)                       # paylaşım görselinde de eski fotoğraf kalmasın
+            except Exception as e:  # noqa: BLE001
+                log.warning("Paylaşım görseli yenilenemedi (%s): %s", p["id"], e)
+            self.store.save_post(p)
+            log.info("Konuyla eşleşmeyen Wikipedia görseli kaldırıldı: %s (%s)", p["id"], ph[0].get("alt"))
 
     def fill_missing_photos(self, per_run: int = 8) -> None:
         """Tek seferlik + sürekli: sitede fotoğrafsız görünen haberler için yeniden fotoğraf ara
@@ -2270,6 +2296,7 @@ class App:
                 log.exception("Metin/ilgi puanı hatası: %s", e)
             try:
                 self.more_photos()
+                self.recheck_wiki_photos()
                 self.fill_missing_photos()
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
             except Exception as e:  # noqa: BLE001
