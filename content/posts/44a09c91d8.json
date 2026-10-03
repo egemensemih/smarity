@@ -65,14 +65,34 @@
     "message_id": 464
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "44a09c91d8-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Donald_Trump",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "layout": "manset",
-    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "slug": "trump-yapay-zeka-riskleri-gorusmesi",
   "published_at": "2026-09-29T11:13:03Z",
   "publish_mode": "manual",
   "photos_tried": "2026-10-02T11:20:27Z",
-  "path": "super-zeka/2026/09/trump-yapay-zeka-riskleri-gorusmesi"
+  "path": "super-zeka/2026/09/trump-yapay-zeka-riskleri-gorusmesi",
+  "photos_filled": "2026-10-03T14:34:50Z",
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Donald_Trump",
+      "alt": "Donald Trump",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "44a09c91d8-g0.webp",
+      "w": 1600,
+      "h": 2000
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-09-29T11:13:03Z"
 }

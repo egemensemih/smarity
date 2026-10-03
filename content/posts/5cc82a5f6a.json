@@ -64,14 +64,34 @@
     "message_id": 790
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "5cc82a5f6a-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/MacBook_Pro",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/MacBook_Pro_16_%28M1_Pro%2C_2021%29_-_Wikipedia.jpg/960px-MacBook_Pro_16_%28M1_Pro%2C_2021%29_-_Wikipedia.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "slug": "oled-ekranli-macbook-pro-ekim-kasim-cikis",
   "published_at": "2026-10-01T19:07:10Z",
   "publish_mode": "manual",
   "photos_tried": "2026-10-01T19:10:54Z",
-  "path": "teknoloji/2026/10/oled-ekranli-macbook-pro-ekim-kasim-cikis"
+  "path": "teknoloji/2026/10/oled-ekranli-macbook-pro-ekim-kasim-cikis",
+  "photos_filled": "2026-10-03T14:34:34Z",
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/MacBook_Pro_16_%28M1_Pro%2C_2021%29_-_Wikipedia.jpg/960px-MacBook_Pro_16_%28M1_Pro%2C_2021%29_-_Wikipedia.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/MacBook_Pro",
+      "alt": "MacBook Pro",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "5cc82a5f6a-g0.webp",
+      "w": 960,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-01T19:07:10Z"
 }
