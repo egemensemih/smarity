@@ -53,63 +53,13 @@
   "telegram": {
     "message_id": 373
   },
-  "photos": [
-    {
-      "file": "a04bb386d2-g0.webp",
-      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/-952x498w6/gsmarena_000.jpg",
-      "credit": "GSMArena",
-      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
-      "alt": "",
-      "w": 952,
-      "h": 498,
-      "kind": "og",
-      "graphic": false,
-      "cover_ok": true
-    },
-    {
-      "file": "a04bb386d2-g1.webp",
-      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_012.jpg",
-      "credit": "GSMArena",
-      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
-      "alt": "The Honor Magic9 comes in Black, Olive Green, Yellow and White",
-      "w": 1200,
-      "h": 549,
-      "kind": "body",
-      "graphic": false,
-      "cover_ok": true
-    },
-    {
-      "file": "a04bb386d2-g2.webp",
-      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_020.jpg",
-      "credit": "GSMArena",
-      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
-      "alt": "The Honor Magic9 Super Edition has an 11,000mAh battery",
-      "w": 1200,
-      "h": 504,
-      "kind": "body",
-      "graphic": false,
-      "cover_ok": true
-    },
-    {
-      "file": "a04bb386d2-g3.webp",
-      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_027.jpg",
-      "credit": "GSMArena",
-      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
-      "alt": "Honor Magic9 pricing",
-      "w": 1200,
-      "h": 634,
-      "kind": "body",
-      "graphic": true,
-      "cover_ok": false
-    }
-  ],
   "photos_v": 2,
   "image": {
     "source": "photo",
     "photo": "a04bb386d2-g0.webp",
     "credit": "GSMArena",
     "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
-    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/-952x498w6/gsmarena_000.jpg",
+    "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_012.jpg",
     "layout": "manset",
     "cover_v": 2
   },
@@ -119,5 +69,35 @@
   "cover_headline": "Honor Magic9 dev bataryalarla duyuruldu",
   "cover_highlight": "dev bataryalarla",
   "cover_line_v": 3,
-  "path": "teknoloji/2026/09/honor-magic9-ve-super-edition-tanitildi"
+  "path": "teknoloji/2026/09/honor-magic9-ve-super-edition-tanitildi",
+  "photos_vetted": "2026-10-04T12:50:19Z",
+  "photos_vet_v": 2,
+  "updated_at": "2026-10-04T12:50:34Z",
+  "photos_filled": "2026-10-04T12:50:54Z",
+  "photos": [
+    {
+      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_012.jpg",
+      "credit": "GSMArena",
+      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
+      "alt": "The Honor Magic9 comes in Black, Olive Green, Yellow and White",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a04bb386d2-g0.webp",
+      "w": 1200,
+      "h": 549
+    },
+    {
+      "src": "https://fdn.gsmarena.com/imgroot/news/26/09/honor-magic9-magic9-super-edition-official/inline/-1200/gsmarena_016.jpg",
+      "credit": "GSMArena",
+      "page": "https://www.gsmarena.com/honor_magic9_and_magic9_super_edition_announced-news-74793.php",
+      "alt": "Honor Magic9 and Magic9 Super Edition announced",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a04bb386d2-g1.webp",
+      "w": 1200,
+      "h": 500
+    }
+  ]
 }
