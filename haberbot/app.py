@@ -54,6 +54,7 @@ COMMANDS = [
 ]
 COMMANDS_VERSION = 4
 COVERLINE_V = 3               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
+PHOTO_VET_V = 2               # fotoğraf editörü ölçütleri değişince artır: son iki haftanın fotoğrafları yeniden denetlenir
 RESELECT_V = 1                # seçki ölçütleri değişince artır: onay bekleyen yığın bir kez yeniden elden geçer
 KEYBOARD_VERSION = 4          # yayındaki haber mesajlarının düğmeleri bu sürüme göre bir kez yenilenir
 HELP = """<b>Nasıl çalışır?</b>
@@ -2025,7 +2026,8 @@ class App:
 
     def _vet_photos(self, d: dict, got: list[dict]) -> list[dict]:
         """Yapay zeka fotoğraf editörü: kaynak sayfadan gelen görsellerden habere ait olmayanları (reklam, alışveriş
-        önerisi, başka haberin küçük resmi…) ayıklar ve en iyi görseli başa alır. Yanıt alınamazsa liste olduğu gibi kalır."""
+        önerisi, başka haberin küçük resmi…) ve üstüne başlık / yazı basılmış olanları ayıklar, en iyi görseli başa alır.
+        Yanıt alınamazsa liste olduğu gibi kalır."""
         if not got or not self.llm or not self.cfg.get("images", "vet_photos", True):
             return got
         try:
@@ -2036,22 +2038,28 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraf editörü yanıt vermedi, fotoğraflar ayıklanmadan kullanılacak: %s", str(e)[:160])
             return got
-        keep = [int(i) for i in out.get("keep") or [] if str(i).lstrip("-").isdigit() and 0 <= int(i) < len(got)]
-        keep = list(dict.fromkeys(keep))
-        dropped = len(got) - len(keep)
-        if dropped:
-            log.info("Fotoğraf editörü %d görseli habere ait bulmadı (%s)", dropped, d.get("id"))
+        idx = lambda xs: [int(i) for i in xs or [] if str(i).lstrip("-").isdigit() and 0 <= int(i) < len(got)]  # noqa: E731
+        texty, wanted = set(idx(out.get("text"))), list(dict.fromkeys(idx(out.get("keep"))))
+        keep = [i for i in wanted if i not in texty]
+        if len(keep) < len(got):
+            log.info("Fotoğraf editörü %d görseli ayıkladı: %d ilgisiz, %d üzerinde yazı var (%s)", len(got) - len(keep),
+                     len(set(range(len(got))) - set(wanted) - texty), len(texty), d.get("id"))
         return [got[i] for i in keep]
 
-    def vet_existing_photos(self, per_run: int = 6) -> None:
-        """Son iki haftanın haberlerindeki fotoğrafları fotoğraf editöründen bir kez geçir (reklam / ilgisiz görsel temizliği)."""
+    def vet_existing_photos(self, per_run: int = 10) -> None:
+        """Son iki haftanın haberlerindeki fotoğrafları fotoğraf editöründen bir kez geçir (reklam / ilgisiz / yazılı görsel
+        temizliği). En yeni haberler önce. Yazısız fotoğrafı kalmayan habere Wikipedia'da fotoğraf aranır."""
         if self.cfg.mock or not self.llm or not self.cfg.get("images", "vet_photos", True):
             return
         from PIL import Image
         folder = self.cfg.images_dir
         todo = [p for p in self.store.posts()
-                if p.get("photos") and not p.get("photos_vetted") and hours_since(p.get("published_at")) <= 24 * 14][:per_run]
+                if p.get("photos") and int(p.get("photos_vet_v") or 0) < PHOTO_VET_V
+                and hours_since(p.get("published_at")) <= 24 * 14][:per_run]
+        t0 = time.monotonic()
         for p in todo:
+            if time.monotonic() - t0 > 150:      # turu uzatmasın; kalanlar sonraki turda
+                break
             recs, ims = [], []
             for r in p["photos"]:
                 im = None
@@ -2066,7 +2074,7 @@ class App:
                     recs.append(r)
                     ims.append({"image": im})
             if not ims:
-                p["photos_vetted"] = iso(now_utc())
+                p["photos_vetted"], p["photos_vet_v"] = iso(now_utc()), PHOTO_VET_V
                 self.store.save_post(p)
                 continue
             before = len(ims)
@@ -2075,7 +2083,7 @@ class App:
                 return
             keep_ids = {id(x) for x in kept}
             new = [r for r, x in zip(recs, ims) if id(x) in keep_ids]
-            p["photos_vetted"] = iso(now_utc())
+            p["photos_vetted"], p["photos_vet_v"] = iso(now_utc()), PHOTO_VET_V
             if len(new) < before:
                 gone = {r.get("file") for r in p["photos"] if r not in new and r.get("file")}
                 for f in gone:
@@ -2083,14 +2091,17 @@ class App:
                 p["photos"] = new
                 if not new:
                     p.pop("photos", None)
-                if (p.get("image") or {}).get("photo") in gone or not new:
+                    if self._attach_photos(p, draft=False, got=[]):     # yazısız fotoğraf kalmadı: Wikipedia'da ara
+                        log.info("Yazılı görsellerin yerine Wikipedia fotoğrafı: %s", p["id"])
+                        gone = set()
+                if (p.get("image") or {}).get("photo") in gone or not p.get("photos"):
                     try:
                         self._build_cover(p, draft=False)
                         self._make_og(p)
                     except Exception as e:  # noqa: BLE001
                         log.warning("Kapak yenilenemedi (%s): %s", p["id"], e)
                 p["updated_at"] = iso(now_utc())
-                log.info("İlgisiz fotoğraflar kaldırıldı: %s (%d → %d)", p["id"], before, len(new))
+                log.info("İlgisiz / yazılı fotoğraflar kaldırıldı: %s (%d → %d)", p["id"], before, len(p.get("photos") or []))
             self.store.save_post(p)
 
     @staticmethod
@@ -2158,7 +2169,16 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False
-        got = self._vet_photos(d, got)
+        vetted = self._vet_photos(d, got)
+        if not vetted and not any(g.get("credit") == "Wikipedia" for g in got):
+            # kaynaklardaki fotoğrafların hepsi ilgisiz ya da üstü yazılı: haberin konusunun Wikipedia fotoğrafı
+            try:
+                w = photos.wiki_photo(self._photo_names(d))
+            except Exception as e:  # noqa: BLE001
+                log.warning("Wikipedia fotoğrafı alınamadı (%s): %s", d.get("id"), e)
+                w = None
+            vetted = self._vet_photos(d, [w]) if w else []
+        got = vetted
         if not got:
             return False
         folder = self._photo_dir(draft)

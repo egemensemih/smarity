@@ -335,6 +335,47 @@ def test_photo_editor_drops_unrelated_images():
         appmod.photos.gather = _REAL_GATHER
 
 
+def test_photo_editor_drops_images_with_headline_text():
+    # üstüne başlık basılmış görseller (ör. "TESLA SUPERCHARGER İSTASYONU AÇILDI") hiç gösterilmez
+    real_wiki = photos.wiki_photo
+    with _App() as (cfg, a):
+        class Editor:
+            def json(self, model, system, user, schema, max_tokens=0, effort=None, images=None):
+                assert "text" in schema["properties"]
+                n = len(images or [])
+                return {"keep": list(range(n)), "text": [0] if n > 1 else []}   # 0 numaranın üstünde başlık yazısı var
+        a.llm = Editor()
+        got = [{"image": _photo("#446", seed=i), "src": f"https://x/{i}.jpg"} for i in range(3)]
+        assert [g["src"] for g in a._vet_photos({"id": "d1", "title": "T", "summary": ""}, got)] == \
+            ["https://x/1.jpg", "https://x/2.jpg"]
+        # yayındaki haber: kapak yazılı görseldi → yazısız fotoğraf kapak olur
+        a.store.save_post(_post())
+        appmod.photos.gather = lambda *a_, **k: [{"image": _photo("#446", seed=i), "src": f"https://x/{i}.jpg", "credit": "M",
+                                                  "page": "https://p", "alt": "", "kind": "og" if i == 0 else "body",
+                                                  "graphic": False} for i in range(2)]
+        a.llm = None
+        a.backfill_photos(5)
+        assert a.store.load_post("p1")["image"]["photo"] == "p1-g0.webp"
+        a.llm = Editor()
+        a.vet_existing_photos()
+        p = a.store.load_post("p1")
+        assert [r["src"] for r in p["photos"]] == ["https://x/1.jpg"] and p["photos_vet_v"] == appmod.PHOTO_VET_V
+        assert p["image"]["source"] == "photo" and p["image"]["src"] == "https://x/1.jpg"
+        # bütün fotoğrafları yazılıysa haberin konusunun Wikipedia fotoğrafı aranır
+        class AllText(Editor):
+            def json(self, model, system, user, schema, max_tokens=0, effort=None, images=None):
+                n = len(images or [])
+                return {"keep": list(range(n)), "text": list(range(n)) if n > 1 else []}
+        a.llm = AllText()
+        photos.wiki_photo = lambda names: {"image": _photo("#335", seed=7), "src": "https://upload.wikimedia.org/t.jpg",
+                                           "credit": "Wikipedia", "page": "https://tr.wikipedia.org/wiki/T", "alt": "T",
+                                           "kind": "wiki", "graphic": False, "cover_ok": True}
+        assert a._attach_photos(p, draft=False)
+        assert [r["credit"] for r in p["photos"]] == ["Wikipedia"]
+        appmod.photos.gather = _REAL_GATHER
+    photos.wiki_photo = real_wiki
+
+
 def test_migrate_old_layout():
     with _App() as (cfg, a):
         cfg.images_dir.mkdir(parents=True, exist_ok=True)

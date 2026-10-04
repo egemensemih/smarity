@@ -387,7 +387,7 @@ def og_crop(im: Image.Image, out: Path, size=(1200, 630)) -> None:
     im.crop((x, y, x + tw, y + th)).save(out, "JPEG", quality=84, optimize=True, progressive=True)
 
 
-def thumb_jpeg(im: Image.Image, size: int = 384) -> bytes:
+def thumb_jpeg(im: Image.Image, size: int = 512) -> bytes:
     """Yapay zeka fotoğraf editörüne gönderilecek küçük kopya."""
     t = im.convert("RGB").copy()
     t.thumbnail((size, size))

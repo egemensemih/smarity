@@ -488,8 +488,9 @@ def coverline_user(posts: list[dict]) -> str:
 # ── Fotoğraf editörü: kaynak sayfadan gelen fotoğraflar habere mi ait? ──
 PHOTO_SCHEMA = {
     "type": "object",
-    "properties": {"keep": {"type": "array", "items": {"type": "integer"}}},
-    "required": ["keep"],
+    "properties": {"keep": {"type": "array", "items": {"type": "integer"}},
+                   "text": {"type": "array", "items": {"type": "integer"}}},
+    "required": ["keep", "text"],
     "additionalProperties": False,
 }
 
@@ -502,7 +503,13 @@ people, place or event the story is about, or a screenshot / chart / document of
 show at the top of the article (a clear, attractive photo of the main subject) to the least important.
 Drop everything else, in particular: advertisements and shopping/deal promos (unrelated products such as keychains,
 mice, scales, gadgets for sale), thumbnails of other articles, unrelated products or cars, logos and banners of the news
-outlet, author photos, app-store badges, generic stock images that do not show the subject. When unsure, drop it."""
+outlet, author photos, app-store badges, generic stock images that do not show the subject. When unsure, drop it.
+Return in "text" the numbers of ALL images (kept or not) that have words ADDED ON TOP of the picture by a publisher: a
+headline or title, a caption, a slogan, "NEW" / "LEAKED" / "BREAKING" style banners, price tags, big outlet logos, or a
+thumbnail / collage designed with words. Our site prints its own headline next to the image, so such images look like a
+second, clashing headline and are never shown. Text that is naturally part of the scene does NOT count (a sign, a license
+plate, a brand name or model badge on the product, an app on a phone screen, a slide on a stage behind a speaker, a
+screenshot of the product's own interface), and neither does a small, unobtrusive watermark in a corner."""
 
 
 def photo_user(title: str, summary: str, n: int) -> str:

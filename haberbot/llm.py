@@ -329,7 +329,7 @@ class MockLLM:
         if self.usage_cb:
             self.usage_cb(model, len(user) // 4, 300)
         if "keep" in schema.get("properties", {}):        # fotoğraf editörü: hepsi ilgili
-            return {"keep": list(range(len(images or [])))}
+            return {"keep": list(range(len(images or []))), "text": []}
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
         if "decisions" in schema.get("properties", {}):   # yayın yönetmeni: masanın puanına göre
