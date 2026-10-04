@@ -1,6 +1,5 @@
 {
   "id": "1fa2534ae4",
-  "status": "pending",
   "created_at": "2026-10-04T02:50:59Z",
   "title": "Google Gemini ücretsiz sürüm sınırları 9 Ekim'de değişiyor",
   "summary": "Google, 9 Ekim'den itibaren Gemini'ın ücretsiz katmanında Pro ve Flash modellerini kaldırarak ücretsiz kullanıcıları yalnızca Flash-Lite modeliyle sınırlandırıyor.",
@@ -70,17 +69,6 @@
     "Digital Trends",
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "Digital Trends",
-      "kind": "media",
-      "title": "Gemini’s free tier is getting a major downgrade on October 9",
-      "url": "https://www.digitaltrends.com/computing/geminis-free-tier-is-getting-a-major-downgrade-on-october-9/",
-      "published": "2026-10-04T02:39:20Z",
-      "summary": "Google is cutting free access to Gemini 3.1 Pro and 3.6 Flash, leaving non-paying users with Flash-Lite from October 9.",
-      "text": "Google is changing how its Gemini models are divided between free and paid accounts. Starting October 9, people without a Google AI subscription will be limited to Flash-Lite. AI Plus subscribers will eventually get Flash-Lite and Flash, while the more capable Pro model will require Google AI Pro or AI Ultra. Google says AI Plus users will receive an email explaining when the change reaches their accounts.\nFor free users, the biggest loss is Gemini 3.1 Pro. Gemini currently gives them varying access to Pro alongside Gemini 3.6 Flash, but both will disappear from the free tier once the new limits take effect. Free users will instead be restricted to Google’s lighter Flash-Lite model.\nThe change comes shortly after Google made headlines with the launch of its most powerful AI model yet, Gemini 4 Argon. The model has yet to reach general users, as Google is still testing it with U.S. government agencies and a small group of trusted partners before a wider rollout.\nGoogle is separating features from model access\nWith the new changes, the company is also introducing low, medium, and high effort settings for whichever models are included in your plan. Higher settings give Gemini more room to work through a problem, but they also consume more of your usage allowance. Deep Think remains exclusive to AI Pro and Ultra.\nNot every recent Gemini feature is moving behind a subscription. Google recently rolled out Skills to free users as well, letting people save instructions for tasks they repeatedly ask Gemini to perform.\nWhat do the different Gemini plans offer right now?\nThe free tier currently includes Gemini 3.6 Flash and limited Gemini 3.1 Pro access, alongside features such as Deep Research, Gemini Live, and image generation. Google AI Plus costs $4.99 per month and doubles Gemini usage limits while adding 400GB of storage, video generation, Daily Brief, and scheduled interactions.\nGoogle AI Pro costs $19.99 per month and raises usage limits further, while adding broader access to Google’s stronger models, Gemini inside Google apps, and 5TB of storage. AI Ultra starts at $99.99 per month and offers the highest model access, larger limits, more storage, and additional premium features."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 982
@@ -109,5 +97,8 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Güven seviyesi yüksek değil"
+  "slug": "google-gemini-ucretsiz-surum-sinirlamasi-9-ekim",
+  "published_at": "2026-10-04T09:27:15Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/google-gemini-ucretsiz-surum-sinirlamasi-9-ekim"
 }
