@@ -54,25 +54,14 @@
   "telegram": {
     "message_id": 414
   },
-  "photos": [
-    {
-      "file": "99b4e074ce-g0.webp",
-      "src": "https://www.donanimhaber.com/cache-v2/?t=20260928164208&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/210999/insan-eli-boyutunda-iste-cinlilerin-ustun-robot-eli210999_1.jpg",
-      "credit": "DonanımHaber",
-      "page": "https://www.donanimhaber.com/insan-eli-boyutunda-iste-cinlilerin-ustun-robot-eli--210999",
-      "alt": "",
-      "w": 720,
-      "h": 405,
-      "kind": "body",
-      "graphic": false,
-      "cover_ok": true
-    }
-  ],
   "photos_v": 2,
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "99b4e074ce-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://en.wikipedia.org/wiki/Unitree_Robotics",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Unitree_Building_03.jpg/960px-Unitree_Building_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "inovasyon-3",
     "cover_v": 2
   },
   "slug": "unitree-dex5-s-robot-eli-tanitildi",
@@ -81,5 +70,22 @@
   "cover_headline": "Unitree robot eli 6.500 dolar",
   "cover_highlight": "6.500 dolar",
   "cover_line_v": 3,
-  "path": "inovasyon/2026/09/unitree-dex5-s-robot-eli-tanitildi"
+  "path": "inovasyon/2026/09/unitree-dex5-s-robot-eli-tanitildi",
+  "photos_vetted": "2026-10-04T12:32:50Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Unitree_Building_03.jpg/960px-Unitree_Building_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Unitree_Robotics",
+      "alt": "Unitree Robotics",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "99b4e074ce-g0.webp",
+      "w": 960,
+      "h": 1280
+    }
+  ],
+  "updated_at": "2026-10-04T12:32:57Z"
 }
