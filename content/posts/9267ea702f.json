@@ -63,27 +63,13 @@
   "telegram": {
     "message_id": 596
   },
-  "photos": [
-    {
-      "file": "9267ea702f-g0.webp",
-      "src": "https://ares.shiftdelete.net/2026/09/Anthropic-ve-SpaceX.webp",
-      "credit": "ShiftDelete.Net",
-      "page": "https://shiftdelete.net/anthropic-ve-spacex-84-5-milyar-dolarlik-yapay-zeka-anlasmasi-imzaladi",
-      "alt": "",
-      "w": 1280,
-      "h": 720,
-      "kind": "og",
-      "graphic": false,
-      "cover_ok": true
-    }
-  ],
   "photos_v": 2,
   "image": {
     "source": "photo",
     "photo": "9267ea702f-g0.webp",
-    "credit": "ShiftDelete.Net",
-    "page": "https://shiftdelete.net/anthropic-ve-spacex-84-5-milyar-dolarlik-yapay-zeka-anlasmasi-imzaladi",
-    "src": "https://ares.shiftdelete.net/2026/09/Anthropic-ve-SpaceX.webp",
+    "credit": "Wikipedia",
+    "page": "https://en.wikipedia.org/wiki/Anthropic",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
     "cover_v": 2
   },
@@ -92,5 +78,22 @@
   "slug": "anthropic-spacex-yapay-zeka-anlasmasi",
   "published_at": "2026-09-30T15:29:54Z",
   "publish_mode": "manual",
-  "path": "super-zeka/2026/09/anthropic-spacex-yapay-zeka-anlasmasi"
+  "path": "super-zeka/2026/09/anthropic-spacex-yapay-zeka-anlasmasi",
+  "photos_vetted": "2026-10-04T11:49:37Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Anthropic",
+      "alt": "Anthropic",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "9267ea702f-g0.webp",
+      "w": 960,
+      "h": 989
+    }
+  ],
+  "updated_at": "2026-10-04T11:49:44Z"
 }
