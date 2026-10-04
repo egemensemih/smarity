@@ -41,7 +41,7 @@
       "rejected": 10
     },
     "Anadolu Ajansı": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 14
     },
     "GamesIndustry.biz": {
@@ -326,12 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T06:34:40Z",
-      "id": "c92e1b4717",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-30T06:35:42Z",
       "id": "c92e1b4717",
@@ -2124,6 +2118,12 @@
       "t": "2026-10-04T09:27:17Z",
       "id": "08c89ed2e0",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-04T09:52:57Z",
+      "id": "563270197f",
+      "ok": true,
       "manual": true
     }
   ]
