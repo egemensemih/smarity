@@ -296,6 +296,45 @@ def test_english_title_is_rewritten():
         assert len(calls) == 2 and "Türkçe olmalı" in calls[1] and not looks_english(res["title"])
 
 
+def test_photo_editor_drops_unrelated_images():
+    # sayfadaki reklam / alışveriş bloğu ve başka siteye giden bağlantıdaki görseller aday olmaz
+    html = """<html><body><article class="post-content">
+      <p><img src="https://site.com/byd-seal-07.jpg" width="1200"></p>
+      <div class="wt-shopping-box"><img src="https://site.com/anahtarlik-mouse.jpg" width="1200"></div>
+      <a href="https://www.hepsiburada.com/x"><img src="https://site.com/kampanya.jpg" width="1200"></a>
+      <a href="https://site.com/byd-big.jpg"><img src="https://site.com/byd-2.jpg" width="1200"></a>
+    </article></body></html>"""
+    urls = [c["url"] for c in photos.candidates(html, "https://site.com/haber")]
+    assert urls == ["https://site.com/byd-seal-07.jpg", "https://site.com/byd-2.jpg"]
+    with _App() as (cfg, a):
+        class Editor:
+            seen = []
+
+            def json(self, model, system, user, schema, max_tokens=0, effort=None, images=None):
+                Editor.seen.append(len(images or []))
+                return {"keep": [2, 0, 9]}                    # 1 numara ilgisiz; 9 yok sayılır
+        a.llm = Editor()
+        got = [{"image": _photo("#446", seed=i), "src": f"https://x/{i}.jpg"} for i in range(3)]
+        kept = a._vet_photos({"id": "d1", "title": "BYD Seal 07", "summary": "s"}, got)
+        assert [g["src"] for g in kept] == ["https://x/2.jpg", "https://x/0.jpg"] and Editor.seen == [3]
+        # yayındaki haberin fotoğrafları da bir kez denetlenir; ilgisiz olan silinir
+        a.store.save_post(_post())
+        appmod.photos.gather = lambda *a_, **k: [{"image": _photo("#446", seed=i), "src": f"https://x/{i}.jpg", "credit": "M",
+                                                  "page": "https://p", "alt": "", "kind": "body", "graphic": False}
+                                                 for i in range(3)]
+        a.llm = None
+        a.backfill_photos(5)
+        assert len(a.store.load_post("p1")["photos"]) == 3
+        a.llm = Editor()
+        a.vet_existing_photos()
+        p = a.store.load_post("p1")
+        assert [r["src"] for r in p["photos"]] == ["https://x/0.jpg", "https://x/2.jpg"] and p["photos_vetted"]
+        assert not (cfg.images_dir / "p1-g1.webp").exists()
+        a.vet_existing_photos()                                    # ikinci kez denetlenmez
+        assert Editor.seen == [3, 3]
+        appmod.photos.gather = _REAL_GATHER
+
+
 def test_migrate_old_layout():
     with _App() as (cfg, a):
         cfg.images_dir.mkdir(parents=True, exist_ok=True)

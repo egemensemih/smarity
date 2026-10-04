@@ -122,6 +122,21 @@ def test_home_one_story_per_company_in_showcase():
         assert ents.count("Honor") == 1
 
 
+def test_drought_lets_best_near_miss_through():
+    with _App() as (cfg, a):
+        a.quiet = lambda: False
+        queue = [_q("Notable gadget launch", 7, ["Foo"]), _q("Another one", 7, ["Bar"]), _q("Dup story", 7, ["Baz"])]
+        dec = lambda: {0: {"action": "skip", "target": "", "must_read": 7, "reason": ""},  # noqa: E731
+                       1: {"action": "hold", "target": "", "must_read": 7, "reason": ""},
+                       2: {"action": "skip", "target": "p01", "must_read": 7, "reason": ""}}
+        a.state["last_draft_at"] = iso(now_utc())                    # az önce haber geldi: kural devrede değil
+        out = a._guard(queue, dec(), slots=2, min_score=8, covered=a._covered(48))
+        assert [out[i]["action"] for i in range(3)] == ["skip", "hold", "skip"]
+        a.state["last_draft_at"] = iso(now_utc() - timedelta(hours=4))  # 4 saattir haber yok
+        out = a._guard(queue, dec(), slots=2, min_score=8, covered=a._covered(48))
+        assert sum(out[i]["action"] == "publish" for i in range(3)) == 1 and out[2]["action"] == "skip"
+
+
 def test_daily_target_and_backlog_reselection():
     with _App() as (cfg, a):
         cfg.raw.setdefault("editorial", {})["daily_target"] = 2

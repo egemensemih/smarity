@@ -16,7 +16,8 @@ from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
-from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, SEO_SCHEMA, TRIAGE_SCHEMA,
+from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, PHOTO_SCHEMA, SEO_SCHEMA, TRIAGE_SCHEMA,
+                      photo_system, photo_user,
                       WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
@@ -427,6 +428,10 @@ class App:
         (isteğe bağlı) şirket sınırı."""
         cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
         today_n, target = self.store.count(self.today(), "drafts"), self._daily_target()
+        # Kuraklık kuralı: gündüz 3 saattir hiç haber gelmediyse, eşiğin bir altındaki en iyi aday da yazılır
+        # (seçicilik sürer ama akış tamamen durmaz)
+        last = self.state.get("last_draft_at")
+        drought = not self.quiet() and (last is None or hours_since(last) >= 3) and today_n < target
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -456,6 +461,9 @@ class App:
                     else:
                         round_targets.add(x["target"])
                     continue
+            if (drought and x["action"] in ("skip", "hold") and not x.get("target") and mr >= min_score - 1
+                    and (s.get("duplicate_of") or "").removeprefix("s:") not in published):
+                x["action"] = "publish"          # kuraklık: eşiğin bir altındaki en iyi aday yazılabilir
             if x["action"] != "publish":
                 continue
             dup = (s.get("duplicate_of") or "").removeprefix("s:")
@@ -465,7 +473,11 @@ class App:
                 if ok:
                     round_targets.add(dup)
                 continue
-            if mr < min_score:
+            if mr < min_score and drought and mr >= min_score - 1 and used == 0 and x["action"] == "publish":
+                used += 1
+                drought = False
+                x["reason"] = (x.get("reason") or "") + " (uzun süredir haber yoktu)"
+            elif mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
             elif mr < 9 and today_n + used >= target:
                 x["action"], x["reason"] = "skip", f"günlük hedef ({target}) doldu; yalnızca çok büyük haberler"
@@ -703,6 +715,7 @@ class App:
             d["image"] = self.vis.make_hero(d, st.draft_image(did))
             self._image_feedback(d["image"])
         st.bump(self.today(), "drafts")
+        self.state["last_draft_at"] = iso(now_utc())
         decision, reason = policy.decide(cfg, self.state, self.stats, d)
         d["policy_reason"] = reason
         log.info("Taslak %s [%s] önem=%s güven=%s → %s (%s)", did, d["category"], d["importance"],
@@ -2035,6 +2048,76 @@ class App:
                 log.warning("Fotoğraflı kapak üretilemedi (%s), yazılı kapak kullanılacak: %s", d.get("id"), e)
         d["image"] = self.vis.make_hero(d, hero)
 
+    def _vet_photos(self, d: dict, got: list[dict]) -> list[dict]:
+        """Yapay zeka fotoğraf editörü: kaynak sayfadan gelen görsellerden habere ait olmayanları (reklam, alışveriş
+        önerisi, başka haberin küçük resmi…) ayıklar ve en iyi görseli başa alır. Yanıt alınamazsa liste olduğu gibi kalır."""
+        if not got or not self.llm or not self.cfg.get("images", "vet_photos", True):
+            return got
+        try:
+            thumbs = [photos.thumb_jpeg(g["image"]) for g in got]
+            out = self.llm.json(self.cfg.get("ai", "triage_model", "gemini-flash-lite-latest"), photo_system(),
+                                photo_user(d.get("title", ""), d.get("summary", ""), len(got)), PHOTO_SCHEMA,
+                                max_tokens=800, images=thumbs)
+        except Exception as e:  # noqa: BLE001
+            log.warning("Fotoğraf editörü yanıt vermedi, fotoğraflar ayıklanmadan kullanılacak: %s", str(e)[:160])
+            return got
+        keep = [int(i) for i in out.get("keep") or [] if str(i).lstrip("-").isdigit() and 0 <= int(i) < len(got)]
+        keep = list(dict.fromkeys(keep))
+        dropped = len(got) - len(keep)
+        if dropped:
+            log.info("Fotoğraf editörü %d görseli habere ait bulmadı (%s)", dropped, d.get("id"))
+        return [got[i] for i in keep]
+
+    def vet_existing_photos(self, per_run: int = 6) -> None:
+        """Son iki haftanın haberlerindeki fotoğrafları fotoğraf editöründen bir kez geçir (reklam / ilgisiz görsel temizliği)."""
+        if self.cfg.mock or not self.llm or not self.cfg.get("images", "vet_photos", True):
+            return
+        from PIL import Image
+        folder = self.cfg.images_dir
+        todo = [p for p in self.store.posts()
+                if p.get("photos") and not p.get("photos_vetted") and hours_since(p.get("published_at")) <= 24 * 14][:per_run]
+        for p in todo:
+            recs, ims = [], []
+            for r in p["photos"]:
+                im = None
+                if r.get("file") and (folder / r["file"]).exists():
+                    try:
+                        im = Image.open(folder / r["file"]).convert("RGB")
+                    except OSError:
+                        im = None
+                elif r.get("src"):
+                    im = photos.fetch_image(r["src"], r.get("page") or "")
+                if im is not None:
+                    recs.append(r)
+                    ims.append({"image": im})
+            if not ims:
+                p["photos_vetted"] = iso(now_utc())
+                self.store.save_post(p)
+                continue
+            before = len(ims)
+            kept = self._vet_photos(p, ims)
+            if kept is ims:                  # editör yanıt vermedi: sonra tekrar denenir
+                return
+            keep_ids = {id(x) for x in kept}
+            new = [r for r, x in zip(recs, ims) if id(x) in keep_ids]
+            p["photos_vetted"] = iso(now_utc())
+            if len(new) < before:
+                gone = {r.get("file") for r in p["photos"] if r not in new and r.get("file")}
+                for f in gone:
+                    (folder / f).unlink(missing_ok=True)
+                p["photos"] = new
+                if not new:
+                    p.pop("photos", None)
+                if (p.get("image") or {}).get("photo") in gone or not new:
+                    try:
+                        self._build_cover(p, draft=False)
+                        self._make_og(p)
+                    except Exception as e:  # noqa: BLE001
+                        log.warning("Kapak yenilenemedi (%s): %s", p["id"], e)
+                p["updated_at"] = iso(now_utc())
+                log.info("İlgisiz fotoğraflar kaldırıldı: %s (%d → %d)", p["id"], before, len(new))
+            self.store.save_post(p)
+
     @staticmethod
     def _photo_names(d: dict) -> list[str]:
         """Kaynaklarda fotoğraf yoksa Wikipedia'da aranacak adlar: haberin şirketi / ürünü / kişisi."""
@@ -2100,6 +2183,7 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False
+        got = self._vet_photos(d, got)
         if not got:
             return False
         folder = self._photo_dir(draft)
@@ -2295,6 +2379,7 @@ class App:
             except Exception as e:  # noqa: BLE001
                 log.exception("Metin/ilgi puanı hatası: %s", e)
             try:
+                self.vet_existing_photos()
                 self.more_photos()
                 self.recheck_wiki_photos()
                 self.fill_missing_photos()

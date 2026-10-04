@@ -93,6 +93,35 @@ def _ld_images(obj, out: list[str]) -> None:
                 out.append(it.get("url") or it.get("contentUrl") or "")
 
 
+# reklam / alışveriş / öneri bloklarının sınıf adlarında geçen sözcükler (bu blokların içindeki görseller habere ait değil)
+BAD_BLOCK = {"ad", "ads", "advert", "adverts", "advertisement", "adsbygoogle", "reklam", "banner", "sponsor", "sponsored",
+             "promo", "promotion", "affiliate", "commerce", "ecommerce", "shop", "shopping", "product", "products", "deal",
+             "deals", "kampanya", "campaign", "teaser", "outbrain", "taboola", "related", "recommended", "recommend",
+             "popular", "trending", "widget", "newsletter", "author", "avatar", "share", "comments", "subscribe", "firsat",
+             "alisveris", "indirim", "partner", "native"}
+
+
+def _bad_block(el, stop=None) -> bool:
+    """Görsel, haber metninin içindeki bir reklam / alışveriş / öneri bloğunda mı? (metin kökünün üstüne bakılmaz)"""
+    for anc in [el, *el.parents]:
+        if anc is stop or getattr(anc, "name", None) in (None, "[document]", "body", "html"):
+            break
+        names = " ".join([*(anc.get("class") or []), anc.get("id") or "", anc.get("data-ad") and "ad" or ""]).lower()
+        if set(re.split(r"[^a-z0-9]+", names)) & BAD_BLOCK:
+            return True
+    return False
+
+
+def _foreign_link(el, base_url: str) -> bool:
+    """Görsel başka bir siteye giden bir bağlantının içindeyse (alışveriş / reklam bağlantısı) habere ait değildir."""
+    a = el.find_parent("a")
+    href = (a.get("href") or "") if a else ""
+    if not href.startswith("http") or re.search(r"\.(jpe?g|png|webp|avif)(\?|$)", href, re.I):
+        return False
+    host = lambda u: ".".join(urlsplit(u).netloc.lower().split(".")[-2:])  # noqa: E731
+    return host(href) != host(base_url)
+
+
 def candidates(html: str, base_url: str, limit: int = 48) -> list[dict]:
     """Sayfadaki fotoğraf adayları: paylaşım görseli, yapılandırılmış veri, metin içi fotoğraflar."""
     from bs4 import BeautifulSoup
@@ -142,7 +171,7 @@ def candidates(html: str, base_url: str, limit: int = 48) -> list[dict]:
         for bad in root.find_all(["header", "footer", "nav", "aside", "form"]):
             bad.decompose()
         for img in root.find_all(["img", "source"]):
-            if img.find_parent(class_=re.compile(r"(author|avatar|related|recommend|share|comment|newsletter|promo|sponsor|widget)", re.I)):
+            if _bad_block(img, root) or _foreign_link(img, base_url):
                 continue
             srcset = img.get("data-srcset") or img.get("srcset") or img.get("data-lazy-srcset") or ""
             u, sw = _largest_src(srcset)
@@ -356,3 +385,12 @@ def og_crop(im: Image.Image, out: Path, size=(1200, 630)) -> None:
     y = max(0, min(nh - th, round((nh - th) * 0.4)))
     out.parent.mkdir(parents=True, exist_ok=True)
     im.crop((x, y, x + tw, y + th)).save(out, "JPEG", quality=84, optimize=True, progressive=True)
+
+
+def thumb_jpeg(im: Image.Image, size: int = 384) -> bytes:
+    """Yapay zeka fotoğraf editörüne gönderilecek küçük kopya."""
+    t = im.convert("RGB").copy()
+    t.thumbnail((size, size))
+    buf = io.BytesIO()
+    t.save(buf, "JPEG", quality=72)
+    return buf.getvalue()

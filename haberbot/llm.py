@@ -1,6 +1,7 @@
 """Yapay zeka istemcileri: Google Gemini (ücretsiz), Claude (isteğe bağlı) + test için sahte mod."""
 from __future__ import annotations
 
+import base64
 import json
 import re
 import time
@@ -67,8 +68,8 @@ class LLM:
         raise LLMError("Tekrar denemeler tükendi")
 
     def json(self, model: str, system: str, user: str, schema: dict,
-             max_tokens: int = 4000, effort: str | None = None) -> dict:
-        """Şemaya uyan JSON döndürür. Model/sürüm farklarına karşı kademeli geri çekilir."""
+             max_tokens: int = 4000, effort: str | None = None, images: list[bytes] | None = None) -> dict:
+        """Şemaya uyan JSON döndürür. Model/sürüm farklarına karşı kademeli geri çekilir. images: JPEG baytları."""
         use_effort = bool(effort) and "haiku" not in model
         variants = []
         oc = {"format": {"type": "json_schema", "schema": schema}}
@@ -83,7 +84,10 @@ class LLM:
                 "model": model,
                 "max_tokens": max_tokens,
                 "system": system,
-                "messages": [{"role": "user", "content": user}],
+                "messages": [{"role": "user", "content": user if not images else (
+                    [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
+                                                  "data": base64.b64encode(b).decode()}} for b in images]
+                    + [{"type": "text", "text": user}])}],
             }
             if oc_variant is not None:
                 body["output_config"] = oc_variant
@@ -205,10 +209,11 @@ class GeminiLLM:
         return [m for m in order if m not in self._busy] + [m for m in order if m in self._busy]
 
     def json(self, model: str, system: str, user: str, schema: dict,
-             max_tokens: int = 4000, effort: str | None = None) -> dict:
+             max_tokens: int = 4000, effort: str | None = None, images: list[bytes] | None = None) -> dict:
+        parts = [{"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(b).decode()}} for b in images or []]
         base = {
             "systemInstruction": {"parts": [{"text": system}]},
-            "contents": [{"role": "user", "parts": [{"text": user}]}],
+            "contents": [{"role": "user", "parts": parts + [{"text": user}]}],
         }
         gen = {"responseMimeType": "application/json", "maxOutputTokens": max(max_tokens, 8192)}
         variants = [
@@ -320,9 +325,11 @@ class MockLLM:
     def __init__(self, *a, **k):
         self.usage_cb = k.get("usage_cb")
 
-    def json(self, model, system, user, schema, max_tokens=4000, effort=None) -> dict:
+    def json(self, model, system, user, schema, max_tokens=4000, effort=None, images=None) -> dict:
         if self.usage_cb:
             self.usage_cb(model, len(user) // 4, 300)
+        if "keep" in schema.get("properties", {}):        # fotoğraf editörü: hepsi ilgili
+            return {"keep": list(range(len(images or [])))}
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
         if "decisions" in schema.get("properties", {}):   # yayın yönetmeni: masanın puanına göre

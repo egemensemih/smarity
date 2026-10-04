@@ -482,3 +482,27 @@ Return one line per id."""
 def coverline_user(posts: list[dict]) -> str:
     return "\n".join(f"{p['id']} | {p.get('title', '')} | {p.get('summary', '')} "
                      f"{' '.join((p.get('carousel_points') or [])[:3])}".rstrip() for p in posts)
+
+
+# ── Fotoğraf editörü: kaynak sayfadan gelen fotoğraflar habere mi ait? ──
+PHOTO_SCHEMA = {
+    "type": "object",
+    "properties": {"keep": {"type": "array", "items": {"type": "integer"}}},
+    "required": ["keep"],
+    "additionalProperties": False,
+}
+
+
+def photo_system() -> str:
+    return """You are the photo editor of a Turkish tech news site. You receive candidate images scraped from the source
+pages of ONE news story, numbered in the order they are attached (0, 1, 2, …), and the story's title and summary.
+Return in "keep" the numbers of the images that clearly belong to THIS story: the product, car, device, game, company,
+people, place or event the story is about, or a screenshot / chart / document of it. Order "keep" from the best image to
+show at the top of the article (a clear, attractive photo of the main subject) to the least important.
+Drop everything else, in particular: advertisements and shopping/deal promos (unrelated products such as keychains,
+mice, scales, gadgets for sale), thumbnails of other articles, unrelated products or cars, logos and banners of the news
+outlet, author photos, app-store badges, generic stock images that do not show the subject. When unsure, drop it."""
+
+
+def photo_user(title: str, summary: str, n: int) -> str:
+    return f"STORY TITLE: {title}\nSUMMARY: {summary}\nNUMBER OF IMAGES: {n} (numbered 0 to {n - 1} in order)"

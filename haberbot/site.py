@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "15"
+ASSET_V = "16"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -467,11 +467,8 @@ class SiteBuilder:
         n_feat = int((cfg.raw.get("home") or {}).get("featured_count") or seo.get("featured_count", 5) or 5)
         home = self._home(posts, n_feat)
         featured = home["featured"]
-        for p in featured:
-            if p["disp"].get("file"):
-                p["slide_bg"], p["slide_dark"] = edge_color(cfg.images_dir / p["disp"]["file"])
-            else:
-                p["slide_bg"], p["slide_dark"] = p["disp"]["base"], True
+        for p in featured:   # manşette tek, sakin bir zemin: görselden renk alınmaz (her slaytta başka renk olmasın)
+            p["slide_bg"], p["slide_dark"] = "#F5F5F7", False
         shown = set(home["shown"])
         rails = []
         for c in sorted(cats, key=lambda c: -c["count"]):
