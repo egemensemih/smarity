@@ -41,7 +41,7 @@
       "rejected": 10
     },
     "Anadolu Ajansı": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 14
     },
     "GamesIndustry.biz": {
@@ -53,7 +53,7 @@
       "rejected": 9
     },
     "TechCrunch": {
-      "approved": 22,
+      "approved": 23,
       "rejected": 11
     },
     "Egirisim": {
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T06:35:43Z",
-      "id": "b6fe756e9f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:35:44Z",
-      "id": "328038158f",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T06:35:45Z",
       "id": "e598cdab22",
@@ -2123,6 +2111,18 @@
     {
       "t": "2026-10-04T10:38:44Z",
       "id": "fd1e3cae18",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-04T15:33:19Z",
+      "id": "08e127aebd",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-04T15:33:22Z",
+      "id": "5775cb576e",
       "ok": true,
       "manual": true
     }
