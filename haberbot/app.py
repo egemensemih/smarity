@@ -387,13 +387,11 @@ class App:
                           "dup": (s.get("duplicate_of") or "").removeprefix("s:"),
                           "headlines": [f"{it['credit']}: {it['title']}" for it in q["items"]]})
         now_l = local(now_utc(), cfg.tz)
-        today_n = self.store.count(self.today(), "drafts")
-        target = self._daily_target()
         raw = None
         try:
             out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
                                 edit_system(self.brand, min_score),
-                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, today_n, target, covered[:90], cands),
+                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90], cands),
                                 EDIT_SCHEMA, max_tokens=6000)
             raw = {str(x.get("cid")): x for x in (out.get("decisions") or []) if isinstance(x, dict)}
         except LLMError as e:
@@ -417,21 +415,11 @@ class App:
             decisions[i] = x
         return self._guard(queue, decisions, slots, min_score, covered)
 
-    def _daily_target(self) -> int:
-        """Günlük yeni haber hedefi: aşılınca yalnızca çok büyük (önem ≥ 9) haberler yazılır."""
-        ed = lambda k, d: self.cfg.get("editorial", k, d)  # noqa: E731
-        return int(ed("max_drafts_per_day", 0) or 0) or int(ed("daily_target", 20) or 0) or 10 ** 6
-
     def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
                covered: list[dict]) -> dict[int, dict]:
-        """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, günlük hedef,
-        (isteğe bağlı) şirket sınırı."""
+        """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, (isteğe bağlı) şirket
+        sınırı. Günlük adet sınırı yoktur: eşiği geçen her haber gelir, geçemeyen gelmez."""
         cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
-        today_n, target = self.store.count(self.today(), "drafts"), self._daily_target()
-        # Kuraklık kuralı: gündüz 3 saattir hiç haber gelmediyse, eşiğin bir altındaki en iyi aday da yazılır
-        # (seçicilik sürer ama akış tamamen durmaz)
-        last = self.state.get("last_draft_at")
-        drought = not self.quiet() and (last is None or hours_since(last) >= 3) and today_n < target
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -461,9 +449,6 @@ class App:
                     else:
                         round_targets.add(x["target"])
                     continue
-            if (drought and x["action"] in ("skip", "hold") and not x.get("target") and mr >= min_score - 1
-                    and (s.get("duplicate_of") or "").removeprefix("s:") not in published):
-                x["action"] = "publish"          # kuraklık: eşiğin bir altındaki en iyi aday yazılabilir
             if x["action"] != "publish":
                 continue
             dup = (s.get("duplicate_of") or "").removeprefix("s:")
@@ -473,14 +458,8 @@ class App:
                 if ok:
                     round_targets.add(dup)
                 continue
-            if mr < min_score and drought and mr >= min_score - 1 and used == 0 and x["action"] == "publish":
-                used += 1
-                drought = False
-                x["reason"] = (x.get("reason") or "") + " (uzun süredir haber yoktu)"
-            elif mr < min_score:
+            if mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
-            elif mr < 9 and today_n + used >= target:
-                x["action"], x["reason"] = "skip", f"günlük hedef ({target}) doldu; yalnızca çok büyük haberler"
             elif cap and mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
                 x["action"], x["reason"] = "skip", "aynı şirketten son 24 saatte haber var"
             elif used >= slots:
@@ -715,7 +694,6 @@ class App:
             d["image"] = self.vis.make_hero(d, st.draft_image(did))
             self._image_feedback(d["image"])
         st.bump(self.today(), "drafts")
-        self.state["last_draft_at"] = iso(now_utc())
         decision, reason = policy.decide(cfg, self.state, self.stats, d)
         d["policy_reason"] = reason
         log.info("Taslak %s [%s] önem=%s güven=%s → %s (%s)", did, d["category"], d["importance"],
@@ -1554,7 +1532,6 @@ class App:
         st["reselect_try"] = int(st.get("reselect_try", 0)) + 1
         cfg = self.cfg
         min_score = int(cfg.get("editorial", "min_must_read", 8))
-        keep_max = int(cfg.get("editorial", "daily_target", 20) or 20)
         covered = [c for c in self._covered(48) if c["status"] != "pending"]
         scores: dict[str, tuple[str, int, str]] = {}
         for i in range(0, len(pend), 45):
@@ -1565,8 +1542,7 @@ class App:
             try:
                 out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
                                     edit_system(self.brand, min_score),
-                                    edit_user(local(now_utc(), cfg.tz).strftime("%Y-%m-%d %H:%M"), keep_max, 0, keep_max,
-                                              covered[:90], cands), EDIT_SCHEMA, max_tokens=8000)
+                                    edit_user(local(now_utc(), cfg.tz).strftime("%Y-%m-%d %H:%M"), len(chunk), covered[:90], cands), EDIT_SCHEMA, max_tokens=8000)
             except LLMError as e:
                 log.warning("Bekleyen taslaklar yeniden seçilemedi (sonra denenecek): %s", str(e)[:160])
                 return
@@ -1580,7 +1556,7 @@ class App:
                     scores[chunk[int(cid[1:]) - 1]["id"]] = (str(x.get("action") or ""), mr, clip(str(x.get("reason") or ""), 120))
         good = sorted((d for d in pend if d["id"] in scores and scores[d["id"]][0] in ("publish", "hold")
                        and scores[d["id"]][1] >= min_score), key=lambda d: -scores[d["id"]][1])
-        keep = {d["id"] for d in good[:keep_max]} | {d["id"] for d in pend if d["id"] not in scores}
+        keep = {d["id"] for d in good} | {d["id"] for d in pend if d["id"] not in scores}   # adet sınırı yok: eşiği geçen kalır
         culled = 0
         for d in pend:
             if d["id"] in keep:
@@ -1599,8 +1575,7 @@ class App:
         log.info("Bekleyen taslaklar yeni ölçütlerle elden geçirildi: %d kaldı, %d seçki dışı", len(pend) - culled, culled)
         if culled:
             self.notify(f"🧹 <b>Seçki daraltıldı</b>\nOnay bekleyen {len(pend)} haberden geniş okura hitap etmeyen {culled} "
-                        f"tanesi elendi; {len(pend) - culled} haber onayında. Bundan sonra günde yaklaşık "
-                        f"{self._daily_target()} haber gelecek (çok büyük haberler hedefi aşabilir).", silent=True)
+                        f"tanesi elendi; {len(pend) - culled} haber onayında.", silent=True)
 
     # ── ARAMA MOTORLARI ─────────────────────────────────────
     def queue_indexnow(self, url: str) -> None:

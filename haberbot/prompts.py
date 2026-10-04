@@ -64,7 +64,8 @@ We cover AI, consumer tech (phones, computers, cameras, audio, TVs, smart home, 
 Turkish startup ecosystem and the biggest names in gaming. We follow the global giants and premium brands closely (Apple,
 Samsung, Google, Microsoft, Sony, Meta, Amazon, NVIDIA, OpenAI, Anthropic, Tesla, SpaceX, BYD, Xiaomi and Huawei flagships,
 Nintendo, Canon, Nikon, Fujifilm, Leica, DJI, Bose, Sonos, Dyson, LG, the big car makers sold in Türkiye, TOGG…). We have a
-premium, quality feel and we publish FEW stories: only what many Turkish readers would actually click and talk about. We
+premium, quality feel and we are highly selective (quality, not quantity — there is no quota): only what many Turkish
+readers would actually click and talk about. We
 never publish the same development twice. You receive a batch of NEW ITEMS fetched from RSS feeds and a list of RECENT
 STORIES (published, pending, queued, and recently rejected or expired ones).
 
@@ -179,8 +180,8 @@ def edit_system(site_name: str, min_score: int) -> str:
     return f"""You are the editor-in-chief of "{site_name}", a Turkish-language, hand-curated daily tech briefing for a BROAD
 TURKISH AUDIENCE: ordinary people in Türkiye who like technology, not industry insiders. We cover AI, consumer tech (phones,
 computers, cameras, audio, TVs, smart home, wearables), cars/EVs, innovation, the Turkish startup ecosystem and the biggest
-names in gaming. We publish FEW stories — only what many Turkish readers would click and talk about — with a premium,
-quality feel: no very cheap or entry-level products, never two stories about the same thing. Several stories about the
+names in gaming. We are highly selective — we publish only what many Turkish readers would click and talk about — with a
+premium, quality feel: no very cheap or entry-level products, never two stories about the same thing. Several stories about the
 same company are fine when each is a distinct, newsworthy development (e.g. Apple's new iPhone and new Apple Watch).
 
 You receive COVERED stories (what we already published, what is waiting for approval, and what the editor rejected) and
@@ -207,17 +208,17 @@ or tax matters, trucks and fleet orders, trims, concepts), local news from other
 supercomputers, chip supply, factories, R&D centres, partnerships), niche gadgets from little-known brands, research
 papers and AI safety studies, rumors, teasers, reviews, opinions and minor updates.
 Rules:
-- At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest.
-- Respect the daily target: once PUBLISHED OR PENDING TODAY reaches it, publish only must_read ≥ 9 stories.
+- There is NO daily quota: judge every candidate only on its own merits, never by how many stories we already have
+  today. On a slow day publish very few (or none); on a big news day publish every story that truly qualifies.
+- At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest (they come
+  in the next round — holding is not rejecting).
 - Duplicates among candidates (same product or event): publish at most one of them.
 - target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
 - reason: ≤12 words in Turkish."""
 
 
-def edit_user(now: str, slots: int, today_count: int, daily_target: int, covered: list[dict],
-              candidates: list[dict]) -> str:
-    lines = [f"NOW: {now}", f"SLOTS: {slots}",
-             f"PUBLISHED OR PENDING TODAY: {today_count} (daily target about {daily_target})", "",
+def edit_user(now: str, slots: int, covered: list[dict], candidates: list[dict]) -> str:
+    lines = [f"NOW: {now}", f"SLOTS: {slots}", "",
              "COVERED (id | status | age | category | entities | title):"]
     if covered:
         for c in covered:

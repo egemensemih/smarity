@@ -51,9 +51,8 @@ editorial:
   # haberleri, yalnızca yurtdışını ilgilendiren araç/fiyat haberleri, B2B, araştırma, söylenti vb. elenir.
   min_importance: 7              # 1-10. Haber masasının aday eşiği
   min_must_read: 8               # 1-10. Yayın yönetmeninin yeni haber eşiği
-  daily_target: 20               # Günde yaklaşık kaç yeni haber; aşılınca yalnızca çok büyük (önem ≥ 9) haberler gelir
   max_per_company_per_day: 0     # Aynı şirketten 24 saatte en fazla kaç haber (0 = sınır yok)
-  max_drafts_per_run: 2          # Bir taramada en fazla kaç yeni haber taslağı yazılsın (haberler tek tek, düzenli gelsin)
+  max_drafts_per_run: 3          # Bir taramada aynı anda yazılan taslak (fazlası kaybolmaz, bir sonraki taramada gelir)
   max_drafts_per_day: 0          # Günlük üst sınır (0 = sınır yok)
   burst: 2                       # Günlük sınır varsa: günün başında sınırın önüne geçebilecek taslak sayısı
   triage_batch: 100              # Bir turda ayıklanan en fazla öğe (fazlası sonraki tura kalır, kaybolmaz)
