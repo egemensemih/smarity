@@ -64,30 +64,35 @@
   "telegram": {
     "message_id": 850
   },
-  "photos": [
-    {
-      "src": "https://egirisim.com/wp-content/uploads/2026/10/copilot.jpg",
-      "credit": "Egirisim",
-      "page": "https://egirisim.com/2026/10/02/microsoft-home-code-ve-autopilot-ile-yenilenen-copilotu-duyurdu/",
-      "alt": "Copilot",
-      "kind": "og",
-      "graphic": true,
-      "cover_ok": false,
-      "file": "428c506318-g0.webp",
-      "w": 1280,
-      "h": 720
-    }
-  ],
   "photos_v": 2,
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "428c506318-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Microsoft",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Aerial_Microsoft_West_Campus_August_2009.jpg/960px-Aerial_Microsoft_West_Campus_August_2009.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "slug": "microsoft-yenilenen-copilot-ve-autopilot-duyuruldu",
   "published_at": "2026-10-02T10:59:35Z",
   "publish_mode": "manual",
   "path": "super-zeka/2026/10/microsoft-yenilenen-copilot-ve-autopilot-duyuruldu",
-  "photos_vetted": "2026-10-04T10:46:18Z"
+  "photos_vetted": "2026-10-04T11:19:47Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Aerial_Microsoft_West_Campus_August_2009.jpg/960px-Aerial_Microsoft_West_Campus_August_2009.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Microsoft",
+      "alt": "Microsoft",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "428c506318-g0.webp",
+      "w": 960,
+      "h": 640
+    }
+  ],
+  "updated_at": "2026-10-04T11:19:56Z"
 }
