@@ -33,7 +33,7 @@
       "rejected": 35
     },
     "ShiftDelete.Net": {
-      "approved": 27,
+      "approved": 28,
       "rejected": 17
     },
     "Webtekno": {
@@ -42,7 +42,7 @@
     },
     "Anadolu Ajansı": {
       "approved": 7,
-      "rejected": 16
+      "rejected": 17
     },
     "GamesIndustry.biz": {
       "approved": 1,
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:13Z",
-      "id": "3e081f98ba",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:14Z",
-      "id": "198f145e09",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:16Z",
       "id": "cf9c22ad72",
@@ -2124,6 +2112,18 @@
       "t": "2026-10-05T16:13:11Z",
       "id": "690cb22a85",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T17:40:56Z",
+      "id": "e517713f3d",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T17:41:00Z",
+      "id": "c169e04c50",
+      "ok": true,
       "manual": true
     }
   ]
