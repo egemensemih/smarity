@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 20,
+      "approved": 22,
       "rejected": 10
     },
     "The Verge": {
@@ -30,14 +30,14 @@
     },
     "DonanımHaber": {
       "approved": 25,
-      "rejected": 28
+      "rejected": 29
     },
     "ShiftDelete.Net": {
-      "approved": 23,
-      "rejected": 15
+      "approved": 24,
+      "rejected": 16
     },
     "Webtekno": {
-      "approved": 17,
+      "approved": 18,
       "rejected": 10
     },
     "Anadolu Ajansı": {
@@ -162,7 +162,7 @@
     },
     "SamMobile": {
       "approved": 1,
-      "rejected": 3
+      "rejected": 4
     },
     "Meta": {
       "approved": 1,
@@ -326,42 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T06:35:59Z",
-      "id": "4d39238e70",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:36:00Z",
-      "id": "797e313207",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:36:01Z",
-      "id": "b2bda91026",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:36:02Z",
-      "id": "1e618d6731",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:36:03Z",
-      "id": "96bf2fa5d8",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T06:36:04Z",
-      "id": "ef8ccb5bf4",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T06:36:04Z",
       "id": "839798f8c2",
@@ -2124,6 +2088,42 @@
       "t": "2026-10-05T05:01:06Z",
       "id": "fe4cfaa7e4",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:07:49Z",
+      "id": "ef31b5d8b8",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:07:50Z",
+      "id": "50df7ecfd3",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:07:52Z",
+      "id": "727a5e79b3",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:07:55Z",
+      "id": "9d712c4247",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:07:57Z",
+      "id": "19d6ce3f76",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T08:08:00Z",
+      "id": "85cdf2132e",
+      "ok": false,
       "manual": true
     }
   ]
