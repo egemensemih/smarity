@@ -30,7 +30,7 @@
     },
     "DonanımHaber": {
       "approved": 27,
-      "rejected": 30
+      "rejected": 32
     },
     "ShiftDelete.Net": {
       "approved": 27,
@@ -150,7 +150,7 @@
     },
     "Chip Online": {
       "approved": 3,
-      "rejected": 7
+      "rejected": 8
     },
     "CarNewsChina": {
       "approved": 5,
@@ -326,24 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T09:18:11Z",
-      "id": "af8cc21b97",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T09:18:13Z",
-      "id": "cf6b654600",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T10:13:12Z",
-      "id": "57c5cdf981",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T10:13:26Z",
       "id": "52f08396ef",
@@ -2124,6 +2106,24 @@
       "t": "2026-10-05T12:05:35Z",
       "id": "5788083b01",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T13:36:25Z",
+      "id": "1512a64d89",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T13:36:35Z",
+      "id": "fac55bdda3",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T13:36:38Z",
+      "id": "1267aa00ea",
+      "ok": false,
       "manual": true
     }
   ]

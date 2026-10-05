@@ -1,6 +1,6 @@
 {
   "id": "1267aa00ea",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-05T13:11:56Z",
   "title": "WhatsApp güncelleme yapmayan telefonlar için erişimi engelliyor",
   "summary": "WhatsApp, sunucu tabanlı yeni bir hamleyle işletim sistemi güncellemeyen kullanıcıların uygulamaya erişimini engellemeye başladı.",
@@ -95,5 +95,6 @@
     "palette": "teknoloji-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "policy_reason": "Genel onay oranı %70 (<%85)",
+  "rejected_at": "2026-10-05T13:36:38Z"
 }
