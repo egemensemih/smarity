@@ -1,6 +1,6 @@
 {
   "id": "5f4f10bfb6",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-05T15:14:17Z",
   "title": "Windows 11 26H2 güncellemesi RAM tüketimini azaltıyor",
   "summary": "Microsoft'un Windows 11 için yayınladığı 26H2 güncellemesi, RAM tüketimini düşürürken düşük donanımlı bilgisayarlarda hız artışı sağlıyor.",
@@ -95,5 +95,6 @@
     "palette": "teknoloji-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %63 (<%85)"
+  "policy_reason": "Genel onay oranı %63 (<%85)",
+  "rejected_at": "2026-10-05T16:13:04Z"
 }

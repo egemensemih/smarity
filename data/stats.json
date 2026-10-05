@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 23,
-      "rejected": 10
+      "rejected": 11
     },
     "The Verge": {
       "approved": 14,
@@ -29,8 +29,8 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 28,
-      "rejected": 34
+      "approved": 29,
+      "rejected": 35
     },
     "ShiftDelete.Net": {
       "approved": 27,
@@ -326,24 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:29:49Z",
-      "id": "6b36a17bea",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:29:51Z",
-      "id": "09ac54682a",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:30:05Z",
-      "id": "9267ea702f",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:13Z",
       "id": "3e081f98ba",
@@ -2124,6 +2106,24 @@
       "t": "2026-10-05T15:06:37Z",
       "id": "8b54d55035",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T16:13:04Z",
+      "id": "5f4f10bfb6",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T16:13:10Z",
+      "id": "7674d81c95",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T16:13:11Z",
+      "id": "690cb22a85",
+      "ok": false,
       "manual": true
     }
   ]
