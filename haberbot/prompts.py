@@ -186,7 +186,7 @@ same company are fine when each is a distinct, newsworthy development (e.g. Appl
 
 You receive COVERED stories (what we already published, what is waiting for approval, and what the editor rejected) and
 CANDIDATES proposed by the news desk. Decide for EVERY candidate:
-- "publish": a new must-know story for a broad Turkish audience. Allowed only if must_read ≥ {min_score}.
+- "publish": a new story worth a broad Turkish audience's time. Allowed only if must_read ≥ {min_score}.
 - "update": the candidate is the same story or a direct follow-up of a PUBLISHED covered story AND it brings a substantial
   new development (official confirmation, a regulator or court acting, price/date/availability announced for the first
   time — above all for Türkiye —, a major new fact that changes the story). Put the covered story id in target. We will
@@ -199,14 +199,21 @@ must_read (1–10): would MANY ordinary Turkish readers who like technology want
 big tech, huge deals by household names); 8 clearly significant for a broad audience (a new product from a global giant or
 premium brand people in Türkiye can buy; a new car model sold in Türkiye or an iconic one; an AI feature many people will
 use; Turkish tech news that touches everyday life — TOGG, BTK/BDDK/KVKK rules, operators, phone prices and taxes —; the
-Turkish startup ecosystem's notable rounds, exits and founders); 7 noteworthy (credible detailed leaks about a hugely
-anticipated flagship, a flagship's Türkiye price); ≤6 routine — in particular: foreign startups' funding rounds and
+Turkish startup ecosystem's notable rounds, exits and founders; major corporate moves of household-name tech companies —
+a merger, a rename, a new CEO, big layoffs at Apple, Google, Meta, Microsoft, OpenAI, xAI, Tesla…); 7 solid and worth
+publishing (a notable launch or refresh from a well-known brand sold in Türkiye — a new Kindle, AirPods, Galaxy Watch,
+mid-tier phones from big brands —; a new feature in an app or service many Turks use daily — WhatsApp, Instagram,
+YouTube, Netflix, Spotify, Google Maps, iOS, Android —; credible, detailed reports about upcoming launches or events of
+household brands — Mark Gurman, Bloomberg, certification filings, official teasers, e.g. the date of Apple's next event —;
+a flagship's Türkiye price; Turkish tech data and reports such as TÜİK or BTK figures; a smaller Turkish startup round
+with a clear, interesting idea); ≤6 routine — in particular: foreign startups' funding rounds and
 acquisitions (unless a household name and a huge deal), games outside the biggest franchises (GTA, Call of Duty, EA Sports
 FC, Minecraft, Fortnite, Pokémon, Mario, Zelda, The Witcher, Elden Ring, Counter-Strike, Valorant, LoL…) and console
 hardware, season updates/DLC/previews/remasters, car news that only matters abroad (foreign-market prices, US-only charging
 or tax matters, trucks and fleet orders, trims, concepts), local news from other countries, B2B/enterprise (data centres,
 supercomputers, chip supply, factories, R&D centres, partnerships), niche gadgets from little-known brands, research
-papers and AI safety studies, rumors, teasers, reviews, opinions and minor updates.
+papers and AI safety studies, thin rumors and early leaks from unknown sources (accessory or case leaks, "might" stories),
+reviews, opinions and minor updates.
 Rules:
 - There is NO daily quota: judge every candidate only on its own merits, never by how many stories we already have
   today. On a slow day publish very few (or none); on a big news day publish every story that truly qualifies.

@@ -401,7 +401,7 @@ class App:
         for i, q in enumerate(queue):
             imp = int(q["story"].get("importance", 0))
             if raw is None:   # yedek: masanın puanı, yönetmen eşiğiyle
-                x = {"action": "publish" if imp >= min_score else "hold", "target": "", "must_read": imp,
+                x = {"action": "publish" if imp >= max(8, min_score) else "hold", "target": "", "must_read": imp,
                      "reason": "masa puanı"}
             else:
                 x = dict(raw.get(f"c{i + 1}") or {"action": "hold", "target": "", "must_read": 0, "reason": ""})
@@ -443,7 +443,7 @@ class App:
                     dup = (s.get("duplicate_of") or "").removeprefix("s:")
                     x["action"], x["target"] = ("update", dup) if dup in published else ("publish", "")
                 if x["action"] == "update":
-                    if mr < min_score - 1:
+                    if mr < max(7, min_score - 1):
                         x["action"], x["reason"] = "skip", x["reason"] or "yeni gelişme yeterince önemli değil"
                     elif x["target"] in round_targets or (x["target"] in refreshed and mr < 9):
                         x["action"], x["reason"] = "skip", "haber az önce güncellendi"
