@@ -1,6 +1,5 @@
 {
   "id": "70a60a3218",
-  "status": "pending",
   "created_at": "2026-10-05T18:20:53Z",
   "title": "OpenAI'dan ChatGPT ve Codex için metin filigranı",
   "summary": "OpenAI, yapay zeka çıktılarının tespiti için ChatGPT ve Codex servislerine görünmez metin filigranı eklemeye başlıyor.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "The Verge"
   ],
-  "source_texts": [
-    {
-      "credit": "The Verge",
-      "kind": "media",
-      "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
-      "published": "2026-10-05T18:08:39Z",
-      "summary": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain watermarking \"matched or exceeded\" other approaches like Google DeepMind's SynthID for text, which is also the basis for the watermarking Anthropic announced in August. Like OpenAI, Anthropic […]",
-      "text": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first.\nOpenAI is adding text watermarking in ChatGPT and Codex\nIt’s launching textGrain watermarking in the EU, but OpenAI says it won’t be the ‘global default’ yet.\nOpenAI says its textGrain watermarking “matched or exceeded” other approaches like Google DeepMind’s SynthID for text, which is also the basis for the watermarking Anthropic announced in August. Like OpenAI, Anthropic made the move to meet the requirements of the EU’s AI Act; however, not everyone was happy to learn about the addition.\nOpenAI also included scores from AI benchmarks showing similar performance from watermarked and unwatermarked text. But it notes that textGrain “does not guarantee reliable detection,” and says text watermarks don’t verify accuracy, determine who owns the text, measure how much a human contributed, or prove human authorship.\nRolling out text watermarking in the EU. Over the coming weeks, we will introduce text watermarking to eligible ChatGPT and Codex users across all plans in the EU only. We are not making text watermarking a global default at launch. This regional approach gives us room to learn from real-world use and feedback.\nEnabling opt-in watermarking for API customers. Starting today, API customers around the world will be able to opt in to watermarked text outputs for select models. This lets customers decide how watermarking fits their transparency obligations and the experiences they provide to users. We are also working with cloud partners to make watermarking available for OpenAI model outputs accessed through their services in the coming weeks.\nProviding detector access to researchers and expert organizations. Approved researchers and expert organizations can apply starting today. In accordance with the Code of Practice, access will be initially granted on a case-by-case basis to support evaluation and improvement of text provenance. The tool will report whether it detects an OpenAI watermark, without identifying the user or revealing their prompts or conversations. Given the risk of missed watermarks and false positives, we are not making it publicly available at launch."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1032
@@ -96,5 +84,8 @@
     "palette": "super-zeka-2",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %57 (<%85)"
+  "slug": "openai-chatgpt-codex-metin-filigrani",
+  "published_at": "2026-10-05T18:56:52Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/openai-chatgpt-codex-metin-filigrani"
 }
