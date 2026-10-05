@@ -37,7 +37,7 @@
       "rejected": 15
     },
     "Webtekno": {
-      "approved": 16,
+      "approved": 17,
       "rejected": 10
     },
     "Anadolu Ajansı": {
@@ -326,12 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T06:35:46Z",
-      "id": "707f85bd11",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T06:35:59Z",
       "id": "4d39238e70",
@@ -2124,6 +2118,12 @@
       "t": "2026-10-04T17:41:00Z",
       "id": "da6ee9342f",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-05T05:01:06Z",
+      "id": "fe4cfaa7e4",
+      "ok": true,
       "manual": true
     }
   ]
