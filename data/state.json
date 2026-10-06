@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816318,
+  "telegram_offset": 872816327,
   "last_collect": "2026-10-06T03:35:28Z",
   "last_summary_date": "2026-10-05",
   "mode_override": null,
@@ -835,12 +835,15 @@
       "tok_in": 251119,
       "tok_out": 27391,
       "cost_usd": 0.0,
-      "drafts": 4
+      "drafts": 4,
+      "rejected": 2,
+      "published": 4,
+      "approved": 4
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-06T02:49:33Z",
+  "last_build": "2026-10-06T03:49:28Z",
   "build_sig": "01b18924d9f12a3a",
   "commands_version": 4,
   "queue": [
@@ -884,8 +887,13 @@
       "held_at": "2026-10-06T03:05:30Z"
     }
   ],
-  "last_activity": "2026-10-05T18:57:02Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-06T03:46:06Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/teknoloji/2026/10/korkut-hava-savunma-sistemi-ukraynada-test-edildi/",
+    "https://smarity.com.tr/super-zeka/2026/10/wikimedia-openai-ajanlari-izinsiz-degisiklik/",
+    "https://smarity.com.tr/teknoloji/2026/10/ray-ban-meta-akilli-gozluk-guncellemesi/",
+    "https://smarity.com.tr/teknoloji/2026/10/apple-ekim-ayi-urun-lansmani/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
