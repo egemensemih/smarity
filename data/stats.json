@@ -30,7 +30,7 @@
     },
     "DonanımHaber": {
       "approved": 34,
-      "rejected": 36
+      "rejected": 37
     },
     "ShiftDelete.Net": {
       "approved": 30,
@@ -61,7 +61,7 @@
       "rejected": 0
     },
     "Polygon": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 11
     },
     "WIRED": {
@@ -105,7 +105,7 @@
       "rejected": 21
     },
     "Digital Trends": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 10
     },
     "TechRadar": {
@@ -213,7 +213,7 @@
       "rejected": 4
     },
     "9to5Google": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 3
     },
     "XDA": {
@@ -326,24 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:56Z",
-      "id": "cfbbc9b47e",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:57Z",
-      "id": "e1b77b963a",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:57Z",
-      "id": "9612968609",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:32:00Z",
       "id": "9f66fb4e02",
@@ -2124,6 +2106,24 @@
       "t": "2026-10-06T18:34:27Z",
       "id": "1b850ac935",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T20:52:47Z",
+      "id": "39592db5c7",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T20:53:04Z",
+      "id": "386ba6cf61",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T20:53:06Z",
+      "id": "241f2c1b22",
+      "ok": true,
       "manual": true
     }
   ]

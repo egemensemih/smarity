@@ -1,6 +1,5 @@
 {
   "id": "386ba6cf61",
-  "status": "pending",
   "created_at": "2026-10-06T19:20:50Z",
   "title": "Claude for Google Workspace duyuruldu",
   "summary": "Anthropic, Claude yapay zeka asistanını Google Docs, Sheets ve Slides uygulamalarına entegre eden yeni eklentisini duyurdu.",
@@ -71,26 +70,6 @@
     "Digital Trends",
     "9to5Google"
   ],
-  "source_texts": [
-    {
-      "credit": "Digital Trends",
-      "kind": "media",
-      "title": "Claude just stepped into Google Workspace with in-file editing, automated Sheets work, and smarter Slides",
-      "url": "https://www.digitaltrends.com/computing/claude-just-stepped-into-google-workspace-with-in-file-editing-automated-sheets-work-and-smarter-slides/",
-      "published": "2026-10-06T19:17:54Z",
-      "summary": "Anthropic's new add-on lets Claude read and edit your open Docs, Sheets, and Slides files, with approval controls.",
-      "text": "Gemini has enjoyed home-turf advantage in Google’s apps for over two years. Call it too late, but Claude just wandered onto the field.\nAnthropic’s new Claude for Google Workspace add-on, available in public beta across every paid plan, adds a sidebar to Docs, Sheets, and Slides that can read and edit your open file and provide answers based on it.\nWhat can Claude actually do inside my files?\nA lot, actually. Highlight something and Claude sees exactly what you picked. In Docs, it can polish a sentence, reformat a heading, and highlight the keywords in a pitch or a deck. Bigger rewrites, something that approaches the same idea from a different angle, show up as suggestion cards you can accept or ignore.\nSheets got me most curious, though. Claude can now write formulas, build pivot tables (quick summaries of raw rows), and native charts. If that’s not enough, Claude can use Python to do the heavy lifting and automatically update your Sheet with the clean results for complex tasks like merging tables or fixing errors.\nSlides get new pages built from your deck’s own layouts, plus a self-audit for overlap and unreadable text, which I’d say is the smartest touch.\nHow does it stack up against Gemini and ChatGPT?\nIt’s worth mentioning that Claude doesn’t change anything without your permission. Speaking with some experience, that’s the right setting for week one. An “Accept all edits” mode lets Claude run solo, something that heavy users will enable right away. To my dismay, the sidebar can’t touch other Drive files or Docs comments, and Slides charts arrive as images.\nComing back to what I mentioned at the beginning, Gemini has lived in Workspace side panels since June 2024, so Claude is the one catching up here. ChatGPT began showing Drive files beside its chat on August 13 and can update them, though that happens inside ChatGPT rather than Google’s own apps.\nClaude now covers both the in-file sidebar and chat-based editing, which, if you ask me, is one of the chatbot’s biggest advantages.\nRELATED COVERAGE:\n- Wikipedia says rogue OpenAI agents attacked its platforms and hammered its servers\n- A US state just approved an AI doctor. For now, it’ll only prescribe acne cures\n- Google may be teaching Pixel Search to think one step ahead\n- OpenAI is adding invisible watermarks to ChatGPT and Codex for users in the EU"
-    },
-    {
-      "credit": "9to5Google",
-      "kind": "media",
-      "title": "Claude launches Google Docs, Sheets, and Slides integration with sidebar and more",
-      "url": "https://9to5google.com/2026/10/06/claude-google-docs-sheet-slides/",
-      "published": "2026-10-06T19:10:00Z",
-      "summary": "If Gemini isn’t quite your cup of tea, Anthropic’s Claude now supports sidebar integration with Google Docs, Sheets, and Slides. more…",
-      "text": "If Gemini isn’t quite your cup of tea, Anthropic’s Claude now supports sidebar integration with Google Docs, Sheets, and Slides.\nYou can already use Gemini natively in Google Workspace apps, but those invested in Claude can now use their AI of choice inside of Google’s ecosystem through the Claude for Google Workspace add-on which is in public beta starting today. A sidebar opens up alongside your file in Docs, Sheets, or Slides and can assist in building out documents, making edits, and more.\nIn Google Docs, Anthropic says you can use Claude integration to fix spelling, rewrite portions of a document, or restyle sections, all without breaking existing formatting. In Sheets, you can have Claude write formulas or build tables using the context of the document, or even upload extra documents/spreadsheets to build something new in Sheets. In Slides, Claude can build new slides using existing layouts or themes or flag elements that might need to be updated. Gemini can do much of this but, as mentioned, this is useful for those already invested in Claude.\nThere’s an “ask before edits” mode where Claude will let you preview changes before they’re made.\nThe Claude for Google Workspace beta is available to all paid Claude users through the Google Workspace marketplace. There are also new Claude connectors for Docs, Sheets, and Slides that let you edit Google Workspace files directly from Claude itself just by pasting a file link into your conversation with the AI.\nMore on AI:\n- Claude can now send emails in Gmail, even without your approval\n- Google AI Edge Foresight for Mac turns scribbles into full notes using offline recordings\n- Claude Opus 5.5 and OpenAI GPT-6 Sol & Luna both launch today with lower costs\nFollow Ben: Twitter/X, Threads, Bluesky, and Instagram"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1068
@@ -116,5 +95,10 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %80 (<%85)"
+  "slug": "claude-icin-google-workspace",
+  "published_at": "2026-10-06T20:52:49Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/claude-icin-google-workspace",
+  "photos_vetted": "2026-10-06T20:53:25Z",
+  "photos_vet_v": 2
 }
