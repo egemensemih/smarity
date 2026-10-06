@@ -1,6 +1,5 @@
 {
   "id": "ed2f61ed68",
-  "status": "pending",
   "created_at": "2026-10-06T14:48:36Z",
   "title": "Apple TV 4K dörtlü HomePod ses desteği kazanabilir",
   "summary": "Apple'ın yeni yazılım kodlarında dört adet HomePod hoparlörün ev sineması için bağlanabileceğine işaret eden bulgular ortaya çıktı.",
@@ -72,17 +71,6 @@
     "MacRumors",
     "AppleInsider"
   ],
-  "source_texts": [
-    {
-      "credit": "MacRumors",
-      "kind": "media",
-      "title": "Apple TV 4K Rumored to Support Four HomePods for Surround Sound",
-      "url": "https://www.macrumors.com/2026/10/06/apple-tv-4k-four-homepods-rumor/",
-      "published": "2026-10-06T14:40:21Z",
-      "summary": "Last month, a proven leaker revealed that Apple has tested the ability to connect four HomePods to an Apple TV 4K for surround sound, with the HomePods intended to be arranged in front-left, front-right, rear-left, and rear-right positions. Now further evidence of this functionality has surfaced ahead of an announcement from Apple. First, the same leaker known as \"pdfu\" has uncovered additional code related to a four-HomePod surround sound system in the latest beta of audioOS, which is Apple's internal name for the HomePod's operating system. For example, on the third audioOS 27.2 beta, he…",
-      "text": "Last month, a proven leaker revealed that Apple has tested the ability to connect four HomePods to an Apple TV 4K for surround sound, with the HomePods intended to be arranged in front-left, front-right, rear-left, and rear-right positions. Now further evidence of this functionality has surfaced ahead of an announcement from Apple.\nFirst, the same leaker known as \"pdfu\" has uncovered additional code related to a four-HomePod surround sound system in the latest beta of audioOS, which is Apple's internal name for the HomePod's operating system. For example, on the third audioOS 27.2 beta, he said that \"Siri can match a speaker to its surround system.\"\nSecond, MacRumors contributor Aaron Perris discovered that the third beta of macOS 27.2 contains two new SF Symbols depicting a group of four speakers in a room. While the HomePod is not mentioned in the names of the symbols, one of them appears to show a basic top-down view of HomePods, and the other mentions that the four speakers are part of a home theater setup. The timing of these symbols being added by Apple suggests they could be related to the rumored four-HomePod surround sound functionality.\nApple plans to unveil new HomePod mini and Apple TV 4K models on Tuesday, October 13, according to Bloomberg's Mark Gurman, while he said that the full-sized HomePod will be updated \"eventually.\" However, it is unclear if this surround-sound functionality will require new HomePods. The leaker \"pdfu\" previously said that Apple tested two different setups, including four second-generation HomePods, and two second-generation HomePods in front positions paired with two unreleased speakers in rear positions.\nIt is also unclear if any existing Apple TV 4K models will support four HomePods, or if the functionality will be limited to the upcoming model.\nCurrently, you can set two HomePod or HomePod mini speakers as the default audio output on all Apple TV 4K models for stereo sound.\nWith new HomePod and Apple TV models on the horizon, and all of the mounting evidence across Apple's software code and symbols, it seems likely that Apple will unveil this new functionality fairly soon, barring any last-minute issues."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1059
@@ -135,5 +123,10 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Uyarı işareti var"
+  "home": "pin",
+  "home_at": "2026-10-06T15:28:40Z",
+  "slug": "apple-tv-4k-dortlu-homepod-destegi",
+  "published_at": "2026-10-06T15:28:40Z",
+  "publish_mode": "manual",
+  "path": "teknoloji/2026/10/apple-tv-4k-dortlu-homepod-destegi"
 }
