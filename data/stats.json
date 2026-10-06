@@ -25,7 +25,7 @@
       "rejected": 4
     },
     "Electrek": {
-      "approved": 9,
+      "approved": 11,
       "rejected": 11
     },
     "DonanımHaber": {
@@ -114,7 +114,7 @@
     },
     "Android Authority": {
       "approved": 7,
-      "rejected": 9
+      "rejected": 10
     },
     "SoundGuys": {
       "approved": 6,
@@ -326,24 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:53Z",
-      "id": "c08422ce1c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:54Z",
-      "id": "fa263d5352",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:55Z",
-      "id": "01ba8209d1",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:56Z",
       "id": "cfbbc9b47e",
@@ -2124,6 +2106,24 @@
       "t": "2026-10-06T15:28:43Z",
       "id": "268bc7ab35",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T18:34:23Z",
+      "id": "c0651bc286",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T18:34:26Z",
+      "id": "a2d77176b0",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T18:34:27Z",
+      "id": "1b850ac935",
+      "ok": false,
       "manual": true
     }
   ]
