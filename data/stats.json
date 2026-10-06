@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 24,
-      "rejected": 11
+      "rejected": 12
     },
     "The Verge": {
       "approved": 15,
@@ -21,7 +21,7 @@
       "rejected": 18
     },
     "Webrazzi": {
-      "approved": 11,
+      "approved": 12,
       "rejected": 4
     },
     "Electrek": {
@@ -29,15 +29,15 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 31,
+      "approved": 32,
       "rejected": 36
     },
     "ShiftDelete.Net": {
-      "approved": 29,
+      "approved": 30,
       "rejected": 17
     },
     "Webtekno": {
-      "approved": 19,
+      "approved": 20,
       "rejected": 10
     },
     "Anadolu Ajansı": {
@@ -57,7 +57,7 @@
       "rejected": 11
     },
     "Egirisim": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 0
     },
     "Polygon": {
@@ -85,7 +85,7 @@
       "rejected": 5
     },
     "Autocar": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 3
     },
     "VGC": {
@@ -113,7 +113,7 @@
       "rejected": 8
     },
     "Android Authority": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 9
     },
     "SoundGuys": {
@@ -149,7 +149,7 @@
       "rejected": 2
     },
     "Chip Online": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 8
     },
     "CarNewsChina": {
@@ -161,7 +161,7 @@
       "rejected": 11
     },
     "SamMobile": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 4
     },
     "Meta": {
@@ -245,7 +245,7 @@
       "rejected": 4
     },
     "Android Police": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 4
     },
     "AppleInsider": {
@@ -326,60 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:27Z",
-      "id": "0ebf920d27",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:28Z",
-      "id": "b79e4a3de0",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:30Z",
-      "id": "2e3dde6a81",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:30Z",
-      "id": "6323fb2556",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:32Z",
-      "id": "7f88f8a5fd",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:33Z",
-      "id": "f3c16282a9",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:34Z",
-      "id": "44942d2334",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:34Z",
-      "id": "9af1f04bff",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:42Z",
-      "id": "add7f81337",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:43Z",
       "id": "b97d641a38",
@@ -2123,6 +2069,60 @@
     {
       "t": "2026-10-06T07:44:45Z",
       "id": "01f9380499",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:33Z",
+      "id": "aa0852bb4e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:35Z",
+      "id": "44e38cb5f4",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:37Z",
+      "id": "05d260d90a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:38Z",
+      "id": "9cb93616e9",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:39Z",
+      "id": "2a93df903b",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:41Z",
+      "id": "0af3206948",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:43Z",
+      "id": "bffb1b7712",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:47Z",
+      "id": "8472bd7116",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T11:12:51Z",
+      "id": "595cd9ae3a",
       "ok": true,
       "manual": true
     }
