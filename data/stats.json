@@ -29,7 +29,7 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 32,
+      "approved": 33,
       "rejected": 36
     },
     "ShiftDelete.Net": {
@@ -69,7 +69,7 @@
       "rejected": 7
     },
     "IGN": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 13
     },
     "New Atlas": {
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:43Z",
-      "id": "b97d641a38",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:44Z",
-      "id": "796d62dada",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:45Z",
       "id": "c35489cec2",
@@ -2123,6 +2111,18 @@
     {
       "t": "2026-10-06T11:12:51Z",
       "id": "595cd9ae3a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T13:09:23Z",
+      "id": "fb6e84d65d",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T13:09:27Z",
+      "id": "7d7ff952ed",
       "ok": true,
       "manual": true
     }
