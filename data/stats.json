@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 23,
+      "approved": 24,
       "rejected": 11
     },
     "The Verge": {
@@ -33,7 +33,7 @@
       "rejected": 36
     },
     "ShiftDelete.Net": {
-      "approved": 28,
+      "approved": 29,
       "rejected": 17
     },
     "Webtekno": {
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:31:25Z",
-      "id": "9a16524f23",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:31:25Z",
-      "id": "4a0737e663",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:31:27Z",
       "id": "0ebf920d27",
@@ -2123,6 +2111,18 @@
     {
       "t": "2026-10-06T03:46:07Z",
       "id": "e5e0ed35b5",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T07:44:43Z",
+      "id": "9e25a669b1",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-06T07:44:45Z",
+      "id": "01f9380499",
       "ok": true,
       "manual": true
     }
