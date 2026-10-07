@@ -33,11 +33,11 @@
       "rejected": 37
     },
     "ShiftDelete.Net": {
-      "approved": 30,
+      "approved": 31,
       "rejected": 18
     },
     "Webtekno": {
-      "approved": 21,
+      "approved": 22,
       "rejected": 11
     },
     "Anadolu Ajansı": {
@@ -58,7 +58,7 @@
     },
     "Egirisim": {
       "approved": 5,
-      "rejected": 0
+      "rejected": 1
     },
     "Polygon": {
       "approved": 7,
@@ -89,7 +89,7 @@
       "rejected": 3
     },
     "VGC": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 5
     },
     "BBC Teknoloji": {
@@ -134,7 +134,7 @@
     },
     "Wccftech": {
       "approved": 4,
-      "rejected": 11
+      "rejected": 12
     },
     "Tom's Guide": {
       "approved": 3,
@@ -269,7 +269,7 @@
       "rejected": 1
     },
     "Eurogamer": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 5
     },
     "Samsung": {
@@ -326,36 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:32:17Z",
-      "id": "1ebabb8e70",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:32:19Z",
-      "id": "18e1ee168d",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:32:23Z",
-      "id": "a51635d45b",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T15:32:27Z",
-      "id": "4bdd75f837",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:56:04Z",
-      "id": "34cbab65b1",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-30T19:56:38Z",
       "id": "ce09ee3299",
@@ -2124,6 +2094,36 @@
       "t": "2026-10-07T06:57:39Z",
       "id": "7826fbe15b",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T09:14:12Z",
+      "id": "342a724a06",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T09:14:13Z",
+      "id": "a8fd30ae27",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T09:14:16Z",
+      "id": "2c5822aa2e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T09:14:18Z",
+      "id": "955645f1f8",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T09:14:20Z",
+      "id": "3bf4a255f6",
+      "ok": true,
       "manual": true
     }
   ]
