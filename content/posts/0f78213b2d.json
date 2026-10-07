@@ -1,6 +1,5 @@
 {
   "id": "0f78213b2d",
-  "status": "pending",
   "created_at": "2026-10-07T09:35:44Z",
   "title": "ChatGPT Meetings eklentisi duyuruldu",
   "summary": "OpenAI, ChatGPT için geliştirdiği yeni toplantı eklentisi Meetings'i duyurdu. Eklenti, toplantıları dinleyerek kişiselleştirilmiş notlar ve özetler çıkarabiliyor.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "LOG"
   ],
-  "source_texts": [
-    {
-      "credit": "LOG",
-      "kind": "media",
-      "title": "ChatGPT için faydalı bir “toplantı” eklentisi duyuruldu",
-      "url": "https://www.log.com.tr/chatgpt-icin-faydali-bir-toplanti-eklentisi-duyuruldu/",
-      "published": "2026-10-07T09:25:45Z",
-      "summary": "OpenAI, ChatGPT için “Meetings” adında faydalı bir toplantı eklentisi hazırladı. Gerekli izinler verildikten sonra sanal ya da yüz yüze toplantılardaki konuşmaları dinleyen eklenti, kişiye özel toplantı notları ve özetleri oluşturabiliyor. Notları doğrudan Space’e kaydedebilen eklenti, toplantıyla ilgili soruları yanıtlayabiliyor ve toplantıda planlanan işlerin tamamlanmasına yardımcı olacak öneriler sunabiliyor. ChatGPT için faydalı bir “toplantı” eklentisi duyuruldu yazısı ilk olarak Teknoloji haberleri - LOG üzerinde yayınlandı.",
-      "text": "OpenAI, ChatGPT için “Meetings” adında faydalı bir toplantı eklentisi hazırladı. Gerekli izinler verildikten sonra sanal ya da yüz yüze toplantılardaki konuşmaları dinleyen eklenti, kişiye özel toplantı notları ve özetleri oluşturabiliyor. Notları doğrudan Space’e kaydedebilen eklenti, toplantıyla ilgili soruları yanıtlayabiliyor ve toplantıda planlanan işlerin tamamlanmasına yardımcı olacak öneriler sunabiliyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1083
@@ -94,5 +82,10 @@
     "palette": "super-zeka-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %67 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-07T11:40:48Z",
+  "slug": "chatgpt-meetings-eklentisi-duyuruldu",
+  "published_at": "2026-10-07T11:40:48Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/chatgpt-meetings-eklentisi-duyuruldu"
 }

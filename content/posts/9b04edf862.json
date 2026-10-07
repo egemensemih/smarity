@@ -1,6 +1,5 @@
 {
   "id": "9b04edf862",
-  "status": "pending",
   "created_at": "2026-10-07T10:37:57Z",
   "title": "Google, Gemini ile Gmail gelen kutusunu yönetmeye hazırlanıyor",
   "summary": "Android Authority'nin haberine göre Google, Gmail'deki AI Inbox özelliği için yapay zeka tabanlı yeni görev yönetimi yetenekleri geliştiriyor.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "Android Authority"
   ],
-  "source_texts": [
-    {
-      "credit": "Android Authority",
-      "kind": "media",
-      "title": "Google could soon let Gemini handle your Gmail inbox for you",
-      "url": "https://www.androidauthority.com/gemini-agentic-tasks-gmail-ai-inbox-apk-teardown-3720065/",
-      "published": "2026-10-07T10:25:27Z",
-      "summary": "TL;DR Google is working on making AI Inbox even more useful with agentic Gemini tasks in Gmail. It will let users assign AI Inbox tasks for Gemini to handle. Gemini will ask for input where needed and will wait for human confirmation before sending any emails or marking a task as completed. Since Google launched AI Inbox in Gmail , it has proven useful, especially for people who don’t keep a clean inbox. It surfaces important emails, shows action items, and basically makes it easier to manage your inbox. Now, Google is working on making AI Inbox even more capable. You’re reading an Authority…",
-      "text": "Google could soon let Gemini handle your Gmail inbox for you\nOct 7, 2026 — 6:25 AM ET\n- Google is working on making AI Inbox even more useful with agentic Gemini tasks in Gmail.\n- It will let users assign AI Inbox tasks for Gemini to handle.\n- Gemini will ask for input where needed and will wait for human confirmation before sending any emails or marking a task as completed.\nSince Google launched AI Inbox in Gmail, it has proven useful, especially for people who don’t keep a clean inbox. It surfaces important emails, shows action items, and basically makes it easier to manage your inbox. Now, Google is working on making AI Inbox even more capable.\nYou’re reading an Authority Insights story. Authority Insights brings you all the latest exclusive reports, app teardowns, leaks, and in-depth tech coverage from the Android Authority team that you won’t find anywhere else.\nAccording to an X post by Abhishek Yadav, Google is working on adding support for agentic Gemini tasks in Gmail.\nWe also dug through the latest version of the Gmail app (v2026.09.28) and found several strings that give us a pretty thorough idea of how the feature could work.\nOnce the feature rolls out, AI Inbox could start showing a “Start with Gemini” button beside suggested action items. Tapping this button will put Gemini to work on the task, and AI Inbox will display an “In progress” subtitle next to it. It could also display a “Draft Reply” option for tasks that require the user to respond to an email.\nWhile Gemini will work through the task on its own, it seems that the AI will defer to human input when in doubt and before marking any task as completed. Strings suggest that the feature could display a “Needs your input” status for tasks that require user input or confirmation. A button labeled “Give input” could then allow the user to provide any details Gemini needs to complete the task.\nStrings we’ve spotted in the Gmail app’s code also suggest that users will see a “Ready for Review” status on tasks Gemini has completed. This could let users see what Gemini has done and approve or deny any AI-made changes.\nHere are all the strings we found in the Gmail app:\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_GIVE_INPUT_BUTTON_LABEL\">Give input</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_OPEN_TASK_BUTTON_LABEL\">Open task</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_START_WITH_GEMINI_BUTTON_LABEL\">Start with Gemini</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_VIEW_PROGRESS_BUTTON_LABEL\">View progress</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_IN_PROGRESS_TASK_SUBTITLE\">In progress</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_NEEDS_INPUT_TASK_SUBTITLE\">Needs your input</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_READY_FOR_REVIEW_TASK_SUBTITLE\">Ready for review</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_TASK_PROMPT\">Accomplish this Task</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_OPEN_TASK_BUTTON_LABEL\">Open task</string>\n<string name=\"MSG_AI_INBOX_AGENTIC_FULFILLMENT_REPLY_BUTTON_LABEL\">Draft Reply</string>\nAI Inbox is one of the few AI features in Gmail that is actually quite useful in easing the email overload we’ve all learned to live with. Whenever Google rolls out agentic Gemini tasks in Gmail, it might make it even simpler for users to get a handle on their inbox."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1086
@@ -99,5 +87,8 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Uyarı işareti var"
+  "slug": "google-gemini-gmail-gelen-kutusu-yonetimi",
+  "published_at": "2026-10-07T11:41:06Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/google-gemini-gmail-gelen-kutusu-yonetimi"
 }
