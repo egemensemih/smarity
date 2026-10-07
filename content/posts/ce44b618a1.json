@@ -1,6 +1,5 @@
 {
   "id": "ce44b618a1",
-  "status": "pending",
   "created_at": "2026-10-07T15:21:21Z",
   "title": "Grok Bot yapay zeka asistanı Anthropic ve Midjourney modellerini kullanacak",
   "summary": "Elon Musk’ın yapay zeka asistanı Grok Bot, bundan böyle yalnızca SpaceX modelleriyle değil Anthropic, Midjourney ve Suno altyapılarıyla da çalışacak.",
@@ -72,26 +71,6 @@
     "The Next Web",
     "9to5Mac"
   ],
-  "source_texts": [
-    {
-      "credit": "The Next Web",
-      "kind": "media",
-      "title": "Musk’s Grok Bot will use Anthropic’s Claude, Midjourney and Suno models",
-      "url": "https://thenextweb.com/news/grok-bot-claude-opus-midjourney-suno-musk",
-      "published": "2026-10-07T15:06:02Z",
-      "summary": "Elon Musk’s Grok Bot will no longer run only on SpaceX’s own AI models. It will also use models from rivals, including Anthropic’s Claude Opus 5.5, Midjourney and Suno, Musk said in a post on X on Wednesday. “Going forward, @SpaceX will use the best back end model for any given task, including Claude Opus […] This story continues at The Next Web",
-      "text": "Elon Musk’s Grok Bot will no longer run only on SpaceX’s own AI models. It will also use models from rivals, including Anthropic’s Claude Opus 5.5, Midjourney and Suno, Musk said in a post on X on Wednesday.\n“Going forward, @SpaceX will use the best back end model for any given task, including Claude Opus 5.5, MidJourney, Suno and other leading APIs. Whatever is most likely to give you the best outcome,” Musk wrote.\nGrok Bot is the AI agent app from SpaceXAI, the AI business Musk has folded into SpaceX. It launched in August. Each Bot works on its own computer and can carry out several tasks in parallel. Musk did not say which tasks would go to which outside model.\nRivals behind the bot\nMusk launched xAI in 2023 to compete with OpenAI and has spent heavily on computing to train its Grok models. Anthropic, Midjourney and Suno build models for text, images and music. The change came a day after users reported problems reaching Grok on its mobile and web services, City AM reported. SpaceXAI gave no official cause.\nAnthropic released its cheaper Opus model in September, weeks before its planned stock market listing. This week, Musk said SpaceXAI will take the name SpaceXSI.\nA crowded agent market\nxAI has kept adding features to Grok Bot. Since late September, teams can publish a shared Bot that colleagues use in the app or in Slack, according to its product changelog.\nGrok Bot competes with personal AI agents such as Meta’s Muse, which reportedly passed 3 million weekly users, and Instinct. Some early users have deleted such agents over privacy worries, Business Insider reported on Tuesday. One of them told the publication he still uses Grok Bot, but has not connected it to his email.\nGet the TNW newsletter\nGet the most important tech news in your inbox each week."
-    },
-    {
-      "credit": "9to5Mac",
-      "kind": "media",
-      "title": "Grok Bot just got a lot smarter thanks to Anthropic’s Claude",
-      "url": "https://9to5mac.com/2026/10/07/grok-bot-just-got-a-lot-smarter-thanks-to-anthropics-claude/",
-      "published": "2026-10-07T15:02:24Z",
-      "summary": "SpaceXAI’s Grok Bot kicked off the consumer-friendly AI agent app wave this summer. Facing competition from Meta’s Muse and OpenAI’s ChatGPT Dot, Grok Bot just got a new capability upgrade with the help of Anthropic’s Claude. more…",
-      "text": "SpaceXAI’s Grok Bot kicked off the consumer-friendly AI agent app wave this summer. Facing competition from Meta’s Muse and OpenAI’s ChatGPT Dot, Grok Bot just got a new capability upgrade with the help of Anthropic’s Claude.\nGrok Bot now uses Claude Opus 5.5 for intelligence\nGrok Bot launched in August with dedicated apps for the iPhone and iPad. An iPad version and more affordable plans arrived in September.\nFor October, Grok Bot is getting a major backend upgrade that will see Anthropic’s Claude be used for intelligence instead of SpaceXAI/Cursor’s less capable models.\nFor context, Anthropic became a SpaceX customer this year as it shopped for compute to power Claude usage.\nAs of today, Grok Bot can now use Claude Opus 5.5, the newest version of one of Anthropic’s most capable models.\nGrok Bot’s upgrade comes as Meta pushes its mostly-free Muse agent, newly available for iPad, and OpenAI builds out ChatGPT Dot, an Astra-powered proactive agent.\nGrok Bot is available for iPhone, iPad, and Mac. Have you used any of these AI agent systems yet?\nDo more with your Apple products"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1110
@@ -120,5 +99,8 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %73 (<%85)"
+  "slug": "grok-bot-claude-midjourney-destegi",
+  "published_at": "2026-10-07T16:21:15Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/grok-bot-claude-midjourney-destegi"
 }
