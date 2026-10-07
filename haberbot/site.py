@@ -413,6 +413,9 @@ class SiteBuilder:
         tags = sorted(({"slug": s, "label": tag_label[s].most_common(1)[0][0], "count": len(ps),
                         "url": f"{b}/etiket/{s}/", "lastmod": ps[0]["mod_iso"]}
                        for s, ps in tag_posts.items()), key=lambda t: (-t["count"], t["label"].lower()))
+        for p in posts:   # tek haberlik konu sayfası noindex: haberden ona bağlantı verilmez (Google boşuna taramasın)
+            for t in p["tag_list"]:
+                t["linked"] = len(tag_posts.get(t["slug"], [])) >= 2
 
         now_l = local(now_utc(), cfg.tz)
         key = indexnow_key(cfg.site_url)

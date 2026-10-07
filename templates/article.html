@@ -118,10 +118,12 @@
   </figure>
   {% endif %}
 
-  {% if post.tag_list %}
+  {# yalnızca birden çok haberi olan konular bağlanır: tek haberlik konu sayfaları dizine eklenmez, Google'a gösterilmez #}
+  {% set linked_tags = post.tag_list|selectattr('linked')|list %}
+  {% if linked_tags %}
   <nav class="art-tags" aria-label="Konular">
     <span class="muted">Konular</span>
-    {% for t in post.tag_list %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}
+    {% for t in linked_tags %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}
   </nav>
   {% endif %}
 
