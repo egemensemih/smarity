@@ -1,6 +1,5 @@
 {
   "id": "82fd1cb6db",
-  "status": "pending",
   "created_at": "2026-10-07T13:23:43Z",
   "title": "Togg OTA güncellemesi yayınlandı: Yeni özellikler neler",
   "summary": "Togg, T10X ve T10F modelleri için şarj süreçleri, ekran akıcılığı ve ses sistemini kapsayan yeni bir OTA güncellemesi yayınladı.",
@@ -61,17 +60,6 @@
   "source_keys": [
     "ShiftDelete.Net"
   ],
-  "source_texts": [
-    {
-      "credit": "ShiftDelete.Net",
-      "kind": "media",
-      "title": "Togg için Kapsamlı OTA Güncellemesi Çıktı: İşte Yeni Özellikler",
-      "url": "https://shiftdelete.net/togg-icin-kapsamli-ota-guncellemesi-cikti-iste-yeni-ozellikler",
-      "published": "2026-10-07T13:11:16Z",
-      "summary": "Togg, akıllı cihaz modelleri için kapsamlı bir kablosuz yazılım (OTA) güncellemesi yayınladı. Yeni paketle birlikte T10X ve T10F kullanıcılarının deneyimini doğrudan etkileyen şarj süreçlerinden bilgi-eğlence ekranına, enerji yönetiminden ses sistemine kadar pek çok kritik alanda önemli iyileştirmeler sunuluyor. Ekran, Şarj ve Multimedya Tarafında Dikkat Çeken İyileştirmeler Yayınlanan yeni OTA yazılımı, araç içi multimedya ve günlük […]",
-      "text": "Togg için Kapsamlı OTA Güncellemesi Çıktı: İşte Yeni Özellikler\nTogg, akıllı cihaz modelleri için kapsamlı bir kablosuz yazılım (OTA) güncellemesi yayınladı. Yeni paketle birlikte T10X ve T10F kullanıcılarının deneyimini doğrudan etkileyen şarj süreçlerinden bilgi-eğlence ekranına, enerji yönetiminden ses sistemine kadar pek çok kritik alanda önemli iyileştirmeler sunuluyor.\nEkran, Şarj ve Multimedya Tarafında Dikkat Çeken İyileştirmeler\nYayınlanan yeni OTA yazılımı, araç içi multimedya ve günlük kullanım alışkanlıklarına odaklanan çözümler içeriyor. Uçtan uca uzanan dijital bilgi-eğlence ekranının tepki süresi optimize edilerek menü geçişleri ve genel arayüz akıcılığı belirgin şekilde artırılıyor. Ayrıca kullanıcıların sıkça başvurduğu 360 derece çevre görüş kamerasının açılma süresi kısaltılarak park ve manevra anlarında anlık görüntüye erişim kolaylaşıyor.\nStandart ses sistemine entegre edilen ekolayzer (EQ) desteği sayesinde kullanıcılar artık ses profilini kendi müzik zevklerine göre manuel olarak ayarlayabiliyor. Bununla birlikte mobil cihazlarla kurulan kablosuz iletişimi güçlendirmek adına Bluetooth bağlantı kararlılığı ve performansı da gözden geçiriliyor.\nŞarj Süreçlerinde Yaşanan Pratik Değişiklikler\nYeni yazılım paketiyle birlikte kullanıcıların şarj deneyimini pratikleştiren iki temel yenilik devreye giriyor.\n- Otomatik Şarj Kolaylığı: Togg T10X sahipleri, desteklenen şarj istasyonlarında otomatik şarj özelliğini kullanarak araçlarını ekstra onay adımlarıyla uğraşmadan doğrudan şarj edebiliyor.\n- Kesintisiz AC Şarj Deneyimi: Önceki yazılımlarda kapı kilidi açıldığında kesintiye uğrayabilen AC şarj süreci revize edildi.. Artık araç AC soketine bağlıyken kapı kilitleri açılsa dahi şarj akışı kesintisiz biçimde sürmeye devam ediyor.\nEnerji Yönetimi, Klima ve Güvenlik Uyarıları\nSürüş konforu ve altyapı bileşenleri tarafında da dikkate değer optimizasyonlar bulunuyor. Akü yönetimi performansına getirilen güncellemeler, yüksek voltajlı batarya ile 12V akü arasındaki enerji dengesini daha verimli hale getiriyor. Mevsimsel geçişlerde kabin içi sıcaklık dengesini korumak adına klima performansı iyileştirilirken, enerji sistemi ve acil durum (SOS) ikaz bildirimleri daha net ve rahat anlaşılır bir yapıya kavuşturuluyor.\nOTA Güncellemesi Nasıl Yüklenir ve Şartlar Nelerdir?\nKullanıcıların yeni yazılımı yükleyebilmeleri için araçlarının belirli güvenlik eşiklerini karşılaması gerekiyor. Güncelleme sürecini başlatmadan önce dikkat edilmesi gereken teknik detaylar ve izlenecek adımlar şu şekilde sıralanıyor.\n- Aracın çekiş bataryası (pil seviyesi) en az %20 olmalıdır\n- 12V akü doluluk seviyesi en az %70 seviyesinde bulunmalıdır\n- İşlem yalnızca araç “Aksesuar Modu”ndayken başlatılabilir\n- Yazılımın araç tarafından tanımlanması yaklaşık 15 dakika sürerken, aracın mevcut yazılım sürümüne ve hücresel bağlantı hızına bağlı olarak toplam yükleme süresi 3 saati bulabiliyor\nYükleme işlemini gerçekleştirmek için ana ekrandaki sağ üst menü simgesine dokunup Araç > Sistem Bilgileri > Yazılım Güncellemesi adımlarını takip etmek gerekiyor. Ayrıca sürecin takibi Trumore mobil uygulaması üzerinden de yapılabiliyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1098
@@ -112,5 +100,10 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "slug": "togg-ota-guncellemesi-yayinlandi",
+  "published_at": "2026-10-07T13:43:54Z",
+  "publish_mode": "manual",
+  "path": "otomotiv/2026/10/togg-ota-guncellemesi-yayinlandi",
+  "photos_vetted": "2026-10-07T13:44:07Z",
+  "photos_vet_v": 2
 }
