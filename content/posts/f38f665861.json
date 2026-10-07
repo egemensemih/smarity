@@ -150,9 +150,12 @@
     "message_id": 1070
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "f38f665861-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Apple",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Aerial_view_of_Apple_Park_dllu.jpg/960px-Aerial_view_of_Apple_Park_dllu.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "teknoloji-2",
     "cover_v": 2
   },
   "home": "pin",
@@ -160,5 +163,22 @@
   "slug": "apple-ve-lg-ortakligi-akilli-ev",
   "published_at": "2026-10-07T04:21:56Z",
   "publish_mode": "manual",
-  "path": "teknoloji/2026/10/apple-ve-lg-ortakligi-akilli-ev"
+  "path": "teknoloji/2026/10/apple-ve-lg-ortakligi-akilli-ev",
+  "photos_filled": "2026-10-07T04:25:47Z",
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Aerial_view_of_Apple_Park_dllu.jpg/960px-Aerial_view_of_Apple_Park_dllu.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Apple",
+      "alt": "Apple",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "f38f665861-g0.webp",
+      "w": 960,
+      "h": 641
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-07T04:21:56Z"
 }
