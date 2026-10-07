@@ -163,7 +163,7 @@ class GeminiLLM:
             time.sleep(wait)
         self._last[model] = time.time()
         try:
-            r = requests.post(GEMINI_URL.format(model=model), json=body, timeout=240,
+            r = requests.post(GEMINI_URL.format(model=model), json=body, timeout=120,
                               headers={"x-goog-api-key": self.api_key, "Content-Type": "application/json"})
         except requests.RequestException as e:
             raise LLMError(f"Bağlantı hatası: {e}") from e

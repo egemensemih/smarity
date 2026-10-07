@@ -187,6 +187,25 @@ def primary_key(p: dict) -> str:
     return ""
 
 
+TITLE_STOP = {"the", "a", "an", "new", "yeni", "ve", "ile", "için", "bu", "how", "why", "what", "this", "is", "to", "in",
+              "on", "of", "for", "and", "with", "türkiye", "turkey", "türkiye'de", "here's", "here", "it", "its", "you",
+              "işte", "ilk", "resmi", "artık"}
+
+
+def title_words(text: str) -> set[str]:
+    """Başlıktaki ayırt edici sözcükler (özel adlar ve sayılar): farklı dillerdeki aynı haberi eşleştirmek için."""
+    out = set()
+    for w in re.findall(r"[\wÇĞİÖŞÜçğıöşü][\w'’.\-ÇĞİÖŞÜçğıöşü]*", text or ""):
+        w = w.strip(".-'’")
+        base = re.split(r"['’]", w)[0]
+        if len(base) < 2 or not (base[0].isupper() or any(c.isdigit() for c in base)):
+            continue
+        k = base.replace("İ", "i").replace("I", "ı").lower() if base[0] in "İI" else base.lower()
+        if k not in TITLE_STOP:
+            out.add(k)
+    return out
+
+
 def entity_keys(p: dict) -> set[str]:
     names = list(p.get("entities") or []) or list(p.get("tags") or [])[:1]
     return {k for k in (entity_key(e) for e in names) if k}

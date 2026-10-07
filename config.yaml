@@ -110,6 +110,18 @@ social:
   # kapak : dev rakam / ürün adı kapağı (sitedeki kapakla aynı)
   card_style: ozet
 
+# ─────────────────────────────────────────────────────────────
+#  Bakım (her turda uygulanır, tekrar çalışması zararsızdır)
+#  merge_posts: [yinelenen haber, kalan haber] → yinelenen silinir, adresi kalan habere yönlenir
+#  retitle: haber_id: "Yeni başlık" → başlık düzeltilir, adres değişmez
+maintenance:
+  merge_posts:
+    - ["377564d2b6", "48679f20de"]   # Kia Seltos Türkiye'de satışa çıktı (5 Eki ↔ 2 Eki)
+    - ["671d0ac58e", "9976fc4746"]   # OpenAI en gelişmiş modellerinin eğitimini durdurdu (28 Eyl, aynı gün iki haber)
+    - ["7f88f8a5fd", "d901a6a000"]   # ChatGPT Pro 500 Türkiye fiyatı (30 Eyl ↔ 27 Eyl)
+  retitle:
+    "95a0ae8187": "Uygun fiyatlı elektrikli Dacia Hipster 2027'de geliyor"   # başlıkta yurtdışı fiyatı vardı
+
 ai:
   # gemini: Google Gemini ücretsiz katmanı (kredi kartı gerekmez, günlük sınırlı)
   # claude: Anthropic Claude (ücretli, ANTHROPIC_API_KEY gerekir)

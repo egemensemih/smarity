@@ -208,6 +208,51 @@ def test_single_post_tags_are_not_linked():
         assert "/etiket/grok-bot/" not in (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
 
 
+
+def test_maintenance_merges_duplicates_and_fixes_titles():
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 80, title="Kia Seltos Türkiye'de satışa çıktı: İşte resmi fiyatları", tags=["Kia"],
+                                sources=[{"name": "DonanımHaber", "url": "https://dh.com/kia", "kind": "media"}]))
+        a.store.save_post(_post(2, 2, title="Yeni Kia Seltos Türkiye'de satışa çıktı", tags=["Kia"],
+                                sources=[{"name": "ShiftDelete.Net", "url": "https://sd.net/kia", "kind": "media"}]))
+        a.store.save_post(_post(3, 5, title="Dacia Hipster 15 bin euronun altında fiyatla geliyor", tags=["Dacia"]))
+        a.migrate_urls()
+        dup_path = a.store.load_post("p02")["path"]
+        cfg.raw["maintenance"] = {"merge_posts": [["p02", "p01"], ["yok", "p01"]],
+                                  "retitle": {"p03": "Uygun fiyatlı elektrikli Dacia Hipster geliyor"}}
+        a.apply_maintenance()
+        a.apply_maintenance()                                              # ikinci kez çalışması zararsız
+        keep = a.store.load_post("p01")
+        assert a.store.load_post("p02") is None and dup_path in keep["old_paths"] and "haber/haber-2" in keep["old_paths"]
+        assert [s_["name"] for s_ in keep["sources"]] == ["DonanımHaber", "ShiftDelete.Net"]
+        assert a.store.load_post("p03")["title"] == "Uygun fiyatlı elektrikli Dacia Hipster geliyor"
+        SiteBuilder(cfg).build()
+        stub = (cfg.out_dir / dup_path / "index.html").read_text(encoding="utf-8")
+        assert cfg.post_url(keep) in stub and "refresh" in stub              # eski adres kalan habere yönlenir
+        assert dup_path not in (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
+
+
+def test_older_duplicates_are_shown_to_desk_and_editor():
+    from haberbot.textfix import title_words
+    assert title_words("Kia Seltos Türkiye'de satışa çıktı: İşte resmi fiyatları") == {"kia", "seltos"}
+    assert {"chatgpt", "pro", "500"} <= title_words("OpenAI's ChatGPT Pro 500 now costs 26,499 lira")
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 80, title="Kia Seltos Türkiye'de satışa çıktı", tags=["Kia Seltos"],
+                                entities=["Kia Seltos"]))
+        a.store.save_post(_post(2, 100, title="Sony yeni kulaklık tanıttı", tags=["Sony"], entities=["Sony"]))
+        seen = {}
+
+        class Ed:
+            def json(self, model, system, user, schema, max_tokens=0, effort=None, images=None):
+                seen["user"] = user
+                return {"decisions": [{"cid": "c1", "action": "skip", "target": "p01", "must_read": 8, "reason": "aynı haber"}]}
+        a.llm = Ed()
+        q = {"story": {"topic": "Kia Seltos on sale in Turkey", "importance": 8, "entities": ["Kia Seltos"],
+                       "category": "otomotiv", "duplicate_of": ""}, "items": [], "at": iso(now_utc())}
+        dec = a._edit([q], slots=2)
+        assert "p01" in seen["user"] and "p02" not in seen["user"] and dec[0]["action"] == "skip"
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

@@ -22,7 +22,7 @@ from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
 from .store import Store
-from .textfix import Fixer, entity_keys, is_car_story, looks_english
+from .textfix import Fixer, entity_keys, is_car_story, looks_english, title_words
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
                    tr_date)
@@ -237,22 +237,29 @@ class App:
                 it["tid"] = f"i{i}"
                 by_tid[it["tid"]] = it
 
-            recent = []
+            pub, older = [], []
             for p in st.posts():
-                if hours_since(p.get("published_at")) > 72:
+                h = hours_since(p.get("published_at"))
+                if h > 24 * 7:
                     break
-                recent.append({"sid": "s:" + p["id"], "status": "published", "title": p["title"]})
+                (pub if h <= 72 else older).append(p)
+            # 3-7 gün önce yayınlanmış ve yeni öğelerle aynı ürünü / şirketi anan haberler de gösterilir:
+            # aynı haber günler sonra başka bir siteden yeniden geldiğinde tekrar yazılmasın (ör. iki ayrı Kia Seltos haberi)
+            words = title_words(" ".join(it["title"] for it in fresh))
+            older = [p for p in older if len(title_words(p["title"]) & words) >= 2][:30]
+            recent = [{"sid": f"q:{i}", "status": "queued", "title": q["story"].get("topic", "")}
+                      for i, q in enumerate(queue)]
             for d in st.drafts():
                 recent.append({"sid": "s:" + d["id"], "status": d.get("status", "pending"), "title": d["title"]})
+            for p in pub[:100] + older:
+                recent.append({"sid": "s:" + p["id"], "status": "published", "title": p["title"]})
             for a in st.recent_archive(72):   # reddedilen / süresi dolan haberler tekrar önerilmesin
                 if a.get("status") in ("rejected", "expired", "removed"):
                     recent.append({"sid": "s:" + a["id"], "status": a["status"], "title": a.get("title", "")})
-            recent += [{"sid": f"q:{i}", "status": "queued", "title": q["story"].get("topic", "")}
-                       for i, q in enumerate(queue)]
 
             try:
                 tri = self.llm.json(cfg.get("ai", "triage_model", "claude-haiku-4-5-20251001"),
-                                    triage_system(self.brand), triage_user(fresh, recent[:150], today),
+                                    triage_system(self.brand), triage_user(fresh, recent[:260], today),
                                     TRIAGE_SCHEMA, max_tokens=12000)
             except LLMError as e:
                 if self._transient(e):
@@ -380,6 +387,10 @@ class App:
         ed = lambda k, d: cfg.get("editorial", k, d)  # noqa: E731
         min_score = int(ed("min_must_read", 8))
         covered = self._covered(48)
+        cand_keys = set().union(*(entity_keys(q["story"]) for q in queue)) if queue else set()
+        have = {c["id"] for c in covered}
+        older = [c for c in self._covered(24 * 7) if c["status"] == "published" and c["id"] not in have
+                 and c["keys"] & cand_keys][:30]
         cands = []
         for i, q in enumerate(queue):
             s = q["story"]
@@ -392,7 +403,7 @@ class App:
         try:
             out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
                                 edit_system(self.brand, min_score),
-                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90], cands),
+                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90] + older, cands),
                                 EDIT_SCHEMA, max_tokens=6000)
             raw = {str(x.get("cid")): x for x in (out.get("decisions") or []) if isinstance(x, dict)}
         except LLMError as e:
@@ -414,7 +425,7 @@ class App:
             if x.get("action") not in ("publish", "update", "skip", "hold"):
                 x["action"] = "hold"
             decisions[i] = x
-        return self._guard(queue, decisions, slots, min_score, covered)
+        return self._guard(queue, decisions, slots, min_score, covered + older)
 
     def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
                covered: list[dict]) -> dict[int, dict]:
@@ -427,7 +438,7 @@ class App:
                 for k in c["keys"]:
                     day_keys[k] = day_keys.get(k, 0) + 1
         published = {c["id"] for c in covered if c["status"] == "published"}
-        published |= {p["id"] for p in self.store.posts()[:200] if hours_since(p.get("published_at")) <= 72}
+        published |= {p["id"] for p in self.store.posts()[:300] if hours_since(p.get("published_at")) <= 24 * 7}
         pending = {c["id"] for c in covered if c["status"] == "pending"}
         refreshed = {c["id"] for c in covered if c["status"] == "published" and c.get("updated") and c["hours"] < 6}
         used, round_targets = 0, set()
@@ -638,6 +649,51 @@ class App:
             return self._write(sources, previous, f"{instruction}\n{fix}" if instruction else fix, _retry=False)
         self.fixer.post(res)          # Türkçe karakter ve marka yazımı düzeltmeleri
         return res
+
+    def apply_maintenance(self) -> None:
+        """Ayarlardaki bakım listesi (config.yaml → maintenance). Tekrar çalışması zararsızdır.
+
+        merge_posts: [[yinelenen_id, kalan_id], …] → yinelenen haber silinir, adresi kalan habere yönlenir,
+                     kaynakları kalan habere eklenir.
+        retitle: {haber_id: "Yeni başlık"} → başlık düzeltilir (adres değişmez)."""
+        m = self.cfg.raw.get("maintenance") or {}
+        st = self.store
+        for pair in m.get("merge_posts") or []:
+            try:
+                dup_id, keep_id = str(pair[0]), str(pair[1])
+            except (TypeError, IndexError, KeyError):
+                continue
+            dup, keep = st.load_post(dup_id), st.load_post(keep_id)
+            if not dup or not keep or dup_id == keep_id:
+                continue
+            olds = list(keep.get("old_paths") or [])
+            for o in (self.cfg.post_path(dup), f"haber/{dup['slug']}", *(dup.get("old_paths") or [])):
+                if o and o not in olds and o != keep.get("path"):
+                    olds.append(o)
+            keep["old_paths"] = olds
+            urls = {s.get("url") for s in keep.get("sources") or []}
+            keep["sources"] = (keep.get("sources") or []) + [s for s in dup.get("sources") or [] if s.get("url") not in urls]
+            keep["updated_at"] = iso(now_utc())
+            st.save_post(keep)
+            st.delete_post(dup_id)
+            self.queue_indexnow(self.cfg.post_url(keep))
+            log.info("Yinelenen haber birleştirildi: %s → %s", dup_id, keep_id)
+        for pid, title in (m.get("retitle") or {}).items():
+            p = st.load_post(str(pid))
+            title = clip(str(title or "").strip(), 120)
+            if not p or not title or p.get("title") == title:
+                continue
+            p["title"] = title
+            p["short_title"] = clip(title, 70)
+            p["seo_title"] = clip(title, 62)
+            p.pop("cover_line_v", None)                # kapak başlığı da yeni başlıkla yeniden yazılsın
+            p["updated_at"] = iso(now_utc())
+            try:
+                self._make_og(p)                       # paylaşım görselindeki başlık da yenilensin
+            except Exception as e:  # noqa: BLE001
+                log.warning("Paylaşım görseli yenilenemedi (%s): %s", p["id"], e)
+            st.save_post(p)
+            log.info("Başlık düzeltildi: %s → %s", p["id"], title)
 
     def fix_english_titles(self) -> None:
         """Tek seferlik: başlığı İngilizce kalmış yayındaki haberleri Türkçe yeniden yaz (adres değişmez)."""
@@ -2351,6 +2407,10 @@ class App:
             self.migrate_urls()
         except Exception as e:  # noqa: BLE001
             log.exception("Adres geçişi hatası: %s", e)
+        try:
+            self.apply_maintenance()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Bakım listesi hatası: %s", e)
         try:
             self.reselect_pending()
             self.fix_english_titles()
