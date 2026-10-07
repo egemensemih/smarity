@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816357,
+  "telegram_offset": 872816362,
   "last_collect": "2026-10-07T04:10:28Z",
   "last_summary_date": "2026-10-06",
   "mode_override": null,
@@ -844,17 +844,25 @@
       "tok_in": 250016,
       "tok_out": 30834,
       "cost_usd": 0.0,
-      "drafts": 5
+      "drafts": 5,
+      "published": 4,
+      "approved": 4,
+      "rejected": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-07T03:19:32Z",
+  "last_build": "2026-10-07T04:24:27Z",
   "build_sig": "01b18924d9f12a3a",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-10-06T20:53:04Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-07T04:22:16Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/teknoloji/2026/10/apple-ve-lg-ortakligi-akilli-ev/",
+    "https://smarity.com.tr/gaming/2026/10/project-helix-xbox-yeni-nesilde-cihaz-ailesi-sunacak/",
+    "https://smarity.com.tr/gaming/2026/10/xbox-gta-6-yayin-haklari/",
+    "https://smarity.com.tr/girisimcilik/2026/10/spacex-cip-yatirimi-40-milyar-dolar/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
