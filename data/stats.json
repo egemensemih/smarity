@@ -78,7 +78,7 @@
     },
     "GSMArena": {
       "approved": 7,
-      "rejected": 8
+      "rejected": 9
     },
     "Ars Technica": {
       "approved": 2,
@@ -326,12 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T15:32:11Z",
-      "id": "99911ac335",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T15:32:13Z",
       "id": "597ddadf8f",
@@ -2124,6 +2118,12 @@
       "t": "2026-10-07T04:22:17Z",
       "id": "81959763a5",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-07T06:25:24Z",
+      "id": "25e096da3c",
+      "ok": false,
       "manual": true
     }
   ]
