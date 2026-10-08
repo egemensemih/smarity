@@ -1,6 +1,5 @@
 {
   "id": "bafa882e44",
-  "status": "pending",
   "created_at": "2026-10-08T19:27:14Z",
   "title": "Claude için yeni yapay zeka araçları duyuruldu",
   "summary": "Anthropic, Claude modeli için metin komutlarıyla hareketli videolar ve canlı veri panoları oluşturabilen iki yeni beta özelliğini kullanıma sundu.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "Claude can now generate animated explainer videos and live data dashboards from text prompts",
-      "url": "https://the-decoder.com/claude-can-now-generate-animated-explainer-videos-and-live-data-dashboards-from-text-prompts/",
-      "published": "2026-10-08T19:17:22Z",
-      "summary": "Anthropic launched two new beta features for Claude. Dashboards turns data sources like BigQuery and Snowflake into live dashboards from text prompts. Motion generates animated explainer videos from text and images. Docs, Slides, and Design now work across all plans, including free accounts. The article Claude can now generate animated explainer videos and live data dashboards from text prompts appeared first on The Decoder .",
-      "text": "Claude can now generate animated explainer videos and live data dashboards from text prompts\nAnthropic launched two new beta features for Claude. Dashboards connects data sources like BigQuery, Databricks, Snowflake, or Salesforce and turns them into auto-updating live dashboards via text prompt. Every number shows its underlying query, and results can be piped into tools like Amplitude, Grafana, or Hex, Anthropic says. Motion creates animated explainer videos from text, diagrams, and images, editable as code and exportable as MP4.\nDashboards is available for paid users, Motion for Team and Enterprise plans. Docs, Slides, and Design are leaving beta and now work across all plans, including free accounts. Anthropic says more than 45 million documents have been created with these tools. That traction might be one reason Microsoft is reportedly cutting back on Claude usage.\nThe earlier announced Claude Design will be folded into the main app by December 14. A migration guide is available.\nAI News Without the Hype – Curated by Humans\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1171
@@ -81,5 +69,10 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %63 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-08T21:27:41Z",
+  "slug": "claude-yapay-zeka-yeni-ozellikler",
+  "published_at": "2026-10-08T21:27:41Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/claude-yapay-zeka-yeni-ozellikler"
 }
