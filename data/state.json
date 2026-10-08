@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816399,
+  "telegram_offset": 872816401,
   "last_collect": "2026-10-08T03:55:25Z",
   "last_summary_date": "2026-10-07",
   "mode_override": null,
@@ -856,17 +856,22 @@
       "tok_out": 26541,
       "cost_usd": 0.0,
       "drafts": 1,
-      "updates": 1
+      "updates": 1,
+      "rejected": 1,
+      "published": 1,
+      "approved": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-08T04:04:56Z",
+  "last_build": "2026-10-08T04:09:47Z",
   "build_sig": "9d9e79c540525829",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-10-07T16:21:19Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-08T04:09:33Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/girisimcilik/2026/10/uber-turkiye-yatirimini-500-milyon-dolara-cikardi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
