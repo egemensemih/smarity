@@ -1,0 +1,109 @@
+{
+  "id": "854025eca6",
+  "status": "pending",
+  "update_of": "71f4b97e70",
+  "created_at": "2026-10-08T04:16:04Z",
+  "title": "RTX Spark platformu duyuruldu: Windows için hibrit zeka dönemi başladı",
+  "summary": "Microsoft ve NVIDIA, Windows 11’i yapay zeka ajanları için yenileyen hibrit zeka mimarisini ve RTX Spark donanım platformunu resmen duyurdu.",
+  "body": "Microsoft ve NVIDIA, San Francisco'da gerçekleştirilen ortak etkinlikte Windows 11’i otonom yapay zeka ajanlarının güvenli merkezi yapacak **RTX Spark** platformunu ve hibrit zeka mimarisini tanıttı. Etkinlikte Microsoft CEO'su Satya Nadella ve NVIDIA CEO'su Jensen Huang, işletim sistemi çekirdeğine entegre edilen Microsoft Execution Containers (MXC) altyapısını ve yeni donanım çözümlerini duyurdu.\n\n## RTX Spark ve yeni donanım ekosistemi\n\nEtkinliğin en önemli donanım duyurusu olan **RTX Spark** mimarisi, dizüstü ve kompakt masaüstü bilgisayarlara yerel yapay zeka işlem gücü kazandırıyor. Platform; 20 çekirdeğe kadar NVIDIA Grace CPU, 6.144 çekirdeğe kadar Blackwell RTX GPU ve 128 GB'a varan birleşik bellek sunuyor. FP4 formatında 1 petaflop hesaplama gücüne ulaşan platformun ilk temsilcisi olan Surface Laptop Ultra için ön siparişler açılırken, cihazların 16 Ekim'de raflarda yerini alacağı bildirildi. Acer, ASUS, Dell, HP, Lenovo, MSI ve Gigabyte gibi üreticilerin yeni modelleri de bu süreçte kullanıcılarla buluşacak.\n\n## MXC güvenliği ve hibrit zeka altyapısı\n\nWindows 11 için genel kullanıma sunulan Microsoft Execution Containers (MXC), arka planda çalışan otonom yapay zeka ajanları için dinamik bir izolasyon katmanı sağlıyor. OpenAI Codex, GitHub Copilot, Anthropic Claude Code ve Meta Muse gibi araçları destekleyen bu yapı, verilerin yerel ortamda kalmasına olanak tanıyor. Kurumsal tarafta ise 748 GB bellekli NVIDIA DGX Station masaüstü süper bilgisayarı Windows ekosistemine dahil ediliyor.\n\n**Neden önemli?** Yapay zeka işlemlerinin buluttan masaüstü cihazlara taşınması, otonom ajanların hassas verileri güvenlik duvarlarını aşmadan ve token maliyeti yaratmadan doğrudan bilgisayar üzerinde işlemesini sağlıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "NVIDIA",
+    "Windows 11",
+    "RTX Spark",
+    "Surface Laptop Ultra"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Windows ve NVIDIA'dan RTX Spark hamlesi",
+  "kicker": "Lansman",
+  "hero_stat": "1 petaflop",
+  "hero_stat_label": "yapay zeka gücü",
+  "visual_style": "sculpture",
+  "visual_scene": "A sleek frosted glass cube suspended above a matte dark surface, emitting a warm orange amber beam from inside, surrounded by subtle translucent geometric ribbons that interconnect with delicate metallic pins.",
+  "focus_keyword": "RTX Spark",
+  "seo_title": "RTX Spark duyuruldu: Windows'a yerel yapay zeka gücü",
+  "meta_description": "Microsoft ve NVIDIA, RTX Spark platformunu tanıttı. Windows 11 için geliştirilen hibrit zeka altyapısı ve MXC güvenliği hakkında tüm detaylar.",
+  "seo_slug": "rtx-spark-platformu-windows-yapay-zeka",
+  "image_alt": "Transparan cam küpün içinde parlayan turuncu ışık hüzmesi: RTX Spark ve hibrit zeka teknolojisini temsil eden tasarım",
+  "cover_text": "RTX Spark",
+  "carousel_points": [
+    "Microsoft ve NVIDIA, Windows 11 için yerel ve bulut gücünü birleştiren hibrit zeka dönemini başlattı.",
+    "Yeni RTX Spark platformu, 128 GB birleşik bellek ve 1 petaflop yapay zeka hesaplama gücü sunuyor.",
+    "Surface Laptop Ultra ve diğer RTX Spark tabanlı bilgisayarlar 16 Ekim itibarıyla satışa çıkıyor."
+  ],
+  "appeal": 8,
+  "update_note": "San Francisco'daki etkinlikte Microsoft ve NVIDIA, RTX Spark platformunu, MXC güvenlik altyapısını ve çıkış tarihlerini resmen duyurdu.",
+  "cover_headline": "RTX Spark ile Windows'a 1 petaflop güç",
+  "cover_highlight": "1 petaflop",
+  "cover_line_v": 3,
+  "importance": 8,
+  "triage_reason": "Microsoft-Nvidia ortaklığının detayları ve RTX Spark duyuruldu.",
+  "entities": [
+    "Microsoft",
+    "NVIDIA",
+    "Windows"
+  ],
+  "topic": "Microsoft and NVIDIA partner for Windows hybrid AI agents and RTX Spark",
+  "sources": [
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/microsoft-hibrit-zeka-donemini-baslatiyor-windows-yapay-zeka-ajanlari-icin-yeniden-sekilleniyor",
+      "title": "Microsoft, Hibrit Zeka Dönemini Başlatıyor: Windows Yapay Zeka Ajanları İçin Yeniden Şekilleniyor",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/microsoft-hibrit-zeka-donemini-baslatiyor-windows-yapay-zeka-ajanlari-icin-yeniden-sekilleniyor#respond",
+      "published": "2026-10-08T04:14:10Z",
+      "image": null
+    },
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/nvidia-ve-microsofttan-yapay-zeka-devrimi-windows-bilgisayarlara-rtx-spark-geliyor",
+      "title": "NVIDIA ve Microsoft’tan Yapay Zeka Devrimi: Windows Bilgisayarlara RTX Spark Geliyor",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/nvidia-ve-microsofttan-yapay-zeka-devrimi-windows-bilgisayarlara-rtx-spark-geliyor#respond",
+      "published": "2026-10-08T04:11:47Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "ShiftDelete.Net"
+  ],
+  "source_texts": [
+    {
+      "credit": "ShiftDelete.Net",
+      "kind": "media",
+      "title": "Microsoft, Hibrit Zeka Dönemini Başlatıyor: Windows Yapay Zeka Ajanları İçin Yeniden Şekilleniyor",
+      "url": "https://shiftdelete.net/microsoft-hibrit-zeka-donemini-baslatiyor-windows-yapay-zeka-ajanlari-icin-yeniden-sekilleniyor",
+      "published": "2026-10-08T04:14:10Z",
+      "summary": "Microsoft, kişisel bilgisayarlarda yapay zeka ajanlarının rolünü kökten değiştirecek yeni vizyonunu duyurdu. Şirket; yerel modelleri, bulut gücünü ve gelişmiş güvenlik altyapılarını tek bir çatı altında birleştiren hibrit zeka yaklaşımıyla Windows’u otonom asistanların güvenli merkez üssü haline getiriyor. Yeni duyurulan Microsoft Execution Containers (MXC), akıllı yönlendirme sistemleri ve güçlü donanım ekosistemi, bilgisayar kullanım alışkanlıklarını baştan aşağı […]",
+      "text": "Microsoft, Hibrit Zeka Dönemini Başlatıyor: Windows Yapay Zeka Ajanları İçin Yeniden Şekilleniyor\nMicrosoft, kişisel bilgisayarlarda yapay zeka ajanlarının rolünü kökten değiştirecek yeni vizyonunu duyurdu. Şirket; yerel modelleri, bulut gücünü ve gelişmiş güvenlik altyapılarını tek bir çatı altında birleştiren hibrit zeka yaklaşımıyla Windows’u otonom asistanların güvenli merkez üssü haline getiriyor. Yeni duyurulan Microsoft Execution Containers (MXC), akıllı yönlendirme sistemleri ve güçlü donanım ekosistemi, bilgisayar kullanım alışkanlıklarını baştan aşağı değiştiriyor.\nAjanlar İçin En Güvenli Platform: Microsoft Execution Containers (MXC)\nOtonom yapay zeka ajanları geleneksel uygulamalardan farklı olarak dosya düzenleme, kod yazma ve arka planda sürekli çalışabilme yeteneklerine sahip. Bu durum, güvenlik ve denetim standartlarının baştan yazılmasını zorunlu kılıyor. Microsoft, bu ihtiyacı karşılamak üzere tasarlanan Microsoft Execution Containers (MXC) altyapısını Windows 11 için genel kullanıma sunuyor.\nMXC; bir ajanın hangi dosyalara ve ağlara erişebileceğini çalışma zamanında denetleyen dinamik bir izolasyon katmanı sunuyor. Kurumlar ve bireysel kullanıcılar için işlem ve oturum izolasyonundan sanal makinelere kadar esnek güvenlik seçenekleri sağlayan bu yapı, OpenAI Codex, GitHub Copilot, Anthropic Claude Code ve Meta Muse gibi sektörün önde gelen ajanları tarafından destekleniyor.\nBulut ve Yerel Güç Birleşiyor: Hibrit Zeka ve Akıllı Yönlendirme\nBüyük dil modellerinin ve yapay zeka araçlarının maliyetleri ile kaynak tüketimi artarken, kullanıcılar bulut bütçelerini zorlamadan en iyi performansı arıyor. Microsoft, yerel yapay zeka ile bulut zekasını harmanlayan hibrit zeka mimarisiyle bu soruna çözüm getiriyor. MAI Code 1.1 Flash, NVIDIA Nemotron ve DeepSeek V4 Flash gibi gelişmiş açık kaynaklı modeller, cihaz üzerinde yerel olarak çalışarak buluta veri göndermeden anlık yanıtlar üretiyor.\nGitHub iş birliğiyle duyurulan ve görevleri en uygun modele yönlendiren akıllı yönlendirme teknolojisi, yerel modelleri devreye sokarak token maliyetlerini optimize ediyor. Ayrıca Windows ML platformuna eklenen llama.cpp desteği, geliştiricilerin en yeni açık kaynaklı projelere anında adapte olmasını sağlıyor.\nCopilot ve Donanım Ekosisteminde Yeni Dönem\n- Süper Şarj Edilmiş Copilot: Copilot+ PC’lerde yerel bağlam (local context), yerel eylemler (local actions) ve yerel modeller (local models) entegre ediliyor. Asistan, kullanıcının izniyle bilgisayardaki dosyalara erişebiliyor, dosya düzenleme ve sorun giderme gibi görevleri doğrudan cihaz üzerinde gerçekleştirebiliyor.\n- RTX Spark ve Güçlü Donanımlar: NVIDIA RTX Spark mimarisini temel alan Acer, ASUS, Dell, HP, Lenovo, MSI ve Microsoft Surface gibi üreticilerin yeni cihazları ön siparişe açılıyor. Surface Laptop Ultra, 128 GB’a varan birleşik belleğiyle en ağır yapay zeka yüklerini yerel olarak kaldırıyor.\nGelecek Beklentileri ve Windows’un Evrimi\nMicrosoft’un attığı bu adımlar, kişisel bilgisayarların sadece belge hazırlanan birer araç olmaktan çıkıp, kullanıcı adına düşünen ve çalışan otonom sistemlere dönüştüğünü gösteriyor. Donanım üreticileri ile yazılım katmanının derinlemesine entegrasyonu, yapay zeka devrimini buluttan masaüstüne taşıyarak verimlilikte yeni bir standart belirliyor. Önümüzdeki aylarda Copilot+ PC kullanıcılarına kademeli olarak sunulacak bu yenilikler, günlük iş akışlarını tamamen dönüştürmeye hazırlanıyor."
+    },
+    {
+      "credit": "ShiftDelete.Net",
+      "kind": "media",
+      "title": "NVIDIA ve Microsoft’tan Yapay Zeka Devrimi: Windows Bilgisayarlara RTX Spark Geliyor",
+      "url": "https://shiftdelete.net/nvidia-ve-microsofttan-yapay-zeka-devrimi-windows-bilgisayarlara-rtx-spark-geliyor",
+      "published": "2026-10-08T04:11:47Z",
+      "summary": "Microsoft ve NVIDIA, San Francisco’da düzenlenen ortak etkinlikte Windows ekosistemini otonom yapay zeka ajanlarının merkez üssü haline getirecek dev bir iş birliğine imza attı. Jensen Huang ve Satya Nadella’nın sahne aldığı duyuruda; Windows işletim sistemine entegre edilen yeni güvenlik mimarisi Microsoft Execution Containers (MXC), devrimsel donanım platformu RTX Spark ve kurumsal tarafta sınırları zorlayan Windows […]",
+      "text": "NVIDIA ve Microsoft’tan Yapay Zeka Devrimi: Windows Bilgisayarlara RTX Spark Geliyor\nMicrosoft ve NVIDIA, San Francisco’da düzenlenen ortak etkinlikte Windows ekosistemini otonom yapay zeka ajanlarının merkez üssü haline getirecek dev bir iş birliğine imza attı. Jensen Huang ve Satya Nadella’nın sahne aldığı duyuruda; Windows işletim sistemine entegre edilen yeni güvenlik mimarisi Microsoft Execution Containers (MXC), devrimsel donanım platformu RTX Spark ve kurumsal tarafta sınırları zorlayan Windows tabanlı DGX Station resmiyet kazandı.\nWindows Ekosisteminde Yeni Dönem: Ajan Çağı ve MXC Altyapısı\nSan Francisco’daki Dogpatch Studios’ta bir araya gelen NVIDIA CEO’su Jensen Huang ve Microsoft CEO’su Satya Nadella, kişisel bilgisayarların geleceğini şekillendirecek vizyonlarını paylaştı. Huang, NVIDIA’nın kuruluş hikayesinin merkezinde Windows’un yer aldığını hatırlatarak, Windows olmasaydı GeForce markasının da var olamayacağını vurguladı. İkili, bu köklü ortaklığı şimdi “ajan çağı” (agentic era) ile bir sonraki seviyeye taşıyor.\nEtkinlikte söz alan Microsoft Windows ve Cihazlar Kıdemli Başkan Yardımcısı Pavan Davuluri, Windows’un arka planında yapay zeka ajanlarının güvenli, denetimli ve kesintisiz şekilde çalışmasını sağlayan Microsoft Execution Containers (MXC) altyapısının genel kullanıma sunulduğunu açıkladı. İşletim sistemi çekirdeğine doğrudan entegre edilen bu yapı; güvenlik duvarlarını aşmadan, verileri yerel ortamda tutarak arka planda görev yapan otonom asistanların önünü açıyor. Jensen Huang bu adımı, vaktiyle DirectX’in oyun ve uygulama dünyasında yarattığı devrime benzetiyor.\nRTX Spark Mimarisi: 128 GB Birleşik Bellek ve 1 Petaflop Güç\nEtkinliğin donanım tarafındaki en büyük sürprizi şüphesiz RTX Spark oldu. Geliştiricilere, içerik üreticilerine ve oyunculara hitap eden bu yeni platform; dizüstü bilgisayarlara ve kompakt masaüstü sistemlere tam teşekküllü yapay zeka kabiliyeti kazandırıyor. Bu platformun ilk temsilcisi olarak duyurulan yeni Surface Laptop Ultra, doğrudan RTX Spark üzerine inşa ediliyor.\nTeknik Detaylar ve Donanım Yetenekleri\n- İşlemci ve Grafik Gücü: 6.144 çekirdeğe kadar ölçeklenen NVIDIA Blackwell RTX GPU ve 20 çekirdeğe kadar NVIDIA Grace CPU, 600 GB/s hızındaki özel ara bağlantı ile bir araya geliyor.\n- Yapay Zeka Performansı: FP4 formatında tam 1 petaflop hesaplama gücü ve 128 GB’a kadar birleşik bellek (unified memory) sunuluyor.\n- Gelişmiş Yerel Modeller: Qwen 3.8 Flash Next gibi 125 milyar parametrelik devasa dil modelleri, buluta veri göndermeden tamamen çevrim dışı ve sınırsız şekilde cihaz üzerinde çalışabiliyor.\n- Oyuncular ve Üreticiler İçin: 5. nesil Tensor çekirdekleri, NVFP4, AV1 donanım hızlandırma, DLSS 5 desteği ve 1440p çözünürlükte 100 FPS üzeri akıcı AAA oyun performansı sağlanıyor.\nRTX Spark mimarisine sahip dizüstü bilgisayarlar için ön sipariş süreci başlarken, cihazlar 16 Ekim itibarıyla raflardaki yerini alıyor. Acer, ASUS, Dell, HP, Lenovo, Microsoft, MSI ve Gigabyte gibi üreticilerin imzasını taşıyan modeller kullanıcılarla buluşurken, 7/24 kesintisiz çalışacak kompakt masaüstü çözümleri ise Kasım ayında satışa çıkıyor.\nMasaüstü Süper Bilgisayarı: Windows İçin NVIDIA DGX Station\nKurumsal segmenti hedefleyen en kritik hamle ise Windows destekli NVIDIA DGX Station ile geldi. Daha önce yalnızca Linux ortamında çalışan DGX Station platformu, artık GB300 Grace Blackwell Ultra Desktop Superchip ile doğrudan Windows ekosistemine giriş yapıyor. Bu adım, kurumsal şirketlerin yapay zeka araştırmacıları ile Windows tabanlı ofis ve yönetim altyapıları arasındaki duvarları tamamen yıkıyor.\nTam 748 GB tutarlı (coherent) bellek ve 20 petaFLOPS FP4 işlem gücü barındıran bu masaüstü süper bilgisayarı, 1 trilyon parametreye varan sınır modelleri (frontier models) yerel ortamda çalıştırma ve ince ayar (fine-tuning) yapma imkanı veriyor. Geliştiriciler ihtiyaç duyduklarında WSL (Windows Subsystem for Linux) üzerinden Linux araç setlerine erişmeye devam ederken, temel iş akışlarını doğrudan Windows masaüstünden yönetebiliyor."
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1135
+  },
+  "image": {
+    "source": "photo",
+    "photo": "71f4b97e70-g0.webp",
+    "credit": "The Verge",
+    "page": "https://www.theverge.com/news/1006292/microsoft-windows-surface-event-rtx-spark-how-to-watch",
+    "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK178_Satya_Nadella_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %80 (<%85)"
+}
