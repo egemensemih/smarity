@@ -5,7 +5,7 @@
       "rejected": 16
     },
     "The Verge": {
-      "approved": 24,
+      "approved": 25,
       "rejected": 20
     },
     "Engadget": {
@@ -37,7 +37,7 @@
       "rejected": 18
     },
     "Webtekno": {
-      "approved": 26,
+      "approved": 27,
       "rejected": 14
     },
     "Anadolu Ajansı": {
@@ -101,7 +101,7 @@
       "rejected": 0
     },
     "Bloomberg Teknoloji": {
-      "approved": 12,
+      "approved": 13,
       "rejected": 24
     },
     "Digital Trends": {
@@ -241,7 +241,7 @@
       "rejected": 2
     },
     "Kotaku": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 4
     },
     "Android Police": {
@@ -269,7 +269,7 @@
       "rejected": 1
     },
     "Eurogamer": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 5
     },
     "Samsung": {
@@ -326,12 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T21:05:29Z",
-      "id": "7429887545",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T21:05:30Z",
       "id": "3902ecf6f1",
@@ -2123,6 +2117,12 @@
     {
       "t": "2026-10-08T12:40:38Z",
       "id": "a6984f9de1",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T13:46:22Z",
+      "id": "053c3527a0",
       "ok": true,
       "manual": true
     }
