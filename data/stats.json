@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 33,
-      "rejected": 15
+      "rejected": 16
     },
     "The Verge": {
       "approved": 24,
@@ -210,7 +210,7 @@
     },
     "MacRumors": {
       "approved": 5,
-      "rejected": 4
+      "rejected": 5
     },
     "9to5Google": {
       "approved": 6,
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T19:57:50Z",
-      "id": "a416000c18",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:57:53Z",
-      "id": "19e9c72739",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T19:57:58Z",
       "id": "9d24c1f6c3",
@@ -2124,6 +2112,18 @@
       "t": "2026-10-08T07:56:00Z",
       "id": "09e2fb2d1c",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T09:19:11Z",
+      "id": "36a5693b9e",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T09:19:13Z",
+      "id": "96b512d164",
+      "ok": false,
       "manual": true
     }
   ]
