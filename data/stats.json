@@ -1,8 +1,8 @@
 {
   "sources": {
     "LOG": {
-      "approved": 29,
-      "rejected": 14
+      "approved": 33,
+      "rejected": 15
     },
     "The Verge": {
       "approved": 24,
@@ -33,7 +33,7 @@
       "rejected": 39
     },
     "ShiftDelete.Net": {
-      "approved": 32,
+      "approved": 34,
       "rejected": 18
     },
     "Webtekno": {
@@ -326,36 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T19:57:32Z",
-      "id": "14b7e2a44c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:57:38Z",
-      "id": "a6e8b7a57c",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:57:41Z",
-      "id": "e3b6ee58e5",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:57:44Z",
-      "id": "b84f66452a",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:57:49Z",
-      "id": "2660441aff",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-09-30T19:57:50Z",
       "id": "a416000c18",
@@ -2123,6 +2093,36 @@
     {
       "t": "2026-10-08T04:09:45Z",
       "id": "47fd7fdc1a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T07:55:45Z",
+      "id": "854025eca6",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T07:55:48Z",
+      "id": "eaba00da19",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T07:55:51Z",
+      "id": "a018d638a6",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T07:55:57Z",
+      "id": "e948e42665",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T07:56:00Z",
+      "id": "09e2fb2d1c",
       "ok": true,
       "manual": true
     }

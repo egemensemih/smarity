@@ -1,43 +1,43 @@
 {
   "id": "71f4b97e70",
   "created_at": "2026-10-07T13:23:30Z",
-  "title": "Microsoft ve Nvidia ortaklığı San Francisco etkinliğinde duyuruluyor",
-  "summary": "Microsoft, yerel yapay zeka odaklı Windows ve Surface yeniliklerini duyurmak üzere San Francisco'da bir etkinlik düzenliyor.",
-  "body": "Microsoft, yerel yapay zeka odaklı Windows ve Surface yeniliklerini duyurmak üzere San Francisco'da bir etkinlik düzenliyor. The Verge'ün aktardığına göre, Microsoft CEO'su Satya Nadella, Nvidia CEO'su Jensen Huang ve Windows ile Surface biriminin yöneticisi Pavan Davuluri'nin katıldığı buluşmada yapay zekanın bilgisayarların geleceğini nasıl şekillendireceği ele alınıyor.\n\n## Surface Laptop Ultra ve RTX Spark\n\nEtkinlikte, Nvidia'nın ARM tabanlı yeni çiplerini kullanan Surface Laptop Ultra hakkında fiyat, çıkış tarihi ve tam teknik özelliklerin açıklanması bekleniyor. Söylentilere göre cihaz, 18 çekirdekli ve 20 çekirdekli işlemci seçenekleri ile 128 GB'a varan bellek yapılandırmalarıyla gelebilir. Ayrıca Jensen Huang'ın katılımıyla, Nvidia'nın Windows dizüstü bilgisayar pazarını hedefleyen RTX Spark platformuna dair yeni detaylar paylaşılıyor.\n\n## Yapay zeka ve Windows 11 yenilikleri\n\nMicrosoft'un yerel olarak çalışan yapay zeka asistanları hakkında yeni planlarını paylaşması beklenirken, Windows 11'in 8 GB RAM'li cihazlardaki performansını artırmaya yönelik çalışmaları da ele alınıyor. Geliştiriciler ve içerik üreticileri için tasarlanan yeni özelliklerin de sunuma dahil olduğu aktarılıyor.\n\n**Neden önemli?** Yerel yapay zeka yeteneklerini donanımla buluşturan bu yeni cihazlar ve platformlar, kişisel bilgisayarların yapay zeka işlemlerini doğrudan cihaz üzerinde yapma kapasitesini artırıyor.",
+  "title": "RTX Spark platformu duyuruldu: Windows için hibrit zeka dönemi başladı",
+  "summary": "Microsoft ve NVIDIA, Windows 11’i yapay zeka ajanları için yenileyen hibrit zeka mimarisini ve RTX Spark donanım platformunu resmen duyurdu.",
+  "body": "Microsoft ve NVIDIA, San Francisco'da gerçekleştirilen ortak etkinlikte Windows 11’i otonom yapay zeka ajanlarının güvenli merkezi yapacak **RTX Spark** platformunu ve hibrit zeka mimarisini tanıttı. Etkinlikte Microsoft CEO'su Satya Nadella ve NVIDIA CEO'su Jensen Huang, işletim sistemi çekirdeğine entegre edilen Microsoft Execution Containers (MXC) altyapısını ve yeni donanım çözümlerini duyurdu.\n\n## RTX Spark ve yeni donanım ekosistemi\n\nEtkinliğin en önemli donanım duyurusu olan **RTX Spark** mimarisi, dizüstü ve kompakt masaüstü bilgisayarlara yerel yapay zeka işlem gücü kazandırıyor. Platform; 20 çekirdeğe kadar NVIDIA Grace CPU, 6.144 çekirdeğe kadar Blackwell RTX GPU ve 128 GB'a varan birleşik bellek sunuyor. FP4 formatında 1 petaflop hesaplama gücüne ulaşan platformun ilk temsilcisi olan Surface Laptop Ultra için ön siparişler açılırken, cihazların 16 Ekim'de raflarda yerini alacağı bildirildi. Acer, ASUS, Dell, HP, Lenovo, MSI ve Gigabyte gibi üreticilerin yeni modelleri de bu süreçte kullanıcılarla buluşacak.\n\n## MXC güvenliği ve hibrit zeka altyapısı\n\nWindows 11 için genel kullanıma sunulan Microsoft Execution Containers (MXC), arka planda çalışan otonom yapay zeka ajanları için dinamik bir izolasyon katmanı sağlıyor. OpenAI Codex, GitHub Copilot, Anthropic Claude Code ve Meta Muse gibi araçları destekleyen bu yapı, verilerin yerel ortamda kalmasına olanak tanıyor. Kurumsal tarafta ise 748 GB bellekli NVIDIA DGX Station masaüstü süper bilgisayarı Windows ekosistemine dahil ediliyor.\n\n**Neden önemli?** Yapay zeka işlemlerinin buluttan masaüstü cihazlara taşınması, otonom ajanların hassas verileri güvenlik duvarlarını aşmadan ve token maliyeti yaratmadan doğrudan bilgisayar üzerinde işlemesini sağlıyor.",
   "category": "teknoloji",
   "tags": [
     "Microsoft",
-    "Nvidia",
-    "Surface Laptop Ultra",
-    "Satya Nadella",
-    "Jensen Huang"
+    "NVIDIA",
+    "Windows 11",
+    "RTX Spark",
+    "Surface Laptop Ultra"
   ],
-  "confidence": "orta",
+  "confidence": "yuksek",
   "flags": [
     "iddia"
   ],
   "editor_note": "Kaynak metin The Verge'ün etkinlik öncesi beklentilerine dayanmaktadır.",
-  "short_title": "Microsoft ve Nvidia'dan yapay zeka odaklı etkinlik",
-  "kicker": "Yeni ürün",
-  "hero_stat": "",
-  "hero_stat_label": "",
+  "short_title": "Windows ve NVIDIA'dan RTX Spark hamlesi",
+  "kicker": "Lansman",
+  "hero_stat": "1 petaflop",
+  "hero_stat_label": "yapay zeka gücü",
   "visual_style": "studio",
   "visual_scene": "a sleek modern laptop crafted from dark brushed titanium resting on a minimal stone surface, angled slightly to catch a soft cool light reflection on its smooth chassis",
-  "focus_keyword": "Microsoft ve Nvidia",
-  "seo_title": "Microsoft ve Nvidia ortaklığı San Francisco etkinliği",
-  "meta_description": "Microsoft ve Nvidia'nın San Francisco'da düzenlediği etkinlikte yerel yapay zeka ve Surface Laptop Ultra detayları duyuruluyor.",
+  "focus_keyword": "RTX Spark",
+  "seo_title": "RTX Spark duyuruldu: Windows'a yerel yapay zeka gücü",
+  "meta_description": "Microsoft ve NVIDIA, RTX Spark platformunu tanıttı. Windows 11 için geliştirilen hibrit zeka altyapısı ve MXC güvenliği hakkında tüm detaylar.",
   "seo_slug": "microsoft-ve-nvidia-san-francisco-etkinligi",
-  "image_alt": "Koyu renkli mat yüzey üzerinde duran modern dizüstü bilgisayar",
-  "cover_text": "Surface Laptop Ultra",
+  "image_alt": "Transparan cam küpün içinde parlayan turuncu ışık hüzmesi: RTX Spark ve hibrit zeka teknolojisini temsil eden tasarım",
+  "cover_text": "RTX Spark",
   "carousel_points": [
-    "Microsoft ve Nvidia San Francisco'da ortak etkinlik düzenliyor.",
-    "Surface Laptop Ultra için fiyat ve çıkış tarihi bekleniyor.",
-    "Yerel yapay zeka asistanları ve RTX Spark detayları paylaşılyor."
+    "Microsoft ve NVIDIA, Windows 11 için yerel ve bulut gücünü birleştiren hibrit zeka dönemini başlattı.",
+    "Yeni RTX Spark platformu, 128 GB birleşik bellek ve 1 petaflop yapay zeka hesaplama gücü sunuyor.",
+    "Surface Laptop Ultra ve diğer RTX Spark tabanlı bilgisayarlar 16 Ekim itibarıyla satışa çıkıyor."
   ],
-  "appeal": 7,
+  "appeal": 8,
   "update_note": "",
-  "cover_headline": "Microsoft ve Nvidia yapay zeka için sahnede",
-  "cover_highlight": "yapay zeka",
+  "cover_headline": "RTX Spark ile Windows'a 1 petaflop güç",
+  "cover_highlight": "1 petaflop",
   "cover_line_v": 3,
   "importance": 8,
   "triage_reason": "Microsoft Surface ve Windows etkinliği merakla bekleniyor.",
@@ -57,10 +57,42 @@
       "via_url": null,
       "published": "2026-10-07T13:12:56Z",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK178_Satya_Nadella_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    },
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/microsoft-hibrit-zeka-donemini-baslatiyor-windows-yapay-zeka-ajanlari-icin-yeniden-sekilleniyor",
+      "title": "Microsoft, Hibrit Zeka Dönemini Başlatıyor: Windows Yapay Zeka Ajanları İçin Yeniden Şekilleniyor",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/microsoft-hibrit-zeka-donemini-baslatiyor-windows-yapay-zeka-ajanlari-icin-yeniden-sekilleniyor#respond",
+      "published": "2026-10-08T04:14:10Z",
+      "image": null
+    },
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/nvidia-ve-microsofttan-yapay-zeka-devrimi-windows-bilgisayarlara-rtx-spark-geliyor",
+      "title": "NVIDIA ve Microsoft’tan Yapay Zeka Devrimi: Windows Bilgisayarlara RTX Spark Geliyor",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/nvidia-ve-microsofttan-yapay-zeka-devrimi-windows-bilgisayarlara-rtx-spark-geliyor#respond",
+      "published": "2026-10-08T04:11:47Z",
+      "image": null
+    },
+    {
+      "name": "LOG",
+      "url": "https://www.log.com.tr/turkiyede-ilk-rtx-spark-dizustu-modelleri-satisa-sunuldu/",
+      "title": "Türkiye’de ilk “RTX Spark” dizüstü modelleri satışa sunuldu",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-08T06:07:47Z",
+      "image": "https://www.log.com.tr/wp-content/uploads/2026/10/2026-10-08_09-04-02_yCSRh-660x371.jpg"
     }
   ],
   "source_keys": [
-    "The Verge"
+    "The Verge",
+    "ShiftDelete.Net",
+    "LOG"
   ],
   "rewrites": 0,
   "telegram": {
@@ -95,5 +127,17 @@
   "publish_mode": "manual",
   "path": "teknoloji/2026/10/microsoft-ve-nvidia-san-francisco-etkinligi",
   "photos_vetted": "2026-10-07T13:44:14Z",
-  "photos_vet_v": 2
+  "photos_vet_v": 2,
+  "updated_at": "2026-10-08T07:55:40Z",
+  "refreshed_at": "2026-10-08T07:55:40Z",
+  "updates": [
+    {
+      "at": "2026-10-08T07:55:40Z",
+      "note": "San Francisco'daki etkinlikte Microsoft ve NVIDIA, RTX Spark platformunu, MXC güvenlik altyapısını ve çıkış tarihlerini resmen duyurdu.",
+      "sources": [
+        "ShiftDelete.Net",
+        "LOG"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,5 @@
 {
   "id": "eaba00da19",
-  "status": "pending",
   "created_at": "2026-10-08T05:46:03Z",
   "title": "KVKK'dan Nesine için veri ihlal bildirimi",
   "summary": "Kişisel Verileri Koruma Kurumu, Nesine'nin çağrı merkezi sistemlerine siber saldırı düzenlendiğini ve verilerin şifrelendiğini duyurdu.",
@@ -71,17 +70,6 @@
     "LOG",
     "ShiftDelete.Net"
   ],
-  "source_texts": [
-    {
-      "credit": "LOG",
-      "kind": "media",
-      "title": "KVKK, “Nesine” için veri ihlal bildirimi geçti",
-      "url": "https://www.log.com.tr/kvkk-nesine-icin-veri-ihlal-bildirimi-gecti/",
-      "published": "2026-10-08T05:42:13Z",
-      "summary": "Kişisel Verileri Koruma Kurumu (KVKK) bugün resmi sitesi üzerinden Nesine (D Elektronik Şans Oyunları ve Yayıncılık A.Ş) için bir veri ihlal bildirimi geçti. Süreçle alakalı yapılan resmi açıklamada, “Çağrı merkezi hizmeti alınan veri işleyen sistemlerine siber saldırı gerçekleştirildiği ve verilerin şifrelenerek erişilemez hale getirildiği; söz konusu veri işleyenin, 30.09.2026 tarihinde sisteminde hizmet kesintisi yaşaması üzerine durumu tespit ederek veri sorumlusuna bilgi verdiği, İlk incelemelerinde, verilerin dışarı aktarıldığına dair bulguya rastlanmadığı; ancak saldırganın…",
-      "text": "Kişisel Verileri Koruma Kurumu (KVKK) bugün resmi sitesi üzerinden Nesine (D Elektronik Şans Oyunları ve Yayıncılık A.Ş) için bir veri ihlal bildirimi geçti. Süreçle alakalı yapılan resmi açıklamada, “Çağrı merkezi hizmeti alınan veri işleyen sistemlerine siber saldırı gerçekleştirildiği ve verilerin şifrelenerek erişilemez hale getirildiği; söz konusu veri işleyenin, 30.09.2026 tarihinde sisteminde hizmet kesintisi yaşaması üzerine durumu tespit ederek veri sorumlusuna bilgi verdiği, İlk incelemelerinde, verilerin dışarı aktarıldığına dair bulguya rastlanmadığı; ancak saldırganın sistemlerde bulunduğu süre ve altyapının paylaşımlı yapısı dikkate alındığında yetkisiz erişim ihtimalinin de tam olarak dışlanamadığı; kesin sonucun adli bilişim incelemesiyle netleşeceği, Etkilenen kişilerin, çağrı merkezini arayan veya çağrı merkezince aranan müşteriler ile üyelik işlemleri için arayan potansiyel müşteriler olduğu, Veri işleyenin altyapısında tutulan verilerin, çağrı ses kayıtları ve çağrı detay kayıtlarından (arayan/aranan telefon numarası, çağrı tarih-saat ve süresi) oluştuğu; bu bağlamda etkilenen kişisel verilerin iletişim (çağrı detay kayıtlarındaki telefon numaraları), kimlik (görüşmelerde beyan edilen ad, soyad ve kimlik doğrulama amacıyla sorulan bilgiler), müşteri işlem (talep ve şikayet içeriği, işlem bilgileri) ve görsel-işitsel kayıtlar (ses kayıtları) olduğu; ses kayıtlarının, görüşme içeriğine bağlı olarak kimlik doğrulama bilgileri (doğum tarihi, T.C. kimlik numarası vb.) ve işlem bilgilerini de içerebildiği; ilaveten, görme engelli üyelere destek süreci de çağrı merkezi üzerinden yürütüldüğünden, sınırlı sayıda görüşmede engellilik durumuna ilişkin beyan bulunabileceği, Kaç adet dosyanın şifrelendiği ve kişisel verilerin üçüncü kişilerce elde edilip edilmediği hususlarının mevcut aşamada kesin olarak tespit edilemediği belirtildiğinden bu aşamada etkilenen kişi ve kayıt sayısının belirlenmesinin mümkün olamadığı, İlgili kişilerin 0850 558 0 558 numaralı çağrı merkezi, Bize Yazın kanalı, müşteri hizmetleri mesaj kanalı veya [email protected] adresi; 6698 sayılı Kanun’un 11. maddesi kapsamındaki hakları kapsamında [email protected] adresi veya internet sitelerindeki başvuru formu aracılığıyla veri sorumlusuna ulaşabileceği bilgilerine yer verilmiştir.” ifadelerine yer verildi."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1136
@@ -107,5 +95,8 @@
     "palette": "teknoloji-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %80 (<%85)"
+  "slug": "kvkk-nesine-veri-ihlal-bildirimi",
+  "published_at": "2026-10-08T07:55:47Z",
+  "publish_mode": "manual",
+  "path": "teknoloji/2026/10/kvkk-nesine-veri-ihlal-bildirimi"
 }
