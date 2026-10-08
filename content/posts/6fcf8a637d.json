@@ -1,6 +1,5 @@
 {
   "id": "6fcf8a637d",
-  "status": "pending",
   "created_at": "2026-10-08T14:06:09Z",
   "title": "Google'dan Mac'lere özel yapay zeka destekli not alma uygulaması: AI Edge Foresight",
   "summary": "Google, Mac bilgisayarlar için internet bağlantısı gerektirmeyen ve yerel modellerle çalışan AI Edge Foresight adlı yeni not alma uygulamasını duyurdu.",
@@ -70,17 +69,6 @@
     "LOG",
     "The Verge"
   ],
-  "source_texts": [
-    {
-      "credit": "LOG",
-      "kind": "media",
-      "title": "Google’dan Mac’lere özel akıllı not alma uygulaması: “AI Edge Foresight”",
-      "url": "https://www.log.com.tr/googledan-maclere-ozel-akilli-not-alma-uygulamasi-ai-edge-foresight/",
-      "published": "2026-10-08T13:44:56Z",
-      "summary": "Toplantılardaki konuşmaları kaydedip yapay zeka yardımıyla düzenli notlara ve özetlere dönüştüren not alma uygulaması Granola’nın bir benzeri olan Google AI Edge Foresight, şirketin yerel olarak çalıştırılabilen 740 milyon parametreli yeni yapay zeka modeli EmbeddingGemma 2’yi temel alıyor. Bu sayede çevrimdışı olarak görev yapabilen ve hassas toplantı bilgilerinin Google’ın sunucularına gitmesi riskini ortadan kaldırabilen sistem, konuşulanları yazıya dökmenin yanı sıra sorulan soruları da yanıtlayabiliyor. Buradan ücretsiz olarak indirilebilen AI Edge Foresight uygulaması, oldukça…",
-      "text": "Toplantılardaki konuşmaları kaydedip yapay zeka yardımıyla düzenli notlara ve özetlere dönüştüren not alma uygulaması Granola’nın bir benzeri olan Google AI Edge Foresight, şirketin yerel olarak çalıştırılabilen 740 milyon parametreli yeni yapay zeka modeli EmbeddingGemma 2’yi temel alıyor. Bu sayede çevrimdışı olarak görev yapabilen ve hassas toplantı bilgilerinin Google’ın sunucularına gitmesi riskini ortadan kaldırabilen sistem, konuşulanları yazıya dökmenin yanı sıra sorulan soruları da yanıtlayabiliyor. Buradan ücretsiz olarak indirilebilen AI Edge Foresight uygulaması, oldukça kullanışlı görünüyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1156
@@ -91,5 +79,8 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %67 (<%85)"
+  "slug": "google-ai-edge-foresight-mac",
+  "published_at": "2026-10-08T18:25:12Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/google-ai-edge-foresight-mac"
 }

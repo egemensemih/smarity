@@ -1,6 +1,5 @@
 {
   "id": "1c2db3cb84",
-  "status": "pending",
   "created_at": "2026-10-08T13:48:17Z",
   "title": "Windows 11 arama özelliği baştan aşağı yenileniyor",
   "summary": "DonanımHaber'in aktardığına göre Microsoft, Windows 11'in arama deneyimini yeniden tasarlıyor ve kullanıcılara doğrudan komut verme imkânı sunuyor.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "DonanımHaber"
   ],
-  "source_texts": [
-    {
-      "credit": "DonanımHaber",
-      "kind": "media",
-      "title": "Windows 11'de Arama baştan aşağı değişiyor: İşte yeni özellikler",
-      "url": "https://www.donanimhaber.com/windows-11-de-arama-bastan-asagi-degisiyor-iste-yeni-ozellikler--211378",
-      "published": "2026-10-08T13:40:00Z",
-      "summary": "Microsoft, Windows 11'in Arama deneyimini WinUI 3 ile yeniden tasarladı. Yeni sürüm daha hızlı çalışacak, daha az bellek kullanacak ve Windows ayarlarını doğrudan arama kutusundan değiştirecek.",
-      "text": "Arama özelliği baştan aşağı yenileniyor\nYeni Arama deneyimi şu anda Windows Insider kullanıcılarıyla test ediliyor. Yeni tasarımda ilk göze çarpan değişiklik, arama sonuçlarının sağ tarafında bulunan büyük önizleme panelinin kaldırılması. Microsoft'un kullanım verilerine göre kullanıcıların neredeyse tamamı arama sonuçlarının sol taraftaki listesine tıklıyor.\nWindows ayarları doğrudan değiştirilebilecek\nYeni Arama deneyiminin en dikkat çekici özelliklerinden biri ise inline actions adı verilen doğrudan komutlar. Kullanıcılar arama kutusuna belirli komutlar yazarak Ayarlar uygulamasını açmadan işlem gerçekleştirebilecek. Örneğin, Karanlık moda geç, Bluetooth'u aç, Ekran parlaklığını azalt ve Sesi kapat gibi komutlar verilebilecek.\nDaha fazla özellik yolda\nMicrosoft, yeni Arama deneyimini ilerleyen dönemde daha da genişletmeyi planlıyor. Bu kapsamda belgelerin ve fotoğrafların önizlemeleri doğrudan arama sonuçlarında gösterilecek. Web aramalarında da daha zengin önizlemeler sunulacak. Hava durumu, hisse senedi fiyatları ve genel sorular gibi sonuçların doğrudan arama ekranında daha kapsamlı şekilde görüntülenmesi planlanıyor.\nMicrosoft ayrıca Phone Link entegrasyonu üzerinde çalışıyor. Böylece kullanıcıların Arama üzerinden mesaj göndermek gibi işlemleri gerçekleştirmesi mümkün hale gelecek.\nYenilenen Windows 11 Arama deneyimi şu anda Experimental kanalındaki Windows Insider kullanıcıları tarafından test edilebiliyor. Özellik, Windows 11 26340.9616 ve Experimental (26H1) kanalındaki 28120.3181 sürümleriyle sunuluyor. Şimdilik yalnızca İngilizce desteği bulunan özellik, Ayarlar > Windows Update > Windows Insider Program > Feature flags bölümünden etkinleştirilebiliyor olacak.\nMicrosoft, yeni Arama deneyimini 2027 yılında Başlat menüsüne de getirmeyi planlıyor. Farklı görev çubuğu yapılandırmaları için destek de aynı dönemde sunulacak. Şirket ayrıca Copilot entegrasyonu üzerinde çalışıyor ancak bu özelliklerin normal Windows 11 kullanıcılarına ne zaman sunulacağı henüz açıklanmış değil.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1154
@@ -109,5 +97,8 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %67 (<%85)"
+  "slug": "windows-11-arama-ozelligi-yenileniyor",
+  "published_at": "2026-10-08T18:24:55Z",
+  "publish_mode": "manual",
+  "path": "teknoloji/2026/10/windows-11-arama-ozelligi-yenileniyor"
 }
