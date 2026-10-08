@@ -38,7 +38,7 @@
     },
     "Webtekno": {
       "approved": 26,
-      "rejected": 11
+      "rejected": 13
     },
     "Anadolu Ajansı": {
       "approved": 7,
@@ -78,7 +78,7 @@
     },
     "GSMArena": {
       "approved": 7,
-      "rejected": 9
+      "rejected": 10
     },
     "Ars Technica": {
       "approved": 3,
@@ -142,7 +142,7 @@
     },
     "The Next Web": {
       "approved": 7,
-      "rejected": 31
+      "rejected": 32
     },
     "InsideEVs": {
       "approved": 3,
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T19:57:58Z",
-      "id": "9d24c1f6c3",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T19:58:00Z",
-      "id": "119e4ba340",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T19:58:03Z",
       "id": "103e05cf5d",
@@ -2123,6 +2111,18 @@
     {
       "t": "2026-10-08T09:19:13Z",
       "id": "96b512d164",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T11:19:23Z",
+      "id": "57b2563978",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T11:19:27Z",
+      "id": "ea0aa66b37",
       "ok": false,
       "manual": true
     }
