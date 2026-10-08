@@ -21,7 +21,7 @@
       "rejected": 18
     },
     "Webrazzi": {
-      "approved": 13,
+      "approved": 14,
       "rejected": 4
     },
     "Electrek": {
@@ -326,12 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T21:05:27Z",
-      "id": "5e8caf833c",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T21:05:28Z",
       "id": "bbd63a06c8",
@@ -2124,6 +2118,12 @@
       "t": "2026-10-08T11:51:28Z",
       "id": "20c6898b11",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T12:08:04Z",
+      "id": "15c9679046",
+      "ok": true,
       "manual": true
     }
   ]
