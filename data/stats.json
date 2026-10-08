@@ -38,7 +38,7 @@
     },
     "Webtekno": {
       "approved": 26,
-      "rejected": 13
+      "rejected": 14
     },
     "Anadolu Ajansı": {
       "approved": 7,
@@ -85,12 +85,12 @@
       "rejected": 5
     },
     "Autocar": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 3
     },
     "VGC": {
       "approved": 3,
-      "rejected": 5
+      "rejected": 6
     },
     "BBC Teknoloji": {
       "approved": 1,
@@ -326,18 +326,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-09-30T19:58:03Z",
-      "id": "103e05cf5d",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-09-30T21:05:26Z",
-      "id": "0f521cf7f9",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-09-30T21:05:27Z",
       "id": "5e8caf833c",
@@ -2123,6 +2111,18 @@
     {
       "t": "2026-10-08T11:19:27Z",
       "id": "ea0aa66b37",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T11:51:28Z",
+      "id": "87f2d2c819",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-08T11:51:28Z",
+      "id": "20c6898b11",
       "ok": false,
       "manual": true
     }
