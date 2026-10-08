@@ -1,0 +1,85 @@
+{
+  "id": "bafa882e44",
+  "status": "pending",
+  "created_at": "2026-10-08T19:27:14Z",
+  "title": "Claude için yeni yapay zeka araçları duyuruldu",
+  "summary": "Anthropic, Claude modeli için metin komutlarıyla hareketli videolar ve canlı veri panoları oluşturabilen iki yeni beta özelliğini kullanıma sundu.",
+  "body": "Anthropic, Claude adlı yapay zeka modeli için metin komutlarıyla çalışan iki yeni beta özelliğini 8 Ekim 2026 itibarıyla devreye aldı. Şirketin duyurusuna göre, bu yenilikler kullanıcıların veri analiz süreçlerini ve görsel içerik üretimini kolaylaştırmayı hedefliyor.\n\n## Yeni Claude özellikleri neler sunuyor?\n\nDashboards adı verilen özellik, BigQuery, Databricks, Snowflake ve Salesforce gibi veri kaynaklarına bağlanarak metin üzerinden canlı, güncellenen panolar oluşturuyor. Panolardaki her verinin arkasındaki sorgu görüntülenebiliyor ve sonuçlar Amplitude, Grafana ya da Hex gibi araçlara aktarılabiliyor. Motion ise kullanıcıların metin, diyagram ve görsellerden hareketli açıklayıcı videolar hazırlamasına imkan tanıyor. Kod olarak düzenlenebilen bu videolar MP4 formatında dışa aktarılabiliyor.\n\n## Erişim ve plan detayları\n\nDashboards özelliği ücretli abonelerin kullanımına açılırken, Motion özelliği yalnızca Team ve Enterprise planlarına dahil edildi. Ayrıca daha önce beta aşamasında olan Docs, Slides ve Design araçları tüm planlara, ücretsiz hesaplar dahil olmak üzere, dahil edildi. Anthropic'in belirttiğine göre, bu araçlarla bugüne kadar 45 milyonun üzerinde belge oluşturuldu. Şirket, Claude Design özelliğinin 14 Aralık'a kadar ana uygulamaya entegre edileceğini ve süreç için bir rehber hazırlandığını duyurdu.\n\n**Neden önemli?** Anthropic'in sunduğu bu araçlar, Claude'u sadece bir metin üretim aracı olmaktan çıkarıp profesyonel iş akışlarına entegre bir veri ve video üretim platformuna dönüştürüyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Anthropic",
+    "Claude",
+    "yapay zeka",
+    "veri analizi",
+    "video üretim"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude'a yeni video ve veri araçları",
+  "kicker": "Yeni özellikler",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "A polished, dark obsidian surface where a complex, glowing digital data chart morphs smoothly into a flowing, abstract animated film strip made of translucent geometric segments.",
+  "focus_keyword": "Claude yapay zeka",
+  "seo_title": "Claude yapay zeka ile video ve veri panosu dönemi",
+  "meta_description": "Anthropic, Claude yapay zeka modeli için metin komutlarıyla canlı veri panoları ve hareketli videolar oluşturan yeni beta özelliklerini duyurdu.",
+  "seo_slug": "claude-yapay-zeka-yeni-ozellikler",
+  "image_alt": "Soyut dijital grafiklerin ve hareketli görsel öğelerin birleştiği modern bir arayüz görseli.",
+  "cover_text": "Claude",
+  "carousel_points": [
+    "Dashboards ile veri kaynaklarından canlı ve güncellenen panolar oluşturulabiliyor.",
+    "Motion özelliği sayesinde metin ve diyagramlardan hareketli videolar üretilebiliyor.",
+    "Docs, Slides ve Design araçları artık ücretsiz dahil tüm kullanıcı planlarına açıldı."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Claude metinle video üretiyor",
+  "cover_highlight": "metinle video",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Claude artık metinden animasyonlu videolar ve canlı veri panelleri oluşturabiliyor.",
+  "entities": [
+    "Anthropic",
+    "Claude"
+  ],
+  "topic": "Anthropic adds data dashboard and animation tools to Claude",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/claude-can-now-generate-animated-explainer-videos-and-live-data-dashboards-from-text-prompts/",
+      "title": "Claude can now generate animated explainer videos and live data dashboards from text prompts",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/claude-can-now-generate-animated-explainer-videos-and-live-data-dashboards-from-text-prompts/#respond",
+      "published": "2026-10-08T19:17:22Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/08/claude_logo-1.png"
+    }
+  ],
+  "source_keys": [
+    "The Decoder"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Decoder",
+      "kind": "media",
+      "title": "Claude can now generate animated explainer videos and live data dashboards from text prompts",
+      "url": "https://the-decoder.com/claude-can-now-generate-animated-explainer-videos-and-live-data-dashboards-from-text-prompts/",
+      "published": "2026-10-08T19:17:22Z",
+      "summary": "Anthropic launched two new beta features for Claude. Dashboards turns data sources like BigQuery and Snowflake into live dashboards from text prompts. Motion generates animated explainer videos from text and images. Docs, Slides, and Design now work across all plans, including free accounts. The article Claude can now generate animated explainer videos and live data dashboards from text prompts appeared first on The Decoder .",
+      "text": "Claude can now generate animated explainer videos and live data dashboards from text prompts\nAnthropic launched two new beta features for Claude. Dashboards connects data sources like BigQuery, Databricks, Snowflake, or Salesforce and turns them into auto-updating live dashboards via text prompt. Every number shows its underlying query, and results can be piped into tools like Amplitude, Grafana, or Hex, Anthropic says. Motion creates animated explainer videos from text, diagrams, and images, editable as code and exportable as MP4.\nDashboards is available for paid users, Motion for Team and Enterprise plans. Docs, Slides, and Design are leaving beta and now work across all plans, including free accounts. Anthropic says more than 45 million documents have been created with these tools. That traction might be one reason Microsoft is reportedly cutting back on Claude usage.\nThe earlier announced Claude Design will be folded into the main app by December 14. A migration guide is available.\nAI News Without the Hype – Curated by Humans\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1171
+  },
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-1",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %63 (<%85)"
+}
