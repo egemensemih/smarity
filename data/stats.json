@@ -33,11 +33,11 @@
       "rejected": 39
     },
     "ShiftDelete.Net": {
-      "approved": 36,
+      "approved": 37,
       "rejected": 18
     },
     "Webtekno": {
-      "approved": 28,
+      "approved": 29,
       "rejected": 15
     },
     "Anadolu Ajansı": {
@@ -78,7 +78,7 @@
     },
     "GSMArena": {
       "approved": 7,
-      "rejected": 10
+      "rejected": 11
     },
     "Ars Technica": {
       "approved": 3,
@@ -330,24 +330,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T05:58:50Z",
-      "id": "b90c5f6760",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T05:58:52Z",
-      "id": "f9b7af5c45",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T05:59:00Z",
-      "id": "ba56dc3822",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T05:59:02Z",
       "id": "cc8bdc9334",
@@ -2127,6 +2109,24 @@
     {
       "t": "2026-10-08T21:28:08Z",
       "id": "0129afb944",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T05:30:53Z",
+      "id": "ec20f2861c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T05:31:06Z",
+      "id": "3ed8c00615",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T05:31:09Z",
+      "id": "faa9843e38",
       "ok": true,
       "manual": true
     }
