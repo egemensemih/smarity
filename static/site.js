@@ -319,3 +319,151 @@
     a.addEventListener("click", function () { var m = a.closest("details"); if (m) m.open = false; });
   });
 })();
+
+// ── Arama: haber dizini (api/search.json) yalnızca arama açılınca yüklenir; Türkçe harf duyarsız arar ──
+(function () {
+  var roots = document.querySelectorAll("[data-search]");
+  if (!roots.length) return;
+  var MAP = { "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u", "â": "a", "î": "i", "û": "u" };
+  function fold(s) {
+    return (s || "").toLocaleLowerCase("tr").replace(/[çğıöşüâîû]/g, function (c) { return MAP[c]; })
+      .normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  }
+  function esc(s) {
+    return String(s || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
+  }
+  var VAR = { c: "[cçÇC]", g: "[gğĞG]", i: "[iıİI]", o: "[oöÖO]", s: "[sşŞS]", u: "[uüÜU]" };
+  function mark(text, toks) {
+    if (!toks.length) return esc(text);
+    var parts = toks.slice().sort(function (a, b) { return b.length - a.length; }).map(function (t) {
+      return t.split("").map(function (ch) { return VAR[ch] || ch.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("");
+    });
+    var re = new RegExp("(" + parts.join("|") + ")", "gi");
+    return text.split(re).map(function (seg, i) { return i % 2 ? "<mark>" + esc(seg) + "</mark>" : esc(seg); }).join("");
+  }
+
+  var data = null, loading = null;
+  function load(url) {
+    if (data) return Promise.resolve(data);
+    if (!loading) {
+      loading = fetch(url).then(function (r) { return r.json(); }).then(function (list) {
+        data = list.map(function (p) {
+          return { p: p, t: " " + fold(p.t) + " ", g: " " + fold(p.g) + " ", s: " " + fold(p.s) + " " };
+        });
+        return data;
+      }).catch(function () { loading = null; return []; });
+    }
+    return loading;
+  }
+  var NOW = Date.now() / 1000;
+  function find(q) {
+    var toks = fold(q).split(" ").filter(Boolean);
+    if (!toks.length || !data) return { toks: toks, list: [] };
+    var phrase = " " + toks.join(" ");
+    var out = [];
+    data.forEach(function (e) {
+      var score = 0;
+      for (var i = 0; i < toks.length; i++) {
+        var t = toks[i], w = " " + t, short = t.length < 2, s = 0;
+        if (e.t.indexOf(w) >= 0) s = 10;
+        else if (!short && e.t.indexOf(t) >= 0) s = 5;
+        else if (e.g.indexOf(w) >= 0) s = 6;
+        else if (!short && e.g.indexOf(t) >= 0) s = 3;
+        else if (e.s.indexOf(w) >= 0) s = 3;
+        else if (!short && t.length > 2 && e.s.indexOf(t) >= 0) s = 1;
+        if (!s) return;                      // her sözcük geçmeli
+        score += s;
+      }
+      if (toks.length > 1 && e.t.indexOf(phrase) >= 0) score += 8;
+      score += Math.max(0, 3 - (NOW - (e.p.ts || 0)) / 864000);   // yeni haberler biraz önde
+      out.push({ e: e, score: score });
+    });
+    out.sort(function (a, b) { return b.score - a.score || (b.e.p.ts || 0) - (a.e.p.ts || 0); });
+    return { toks: toks, list: out.map(function (x) { return x.e.p; }) };
+  }
+  function row(p, toks) {
+    var img = p.i ? '<img src="' + esc(p.i) + '" alt="" loading="lazy" decoding="async">' : '<span class="row-noimg"></span>';
+    return '<li class="row" style="--c:' + esc(p.o) + '"><a href="' + esc(p.u) + '"><time>' + esc(p.d) + "</time>" +
+      '<span class="row-main"><span class="row-cat"><i aria-hidden="true"></i>' + esc(p.c) + "</span>" +
+      '<span class="row-title">' + mark(p.t, toks) + "</span></span>" +
+      '<span class="row-img" aria-hidden="true">' + img + "</span></a></li>";
+  }
+
+  roots.forEach(function (root) {
+    var page = root.hasAttribute("data-search-page");
+    var input = root.querySelector("input[name=q]");
+    var res = root.querySelector("[data-search-results]");
+    var hint = root.querySelector("[data-search-hint]");
+    var count = root.querySelector("[data-search-count]");
+    var all = root.querySelector("[data-search-all]");
+    var url = root.getAttribute("data-url");
+    var max = page ? 100 : 12, timer = null, opener = null;
+
+    function render() {
+      var q = input.value.trim();
+      if (!q) {
+        res.innerHTML = ""; hint.hidden = false; count.hidden = true; if (all) all.hidden = true;
+        if (page) history.replaceState(null, "", url);
+        return;
+      }
+      load(root.getAttribute("data-index")).then(function () {
+        if (input.value.trim() !== q) return;
+        var r = find(q);
+        hint.hidden = true;
+        count.hidden = false;
+        count.textContent = r.list.length ? "“" + q + "” için " + r.list.length + " haber"
+          : "“" + q + "” ile ilgili haber bulunamadı. Başka bir sözcükle dene.";
+        res.innerHTML = r.list.slice(0, max).map(function (p) { return row(p, r.toks); }).join("");
+        if (all) {
+          all.hidden = r.list.length <= max;
+          all.querySelector("a").href = url + "?q=" + encodeURIComponent(q);
+        }
+        if (page) history.replaceState(null, "", url + "?q=" + encodeURIComponent(q));
+      });
+    }
+    input.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(render, 90); });
+    input.addEventListener("focus", function () { load(root.getAttribute("data-index")); });
+    // klavye: ↓/↑ sonuçlar arasında gezinir
+    root.addEventListener("keydown", function (ev) {
+      if (ev.key !== "ArrowDown" && ev.key !== "ArrowUp") return;
+      var links = [input].concat([].slice.call(res.querySelectorAll("a")));
+      var i = links.indexOf(document.activeElement);
+      if (i < 0) return;
+      ev.preventDefault();
+      var n = links[Math.max(0, Math.min(links.length - 1, i + (ev.key === "ArrowDown" ? 1 : -1)))];
+      if (n) n.focus();
+    });
+
+    if (page) {
+      var q0 = new URLSearchParams(location.search).get("q") || "";
+      input.value = q0;
+      if (q0) render(); else input.focus();
+      document.querySelectorAll("[data-search-open]").forEach(function (b) {
+        b.addEventListener("click", function (ev) { ev.preventDefault(); input.focus(); input.select(); });
+      });
+      return;
+    }
+
+    function open(ev) {
+      if (ev) ev.preventDefault();
+      opener = document.activeElement;
+      root.hidden = false;
+      document.body.classList.add("srch-on");
+      input.focus();
+      input.select();
+      load(root.getAttribute("data-index"));
+    }
+    function close() {
+      root.hidden = true;
+      document.body.classList.remove("srch-on");
+      if (opener && opener.focus) opener.focus();
+    }
+    document.querySelectorAll("[data-search-open]").forEach(function (b) { b.addEventListener("click", open); });
+    root.querySelectorAll("[data-search-close]").forEach(function (b) { b.addEventListener("click", close); });
+    document.addEventListener("keydown", function (ev) {
+      var typing = /^(INPUT|TEXTAREA|SELECT)$/.test((ev.target && ev.target.tagName) || "") || (ev.target && ev.target.isContentEditable);
+      if (ev.key === "Escape" && !root.hidden) { ev.preventDefault(); close(); }
+      else if (root.hidden && ((ev.key === "/" && !typing) || ((ev.metaKey || ev.ctrlKey) && ev.key.toLowerCase() === "k"))) open(ev);
+    });
+  });
+})();

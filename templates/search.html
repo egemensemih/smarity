@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "_macros.html" import crumbs %}
+{% block title %}Haberlerde ara | {{ site.name }}{% endblock %}
+{% block description %}Smarity'de yayımlanan teknoloji, yapay zeka, otomotiv, girişimcilik ve gaming haberlerinde ara.{% endblock %}
+{% block main %}
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), ("Ara", site.search_url, site.url ~ "/ara/")]) }}
+<header class="page-head wrap"><h1>Haberlerde ara.</h1></header>
+<section class="wrap srch-page" data-search data-search-page data-index="{{ site.search_index }}" data-url="{{ site.search_url }}">
+  <form class="srch-form big" action="{{ site.search_url }}" method="get" role="search">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+    <input type="search" name="q" placeholder="Örneğin: iPhone, TOGG, yapay zeka" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Aranacak sözcük">
+  </form>
+  <div class="srch-hint" data-search-hint>
+    {% if site.top_tags %}<p class="srch-h">Popüler konular</p>
+    <div class="srch-tags">{% for t in site.top_tags[:14] %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}</div>{% endif %}
+  </div>
+  <p class="srch-count" data-search-count aria-live="polite" hidden></p>
+  <ol class="rows srch-res" data-search-results></ol>
+</section>
+{% endblock %}

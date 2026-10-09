@@ -253,6 +253,26 @@ def test_older_duplicates_are_shown_to_desk_and_editor():
         assert "p01" in seen["user"] and "p02" not in seen["user"] and dec[0]["action"] == "skip"
 
 
+
+def test_search_page_and_index():
+    import json as _json
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 2, title="Kia Seltos Türkiye'de satışa çıktı", tags=["Kia", "SUV"], entities=["Kia Seltos"]))
+        a.store.save_post(_post(2, 3, title="Yapay zeka destekli ışık sensörü", tags=["Yapay zeka"]))
+        a.migrate_urls()
+        SiteBuilder(cfg).build()
+        idx = _json.loads((cfg.out_dir / "api" / "search.json").read_text(encoding="utf-8"))
+        assert {x["t"] for x in idx} == {"Kia Seltos Türkiye'de satışa çıktı", "Yapay zeka destekli ışık sensörü"}
+        kia = next(x for x in idx if x["t"].startswith("Kia"))
+        assert kia["u"].endswith("/haber-1/") and "Kia Seltos" in kia["g"] and kia["c"] and kia["o"]
+        home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
+        assert "data-search-open" in home and 'class="srch"' in home and "/api/search.json?v=" in home
+        assert "SearchAction" in home and "/ara/?q={search_term_string}" in home
+        page = (cfg.out_dir / "ara" / "index.html").read_text(encoding="utf-8")
+        assert 'content="noindex' in page and "data-search-page" in page and 'class="srch"' not in page
+        assert "/ara/" not in (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

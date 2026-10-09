@@ -14,7 +14,9 @@
   "@graph": [
     {"@type": "WebSite", "@id": site.url ~ "/#website", "name": site.name, "alternateName": site.name ~ " teknoloji haberleri",
      "url": site.url ~ "/", "inLanguage": "tr-TR", "description": site.home_description,
-     "publisher": {"@id": site.url ~ "/#org"}},
+     "publisher": {"@id": site.url ~ "/#org"},
+     "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": site.url ~ "/ara/?q={search_term_string}"},
+                         "query-input": "required name=search_term_string"}},
     org
   ]
 }|tojson }}</script>

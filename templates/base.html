@@ -50,6 +50,7 @@
       {% endfor %}
     </div>
     <div class="nav-end">
+      <a class="srch-btn" href="{{ site.search_url }}" data-search-open aria-label="Haberlerde ara" title="Haberlerde ara"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></a>
       <a href="{{ site.base }}/haberler/" class="hide-sm">Tüm haberler</a>
       <a href="{{ site.base }}/hakkinda/" class="hide-sm">Hakkında</a>
       <details class="menu">
@@ -100,6 +101,27 @@
     <p class="foot-copy">© {{ site.year }} {{ site.name }}</p>
   </div>
 </footer>
+{% if not search_page|default(false) %}
+<div class="srch" data-search data-index="{{ site.search_index }}" data-url="{{ site.search_url }}" hidden>
+  <div class="srch-back" data-search-close></div>
+  <div class="srch-panel" role="dialog" aria-modal="true" aria-label="Haberlerde ara">
+    <form class="srch-form" action="{{ site.search_url }}" method="get" role="search">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+      <input type="search" name="q" placeholder="Haberlerde ara" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Aranacak sözcük">
+      <button type="button" class="srch-x" data-search-close>Vazgeç</button>
+    </form>
+    <div class="srch-body">
+      <div class="srch-hint" data-search-hint>
+        {% if site.top_tags %}<p class="srch-h">Popüler konular</p>
+        <div class="srch-tags">{% for t in site.top_tags[:12] %}<a href="{{ t.url }}">{{ t.label }}</a>{% endfor %}</div>{% endif %}
+      </div>
+      <p class="srch-count" data-search-count hidden></p>
+      <ol class="rows srch-res" data-search-results></ol>
+      <p class="srch-all" data-search-all hidden><a class="more" href="{{ site.search_url }}">Tüm sonuçlar</a></p>
+    </div>
+  </div>
+</div>
+{% endif %}
 <script src="{{ site.base }}/static/site.js?v={{ site.asset_v }}" defer></script>
 </body>
 </html>

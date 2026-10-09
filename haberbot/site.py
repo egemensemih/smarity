@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "16"
+ASSET_V = "17"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -442,6 +442,9 @@ class SiteBuilder:
             "home_title": seo.get("home_title") or f"{cfg.site.get('name')}: {cfg.site.get('tagline')}",
             "home_description": seo.get("home_description") or cfg.site.get("description", ""),
             "verify": {k: seo.get(k) for k in ("google_site_verification", "bing_site_verification", "yandex_verification")},
+            # arama: dizin yalnızca arama açılınca yüklenir; sürüm en yeni haberle değişir (eski dizin önbellekte kalmasın)
+            "search_url": f"{b}/ara/",
+            "search_index": f"{b}/api/search.json?v={max((p['ts'] for p in posts), default=0)}",
         }
         site["follow"] = follow_links(site)
         ctx = {"site": site}
@@ -547,6 +550,15 @@ class SiteBuilder:
             **ctx, canonical=f"{cfg.site_url}/hakkinda/",
             sources=[s for s in cfg.sources]))
         self._write("404.html", self.env.get_template("404.html").render(**ctx, canonical=cfg.site_url + "/", noindex=True))
+        # arama sayfası (/ara/?q=…) ve tarayıcıda aranan haber dizini
+        self._write("ara/index.html", self.env.get_template("search.html").render(
+            **ctx, canonical=f"{cfg.site_url}/ara/", noindex=True, search_page=True))
+        self._write("api/search.json", json.dumps([{
+            "t": p["title"], "u": p["url"], "c": p["cat_label"], "o": p["cat_color"], "d": p["date_short"], "ts": p["ts"],
+            "s": clip(p.get("summary") or "", 200),
+            "g": " ".join(dict.fromkeys([t["label"] for t in p["tag_list"]] + list(p.get("entities") or []))),
+            "i": p["disp"].get("url") if p["disp"].get("kind") in ("photo", "image") else "",
+        } for p in posts], ensure_ascii=False, separators=(",", ":")))
 
         # besleme, site haritaları, robots, IndexNow anahtarı, json
         self._write("feed.xml", self.env.get_template("feed.xml").render(
