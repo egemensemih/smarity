@@ -22,7 +22,7 @@
     },
     "Webrazzi": {
       "approved": 14,
-      "rejected": 4
+      "rejected": 5
     },
     "Electrek": {
       "approved": 12,
@@ -58,7 +58,7 @@
     },
     "Egirisim": {
       "approved": 6,
-      "rejected": 1
+      "rejected": 2
     },
     "Polygon": {
       "approved": 9,
@@ -162,7 +162,7 @@
     },
     "SamMobile": {
       "approved": 2,
-      "rejected": 4
+      "rejected": 5
     },
     "Meta": {
       "approved": 1,
@@ -210,7 +210,7 @@
     },
     "MacRumors": {
       "approved": 7,
-      "rejected": 5
+      "rejected": 6
     },
     "9to5Google": {
       "approved": 6,
@@ -330,18 +330,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:08:43Z",
-      "id": "9bcf60cd61",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:08:46Z",
-      "id": "57c8e1abb6",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:08:51Z",
       "id": "2b8c88d075",
@@ -2128,6 +2116,18 @@
       "t": "2026-10-09T11:26:46Z",
       "id": "0a4dd32aee",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T12:37:14Z",
+      "id": "75c022c645",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T12:37:16Z",
+      "id": "97d8e1f3d1",
+      "ok": false,
       "manual": true
     }
   ]
