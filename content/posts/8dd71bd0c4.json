@@ -1,6 +1,5 @@
 {
   "id": "8dd71bd0c4",
-  "status": "pending",
   "created_at": "2026-10-09T07:22:00Z",
   "title": "SpaceX mobil operatör olmak için 800 MHz frekans bandı satın aldı",
   "summary": "SpaceX, Starlink Mobile altyapısını güçlendirmek ve kapalı alanlarda çekim gücü sağlamak amacıyla 800 MHz frekans bandı almak üzere Grain Management ile anlaştı.",
@@ -71,17 +70,6 @@
     "DonanımHaber",
     "Chip Online"
   ],
-  "source_texts": [
-    {
-      "credit": "DonanımHaber",
-      "kind": "media",
-      "title": "SpaceX, büyük bir mobil operatör olma planını açıkladı",
-      "url": "https://www.donanimhaber.com/spacex-buyuk-bir-mobil-operator-olma-planini-acikladi--211405",
-      "published": "2026-10-09T07:00:00Z",
-      "summary": "SpaceX, Starlink’i ABD’nin büyük mobil operatörlerine rakip haline getirmek için yeni frekanslar satın aldı. Şirket, uydu ve karasal ağları birleştirerek telefon kapsamasını genişletmeyi hedefliyor.",
-      "text": "SpaceX, 800 MHz frekans bandını kullanacak\nSpaceX, özel yatırım şirketi Grain Management üzerinden 800 MHz bandında 14 MHz’e kadar eşleştirilmiş frekans spektrumu satın almak için anlaşma yaptı. Grain Management, söz konusu frekansları daha önce T-Mobile’dan almıştı. Anlaşmanın mali şartları ise açıklanmadı.\nSatın alınan frekanslar, 817-824 MHz ve 862-869 MHz aralıklarını kapsıyor. ABD Federal İletişim Komisyonu (FCC), Grain Management’ın bu frekansları devralmasına onay vermişti. Ancak SpaceX ile Grain Management arasındaki işlemin tamamlanabilmesi için düzenleyici kurumun nihai onayı gerekiyor.\nŞirket, yeni frekansların Starlink Mobile hizmetindeki önemli bir teknik eksikliği gidereceğini belirtiyor. 800 MHz gibi düşük frekanslar, yüksek frekanslara kıyasla bina ve duvar gibi engellerin içinden daha iyi geçebildiği için kapalı alanlar sinyalin ulaştırılması mümkün oluyor. SpaceX ayrıca mevcut mobil cihazların büyük bölümünün söz konusu frekans bandını desteklediğini vurguluyor.\nDolayısıyla SpaceX, yalnızca uydu bağlantısına dayanan bir sistem yerine uydu ve karasal mobil altyapıyı birlikte kullanan daha kapsamlı bir ağ kurmayı amaçlıyor. SpaceX'in planında, uydu bağlantısının zayıf kaldığı veya doğrudan hizmet veremediği alanlarda karasal vericilerden de yararlanmak bulunuyor.\n15 bin yeni Starlink uydusu devreye girecek\nŞirket, yeni düşük frekans spektrumu ile ikinci nesil uydu ağını bir araya getirerek hem uydu hem de karasal frekansları aynı sistemde kullanan ilk ağ işletmecisi olmayı hedefliyor. Bu yapı sayesinde kullanıcıların kapalı alanlarda, açık havada ve geleneksel mobil şebekelerin ulaşamadığı bölgelerde bağlantıda kalması amaçlanıyor.\nSpaceX'in uydu tabanlı mobil iletişim alanındaki yatırımları bununla da sınırlı değil. Şirket, geçen yıl EchoStar ile toplam 20 milyar dolarlık bir anlaşma yaparak ek radyo frekansları edinmeyi planladığını duyurmuştu. Boost Mobile'ın ana şirketi olan EchoStar'dan alınacak bu spektrum da Starlink Mobile'ın kapasitesini artırmak için kullanılacak.\nAncak EchoStar anlaşması kapsamındaki frekansların kullanıma açılması için işlemin tamamlanması gerekiyor. Mevcut plana göre kapanışın Kasım 2027'de gerçekleşmesi öngörülüyor. Ayrıca telefon üreticilerinin bu frekansları destekleyen yonga setlerini cihazlarına entegre etmesi zaman alabilir.\nStarlink Mobile ne zaman bağımsız operatör olacak?\nSpaceX'in yeni frekansları kullanmaya başlaması ve uydu ağını genişletmesi için gerekli düzenleyici süreçlerin tamamlanması gerekiyor. Bu nedenle Starlink Mobile'ın ABD'de kendi adıyla hizmet veren bir mobil operatöre ne zaman dönüşeceği belirsizliğini koruyor.\nFCC'nin aldığı kararlar, SpaceX'in yalnızca uydu bağlantısı sunan bir hizmet sağlayıcısı olarak kalmayıp doğrudan tüketicilere mobil iletişim hizmeti satan bir operatör olarak faaliyet göstermesinin önünü de açıyor. Kurumun ek frekansların kullanıma sunulması konusunda yeni adımlar atması bekleniyor.\nBu arada T-Mobil, ABD'de Starlink Mobile'ın mevcut sürümünü T-Satellite adıyla sunan münhasır iş ortağı konumunda. Yaklaşık 650 uydudan oluşan mevcut sistem, yaklaşık 4 Mbps hız seviyesinde bağlantı sağlayabiliyor. SpaceX'in bağımsız bir mobil operatöre dönüşmesi halinde mevcut ortaklığın nasıl şekilleneceği henüz bilinmiyor.\nBu haberi ve diğer DH içeriklerini, gelişmiş mobil uygulamamızı kullanarak görüntüleyin:"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1188
@@ -119,5 +107,10 @@
     "palette": "teknoloji-3",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %77 (<%85)"
+  "home": "pin",
+  "home_at": "2026-10-09T09:17:06Z",
+  "slug": "spacex-mobil-operator-olmak-icin-frekans-satinaldi",
+  "published_at": "2026-10-09T09:17:07Z",
+  "publish_mode": "manual",
+  "path": "teknoloji/2026/10/spacex-mobil-operator-olmak-icin-frekans-satinaldi"
 }
