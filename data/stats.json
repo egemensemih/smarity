@@ -137,11 +137,11 @@
       "rejected": 13
     },
     "Tom's Guide": {
-      "approved": 6,
+      "approved": 7,
       "rejected": 4
     },
     "The Next Web": {
-      "approved": 8,
+      "approved": 9,
       "rejected": 32
     },
     "InsideEVs": {
@@ -330,18 +330,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:08:41Z",
-      "id": "d28c217896",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:08:42Z",
-      "id": "85e63c60ec",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:08:43Z",
       "id": "9bcf60cd61",
@@ -2128,6 +2116,18 @@
       "t": "2026-10-09T10:31:02Z",
       "id": "487fdac18a",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T11:26:42Z",
+      "id": "625b2f8685",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T11:26:46Z",
+      "id": "0a4dd32aee",
+      "ok": true,
       "manual": true
     }
   ]
