@@ -10,7 +10,7 @@
     },
     "Engadget": {
       "approved": 21,
-      "rejected": 10
+      "rejected": 11
     },
     "Google": {
       "approved": 2,
@@ -49,7 +49,7 @@
       "rejected": 2
     },
     "Carscoops": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 9
     },
     "TechCrunch": {
@@ -85,7 +85,7 @@
       "rejected": 5
     },
     "Autocar": {
-      "approved": 4,
+      "approved": 5,
       "rejected": 3
     },
     "VGC": {
@@ -121,7 +121,7 @@
       "rejected": 2
     },
     "Motor1": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 5
     },
     "CNBC Teknoloji": {
@@ -145,7 +145,7 @@
       "rejected": 32
     },
     "InsideEVs": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 2
     },
     "Chip Online": {
@@ -173,7 +173,7 @@
       "rejected": 1
     },
     "Car and Driver": {
-      "approved": 0,
+      "approved": 1,
       "rejected": 6
     },
     "The Drive": {
@@ -330,18 +330,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:08:38Z",
-      "id": "be585a47e8",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:08:40Z",
-      "id": "97845dd9cd",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:08:41Z",
       "id": "d28c217896",
@@ -2128,6 +2116,18 @@
       "t": "2026-10-09T09:17:09Z",
       "id": "a562a73468",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T10:31:02Z",
+      "id": "91bd57e7c9",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T10:31:02Z",
+      "id": "487fdac18a",
+      "ok": false,
       "manual": true
     }
   ]
