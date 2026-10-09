@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 39,
+      "approved": 40,
       "rejected": 17
     },
     "The Verge": {
@@ -302,7 +302,7 @@
     },
     "GameSpot": {
       "approved": 5,
-      "rejected": 2
+      "rejected": 3
     },
     "Donanım Arşivi": {
       "approved": 0,
@@ -330,18 +330,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:08:51Z",
-      "id": "2b8c88d075",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:08:52Z",
-      "id": "9e91839001",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:08:53Z",
       "id": "b0fd0324ff",
@@ -2127,6 +2115,18 @@
     {
       "t": "2026-10-09T12:37:16Z",
       "id": "97d8e1f3d1",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T14:29:08Z",
+      "id": "7f648ce600",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-09T14:29:09Z",
+      "id": "4df67f96d8",
       "ok": false,
       "manual": true
     }
