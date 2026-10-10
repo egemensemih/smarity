@@ -1,0 +1,128 @@
+{
+  "id": "f761cbe74f",
+  "status": "pending",
+  "created_at": "2026-10-10T08:07:36Z",
+  "title": "P7 DarkSword casus yazılımı güncellenmeyen iPhone modellerini hedef alıyor",
+  "summary": "Güvenlik araştırmacıları, iPhone kullanıcılarının şifrelerini ve kripto cüzdanlarını hedef alan P7 DarkSword casus yazılımının yeni sürümünü tespit etti.",
+  "body": "Siber güvenlik şirketi iVerify, güncellenmemiş Apple cihazlarına sızabilen **P7 DarkSword casus yazılımı** isimli yeni bir zararlı sürümünü ortaya çıkardı. İlk olarak 2026 yılının başlarında Google ve iVerify tarafından fark edilen DarkSword ailesinin bu yeni varyantı, aralarında Türkiye'nin de bulunduğu çeşitli ülkelerdeki kullanıcıları hedef alıyor.\n\n## P7 DarkSword nasıl çalışıyor ve neleri çalıyor?\n\nZararlı yazılım, güncel olmayan iOS sürümlerindeki güvenlik açıklarını kötü amaçlı reklamlar ve ele geçirilmiş web siteleri üzerinden tetikliyor. Sisteme sızdıktan sonra iOS'un SpringBoard arayüz sürecine yerleşen yazılım, saldırganların sunucularıyla varsayılan olarak her 15 saniyede bir çift yönlü iletişim kuruyor.\n\nP7 DarkSword, önceki sürümlere kıyasla cihazda çok daha az iz bırakıyor ve saldırganların uzaktan komut göndermesine imkan tanıyor. Yazılımın ele geçirebildiği veriler arasında şunlar yer alıyor:\n\n* iPhone Anahtar Zinciri'nde saklanan kayıtlı parolalar\n* imToken gibi uygulamalarda bulunan kripto para cüzdanları\n* Apple Notlar veri tabanı, kayıtlı fotoğraflar ve sistem dosyaları\n\n## Güvenlik güncellemeleri saldırıyı engelliyor\n\niVerify incelemesine göre bu gelişme yeni bir sistem açığından kaynaklanmıyor; saldırganlar daha önce kapatılmış açıkları kullanan zararlı yazılım kodunu yenilemiş durumda. Apple, saldırı zincirinin yararlandığı sistem açıklarını kapatmak için iOS 15.8.7, iOS 16.7.15 ve iOS 18.7.7 güvenlik sürümlerini yayımladı. Uzmanlar, kullanıcıların sistem güncellemelerini aksatmaması gerektiğini, yüksek risk altındaki kişilerin ise iOS **Kilit Modu** özelliğini açabileceğini belirtiyor.\n\n**Neden önemli?** Türkiye dahil birçok ülkede kullanıcıları hedef alan saldırı zinciri, işletim sistemini güncel tutmamanın kişisel şifreler ve finansal varlıklar üzerinde doğrudan güvenlik riski oluşturduğunu gösteriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Apple",
+    "iPhone",
+    "iOS",
+    "iVerify",
+    "siber güvenlik",
+    "Türkiye"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "P7 DarkSword casus yazılımı iPhone'ları hedef alıyor",
+  "kicker": "Güvenlik uyarısı",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "sculpture",
+  "visual_scene": "A sharp, smoky black obsidian needle piercing through a series of interlocking semi-translucent glass shields, with amber resin leaking out from a hairline fracture onto a dark slate pedestal.",
+  "focus_keyword": "P7 DarkSword casus yazılımı",
+  "seo_title": "P7 DarkSword casus yazılımı iPhone'ları tehdit ediyor",
+  "meta_description": "P7 DarkSword casus yazılımı güncellenmemiş iPhone modellerine sızıyor. iVerify tarafından keşfedilen zararlının çalışma yöntemi ve korunma yolları.",
+  "seo_slug": "p7-darksword-casus-yazilimi-iphone-guvenlik-riski",
+  "image_alt": "Cam kalkanı delen siyah obsidyen iğne: iPhone cihazlarını hedef alan casus yazılımı simgeleyen görsel",
+  "cover_text": "P7 DarkSword",
+  "carousel_points": [
+    "iVerify, güncellenmemiş iPhone cihazlarını hedef alan P7 DarkSword casus yazılımını keşfetti.",
+    "Zararlı yazılım kayıtlı parolalara, kripto cüzdanlara, fotoğraflara ve notlara uzaktan erişebiliyor.",
+    "Apple açıkları kapatan güvenlik yamalarını yayımladığı için cihazları güncellemek korunmayı sağlıyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "P7 DarkSword şifreleri ve cüzdanları çalıyor",
+  "cover_highlight": "P7 DarkSword",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Geniş kullanıcı kitlesini ilgilendiren kritik iPhone güvenlik tehdidi.",
+  "entities": [
+    "Apple",
+    "iPhone"
+  ],
+  "topic": "P7 DarkSword spyware targeting iPhones",
+  "sources": [
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+      "title": "iPhone’unuz Tehlikede: Casus Yazılım P7 DarkSword Ortaya Çıktı",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim#respond",
+      "published": "2026-10-10T08:00:25Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "ShiftDelete.Net"
+  ],
+  "source_texts": [
+    {
+      "credit": "ShiftDelete.Net",
+      "kind": "media",
+      "title": "iPhone’unuz Tehlikede: Casus Yazılım P7 DarkSword Ortaya Çıktı",
+      "url": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+      "published": "2026-10-10T08:00:25Z",
+      "summary": "iPhone'ları hedef alan P7 DarkSword casus yazılımı, kişisel verileri ve parolaları çalıyor. Güncel iOS sürümleriyle cihazınızı koruyun.",
+      "text": "iPhone’unuz Tehlikede: Casus Yazılım P7 DarkSword Ortaya Çıktı\niPhone kullanıcılarını hedef alan DarkSword casus yazılımının yeni bir sürümü olan P7 DarkSword ortaya çıktı. Bu zararlı yazılım, güvenlik güncellemeleri yüklenmemiş cihazlara sızarak kişisel verileri ele geçirebiliyor.\nSiber güvenlik şirketi iVerify tarafından keşfedilen bu sürüm, önceki versiyonlardan farklı olarak saldırganların uzaktan komut göndermesine olanak tanıyor. Yazılım, cihazdaki kayıtlı parolalardan kripto para cüzdanlarına kadar birçok hassas veriye erişim sağlayabiliyor.\nP7 DarkSword’un Teknik Özellikleri ve Yetenekleri\nYeni sürüme verilen P7 DarkSword ismi, saldırganların orijinal kodda yaptıkları değişikliklerde kullandıkları p7_ değişken önekinden geliyor. İncelenen yazılımın önceki sürümlere kıyasla cihazda daha az iz bıraktığı ve daha kararlı çalıştığı belirlendi.\nDarkSword ilk olarak 2026’nın başlarında Google ve iVerify tarafından tespit edilmişti. Coruna ile birlikte güncel olmayan iOS sürümlerindeki birden fazla güvenlik açığını zincirleme biçimde kullanarak iPhone’ların ele geçirilmesine imkan tanıyordu.\nSaldırganlar, bu açıklar üzerinden cihazın güvenlik mekanizmalarını aşarak ek zararlı yazılımlar çalıştırabiliyor. Daha önce Suudi Arabistan, Türkiye, Malezya ve Ukrayna’da DarkSword kullanan saldırı kampanyaları tespit edildi.\nP7 DarkSword’un dağıtımında kötü amaçlı reklamlar ve ele geçirilmiş internet siteleri kullanılıyor. Güvenlik açığı bulunan bir iPhone üzerinden zararlı içeriğin bulunduğu internet sayfasının ziyaret edilmesi, saldırı zincirinin çalışması için yeterli olabiliyor.\nYazılımın en önemli değişikliklerinden biri, iPhone’un Anahtar Zinciri verilerine erişim biçiminde görülüyor. P7 DarkSword, ilgili verileri doğrudan iPhone üzerinde çıkarıp JSON biçimine dönüştürdükten sonra dışarı gönderiyor.\nCasus yazılım, cihazda yüklü kripto para cüzdanlarını da tarayabiliyor. İncelenen sürümün komutları arasında imToken cüzdan uygulamasına yönelik özel bir veri çıkarma işlevi de bulunuyor.\nP7 DarkSword’un dikkat çeken diğer özelliği, saldırganların komuta ve kontrol sunucularıyla çift yönlü iletişim kurabilmesi. Zararlı yazılım, iOS’un ana ekran ve sistem arayüzünden sorumlu SpringBoard işlemine yerleşerek saldırganların altyapısıyla iletişim sağlıyor.\nNormal çalışma düzeninde her 15 saniyede bir sunucuyla bağlantı kurarak yeni komut olup olmadığını kontrol ediyor. Bu bağlantı aralığı saldırganlar tarafından uzaktan değiştirilebiliyor.\nUzaktan gönderilen komutlarla iPhone’daki dosyalar okunabiliyor ve fotoğraflar dışarı aktarılabiliyor. Apple Notlar uygulamasının veritabanlarına erişim ve cihazın dosya sisteminin taranması da yazılımın yetenekleri arasında bulunuyor.\nGüvenlik Güncellemeleri ve Korunma Yolları\nApple, söz konusu güvenlik açıklarına karşı iOS 15.8.7, iOS 16.7.15 ve iOS 18.7.7 dahil olmak üzere çeşitli güvenlik güncellemeleri yayımladı. Şirket, yeni işletim sistemine geçmeyen kullanıcıların ilgili açıklara karşı korunmasını sağlamak için bu güncellemeleri sundu.\nP7 DarkSword’un keşfi yeni bir iOS güvenlik açığının bulunduğu anlamına gelmiyor. Burada değişen unsur, DarkSword saldırı zinciriyle ele geçirilen cihazlarda çalışan casus yazılımın kendisi.\nApple’ın daha önce yayımladığı güvenlik düzeltmeleri, DarkSword saldırı zincirinde kullanılan açıkları kapatıyor. Bu nedenle iPhone kullanıcılarının cihazları için sunulan güncel güvenlik sürümlerini yüklemesi gerekiyor.\nÖzellikle hedefli casus yazılım saldırılarına maruz kalma riski bulunan kullanıcılar, iOS’un Ayarlar bölümündeki Gizlilik ve Güvenlik menüsünden Kilit Modu’nu da etkinleştirebiliyor. Yazılımın gizlenme mekanizması, hata ayıklama kayıtlarını azaltarak tespit edilmesini zorlaştırıyor.\nGeliştiricilerin yaptığı değişiklikler, daha önce kullanılan bazı zararlı yazılım tespit göstergelerinin yeni sürümü yakalamakta yetersiz kalmasına neden oldu. İncelenen kodda, yazılımın çalışma biçimini değiştiren kapsamlı teknik müdahaleler bulunuyor.\nSizce mobil cihazlarda bu tür casus yazılımlara karşı en etkili korunma yöntemi nedir?"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1207
+  },
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/iphoneunuz-tehlikede-casus-yazilim-p7-darksword-ortaya-cikti-3-scaled.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+      "alt": "iPhone'unuz Tehlikede: Casus Yazılım P7 DarkSword Ortaya Çıktı — iPhone casus yazılım, iOS güvenlik açığı, iVerify güvenlik raporu, iPhone veri güvenliği",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "f761cbe74f-g0.webp",
+      "w": 1600,
+      "h": 2239
+    },
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/iphoneunuz-tehlikede-casus-yazilim-p7-darksword-ortaya-cikti-4.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+      "alt": "iPhone'unuz Tehlikede: Casus Yazılım P7 DarkSword Ortaya Çıktı — iPhone casus yazılım, iOS güvenlik açığı, iVerify güvenlik raporu, iPhone veri güvenliği",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "f761cbe74f-g1.webp",
+      "w": 1456,
+      "h": 816
+    },
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/iphoneunuz-tehlikede-casus-yazilim-p7-darksword-ortaya-cikti.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "f761cbe74f-g2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "f761cbe74f-g1.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/iphone-p7-darksword-casus-yazilim",
+    "src": "https://ares.shiftdelete.net/2026/10/iphoneunuz-tehlikede-casus-yazilim-p7-darksword-ortaya-cikti-4.webp",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_reason": "Güven seviyesi yüksek değil"
+}
