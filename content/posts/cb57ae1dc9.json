@@ -54,9 +54,12 @@
     "message_id": 268
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "cb57ae1dc9-g0.webp",
+    "credit": "New Atlas",
+    "page": "https://newatlas.com/wearables/smart-clothing-cools-detects-movement-generates-electricity/",
+    "src": "https://assets.newatlas.com/dims4/default/2810ff3/2147483647/strip/true/crop/7360x4912+0+0/resize/1438x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Fb3%2Fc7%2F81429c364183b3c45f5130238501%2Fdepositphotos-192173728-xl.jpg",
     "layout": "manset",
-    "palette": "inovasyon-3",
     "cover_v": 2
   },
   "slug": "illinois-universitesi-serinleten-akilli-kumas-gelistirdi",
@@ -72,6 +75,20 @@
   "photos_vetted": "2026-10-04T13:02:00Z",
   "photos_vet_v": 2,
   "updated_at": "2026-10-04T13:02:04Z",
-  "photos_filled": "2026-10-07T13:08:53Z",
-  "photos_tried": "2026-10-07T13:09:10Z"
+  "photos_filled": "2026-10-10T13:10:57Z",
+  "photos_tried": "2026-10-07T13:09:10Z",
+  "photos": [
+    {
+      "src": "https://assets.newatlas.com/dims4/default/2810ff3/2147483647/strip/true/crop/7360x4912+0+0/resize/1438x960!/format/webp/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.ap-southeast-2.amazonaws.com%2Fb3%2Fc7%2F81429c364183b3c45f5130238501%2Fdepositphotos-192173728-xl.jpg",
+      "credit": "New Atlas",
+      "page": "https://newatlas.com/wearables/smart-clothing-cools-detects-movement-generates-electricity/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "cb57ae1dc9-g0.webp",
+      "w": 1438,
+      "h": 960
+    }
+  ]
 }
