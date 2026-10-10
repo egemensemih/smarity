@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 40,
+      "approved": 42,
       "rejected": 17
     },
     "The Verge": {
@@ -29,12 +29,12 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 39,
+      "approved": 40,
       "rejected": 39
     },
     "ShiftDelete.Net": {
-      "approved": 41,
-      "rejected": 19
+      "approved": 42,
+      "rejected": 20
     },
     "Webtekno": {
       "approved": 30,
@@ -61,7 +61,7 @@
       "rejected": 2
     },
     "Polygon": {
-      "approved": 9,
+      "approved": 10,
       "rejected": 12
     },
     "WIRED": {
@@ -137,7 +137,7 @@
       "rejected": 13
     },
     "Tom's Guide": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 4
     },
     "The Next Web": {
@@ -149,7 +149,7 @@
       "rejected": 2
     },
     "Chip Online": {
-      "approved": 10,
+      "approved": 11,
       "rejected": 8
     },
     "CarNewsChina": {
@@ -334,30 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:09:02Z",
-      "id": "19446311ca",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:09:06Z",
-      "id": "ef64cd17d4",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:09:09Z",
-      "id": "b13c7abc1b",
-      "ok": true,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:09:11Z",
-      "id": "472a56f3e2",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:09:14Z",
       "id": "05c359ee46",
@@ -2131,6 +2107,30 @@
     {
       "t": "2026-10-10T09:12:16Z",
       "id": "8b67a6e72a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T09:13:06Z",
+      "id": "c4262e66ba",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T09:13:08Z",
+      "id": "54ee2d2f0b",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T09:13:09Z",
+      "id": "f761cbe74f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T09:13:12Z",
+      "id": "4a1882302b",
       "ok": true,
       "manual": true
     }

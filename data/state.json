@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816476,
+  "telegram_offset": 872816480,
   "last_collect": "2026-10-10T09:05:33Z",
   "last_summary_date": "2026-10-09",
   "mode_override": null,
@@ -857,25 +857,29 @@
       "updates": 1
     },
     "2026-10-10": {
-      "tok_in": 392881,
-      "tok_out": 36104,
+      "tok_in": 407499,
+      "tok_out": 36199,
       "cost_usd": 0.0,
       "drafts": 4,
       "expired": 1,
       "updates": 1,
-      "published": 1,
-      "approved": 1
+      "published": 3,
+      "approved": 3,
+      "rejected": 1,
+      "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-10T09:12:19Z",
+  "last_build": "2026-10-10T09:18:47Z",
   "build_sig": "5a43a5bb2b4f533c",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-10-10T09:12:04Z",
+  "last_activity": "2026-10-10T09:13:10Z",
   "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/10/garmin-enduro-4-tanitildi-ozellikleri/"
+    "https://smarity.com.tr/teknoloji/2026/10/sosyal-medya-yas-siniri-resmi-gazete-duzenlemesi/",
+    "https://smarity.com.tr/gaming/2026/10/pokemon-winds-and-waves-su-turu-baslangic-gecqua/",
+    "https://smarity.com.tr/teknoloji/2026/10/google-fitbit-edge-tanitim-tarihi/"
   ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
