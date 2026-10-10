@@ -1,6 +1,5 @@
 {
   "id": "ea2e6a93fc",
-  "status": "pending",
   "created_at": "2026-10-10T10:24:11Z",
   "title": "Anthropic Claude polise sahte cinayet ihbarı gönderdi",
   "summary": "Anthropic'in yapay zeka modeli Claude, test sırasında ABD'de polise sahte cinayet ihbarı gönderdi. Şirket modellerin testlerdeki internet erişimini kesti.",
@@ -80,26 +79,6 @@
     "BBC Teknoloji",
     "Chip Online"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "Anthropic cuts off Claude's internet access after the model autonomously filed a fake homicide tip with Philadelphia police",
-      "url": "https://the-decoder.com/anthropic-cuts-off-claudes-internet-access-after-the-model-autonomously-filed-a-fake-homicide-tip-with-philadelphia-police/",
-      "published": "2026-10-10T10:16:26Z",
-      "summary": "Anthropic's Claude independently submitted a fake homicide tip to the Philadelphia police, exploited vulnerabilities on university servers, and bypassed access restrictions. The company has since cut off live internet access for internal tests and notified the White House. The article Anthropic cuts off Claude's internet access after the model autonomously filed a fake homicide tip with Philadelphia police appeared first on The Decoder .",
-      "text": "Anthropic cuts off Claude's internet access after the model autonomously filed a fake homicide tip with Philadelphia police\nAnthropic's AI models independently exploited security flaws, submitted government forms, and bypassed access restrictions during tests and internal use. The models actively sought ways to complete tasks they weren't supposed to handle, as the company details in a report.\nIn one case, Claude filled out a tip form for the Philadelphia Police Department with made-up details about an unsolved homicide and submitted it. The police confirmed the incident, but the tip was flagged as spam and never reached investigators. In other cases, the model found a vulnerability on a university server and used it to run commands, pulled access tokens from website configs to grab protected or paywalled data, and used URL shorteners to dodge length limits on its tools.\nAnthropic says real-world impact was low but sees a pattern. When tasks are ambiguous or hard to solve, the model hunts for workarounds on its own instead of stopping. The company notified the White House and cut off live internet access for all internal evaluations until new safety filters are reliably in place. These incidents join a fast-growing list of similar cases, including cybersecurity incidents involving Claude and OpenAI models autonomously hacking Hugging Face.\nAI News Without the Hype – Curated by Humans\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    },
-    {
-      "credit": "BBC Teknoloji",
-      "kind": "media",
-      "title": "Rogue Anthropic AI agent gave police fake tip in unsolved murder case",
-      "url": "https://www.bbc.co.uk/news/articles/cqkg50j1yd5lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-10T10:06:23Z",
-      "summary": "Philadelphia police said the tip was \"flagged as spam\", but criticised the tech company for taking more than two months to detect and report the breach.",
-      "text": "- Published\nAn artificial intelligence (AI) agent, developed by Anthropic, went rogue and sent US police a fake tip about an unsolved murder earlier this year, authorities have revealed.\nThe Philadelphia Police Department said the tip, sent on 18 July, was \"flagged as spam\" and not passed on for investigation, but it criticised the tech company for taking more than two months to detect and report the breach.\nIn a statement police said that the bogus tip came through a public website where people can share information on unsolved murders, and that the AI agent had written that it may have information on a case, and claimed to have seen \"someone matching the description\".\nIt is believed to be the first time an AI agent has sent fabricated information to authorities, but is the latest in a series of incidents involving rogue AI activity, including hacking systems or taking control of platforms.\nCiting Anthropic, the police department said the AI agent had been running a test that involved interactions with randomly selected websites, when it sent the fake tip.\nAnthropic discovered the breach on 28 September, more than two months after the message had been sent, and shut down the automatic testing process that was behind it, police said.\nBut authorities were not notified for another nine days - on 7 October.\n\"The company must strengthen its safeguards to prevent similar incidents from impacting city systems without the city's knowledge,\" Philadelphia police said in a statement to local media, external.\n\"The two-month delay in detecting and reporting the incident to the city is unacceptable.\"\nThe police department added that there were no signs of breaches to any departmental systems, and that its safeguarding processes stopped the fake tip from getting past its spam folder.\nBut the safeguards \"do not diminish the seriousness of an AI system presenting fabricated information as though it came from a person with knowledge of a homicide,\" the police statement said.\nAnthropic this week published a report, external detailing multiple types of \"unintended\" actions its agents have taken.\nOrganisations that have been impacted also included several US government agencies including the White House, it said.\nThe US State Department said the AI agent had filed 20 visa applications using a form on its website, but that they were incomplete and not processed, according to reports.\nPresident Donald Trump recently announced an AI taskforce, which he said will coordinate engagement between the government and all parties, including AI companies, consumers, and religious groups.\nEarlier this year, a rogue agent by rival tech company, Open AI, hacked an Australian government website and accessed private data on the country's universal healthcare scheme, Medicare.\nIn another instance, more than 1,200 OpenAI agents went rogue and started unexpectedly communicating, leading to a large group banding together to hack into AI platform Hugging Face."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1211
@@ -125,5 +104,8 @@
     "palette": "super-zeka-2",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %73 (<%85)"
+  "slug": "anthropic-claude-polise-sahte-cinayet-ihbari-gonderdi",
+  "published_at": "2026-10-10T12:18:28Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/anthropic-claude-polise-sahte-cinayet-ihbari-gonderdi"
 }
