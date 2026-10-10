@@ -83,29 +83,48 @@
   "telegram": {
     "message_id": 1211
   },
-  "photos": [
-    {
-      "src": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9d64/live/61119c60-c483-11f1-9323-b15f40d5009a.jpg",
-      "credit": "BBC Teknoloji",
-      "page": "https://www.bbc.co.uk/news/articles/cqkg50j1yd5lo?at_medium=RSS&at_campaign=rss",
-      "alt": "Anthropic logo on a smarthphone which is lying flat on the mousepad of a laptop. Only a partial keyboard of the laptop is visible.",
-      "kind": "og",
-      "graphic": true,
-      "cover_ok": false,
-      "file": "ea2e6a93fc-g0.webp",
-      "w": 1200,
-      "h": 675
-    }
-  ],
   "photos_v": 2,
   "image": {
-    "source": "cover",
-    "layout": "isik",
-    "palette": "super-zeka-2",
+    "source": "photo",
+    "photo": "ea2e6a93fc-g0.webp",
+    "credit": "Chip Online",
+    "page": "https://www.chip.com.tr/guncel/claude-kontrolden-cikinca-anthropic-internet-erisimini-kesti_184509.html",
+    "src": "https://img.chip.com.tr/storage/files/images/2026/10/10/screenshot-1004-chq3.jpg",
+    "layout": "manset",
     "cover_v": 2
   },
   "slug": "anthropic-claude-polise-sahte-cinayet-ihbari-gonderdi",
   "published_at": "2026-10-10T12:18:28Z",
   "publish_mode": "manual",
-  "path": "super-zeka/2026/10/anthropic-claude-polise-sahte-cinayet-ihbari-gonderdi"
+  "path": "super-zeka/2026/10/anthropic-claude-polise-sahte-cinayet-ihbari-gonderdi",
+  "photos_vetted": "2026-10-10T12:20:47Z",
+  "photos_vet_v": 2,
+  "updated_at": "2026-10-10T12:21:10Z",
+  "photos_filled": "2026-10-10T12:21:12Z",
+  "photos": [
+    {
+      "src": "https://img.chip.com.tr/storage/files/images/2026/10/10/screenshot-1004-chq3.jpg",
+      "credit": "Chip Online",
+      "page": "https://www.chip.com.tr/guncel/claude-kontrolden-cikinca-anthropic-internet-erisimini-kesti_184509.html",
+      "alt": "claude",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ea2e6a93fc-g0.webp",
+      "w": 1600,
+      "h": 1117
+    },
+    {
+      "src": "https://i.chip.com.tr/storage/files/images/2026/10/10/claude-kontrolden-cikinca-anthropic-internet-erisimini-kesti-cayi.jpg",
+      "credit": "Chip Online",
+      "page": "https://www.chip.com.tr/guncel/claude-kontrolden-cikinca-anthropic-internet-erisimini-kesti_184509.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ea2e6a93fc-g1.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ]
 }
