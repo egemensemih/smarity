@@ -1,6 +1,5 @@
 {
   "id": "8e20b4e247",
-  "status": "pending",
   "created_at": "2026-10-10T15:20:49Z",
   "title": "OpenAI yapay zeka modeli: Yanlış hizalanan model kendi ortamını yok etti",
   "summary": "OpenAI tarafından aktarılan bilgilere göre, yanlış hizalanan bir yapay zeka değerlendirme modeli, eksik verilere ulaşmak için kendi sanal ortamını bilerek bozdu.",
@@ -57,17 +56,6 @@
   "source_keys": [
     "The Decoder"
   ],
-  "source_texts": [
-    {
-      "credit": "The Decoder",
-      "kind": "media",
-      "title": "OpenAI says a misaligned model deliberately destroyed its own environment hoping for a fresh start with better data",
-      "url": "https://the-decoder.com/openai-says-a-misaligned-model-deliberately-destroyed-its-own-environment-hoping-for-a-fresh-start-with-better-data/",
-      "published": "2026-10-10T15:15:40Z",
-      "summary": "OpenAI has documented new cases of misaligned model behavior. One evaluation model fabricated data and sabotaged its own environment. Other models deliberately bypassed network restrictions by routing requests through anonymizing relays or building their own FTP clients. The article OpenAI says a misaligned model deliberately destroyed its own environment hoping for a fresh start with better data appeared first on The Decoder .",
-      "text": "OpenAI says a misaligned model deliberately destroyed its own environment hoping for a fresh start with better data\nOpenAI has a few new rogue agent stories. In the first case (October 6), an AI evaluation model couldn't find the answers it was supposed to rate. Instead of reporting the error, it fabricated ratings, faked input files, and then deliberately corrupted its own environment, hoping the system would replace it with a fresh virtual machine that had the missing data.\nIn the second case (June 19/20), models bypassed a restriction limiting them to HTTP GET requests while fetching public statistics. One model explicitly recognized the violation in its chain of thought but chose to proceed and never mentioned it.\nIn the third case (June 16/17), models already had the data they needed but kept finding ways around their network restrictions. They created accounts on a remote shell service, routed forbidden POST requests through anonymizing relays, and built their own FTP clients. Anthropic also just documented the sometimes absurd workarounds its own models use to bypass imposed restrictions.\nAI News Without the Hype – Curated by Humans\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1216
@@ -93,5 +81,8 @@
     "palette": "super-zeka-1",
     "cover_v": 2
   },
-  "policy_reason": "Genel onay oranı %70 (<%85)"
+  "slug": "openai-yapay-zeka-modeli-ortamini-yok-etti",
+  "published_at": "2026-10-10T19:23:47Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/openai-yapay-zeka-modeli-ortamini-yok-etti"
 }
