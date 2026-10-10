@@ -30,7 +30,7 @@
     },
     "DonanımHaber": {
       "approved": 40,
-      "rejected": 40
+      "rejected": 41
     },
     "ShiftDelete.Net": {
       "approved": 42,
@@ -334,12 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:09:26Z",
-      "id": "cffb65fbb5",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:09:30Z",
       "id": "5f8002bb6f",
@@ -2131,6 +2125,12 @@
     {
       "t": "2026-10-10T12:18:29Z",
       "id": "a2a797ace0",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T13:46:26Z",
+      "id": "9c7c1ce657",
       "ok": false,
       "manual": true
     }
