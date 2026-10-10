@@ -327,15 +327,13 @@
     "ZDNET": {
       "approved": 0,
       "rejected": 1
+    },
+    "DC Rainmaker": {
+      "approved": 1,
+      "rejected": 0
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:09:00Z",
-      "id": "72abb6f850",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:09:02Z",
       "id": "19446311ca",
@@ -2128,6 +2126,12 @@
       "t": "2026-10-09T19:46:30Z",
       "id": "90903df04e",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-10T09:12:16Z",
+      "id": "8b67a6e72a",
+      "ok": true,
       "manual": true
     }
   ]
