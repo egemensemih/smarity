@@ -2,7 +2,7 @@
   "sources": {
     "LOG": {
       "approved": 42,
-      "rejected": 17
+      "rejected": 18
     },
     "The Verge": {
       "approved": 32,
@@ -34,7 +34,7 @@
     },
     "ShiftDelete.Net": {
       "approved": 42,
-      "rejected": 20
+      "rejected": 21
     },
     "Webtekno": {
       "approved": 30,
@@ -129,7 +129,7 @@
       "rejected": 4
     },
     "Digital Camera World": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 1
     },
     "Wccftech": {
@@ -334,24 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:09:46Z",
-      "id": "df5e992da9",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:09:49Z",
-      "id": "76e649f98e",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T12:09:51Z",
-      "id": "69b296b4fd",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T13:13:27Z",
       "id": "b6c3dd5c88",
@@ -2132,6 +2114,24 @@
       "t": "2026-10-11T06:42:32Z",
       "id": "7a52497d25",
       "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-11T21:29:10Z",
+      "id": "daf18b64a4",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-11T21:29:13Z",
+      "id": "f0b767c84f",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-11T21:29:27Z",
+      "id": "34d22352c5",
+      "ok": true,
       "manual": true
     }
   ]
