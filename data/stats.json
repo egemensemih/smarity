@@ -182,7 +182,7 @@
     },
     "PC Gamer": {
       "approved": 2,
-      "rejected": 5
+      "rejected": 6
     },
     "Tom's Hardware": {
       "approved": 3,
@@ -262,7 +262,7 @@
     },
     "Rock Paper Shotgun": {
       "approved": 2,
-      "rejected": 1
+      "rejected": 2
     },
     "designboom Teknoloji": {
       "approved": 0,
@@ -270,7 +270,7 @@
     },
     "Eurogamer": {
       "approved": 3,
-      "rejected": 5
+      "rejected": 6
     },
     "Samsung": {
       "approved": 1,
@@ -334,12 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T12:09:43Z",
-      "id": "37778e09ae",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T12:09:46Z",
       "id": "df5e992da9",
@@ -2132,6 +2126,12 @@
       "t": "2026-10-10T19:24:01Z",
       "id": "a81cea485e",
       "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-11T06:42:32Z",
+      "id": "7a52497d25",
+      "ok": false,
       "manual": true
     }
   ]
