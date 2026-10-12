@@ -72,6 +72,12 @@ autonomy:
   global_window: 30              # Genel başarı için bakılan son karar sayısı
   global_min_approval: 0.85      # Son kararlarda genel onay oranı bunun altındaysa otomatik yayın durur
   auto_min_importance: 7         # Otomatik yayın için en düşük önem puanı
+  # Doğrudan yayınlanan gruplar: geçmiş kararlarında en çok onayladığın türler. Uyarı işareti olan haber yine sorulur.
+  trusted_groups:
+    - name: "en az 2 kaynaklı otomotiv / süper zeka haberi"
+      categories: [otomotiv, super-zeka]
+      min_sources: 2
+  trusted_pause_removals: 2      # Bir gruptan son 7 günde bu kadar otomatik haberi kaldırırsan o grup yeniden onaya döner
 
 images:
   # Gerçek fotoğraflar: önce şirketin resmi görseli, yoksa kaynak haberin görselleri (kaynağı fotoğrafın altında yazar).

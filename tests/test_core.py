@@ -35,6 +35,28 @@ def test_policy_learning_path():
     assert policy.decide(CFG, {}, stats, GOOD)[0] == "ask"
 
 
+def test_trusted_groups_publish_directly():
+    cfg = Config(raw={"autonomy": {**CFG.raw["autonomy"], "auto_min_importance": 7, "trusted_pause_removals": 2,
+                                   "trusted_groups": [{"name": "oto/ai", "categories": ["otomotiv", "super-zeka"],
+                                                       "min_sources": 2}]}})
+    stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}      # genel onay oranı düşük
+    two = [{"name": "Webtekno", "url": "a"}, {"name": "ShiftDelete.Net", "url": "b"}]
+    car = {"id": "c", "flags": [], "confidence": "orta", "importance": 8, "category": "otomotiv", "sources": two}
+    assert policy.decide(cfg, {}, stats, car) == ("auto", "Güvenilir grup: oto/ai") and car["auto_group"] == "oto/ai"
+    assert policy.decide(cfg, {}, stats, {**car, "sources": two[:1]})[0] == "ask"               # tek kaynak
+    assert policy.decide(cfg, {}, stats, {**car, "sources": two * 2})[0] == "auto"              # aynı kaynaklar tekrar sayılmaz
+    assert policy.decide(cfg, {}, stats, {**car, "sources": [two[0], two[0]]})[0] == "ask"
+    assert policy.decide(cfg, {}, stats, {**car, "category": "teknoloji"})[0] == "ask"          # grup dışı kategori
+    assert policy.decide(cfg, {}, stats, {**car, "flags": ["iddia"]})[0] == "ask"               # uyarı işareti
+    assert policy.decide(cfg, {}, stats, {**car, "confidence": "dusuk"})[0] == "ask"
+    assert policy.decide(cfg, {}, stats, {**car, "importance": 6})[0] == "ask"
+    assert policy.decide(cfg, {"mode_override": "manuel"}, stats, car)[0] == "ask"
+    policy.record_group_removal(stats, "oto/ai")
+    assert policy.decide(cfg, {}, stats, {**car})[0] == "auto"                                 # bir kaldırma: sürüyor
+    policy.record_group_removal(stats, "oto/ai")
+    assert policy.decide(cfg, {}, stats, {**car})[0] == "ask"                                  # iki kaldırma: onaya döner
+
+
 def test_parse_rss_and_atom():
     rss = b"""<?xml version="1.0"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
       <item><title>A &amp; B</title><link>https://x.com/a</link><description>short</description>

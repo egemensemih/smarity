@@ -6,11 +6,14 @@ Mantık (mod = ogrenen):
   • Haberdeki TÜM kaynaklar senin kararlarınla 'güvenilir' hale geldiyse → otomatik yayın.
   Bir kaynak güvenilir sayılır: en az X karar + en az %Y onay.
   Otomatik yayınlanan bir haberi 'Kaldır' dersen o kaynak 2 ret puanı alır.
+  Güvenilir gruplar (ayarlarda autonomy.trusted_groups): en çok onayladığın türler (ör. en az 2 kaynaklı otomotiv ve
+  süper zeka haberleri) uyarı işareti yoksa doğrudan yayınlanır. Bir gruptan son 7 günde otomatik yayınlanan haberleri
+  birkaç kez kaldırırsan o grup kendiliğinden yeniden onayına döner.
 """
 from __future__ import annotations
 
 from .config import Config
-from .util import iso, now_utc
+from .util import hours_since, iso, now_utc
 
 MODES = {"manuel": "Manuel", "ogrenen": "Öğrenen", "tam": "Tam otonom"}
 
@@ -37,6 +40,32 @@ def global_rate(cfg: Config, stats: dict) -> tuple[int, float]:
     return len(dec), sum(1 for d in dec if d.get("ok")) / len(dec)
 
 
+def trusted_group(cfg: Config, draft: dict) -> str | None:
+    """Haber, doğrudan yayınlanan güvenilir gruplardan birinde mi? (kategori + en az N farklı kaynak)"""
+    names = {s.get("name") for s in draft.get("sources") or [] if s.get("name")}
+    for g in cfg.get("autonomy", "trusted_groups", None) or []:
+        cats = g.get("categories") or []
+        if cats and draft.get("category") not in cats:
+            continue
+        if len(names) < int(g.get("min_sources", 1) or 1):
+            continue
+        return str(g.get("name") or "güvenilir grup")
+    return None
+
+
+def group_paused(cfg: Config, stats: dict, name: str) -> bool:
+    """Bu gruptan son 7 günde otomatik yayınlanıp kaldırdığın haber sayısı sınıra ulaştıysa grup yeniden onaya döner."""
+    lim = int(cfg.get("autonomy", "trusted_pause_removals", 2) or 0)
+    recent = [t for t in (stats.get("group_removals") or {}).get(name, []) if hours_since(t) <= 24 * 7]
+    return bool(lim) and len(recent) >= lim
+
+
+def record_group_removal(stats: dict, name: str) -> None:
+    lst = stats.setdefault("group_removals", {}).setdefault(name, [])
+    lst.append(iso(now_utc()))
+    del lst[:-20]
+
+
 def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str]:
     """('auto' | 'ask', gerekçe)"""
     mode = current_mode(cfg, state)
@@ -44,6 +73,12 @@ def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str
         return "ask", "Manuel mod"
     if draft.get("flags"):
         return "ask", "Uyarı işareti var"
+    group = trusted_group(cfg, draft)
+    if (group and draft.get("confidence") in ("yuksek", "orta")
+            and draft.get("importance", 0) >= cfg.get("autonomy", "auto_min_importance", 6)):
+        if not group_paused(cfg, stats, group):
+            draft["auto_group"] = group
+            return "auto", f"Güvenilir grup: {group}"
     if draft.get("confidence") != "yuksek":
         return "ask", "Güven seviyesi yüksek değil"
     if draft.get("importance", 0) < cfg.get("autonomy", "auto_min_importance", 6):

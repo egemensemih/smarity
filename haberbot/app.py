@@ -932,6 +932,8 @@ class App:
         lines += ["📰 " + esc(", ".join(self._credits(d))), meta]
         if d.get("focus_keyword") and kind in ("pending", "auto"):
             lines.append(f"🔎 Google: <i>{esc(d['focus_keyword'])}</i>")
+        if kind == "auto" and d.get("auto_group"):
+            lines.append(f"🤖 Otomatik yayın nedeni: {esc(d['auto_group'])}. Beğenmezsen Kaldır'a bas.")
         if d.get("flags"):
             fl = ", ".join(FLAG_LABELS.get(f, f) for f in d["flags"])
             note = f" — {esc(d['editor_note'])}" if d.get("editor_note") else ""
@@ -1222,6 +1224,8 @@ class App:
             self._ig_drop(did, "🗑 Haber siteden kaldırıldığı için Instagram'a gönderilmeyecek")
             weight = 2 if d.get("publish_mode") == "auto" else 1
             policy.record(self.stats, d, ok=False, weight=weight)
+            if d.get("publish_mode") == "auto" and d.get("auto_group"):
+                policy.record_group_removal(self.stats, d["auto_group"])   # sık kaldırılırsa grup yeniden onaya döner
             st.bump(self.today(), "removed")
             st.archive_draft(d, "removed")
             self._update_preview(d, "removed")
