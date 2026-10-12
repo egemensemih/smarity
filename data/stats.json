@@ -37,7 +37,7 @@
       "rejected": 24
     },
     "Webtekno": {
-      "approved": 30,
+      "approved": 31,
       "rejected": 15
     },
     "Anadolu Ajansı": {
@@ -109,7 +109,7 @@
       "rejected": 11
     },
     "TechRadar": {
-      "approved": 9,
+      "approved": 10,
       "rejected": 8
     },
     "Android Authority": {
@@ -334,18 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:07:05Z",
-      "id": "66c94f9edb",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:07:34Z",
-      "id": "5cc82a5f6a",
-      "ok": true,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:07:36Z",
       "id": "3b73f3002b",
@@ -2131,6 +2119,18 @@
     {
       "t": "2026-10-12T14:02:53Z",
       "id": "363b269565",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:34:08Z",
+      "id": "8b2a316b8a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:34:10Z",
+      "id": "c6e4483022",
       "ok": true,
       "manual": true
     }
