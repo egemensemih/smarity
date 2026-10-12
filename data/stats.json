@@ -1,19 +1,19 @@
 {
   "sources": {
     "LOG": {
-      "approved": 44,
-      "rejected": 19
+      "approved": 46,
+      "rejected": 20
     },
     "The Verge": {
-      "approved": 32,
-      "rejected": 22
+      "approved": 33,
+      "rejected": 23
     },
     "Engadget": {
       "approved": 23,
       "rejected": 11
     },
     "Google": {
-      "approved": 2,
+      "approved": 3,
       "rejected": 3
     },
     "Interesting Engineering": {
@@ -29,12 +29,12 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 43,
+      "approved": 45,
       "rejected": 42
     },
     "ShiftDelete.Net": {
       "approved": 43,
-      "rejected": 22
+      "rejected": 23
     },
     "Webtekno": {
       "approved": 30,
@@ -85,7 +85,7 @@
       "rejected": 5
     },
     "Autocar": {
-      "approved": 7,
+      "approved": 8,
       "rejected": 3
     },
     "VGC": {
@@ -114,14 +114,14 @@
     },
     "Android Authority": {
       "approved": 12,
-      "rejected": 11
+      "rejected": 12
     },
     "SoundGuys": {
       "approved": 7,
       "rejected": 2
     },
     "Motor1": {
-      "approved": 9,
+      "approved": 10,
       "rejected": 5
     },
     "CNBC Teknoloji": {
@@ -149,7 +149,7 @@
       "rejected": 2
     },
     "Chip Online": {
-      "approved": 13,
+      "approved": 14,
       "rejected": 9
     },
     "CarNewsChina": {
@@ -169,7 +169,7 @@
       "rejected": 0
     },
     "Swipeline": {
-      "approved": 3,
+      "approved": 4,
       "rejected": 1
     },
     "Car and Driver": {
@@ -205,7 +205,7 @@
       "rejected": 3
     },
     "9to5Mac": {
-      "approved": 10,
+      "approved": 11,
       "rejected": 7
     },
     "MacRumors": {
@@ -249,7 +249,7 @@
       "rejected": 4
     },
     "AppleInsider": {
-      "approved": 8,
+      "approved": 9,
       "rejected": 3
     },
     "NASA": {
@@ -334,60 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:06:19Z",
-      "id": "970ac47d1f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:21Z",
-      "id": "2dc7e0a4fe",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:23Z",
-      "id": "b02f6c9e4f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:26Z",
-      "id": "93c7c8d91c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:30Z",
-      "id": "e4a99f05a9",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:42Z",
-      "id": "bae5bfd893",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:45Z",
-      "id": "ac31ca8d26",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:55Z",
-      "id": "30abb3d74f",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:57Z",
-      "id": "e9b3d9e901",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:07:01Z",
       "id": "bbef71de77",
@@ -2131,6 +2077,60 @@
     {
       "t": "2026-10-12T10:29:12Z",
       "id": "3a9a5484e1",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:00:55Z",
+      "id": "ad2e07ed0c",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:08Z",
+      "id": "82189ef679",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:09Z",
+      "id": "e1423b0c9e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:11Z",
+      "id": "6699fd1a62",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:12Z",
+      "id": "b5f7ea4f35",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:14Z",
+      "id": "18c26b749a",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:15Z",
+      "id": "3fe0604274",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:17Z",
+      "id": "f69caba3ec",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:01:19Z",
+      "id": "76707405f1",
       "ok": true,
       "manual": true
     }
