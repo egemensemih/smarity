@@ -1,6 +1,5 @@
 {
   "id": "3fda1a45f2",
-  "status": "pending",
   "created_at": "2026-10-12T16:16:12Z",
   "title": "Patientdesk.ai, yeni Türkçe ses modeli Alania-2'yi tanıttı",
   "summary": "Türk kuruculara sahip Patientdesk.ai, sıfırdan eğittiği yeni Türkçe ses modeli Alania-2'yi kullanıma sundu.",
@@ -60,17 +59,6 @@
   "source_keys": [
     "Swipeline"
   ],
-  "source_texts": [
-    {
-      "credit": "Swipeline",
-      "kind": "media",
-      "title": "Türk kuruculara sahip Patientdesk.ai, sıfırdan eğittiği ses modelini tanıttı: Alania-2",
-      "url": "https://swipeline.co/turk-kuruculara-sahip-patientdesk-ai-sifirdan-egittigi-ses-modelini-tanitti-alania-2/",
-      "published": "2026-10-12T16:00:00Z",
-      "summary": "488 milyon parametreye sahip Alania-2, Türkçe değerlendirme testi Freya-TR-Eval’de en iyi sonucu veren sesiyle %1.15 kelime hata oranı elde etti.",
-      "text": "Türk kuruculara sahip ABD merkezli Patientdesk.ai, sıfırdan eğittiği Türkçe metinden sese modeli Alania-2'yi kullanıma sundu. 488 milyon parametreye sahip model, Freya ekibinin geliştirdiği açık Türkçe değerlendirme testi Freya-TR-Eval’de en iyi sonucu veren sesiyle %1.15 kelime hata oranı elde etti.\nEylül ayında yayınlanan Alania-1, 3.3 milyar parametreye sahipti. Yeni model, yaklaşık yedi kat daha küçük olmasına rağmen değerlendirme testinde daha düşük hata oranı elde etti. 495 cümleden oluşan Freya-TR-Eval, modelin ürettiği sesin yeniden metne dönüştürülerek kaynak metinle karşılaştırılmasına dayanıyor. Daha düşük kelime hata oranı, modelin metni daha doğru seslendirdiğini gösteriyor.\nTelefon görüşmelerinde kullanılmak üzere tasarlanan Alania-2, önceki sürüme kıyasla daha hızlı ses üretiyor. Patientdesk.ai’ın paylaştığı verilere göre model, API üzerinden ilk ses çıktısını medyan 190 milisaniyede iletiyor. Alania-1'de bu süre 365 milisaniyeydi. Model, sesin tamamının üretilmesini beklemeden konuşmaya başlıyor ve konuşmayı parça parça iletiyor.\nAlania-2, 48 kHz ses üretimini destekliyor. Klinik adları, marka isimleri ve özel terimlerin doğru telaffuz edilmesine yardımcı olan bir sözlük içeriyor. Telefon görüşmelerinde ses kalitesi, telefon hatlarının desteklediği seviyeye göre ayarlanabiliyor. Ayrıca modelin API’yı, OpenAI’ın ses API’yı ile aynı istek yapısını kullanıyor.\nAlania-2 ile biri kadın, diğeri erkek olmak üzere iki hazır ses kullanılabiliyor. Akış modu ve kayıtlı sesler de sunulan özellikler arasında yer alıyor. Doğal dille seslendirme stilini belirleme ve sözlü tarifle yeni ses oluşturma özellikleri önizleme aşamasında bulunuyor.\nModelin ses klonlama araçları ise beta sürümünde sunuluyor. Anlık klonlama için konuşmacının onayıyla alınan 3 ila 30 saniyelik bir kayıt yeterli olurken profesyonel klonlama 1 ila 5 dakikalık kayıtla gerçekleştiriliyor. Profesyonel klonlamada konuşmacının kimliği, canlı olarak belirli bir cümleyi okumasıyla doğrulanıyor.\nAlania-2, speech.patientdesk.ai adresindeki Studio üzerinden tarayıcıda denenebiliyor ve API anahtarı da aynı adres üzerinden alınabiliyor. Önceki model Alania-1 ise alania-v1 adıyla kullanılmaya devam ediyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1269
@@ -99,5 +87,10 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Henüz güvenilmeyen kaynak: Swipeline"
+  "slug": "patientdesk-ai-alania-2-ses-modeli",
+  "published_at": "2026-10-12T19:50:41Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/patientdesk-ai-alania-2-ses-modeli",
+  "photos_vetted": "2026-10-12T19:51:10Z",
+  "photos_vet_v": 2
 }

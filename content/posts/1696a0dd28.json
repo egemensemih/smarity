@@ -1,6 +1,5 @@
 {
   "id": "1696a0dd28",
-  "status": "pending",
   "created_at": "2026-10-12T14:43:54Z",
   "title": "Satya Nadella’dan yapay zeka modelleri için acil durum freni çağrısı",
   "summary": "Microsoft CEO’su Satya Nadella, gelişmiş yapay zeka modelleri için görev esnasında durdurulabilmelerini sağlayan acil durum freni mekanizması çağrısı yaptı.",
@@ -81,17 +80,6 @@
     "TechCrunch",
     "Chip Online"
   ],
-  "source_texts": [
-    {
-      "credit": "Webrazzi",
-      "kind": "media",
-      "title": "Satya Nadella, yapay zeka modelleri için “acil durum freni” çağrısı yaptı",
-      "url": "https://webrazzi.com/2026/10/12/satya-nadella-yapay-zeka-modelleri-icin-acil-durum-freni-cagrisi-yapti/",
-      "published": "2026-10-12T14:30:00Z",
-      "summary": "Microsoft Yönetim Kurulu Başkanı ve CEO’su Satya Nadella, 10 Ekim’de X üzerinden paylaştığı yazıda, yapay zeka sistemlerinin güvenlik mimarisinin yeniden değerlendirilmesi gerektiğini ifade etti. Nade...",
-      "text": "Microsoft Yönetim Kurulu Başkanı ve CEO’su Satya Nadella, 10 Ekim’de X üzerinden paylaştığı yazıda, yapay zeka sistemlerinin güvenlik mimarisinin yeniden değerlendirilmesi gerektiğini ifade etti. Nadella, aynı girdiye her zaman aynı sonucu vermeyen modellerin öngörülebilir sistem tasarımı, insan kontrolü ve güvenilir işletim prosedürleriyle çevrelenmesi gerektiğini vurguladı.\nNadella’ya göre, hem kapalı hem de açık ağırlıklı gelişmiş modelleri kurum içinden kaynaklanabilecek bir risk olarak ele almak, bu güvenlik yaklaşımının temelini oluşturuyor. Bu çerçevede modelin, görevlerini yöneten yazılım katmanından (harness) ayrılması ve güvenlik kontrollerinin modelin dışında konumlandırılması öneriliyor.\nBu yaklaşımın öne çıkan unsurlarından biri, Nadella’nın “acil durum freni” olarak tanımladığı mekanizma. Yetkili kişilerin, bir modeli görevini yürütürken duraklatabilmesi veya tamamen kapatabilmesi gerekiyor. Nadella, modelin güvenliğinin ihlal edilmiş olabileceği varsayımıyla hareket edilmesini ve faaliyetlerinin en başından sınırlandırılmasını savunuyor.\nAyrıca Nadella, yapay zeka sistemlerinin izlenebilirlik ilkeleri etrafında tasarlanması gerektiğini belirtiyor. Bu ilkeler arasında model çeşitliliği, modellerin eylemlerinin insanlar tarafından okunabilir kayıtlarla belgelenmesi, sürekli sistem testleri, bağımsız kontroller ve denetlenebilirlik, faaliyetlerin sınırlandırılması ve güvenlik olaylarının açıklanması bulunuyor. Mevcut standartların yetersiz kaldığı alanlarda ise yeni sektör standartları oluşturulması öneriliyor.\nTeknoloji yöneticileri ve araştırmacıların yapay zekanın gelişim hızı ile güvenlik önlemlerinin yeterliliğini tartıştığı bir dönemde, Nadella’nın yaklaşımı, güvenliği yalnızca modelin güvenilirliğine bağlamak yerine, modelin davranışlarını denetleyebilen ve gerektiğinde müdahale edebilen sistemler kurmaya dayanıyor."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1265
@@ -120,5 +108,10 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Henüz güvenilmeyen kaynak: Webrazzi"
+  "slug": "satya-nadella-yapay-zeka-modelleri-acil-durum-freni",
+  "published_at": "2026-10-12T19:50:26Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/satya-nadella-yapay-zeka-modelleri-acil-durum-freni",
+  "photos_vetted": "2026-10-12T19:51:27Z",
+  "photos_vet_v": 2
 }
