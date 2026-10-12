@@ -29,7 +29,7 @@
       "rejected": 11
     },
     "DonanımHaber": {
-      "approved": 42,
+      "approved": 43,
       "rejected": 42
     },
     "ShiftDelete.Net": {
@@ -157,7 +157,7 @@
       "rejected": 2
     },
     "The Decoder": {
-      "approved": 10,
+      "approved": 11,
       "rejected": 11
     },
     "SamMobile": {
@@ -334,18 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:06:09Z",
-      "id": "7f9c08c11d",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:06:11Z",
-      "id": "a24c649519",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:06:14Z",
       "id": "e9d5d55fcf",
@@ -2131,6 +2119,18 @@
     {
       "t": "2026-10-12T09:37:42Z",
       "id": "792de379b1",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T09:51:01Z",
+      "id": "9a6eccc3f4",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T09:51:03Z",
+      "id": "bbd5fadb5b",
       "ok": true,
       "manual": true
     }
