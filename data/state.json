@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 872816537,
+  "telegram_offset": 872816540,
   "last_collect": "2026-10-12T20:55:26Z",
   "last_summary_date": "2026-10-12",
   "mode_override": null,
@@ -715,17 +715,6 @@
     }
   },
   "day_counts": {
-    "2026-09-29": {
-      "tok_in": 1602415,
-      "tok_out": 324546,
-      "cost_usd": 0.0,
-      "drafts": 129,
-      "published": 66,
-      "approved": 66,
-      "rejected": 57,
-      "updates": 4,
-      "updated": 2
-    },
     "2026-09-30": {
       "tok_in": 1695008,
       "tok_out": 331330,
@@ -870,16 +859,24 @@
       "drafts": 39,
       "updates": 3,
       "auto": 2
+    },
+    "2026-10-13": {
+      "published": 2,
+      "approved": 2,
+      "rejected": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-12T21:05:05Z",
+  "last_build": "2026-10-12T21:09:53Z",
   "build_sig": "e67490439116dc80",
   "commands_version": 4,
   "queue": [],
-  "last_activity": "2026-10-12T19:50:48Z",
-  "indexnow_queue": [],
+  "last_activity": "2026-10-12T21:08:27Z",
+  "indexnow_queue": [
+    "https://smarity.com.tr/girisimcilik/2026/10/microagi-100-milyon-dolar-arr-asti/",
+    "https://smarity.com.tr/otomotiv/2026/10/tesla-cybercab-paris-motor-show/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,

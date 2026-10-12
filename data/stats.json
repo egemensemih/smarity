@@ -46,7 +46,7 @@
     },
     "GamesIndustry.biz": {
       "approved": 2,
-      "rejected": 2
+      "rejected": 3
     },
     "Carscoops": {
       "approved": 9,
@@ -90,7 +90,7 @@
     },
     "VGC": {
       "approved": 5,
-      "rejected": 7
+      "rejected": 8
     },
     "BBC Teknoloji": {
       "approved": 2,
@@ -101,7 +101,7 @@
       "rejected": 0
     },
     "Bloomberg Teknoloji": {
-      "approved": 19,
+      "approved": 20,
       "rejected": 26
     },
     "Digital Trends": {
@@ -169,7 +169,7 @@
       "rejected": 0
     },
     "Swipeline": {
-      "approved": 5,
+      "approved": 6,
       "rejected": 1
     },
     "Car and Driver": {
@@ -334,24 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:07:51Z",
-      "id": "658214e0c5",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:07:53Z",
-      "id": "481069137c",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:07:56Z",
-      "id": "aae2174b6d",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:07:59Z",
       "id": "974d07ca1b",
@@ -2131,6 +2113,24 @@
     {
       "t": "2026-10-12T19:50:49Z",
       "id": "638b7f9947",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T21:08:26Z",
+      "id": "dc66bc9ca3",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T21:08:26Z",
+      "id": "5df877f1e5",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T21:08:28Z",
+      "id": "660874e484",
       "ok": true,
       "manual": true
     }
