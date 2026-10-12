@@ -34,7 +34,7 @@
     },
     "ShiftDelete.Net": {
       "approved": 43,
-      "rejected": 23
+      "rejected": 24
     },
     "Webtekno": {
       "approved": 30,
@@ -177,7 +177,7 @@
       "rejected": 6
     },
     "The Drive": {
-      "approved": 1,
+      "approved": 2,
       "rejected": 3
     },
     "PC Gamer": {
@@ -334,18 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:07:01Z",
-      "id": "bbef71de77",
-      "ok": false,
-      "manual": true
-    },
-    {
-      "t": "2026-10-01T19:07:03Z",
-      "id": "76fd8a48b6",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:07:05Z",
       "id": "66c94f9edb",
@@ -2131,6 +2119,18 @@
     {
       "t": "2026-10-12T14:01:19Z",
       "id": "76707405f1",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:02:41Z",
+      "id": "90a5843499",
+      "ok": false,
+      "manual": true
+    },
+    {
+      "t": "2026-10-12T14:02:53Z",
+      "id": "363b269565",
       "ok": true,
       "manual": true
     }
