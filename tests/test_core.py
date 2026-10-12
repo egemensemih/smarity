@@ -57,6 +57,26 @@ def test_trusted_groups_publish_directly():
     assert policy.decide(cfg, {}, stats, {**car})[0] == "ask"                                  # iki kaldırma: onaya döner
 
 
+def test_three_sources_any_category_but_not_some_brands():
+    cfg = Config(raw={"autonomy": {**CFG.raw["autonomy"], "auto_min_importance": 7,
+                                   "trusted_groups": [{"name": "oto/ai", "categories": ["otomotiv", "super-zeka"],
+                                                       "min_sources": 2},
+                                                      {"name": "3 kaynak", "min_sources": 3}],
+                                   "never_auto": ["Vivo", "Oppo", "iQOO"]}})
+    stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}
+    three = [{"name": n, "url": n} for n in ("Webtekno", "LOG", "The Verge")]
+    phone = {"id": "p", "flags": [], "confidence": "yuksek", "importance": 8, "category": "teknoloji", "sources": three,
+             "title": "Samsung Galaxy S27 tanıtıldı", "tags": ["Samsung"]}
+    assert policy.decide(cfg, {}, stats, phone) == ("auto", "Güvenilir grup: 3 kaynak")
+    assert policy.decide(cfg, {}, stats, {**phone, "sources": three[:2]})[0] == "ask"           # teknolojide 2 kaynak yetmez
+    assert policy.decide(cfg, {}, stats, {**phone, "category": "gaming"})[0] == "auto"
+    vivo = {**phone, "title": "Vivo'nun yeni telefonu V80 Lite Türkiye'de", "tags": ["akıllı telefon"]}
+    assert policy.decide(cfg, {}, stats, vivo)[0] == "ask"                                     # bu marka onaya gelir
+    assert policy.decide(cfg, {}, stats, {**phone, "tags": ["iQOO"]})[0] == "ask"
+    assert policy.decide(cfg, {}, stats, {**phone, "title": "Vivos adlı yeni uygulama çıktı"})[0] == "auto"
+    assert policy.decide(cfg, {}, stats, {**vivo, "category": "otomotiv"})[0] == "ask"
+
+
 def test_parse_rss_and_atom():
     rss = b"""<?xml version="1.0"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
       <item><title>A &amp; B</title><link>https://x.com/a</link><description>short</description>

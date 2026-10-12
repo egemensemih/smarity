@@ -77,6 +77,10 @@ autonomy:
     - name: "en az 2 kaynaklı otomotiv / süper zeka haberi"
       categories: [otomotiv, super-zeka]
       min_sources: 2
+    - name: "en az 3 farklı kaynakta çıkan haber"
+      min_sources: 3
+  # Bu markaların haberleri hiçbir zaman otomatik yayınlanmaz, her zaman onaya gelir
+  never_auto: [Vivo, Oppo, Realme, Tecno, Infinix, iQOO, Nubia, ZTE, Meizu, itel, Poco, Redmi]
   trusted_pause_removals: 2      # Bir gruptan son 7 günde bu kadar otomatik haberi kaldırırsan o grup yeniden onaya döner
 
 images:

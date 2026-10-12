@@ -12,6 +12,8 @@ Mantık (mod = ogrenen):
 """
 from __future__ import annotations
 
+import re
+
 from .config import Config
 from .util import hours_since, iso, now_utc
 
@@ -53,6 +55,19 @@ def trusted_group(cfg: Config, draft: dict) -> str | None:
     return None
 
 
+def never_auto_brand(cfg: Config, draft: dict) -> str | None:
+    """Otomatik yayınlanmayan markalar (ör. Vivo, Oppo): bu haberler her zaman onaya gelir."""
+    names = [str(n).strip() for n in cfg.get("autonomy", "never_auto", None) or [] if str(n).strip()]
+    if not names:
+        return None
+    text = " ".join([draft.get("title") or "", draft.get("summary") or "",
+                     *[str(x) for x in (draft.get("entities") or []) + (draft.get("tags") or [])]])
+    for n in names:
+        if re.search(rf"(?<![\w]){re.escape(n)}(?![\w])", text, re.I):
+            return n
+    return None
+
+
 def group_paused(cfg: Config, stats: dict, name: str) -> bool:
     """Bu gruptan son 7 günde otomatik yayınlanıp kaldırdığın haber sayısı sınıra ulaştıysa grup yeniden onaya döner."""
     lim = int(cfg.get("autonomy", "trusted_pause_removals", 2) or 0)
@@ -74,6 +89,8 @@ def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str
     if draft.get("flags"):
         return "ask", "Uyarı işareti var"
     group = trusted_group(cfg, draft)
+    if group and never_auto_brand(cfg, draft):
+        group = None                                   # bu marka her zaman onaya gelir
     if (group and draft.get("confidence") in ("yuksek", "orta")
             and draft.get("importance", 0) >= cfg.get("autonomy", "auto_min_importance", 6)):
         if not group_paused(cfg, stats, group):
