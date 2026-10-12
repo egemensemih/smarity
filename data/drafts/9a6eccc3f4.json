@@ -1,0 +1,100 @@
+{
+  "id": "9a6eccc3f4",
+  "status": "pending",
+  "created_at": "2026-10-12T09:42:54Z",
+  "title": "Google DeepMind AlphaProof Nexus bilimsel dergide yayımlandı",
+  "summary": "Google DeepMind'ın geliştirdiği AlphaProof Nexus adlı yapay zeka sistemi, düzinelerce çözülmemiş matematik problemini çözerek bilimsel dergide hakem onayından geçti.",
+  "body": "Google DeepMind tarafından geliştirilen AlphaProof Nexus, Science dergisinde yayımlanan yeni bir araştırmaya göre kendi başına düzinelerce açık matematik problemini çözmeyi başardı. The Decoder'ın aktardığına göre yapay zeka, 353 açık Erdős probleminden dokuzunu çözerken, bunlardan ikisinin 56 yıldır çözülememiş olduğu belirtildi. Ekip, söz konusu çözümleri makaleden önce internet üzerinden paylaştı.\n\n## Yapay zeka hangi matematik problemlerini çözdü?\n\nAraştırma kapsamında sistem, OEIS tam sayı dizisi veritabanından 44 konjektürü kanıtladı, cebirsel geometride açık bir soruyu çözdü ve yapay zeka modellerini eğitmekte kullanılan min-max optimizasyonunda bilinen bir üst sınırı geliştirdi. Google DeepMind'ın açıklamasına göre yapı, Lean adlı resmi dilde kanıt taslakları hazırlayıp düzenleyen Gemini 3.1 Pro etrafında şekilleniyor. Lean, her düzenlemenin ardından taslakları kontrol ederken hata mesajları sonraki denemelere rehberlik ediyor ve daha zor alt problemler için AlphaProof adlı özel bir araç devreye giriyor.\n\n## Hakem süreci ve akademik tartışmalar\n\nBu gelişme, yapay zekanın matematik alanındaki rolüne dair tartışmaların sürdüğü bir dönemde ortaya çıktı. Kaynaklara göre OpenAI yakın zamanda yüzlerce yapay zeka kanıtını akademik dergilere sunmak yerine doğrudan GitHub üzerinde paylaşmış, Terence Tao liderliğindeki İnsan Matematiği Derneği ise bu duruma karşı boykot çağrısında bulunmuştu. Google DeepMind ise çalışmasını akademik hakem sürecinden geçirmeyi tercih etti.\n\n**Neden önemli?** AlphaProof Nexus'un çözümleri akademik dergilerde hakem onayından geçirerek yayımlaması, yapay zeka destekli matematik çalışmalarının güvenilirliği açısından önemli bir adım oluşturuyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google DeepMind",
+    "Gemini 3.1 Pro",
+    "AlphaProof",
+    "Lean",
+    "Science"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "AlphaProof Nexus matematik problemlerini çözdü",
+  "kicker": "Bilimsel araştırma",
+  "hero_stat": "44",
+  "hero_stat_label": "kanıtlanan konjektür",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "AlphaProof Nexus",
+  "seo_title": "Google DeepMind AlphaProof Nexus matematik problemlerini çöz",
+  "meta_description": "Google DeepMind'ın geliştirdiği AlphaProof Nexus, düzinelerce açık matematik problemini çözerek Science dergisinde hakem onayından geçti.",
+  "seo_slug": "google-deepmind-alphaproof-nexus-matematik-problemlerini-cozdu",
+  "image_alt": "Buzlu cam küplerden yükselen grafik: yapay zekanın matematik başarılarını temsil eden görsel",
+  "cover_text": "AlphaProof Nexus",
+  "carousel_points": [
+    "Google DeepMind tarafından geliştirilen yapay zeka sistemi açık matematik problemlerini çözdü.",
+    "Sistem, 353 açık Erdős probleminden dokuzunu ve OEIS veritabanından 44 konjektürü kanıtladı.",
+    "Çalışma Science dergisinde yayımlanarak akademik hakem sürecinden geçti."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "AlphaProof Nexus açık matematik problemlerini çözdü",
+  "cover_highlight": "AlphaProof Nexus",
+  "cover_line_v": 3,
+  "importance": 7,
+  "triage_reason": "Google DeepMind matematik alanında önemli bir başarıya imza attı.",
+  "entities": [
+    "Google DeepMind",
+    "AlphaProof Nexus"
+  ],
+  "topic": "Google DeepMind AlphaProof Nexus solves open math problems published in Science",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/",
+      "title": "Google Deepmind's AlphaProof Nexus solved dozens of open math problems and actually got peer reviewed",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/#respond",
+      "published": "2026-10-12T09:35:54Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/10/google_deepmin_proofs.png"
+    }
+  ],
+  "source_keys": [
+    "The Decoder"
+  ],
+  "source_texts": [
+    {
+      "credit": "The Decoder",
+      "kind": "media",
+      "title": "Google Deepmind's AlphaProof Nexus solved dozens of open math problems and actually got peer reviewed",
+      "url": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/",
+      "published": "2026-10-12T09:35:54Z",
+      "summary": "Google Deepmind's AlphaProof Nexus solved dozens of open math problems, including nine Erdős problems two of which were unsolved for 56 years, per a study in Science. The publication comes as OpenAI faces a boycott for dumping AI proofs on GitHub without peer review. Deepmind had its results reviewed before publishing. The article Google Deepmind's AlphaProof Nexus solved dozens of open math problems and actually got peer reviewed appeared first on The Decoder .",
+      "text": "Google Deepmind's AlphaProof Nexus solved dozens of open math problems and actually got peer reviewed\nGoogle Deepmind's AI solved dozens of open math problems on its own, per a new study in Science. AlphaProof Nexus cracked nine of 353 open Erdős problems, two unsolved for 56 years. The team shared those solutions online ahead of the paper.\nBeyond that, AlphaProof Nexus proved 44 conjectures from the OEIS integer sequence database, solved an open question in algebraic geometry, and improved a known bound in min-max optimization, a technique used to train some AI models. It's built around Gemini 3.1 Pro, which drafts and revises proofs in the formal language Lean. Lean checks each draft after every edit, and error messages guide the next attempt. For harder sub-problems, it can call on AlphaProof, a specialized proof tool. Even without AlphaProof, it solved the nine Erdős problems, Google Deepmind reports.\nThe study lands amid a heated debate over AI math. OpenAI recently dumped hundreds of AI proofs on GitHub instead of submitting them to journals. The Association for Human Mathematics, led by Terence Tao, called for a boycott. Deepmind put its work through peer review.\nAI News Without the Hype – Curated by Humans\nSubscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.\nSubscribe now"
+    }
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1244
+  },
+  "photos": [
+    {
+      "src": "https://the-decoder.com/wp-content/uploads/2026/10/google_deepmin_proofs.png",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "9a6eccc3f4-g0.webp",
+      "w": 1376,
+      "h": 768
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-1",
+    "cover_v": 2
+  },
+  "policy_reason": "Genel onay oranı %67 (<%85)"
+}
