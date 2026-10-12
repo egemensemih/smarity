@@ -6,8 +6,9 @@ Mantık (mod = ogrenen):
   • Haberdeki TÜM kaynaklar senin kararlarınla 'güvenilir' hale geldiyse → otomatik yayın.
   Bir kaynak güvenilir sayılır: en az X karar + en az %Y onay.
   Otomatik yayınlanan bir haberi 'Kaldır' dersen o kaynak 2 ret puanı alır.
-  Güvenilir gruplar (ayarlarda autonomy.trusted_groups): en çok onayladığın türler (ör. en az 2 kaynaklı otomotiv ve
-  süper zeka haberleri) uyarı işareti yoksa doğrudan yayınlanır. Bir gruptan son 7 günde otomatik yayınlanan haberleri
+  Güvenilir gruplar (ayarlarda autonomy.trusted_groups): yönetmenin seçtiği haberlerden çok kaynakta çıkanlar (tüm
+  kategorilerde en az 3 farklı kaynak) uyarı işareti yoksa doğrudan yayınlanır. Küçük kitleye hitap eden (yönetmen puanı
+  8'in altında) ve büyük bir markaya ait olmayan haber yine sorulur; never_auto listesindeki markalar hep sorulur. Bir gruptan son 7 günde otomatik yayınlanan haberleri
   birkaç kez kaldırırsan o grup kendiliğinden yeniden onayına döner.
 """
 from __future__ import annotations
@@ -91,6 +92,9 @@ def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str
     group = trusted_group(cfg, draft)
     if group and never_auto_brand(cfg, draft):
         group = None                                   # bu marka her zaman onaya gelir
+    broad = int(cfg.get("autonomy", "auto_broad_importance", 0) or 0)
+    if group and draft.get("importance", 0) < broad and not draft.get("big_brand"):
+        group = None                                   # küçük kitleye hitap ediyor ve büyük bir marka değil: sorulur
     if (group and draft.get("confidence") in ("yuksek", "orta")
             and draft.get("importance", 0) >= cfg.get("autonomy", "auto_min_importance", 6)):
         if not group_paused(cfg, stats, group):

@@ -312,6 +312,7 @@ class App:
         for i, q in enumerate(queue):
             x = decisions.get(i) or {"action": "hold", "target": "", "must_read": 0, "reason": ""}
             q["story"]["must_read"] = int(x.get("must_read") or 0)
+            q["story"]["big_brand"] = bool(x.get("big_brand"))
             q["story"]["editor_reason"] = x.get("reason", "")
             act = x["action"]
             if act == "publish":
@@ -422,6 +423,7 @@ class App:
                 x["must_read"] = 0
             x["target"] = (x.get("target") or "").strip().removeprefix("s:")
             x["reason"] = clip(str(x.get("reason") or ""), 120)
+            x["big_brand"] = x.get("big_brand") is True
             if x.get("action") not in ("publish", "update", "skip", "hold"):
                 x["action"] = "hold"
             decisions[i] = x
@@ -738,6 +740,7 @@ class App:
             **w,
             "category": w["category"] or story.get("category") or DEFAULT_CATEGORY,
             "importance": int(story.get("must_read") or story.get("importance", 5)),
+            "big_brand": bool(story.get("big_brand")),
             "triage_reason": story.get("editor_reason") or story.get("reason", ""),
             "entities": list(story.get("entities") or []),
             "topic": story.get("topic", ""),
@@ -794,6 +797,7 @@ class App:
             **w,
             "category": post.get("category") or w["category"] or DEFAULT_CATEGORY,
             "importance": int(story.get("must_read") or story.get("importance", 5)),
+            "big_brand": bool(story.get("big_brand")),
             "triage_reason": story.get("editor_reason") or story.get("reason", ""),
             "entities": list(story.get("entities") or post.get("entities") or []),
             "topic": story.get("topic", ""),

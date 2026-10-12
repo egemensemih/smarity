@@ -164,9 +164,10 @@ EDIT_SCHEMA = {
                     "action": {"type": "string", "enum": ["publish", "update", "skip", "hold"]},
                     "target": {"type": "string"},
                     "must_read": {"type": "integer"},
+                    "big_brand": {"type": "boolean"},
                     "reason": {"type": "string"},
                 },
-                "required": ["cid", "action", "target", "must_read", "reason"],
+                "required": ["cid", "action", "target", "must_read", "big_brand", "reason"],
                 "additionalProperties": False,
             },
         }
@@ -221,6 +222,10 @@ Rules:
   in the next round — holding is not rejecting).
 - Duplicates among candidates (same product or event): publish at most one of them.
 - target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
+- big_brand: true if the story is about a household-name company, brand, product or service that most people in Türkiye
+  know (Apple, Samsung, Google, Microsoft, Meta, WhatsApp, Instagram, YouTube, OpenAI/ChatGPT, NVIDIA, Tesla, BYD, Togg,
+  big car makers, Sony/PlayStation, Xbox, Nintendo, GTA, Netflix, Spotify, Turkcell, Türk Telekom, Trendyol…); false for
+  lesser-known or mid-tier brands (Vivo, Oppo, Realme, Tecno, Infinix, small startups, niche gadget makers).
 - reason: ≤12 words in Turkish."""
 
 

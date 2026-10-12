@@ -62,7 +62,7 @@ def test_three_sources_any_category_but_not_some_brands():
                                    "trusted_groups": [{"name": "oto/ai", "categories": ["otomotiv", "super-zeka"],
                                                        "min_sources": 2},
                                                       {"name": "3 kaynak", "min_sources": 3}],
-                                   "never_auto": ["Vivo", "Oppo", "iQOO"]}})
+                                   "never_auto": ["Vivo", "Oppo", "iQOO"], "auto_broad_importance": 8}})
     stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}
     three = [{"name": n, "url": n} for n in ("Webtekno", "LOG", "The Verge")]
     phone = {"id": "p", "flags": [], "confidence": "yuksek", "importance": 8, "category": "teknoloji", "sources": three,
@@ -75,6 +75,10 @@ def test_three_sources_any_category_but_not_some_brands():
     assert policy.decide(cfg, {}, stats, {**phone, "tags": ["iQOO"]})[0] == "ask"
     assert policy.decide(cfg, {}, stats, {**phone, "title": "Vivos adlı yeni uygulama çıktı"})[0] == "auto"
     assert policy.decide(cfg, {}, stats, {**vivo, "category": "otomotiv"})[0] == "ask"
+    # küçük kitle (puan 7) + büyük marka değil → sor; büyük markaysa yayınla
+    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "title": "Nothing CMF hoparlör tanıttı"})[0] == "ask"
+    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "big_brand": True})[0] == "auto"
+    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "big_brand": True, "title": "Oppo Find X10"})[0] == "ask"
 
 
 def test_parse_rss_and_atom():
