@@ -9,8 +9,10 @@ Sonra tek bir kural (mod = kural):
                         3. kaynak gelirse kendiliğinden yayınlanır (Telegram mesajı "otomatik yayınlandı" olur)
   🟢 OTOMATİK           geniş kitle ya da büyük marka + en az 3 farklı kaynak
 
-Güvenlik: otomatik yayınlanan haberlerden son 3 günde 2'sini kaldırırsan otomatik yayın kendiliğinden durur (her şey sorulur);
-/mod kural yazınca hemen yeniden açılır. /mod manuel → her şey sorulur, /mod tam → yalnızca 🔴 olanlar sorulur.
+Güvenlik (yalnızca kural modunda): otomatik yayınlanan haberlerden son 3 günde 2'sini kaldırırsan otomatik yayın kendiliğinden
+durur (her şey sorulur); /mod kural yazınca hemen yeniden açılır. /mod manuel → her şey sorulur.
+/mod tam → yönetmenin seçtiği her haber yayınlanır, yalnızca 🔴 olanlar sorulur; beğenmediğini Kaldır'la çıkarırsın
+(kaldırdıkların yönetmene "sahibin istemediği haberler" olarak gösterilir, fren devreye girmez).
 """
 from __future__ import annotations
 
@@ -20,7 +22,7 @@ from datetime import timedelta
 from .config import Config
 from .util import hours_since, iso, now_utc, parse_iso
 
-MODES = {"manuel": "Manuel (her haber sorulur)", "kural": "Kurallı (3+ kaynak otomatik)", "tam": "Tam otonom"}
+MODES = {"manuel": "Manuel (her haber sorulur)", "kural": "Kurallı (3+ kaynak otomatik)", "tam": "Tam otonom (yönetmenin seçtiği her haber yayınlanır)"}
 ALIASES = {"ogrenen": "kural", "öğrenen": "kural", "otomatik": "kural", "oto": "kural"}
 TIER_ICON = {"auto": "🟢", "wait": "⏳", "ask": "🟡", "hard": "🔴", "paused": "⏸"}
 
@@ -119,7 +121,7 @@ def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str
     if int(draft.get("importance") or 0) < int(_a(cfg, "auto_min_importance", 7)):
         return out("hard", "Önem puanı düşük")
     if mode == "tam":
-        return out("auto", "Tam otonom mod")
+        return out("auto", "Tam otonom: yayın yönetmeni seçti")
     if not is_broad(cfg, draft):
         return out("ask", "Küçük kitleye hitap ediyor ve büyük bir marka değil")
     n, need = source_count(draft), min_sources(cfg)

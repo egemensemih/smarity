@@ -59,6 +59,8 @@ editorial:
   active_hours: [7, 24]          # Taslakların yayıldığı saatler (gece en fazla birkaç haber gelir, kalanlar sabaha kalır)
   max_item_age_hours: 36         # Bundan eski haberler atlanır
   pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer
+  taste_days: 21                 # Yönetmen, son bu kadar günde reddettiğin / kaldırdığın haberlerden zevkini öğrenir
+  taste_examples: 40             # ...en fazla bu kadar örnekle
   fetch_full_text: true          # Haberin tam metnini kaynağından okuyup daha doğru özet çıkar
 
 autonomy:
@@ -68,7 +70,7 @@ autonomy:
   #   🟡 sorar          : küçük kitle ve büyük marka değil
   #   🔴 hep sorar      : uyarı işareti, never_auto markaları, güven 'düşük'
   # Modlar: kural (önerilen) · manuel (her şey sorulur) · tam (yalnızca 🔴 sorulur). Telegram'dan /mod ile değiştirilir.
-  mode: kural
+  mode: tam                      # Ekim 2026: sahibin isteğiyle tam otonom (beğenmediklerini Telegram'dan kaldırır)
   min_sources: 3                 # Otomatik yayın için gereken en az farklı kaynak (yayın kuruluşu) sayısı
   broad_importance: 8            # Yönetmen puanı bu ve üstü = geniş kitle (büyük marka olmasa da otomatik olabilir)
   auto_min_importance: 7         # Bunun altındaki haber hiçbir zaman otomatik yayınlanmaz

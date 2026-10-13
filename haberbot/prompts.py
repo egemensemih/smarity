@@ -226,12 +226,20 @@ Rules:
   know (Apple, Samsung, Google, Microsoft, Meta, WhatsApp, Instagram, YouTube, OpenAI/ChatGPT, NVIDIA, Tesla, BYD, Togg,
   big car makers, Sony/PlayStation, Xbox, Nintendo, GTA, Netflix, Spotify, Turkcell, Türk Telekom, Trendyol…); false for
   lesser-known or mid-tier brands (Vivo, Oppo, Realme, Tecno, Infinix, small startups, niche gadget makers).
+- OWNER REJECTED (if given): stories the site owner turned down or removed after publishing in recent weeks. Learn his
+  taste from the PATTERNS (kinds of stories rejected again and again, e.g. a type of update, a sector, a kind of report) and
+  give candidates of the same kind a must_read at least 2 points lower — usually a "skip". One rejection alone may have had
+  other reasons (a duplicate, the wording); a clearly bigger development of that kind can still pass.
 - reason: ≤12 words in Turkish."""
 
 
-def edit_user(now: str, slots: int, covered: list[dict], candidates: list[dict]) -> str:
-    lines = [f"NOW: {now}", f"SLOTS: {slots}", "",
-             "COVERED (id | status | age | category | entities | title):"]
+def edit_user(now: str, slots: int, covered: list[dict], candidates: list[dict], rejected: list[dict] | None = None) -> str:
+    lines = [f"NOW: {now}", f"SLOTS: {slots}", ""]
+    if rejected:
+        lines.append("OWNER REJECTED (category | title) — his taste, not coverage:")
+        lines += [f"- {r.get('category', '')} | {r.get('title', '')}" for r in rejected]
+        lines.append("")
+    lines.append("COVERED (id | status | age | category | entities | title):")
     if covered:
         for c in covered:
             lines.append(f"{c['id']} | {c['status']} | {c['age']} | {c['category']} | {', '.join(c.get('entities') or [])} | {c['title']}")

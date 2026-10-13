@@ -84,6 +84,7 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 🟡 <b>Sorar</b> — küçük kitleye hitap eden ve büyük marka olmayan haber.
 🔴 <b>Hep sorar</b> — uyarı işaretli (iddia, söylenti) haberler, Vivo / Oppo gibi listedeki markalar.
 Otomatik yayınlanan 2 haberi 3 gün içinde kaldırırsan otomatik yayın kendiliğinden durur; <code>/mod kural</code> ile yeniden açılır. <code>/mod manuel</code>: her şey sorulur.
+<b>Tam otonom</b> (<code>/mod tam</code>): yönetmenin seçtiği her haber yayınlanır ve sana "yayınlandı" diye gelir; yalnızca 🔴 olanlar sorulur. Beğenmediğini 🗑 <b>Kaldır</b>'la çıkar: reddettiğin ve kaldırdığın haberler yönetmene "sahibin istemediği haberler" olarak gösterilir, benzerlerini seçmez.
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
@@ -409,7 +410,8 @@ class App:
         try:
             out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
                                 edit_system(self.brand, min_score),
-                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90] + older, cands),
+                                edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90] + older, cands,
+                                          self._owner_rejected()),
                                 EDIT_SCHEMA, max_tokens=6000)
             raw = {str(x.get("cid")): x for x in (out.get("decisions") or []) if isinstance(x, dict)}
         except LLMError as e:
@@ -433,6 +435,22 @@ class App:
                 x["action"] = "hold"
             decisions[i] = x
         return self._guard(queue, decisions, slots, min_score, covered + older)
+
+    def _owner_rejected(self) -> list[dict]:
+        """Son haftalarda reddettiğin ya da yayından kaldırdığın haberler: yönetmen zevkini bunlardan öğrenir."""
+        ed = lambda k, d: self.cfg.get("editorial", k, d)  # noqa: E731
+        days, n = float(ed("taste_days", 21) or 0), int(ed("taste_examples", 40) or 0)
+        if not days or not n:
+            return []
+        out, seen = [], set()
+        for a in self.store.recent_archive(days * 24):          # en yeniden eskiye
+            t = (a.get("title") or "").strip()
+            if a.get("status") in ("rejected", "removed") and t and t.lower() not in seen:
+                seen.add(t.lower())
+                out.append({"category": a.get("category", ""), "title": clip(t, 110)})
+            if len(out) >= n:
+                break
+        return out
 
     def _guard(self, queue: list[dict], decisions: dict[int, dict], slots: int, min_score: int,
                covered: list[dict]) -> dict[int, dict]:
@@ -1011,7 +1029,9 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Önizleme kartı üretilemedi: %s", e)
             img = self._hero(d)
-        silent = True if kind == "auto" else self.quiet()
+        # tam otonomda "yayınlandı" mesajları ana akış: gündüz sesli gelir (kural modunda otomatikler sessiz)
+        tam = policy.current_mode(self.cfg, self.state) == "tam"
+        silent = True if kind == "auto" and not tam else self.quiet()
         caption = self._caption(d, kind)
         try:
             res = self.tg.send_photo(self.chat_id, img, caption, self._keyboard(d, kind), silent=silent)
@@ -1239,7 +1259,8 @@ class App:
             self._ig_drop(did, "🗑 Haber siteden kaldırıldığı için Instagram'a gönderilmeyecek")
             weight = 2 if d.get("publish_mode") == "auto" else 1
             policy.record(self.stats, d, ok=False, weight=weight)
-            if d.get("publish_mode") == "auto" and policy.record_removal(self.cfg, self.stats):
+            if (d.get("publish_mode") == "auto" and policy.current_mode(self.cfg, self.state) == "kural"
+                    and policy.record_removal(self.cfg, self.stats)):
                 until = policy.auto_paused_until(self.cfg, self.stats)
                 self.notify(f"⏸ <b>Otomatik yayın durdu</b>\nKısa sürede otomatik yayınlanan haberlerden "
                             f"{self.cfg.get('autonomy', 'pause_removals', 2)} tanesini kaldırdın. "
@@ -1512,7 +1533,10 @@ class App:
             f"{c.get('rejected', 0)} ret, {c.get('drafts', 0)} taslak",
             f"Onay bekleyen: {pend} ({waiting} tanesi 3. kaynağı bekliyor) · Yazılmak için sırada: "
             f"{len(self.state.get('queue') or [])}",
-            (f"⏸ Otomatik yayın {esc(tr_date(until, self.cfg.tz))} tarihine kadar durdu (/mod kural ile aç)" if until
+            ("Tam otonom: yönetmenin seçtiği her haber yayınlanır; uyarılı haberler ve listedeki markalar sorulur. "
+             "Kaldırdıkların yönetmene örnek olur." if policy.current_mode(self.cfg, self.state) == "tam"
+             else "Her haber sana soruluyor." if policy.current_mode(self.cfg, self.state) == "manuel"
+             else f"⏸ Otomatik yayın {esc(tr_date(until, self.cfg.tz))} tarihine kadar durdu (/mod kural ile aç)" if until
              else f"Otomatik yayın kuralı: en az {policy.min_sources(self.cfg)} farklı kaynak + geniş kitle ya da büyük marka"),
             f"Son {n} kararında onay oranın: %{rate * 100:.0f}",
             f"Toplam yayın: {len(self.store.posts())}",

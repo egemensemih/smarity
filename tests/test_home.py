@@ -52,6 +52,7 @@ class _App:
     def __enter__(self):
         self.tmp = tempfile.TemporaryDirectory()
         raw = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+        raw.setdefault("autonomy", {})["mode"] = "kural"     # testler canlı moddan bağımsız (tam otonom ayrıca sınanır)
         self.cfg = Config(raw=raw, root=Path(self.tmp.name), site_url="https://smarity.com.tr", mock=True,
                           telegram_chat_id="1")
         self.app = appmod.App(self.cfg)
@@ -311,6 +312,43 @@ def test_pending_draft_publishes_itself_when_third_source_arrives():
         assert "Otomatik yayın durdu" in out and a.stats.get("auto_removals")
         a._on_command("mod", "kural")
         assert not a.stats.get("auto_removals")
+
+
+def test_full_autonomy_publishes_and_learns_from_rejections():
+    with _App() as (cfg, a):
+        from haberbot.prompts import edit_user
+        from haberbot.telegram import MockTelegram
+        a.tg = a.tg or MockTelegram(cfg.root / "tg")
+        a._on_command("mod", "tam")
+        d = {**_post(6, 0), "status": "pending", "created_at": iso(now_utc()), "telegram": {"message_id": 61},
+             "importance": 7, "big_brand": False, "confidence": "orta", "flags": [], "source_keys": ["Kaynak"]}
+        d.pop("published_at")
+        d.pop("slug")
+        flagged = {**d, "id": "p07", "flags": ["iddia"], "telegram": {"message_id": 71}, "title": "GTA 6 sızıntısı büyüyor"}
+        a.store.save_draft(d)
+        a.store.save_draft(flagged)
+        assert a.recheck_pending() == 1                      # tek kaynak, küçük kitle: tam otonomda yine yayınlanır
+        p = a.store.load_post("p06")
+        assert p["publish_mode"] == "auto" and "yönetmeni seçti" in a._caption(p, "auto")
+        assert a.store.load_draft("p07")["policy_tier"] == "hard"     # uyarılı haber sorulmaya devam eder
+        # kaldırılanlar freni tetiklemez, yönetmene "sahibin istemediği" örnek olur
+        a.store.save_post({**_post(8, 1), "publish_mode": "auto", "title": "One UI 9 güncellemesi dağıtılıyor"})
+        a._on_button("d", "p06")
+        a._on_button("d", "p08")
+        assert not a.stats.get("auto_removals")
+        assert "Otomatik yayın durdu" not in (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
+        assert policy_mode(a) == "tam"
+        a._on_button("r", "p07")
+        a.store.archive_draft(a.store.load_draft("p07"), "rejected")
+        rej = a._owner_rejected()
+        assert {r["title"] for r in rej} == {"GTA 6 sızıntısı büyüyor", "One UI 9 güncellemesi dağıtılıyor", d["title"]}
+        text = edit_user("2026-10-13 15:00", 2, [], [], rej)
+        assert "OWNER REJECTED" in text and "One UI 9 güncellemesi dağıtılıyor" in text
+
+
+def policy_mode(a):
+    from haberbot import policy
+    return policy.current_mode(a.cfg, a.state)
 
 
 if __name__ == "__main__":
