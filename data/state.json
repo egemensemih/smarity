@@ -1,6 +1,6 @@
 {
   "telegram_offset": 872816556,
-  "last_collect": "2026-10-13T17:25:48Z",
+  "last_collect": "2026-10-13T17:41:51Z",
   "last_summary_date": "2026-10-12",
   "mode_override": null,
   "paused": false,
@@ -104,468 +104,468 @@
   "source_health": {
     "Apple": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Samsung": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 50,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Google": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "OpenAI": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 1287,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Anthropic": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 11,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "TechCrunch": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "The Verge": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Engadget": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "WIRED": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 50,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Ars Technica": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:43Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:43Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "GSMArena": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "MIT Technology Review": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "New Atlas": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:43Z",
       "count": 60,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:43Z"
     },
     "Interesting Engineering": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 9,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Electrek": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 100,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Carscoops": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 6,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Autocar": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 50,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "IGN": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Polygon": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "VGC": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "GamesIndustry.biz": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 100,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Webrazzi": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Egirisim": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "Webtekno": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 50,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "ShiftDelete.Net": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 20,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "DonanımHaber": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 50,
-      "last_try": "2026-10-13T17:25:44Z"
+      "last_try": "2026-10-13T17:41:44Z"
     },
     "LOG": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10,
-      "last_try": "2026-10-13T17:25:45Z"
+      "last_try": "2026-10-13T17:41:45Z"
     },
     "Anadolu Ajansı": {
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 30,
-      "last_try": "2026-10-13T17:25:45Z"
+      "last_try": "2026-10-13T17:41:45Z"
     },
     "Crunchbase News": {
-      "last_try": "2026-10-13T17:25:44Z",
+      "last_try": "2026-10-13T17:41:44Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:44Z",
+      "last_ok": "2026-10-13T17:41:44Z",
       "count": 10
     },
     "Microsoft": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Meta": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Google DeepMind": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 100
     },
     "PlayStation Blog": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Xbox Wire": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "NASA": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "9to5Mac": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 100
     },
     "MacRumors": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 20
     },
     "AppleInsider": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "9to5Google": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 100
     },
     "Android Authority": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 80
     },
     "Android Police": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Android Central": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "SamMobile": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "XDA": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Tom's Guide": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "TechRadar": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "Digital Trends": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 30
     },
     "CNET": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 25
     },
     "ZDNET": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 25
     },
     "Gizmodo": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:45Z",
+      "fails": 62,
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://gizmodo.com/rss"
     },
     "Tom's Hardware": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "Wccftech": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 20
     },
     "VideoCardz": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:45Z",
+      "fails": 62,
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://videocardz.com/feed"
     },
     "The Next Web": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Pocket-lint": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "Stuff": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 71
     },
     "T3": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "BBC Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 21
     },
     "The Guardian Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 32
     },
     "New York Times Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 20
     },
     "Bloomberg Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 20
     },
     "CNBC Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 30
     },
     "Yanko Design": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 16
     },
     "Dezeen Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 50
     },
     "designboom Teknoloji": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:45Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:45Z",
       "count": 10
     },
     "DPReview": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 30
     },
     "PetaPixel": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 20
     },
     "Digital Camera World": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 50
     },
     "Fstoppers": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 30
     },
     "DIY Photography": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 10
     },
     "DroneDJ": {
-      "last_try": "2026-10-13T17:25:45Z",
+      "last_try": "2026-10-13T17:41:46Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:45Z",
+      "last_ok": "2026-10-13T17:41:46Z",
       "count": 25
     },
     "Photo Rumors": {
-      "last_try": "2026-10-13T17:25:46Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:46Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 20
     },
     "Sony Alpha Rumors": {
-      "last_try": "2026-10-13T17:25:46Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:46Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 7
     },
     "Canon Rumors": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 10
     },
     "Nikon Rumors": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 20
     },
     "Fuji Rumors": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 5
     },
     "What Hi-Fi": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 50
     },
     "SoundGuys": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 10
     },
     "Wareable": {
@@ -574,103 +574,103 @@
       "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.wareable.com/rss.xml"
     },
     "DC Rainmaker": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 8
     },
     "Motor1": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 20
     },
     "InsideEVs": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 20
     },
     "Car and Driver": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 50
     },
     "The Drive": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 14
     },
     "Autoblog": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:51Z",
+      "fails": 62,
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.autoblog.com/rss.xml"
     },
     "Teslarati": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 10
     },
     "CarNewsChina": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 10
     },
     "Eurogamer": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 100
     },
     "PC Gamer": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 50
     },
     "Kotaku": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 20
     },
     "GameSpot": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 30
     },
     "Rock Paper Shotgun": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 100
     },
     "Nintendo Life": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 25
     },
     "Game Developer": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 50
     },
     "The Decoder": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 10
     },
     "VentureBeat": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:51Z",
+      "fails": 62,
       "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://venturebeat.com/category/ai/feed/"
     },
     "Space.com": {
@@ -680,37 +680,37 @@
       "count": 0
     },
     "SpaceNews": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 13
     },
     "Teknoseyir": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:51Z",
+      "fails": 62,
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://teknoseyir.com/feed"
     },
     "Technopat": {
-      "last_try": "2026-10-13T11:37:18Z",
-      "fails": 61,
+      "last_try": "2026-10-13T17:41:51Z",
+      "fails": 62,
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.technopat.net/feed/"
     },
     "Donanım Arşivi": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 12
     },
     "Chip Online": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 50
     },
     "Swipeline": {
-      "last_try": "2026-10-13T17:25:48Z",
+      "last_try": "2026-10-13T17:41:51Z",
       "fails": 0,
-      "last_ok": "2026-10-13T17:25:48Z",
+      "last_ok": "2026-10-13T17:41:51Z",
       "count": 1495
     }
   },
@@ -861,14 +861,14 @@
       "auto": 2
     },
     "2026-10-13": {
-      "published": 24,
+      "published": 25,
       "approved": 16,
       "rejected": 3,
-      "tok_in": 1072130,
-      "tok_out": 158110,
+      "tok_in": 1095409,
+      "tok_out": 162410,
       "cost_usd": 0.0,
-      "drafts": 25,
-      "auto": 8,
+      "drafts": 26,
+      "auto": 9,
       "updates": 6,
       "updated": 6,
       "dropped": 1
@@ -876,462 +876,18 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-13T17:25:01Z",
+  "last_build": "2026-10-13T17:48:50Z",
   "build_sig": "56459ae6885ca24a",
   "commands_version": 5,
-  "queue": [
-    {
-      "story": {
-        "item_ids": [
-          "i2",
-          "i18",
-          "i19",
-          "i25",
-          "i26",
-          "i28",
-          "i29"
-        ],
-        "topic": "Google Play updates with vibe-coded personal apps and Gamer DNA",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "teknoloji",
-        "entities": [
-          "Google",
-          "Google Play"
-        ],
-        "reason": "Google Play mağazasının yapay zeka ile üretilen uygulamaları desteklemesi ve kişisel kütüphane getirmesi geniş bir kitleyi ilgilendiriyor.",
-        "must_read": 7,
-        "big_brand": false,
-        "editor_reason": "masa puanı"
-      },
-      "items": [
-        {
-          "key": "46d4e5f63dc93b91",
-          "source": "Google",
-          "kind": "official",
-          "credit": "Google",
-          "url": "https://blog.google/products-and-platforms/platforms/google-play/google-play-updates-october-2026/",
-          "via": null,
-          "via_url": null,
-          "title": "New on Google Play: More ways to create, discover, and play",
-          "summary": "Take a look at everything that’s new across Google Play.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Play_Discover.max-600x600.format-webp.webp",
-          "tid": "i2"
-        },
-        {
-          "key": "4f6773939cbb915f",
-          "source": "Android Authority",
-          "kind": "media",
-          "credit": "Android Authority",
-          "url": "https://www.androidauthority.com/google-play-game-finder-gamer-dna-3721539/",
-          "via": null,
-          "via_url": "https://www.androidauthority.com/google-play-game-finder-gamer-dna-3721539/#respond",
-          "title": "Google Play Store is making game discovery less of a hit-or-miss experience",
-          "summary": "Google Play is turning your gaming habits into title recommendations with Gamer DNA.",
-          "published": "2026-10-13T17:00:41Z",
-          "html_source": false,
-          "image": "https://www.androidauthority.com/wp-content/uploads/2023/09/Google-Play-Store-app-on-smartphone-UI-stock-photo-1.jpg",
-          "tid": "i18"
-        },
-        {
-          "key": "5b476b18e8f00795",
-          "source": "Android Authority",
-          "kind": "media",
-          "credit": "Android Authority",
-          "url": "https://www.androidauthority.com/google-play-vibe-coded-apps-3722347/",
-          "via": null,
-          "via_url": "https://www.androidauthority.com/google-play-vibe-coded-apps-3722347/#respond",
-          "title": "Your personal vibe-coded apps have a new home in the Play Store",
-          "summary": "TL;DR Google AI Studio makes it easy to get started with app development, but actually running your code has been a little awkward. Google’s now looking to add a little polish to that process by letting you access these vibe-coded apps through the Play Store. This is getting started for personal apps, but the plan is to soon expand it to allow for limited group sharing. App creation is being democratized. While there are plenty of reasons to be a little wary of the rise of AI-powered software development tools, it’s also impossible to deny that they’re making it practical for a whole lot…",
-          "published": "2026-10-13T17:00:39Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i19"
-        },
-        {
-          "key": "5b75b71a645976a1",
-          "source": "TechCrunch",
-          "kind": "media",
-          "credit": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
-          "via": null,
-          "via_url": null,
-          "title": "Google Play now supports private, vibe-coded apps built just for you",
-          "summary": "Google is making it easier to build and use personal Android apps created with AI, without having to make them available to everyone on the Play Store.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i25"
-        },
-        {
-          "key": "cf44b43a1d49bdee",
-          "source": "The Verge",
-          "kind": "media",
-          "credit": "The Verge",
-          "url": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
-          "via": null,
-          "via_url": null,
-          "title": "Google makes it easier to launch your vibe-coded apps",
-          "summary": "The next time you vibe-code a custom app with Google's AI Studio, you won't have to connect your phone to a computer to install it. On Tuesday, Google announced a new feature in the US that will allow you to launch personal apps directly through the Play Store. Google first launched the ability to vibe-code […]",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24007893/acastro_STK112_android_02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-          "tid": "i26"
-        },
-        {
-          "key": "2d935789bd4b55a8",
-          "source": "Engadget",
-          "kind": "media",
-          "credit": "Engadget",
-          "url": "https://www.engadget.com/2282824/google-lets-anyone-upload-android-apps-to-play-store-via-ai-studio/",
-          "via": null,
-          "via_url": null,
-          "title": "Google will let you distribute vibe-coded Android apps with just a Google account",
-          "summary": "The company is revamping the Play Store for the AI era with changes to publishing, recommendations and more.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://www.engadget.com/img/gallery/google-will-let-you-distribute-vibe-coded-android-apps-with-just-a-google-account/l-intro-1791578617.jpg",
-          "tid": "i28"
-        },
-        {
-          "key": "d6efe83ec3450d15",
-          "source": "9to5Google",
-          "kind": "media",
-          "credit": "9to5Google",
-          "url": "https://9to5google.com/2026/10/13/google-play-vibe-coded/",
-          "via": null,
-          "via_url": "https://9to5google.com/2026/10/13/google-play-vibe-coded/#respond",
-          "title": "Google Play adding ‘personal library’ to access your vibe-coded Android apps",
-          "summary": "Google today announced a slew of Play Store updates across vibe-coding, game discovery, social features, and more. more…",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/10/Google-Play-personal-library.jpg?quality=82&#038;strip=all&#038;w=1600",
-          "tid": "i29"
-        },
-        {
-          "key": "37a2f0af6df73c3d",
-          "source": "ZDNET",
-          "kind": "media",
-          "credit": "ZDNET",
-          "url": "https://www.zdnet.com/tech/custom-android-apps-google-ai-studio/",
-          "via": null,
-          "via_url": null,
-          "title": "Google lets you make personal Android apps for free now – with just prompts",
-          "summary": "It just got a whole lot easier to vibe code the exact Android app you need – no developer experience required.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://www.zdnet.com/wp-content/uploads/sites/3/Play-Store.jpg",
-          "tid": "i24"
-        },
-        {
-          "key": "31cd8f23f7e409b6",
-          "source": "Bloomberg Teknoloji",
-          "kind": "media",
-          "credit": "Bloomberg Teknoloji",
-          "url": "https://www.bloomberg.com/news/articles/2026-10-13/google-will-let-anyone-publish-privately-listed-vibe-coded-apps-on-play-store",
-          "via": null,
-          "via_url": null,
-          "title": "Google Will Let Anyone Publish Privately Listed Vibe-Coded Apps on Play Store",
-          "summary": "Alphabet Inc.’s Google is making it easier for Android users to run vibe-coded apps for personal use, lowering the barrier for nontechnical consumers who are increasingly turning to artificial intelligence to build tools for their own needs.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i25"
-        }
-      ],
-      "at": "2026-10-13T17:08:48Z",
-      "holds": 1,
-      "held_at": "2026-10-13T17:11:27Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i3",
-          "i22",
-          "i27"
-        ],
-        "topic": "Google Play Store gets redesigned layout and apps for cars with built-in Google",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "otomotiv",
-        "entities": [
-          "Google",
-          "Google Play"
-        ],
-        "reason": "Google built-in araçlar için yenilenen Play Store arayüzü ve yeni otomotiv uygulamaları duyuruldu.",
-        "must_read": 7,
-        "big_brand": false,
-        "editor_reason": "masa puanı"
-      },
-      "items": [
-        {
-          "key": "76e91cf23c92035a",
-          "source": "Google",
-          "kind": "official",
-          "credit": "Google",
-          "url": "https://blog.google/products-and-platforms/platforms/android/cars-with-google-built-in-google-play-updates/",
-          "via": null,
-          "via_url": null,
-          "title": "A new app experience is coming to cars with Google built-in",
-          "summary": "Discover apps and download them faster with upgrades coming to Google Play — plus, a new parked-to-drive feature and more.",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GoogleAuto_Blogpost_Play_Horizo.max-600x600.format-webp.webp",
-          "tid": "i3"
-        },
-        {
-          "key": "cc0ee6825b0b1ab3",
-          "source": "Android Authority",
-          "kind": "media",
-          "credit": "Android Authority",
-          "url": "https://www.androidauthority.com/google-built-in-cars-play-store-youtube-upgrade-3722706/",
-          "via": null,
-          "via_url": "https://www.androidauthority.com/google-built-in-cars-play-store-youtube-upgrade-3722706/#respond",
-          "title": "Google’s next big Play Store makeover is coming to your car",
-          "summary": "TL;DR Google is redesigning the Play Store for cars with Google built-in, making it easier to discover and download apps with a single tap. New apps, including STARZ, Firefox, Ludo King, and JioHotstar, are coming alongside a YouTube feature that automatically switches videos to audio-only playback when you start driving. The redesigned Play Store will adapt to different infotainment screen sizes and begin rolling out automatically over the coming weeks. Google today gives you two ways to improve your in-car infotainment experience. The Android Auto route requires you to connect your Android…",
-          "published": "2026-10-13T17:00:14Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i22"
-        },
-        {
-          "key": "9b86c51738ab0745",
-          "source": "The Verge",
-          "kind": "media",
-          "credit": "The Verge",
-          "url": "https://www.theverge.com/tech/1010086/cars-google-built-in-redesigned-play-store",
-          "via": null,
-          "via_url": null,
-          "title": "A redesigned Play Store is coming to cars with Google built-in",
-          "summary": "The Google Play Store is getting a big update for cars with Google built-in. On Tuesday, the company announced that the Play Store's layout will now automatically adapt to the size and layout of your car's screen while making it easier to find and download new apps. The update, which is rolling out in the […]",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/GoogleAuto_Blogpost_Play_HorizontalUI_final-1.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-          "tid": "i27"
-        }
-      ],
-      "at": "2026-10-13T17:08:48Z",
-      "holds": 1,
-      "held_at": "2026-10-13T17:11:27Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i7"
-        ],
-        "topic": "SpaceX IPO helps fuel 100 billion dollar space economy boom",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "inovasyon",
-        "entities": [
-          "SpaceX"
-        ],
-        "reason": "SpaceX halka arzı ve uzay ekonomisindeki yatırım artışı büyük teknoloji gündeminde yer alıyor.",
-        "must_read": 7,
-        "big_brand": false,
-        "editor_reason": "masa puanı"
-      },
-      "items": [
-        {
-          "key": "58864c97e38fb7d2",
-          "source": "Bloomberg Teknoloji",
-          "kind": "media",
-          "credit": "Bloomberg Teknoloji",
-          "url": "https://www.bloomberg.com/news/videos/2026-10-13/spacex-ipo-helps-fuel-100-billion-space-boom-video",
-          "via": null,
-          "via_url": null,
-          "title": "SpaceX IPO Helps Fuel $100 Billion Space Boom",
-          "summary": "Investment in the space economy could top $100 billion this year for the first time according to analysis from investment firm Space Capital, as SpaceX’s blockbuster IPO, rising defense demand and the need for new infrastructure draw more capital into the sector. Bloomberg’s Loren Grush discusses how SpaceX is reshaping investment well beyond its own business with Ed Ludlow on \"Bloomberg Tech.\" (Source: Bloomberg)",
-          "published": "2026-10-13T17:03:29Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i7"
-        }
-      ],
-      "at": "2026-10-13T17:08:48Z",
-      "holds": 1,
-      "held_at": "2026-10-13T17:11:27Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i30"
-        ],
-        "topic": "Samsung Galaxy Z Fold8 Ultra camera system evolution details",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "teknoloji",
-        "entities": [
-          "Samsung",
-          "Galaxy Z Fold8 Ultra"
-        ],
-        "reason": "Samsung'un katlanabilir amiral gemisi modelinin kamera geliştirmeleri.",
-        "must_read": 7,
-        "big_brand": false,
-        "editor_reason": "masa puanı"
-      },
-      "items": [
-        {
-          "key": "9aeb97eeb6d0be19",
-          "source": "SamMobile",
-          "kind": "media",
-          "credit": "SamMobile",
-          "url": "https://www.sammobile.com/news/samsung-galaxy-z-fold8-ultra-camera-how-cameras-foldables-evolved/",
-          "via": null,
-          "via_url": null,
-          "title": "Galaxy Z Fold8 Ultra camera: How Samsung’s foldable phone cameras have evolved",
-          "summary": "The Galaxy Z Fold8 Ultra has the best camera system Samsung has put in a Galaxy Z Fold. You can use the ultrawide for group photos and close-ups of your food or take selfies with the rear cameras while checking your framing on the cover screen. The biggest changes have come over the past two […]",
-          "published": "2026-10-13T17:00:00Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i30"
-        }
-      ],
-      "at": "2026-10-13T17:08:48Z",
-      "holds": 1,
-      "held_at": "2026-10-13T17:11:27Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i48"
-        ],
-        "topic": "Nothing's CMF brand launches milk carton-shaped wireless speakers",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "teknoloji",
-        "entities": [
-          "Nothing",
-          "CMF"
-        ],
-        "reason": "Nothing alt markası CMF'in süt kutusu tasarımlı ilginç kablosuz hoparlörleri.",
-        "must_read": 7,
-        "big_brand": false,
-        "editor_reason": "masa puanı"
-      },
-      "items": [
-        {
-          "key": "fbd4b48cb68ac9c4",
-          "source": "9to5Google",
-          "kind": "media",
-          "credit": "9to5Google",
-          "url": "https://9to5google.com/2026/10/13/nothings-cmf-launches-new-wireless-speakers-that-look-like-milk-cartons/",
-          "via": null,
-          "via_url": "https://9to5google.com/2026/10/13/nothings-cmf-launches-new-wireless-speakers-that-look-like-milk-cartons/#respond",
-          "title": "Nothing’s CMF launches new wireless speakers that look like milk cartons",
-          "summary": "Nothing’s CMF brand has launched new wireless speakers, the first in the lineup, and they look like milk cartons. more…",
-          "published": "2026-10-13T16:55:00Z",
-          "html_source": false,
-          "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/10/cmf-speakers-1.jpg?quality=82&#038;strip=all&#038;w=1600",
-          "tid": "i48"
-        }
-      ],
-      "at": "2026-10-13T17:08:48Z",
-      "holds": 1,
-      "held_at": "2026-10-13T17:11:27Z"
-    }
-  ],
+  "queue": [],
   "last_activity": "2026-10-13T12:28:06Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/teknoloji/2026/10/google-play-yenilikleri-yapay-zeka-uygulamalari/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
   "edit_log": [
-    {
-      "t": "2026-10-12T13:43:44Z",
-      "topic": "Tesla forced to rename Full Self-Driving to Assisted Driving in Europe",
-      "action": "publish",
-      "score": 8,
-      "reason": "Tesla Avrupa'da FSD ismini Assisted Driving olarak değiştirdi",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T13:57:35Z",
-      "topic": "Nintendo executive confirms commitment to physical games for Switch 2",
-      "action": "skip",
-      "score": 8,
-      "reason": "Zaten yayınlanan Nintendo Switch 2 fiziksel oyun haberinin tekrarı.",
-      "target": "b26d7081d5"
-    },
-    {
-      "t": "2026-10-12T13:57:35Z",
-      "topic": "Nothing CMF portable speakers launched",
-      "action": "skip",
-      "score": 5,
-      "reason": "Alt marka CMF'in taşınabilir hoparlör duyurusu genel kitleye hitap etmiyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T14:13:18Z",
-      "topic": "No Mans Sky coming to iPhone and iPad",
-      "action": "publish",
-      "score": 7,
-      "reason": "Popüler oyun No Man's Sky iPhone ve iPad'e geliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T14:13:18Z",
-      "topic": "Google Fitbit Edge fitness tracker launch",
-      "action": "skip",
-      "score": 7,
-      "reason": "Zaten yayınlanan Fitbit Edge haberi ile aynı içerik.",
-      "target": "c3103f91cf"
-    },
-    {
-      "t": "2026-10-12T14:13:18Z",
-      "topic": "Apple MacBook Pro M5 review",
-      "action": "skip",
-      "score": 5,
-      "reason": "Ürün inceleme yazıları yayın kapsamımız dışındadır.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T14:28:10Z",
-      "topic": "Microsoft Copilot app integrates full Office experience",
-      "action": "publish",
-      "score": 8,
-      "reason": "Microsoft Copilot, Word ve Excel entegrasyonuna kavuşuyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T14:28:10Z",
-      "topic": "BYD Atto 8 launched at Paris Motor Show",
-      "action": "skip",
-      "score": 6,
-      "reason": "BYD Atto 8 lansmanı daha önce yayınlandı.",
-      "target": "3a9a5484e1"
-    },
-    {
-      "t": "2026-10-12T14:28:10Z",
-      "topic": "Google invests in Flo Health and integrates period tracking",
-      "action": "skip",
-      "score": 6,
-      "reason": "Google ve Flo Health ortaklığı zaten haberleştirildi.",
-      "target": "3fe0604274"
-    },
-    {
-      "t": "2026-10-12T14:28:10Z",
-      "topic": "WhatsApp tests message scheduling feature",
-      "action": "publish",
-      "score": 7,
-      "reason": "WhatsApp'a uzun süredir beklenen mesaj zamanlama özelliği geliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-12T14:28:10Z",
-      "topic": "New entry-level iPad delayed to 2027",
-      "action": "skip",
-      "score": 5,
-      "reason": "Giriş seviyesi iPad'in ertelenmesi haberi işlendi.",
-      "target": "cc83050fd2"
-    },
     {
       "t": "2026-10-12T14:28:10Z",
       "topic": "New Hyundai Bayon debuted at Paris Motor Show",
@@ -2843,6 +2399,94 @@
       "score": 7,
       "reason": "masa puanı",
       "target": ""
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "GTA 6 PC port release date rumor",
+      "action": "skip",
+      "score": 5,
+      "reason": "PC sürümüne dair söylentiler, kesinleşmemiş bilgiler.",
+      "target": "f4d9360386"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "SpaceXSI X subscription tiers launch",
+      "action": "skip",
+      "score": 6,
+      "reason": "Daha önce yayınlanan abonelik haberiyle aynı.",
+      "target": "776f884daf"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Apple HomeView smart display pricing and hands-on",
+      "action": "skip",
+      "score": 6,
+      "reason": "Ön inceleme ve görüş yazısı niteliğinde.",
+      "target": "6699fd1a62"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "New Apple TV 4K and Siri Remote features breakdown",
+      "action": "skip",
+      "score": 7,
+      "reason": "Yeni Apple TV inceleme detayları ve özellik dökümü.",
+      "target": "17c5d96bbe"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Google Play updates with vibe-coded personal apps and Gamer DNA",
+      "action": "publish",
+      "score": 7,
+      "reason": "Google Play Store yenilikleri ve uygulama keşif özellikleri.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Google Play Store gets redesigned layout and apps for cars with built-in Google",
+      "action": "skip",
+      "score": 6,
+      "reason": "Otomobil içi Google Play mağazası yenilikleri.",
+      "target": "c5"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "SpaceX IPO helps fuel 100 billion dollar space economy boom",
+      "action": "skip",
+      "score": 5,
+      "reason": "Yabancı uzay ekonomisi ve genel pazar raporu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Samsung Galaxy Z Fold8 Ultra camera system evolution details",
+      "action": "skip",
+      "score": 5,
+      "reason": "Gelecek model sızıntıları ve kamera evrimi spekülasyonu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Nothing's CMF brand launches milk carton-shaped wireless speakers",
+      "action": "skip",
+      "score": 5,
+      "reason": "CMF niş kablosuz hoparlör duyurusu.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Google Play Store free private app publishing",
+      "action": "skip",
+      "score": 6,
+      "reason": "Google Play uygulama yayınlama politikası detayı.",
+      "target": "c5"
+    },
+    {
+      "t": "2026-10-13T17:42:53Z",
+      "topic": "Google Play Store Ask Play and app discovery updates",
+      "action": "skip",
+      "score": 6,
+      "reason": "Google Play arama ve keşif güncellemeleri.",
+      "target": "c5"
     }
   ],
   "reselect_try": 1,
