@@ -61,6 +61,7 @@ editorial:
   pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer
   taste_days: 21                 # Yönetmen, son bu kadar günde reddettiğin / kaldırdığın haberlerden zevkini öğrenir
   taste_examples: 40             # ...en fazla bu kadar örnekle
+  confirmed_only: true           # Yalnızca doğrulanmış haber: söylenti, sızıntı, "iddia ediliyor" haberleri yönetmen baştan eler
   fetch_full_text: true          # Haberin tam metnini kaynağından okuyup daha doğru özet çıkar
 
 autonomy:
@@ -69,7 +70,7 @@ autonomy:
   #   ⏳ sorar + bekler : geniş kitleli ama kaynak sayısı yetmiyor → sorulur; 3. kaynak gelirse kendiliğinden yayınlanır
   #   🟡 sorar          : küçük kitle ve büyük marka değil
   #   🔴 hep sorar      : uyarı işareti, never_auto markaları, güven 'düşük'
-  # Modlar: kural (önerilen) · manuel (her şey sorulur) · tam (yalnızca 🔴 sorulur). Telegram'dan /mod ile değiştirilir.
+  # Modlar: kural · manuel (her şey sorulur) · tam (hiçbir şey sorulmaz; 🔴 olanlar hiç yayınlanmaz). Telegram'dan /mod.
   mode: tam                      # Ekim 2026: sahibin isteğiyle tam otonom (beğenmediklerini Telegram'dan kaldırır)
   min_sources: 3                 # Otomatik yayın için gereken en az farklı kaynak (yayın kuruluşu) sayısı
   broad_importance: 8            # Yönetmen puanı bu ve üstü = geniş kitle (büyük marka olmasa da otomatik olabilir)

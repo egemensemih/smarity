@@ -84,7 +84,7 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 🟡 <b>Sorar</b> — küçük kitleye hitap eden ve büyük marka olmayan haber.
 🔴 <b>Hep sorar</b> — uyarı işaretli (iddia, söylenti) haberler, Vivo / Oppo gibi listedeki markalar.
 Otomatik yayınlanan 2 haberi 3 gün içinde kaldırırsan otomatik yayın kendiliğinden durur; <code>/mod kural</code> ile yeniden açılır. <code>/mod manuel</code>: her şey sorulur.
-<b>Tam otonom</b> (<code>/mod tam</code>): yönetmenin seçtiği her haber yayınlanır ve sana "yayınlandı" diye gelir; yalnızca 🔴 olanlar sorulur. Beğenmediğini 🗑 <b>Kaldır</b>'la çıkar: reddettiğin ve kaldırdığın haberler yönetmene "sahibin istemediği haberler" olarak gösterilir, benzerlerini seçmez.
+<b>Tam otonom</b> (<code>/mod tam</code>): yönetmenin seçtiği her haber sorulmadan yayınlanır ve sana "yayınlandı" diye gelir. Şüpheli içerik (doğrulanmamış iddia, söylenti, çelişen kaynak, eski haber, tanıtım) ve listedeki markalar hiç yayınlanmaz; sana da sorulmaz. Beğenmediğini 🗑 <b>Kaldır</b>'la çıkar: reddettiğin ve kaldırdığın haberler yönetmene "sahibin istemediği haberler" olarak gösterilir, benzerlerini seçmez.
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
@@ -259,8 +259,8 @@ class App:
                 recent.append({"sid": "s:" + d["id"], "status": d.get("status", "pending"), "title": d["title"]})
             for p in pub[:100] + older:
                 recent.append({"sid": "s:" + p["id"], "status": "published", "title": p["title"]})
-            for a in st.recent_archive(72):   # reddedilen / süresi dolan haberler tekrar önerilmesin
-                if a.get("status") in ("rejected", "expired", "removed"):
+            for a in st.recent_archive(72):   # reddedilen / süresi dolan / şüpheli diye düşen haberler tekrar önerilmesin
+                if a.get("status") in ("rejected", "expired", "removed", "dropped"):
                     recent.append({"sid": "s:" + a["id"], "status": a["status"], "title": a.get("title", "")})
 
             try:
@@ -383,7 +383,7 @@ class App:
             if d.get("status") in ("pending", "rejected"):
                 add(d, d["status"], d.get("created_at"))
         for a in self.store.recent_archive(hours):
-            if a.get("status") in ("rejected", "expired", "removed"):
+            if a.get("status") in ("rejected", "expired", "removed", "dropped"):
                 add(a, a["status"], a.get("created_at") or a.get("closed_at"))
         out.sort(key=lambda c: c["hours"])
         return out
@@ -409,7 +409,7 @@ class App:
         raw = None
         try:
             out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
-                                edit_system(self.brand, min_score),
+                                edit_system(self.brand, min_score, self._confirmed_only),
                                 edit_user(now_l.strftime("%Y-%m-%d %H:%M"), slots, covered[:90] + older, cands,
                                           self._owner_rejected()),
                                 EDIT_SCHEMA, max_tokens=6000)
@@ -435,6 +435,20 @@ class App:
                 x["action"] = "hold"
             decisions[i] = x
         return self._guard(queue, decisions, slots, min_score, covered + older)
+
+    @property
+    def _confirmed_only(self) -> bool:
+        """Yalnızca doğrulanmış haber: yönetmen söylenti / sızıntı / doğrulanmamış iddiaları baştan eler."""
+        return bool(self.cfg.get("editorial", "confirmed_only", False))
+
+    def _drop(self, d: dict, reason: str) -> None:
+        """Tam otonomda şüpheli / istenmeyen taslak: yayınlanmaz, sana da sorulmaz (günün özetinde sayısı yazar)."""
+        d["policy_reason"] = reason
+        log.info("Taslak %s yayınlanmadı (%s): %s", d.get("id"), reason, d.get("title"))
+        self.store.bump(self.today(), "dropped")
+        if (d.get("telegram") or {}).get("message_id"):
+            self._update_preview(d, "dropped")      # daha önce sorulmuş bir taslaksa mesajı kapanır
+        self.store.archive_draft(d, "dropped")
 
     def _owner_rejected(self) -> list[dict]:
         """Son haftalarda reddettiğin ya da yayından kaldırdığın haberler: yönetmen zevkini bunlardan öğrenir."""
@@ -781,6 +795,9 @@ class App:
         d["policy_reason"] = reason
         log.info("Taslak %s [%s] önem=%s güven=%s → %s (%s)", did, d["category"], d["importance"],
                  d["confidence"], decision, reason)
+        if decision == "drop":
+            self._drop(d, reason)
+            return d
         if decision == "auto" and not self.state.get("paused"):
             post = self.publish(d, auto=True)
             self._send_preview(post, "auto")
@@ -835,6 +852,9 @@ class App:
         decision, reason = policy.decide(cfg, self.state, self.stats, d)
         d["policy_reason"] = reason
         log.info("Güncelleme taslağı %s → %s: %s (%s)", did, post["id"], decision, reason)
+        if decision == "drop":
+            self._drop(d, reason)
+            return d
         if decision == "auto" and not self.state.get("paused"):
             new = self.apply_update(d)
             if new:
@@ -944,6 +964,7 @@ class App:
             "rewritten": "🔁 <b>YENİDEN YAZILDI</b> (yeni sürüm aşağıda)",
             "updated": "🔄 <b>HABER GÜNCELLENDİ</b>",
             "culled": "🧹 <b>SEÇKİ DIŞI</b> (yeni ölçütlere göre elendi)",
+            "dropped": "🚫 <b>YAYINLANMADI</b> (şüpheli ya da istenmeyen içerik)",
         }[kind]
         upd = d.get("update_of")
         if upd and kind == "pending":
@@ -969,6 +990,8 @@ class App:
             lines.append(f"⚠️ {esc(fl)}{note}")
         elif d.get("editor_note") and kind == "pending":
             lines.append(f"📝 {esc(d['editor_note'])}")
+        if kind == "dropped" and d.get("policy_reason"):
+            lines.append(f"<i>{esc(d['policy_reason'])}</i>")
         if kind == "pending" and d.get("policy_reason"):
             if d.get("policy_tier") == "wait":
                 lines.append(f"⏳ <i>{esc(d['policy_reason'])}. Beklemek istemezsen Yayınla'ya bas.</i>")
@@ -1456,7 +1479,7 @@ class App:
                 self.notify(f"Şu anki mod: <b>{policy.MODES[m]}</b>\n"
                             f"<code>/mod kural</code> — 3+ kaynakta çıkan geniş kitleli / büyük marka haberleri otomatik\n"
                             f"<code>/mod manuel</code> — her haber sana sorulur\n"
-                            f"<code>/mod tam</code> — yalnızca uyarılı haberler ve listedeki markalar sorulur", silent=True)
+                            f"<code>/mod tam</code> — hiçbir şey sorulmaz; şüpheli haberler yayınlanmaz", silent=True)
         elif cmd == "duraklat":
             self.state["paused"] = True
             self.notify("⏸ Duraklatıldı. Toplama ve otomatik yayın durdu. Devam için /devam", silent=True)
@@ -1533,8 +1556,9 @@ class App:
             f"{c.get('rejected', 0)} ret, {c.get('drafts', 0)} taslak",
             f"Onay bekleyen: {pend} ({waiting} tanesi 3. kaynağı bekliyor) · Yazılmak için sırada: "
             f"{len(self.state.get('queue') or [])}",
-            ("Tam otonom: yönetmenin seçtiği her haber yayınlanır; uyarılı haberler ve listedeki markalar sorulur. "
-             "Kaldırdıkların yönetmene örnek olur." if policy.current_mode(self.cfg, self.state) == "tam"
+            (f"Tam otonom: yönetmenin seçtiği haberler sorulmadan yayınlanır; şüpheli olanlar yayınlanmaz "
+             f"(bugün {c.get('dropped', 0)}). Kaldırdıkların yönetmene örnek olur."
+             if policy.current_mode(self.cfg, self.state) == "tam"
              else "Her haber sana soruluyor." if policy.current_mode(self.cfg, self.state) == "manuel"
              else f"⏸ Otomatik yayın {esc(tr_date(until, self.cfg.tz))} tarihine kadar durdu (/mod kural ile aç)" if until
              else f"Otomatik yayın kuralı: en az {policy.min_sources(self.cfg)} farklı kaynak + geniş kitle ya da büyük marka"),
@@ -1580,6 +1604,9 @@ class App:
             old = (d.get("policy_tier"), d.get("policy_reason"))
             decision, reason = policy.decide(self.cfg, self.state, self.stats, d)
             d["policy_reason"] = reason
+            if decision == "drop":
+                self._drop(d, reason)
+                continue
             if decision == "auto":
                 try:
                     if self._auto_promote(d):
@@ -1698,7 +1725,7 @@ class App:
                       "dup": "", "headlines": [clip(d.get("summary", ""), 200)]} for n, d in enumerate(chunk)]
             try:
                 out = self.llm.json(cfg.get("ai", "editor_model", None) or cfg.get("ai", "writer_model", "gemini-flash-latest"),
-                                    edit_system(self.brand, min_score),
+                                    edit_system(self.brand, min_score, self._confirmed_only),
                                     edit_user(local(now_utc(), cfg.tz).strftime("%Y-%m-%d %H:%M"), len(chunk), covered[:90], cands), EDIT_SCHEMA, max_tokens=8000)
             except LLMError as e:
                 log.warning("Bekleyen taslaklar yeniden seçilemedi (sonra denenecek): %s", str(e)[:160])
@@ -1821,6 +1848,7 @@ class App:
                 f"{c.get('approved', 0)} senin onayınla)\n"
                 f"Güncellenen haber: {c.get('updated', 0)}\n"
                 f"Ret: {c.get('rejected', 0)} · Süresi dolan: {c.get('expired', 0)} · Kaldırılan: {c.get('removed', 0)}\n"
+                + (f"Şüpheli olduğu için yayınlanmayan: {c['dropped']}\n" if c.get("dropped") else "") +
                 f"Seçki: {sum(1 for x in self.state.get('edit_log') or [] if (x.get('t') or '')[:10] == iso(now_utc())[:10] and x['action'] == 'skip')} "
                 f"aday elendi (/secki)\n"
                 f"Instagram: {c.get('instagram', 0)} paylaşım\n"

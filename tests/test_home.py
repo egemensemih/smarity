@@ -316,7 +316,8 @@ def test_pending_draft_publishes_itself_when_third_source_arrives():
 
 def test_full_autonomy_publishes_and_learns_from_rejections():
     with _App() as (cfg, a):
-        from haberbot.prompts import edit_user
+        from haberbot import policy
+        from haberbot.prompts import edit_system, edit_user
         from haberbot.telegram import MockTelegram
         a.tg = a.tg or MockTelegram(cfg.root / "tg")
         a._on_command("mod", "tam")
@@ -330,7 +331,12 @@ def test_full_autonomy_publishes_and_learns_from_rejections():
         assert a.recheck_pending() == 1                      # tek kaynak, küçük kitle: tam otonomda yine yayınlanır
         p = a.store.load_post("p06")
         assert p["publish_mode"] == "auto" and "yönetmeni seçti" in a._caption(p, "auto")
-        assert a.store.load_draft("p07")["policy_tier"] == "hard"     # uyarılı haber sorulmaya devam eder
+        # şüpheli (uyarılı) haber: yayınlanmaz, sorulmaz; daha önce sorulmuşsa mesajı "yayınlanmadı" olur
+        assert not a.store.load_draft("p07") and not a.store.load_post("p07")
+        out = (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "YAYINLANMADI" in out and "Doğrulanmamış iddia" in out and "ONAY BEKLİYOR" not in out
+        assert any(x["status"] == "dropped" for x in a.store.recent_archive(1))
+        assert policy.decide(cfg, a.state, a.stats, {**d, "title": "Vivo X300 tanıtıldı"})[0] == "drop"
         # kaldırılanlar freni tetiklemez, yönetmene "sahibin istemediği" örnek olur
         a.store.save_post({**_post(8, 1), "publish_mode": "auto", "title": "One UI 9 güncellemesi dağıtılıyor"})
         a._on_button("d", "p06")
@@ -338,12 +344,12 @@ def test_full_autonomy_publishes_and_learns_from_rejections():
         assert not a.stats.get("auto_removals")
         assert "Otomatik yayın durdu" not in (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
         assert policy_mode(a) == "tam"
-        a._on_button("r", "p07")
-        a.store.archive_draft(a.store.load_draft("p07"), "rejected")
-        rej = a._owner_rejected()
-        assert {r["title"] for r in rej} == {"GTA 6 sızıntısı büyüyor", "One UI 9 güncellemesi dağıtılıyor", d["title"]}
+        rej = a._owner_rejected()                              # düşenler sahibin zevki sayılmaz, kaldırılanlar sayılır
+        assert {r["title"] for r in rej} == {"One UI 9 güncellemesi dağıtılıyor", d["title"]}
         text = edit_user("2026-10-13 15:00", 2, [], [], rej)
         assert "OWNER REJECTED" in text and "One UI 9 güncellemesi dağıtılıyor" in text
+        assert "CONFIRMED NEWS ONLY" in edit_system("Smarity", 7, True) and "CONFIRMED" not in edit_system("Smarity", 7)
+        assert a._confirmed_only is bool(cfg.get("editorial", "confirmed_only", False))
 
 
 def policy_mode(a):

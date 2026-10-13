@@ -177,7 +177,15 @@ EDIT_SCHEMA = {
 }
 
 
-def edit_system(site_name: str, min_score: int) -> str:
+CONFIRMED_ONLY_RULE = """
+- CONFIRMED NEWS ONLY: we publish only confirmed facts (official announcements, launches, filings, on-record statements,
+  verified data). Skip rumors, leaks, unconfirmed or anonymous-source reports and "may / is expected to / reportedly /
+  claims" stories — even from Mark Gurman or Bloomberg —, stories whose sources conflict, old news presented as new and
+  promotional content. Status "dropped" in COVERED means we did not publish it because it was unconfirmed: it may run
+  later only as a new story when an official confirmation arrives."""
+
+
+def edit_system(site_name: str, min_score: int, confirmed_only: bool = False) -> str:
     return f"""You are the editor-in-chief of "{site_name}", a Turkish-language, hand-curated daily tech briefing for a BROAD
 TURKISH AUDIENCE: ordinary people in Türkiye who like technology, not industry insiders. We cover AI, consumer tech (phones,
 computers, cameras, audio, TVs, smart home, wearables), cars/EVs, innovation, the Turkish startup ecosystem and the biggest
@@ -229,7 +237,7 @@ Rules:
 - OWNER REJECTED (if given): stories the site owner turned down or removed after publishing in recent weeks. Learn his
   taste from the PATTERNS (kinds of stories rejected again and again, e.g. a type of update, a sector, a kind of report) and
   give candidates of the same kind a must_read at least 2 points lower — usually a "skip". One rejection alone may have had
-  other reasons (a duplicate, the wording); a clearly bigger development of that kind can still pass.
+  other reasons (a duplicate, the wording); a clearly bigger development of that kind can still pass.{CONFIRMED_ONLY_RULE if confirmed_only else ""}
 - reason: ≤12 words in Turkish."""
 
 

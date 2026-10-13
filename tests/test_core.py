@@ -51,7 +51,11 @@ def test_modes_and_removal_brake():
     assert policy.current_mode(CFG, {"mode_override": "ogrenen"}) == "kural"            # eski mod adı
     one = {**GOOD, "sources": THREE[:1], "importance": 7, "title": "Küçük bir uygulama", "tags": []}
     assert policy.decide(CFG, {"mode_override": "tam"}, stats, one)[0] == "auto"
-    assert policy.decide(CFG, {"mode_override": "tam"}, stats, {**one, "flags": ["iddia"]})[0] == "ask"
+    # tam otonomda şüpheli / listedeki marka: yayınlanmaz, sorulmaz
+    for bad in ({"flags": ["iddia"]}, {"flags": ["celiski"]}, {"confidence": "dusuk"}, {"title": "Oppo Find X10"}):
+        x = {**one, **bad}
+        assert policy.decide(CFG, {"mode_override": "tam"}, stats, x)[0] == "drop" and x["policy_tier"] == "drop", bad
+    assert "Doğrulanmamış iddia" in policy.decide(CFG, {"mode_override": "tam"}, stats, {**one, "flags": ["iddia"]})[1]
     # 2 otomatik haber kaldırılınca fren
     assert policy.record_removal(CFG, stats) is False
     assert policy.decide(CFG, {}, stats, dict(GOOD))[0] == "auto"

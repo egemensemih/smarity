@@ -11,8 +11,9 @@ Sonra tek bir kural (mod = kural):
 
 Güvenlik (yalnızca kural modunda): otomatik yayınlanan haberlerden son 3 günde 2'sini kaldırırsan otomatik yayın kendiliğinden
 durur (her şey sorulur); /mod kural yazınca hemen yeniden açılır. /mod manuel → her şey sorulur.
-/mod tam → yönetmenin seçtiği her haber yayınlanır, yalnızca 🔴 olanlar sorulur; beğenmediğini Kaldır'la çıkarırsın
-(kaldırdıkların yönetmene "sahibin istemediği haberler" olarak gösterilir, fren devreye girmez).
+/mod tam → yönetmenin seçtiği her haber sorulmadan yayınlanır; 🔴 olanlar (şüpheli: doğrulanmamış iddia, çelişen kaynak,
+yetersiz bilgi, eski, tanıtım, hassas konu · listedeki markalar · güveni düşük) hiç yayınlanmaz ve sana da sorulmaz.
+Beğenmediğini Kaldır'la çıkarırsın (kaldırdıkların yönetmene "sahibin istemediği haberler" olarak gösterilir).
 """
 from __future__ import annotations
 
@@ -20,6 +21,7 @@ import re
 from datetime import timedelta
 
 from .config import Config
+from .prompts import FLAG_LABELS
 from .util import hours_since, iso, now_utc, parse_iso
 
 MODES = {"manuel": "Manuel (her haber sorulur)", "kural": "Kurallı (3+ kaynak otomatik)", "tam": "Tam otonom (yönetmenin seçtiği her haber yayınlanır)"}
@@ -100,26 +102,35 @@ def resume(stats: dict) -> None:
 
 
 # ── karar ─────────────────────────────────────────────────────────────
+def hard_reason(cfg: Config, draft: dict) -> str | None:
+    """Otomatik yayınlanamayacak haber: şüpheli (uyarı işareti), listedeki marka, güveni düşük ya da önemsiz."""
+    if draft.get("flags"):
+        return "Şüpheli içerik: " + ", ".join(FLAG_LABELS.get(f, f) for f in draft["flags"])
+    brand = never_auto_brand(cfg, draft)
+    if brand:
+        return f"{brand}: otomatik yayınlanmayan marka"
+    if draft.get("confidence") == "dusuk":
+        return "Güven seviyesi düşük"
+    if int(draft.get("importance") or 0) < int(_a(cfg, "auto_min_importance", 7)):
+        return "Önem puanı düşük"
+    return None
+
+
 def decide(cfg: Config, state: dict, stats: dict, draft: dict) -> tuple[str, str]:
-    """('auto' | 'ask', gerekçe). Taslağa policy_tier (auto/wait/ask/hard/paused) ve otomatikse auto_reason yazar."""
+    """('auto' | 'ask' | 'drop', gerekçe). Taslağa policy_tier (auto/wait/ask/hard/paused/drop) ve otomatikse auto_reason
+    yazar. 'drop': tam otonomda şüpheli / istenmeyen haber — yayınlanmaz, sorulmaz."""
     def out(tier: str, reason: str) -> tuple[str, str]:
         draft["policy_tier"] = tier
         if tier == "auto":
             draft["auto_reason"] = reason
-        return ("auto" if tier == "auto" else "ask"), reason
+        return ("auto" if tier == "auto" else "drop" if tier == "drop" else "ask"), reason
 
     mode = current_mode(cfg, state)
     if mode == "manuel":
         return out("hard", "Manuel mod: her haber sana soruluyor")
-    if draft.get("flags"):
-        return out("hard", "Uyarı işareti var")
-    brand = never_auto_brand(cfg, draft)
-    if brand:
-        return out("hard", f"{brand}: otomatik yayınlanmayan marka")
-    if draft.get("confidence") == "dusuk":
-        return out("hard", "Güven seviyesi düşük")
-    if int(draft.get("importance") or 0) < int(_a(cfg, "auto_min_importance", 7)):
-        return out("hard", "Önem puanı düşük")
+    why = hard_reason(cfg, draft)
+    if why:
+        return out("drop" if mode == "tam" else "hard", why)
     if mode == "tam":
         return out("auto", "Tam otonom: yayın yönetmeni seçti")
     if not is_broad(cfg, draft):
