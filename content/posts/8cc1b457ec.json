@@ -1,6 +1,5 @@
 {
   "id": "8cc1b457ec",
-  "status": "pending",
   "created_at": "2026-10-13T10:09:20Z",
   "title": "WhatsApp sesli çıkartma özelliği için testlere başladı",
   "summary": "WhatsApp, mesajlaşma deneyimine işitsel bir boyut kazandıracak sesli çıkartma özelliğini Android platformunda test etmeye başladı.",
@@ -58,17 +57,6 @@
   "source_keys": [
     "ShiftDelete.Net"
   ],
-  "source_texts": [
-    {
-      "credit": "ShiftDelete.Net",
-      "kind": "media",
-      "title": "WhatsApp Sesli Çıkartma Özelliğini Test Etmeye Başladı",
-      "url": "https://shiftdelete.net/whatsapp-sesli-cikartma-ozelligini-test-etmeye-basladi",
-      "published": "2026-10-13T10:00:13Z",
-      "summary": "WhatsApp, Android platformunda sesli çıkartma özelliğini test ediyor. Sohbetlere işitsel boyut kazandıracak bu yeni özellik hakkında merak edilenler haberimizde.",
-      "text": "WhatsApp Sesli Çıkartma Özelliğini Test Etmeye Başladı\nWhatsApp, Android kullanıcıları için yeni bir deneyim sunmaya hazırlanıyor. Şirket, gönderildiğinde ses oynatabilen yeni bir “sesli çıkartma” formatını test etmeye başladı. Geliştirme aşamasındaki bu özellik, statik veya hareketli çıkartmaların ötesine geçerek kullanıcı etkileşimine yeni bir işitsel boyut kazandırıyor. WhatsApp beta sürümü 2.26.41.3 üzerinde tespit edilen bu yenilik, kullanıcıların sohbetlerini daha dinamik hale getirmeyi amaçlıyor. Henüz beta kullanıcılarına sunulmayan ve geliştirilme süreci devam eden bu özellik, uçtan uca şifreleme ile korunarak güvenli bir iletişim deneyimi sunmayı hedefliyor.\n- WhatsApp, sohbetlerde ses oynatabilen yeni bir çıkartma formatı üzerinde çalışmaktadır.\n- Kullanıcıların kendi sesli çıkartmalarını oluşturmalarına olanak tanıyan bir altyapı hazırlanmaktadır.\n- Yeni özellik, cihazın sessiz mod ayarlarına uyumlu şekilde çalışmaktadır.\n- Sesli çıkartmalar, uçtan uca şifreleme teknolojisiyle korunmaktadır.\nSesli Çıkartmalar Sohbet Deneyimini Geliştirmektedir\nWhatsApp, kullanıcıların uygulamadaki etkileşimlerini artırmak için sürekli yeni özellikler geliştiriyor. Yakın zamanda avatar çıkartmalarının beklenen ilgiyi görmemesi nedeniyle kaldırılmasının ardından, şirket şimdi sesli çıkartmalar üzerinde yoğunlaşıyor. Bu yeni format, sohbet ekranında tıpkı standart bir çıkartma gibi görünse de üzerinde bir ses simgesi barındırıyor. Kullanıcılar, bu simgeyi gördüklerinde çıkartmanın bir ses dosyası içerdiğini anlayabiliyor ve üzerine dokunarak sesi çalabiliyorlar.\nSesli çıkartmalar, standart hareketli veya hareketsiz çıkartmalardan farklı olarak işitsel bir katman sunuyor. Bu özellik, cihazın sessiz mod ayarlarına tam uyum sağlayacak şekilde tasarlanıyor. Telefon sessiz moddayken çıkartmalar otomatik olarak ses çalmayacak; ancak kullanıcılar isterlerse çıkartmanın üzerindeki ses simgesine dokunarak manuel olarak dinleyebilecekler. Ayrıca, kullanıcılar bir çıkartmayı sessize alma seçeneğine de sahip olacaklar ve bu tercih sonraki çıkartmalar için de geçerli kalacak.\nKullanıcılar Kendi Çıkartmalarını Oluşturabilecekler\nWhatsApp’ın bu yeni özelliği sadece hazır çıkartma mağazasıyla sınırlı kalmayacak. Gelecek güncellemelerle birlikte kullanıcıların kendi sesli çıkartmalarını tasarlamalarına imkan tanınacak. Videoların hareketli çıkartmalara dönüştürülüp üzerine ses eklenmesiyle oluşturulacak bu özgün içerikler, kişiselleştirilmiş bir iletişim imkanı sunacak. Avatar çıkartmalarında yakalanamayan geniş kullanıcı kitlesinin, bu yaratıcı araç sayesinde daha fazla etkileşim sağlaması hedefleniyor.\nÖzelliğin Ne Zaman Geleceği Beklenmektedir\nŞu an için sadece Android platformunda test edilen sesli çıkartmalar, henüz genel beta sürecine dahil edilmedi. WhatsApp, bu özelliğin kararlı sürümde ne zaman yer alacağına dair resmi bir duyuru yapmadı. Geliştirme süreci tamamlandığında, uygulamanın yeni güncellemeleriyle birlikte tüm kullanıcılara sunulması bekleniyor. Teknoloji dünyasındaki bu yenilik, mesajlaşma alışkanlıklarını kökten değiştirecek bir potansiyel barındırıyor.\nWhatsApp’ın bu yeni sesli çıkartma özelliği hakkında ne düşünüyorsunuz? Sohbetlerinizde bu tarz işitsel içerikleri kullanmayı tercih eder misiniz? Görüşlerinizi aşağıdaki yorumlar kısmında bizimle paylaşabilirsiniz."
-    }
-  ],
   "rewrites": 0,
   "telegram": {
     "message_id": 1290
@@ -109,6 +97,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Şimdilik 1/3 kaynak: 3. kaynak gelirse kendiliğinden yayınlanacak",
-  "policy_tier": "wait"
+  "policy_tier": "wait",
+  "slug": "whatsapp-sesli-cikartma-ozelligi",
+  "published_at": "2026-10-13T12:27:51Z",
+  "publish_mode": "manual",
+  "path": "teknoloji/2026/10/whatsapp-sesli-cikartma-ozelligi"
 }

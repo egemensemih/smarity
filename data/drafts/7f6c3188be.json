@@ -1,6 +1,6 @@
 {
   "id": "7f6c3188be",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-13T10:36:19Z",
   "title": "Ledger donanım cüzdanlarında gizli çip ve eSIM açığı",
   "summary": "Tom's Hardware'in aktardığına göre, Güneydoğu Asya ve Avrupa'da satılan bazı Ledger donanım cüzdanlarına gizli eSIM ve LTE modülleri yerleştirildi.",
@@ -91,5 +91,6 @@
     "cover_v": 2
   },
   "policy_reason": "Şimdilik 2/3 kaynak: 3. kaynak gelirse kendiliğinden yayınlanacak",
-  "policy_tier": "wait"
+  "policy_tier": "wait",
+  "rejected_at": "2026-10-13T12:27:53Z"
 }

@@ -1,6 +1,5 @@
 {
   "id": "e9092a8dd9",
-  "status": "pending",
   "created_at": "2026-10-13T11:08:27Z",
   "title": "Gemini Notebook, YouTube videolarıyla araştırma sürecini nasıl değiştiriyor",
   "summary": "Android Police'in aktardığına göre, kullanıcılar Gemini Notebook ile YouTube videolarını birleştirerek araştırma yapabiliyor, özet çıkarabiliyor ve farklı kaynakları tek bir yerde toplayabiliyor.",
@@ -59,17 +58,6 @@
   ],
   "source_keys": [
     "Android Police"
-  ],
-  "source_texts": [
-    {
-      "credit": "Android Police",
-      "kind": "media",
-      "title": "I started using Gemini Notebook with YouTube; it's a dream productivity combo to work with",
-      "url": "https://www.androidpolice.com/started-using-gemini-notebook-with-youtube-it-is-dream-productivity-combo-to-work-with/",
-      "published": "2026-10-13T11:00:10Z",
-      "summary": "YouTube has always been one of my go-to platforms for learning new things, whether it's exploring a new productivity app, understanding complicated logic, or catching up on the latest tech trends.",
-      "text": "YouTube has always been one of my go-to platforms for learning new things, whether it's exploring a new productivity app, understanding complicated logic, or catching up on the latest tech trends.\nI often spend more time watching videos than putting that knowledge to good use. That's where Gemini Notebook comes in.\nI recently started combining it with YouTube, and it has changed how I consume video content.\nI no longer watch every YouTube video\nI get the important details first\nI frequently come across lengthy laptop reviews, Android feature breakdowns, and One UI tutorials on YouTube.\nInstead of watching everything from start to finish, I copy the video link into Gemini Notebook and ask questions from start to finish.\nFor instance, when I was searching for a new Windows flagship laptop, I could copy my preferred reviewer's long video into Gemini Notebook and ask questions about keyboard experience, overall battery life, hinge, pricing, and performance charts.\nYouTube has a Gemini-powered Ask button, which is useful for asking questions about the current video.\nHowever, Gemini Notebook takes things further by letting me save these videos and related conversations in a dedicated space and revisit them when I need.\nThis is where Gemini Notebook hits it out of the park.\nSay I am researching the latest One UI 9 features. Instead of jumping between five videos, I add them all to a single notebook.\nI can then ask Gemini to identify common recommendations, highlight features one creator mentioned but others missed, or compare their opinions on specific changes.\nMy Gemini Notebook isn't limited to videos\nI bring other sources into research\nAnother reason I prefer Gemini Notebook is its flexibility to go beyond videos.\nI can add PDFs, web links, Markdown files, Google Docs files, and other supported sources to the same notebook.\nThis makes a huge difference when I am researching a complicated topic.\nFor example, when I am learning about Python in Excel or setting up complex self-hosted tools, I don't always rely on YouTube videos.\nSome videos are several months or even years old, and the steps shown may no longer apply to the latest version.\nIn such cases, I add links to the official documentation alongside relevant YouTube videos.\nThen I ask Gemini to compare the instructions, identify outdated information, and explain the process using the official documentation as its primary reference.\nI can also upload PDF manuals or my Markdown notes to provide additional context.\nInstead of jumping between YouTube, browser tabs, and documents, I have everything organized in one place.\nI can turn video research into useful content\nMy research becomes something actually useful\nSummarizing YouTube videos is only one part of the equation.\nGemini Notebook can turn that research into something I can actually use.\nFor example, suppose I am planning a five-day trip to Japan.\nI can add several travel vlogs, destination guides, and food recommendations from YouTube to a notebook.\nWhen I have enough material, I can ask Gemini to create a detailed itinerary with places to visit, activities, restaurant suggestions, and tips gathered from those videos.\nI can even refine the plan based on my interests and available time.\nThat's not all. I can head to the Studio panel and turn the same research into an Audio Overview, where AI hosts discuss the highlights in a podcast-like format.\nIt's useful when I want to revisit important details without staring at another screen.\nI can also generate visually appealing slide decks based on the collected material.\nIt's a handy way to organize destinations, recommendations, and travel plans into a presentation I can share with family or friends.\nThere are limitations, but they are manageable\nKeep these in mind\nAs much as I enjoy this combination, it isn't flawless.\nFor starters, Gemini Notebook mainly relies on video transcripts, so it can't fully understand visual demonstrations, charts, or on-screen instructions.\nThis becomes a problem when I watch tutorials where visuals matter more than the narration.\nAlso, you shouldn't blindly trust every AI-generated summary or comparison.\nGemini can occasionally miss important context or misinterpret information.\nThat's why I cross-check critical details with the original video or official documentation before relying on its answers.\nLet Gemini do the heavy lifting\nI never thought I would consider YouTube an essential part of my productivity workflows, but Gemini Notebook has changed that.\nIt started as a simple experiment to save time and quickly became one of my favorite ways to research topics, learn new skills, and organize useful information.\nStill, it doesn't replace YouTube entirely, and I still enjoy watching videos when the content deserves my full attention.\nFor research and learning, I find this approach much more practical.\nSo what are you waiting for? Start with a few videos on a topic you are interested in, ask some questions, and explore what it can do."
-    }
   ],
   "rewrites": 0,
   "telegram": {
@@ -147,6 +135,9 @@
     "layout": "manset",
     "cover_v": 2
   },
-  "policy_reason": "Şimdilik 1/3 kaynak: 3. kaynak gelirse kendiliğinden yayınlanacak",
-  "policy_tier": "wait"
+  "policy_tier": "wait",
+  "slug": "gemini-notebook-youtube-arastirma",
+  "published_at": "2026-10-13T12:27:56Z",
+  "publish_mode": "manual",
+  "path": "super-zeka/2026/10/gemini-notebook-youtube-arastirma"
 }
