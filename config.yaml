@@ -23,6 +23,7 @@ home:
   # manşete ve "Öne çıkanlar"a girer; diğerleri kategori ve "Tüm haberler" sayfalarında durur.
   # Telegram'daki "⭐ Manşete al" ve "🙈 Ana sayfada gösterme" düğmeleriyle tek tek yönetebilirsin.
   featured_count: 10       # manşetteki (kaydırmalı) haber sayısı
+  max_per_category: 3      # manşette bir kategoriden en fazla bu kadar haber ("Öne çıkanlar"da en fazla 2); 0 = sınırsız
 
 seo:
   # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması

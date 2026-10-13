@@ -109,6 +109,27 @@ def test_home_is_curated_and_everything_stays_reachable():
         assert ">Süper Zeka<" in home and not re.search(r"Süper Zeka<span>\d", home)   # kategori çiplerinde sayı yok
 
 
+def test_showcase_is_balanced_across_categories():
+    with _App() as (cfg, a):
+        # otomobil fuarı günü: en dikkat çekici 8 haber otomotiv, Apple etkinliği haberi daha geride
+        for i in range(8):
+            a.store.save_post(_post(i, hours=i * 0.5, appeal=9, cat="otomotiv", tags=[f"Marka{i}"], entities=[f"Marka{i}"]))
+        a.store.save_post(_post(20, hours=20, appeal=8, cat="teknoloji", tags=["Apple"], entities=["Apple"]))
+        for i, c in enumerate(["super-zeka", "gaming", "inovasyon", "girisimcilik", "teknoloji", "super-zeka"] * 2):
+            a.store.save_post(_post(30 + i, hours=6 + i, appeal=6, cat=c, tags=[f"Firma{i}"], entities=[f"Firma{i}"]))
+        SiteBuilder(cfg).build()
+        home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
+        slider = re.findall(r'class="slide[^"]*"[^>]*data-id="(p\d+)"', home)
+        cats = [a.store.load_post(i)["category"] for i in slider]
+        assert len(slider) == 10 and cats.count("otomotiv") == 3 and "p20" in slider
+        top = re.search(r'data-top>(.*?)</div>\s*</section>', home, re.S).group(1)
+        top_cats = [a.store.load_post(i)["category"] for i in re.findall(r'data-id="(p\d+)"', top)]
+        assert all(top_cats.count(c) <= 2 for c in set(top_cats))
+        # az haberli günde boş kalmaz: sınır yalnızca yer varsa uygulanır
+        assert len(SiteBuilder._home([{**p, "hot": 1.0, "ekey": ""} for p in
+                                      [{"id": f"x{i}", "category": "otomotiv", "published_at": iso(now_utc())}
+                                       for i in range(5)]], 10)["featured"]) == 5
+
 def test_pin_and_hide_buttons():
     with _App() as (cfg, a):
         a.store.save_post(_post(1, 2, publish_mode="manual"))

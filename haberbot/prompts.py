@@ -83,7 +83,9 @@ Do the following:
 3. duplicate_of: if the story is the same event as, or a follow-up/reaction/re-report of, one of the RECENT STORIES (whatever
    its status, including rejected and expired), write that story id (e.g. "s:ab12cd34ef" or "q:3"); otherwise "".
    Follow-ups count as the same story: local availability or price of an already covered product, hands-on or review of it,
-   reactions, analysis, more details about the same announcement.
+   reactions, analysis, more details about the same announcement. But the real thing is never a duplicate of its preview:
+   an official unveiling / launch (products announced at an event, a release, a signed deal) is a NEW story even if a
+   teaser, leak, rumor or "what to expect" story about it is in RECENT STORIES.
 4. importance (integer 1–10). THE TEST: would MANY ordinary Turkish readers who like technology want to click this today
    and tell a friend about it? Not "would a specialist find it interesting" — most items fail this test. Be strict.
    9–10 the day's defining stories: frontier AI model releases or major ChatGPT/Gemini/Claude capability jumps; flagship
@@ -229,6 +231,11 @@ Rules:
 - At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest (they come
   in the next round — holding is not rejecting).
 - Duplicates among candidates (same product or event): publish at most one of them.
+- The real event beats its preview: a COVERED story that previews, teases or leaks a launch or event never makes the actual
+  announcement a duplicate or an "update". When a household-name company officially unveils products (an Apple event,
+  Samsung Unpacked, a new iPhone, PlayStation or Pixel…), the launch is a NEW story ("publish", must_read 9–10); if several
+  major products are announced, publish the most important ones as separate stories. Live blogs, "how to watch" and
+  "what to expect" pieces are still skipped.
 - target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
 - big_brand: true if the story is about a household-name company, brand, product or service that most people in Türkiye
   know (Apple, Samsung, Google, Microsoft, Meta, WhatsApp, Instagram, YouTube, OpenAI/ChatGPT, NVIDIA, Tesla, BYD, Togg,

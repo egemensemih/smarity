@@ -503,7 +503,9 @@ class App:
             if x["action"] != "publish":
                 continue
             dup = (s.get("duplicate_of") or "").removeprefix("s:")
-            if dup in published:            # masa "aynı haber" dedi: yeni haber değil, olsa olsa güncelleme
+            # masa "aynı haber" dedi: yeni haber değil, olsa olsa güncelleme. Yönetmen 9+ ile "yeni haber" dediyse
+            # (ör. ön izlemesi yayınlanmış bir etkinlikte ürünlerin resmen tanıtılması) yönetmenin kararı geçerli
+            if dup in published and mr < 9:
                 ok = mr >= min_score and dup not in round_targets and (dup not in refreshed or mr >= 9)
                 x["action"], x["target"] = ("update", dup) if ok else ("skip", dup)
                 if ok:

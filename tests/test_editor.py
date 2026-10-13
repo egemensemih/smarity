@@ -37,6 +37,11 @@ def test_guard_rules():
         assert acts[1] == "publish" and acts[4] == "publish" and acts[0] == "publish"
         assert acts[2] == "hold" and acts[3] == "skip"
         assert acts[5] == "update" and out[5]["target"] == "p01"
+        # ön izlemesi yayınlanmış etkinlikte ürünler resmen tanıtıldı: yönetmen 9+ "yeni haber" dediyse yeni haber olur
+        launch = [_q("Apple unveils new HomePod at Welcome Home event", 9, ["Apple"], dup="s:p01")]
+        out = a._guard(launch, {0: {"action": "publish", "target": "", "must_read": 9, "reason": ""}}, slots=3,
+                       min_score=7, covered=a._covered(48))
+        assert out[0]["action"] == "publish"
         # ayarlardan şirket sınırı açılırsa: aynı şirketten 24 saatte ikinci haber (9 altı) elenir
         cfg.raw.setdefault("editorial", {})["max_per_company_per_day"] = 1
         out = a._guard(queue, dec(), slots=3, min_score=7, covered=a._covered(48))

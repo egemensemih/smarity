@@ -352,30 +352,39 @@ class SiteBuilder:
         path.write_text(content, encoding="utf-8")
 
     @staticmethod
-    def _home(posts: list[dict], n_feat: int) -> dict:
+    def _home(posts: list[dict], n_feat: int, max_per_cat: int = 3) -> dict:
         """Ana sayfa seçkisi. Her onaylanan haber ana sayfaya çıkmaz: en dikkat çekiciler (ilgi × tazelik) seçilir,
-        bir haber sayfada yalnızca bir kez görünür. Tüm haberler kategori ve "Tüm haberler" sayfalarında durur."""
+        bir haber sayfada yalnızca bir kez görünür. Tüm haberler kategori ve "Tüm haberler" sayfalarında durur.
+        Vitrin dengeli olur: manşette bir kategoriden en fazla max_per_cat, "Öne çıkanlar"da en fazla 2 haber
+        (ör. otomobil fuarı günü manşet otomobil haberiyle dolmaz)."""
         visible = [p for p in posts if p["hot"] >= 0]
         ranked = sorted(visible, key=lambda p: -p["hot"])
         fresh = [p for p in ranked if hours_since(p.get("published_at")) <= 72 or p["hot"] >= 100]  # sabitlenen her zaman
         # Vitrinde (manşet + öne çıkanlar) her şirketten tek haber: aynı şirketin ikinci haberi aşağıdaki listelerde kalır
         used: set[str] = set()
 
-        def pick(pool: list[dict], n: int, shown: set[str]) -> list[dict]:
-            out = []
-            for strict in (True, False):
+        def pick(pool: list[dict], n: int, shown: set[str], cap: int) -> list[dict]:
+            out: list[dict] = []
+            per_cat: Counter = Counter()
+            # 2: şirket + kategori sınırı · 1: yalnızca şirket sınırı · 0: yer kalırsa sınırsız (az haberli günler)
+            for level in (2, 1, 0):
                 for p in pool:
                     if len(out) >= n:
                         return out
-                    if p["id"] in shown or p in out or (strict and p["ekey"] and p["ekey"] in used):
+                    if p["id"] in shown or p in out:
+                        continue
+                    if level >= 1 and p["ekey"] and p["ekey"] in used:
+                        continue
+                    if level == 2 and cap and p["hot"] < 100 and per_cat[p.get("category")] >= cap:
                         continue
                     out.append(p)
+                    per_cat[p.get("category")] += 1
                     if p["ekey"]:
                         used.add(p["ekey"])
             return out
-        featured = pick(fresh + [p for p in ranked if p not in fresh], n_feat, set())
+        featured = pick(fresh + [p for p in ranked if p not in fresh], n_feat, set(), max_per_cat)
         shown = {p["id"] for p in featured}
-        top = pick(ranked, 6, shown)
+        top = pick(ranked, 6, shown, min(2, max_per_cat) if max_per_cat else 0)
         shown |= {p["id"] for p in top}
         latest = [p for p in visible if p["id"] not in shown and hours_since(p.get("published_at")) <= 48][:6]
         shown |= {p["id"] for p in latest}
@@ -471,7 +480,7 @@ class SiteBuilder:
 
         # ana sayfa: seçki (manşet, öne çıkanlar, son dakika, kaçırmış olabilirsin, kategori şeritleri)
         n_feat = int((cfg.raw.get("home") or {}).get("featured_count") or seo.get("featured_count", 5) or 5)
-        home = self._home(posts, n_feat)
+        home = self._home(posts, n_feat, int((cfg.raw.get("home") or {}).get("max_per_category", 3) or 0))
         featured = home["featured"]
         for p in featured:   # manşette tek, sakin bir zemin: görselden renk alınmaz (her slaytta başka renk olmasın)
             p["slide_bg"], p["slide_dark"] = "#F5F5F7", False
