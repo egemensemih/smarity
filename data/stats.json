@@ -1,7 +1,7 @@
 {
   "sources": {
     "LOG": {
-      "approved": 48,
+      "approved": 49,
       "rejected": 20
     },
     "The Verge": {
@@ -334,12 +334,6 @@
     }
   },
   "decisions": [
-    {
-      "t": "2026-10-01T19:08:17Z",
-      "id": "5d67912a56",
-      "ok": false,
-      "manual": true
-    },
     {
       "t": "2026-10-01T19:08:22Z",
       "id": "0c03e38891",
@@ -2131,6 +2125,12 @@
     {
       "t": "2026-10-13T06:51:36Z",
       "id": "6e50ded59e",
+      "ok": true,
+      "manual": true
+    },
+    {
+      "t": "2026-10-13T07:40:43Z",
+      "id": "776f884daf",
       "ok": true,
       "manual": true
     }
