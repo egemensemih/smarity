@@ -11,74 +11,58 @@ from haberbot.sources import parse_feed, parse_html_listing  # noqa: E402
 from haberbot.app import md_to_tg  # noqa: E402
 from haberbot.util import normalize_url, slugify, publisher_name  # noqa: E402
 
-CFG = Config(raw={"autonomy": {"mode": "ogrenen", "source_min_decisions": 10, "source_min_approval": 0.9,
-                               "global_window": 30, "global_min_approval": 0.85, "auto_min_importance": 6}})
-GOOD = {"id": "x", "flags": [], "confidence": "yuksek", "importance": 8, "source_keys": ["OpenAI"]}
+CFG = Config(raw={"autonomy": {"mode": "kural", "min_sources": 3, "broad_importance": 8, "auto_min_importance": 7,
+                               "never_auto": ["Vivo", "Oppo", "iQOO"], "pause_removals": 2, "pause_hours": 72}})
+THREE = [{"name": n, "url": n} for n in ("Webtekno", "LOG", "The Verge")]
+GOOD = {"id": "x", "flags": [], "confidence": "yuksek", "importance": 8, "category": "teknoloji", "sources": THREE,
+        "title": "Samsung Galaxy S27 tanıtıldı", "tags": ["Samsung"], "source_keys": ["Webtekno", "LOG", "The Verge"]}
 
 
-def test_policy_learning_path():
+def test_rule_three_sources_broad_or_big_brand():
+    stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}   # onay oranı artık karara etki etmez
+    d = dict(GOOD)
+    assert policy.decide(CFG, {}, stats, d) == ("auto", "3 farklı kaynak + geniş kitle")
+    assert d["policy_tier"] == "auto" and d["auto_reason"]
+    for cat in ("gaming", "otomotiv", "super-zeka", "girisimcilik", "inovasyon"):       # tüm kategoriler
+        assert policy.decide(CFG, {}, stats, {**GOOD, "category": cat})[0] == "auto"
+    # aynı kaynak iki kez sayılmaz
+    assert policy.decide(CFG, {}, stats, {**GOOD, "sources": [THREE[0], THREE[0], THREE[1]]})[0] == "ask"
+    # geniş kitleli ama 2 kaynak → sorar + bekler
+    w = {**GOOD, "sources": THREE[:2]}
+    assert policy.decide(CFG, {}, stats, w)[0] == "ask" and w["policy_tier"] == "wait"
+    # küçük kitle (puan 7) + büyük marka değil → sorar, kaynak artsa da beklemez
+    small = {**GOOD, "importance": 7, "title": "Nothing CMF hoparlör tanıttı", "tags": []}
+    assert policy.decide(CFG, {}, stats, small)[0] == "ask" and small["policy_tier"] == "ask"
+    # küçük puan ama büyük marka → otomatik
+    assert policy.decide(CFG, {}, stats, {**small, "big_brand": True}) == ("auto", "3 farklı kaynak + büyük marka")
+    # her zaman sorulanlar
+    for bad in ({"flags": ["iddia"]}, {"confidence": "dusuk"}, {"importance": 6},
+                {"title": "Vivo'nun yeni telefonu V80 Lite Türkiye'de"}, {"tags": ["iQOO"]},
+                {"title": "Oppo Find X10", "big_brand": True}):
+        x = {**GOOD, **bad}
+        assert policy.decide(CFG, {}, stats, x)[0] == "ask" and x["policy_tier"] == "hard", bad
+    assert policy.decide(CFG, {}, stats, {**GOOD, "confidence": "orta"})[0] == "auto"
+    assert policy.decide(CFG, {}, stats, {**GOOD, "title": "Vivos adlı yeni uygulama çıktı"})[0] == "auto"
+
+
+def test_modes_and_removal_brake():
     stats = {"sources": {}, "decisions": []}
-    assert policy.decide(CFG, {}, stats, GOOD)[0] == "ask"  # henüz karar yok
-    for i in range(30):
-        policy.record(stats, {"id": str(i), "source_keys": ["OpenAI"]}, ok=True)
-    assert policy.decide(CFG, {}, stats, GOOD)[0] == "auto"
-    # başka, güvenilmeyen kaynak → sor
-    assert policy.decide(CFG, {}, stats, {**GOOD, "source_keys": ["OpenAI", "Yeni"]})[0] == "ask"
-    # uyarı işareti → her zaman sor
-    assert policy.decide(CFG, {}, stats, {**GOOD, "flags": ["iddia"]})[0] == "ask"
-    assert policy.decide(CFG, {}, stats, {**GOOD, "confidence": "orta"})[0] == "ask"
-    # manuel mod
-    assert policy.decide(CFG, {"mode_override": "manuel"}, stats, GOOD)[0] == "ask"
-    # çok ret → genel oran düşer → sor
-    for i in range(10):
-        policy.record(stats, {"id": f"r{i}", "source_keys": ["OpenAI"]}, ok=False)
-    assert policy.decide(CFG, {}, stats, GOOD)[0] == "ask"
-
-
-def test_trusted_groups_publish_directly():
-    cfg = Config(raw={"autonomy": {**CFG.raw["autonomy"], "auto_min_importance": 7, "trusted_pause_removals": 2,
-                                   "trusted_groups": [{"name": "oto/ai", "categories": ["otomotiv", "super-zeka"],
-                                                       "min_sources": 2}]}})
-    stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}      # genel onay oranı düşük
-    two = [{"name": "Webtekno", "url": "a"}, {"name": "ShiftDelete.Net", "url": "b"}]
-    car = {"id": "c", "flags": [], "confidence": "orta", "importance": 8, "category": "otomotiv", "sources": two}
-    assert policy.decide(cfg, {}, stats, car) == ("auto", "Güvenilir grup: oto/ai") and car["auto_group"] == "oto/ai"
-    assert policy.decide(cfg, {}, stats, {**car, "sources": two[:1]})[0] == "ask"               # tek kaynak
-    assert policy.decide(cfg, {}, stats, {**car, "sources": two * 2})[0] == "auto"              # aynı kaynaklar tekrar sayılmaz
-    assert policy.decide(cfg, {}, stats, {**car, "sources": [two[0], two[0]]})[0] == "ask"
-    assert policy.decide(cfg, {}, stats, {**car, "category": "teknoloji"})[0] == "ask"          # grup dışı kategori
-    assert policy.decide(cfg, {}, stats, {**car, "flags": ["iddia"]})[0] == "ask"               # uyarı işareti
-    assert policy.decide(cfg, {}, stats, {**car, "confidence": "dusuk"})[0] == "ask"
-    assert policy.decide(cfg, {}, stats, {**car, "importance": 6})[0] == "ask"
-    assert policy.decide(cfg, {"mode_override": "manuel"}, stats, car)[0] == "ask"
-    policy.record_group_removal(stats, "oto/ai")
-    assert policy.decide(cfg, {}, stats, {**car})[0] == "auto"                                 # bir kaldırma: sürüyor
-    policy.record_group_removal(stats, "oto/ai")
-    assert policy.decide(cfg, {}, stats, {**car})[0] == "ask"                                  # iki kaldırma: onaya döner
-
-
-def test_three_sources_any_category_but_not_some_brands():
-    cfg = Config(raw={"autonomy": {**CFG.raw["autonomy"], "auto_min_importance": 7,
-                                   "trusted_groups": [{"name": "oto/ai", "categories": ["otomotiv", "super-zeka"],
-                                                       "min_sources": 2},
-                                                      {"name": "3 kaynak", "min_sources": 3}],
-                                   "never_auto": ["Vivo", "Oppo", "iQOO"], "auto_broad_importance": 8}})
-    stats = {"sources": {}, "decisions": [{"ok": False, "manual": True}] * 30}
-    three = [{"name": n, "url": n} for n in ("Webtekno", "LOG", "The Verge")]
-    phone = {"id": "p", "flags": [], "confidence": "yuksek", "importance": 8, "category": "teknoloji", "sources": three,
-             "title": "Samsung Galaxy S27 tanıtıldı", "tags": ["Samsung"]}
-    assert policy.decide(cfg, {}, stats, phone) == ("auto", "Güvenilir grup: 3 kaynak")
-    assert policy.decide(cfg, {}, stats, {**phone, "sources": three[:2]})[0] == "ask"           # teknolojide 2 kaynak yetmez
-    assert policy.decide(cfg, {}, stats, {**phone, "category": "gaming"})[0] == "auto"
-    vivo = {**phone, "title": "Vivo'nun yeni telefonu V80 Lite Türkiye'de", "tags": ["akıllı telefon"]}
-    assert policy.decide(cfg, {}, stats, vivo)[0] == "ask"                                     # bu marka onaya gelir
-    assert policy.decide(cfg, {}, stats, {**phone, "tags": ["iQOO"]})[0] == "ask"
-    assert policy.decide(cfg, {}, stats, {**phone, "title": "Vivos adlı yeni uygulama çıktı"})[0] == "auto"
-    assert policy.decide(cfg, {}, stats, {**vivo, "category": "otomotiv"})[0] == "ask"
-    # küçük kitle (puan 7) + büyük marka değil → sor; büyük markaysa yayınla
-    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "title": "Nothing CMF hoparlör tanıttı"})[0] == "ask"
-    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "big_brand": True})[0] == "auto"
-    assert policy.decide(cfg, {}, stats, {**phone, "importance": 7, "big_brand": True, "title": "Oppo Find X10"})[0] == "ask"
+    assert policy.decide(CFG, {"mode_override": "manuel"}, stats, dict(GOOD))[0] == "ask"
+    assert policy.current_mode(CFG, {"mode_override": "ogrenen"}) == "kural"            # eski mod adı
+    one = {**GOOD, "sources": THREE[:1], "importance": 7, "title": "Küçük bir uygulama", "tags": []}
+    assert policy.decide(CFG, {"mode_override": "tam"}, stats, one)[0] == "auto"
+    assert policy.decide(CFG, {"mode_override": "tam"}, stats, {**one, "flags": ["iddia"]})[0] == "ask"
+    # 2 otomatik haber kaldırılınca fren
+    assert policy.record_removal(CFG, stats) is False
+    assert policy.decide(CFG, {}, stats, dict(GOOD))[0] == "auto"
+    assert policy.record_removal(CFG, stats) is True and policy.auto_paused_until(CFG, stats)
+    x = dict(GOOD)
+    assert policy.decide(CFG, {}, stats, x)[0] == "ask" and x["policy_tier"] == "paused"
+    policy.resume(stats)
+    assert policy.decide(CFG, {}, stats, dict(GOOD))[0] == "auto"
+    # eski kaldırmalar (3 günden eski) freni tetiklemez
+    stats["auto_removals"] = ["2020-01-01T00:00:00Z", "2020-01-02T00:00:00Z"]
+    assert policy.auto_paused_until(CFG, stats) is None
 
 
 def test_parse_rss_and_atom():

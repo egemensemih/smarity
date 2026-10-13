@@ -23,7 +23,7 @@ Her 10 dk (GitHub Actions)
  │    │   İsteğe bağlı, ücretli: images.ai: true ile yapay zeka görseli
  │    ├─ Kartlar: Instagram post 1080×1350, story 1080×1920, paylaşım kapağı 1200×630
  │    │   (Smarity logosuyla; renk ve düzen habere göre otomatik seçilir)
- │    └─ Karar: sana sor  |  otomatik yayınla (öğrenen mod)
+ │    └─ Karar: 3+ kaynak ve geniş kitle/büyük marka → otomatik  |  diğerleri sana sorulur (3. kaynak gelirse kendiliğinden yayınlanır)
  ├─ Onaylananları siteye ekle, GitHub Pages'e yayınla
  └─ Akşam: günlük özet
 ```
@@ -42,7 +42,7 @@ Her 10 dk (GitHub Actions)
 
 ## Telegram komutları
 
-`/durum` · `/bekleyen` · `/mod manuel|ogrenen|tam` · `/topla` · `/duraklat` · `/devam` · `/kaynaklar` · `/yardim`
+`/durum` · `/bekleyen` · `/mod kural|manuel|tam` · `/topla` · `/duraklat` · `/devam` · `/kaynaklar` · `/yardim`
 
 Bir haberi düzeltmek için o haberin Telegram mesajını **yanıtla** ve talimatını yaz
 (ör. "başlığı kısalt", "son paragrafı çıkar").

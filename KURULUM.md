@@ -86,7 +86,7 @@ Bundan sonra her şey kendiliğinden çalışır. Sistem her 10 dakikada bir uya
 - Dev rakamlı kapak tarzını istersen `config.yaml` → `social.card_style: kapak`. Otomatik paylaşım 2. aşamada eklenecek; o zamana kadar bunları indirip elle paylaşabilirsin. Yapay zeka görsellerini açarsan Instagram bunlar için "AI info" etiketi isteyebilir.
 - **Düzeltme:** Haber mesajını yanıtla ve talimat yaz (ör. "başlığı kısalt").
 - Butona bastıktan sonra işlem genellikle birkaç dakikada, en geç ~15 dakikada gerçekleşir; mesaj güncellenir.
-- **Öğrenen mod:** Önce 30 karar vermen gerekir. Ardından en az 10 kararda %90 onay verdiğin kaynaklardan gelen net haberler otomatik yayınlanır. Bunlar sana sessiz bildirim olarak gelir ve **🗑 Kaldır** düğmesiyle geri alınabilir.
+- **Yayın kuralı (`/mod kural`, varsayılan):** Yayın yönetmeninin seçtiği haberlerden en az 3 farklı kaynakta çıkan ve geniş kitleye hitap eden ya da büyük bir markaya ait olanlar doğrudan yayınlanır (sessiz bildirim, **🗑 Kaldır** ile geri alınır). Geniş kitleli ama henüz 1-2 kaynakta olan haber sana sorulur; sen karar vermeden 3. kaynak gelirse kendiliğinden yayınlanır. Küçük kitleye hitap eden ve büyük marka olmayan haber, uyarı işaretli haberler ve Vivo / Oppo gibi listedeki markalar her zaman sorulur. Kısa sürede 2 otomatik haberi kaldırırsan otomatik yayın 3 gün durur (`/mod kural` ile hemen açılır). `/mod manuel`: her haber sorulur.
 - Komutlar: `/durum`, `/bekleyen`, `/mod`, `/topla`, `/duraklat`, `/devam`, `/kaynaklar`.
 
 ## Konular ve kaynaklar

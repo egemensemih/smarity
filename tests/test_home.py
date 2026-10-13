@@ -273,6 +273,46 @@ def test_search_page_and_index():
         assert "/ara/" not in (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
 
 
+def test_pending_draft_publishes_itself_when_third_source_arrives():
+    with _App() as (cfg, a):
+        from haberbot.telegram import MockTelegram
+        a.tg = a.tg or MockTelegram(cfg.root / "tg")
+        src = lambda n: {"name": n, "url": f"https://{n.lower()}.com/x", "title": "t", "kind": "media"}  # noqa: E731
+        d = {**_post(3, 0), "status": "pending", "created_at": iso(now_utc()), "telegram": {"message_id": 31},
+             "importance": 8, "big_brand": True, "confidence": "yuksek", "flags": [],
+             "sources": [src("Webtekno"), src("LOG")], "source_keys": ["Webtekno", "LOG"]}
+        d.pop("published_at")
+        d.pop("slug")
+        small = {**d, "id": "p04", "importance": 7, "big_brand": False, "telegram": {"message_id": 41},
+                 "sources": [src("Webtekno"), src("LOG"), src("Verge")]}
+        a.store.save_draft(d)
+        a.store.save_draft(small)
+        assert a.recheck_pending() == 0                                   # 2 kaynak: bekler (mesajda 2/3 yazar)
+        w = a.store.load_draft("p03")
+        assert w["policy_tier"] == "wait" and "2/3" in a._caption(w, "pending")
+        assert a.store.load_draft("p04")["policy_tier"] == "ask"         # küçük kitle + büyük marka değil: hep sorar
+        it = {"credit": "The Verge", "url": "https://verge.com/x", "title": "t", "kind": "media", "source": "The Verge"}
+        assert a._merge_sources("p03", [it])                              # 3. kaynak geldi
+        assert a.recheck_pending() == 1
+        p = a.store.load_post("p03")
+        assert p and p["publish_mode"] == "auto" and p["auto_late"] and not a.store.load_draft("p03")
+        out = (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "OTOMATİK YAYINLANDI" in out and "sonradan gelen kaynaklarla" in out and '"message_id": 31' in out
+        assert a.store.load_draft("p04")["status"] == "pending"
+        # /mod manuel: hiçbir şey otomatik yayınlanmaz; iki otomatik haber kaldırılınca fren + bildirim
+        a._on_command("mod", "manuel")
+        assert a.state["mode_override"] == "manuel"
+        a._on_command("mod", "ogrenen")
+        assert a.state["mode_override"] == "kural"
+        a.store.save_post({**_post(5, 1), "publish_mode": "auto"})
+        a._on_button("d", "p03")
+        a._on_button("d", "p05")
+        out = (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "Otomatik yayın durdu" in out and a.stats.get("auto_removals")
+        a._on_command("mod", "kural")
+        assert not a.stats.get("auto_removals")
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

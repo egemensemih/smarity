@@ -62,25 +62,20 @@ editorial:
   fetch_full_text: true          # Haberin tam metnini kaynağından okuyup daha doğru özet çıkar
 
 autonomy:
-  # manuel  : her haber onayına gelir
-  # ogrenen : kararlarından öğrenir; güvendiği kaynaklardan gelen net haberleri kendisi yayınlar (önerilen)
-  # tam     : sadece şüpheli/riskli haberleri sorar, gerisini kendisi yayınlar
-  # Telegram'dan /mod komutuyla da değiştirebilirsin.
-  mode: ogrenen
-  source_min_decisions: 10       # Bir kaynağa güvenmek için gereken en az karar sayısı
-  source_min_approval: 0.9       # ...ve o kaynaktaki onay oranı
-  global_window: 30              # Genel başarı için bakılan son karar sayısı
-  global_min_approval: 0.85      # Son kararlarda genel onay oranı bunun altındaysa otomatik yayın durur
-  auto_min_importance: 7         # Otomatik yayın için en düşük önem puanı
-  # Doğrudan yayın (tüm kategoriler): yönetmenin seçtiği haberlerden en az 3 farklı kaynakta çıkanlar onay beklemez.
-  # Uyarı işareti olan haber yine sorulur.
-  trusted_groups:
-    - name: "en az 3 farklı kaynakta çıkan haber"
-      min_sources: 3
-  auto_broad_importance: 8       # Puanı bunun altında (küçük kitle) VE büyük bir markaya ait olmayan haber yine sorulur
+  # Yayın kuralı (yalnızca yayın yönetmeninin seçtiği haberler için):
+  #   🟢 otomatik       : en az min_sources farklı kaynak + (geniş kitle [puan >= broad_importance] ya da büyük marka)
+  #   ⏳ sorar + bekler : geniş kitleli ama kaynak sayısı yetmiyor → sorulur; 3. kaynak gelirse kendiliğinden yayınlanır
+  #   🟡 sorar          : küçük kitle ve büyük marka değil
+  #   🔴 hep sorar      : uyarı işareti, never_auto markaları, güven 'düşük'
+  # Modlar: kural (önerilen) · manuel (her şey sorulur) · tam (yalnızca 🔴 sorulur). Telegram'dan /mod ile değiştirilir.
+  mode: kural
+  min_sources: 3                 # Otomatik yayın için gereken en az farklı kaynak (yayın kuruluşu) sayısı
+  broad_importance: 8            # Yönetmen puanı bu ve üstü = geniş kitle (büyük marka olmasa da otomatik olabilir)
+  auto_min_importance: 7         # Bunun altındaki haber hiçbir zaman otomatik yayınlanmaz
   # Bu markaların haberleri hiçbir zaman otomatik yayınlanmaz, her zaman onaya gelir
   never_auto: [Vivo, Oppo, Realme, Tecno, Infinix, iQOO, Nubia, ZTE, Meizu, itel, Poco, Redmi]
-  trusted_pause_removals: 2      # Bir gruptan son 7 günde bu kadar otomatik haberi kaldırırsan o grup yeniden onaya döner
+  pause_removals: 2              # Otomatik yayınlanan haberlerden pause_hours içinde bu kadarını kaldırırsan otomatik yayın durur
+  pause_hours: 72                # (/mod kural ile hemen yeniden açılır)
 
 images:
   # Gerçek fotoğraflar: önce şirketin resmi görseli, yoksa kaynak haberin görselleri (kaynağı fotoğrafın altında yazar).

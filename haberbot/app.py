@@ -42,17 +42,17 @@ CONF_LABEL = {"yuksek": "yüksek", "orta": "orta", "dusuk": "düşük"}
 COMMANDS = [
     ("durum", "Sistem durumu ve istatistikler"),
     ("bekleyen", "Onay bekleyen haberler"),
-    ("mod", "Otonomi modu: manuel / ogrenen / tam"),
+    ("mod", "Yayın modu: manuel / kural / tam"),
     ("topla", "Kaynakları hemen tara"),
     ("duraklat", "Toplama ve otomatik yayını durdur"),
     ("devam", "Yeniden başlat"),
-    ("kaynaklar", "Kaynak güven puanları"),
+    ("kaynaklar", "Kaynaklar ve onay oranları"),
     ("manset", "Manşeti yönet: haberi manşete al / çıkar"),
     ("secki", "Yayın yönetmeninin son kararları (neden seçildi / elendi)"),
     ("instagram", "Instagram paylaşımları: durum / kapat / ac"),
     ("yardim", "Nasıl kullanılır"),
 ]
-COMMANDS_VERSION = 4
+COMMANDS_VERSION = 5
 COVERLINE_V = 3               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
 PHOTO_VET_V = 2               # fotoğraf editörü ölçütleri değişince artır: son iki haftanın fotoğrafları yeniden denetlenir
 RESELECT_V = 1                # seçki ölçütleri değişince artır: onay bekleyen yığın bir kez yeniden elden geçer
@@ -78,7 +78,12 @@ Kaynaklar düzenli taranır; teknoloji, girişim, yapay zeka, ürün, otomobil v
 
 <b>Ana sayfa seçkisi:</b> Her haber ana sayfaya çıkmaz. Yapay zeka her habere bir ilgi puanı verir; puan ve tazeliğe göre en dikkat çekiciler manşete ve "Öne çıkanlar"a girer.
 
-<b>Öğrenen mod:</b> Kararların kaynak bazında kaydedilir. Bir kaynak yeterince onay alınca, o kaynaktan gelen net haberler otomatik yayınlanır ve sana sessizce bildirilir. Şüpheli işaretli haberler her zaman sana sorulur.
+<b>Yayın kuralı</b> (yönetmenin seçtiği haberler için):
+🟢 <b>Otomatik</b> — en az 3 farklı kaynakta çıkan ve geniş kitleye hitap eden ya da büyük bir markaya ait haber doğrudan yayınlanır, sana sessizce bildirilir.
+⏳ <b>Sorar + bekler</b> — geniş kitleli ama henüz 1-2 kaynakta olan haber sana sorulur; sen karar vermeden 3. kaynak gelirse kendiliğinden yayınlanır.
+🟡 <b>Sorar</b> — küçük kitleye hitap eden ve büyük marka olmayan haber.
+🔴 <b>Hep sorar</b> — uyarı işaretli (iddia, söylenti) haberler, Vivo / Oppo gibi listedeki markalar.
+Otomatik yayınlanan 2 haberi 3 gün içinde kaldırırsan otomatik yayın kendiliğinden durur; <code>/mod kural</code> ile yeniden açılır. <code>/mod manuel</code>: her şey sorulur.
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
@@ -936,8 +941,10 @@ class App:
         lines += ["📰 " + esc(", ".join(self._credits(d))), meta]
         if d.get("focus_keyword") and kind in ("pending", "auto"):
             lines.append(f"🔎 Google: <i>{esc(d['focus_keyword'])}</i>")
-        if kind == "auto" and d.get("auto_group"):
-            lines.append(f"🤖 Otomatik yayın nedeni: {esc(d['auto_group'])}. Beğenmezsen Kaldır'a bas.")
+        if kind == "auto" and (d.get("auto_reason") or d.get("auto_group")):
+            late = " (sonradan gelen kaynaklarla)" if d.get("auto_late") else ""
+            lines.append(f"🤖 Otomatik yayın nedeni: {esc(d.get('auto_reason') or d['auto_group'])}{late}. "
+                         f"Beğenmezsen Kaldır'a bas.")
         if d.get("flags"):
             fl = ", ".join(FLAG_LABELS.get(f, f) for f in d["flags"])
             note = f" — {esc(d['editor_note'])}" if d.get("editor_note") else ""
@@ -945,7 +952,11 @@ class App:
         elif d.get("editor_note") and kind == "pending":
             lines.append(f"📝 {esc(d['editor_note'])}")
         if kind == "pending" and d.get("policy_reason"):
-            lines.append(f"<i>Neden sordum: {esc(d['policy_reason'])}</i>")
+            if d.get("policy_tier") == "wait":
+                lines.append(f"⏳ <i>{esc(d['policy_reason'])}. Beklemek istemezsen Yayınla'ya bas.</i>")
+            else:
+                icon = policy.TIER_ICON.get(d.get("policy_tier"), "")
+                lines.append(f"{icon} <i>Neden sordum: {esc(d['policy_reason'])}</i>".strip())
         if kind in ("published", "auto", "updated") and d.get("slug"):
             lines.append(f'🔗 <a href="{esc(self.cfg.post_url(d))}">Sitede aç</a>')
         cap = "\n".join(lines)
@@ -1228,8 +1239,12 @@ class App:
             self._ig_drop(did, "🗑 Haber siteden kaldırıldığı için Instagram'a gönderilmeyecek")
             weight = 2 if d.get("publish_mode") == "auto" else 1
             policy.record(self.stats, d, ok=False, weight=weight)
-            if d.get("publish_mode") == "auto" and d.get("auto_group"):
-                policy.record_group_removal(self.stats, d["auto_group"])   # sık kaldırılırsa grup yeniden onaya döner
+            if d.get("publish_mode") == "auto" and policy.record_removal(self.cfg, self.stats):
+                until = policy.auto_paused_until(self.cfg, self.stats)
+                self.notify(f"⏸ <b>Otomatik yayın durdu</b>\nKısa sürede otomatik yayınlanan haberlerden "
+                            f"{self.cfg.get('autonomy', 'pause_removals', 2)} tanesini kaldırdın. "
+                            f"{esc(tr_date(until, self.cfg.tz))} tarihine kadar her haber sana sorulacak. "
+                            f"Hemen yeniden açmak için <code>/mod kural</code>", silent=True)
             st.bump(self.today(), "removed")
             st.archive_draft(d, "removed")
             self._update_preview(d, "removed")
@@ -1407,13 +1422,20 @@ class App:
         elif cmd == "durum":
             self.notify(self.status_text(), silent=True)
         elif cmd == "mod":
-            if arg in policy.MODES:
-                self.state["mode_override"] = arg
-                self.notify(f"Mod: <b>{policy.MODES[arg]}</b>", silent=True)
+            m = policy.normalize_mode(arg)
+            if m:
+                self.state["mode_override"] = m
+                if m == "kural":
+                    policy.resume(self.stats)      # kaldırma freni sıfırlanır
+                n = self.recheck_pending()
+                self.notify(f"Mod: <b>{policy.MODES[m]}</b>" + (f"\n🤖 Bekleyenlerden {n} haber kurala uyduğu için yayınlandı."
+                                                                 if n else ""), silent=True)
             else:
                 m = policy.current_mode(self.cfg, self.state)
-                self.notify(f"Şu anki mod: <b>{policy.MODES[m]}</b>\nDeğiştirmek için: <code>/mod manuel</code>, "
-                            f"<code>/mod ogrenen</code> ya da <code>/mod tam</code>", silent=True)
+                self.notify(f"Şu anki mod: <b>{policy.MODES[m]}</b>\n"
+                            f"<code>/mod kural</code> — 3+ kaynakta çıkan geniş kitleli / büyük marka haberleri otomatik\n"
+                            f"<code>/mod manuel</code> — her haber sana sorulur\n"
+                            f"<code>/mod tam</code> — yalnızca uyarılı haberler ve listedeki markalar sorulur", silent=True)
         elif cmd == "duraklat":
             self.state["paused"] = True
             self.notify("⏸ Duraklatıldı. Toplama ve otomatik yayın durdu. Devam için /devam", silent=True)
@@ -1478,15 +1500,21 @@ class App:
         c = self.state.get("day_counts", {}).get(t, {})
         n, rate = policy.global_rate(self.cfg, self.stats)
         mode = policy.MODES[policy.current_mode(self.cfg, self.state)]
-        pend = len(self.store.drafts("pending"))
+        drafts = self.store.drafts("pending")
+        pend = len(drafts)
+        waiting = sum(1 for d in drafts if d.get("policy_tier") == "wait")
+        until = policy.auto_paused_until(self.cfg, self.stats)
         bad = [k for k, v in self.state.get("source_health", {}).items() if v.get("fails", 0) >= 3]
         lines = [
             f"📊 <b>Durum</b> — {esc(tr_date(now_utc(), self.cfg.tz))}",
             f"Mod: <b>{mode}</b>{' · ⏸ DURAKLATILDI' if self.state.get('paused') else ''}",
             f"Bugün: {c.get('published', 0)} yayın ({c.get('auto', 0)} otomatik, {c.get('approved', 0)} onayla), "
             f"{c.get('rejected', 0)} ret, {c.get('drafts', 0)} taslak",
-            f"Onay bekleyen: {pend} · Yazılmak için sırada: {len(self.state.get('queue') or [])}",
-            f"Son {n} kararda onay oranı: %{rate * 100:.0f}",
+            f"Onay bekleyen: {pend} ({waiting} tanesi 3. kaynağı bekliyor) · Yazılmak için sırada: "
+            f"{len(self.state.get('queue') or [])}",
+            (f"⏸ Otomatik yayın {esc(tr_date(until, self.cfg.tz))} tarihine kadar durdu (/mod kural ile aç)" if until
+             else f"Otomatik yayın kuralı: en az {policy.min_sources(self.cfg)} farklı kaynak + geniş kitle ya da büyük marka"),
+            f"Son {n} kararında onay oranın: %{rate * 100:.0f}",
             f"Toplam yayın: {len(self.store.posts())}",
             f"Bugünkü tahmini maliyet: ${self._cost(c):.2f} ({c.get('images', 0)} görsel)",
             f"Son tarama: {esc(tr_date(self.state.get('last_collect'), self.cfg.tz)) or '—'}",
@@ -1506,17 +1534,57 @@ class App:
         broken = [n for n in names if health.get(n, {}).get("fails", 0) >= 3]
         lines = [f"📡 <b>{len(names)} kaynak</b> · {len(names) - len(broken)} okunuyor"
                  + (f" · ⚠️ okunamayan: {esc(', '.join(broken))}" if broken else ""),
-                 "", "🧭 <b>Kaynak güveni</b> (✅ = otomatik yayına uygun; yalnızca karar verdiğin kaynaklar)"]
+                 "", "🧭 <b>Kararların</b> (kaynak başına onay oranı; bilgi amaçlı, otomatik yayını etkilemez)"]
         rows = []
         for name in names:
-            ok, n, rate = policy.source_trust(self.cfg, self.stats, name)
+            n, rate = policy.source_rate(self.stats, name)
             if n:
-                rows.append((not ok, -n, f"{'✅' if ok else '▫️'} {esc(name)}: {n} karar, %{rate * 100:.0f} onay"))
-        lines += [r[2] for r in sorted(rows)[:40]] or ["Henüz karar yok."]
-        need = self.cfg.get("autonomy", "source_min_decisions", 10)
-        pct = self.cfg.get("autonomy", "source_min_approval", 0.9) * 100
-        lines.append(f"\nGüven için: en az {need} karar ve %{pct:.0f} onay.")
+                rows.append((-n, f"▫️ {esc(name)}: {n} karar, %{rate * 100:.0f} onay"))
+        lines += [r[1] for r in sorted(rows)[:40]] or ["Henüz karar yok."]
+        lines.append(f"\nOtomatik yayın kaynağa değil habere bakar: en az {policy.min_sources(self.cfg)} farklı kaynakta "
+                     f"çıkan, geniş kitleli ya da büyük markalı haberler.")
         return "\n".join(lines)[:4000]
+
+    # ── bekleyen taslakları kurala göre yeniden değerlendir ─────────────
+    def recheck_pending(self) -> int:
+        """Onay bekleyen taslaklara yeni kaynak eklendiyse (ya da mod / fren değiştiyse) kuralı yeniden uygula:
+        3. kaynağa ulaşan geniş kitleli haber kendiliğinden yayınlanır; Telegram'daki mesajı güncellenir."""
+        if self.state.get("paused"):
+            return 0
+        done = 0
+        for d in self.store.drafts("pending"):
+            old = (d.get("policy_tier"), d.get("policy_reason"))
+            decision, reason = policy.decide(self.cfg, self.state, self.stats, d)
+            d["policy_reason"] = reason
+            if decision == "auto":
+                try:
+                    if self._auto_promote(d):
+                        done += 1
+                except Exception as e:  # noqa: BLE001
+                    log.exception("Bekleyen taslak otomatik yayınlanamadı (%s): %s", d.get("id"), e)
+                continue
+            if old != (d.get("policy_tier"), reason):
+                self.store.save_draft(d)
+                self._update_preview(d, "pending")
+        if done:
+            log.info("Bekleyen %d taslak kurala uyduğu için otomatik yayınlandı", done)
+        return done
+
+    def _auto_promote(self, d: dict) -> bool:
+        d["auto_late"] = True
+        log.info("Taslak %s sonradan kurala uydu → otomatik (%s)", d["id"], d.get("policy_reason"))
+        if d.get("update_of"):
+            new = self.apply_update(d)
+            if not new:
+                self.store.archive_draft(d, "expired")
+                return False
+            self._update_preview({**d, "slug": new["slug"], "path": self.cfg.post_path(new)}, "updated")
+            return True
+        post = self.publish(d, auto=True)
+        self.store.bump(self.today(), "auto_late")
+        self._update_preview(post, "auto")
+        self._send_social(post)
+        return True
 
     # ── bakım ───────────────────────────────────────────────
     def expire(self) -> None:
@@ -1724,7 +1792,9 @@ class App:
         if not any(c.get(k) for k in ("drafts", "published")):
             return
         text = (f"🌙 <b>Günün özeti</b>\n"
-                f"Yayın: {c.get('published', 0)} ({c.get('auto', 0)} otomatik, {c.get('approved', 0)} senin onayınla)\n"
+                f"Yayın: {c.get('published', 0)} ({c.get('auto', 0)} otomatik"
+                f"{f', {x} tanesi sonradan 3. kaynak gelince' if (x := c.get('auto_late', 0)) else ''}, "
+                f"{c.get('approved', 0)} senin onayınla)\n"
                 f"Güncellenen haber: {c.get('updated', 0)}\n"
                 f"Ret: {c.get('rejected', 0)} · Süresi dolan: {c.get('expired', 0)} · Kaldırılan: {c.get('removed', 0)}\n"
                 f"Seçki: {sum(1 for x in self.state.get('edit_log') or [] if (x.get('t') or '')[:10] == iso(now_utc())[:10] and x['action'] == 'skip')} "
@@ -2434,6 +2504,10 @@ class App:
                 log.exception("Toplama hatası: %s", e)
                 self.notify_error(f"Toplama sırasında hata: {type(e).__name__}: {e}")
         if not self.state.get("paused"):
+            try:
+                self.recheck_pending()
+            except Exception as e:  # noqa: BLE001
+                log.exception("Bekleyen taslak kontrolü hatası: %s", e)
             self.backfill_seo()
             try:
                 self.fix_texts()
