@@ -1,0 +1,95 @@
+{
+  "id": "0a47d465bc",
+  "created_at": "2026-10-14T13:38:35Z",
+  "title": "Meta GitHub sızıntısı: Çalışanın şifresiyle kaynak kodları ele geçirildi",
+  "summary": "Meta GitHub depolarına sızan korsanlar, çalışanın şifresiyle yazılım kaynak kodları ve ticari sırları ele geçirdi.",
+  "body": "Webtekno'nun aktardığına göre, **Meta GitHub** depolarına yönelik gerçekleşen bir sızıntı sonucunda bilgisayar korsanları şirketin kod depolarına erişim sağladı. Olay, bir çalışanın şifresinin ele geçirilmesiyle başlarken, yaklaşık 1.500 Meta çalışanının verileri etkilendi ve bu grupta ABD'deki personel ağırlıkta yer aldı. Meta'nın yaptığı açıklamaya göre saldırganlar şirketin ana iç sistemlerine veya sunucularına doğrudan ulaşmayı başaramadı.\n\n## Verilerin dağılımı ve güvenlik açığı\n\nSaldırganların ele geçirdiği bilgilerin büyük bir kısmını yazılım kaynak kodları ve ticari sırlar oluştururken, verilerin küçük bir bölümü kişisel verilerden meydana geldi. Bu kişisel verilerin ise daha önce GitHub depolarına yanlışlıkla yüklendiği ortaya çıktı. Öte yandan korsanların ele geçirdiği kayıtların bir kısmının yazılım testlerinde kullanılan sahte veya anonimleştirilmiş sentetik verilerden oluştuğu anlaşıldı ancak bu durum depolarda gerçek kişilere ait verilerin olduğu gerçeğini değiştirmedi.\n\n## Meta'nın aldığı önlemler\n\nYaşanan bu gelişmenin ardından Meta, korsanların erişimini hemen keserek adli bilişim incelemesi başlattı ve depolardaki gizli API anahtarlarını yeniledi. Şirket, olaydan etkilenen çalışanlar için kimlik hırsızlığına karşı kredi izleme hizmeti ile kişisel bilgilerin yasa dışı platformlarda paylaşılıp paylaşılmadığını takip etme desteği sağladı.\n\n**Neden önemli?** Bir çalışanın şifresinin çalınması ve hassas bilgilerin yanlışlıkla kod depolarına yüklenmesi, büyük teknoloji şirketlerindeki güvenlik zincirinde yaşanan zayıf noktaları gözler önüne seriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Meta",
+    "GitHub",
+    "veri sızıntısı",
+    "siber güvenlik"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Meta'nın GitHub depolarına sızıldı",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "1.500",
+  "hero_stat_label": "etkilenen çalışan sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a dark matte server rack with a single glowing amber light on one port, subtle frosted glass cubes floating nearby representing digital data packets",
+  "focus_keyword": "Meta GitHub",
+  "seo_title": "Meta GitHub depolarına sızıldı: Kodlar ele geçirildi",
+  "meta_description": "Meta GitHub depolarına yapılan sızıntıda çalışanın şifresi kullanıldı. Kaynak kodları ve bazı kişisel veriler korsanların eline geçti.",
+  "seo_slug": "meta-github-depolarina-sizildi",
+  "image_alt": "Karanlık sunucu rafı ve dijital veri paketlerini temsil eden cam küpler",
+  "cover_text": "Meta GitHub",
+  "carousel_points": [
+    "Meta'nın GitHub depolarına sızan korsanlar yazılım kaynak kodlarını ele geçirdi.",
+    "Olayda bir çalışanın çalınan şifresi kullanılırken yaklaşık 1.500 çalışan etkilendi.",
+    "Meta korsanların erişimini kesip API anahtarlarını yenileyerek inceleme başlattı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Meta GitHub depolarına sızıldı",
+  "cover_highlight": "Meta GitHub",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "triage_reason": "Meta'nın GitHub depolarının çalışan şifresiyle ihlal edilmesi.",
+  "entities": [
+    "Meta",
+    "GitHub"
+  ],
+  "topic": "Meta GitHub repositories breached via compromised employee password",
+  "sources": [
+    {
+      "name": "Webtekno",
+      "url": "https://www.webtekno.com/meta-github-depolarina-sizdilar-tek-bir-calisanin-sifresi-yetti-h227129.html",
+      "title": "Meta'nın GitHub Depolarına Sızdılar: Tek Bir Çalışanın Şifresi Yetti!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-14T13:23:19Z",
+      "image": "https://imgrosetta.webtekno.com/file/692668/692668-640xauto.jpg"
+    }
+  ],
+  "source_keys": [
+    "Webtekno"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1341
+  },
+  "photos": [
+    {
+      "src": "https://imgrosetta.webtekno.com/file/692668/692668-640xauto.jpg",
+      "credit": "Webtekno",
+      "page": "https://www.webtekno.com/meta-github-depolarina-sizdilar-tek-bir-calisanin-sifresi-yetti-h227129.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "0a47d465bc-g0.webp",
+      "w": 640,
+      "h": 360
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-1",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "meta-github-depolarina-sizildi",
+  "published_at": "2026-10-14T13:38:42Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/meta-github-depolarina-sizildi",
+  "photos_vetted": "2026-10-14T13:38:58Z",
+  "photos_vet_v": 2
+}
