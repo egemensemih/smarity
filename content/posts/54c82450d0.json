@@ -1,0 +1,98 @@
+{
+  "id": "54c82450d0",
+  "created_at": "2026-10-14T14:08:05Z",
+  "title": "Windows ekim güncellemesi yayınlandı: 1.400'den fazla açık kapatıldı",
+  "summary": "ZDNET'in aktardığına göre Microsoft'un ekim ayı Windows güncellemesi, iki sıfır gün açığı da dahil olmak üzere 1.400'den fazla güvenlik açığını kapatıyor.",
+  "body": "ZDNET'in aktardığına göre **Windows ekim güncellemesi**, 1.400'den fazla güvenlik açığını kapatarak rekor düzeyde hata düzeltmesi sunuyor. 14 Ekim'de yayınlanan bu yeni güncelleme, Windows 11 24H2 sürümleri için son resmi destek olurken, Windows 11 26H2 için ise ilk resmi güncelleme olma özelliğini taşıyor.\n\n## Kritik açıklar ve sıfır gün açıkları\n\nAction1 tarafından paylaşılan bilgilere göre, ekim ayı güncellemesi 80 kritik açığın yanı sıra iki adet sıfır gün (zero-day) açığını da gideriyor. Bunlardan CVE-2026-96951 kodlu ilk sıfır gün açığının saldırganlar tarafından aktif olarak kullanıldığı belirtildi. Windows Shell içerisindeki bu zafiyet, uzaktaki bir saldırganın güvenlik korumalarını atlatmasına olanak tanıdı. CVE-2026-108398 kodlu ikinci sıfır gün açığı ise düzeltme yayınlanmadan önce kamuoyuna duyuruldu ve .net Framework üzerindeki bir hatadan kaynaklanıyor.\n\n## Yeni özellikler ve copilot tuşu ayarı\n\nGüvenlik yamalarının yanı sıra Dosya Gezgini'ndeki önizleme paneli sorunları giderildi ve Bluetooth kararlılığı artırıldı. Ayrıca **Copilot** tuşunu farklı bir işlev için yeniden yapılandırma imkanı eklendi; kullanıcılar bu tuşu sağ Ctrl veya sağ tık bağlam menüsü olarak ayarlayabiliyor.\n\n**Neden önemli?** Bilgisayar korsanlarının aktif olarak kötüye kullandığı güvenlik açıklarını kapatan bu büyük güncelleme, destek süresi dolan eski Windows sürümlerini kullananların sistemlerini güncel tutmalarını zorunlu kılıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Windows",
+    "Windows 11",
+    "Copilot"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Windows ekim güncellemesi 1.400'den fazla açığı kapattı",
+  "kicker": "Güvenlik güncellemesi",
+  "hero_stat": "1.400+",
+  "hero_stat_label": "kapatılan güvenlik açığı",
+  "visual_style": "studio",
+  "visual_scene": "a stack of minimalist dark grey stone tablets resting on a clean concrete surface, with a single bright teal light beam cutting diagonally across the top tablet, casting sharp shadows",
+  "focus_keyword": "Windows ekim güncellemesi",
+  "seo_title": "Windows ekim güncellemesi 1.400'den fazla açığı kapattı",
+  "meta_description": "ZDNET aktardığına göre Microsoft Windows ekim güncellemesi iki sıfır gün açığı dahil 1.400'den fazla hatayı kapatıyor. Detaylar haberimizde.",
+  "seo_slug": "windows-ekim-guncellemesi-1400-acigi-kapatti",
+  "image_alt": "Minimalist gri taş bloklar üzerine düşen mavi ışık demeti, Windows ekim güncellemesinin getirdiği güvenlik yamalarını…",
+  "cover_text": "Windows Güncellemesi",
+  "carousel_points": [
+    "Microsoft'un ekim ayı Windows güncellemesi 1.400'den fazla güvenlik açığını kapattı.",
+    "Güncelleme kapsamında iki adet sıfır gün açığı ve 80 kritik zafiyet giderildi.",
+    "Kullanıcılar artık klavyedeki Copilot tuşunu farklı bir kısayol için yeniden ayarlayabiliyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Windows güncellemesi 1.400 açığı kapattı",
+  "cover_highlight": "1.400 açığı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "triage_reason": "Microsoft, 1.400 güvenlik açığını kapatan yeni Windows güncellemesini yayınladı.",
+  "entities": [
+    "Microsoft",
+    "Windows"
+  ],
+  "topic": "Windows update patches 1,400 security bugs and two zero-days",
+  "sources": [
+    {
+      "name": "ZDNET",
+      "url": "https://www.zdnet.com/tech/windows-october-update-patches-file-explorer-bluetooth/",
+      "title": "Windows update patches a whopping 1,400 security bugs – including 2 zero days",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-14T13:59:59Z",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/Windows-11-October-2026-Patch-Tuesday-update.jpg"
+    }
+  ],
+  "source_keys": [
+    "ZDNET"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1343
+  },
+  "photos": [
+    {
+      "src": "https://www.zdnet.com/wp-content/uploads/sites/3/Windows-11-October-2026-Patch-Tuesday-update.jpg",
+      "credit": "ZDNET",
+      "page": "https://www.zdnet.com/tech/windows-october-update-patches-file-explorer-bluetooth/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "54c82450d0-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "54c82450d0-g0.webp",
+    "credit": "ZDNET",
+    "page": "https://www.zdnet.com/tech/windows-october-update-patches-file-explorer-bluetooth/",
+    "src": "https://www.zdnet.com/wp-content/uploads/sites/3/Windows-11-October-2026-Patch-Tuesday-update.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "windows-ekim-guncellemesi-1400-acigi-kapatti",
+  "published_at": "2026-10-14T14:08:12Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/windows-ekim-guncellemesi-1400-acigi-kapatti",
+  "photos_vetted": "2026-10-14T14:08:45Z",
+  "photos_vet_v": 2
+}
