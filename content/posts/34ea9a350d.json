@@ -1,0 +1,130 @@
+{
+  "id": "34ea9a350d",
+  "created_at": "2026-10-14T16:11:07Z",
+  "title": "Android güvenlik güncellemeleri ile yapay zeka destekli dolandırıcılık koruması geliyor",
+  "summary": "Google, Android telefonlar için Google Messages uygulamasında yapay zeka tabanlı yeni dolandırıcılık tespiti ve ekran paylaşımı gizliliği gibi güvenlik özelliklerini duyurdu.",
+  "body": "Android güvenlik güncellemeleri kapsamında Google, mobil cihazlardaki dolandırıcılık girişimlerine karşı yapay zeka destekli yeni koruma özelliklerini duyurdu. The Verge ve Engadget gibi kaynakların aktardığına göre, önümüzdeki haftalarda kullanıma sunulacak yeni **gelişmiş koruma** modu, Google Messages uygulamasında bilinmeyen numaralardan gelen mesajları incelemek için bulut tabanlı Gemini yapay zeka modellerini kullanacak.\n\n## Gemini destekli mesaj güvenliği\n\nGoogle'ın açıklamasına göre bu isteğe bağlı özellik, **Private AI Compute** adı verilen şifrelenmiş ve güvenli bir alanda kullanıcı verilerini işleyerek dolandırıcılık niyetlerini tespit edecek. Sistem, Google'ın dahi erişemediği bu özel alanda çalışırken, cihaz üzerindeki Gemini Nano ise bilinmeyen URL bağlantılarını tıklanmadan önce tarayacak. Ayrıca, geçen yıl Pixel cihazlarda sunulan sohbet bildirimlerindeki dolandırıcılık tespiti; Honor, Motorola, Oppo, OnePlus, Realme, Tecno, Vivo ve Xiaomi gibi üreticilerin cihazlarına da genişletilecek.\n\n## Ekran paylaşımı ve çağrı güvenliği\n\nAndroid 15 ve üzeri sürümleri kullanan cihazlar için ay sonundan itibaren otomatik ekran paylaşımı gizliliği devreye girecek. Bu özellik, Chrome veya Android WebView açıkken ekran paylaşımı yapıldığında şifreleri ve bankacılık bilgilerini gizleyecek. Aralık ayı başında ise Pixel ve seçili diğer cihazlar için çağrı yönlendirme koruması başlayarak uygulamaların gizlice çağrı yönlendirmesini engellemesi sağlanacak.\n\n**Neden önemli?** Google'ın duyurduğu bu yeni güvenlik katmanları, kullanıcıların mobil dolandırıcılıklara karşı daha erken uyarılmasını ve hassas kişisel verilerinin korunmasını hedefliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google",
+    "Android",
+    "Gemini",
+    "Xiaomi",
+    "Samsung"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Android'e yapay zeka tabanlı dolandırıcılık koruması",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a smooth minimalist smartphone silhouette sculpted from frosted white glass, resting on a charcoal grey surface with subtle geometric light reflections playing across its surface",
+  "focus_keyword": "Android güvenlik güncellemeleri",
+  "seo_title": "Android güvenlik güncellemeleri ile yapay zeka koruması",
+  "meta_description": "Google, Android telefonlar için Gemini destekli mesaj koruması ve ekran paylaşımı gizliliği gibi yeni güvenlik özelliklerini duyurdu.",
+  "seo_slug": "android-guvenlik-guncellemeleri-yapay-zeka-korumasi",
+  "image_alt": "Buzlu beyaz camdan yapılmış minimalist akıllı telefon silüeti, koyu gri yüzey üzerinde ışık yansımalarıyla",
+  "cover_text": "Android",
+  "carousel_points": [
+    "Google, Android telefonlar için yeni yapay zeka tabanlı dolandırıcılık koruma özelliklerini duyurdu.",
+    "Google Messages uygulamasındaki gelişmiş koruma modu, bilinmeyen mesajları Gemini ile değerlendirecek.",
+    "Ekran paylaşımı sırasında şifre ve bankacılık bilgileri otomatik olarak gizlenecek."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Android güvenlik güncellemeleri yapay zeka getiriyor",
+  "cover_highlight": "yapay zeka",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "triage_reason": "Google, Android cihazlar için yapay zeka destekli yeni dolandırıcılık korumalarını duyurdu.",
+  "entities": [
+    "Google",
+    "Android",
+    "Gemini"
+  ],
+  "topic": "Android new scam defense and Gemini security features",
+  "sources": [
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/android-security-updates-scams-3723072/",
+      "title": "Your Android phone is getting these 4 new anti-scam features",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.androidauthority.com/android-security-updates-scams-3723072/#respond",
+      "published": "2026-10-14T16:00:09Z",
+      "image": "https://www.androidauthority.com/wp-content/uploads/2024/11/Google-Pixel-Scam-Detection-Beta-Feature-Toggle.jpg"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/tech/1010928/android-scam-protection-enhanced-protection-google-messages",
+      "title": "Android is using AI to suss out scammers in Google Messages",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-14T16:00:00Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/Android-scam-detection-google-messages.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    },
+    {
+      "name": "Engadget",
+      "url": "https://www.engadget.com/2286355/android-will-use-gemini-to-warn-you-about-scammy-messages/",
+      "title": "Android will use Gemini to warn you about scammy messages",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-14T16:00:00Z",
+      "image": "https://www.engadget.com/img/gallery/android-will-use-gemini-to-warn-you-about-scammy-messages/l-intro-1791980014.jpg"
+    },
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/phones/googles-new-scam-defenses-on-android-can-hide-your-bank-details-before-things-go-wrong/",
+      "title": "Google’s new scam defenses on Android can hide your bank details and hang up on fraudsters",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-14T16:00:00Z",
+      "image": "https://www.digitaltrends.com/tachyon/2026/10/Googles-New-Android-Scam-Protection-Feature.jpg?resize=440%2C292"
+    }
+  ],
+  "source_keys": [
+    "Android Authority",
+    "The Verge",
+    "Engadget",
+    "Digital Trends"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1351
+  },
+  "photos": [
+    {
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/Android-scam-detection-google-messages.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/tech/1010928/android-scam-protection-enhanced-protection-google-messages",
+      "alt": "",
+      "kind": "feed",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "34ea9a350d-g0.webp",
+      "w": 1600,
+      "h": 1067
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-3",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "android-guvenlik-guncellemeleri-yapay-zeka-korumasi",
+  "published_at": "2026-10-14T16:11:16Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/10/android-guvenlik-guncellemeleri-yapay-zeka-korumasi",
+  "photos_vetted": "2026-10-14T16:11:39Z",
+  "photos_vet_v": 2
+}
