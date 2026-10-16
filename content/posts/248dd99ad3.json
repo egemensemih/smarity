@@ -98,9 +98,12 @@
     "message_id": 1320
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "248dd99ad3-g0.webp",
+    "credit": "Engadget",
+    "page": "https://www.engadget.com/2288437/teslas-redesigned-roadster-cold-gas-thruster-option-reservation/",
+    "src": "https://www.engadget.com/img/gallery/teslas-redesigned-roadster-cold-gas-thruster-option-reservation/l-intro-1792115458.jpg",
     "layout": "manset",
-    "palette": "otomotiv-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -109,7 +112,7 @@
   "published_at": "2026-10-14T01:42:49Z",
   "publish_mode": "auto",
   "path": "otomotiv/2026/10/yeni-tesla-roadster-tanitim-etkinligi-tarihi",
-  "photos_filled": "2026-10-14T01:42:54Z",
+  "photos_filled": "2026-10-16T07:05:26Z",
   "photos_tried": "2026-10-14T01:44:05Z",
   "updated_at": "2026-10-16T02:01:12Z",
   "refreshed_at": "2026-10-16T02:01:12Z",
@@ -129,5 +132,104 @@
         "Engadget"
       ]
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://www.engadget.com/img/gallery/teslas-redesigned-roadster-cold-gas-thruster-option-reservation/l-intro-1792115458.jpg",
+      "credit": "Engadget",
+      "page": "https://www.engadget.com/2288437/teslas-redesigned-roadster-cold-gas-thruster-option-reservation/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "248dd99ad3-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://static01.nyt.com/images/2026/10/15/business/15biz-luxury-ev/15biz-luxury-ev-mediumSquareAt3X.jpg",
+      "credit": "New York Times Teknoloji",
+      "page": "https://www.nytimes.com/2026/10/15/business/tesla-roadster-2026-ev-sports-car.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "248dd99ad3-g1.webp",
+      "w": 1600,
+      "h": 1600
+    },
+    {
+      "src": "https://cdn.motor1.com/images/mgl/P3VXXA/s3/tesla-roadster-semi-jump.jpg",
+      "credit": "InsideEVs",
+      "page": "https://insideevs.com/news/812152/tesla-roadster-backflip-suction-2g/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "248dd99ad3-g2.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "https://cdn.motor1.com/images/mgl/9mWkkp/s1/tesla-roadster-barrel-roll.jpg",
+      "credit": "InsideEVs",
+      "page": "https://insideevs.com/news/812152/tesla-roadster-backflip-suction-2g/",
+      "alt": "Here Are All Of The Crazy Tricks The Tesla Roadster Just Did: 2027 Tesla Roadster, News",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "248dd99ad3-g3.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://cdn.motor1.com/images/custom/thumbnail/roadster-flip-3-converted.webp",
+      "credit": "InsideEVs",
+      "page": "https://insideevs.com/news/812152/tesla-roadster-backflip-suction-2g/",
+      "alt": "roadster-flip-3-converted",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "remote": true,
+      "w": 1024,
+      "h": 492
+    },
+    {
+      "src": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/10/Tesla-Roadster-kick-flips-through-the-air.jpeg?w=1500&quality=82&strip=all&ssl=1",
+      "credit": "Electrek",
+      "page": "https://electrek.co/2026/10/13/tesla-roadster-event-thursday-nine-years-delays/",
+      "alt": "Tesla Roadster kick flips through the air",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "remote": true,
+      "w": 1500,
+      "h": 760
+    },
+    {
+      "src": "https://cdn.motor1.com/images/custom/thumbnail/roadster-backflip-converted.webp",
+      "credit": "InsideEVs",
+      "page": "https://insideevs.com/news/812152/tesla-roadster-backflip-suction-2g/",
+      "alt": "roadster-backflip-converted",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false,
+      "remote": true,
+      "w": 1024,
+      "h": 492
+    },
+    {
+      "src": "https://cdn.motor1.com/images/custom/thumbnail/roadster-flip-2-converted.webp",
+      "credit": "InsideEVs",
+      "page": "https://insideevs.com/news/812152/tesla-roadster-backflip-suction-2g/",
+      "alt": "roadster-flip-2-converted",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false,
+      "remote": true,
+      "w": 1024,
+      "h": 492
+    }
+  ],
+  "photos_v": 2
 }

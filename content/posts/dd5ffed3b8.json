@@ -109,9 +109,12 @@
     "message_id": 1295
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "dd5ffed3b8-g1.webp",
+    "credit": "CNBC Teknoloji",
+    "page": "https://www.cnbc.com/2026/10/13/character-ai-chapter-11-disney-bid.html",
+    "src": "https://image.cnbcfm.com/api/v1/image/108403360-1791898443147-gettyimages-2248155654-boivin-notitle251127_np1h8.jpeg?v=1791898464&w=1920&h=1080",
     "layout": "manset",
-    "palette": "super-zeka-3",
     "cover_v": 2
   },
   "policy_tier": "wait",
@@ -119,7 +122,7 @@
   "published_at": "2026-10-13T12:28:07Z",
   "publish_mode": "manual",
   "path": "super-zeka/2026/10/character-ai-iflas-korumasi-disney",
-  "photos_filled": "2026-10-13T12:34:02Z",
+  "photos_filled": "2026-10-16T07:06:33Z",
   "photos_tried": "2026-10-13T12:34:36Z",
   "updated_at": "2026-10-14T08:57:57Z",
   "refreshed_at": "2026-10-14T08:57:57Z",
@@ -139,5 +142,32 @@
         "Tom's Guide"
       ]
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/FVjKbkyNfu5cw244apQ24E-1920-80.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/ai/character-ai-files-for-bankruptcy-what-happens-to-your-chats-and-ai-companions-now",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "dd5ffed3b8-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://image.cnbcfm.com/api/v1/image/108403360-1791898443147-gettyimages-2248155654-boivin-notitle251127_np1h8.jpeg?v=1791898464&w=1920&h=1080",
+      "credit": "CNBC Teknoloji",
+      "page": "https://www.cnbc.com/2026/10/13/character-ai-chapter-11-disney-bid.html",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "dd5ffed3b8-g1.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2
 }
