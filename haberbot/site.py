@@ -97,6 +97,11 @@ def hot(p: dict, now=None) -> float:
     base = float(p.get("appeal") or max(5, int(p.get("importance") or 6) - 1))
     if (p.get("image") or {}).get("source") == "photo":
         base += 1.0
+    # haberin büyüklüğü: kaç ayrı yayın kuruluşu aynı haberi verdi (kaynaklar + aynı haberi sonradan veren siteler)
+    outlets = len({s.get("name") for s in (p.get("sources") or []) + (p.get("coverage") or []) if s.get("name")})
+    base += min(2.0, 0.5 * max(0, outlets - 2))
+    if int(p.get("importance") or 0) >= 9:
+        base += 0.5
     score = base / (age + 4) ** 0.7
     if home == "pin" and hours_since(p.get("home_at") or p.get("published_at")) < 36:
         score += 100          # editör manşete sabitledi: 36 saat en üstte

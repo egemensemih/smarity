@@ -378,6 +378,30 @@ def policy_mode(a):
     return policy.current_mode(a.cfg, a.state)
 
 
+def test_big_stories_rank_higher_and_get_photos_from_later_sources():
+    src = lambda n: {"name": n, "url": f"https://{n.lower()}.com/x", "kind": "media", "image": f"https://{n}.com/a.jpg"}  # noqa: E731
+    one = _post(1, 3, appeal=9)
+    many = {**_post(2, 3, appeal=9), "sources": [src("Electrek")], "coverage": [src(n) for n in ("Verge", "NYT", "Engadget", "InsideEVs")]}
+    assert hot(many) > hot(one) * 1.15                                 # 5 ayrı site haberi verdi: büyük haber
+    with _App() as (cfg, a):
+        post = {**_post(3, 30), "sources": [src("Electrek")], "importance": 9, "telegram": {"message_id": 9}}
+        a.store.save_post(post)
+        a.store.site_dirty = False
+        it = lambda n: {"credit": n, "url": f"https://{n.lower()}.com/y", "title": "Roadster", "kind": "media",  # noqa: E731
+                        "image": f"https://{n}.com/b.jpg", "source": n}
+        assert a._note_coverage("p03", [it("Verge"), it("Verge"), it("NYT")])
+        assert not a._note_coverage("p03", [it("NYT")])                 # aynı adres iki kez eklenmez
+        p = a.store.load_post("p03")
+        assert [c["name"] for c in p["coverage"]] == ["Verge", "NYT"] and not a.store.site_dirty
+        assert [x["name"] for x in a._photo_sources(p, draft=False)] == ["Electrek", "NYT", "Verge"]
+        # güncelleme gelince fotoğrafsız habere yeni kaynaklarla fotoğraf aranır
+        tried = []
+        a._attach_photos = lambda d, draft, got=None: tried.append(d["id"]) or False
+        upd = {"id": "u1", "update_of": "p03", "title": "Tesla Roadster tanıtıldı", "summary": "s", "body": "b",
+               "sources": [src("Engadget")], "source_keys": ["Engadget"], "importance": 9}
+        assert a.apply_update(upd) and tried == ["p03"]
+        assert a.store.load_post("p03")["photos_filled"]
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

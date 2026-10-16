@@ -21,7 +21,7 @@ from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS,
                       WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
-from .store import Store
+from .store import Store, write_json
 from .textfix import Fixer, entity_keys, is_car_story, looks_english, title_words
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
@@ -294,6 +294,8 @@ class App:
                     if self._merge_sources(did, its):
                         merged += 1
                         continue
+                    if did in posted:
+                        self._note_coverage(did, its)   # aynı haberi veren başka siteler: büyüklük + fotoğraf adayı
                     # yayındaki bir haberin devamı: önemliyse yönetmen "güncelle" ya da "geç" der
                     if did in posted and int(s.get("importance", 0)) >= min_imp and s.get("on_topic", True):
                         new_stories.append({"story": s, "items": its, "at": iso(now_utc())})
@@ -553,6 +555,27 @@ class App:
         if added:
             self.store.save_draft(d)
         return added
+
+    def _note_coverage(self, pid: str, its: list[dict]) -> bool:
+        """Yayındaki bir haberi sonradan veren siteleri kaydet (metne kaynak olarak eklenmez): manşet sıralamasında
+        haberin büyüklüğünü, fotoğrafsız haberde de fotoğraf adayını verir. Site yeniden üretimini tetiklemez."""
+        post = self.store.load_post(pid)
+        if not post:
+            return False
+        cov = post.setdefault("coverage", [])
+        known = {s.get("url") for s in (post.get("sources") or []) + cov}
+        added = 0
+        for it in its:
+            if not it.get("url") or it["url"] in known:
+                continue
+            known.add(it["url"])
+            cov.append({"name": it.get("credit"), "url": it["url"], "title": clip(it.get("title") or "", 140),
+                        "kind": it.get("kind"), "image": it.get("image"), "at": iso(now_utc())})
+            added += 1
+        if added:
+            del cov[:-20]
+            write_json(self.store.post_path(pid), post)
+        return bool(added)
 
     @staticmethod
     def _source_entry(it: dict) -> dict:
@@ -887,8 +910,23 @@ class App:
             post["appeal"] = max(int(post.get("appeal") or 0), int(d["appeal"]))
         if d.get("entities") and not post.get("entities"):
             post["entities"] = d["entities"]
+        if (not post.get("photos_removed") and (post.get("image") or {}).get("source") != "ai"
+                and not self._has_display_photo(post, self.cfg.images_dir)):
+            # fotoğrafsız habere yeni kaynaklarla fotoğraf (ör. etkinlik duyurusu fotoğrafsızdı, tanıtım fotoğraflı geldi)
+            post["photos_filled"] = iso(now_utc())
+            try:
+                attached = self._attach_photos(post, draft=False)       # kapak ve paylaşım görseli de üretilir
+                if attached:
+                    log.info("Güncellenen habere fotoğraf bulundu: %s (%d)", post["id"], len(post["photos"]))
+            except Exception as e:  # noqa: BLE001
+                attached = False
+                log.warning("Güncellenen habere fotoğraf eklenemedi (%s): %s", post["id"], e)
+        else:
+            attached = False
         try:
-            if post.get("photos") and (post.get("image") or {}).get("source") == "photo":
+            if attached:
+                pass
+            elif post.get("photos") and (post.get("image") or {}).get("source") == "photo":
                 self._build_cover(post, draft=False)
             elif (post.get("image") or {}).get("source") in ("cover", "fallback", None):
                 post["image"] = {**self.vis.make_hero(post, st.post_image(post["id"])), "cover_v": COVER_VERSION}
@@ -2299,6 +2337,20 @@ class App:
         return ents or list((d.get("tags") or [])[:3])
 
     @staticmethod
+    def _photo_sources(d: dict, draft: bool) -> list[dict]:
+        """Fotoğraf aranacak sayfalar. Yayındaki haberde (yeniden deneme) resmi kaynak, sonra en yeni eklenen kaynaklar
+        ve haberi sonradan veren siteler önce gelir: ilk kaynakta uygun fotoğraf yoksa aynı sayfalara tekrar bakılmaz."""
+        src = list(d.get("sources") or [])
+        if draft:
+            return src
+        seen, out = set(), []
+        for s in ([s for s in src if s.get("kind") == "official"] + src[::-1] + (d.get("coverage") or [])[::-1]):
+            if s.get("url") and s["url"] not in seen:
+                seen.add(s["url"])
+                out.append(s)
+        return out
+
+    @staticmethod
     def _has_display_photo(p: dict, folder) -> bool:
         return any(r.get("file") and (r.get("w") or 0) >= 600 and (folder / r["file"]).exists() for r in p.get("photos") or [])
 
@@ -2333,9 +2385,15 @@ class App:
         if self.cfg.mock or self.cfg.fixtures_dir or not self.cfg.get("images", "photos", True):
             return
         folder = self.cfg.images_dir
+
+        def due(p: dict) -> bool:
+            # son 2 günün haberi (ya da yeni güncellenen) 2 saatte bir, eskiler 3 günde bir yeniden denenir
+            fresh = hours_since(p.get("refreshed_at") or p.get("published_at")) <= 48
+            return hours_since(p.get("photos_filled")) > (2 if fresh else 72)
         todo = [p for p in self.store.posts()
                 if not p.get("photos_removed") and (p.get("image") or {}).get("source") != "ai"
-                and not self._has_display_photo(p, folder) and hours_since(p.get("photos_filled")) > 72][:per_run]
+                and not self._has_display_photo(p, folder) and due(p)]
+        todo = sorted(todo, key=lambda p: -int(p.get("importance") or 0))[:per_run]   # önce büyük haberler
         for p in todo:
             p["photos_filled"] = iso(now_utc())
             before = len(p.get("photos") or [])
@@ -2351,8 +2409,9 @@ class App:
             return False
         try:
             if got is None:
-                got = photos.gather(d.get("sources") or [], limit=int(cfg.get("images", "photo_limit", 16) or 16),
+                got = photos.gather(self._photo_sources(d, draft), limit=int(cfg.get("images", "photo_limit", 16) or 16),
                                     per_source=int(cfg.get("images", "photos_per_source", 12) or 12),
+                                    pages=3 if draft else 4,
                                     skip_cover=self._no_cover_sources(), entities=self._photo_names(d))
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
