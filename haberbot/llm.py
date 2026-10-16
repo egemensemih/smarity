@@ -341,7 +341,7 @@ class MockLLM:
                     same = re.search(r"same as: (\w+)", ln)
                     act = ("update" if imp >= 8 else "skip") if same else ("publish" if imp >= 8 else "skip")
                     out.append({"cid": m.group(1), "action": act, "target": same.group(1) if same else "",
-                                "must_read": imp, "reason": "Test modu kararı"})
+                                "must_read": imp, "big_brand": False, "preview": False, "reason": "Test modu kararı"})
             return {"decisions": out}
         if "lines" in schema.get("properties", {}):       # kapak başlıkları
             return {"lines": [{"id": ln.split(" | ")[0].strip(),

@@ -321,6 +321,8 @@ class App:
             x = decisions.get(i) or {"action": "hold", "target": "", "must_read": 0, "reason": ""}
             q["story"]["must_read"] = int(x.get("must_read") or 0)
             q["story"]["big_brand"] = bool(x.get("big_brand"))
+            q["story"]["preview"] = bool(x.get("preview"))
+            q["story"]["replaces"] = x.get("replaces") or ""
             q["story"]["editor_reason"] = x.get("reason", "")
             act = x["action"]
             if act == "publish":
@@ -433,6 +435,7 @@ class App:
             x["target"] = (x.get("target") or "").strip().removeprefix("s:")
             x["reason"] = clip(str(x.get("reason") or ""), 120)
             x["big_brand"] = x.get("big_brand") is True
+            x["preview"] = x.get("preview") is True
             if x.get("action") not in ("publish", "update", "skip", "hold"):
                 x["action"] = "hold"
             decisions[i] = x
@@ -482,11 +485,21 @@ class App:
         published |= {p["id"] for p in self.store.posts()[:300] if hours_since(p.get("published_at")) <= 24 * 7}
         pending = {c["id"] for c in covered if c["status"] == "pending"}
         refreshed = {c["id"] for c in covered if c["status"] == "published" and c.get("updated") and c["hours"] < 6}
-        used, round_targets = 0, set()
+        used, round_targets, retiring = 0, set(), set()
         for i in sorted(decisions, key=lambda i: -decisions[i]["must_read"]):
             x, s = decisions[i], queue[i]["story"]
             keys = entity_keys(s)
             mr = x["must_read"]
+            # asıl olay (tanıtım, çıkış, imza…) ön izleme haberinin (tarih, davet, sızıntı) güncellemesi ya da tekrarı
+            # sayılmaz: yeni haber olarak yayınlanır; ön izleme haberi kalkar, adresi yeni habere yönlenir
+            if not x.get("preview") and mr >= min_score and x["action"] in ("update", "skip", "publish"):
+                dup = (s.get("duplicate_of") or "").removeprefix("s:")
+                tgt = x["target"] if x["action"] in ("update", "skip") and x.get("target") else dup
+                if tgt and tgt in published and tgt not in retiring and self._is_preview(tgt):
+                    x["action"], x["target"], x["replaces"] = "publish", "", tgt
+                    x["reason"] = clip("asıl gelişme, ön izleme haberinin yerini alır" +
+                                       (f": {x['reason']}" if x.get("reason") else ""), 120)
+                    retiring.add(tgt)
             if x["action"] == "update":
                 if x["target"] in pending:
                     x["action"] = "merge"
@@ -507,7 +520,7 @@ class App:
             dup = (s.get("duplicate_of") or "").removeprefix("s:")
             # masa "aynı haber" dedi: yeni haber değil, olsa olsa güncelleme. Yönetmen 9+ ile "yeni haber" dediyse
             # (ör. ön izlemesi yayınlanmış bir etkinlikte ürünlerin resmen tanıtılması) yönetmenin kararı geçerli
-            if dup in published and mr < 9:
+            if dup in published and mr < 9 and not x.get("replaces"):
                 ok = mr >= min_score and dup not in round_targets and (dup not in refreshed or mr >= 9)
                 x["action"], x["target"] = ("update", dup) if ok else ("skip", dup)
                 if ok:
@@ -719,7 +732,9 @@ class App:
 
         merge_posts: [[yinelenen_id, kalan_id], …] → yinelenen haber silinir, adresi kalan habere yönlenir,
                      kaynakları kalan habere eklenir.
-        retitle: {haber_id: "Yeni başlık"} → başlık düzeltilir (adres değişmez)."""
+        retitle: {haber_id: "Yeni başlık"} → başlık düzeltilir (adres değişmez).
+        relaunch: [haber_id, …] → ön izleme olarak açılıp asıl gelişmeyle güncellenen haber yeni haber olarak yeniden
+                  yayınlanır (yeni adres, eski adres yönlenir); bir kez uygulanır."""
         m = self.cfg.raw.get("maintenance") or {}
         st = self.store
         for pair in m.get("merge_posts") or []:
@@ -730,11 +745,7 @@ class App:
             dup, keep = st.load_post(dup_id), st.load_post(keep_id)
             if not dup or not keep or dup_id == keep_id:
                 continue
-            olds = list(keep.get("old_paths") or [])
-            for o in (self.cfg.post_path(dup), f"haber/{dup['slug']}", *(dup.get("old_paths") or [])):
-                if o and o not in olds and o != keep.get("path"):
-                    olds.append(o)
-            keep["old_paths"] = olds
+            self._fold_into(dup, keep)
             urls = {s.get("url") for s in keep.get("sources") or []}
             keep["sources"] = (keep.get("sources") or []) + [s for s in dup.get("sources") or [] if s.get("url") not in urls]
             keep["updated_at"] = iso(now_utc())
@@ -742,6 +753,10 @@ class App:
             st.delete_post(dup_id)
             self.queue_indexnow(self.cfg.post_url(keep))
             log.info("Yinelenen haber birleştirildi: %s → %s", dup_id, keep_id)
+        for pid in m.get("relaunch") or []:
+            p = st.load_post(str(pid))
+            if p and not p.get("relaunched"):
+                self._relaunch(p)
         for pid, title in (m.get("retitle") or {}).items():
             p = st.load_post(str(pid))
             title = clip(str(title or "").strip(), 120)
@@ -803,6 +818,8 @@ class App:
             "category": w["category"] or story.get("category") or DEFAULT_CATEGORY,
             "importance": int(story.get("must_read") or story.get("importance", 5)),
             "big_brand": bool(story.get("big_brand")),
+            "preview": bool(story.get("preview")),
+            "replaces": story.get("replaces") or "",
             "triage_reason": story.get("editor_reason") or story.get("reason", ""),
             "entities": list(story.get("entities") or []),
             "topic": story.get("topic", ""),
@@ -990,7 +1007,72 @@ class App:
         st.bump(self.today(), "published")
         st.bump(self.today(), "auto" if auto else "approved")
         log.info("Yayınlandı: %s → %s", post["id"], self.cfg.post_url(post))
+        if post.get("replaces"):
+            try:
+                self._retire_preview(post["replaces"], post)
+            except Exception as e:  # noqa: BLE001
+                log.warning("Ön izleme haberi kaldırılamadı (%s): %s", post.get("replaces"), e)
         return post
+
+    PREVIEW_TOPIC = re.compile(r"\b(scheduled|upcoming|dates?|invites?|invitation|teasers?|teases?d?|countdown|what to expect|"
+                               r"expected|preview|leaks?|leaked|rumou?rs?|rumou?red|to unveil|will unveil|set to|plans to|"
+                               r"coming soon)\b", re.I)
+
+    def _is_preview(self, pid: str) -> bool:
+        """Yayındaki haber bir ön izleme mi (tarih / davet / teaser / sızıntı)? Eski haberlerde yönetmenin konu notuna bakılır."""
+        p = self.store.load_post(pid)
+        if not p:
+            return False
+        if "preview" in p:
+            return bool(p["preview"])
+        return bool(self.PREVIEW_TOPIC.search(p.get("topic") or ""))
+
+    def _fold_into(self, dup: dict, keep: dict) -> None:
+        """dup haberinin adresleri keep haberine yönlenir (site eski adreslere yönlendirme sayfası yazar)."""
+        olds = list(keep.get("old_paths") or [])
+        for o in (self.cfg.post_path(dup), f"haber/{dup['slug']}", *(dup.get("old_paths") or [])):
+            if o and o not in olds and o != keep.get("path"):
+                olds.append(o)
+        keep["old_paths"] = olds
+
+    def _retire_preview(self, old_id: str, post: dict) -> None:
+        """Asıl gelişme yayınlandı: ön izleme haberi (ör. "Tesla Roadster'ın tanıtım tarihi açıklandı") yayından kalkar,
+        adresi yeni habere yönlenir, Telegram'daki mesajı güncellenir."""
+        st = self.store
+        old = st.load_post(old_id)
+        if not old or old_id == post["id"]:
+            return
+        self._fold_into(old, post)
+        st.save_post(post)
+        st.delete_post(old_id)
+        self._ig_drop(old_id, "↪️ Haber yerini asıl gelişmeye bıraktı; Instagram'a gönderilmeyecek")
+        st.archive_draft(old, "superseded")
+        self._update_preview({**old, "replaced_by": post.get("title")}, "superseded")
+        log.info("Ön izleme haberi yerini asıl habere bıraktı: %s → %s", old_id, post["id"])
+
+    def _relaunch(self, p: dict) -> None:
+        """Ön izleme olarak açılıp asıl gelişmeyle güncellenmiş haberi yeni haber olarak yeniden yayınla: yeni adres
+        (başlıktan), yayın zamanı şimdi, "Güncellendi" geçmişi temizlenir; eski adres yeni adrese yönlenir."""
+        st = self.store
+        old_path, old_slug = self.cfg.post_path(p), p["slug"]
+        used = {q.get("slug") for q in st.posts() if q["id"] != p["id"]}
+        base = slugify(p["title"], 64)
+        slug, n = base, 2
+        while slug in used:
+            slug, n = f"{base}-{n}", n + 1
+        p["slug"] = p["seo_slug"] = slug
+        p["published_at"] = iso(now_utc())
+        for k in ("refreshed_at", "updated_at", "updates", "update_note", "path"):
+            p.pop(k, None)
+        p["path"] = self.cfg.post_path(p)
+        p["old_paths"] = [o for o in dict.fromkeys([*(p.get("old_paths") or []), old_path, f"haber/{old_slug}"])
+                          if o != p["path"]]
+        p["preview"] = False
+        p["relaunched"] = p["published_at"]
+        st.save_post(p)
+        self.queue_indexnow(self.cfg.post_url(p))
+        self._send_preview(p, "auto")
+        log.info("Haber yeni haber olarak yeniden yayınlandı: %s → %s", p["id"], self.cfg.post_url(p))
 
     # ── Telegram önizlemeleri ───────────────────────────────
     def _caption(self, d: dict, kind: str) -> str:
@@ -1005,6 +1087,7 @@ class App:
             "updated": "🔄 <b>HABER GÜNCELLENDİ</b>",
             "culled": "🧹 <b>SEÇKİ DIŞI</b> (yeni ölçütlere göre elendi)",
             "dropped": "🚫 <b>YAYINLANMADI</b> (şüpheli ya da istenmeyen içerik)",
+            "superseded": "↪️ <b>YERİNİ ASIL HABERE BIRAKTI</b> (ön izleme haberiydi; eski adresi yeni habere yönlenir)",
         }[kind]
         upd = d.get("update_of")
         if upd and kind == "pending":
@@ -1030,6 +1113,8 @@ class App:
             lines.append(f"⚠️ {esc(fl)}{note}")
         elif d.get("editor_note") and kind == "pending":
             lines.append(f"📝 {esc(d['editor_note'])}")
+        if kind == "superseded" and d.get("replaced_by"):
+            lines.append(f"🆕 Yeni haber: <i>{esc(clip(d['replaced_by'], 110))}</i>")
         if kind == "dropped" and d.get("policy_reason"):
             lines.append(f"<i>{esc(d['policy_reason'])}</i>")
         if kind == "pending" and d.get("policy_reason"):

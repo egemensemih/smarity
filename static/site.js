@@ -61,12 +61,13 @@
         document.querySelectorAll('.rail [data-id="' + id + '"]').forEach(function (r) { r.remove(); });
       });
     }
-    // Manşet: okunmamış ve son 12 saatte görülmemiş haberler önce (her girişte aynı manşet görünmesin)
+    // Manşet: günün en büyük haberi (ilk slayt) herkes için ve her zaman ilk sırada kalır; diğerlerinde okunmamış ve
+    // son 12 saatte görülmemiş haberler öne alınır (her girişte aynı manşet görünmesin)
     var track = document.getElementById("car-track");
     if (track) {
       var sl = Array.prototype.slice.call(track.querySelectorAll(".slide"));
-      function rank(s) { var id = s.getAttribute("data-id"); return read[id] ? 2 : (seen[id] && NOW - seen[id] < 43200) ? 1 : 0; }
-      var ordered = sl.map(function (s, i) { return [rank(s), i, s]; }).sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+      function rank(s, i) { if (i === 0) return -1; var id = s.getAttribute("data-id"); return read[id] ? 2 : (seen[id] && NOW - seen[id] < 43200) ? 1 : 0; }
+      var ordered = sl.map(function (s, i) { return [rank(s, i), i, s]; }).sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
       if (ordered.some(function (x, k) { return x[1] !== k; })) {
         var dots = document.querySelector(".car-dots"), db = dots ? Array.prototype.slice.call(dots.children) : [];
         ordered.forEach(function (x, k) {

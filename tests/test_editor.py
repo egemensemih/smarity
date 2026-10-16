@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from haberbot.site import SiteBuilder  # noqa: E402
 from haberbot.telegram import MockTelegram  # noqa: E402
-from haberbot.util import iso, now_utc  # noqa: E402
+from haberbot.util import hours_since, iso, now_utc  # noqa: E402
 from tests.test_home import _App, _post  # noqa: E402
 
 
@@ -47,6 +47,46 @@ def test_guard_rules():
         out = a._guard(queue, dec(), slots=3, min_score=7, covered=a._covered(48))
         assert out[0]["action"] == "skip" and "24 saat" in out[0]["reason"]
 
+
+def test_launch_replaces_its_preview_story():
+    with _App() as (cfg, a):
+        from haberbot.telegram import MockTelegram
+        a.tg = a.tg or MockTelegram(cfg.root / "tg")
+        prev = _post(1, 20, entities=["Tesla", "Tesla Roadster"], topic="Tesla Roadster unveiling event scheduled",
+                     telegram={"message_id": 77}, title="Tesla Roadster'ın tanıtım tarihi açıklandı")
+        a.store.save_post(prev)
+        a.store.save_post(_post(2, 20, entities=["Apple"], topic="Apple launches iPhone Duo", preview=False))
+        launch = [_q("Tesla unveils Roadster with SpaceX thrusters", 9, ["Tesla", "Tesla Roadster"], dup="s:p01"),
+                  _q("Tesla Roadster event moved to Friday", 8, ["Tesla"], dup="s:p01"),
+                  _q("iPhone Duo Türkiye fiyatı", 8, ["Apple"], dup="s:p02")]
+        dec = {0: {"action": "update", "target": "p01", "must_read": 8, "reason": "", "preview": False},
+               1: {"action": "update", "target": "p01", "must_read": 8, "reason": "", "preview": True},
+               2: {"action": "update", "target": "p02", "must_read": 8, "reason": "", "preview": False}}
+        out = a._guard(launch, dec, slots=3, min_score=7, covered=a._covered(48))
+        assert out[0]["action"] == "publish" and out[0]["replaces"] == "p01"          # asıl tanıtım: yeni haber
+        assert out[1]["action"] == "update"                                            # yine ön izleme: güncelleme
+        assert out[2]["action"] == "update" and not out[2].get("replaces")             # ön izleme olmayan haber
+        # yayınlanınca ön izleme haberi kalkar, adresi yeni habere yönlenir, Telegram mesajı güncellenir
+        d = {**_post(3, 0), "status": "pending", "replaces": "p01", "preview": False, "title": "Tesla Roadster tanıtıldı"}
+        d.pop("published_at")
+        d.pop("slug")
+        post = a.publish(d, auto=True)
+        assert not a.store.load_post("p01") and cfg.post_path(prev) in post["old_paths"]
+        out = (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "YERİNİ ASIL HABERE BIRAKTI" in out and "Tesla Roadster tanıtıldı" in out
+        assert not a._is_preview(post["id"])
+        # ön izleme olarak açılıp güncellenmiş eski haber: yeni haber olarak yeniden yayınlanır (bir kez)
+        old = {**_post(4, 50, title="Tesla Roadster roket iticileriyle tanıtıldı"), "updates": [{"at": "x", "note": "n"}],
+               "refreshed_at": iso(now_utc()), "telegram": {"message_id": 5}}
+        a.store.save_post(old)
+        old_path = cfg.post_path(old)
+        cfg.raw["maintenance"] = {"relaunch": ["p04"]}
+        a.apply_maintenance()
+        p = a.store.load_post("p04")
+        assert p["slug"].startswith("tesla-roadster-roket") and old_path in p["old_paths"] and "updates" not in p
+        assert hours_since(p["published_at"]) < 0.1 and p["relaunched"] and p["telegram"]["message_id"] != 5
+        a.apply_maintenance()
+        assert a.store.load_post("p04")["slug"] == p["slug"]
 
 def test_edit_uses_llm_and_falls_back():
     with _App() as (cfg, a):

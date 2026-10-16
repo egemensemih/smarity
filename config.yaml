@@ -127,6 +127,8 @@ maintenance:
     - ["377564d2b6", "48679f20de"]   # Kia Seltos Türkiye'de satışa çıktı (5 Eki ↔ 2 Eki)
     - ["671d0ac58e", "9976fc4746"]   # OpenAI en gelişmiş modellerinin eğitimini durdurdu (28 Eyl, aynı gün iki haber)
     - ["7f88f8a5fd", "d901a6a000"]   # ChatGPT Pro 500 Türkiye fiyatı (30 Eyl ↔ 27 Eyl)
+  relaunch:                          # ön izleme olarak açılıp asıl gelişmeyle güncellenen haber: yeni haber olarak yeniden yayınla
+    - "248dd99ad3"                   # Tesla Roadster tanıtıldı (14 Eki "tanıtım tarihi" haberi olarak açılmıştı)
   retitle:
     "95a0ae8187": "Uygun fiyatlı elektrikli Dacia Hipster 2027'de geliyor"   # başlıkta yurtdışı fiyatı vardı
 

@@ -167,9 +167,10 @@ EDIT_SCHEMA = {
                     "target": {"type": "string"},
                     "must_read": {"type": "integer"},
                     "big_brand": {"type": "boolean"},
+                    "preview": {"type": "boolean"},
                     "reason": {"type": "string"},
                 },
-                "required": ["cid", "action", "target", "must_read", "big_brand", "reason"],
+                "required": ["cid", "action", "target", "must_read", "big_brand", "preview", "reason"],
                 "additionalProperties": False,
             },
         }
@@ -231,11 +232,15 @@ Rules:
 - At most SLOTS "publish" decisions in this round; if more qualify, publish the strongest and "hold" the rest (they come
   in the next round — holding is not rejecting).
 - Duplicates among candidates (same product or event): publish at most one of them.
-- The real event beats its preview: a COVERED story that previews, teases or leaks a launch or event never makes the actual
-  announcement a duplicate or an "update". When a household-name company officially unveils products (an Apple event,
-  Samsung Unpacked, a new iPhone, PlayStation or Pixel…), the launch is a NEW story ("publish", must_read 9–10); if several
-  major products are announced, publish the most important ones as separate stories. Live blogs, "how to watch" and
-  "what to expect" pieces are still skipped.
+- The real event beats its preview: a COVERED story that previews, teases or leaks a launch or event (an announced date,
+  an invitation, a teaser, "what to expect", a leak) never makes the actual announcement a duplicate or an "update". When
+  the thing itself happens — products unveiled, a car revealed, a model or game released, a deal signed — it is a NEW
+  story ("publish"); the preview story is retired automatically and its address points to the new story. A household-name
+  launch, and anything spectacular that ordinary people will talk about (a flying car, a humanoid robot, a record), is
+  must_read 9–10; if several major products are announced, publish the most important ones as separate stories. Live blogs,
+  "how to watch" and "what to expect" pieces are still skipped.
+- preview: true if the candidate is only about something that has NOT happened yet — an announced date or invitation, a
+  teaser or countdown, "what to expect", a leak or rumor; false if the thing itself happened.
 - target: the covered story id for "update" (e.g. "ab12cd34ef"), the most similar covered id for a duplicate "skip", else "".
 - big_brand: true if the story is about a household-name company, brand, product or service that most people in Türkiye
   know (Apple, Samsung, Google, Microsoft, Meta, WhatsApp, Instagram, YouTube, OpenAI/ChatGPT, NVIDIA, Tesla, BYD, Togg,
