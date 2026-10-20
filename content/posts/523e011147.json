@@ -65,9 +65,12 @@
     "message_id": 1469
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "523e011147-g0.webp",
+    "credit": "The Verge",
+    "page": "https://www.theverge.com/tech/1014712/oura-smart-rings-track-cardio-effort-vo2-max-cardiovascular",
+    "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/oura1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "layout": "manset",
-    "palette": "inovasyon-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -76,7 +79,7 @@
   "published_at": "2026-10-20T17:52:54Z",
   "publish_mode": "auto",
   "path": "inovasyon/2026/10/oura-akilli-yuzuk-otomatik-vo2-max",
-  "photos_filled": "2026-10-20T19:54:12Z",
+  "photos_filled": "2026-10-20T21:55:27Z",
   "photos_tried": "2026-10-20T17:53:54Z",
   "coverage": [
     {
@@ -87,5 +90,21 @@
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/oura1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
       "at": "2026-10-20T20:37:15Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/oura1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/tech/1014712/oura-smart-rings-track-cardio-effort-vo2-max-cardiovascular",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "523e011147-g0.webp",
+      "w": 900,
+      "h": 600
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-20T17:52:54Z"
 }
