@@ -1,0 +1,125 @@
+{
+  "id": "ffc238d447",
+  "created_at": "2026-10-21T20:11:10Z",
+  "title": "PHP güvenlik açığı milyonlarca internet sitesini vurdu",
+  "summary": "Yapay zeka modellerinin de tespit ettiği kritik PHP güvenlik açığı nedeniyle dünya genelinde hükümet siteleri dahil çok sayıda internet site erişime kapatıldı.",
+  "body": "Yapay zeka modellerinin de yardımıyla tespit edilen kritik PHP güvenlik açığı, dünya genelinde milyonlarca internet sitesini etkiledi. The Decoder'ın aktardığına göre, **GPT-5.6 Sol** ve Google'ın Gemini 4 Argon modelleri, dünya internet sitelerinin büyük kısmını destekleyen programlama dilindeki açığı kötü niyetli kişilerden önce fark etti. Anadolu Ajansı'nın haberine göre ise açığın duyulmasının ardından ABD'den İskandinav ülkelerine kadar pek çok devlet kurumu ve kuruluş önlem amacıyla sistemlerini geçici olarak çevrim dışı bıraktı.\n\n## Yapay zeka ve güvenlik açığı süreci\n\nOpenAI'ın açıklamasına göre, şirket son iki ay boyunca PHP'deki güvenlik açıklarını gidermek amacıyla araştırmacılar, PHP geliştiricileri, Cloudflare ve ABD kurumlarıyla koordineli bir sürece öncülük etti. Güvenlik firması Wiz de Google ve OpenAI modellerini kullanarak açıkları bağımsız olarak doğruladı. Wiz, büyük dil modellerinin farklı PHP sürümlerinde ve bellek düzenlerinde saldırıları otomatik olarak uyarlayabildiğine dikkat çekerek, bu durumun saldırıların ölçeklenmesini kolaylaştırdığını belirtti.\n\n## Dünya genelinde alınan önlemler\n\nFBI ve NSA, PHP'deki bu kritik açıkların uzaktan kod çalıştırmaya ve hassas verilerin tehlikeye girmesine yol açabileceği konusunda uyarıda bulundu. Güncelleme yapamayan kurum ve kişilere sitelerini çevrim dışı bırakmaları tavsiye edildi. Hollanda, Norveç, Danimarka, Finlandiya ve Japonya'da devlet hizmetleri, veri paylaşım sistemleri ve bazı bakanlık siteleri geçici olarak erişime kapatıldı. PHP Vakfı ise düzeltmelerin ve sistemlerin nasıl güncelleneceğine dair talimatların yayımlandığını duyurdu.\n\n**Neden önemli?** Yapay zeka modellerinin kritik güvenlik açıklarını erkenden tespit etmesi savunma açısından avantaj sağlarken, aynı yeteneklerin saldırganlar tarafından da kullanılabilmesi siber güvenlik dengelerini değiştiriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "Google",
+    "ABD",
+    "Japonya",
+    "Hollanda"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "PHP güvenlik açığı internet sitelerini vurdu",
+  "kicker": "Kritik açık",
+  "hero_stat": "%70",
+  "hero_stat_label": "etkilenen internet siteleri oranı",
+  "visual_style": "studio",
+  "visual_scene": "a dark minimalist studio setup with multiple vertical glass shards representing code structures, a sharp warm light beam cutting through a central fracture representing a software vulnerability, surrounded by tiny scattered digital dust particles",
+  "focus_keyword": "PHP güvenlik açığı",
+  "seo_title": "PHP güvenlik açığı milyonlarca siteyi etkiledi",
+  "meta_description": "Yapay zeka modellerinin tespit ettiği kritik PHP güvenlik açığı nedeniyle dünya genelinde birçok internet sitesi geçici olarak erişime kapatıldı.",
+  "seo_slug": "php-guvenlik-acigi-milyonlarca-siteyi-vurdu",
+  "image_alt": "Karanlık bir stüdyo ortamında cam yapıları ve dijital güvenlik açıklarını temsil eden ışık kırılmaları",
+  "cover_text": "PHP güvenlik açığı",
+  "carousel_points": [
+    "GPT-5.6 Sol ve Gemini 4 Argon modelleri kritik PHP açığını keşfetti.",
+    "Dünya genelinde hükümet siteleri ve pek çok platform geçici olarak kapatıldı.",
+    "PHP Vakfı sistemlerin güncellenmesi için talimatlar yayımladı."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "PHP güvenlik açığı milyonlarca siteyi durdurdu",
+  "cover_highlight": "PHP güvenlik açığı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Yapay zeka modelleri milyonlarca siteyi etkileyen kritik PHP açığını buldu.",
+  "entities": [
+    "OpenAI",
+    "Google",
+    "GPT-5.6 Sol"
+  ],
+  "topic": "Critical PHP vulnerability discovered by AI models",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
+      "title": "OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found critical PHP flaw affecting millions of websites",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/#respond",
+      "published": "2026-10-21T19:45:01Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/08/cybersecurity_kraken.png"
+    },
+    {
+      "name": "Anadolu Ajansı",
+      "url": "https://www.aa.com.tr/tr/bilim-teknoloji/dunya-capinda-php-kaynakli-guvenlik-aciginin-giderilmesi-icin-cok-sayida-internet-sitesi-erisime-kapatildi/4096454",
+      "title": "Dünya çapında PHP kaynaklı güvenlik açığının giderilmesi için çok sayıda internet sitesi erişime kapatıldı",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-21T19:43:18Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "The Decoder",
+    "Anadolu Ajansı"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1515
+  },
+  "photos": [
+    {
+      "src": "https://the-decoder.com/wp-content/uploads/2026/08/cybersecurity_kraken.png",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ffc238d447-g0.webp",
+      "w": 1376,
+      "h": 768
+    },
+    {
+      "src": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/10/21/thumbs_b_c_2f15d95897bb7ef8e6eec533438bb1d8.jpg",
+      "credit": "Anadolu Ajansı",
+      "page": "https://www.aa.com.tr/tr/bilim-teknoloji/dunya-capinda-php-kaynakli-guvenlik-aciginin-giderilmesi-icin-cok-sayida-internet-sitesi-erisime-kapatildi/4096454",
+      "alt": "Dünya çapında PHP kaynaklı güvenlik açığının giderilmesi için çok sayıda internet sitesi erişime kapatıldı",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ffc238d447-g1.webp",
+      "w": 864,
+      "h": 486
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "ffc238d447-g0.webp",
+    "credit": "The Decoder",
+    "page": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
+    "src": "https://the-decoder.com/wp-content/uploads/2026/08/cybersecurity_kraken.png",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "php-guvenlik-acigi-milyonlarca-siteyi-vurdu",
+  "published_at": "2026-10-21T20:11:16Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/10/php-guvenlik-acigi-milyonlarca-siteyi-vurdu",
+  "photos_vetted": "2026-10-21T20:11:20Z",
+  "photos_vet_v": 2
+}
