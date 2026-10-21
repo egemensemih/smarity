@@ -1,0 +1,111 @@
+{
+  "id": "27f70dd3a7",
+  "created_at": "2026-10-21T02:46:11Z",
+  "title": "Google Chrome dolandırıcılık girişimleri için erken uyarı sistemini devreye sokuyor",
+  "summary": "Google Chrome, şüpheli siteleri tespit etmek için Enhanced Protection moduna yeni bir 'Şüpheli siteler' kategorisi ekliyor.",
+  "body": "Google Chrome, kullanıcıları tehlikeli olabilecek web sitelerine karşı korumak amacıyla **erken uyarı sistemi** geliştiriyor. Digital Trends'in aktardığına göre, tarayıcının Enhanced Protection moduna eklenen yeni 'Şüpheli siteler' kategorisi, tam olarak tehlikeli sınıfına girmeyen ancak kuşkulu desenler sergileyen sayfaları işaretleyecek.\n\n## Yeni uyarılar nasıl çalışacak?\n\nGüvenli Tarama sistemi bir sitenin zararlı olduğundan tamamen emin olmadığında, standart kırmızı tam ekran uyarı yerine farklı renk, simge ve metinler içeren yeni bir uyarı gösterilecek. Bilinen tehlikeli web siteleri ise mevcut kırmızı ekranla engellenmeye devam edecek. Yapay zekâ destekli bu yeni katman, özellikle yapay zekâ ile gerçeğe yakın şekilde kopyalanan e-ticaret ve destek sitelerine karşı ekstra güvenlik sağlayacak.\n\n## Sunucu tabanlı Gemini desteği\n\nGoogle, bu süreçte tarayıcı içi Gemini modelinden daha güçlü bir sunucu tarafı sürümüne geçiş yapıyor. Bu sayede sistem; sitenin taklit ettiği markayı, amacını ve dolandırıcılık ihtimalini daha detaylı inceleyebiliyor. Ayrıca Chrome, kullanıcıların zararlı komutları kopyalayıp çalıştırmasını hedefleyen 'ClickFix' saldırılarına karşı da koruma getirdi.\n\n**Neden önemli?** Dolandırıcıların yapay zekâ ile ikna edici kopya siteler oluşturduğu bu dönemde, sistemin henüz kesin kanıt bulamadığı durumlarda bile erken uyarı vermesi kullanıcıların hassas bilgilerini korumasına yardımcı olacak.",
+  "category": "teknoloji",
+  "tags": [
+    "Google",
+    "Google Chrome",
+    "Gemini"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Chrome'a dolandırıcılıklar için erken uyarı geliyor",
+  "kicker": "Yeni güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a single smooth dark grey obsidian shield standing upright on a reflective surface, with a thin amber light line glowing along its curved edge",
+  "focus_keyword": "erken uyarı sistemi",
+  "seo_title": "Google Chrome dolandırıcılıklar için erken uyarı sistemi…",
+  "meta_description": "Google Chrome, Enhanced Protection moduna eklenen yeni şüpheli siteler kategorisi ile kullanıcıları dolandırıcılıklara karşı erken uyarı sistemiyle koruyacak.",
+  "seo_slug": "google-chrome-erken-uyari-sistemi",
+  "image_alt": "Karanlık bir yüzey üzerinde parlayan kehribar ışık çizgisine sahip gri koruma kalkanı görseli",
+  "cover_text": "Chrome Güvenlik",
+  "carousel_points": [
+    "Google Chrome şüpheli siteler için yeni bir erken uyarı sistemi geliştiriyor.",
+    "Enhanced Protection moduna eklenen özellik, tam olarak kanıtlanamayan riskleri farklı renklerle bildirecek.",
+    "Sunucu tabanlı Gemini modeli sitelerin dolandırıcılık ihtimalini analiz edecek."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Chrome şüpheli siteler için uyarıyor",
+  "cover_highlight": "",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Chrome'a eklenen şüpheli site uyarı sistemi geniş kitleyi ilgilendiriyor.",
+  "entities": [
+    "Google",
+    "Google Chrome"
+  ],
+  "topic": "Google Chrome adds early warning system for suspicious sites",
+  "sources": [
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/computing/google-chromes-new-early-warning-system-could-help-you-spot-scam-sites/",
+      "title": "Google Chrome’s new early warning system could help you spot scam sites",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-21T02:31:33Z",
+      "image": "https://www.digitaltrends.com/tachyon/2026/01/wedding-75.jpg?resize=440%2C292"
+    }
+  ],
+  "source_keys": [
+    "Digital Trends"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1478
+  },
+  "photos": [
+    {
+      "src": "https://www.digitaltrends.com/tachyon/2026/10/Google-Chrome-enhanced-production.jpg?resize=1503%2C902",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/google-chromes-new-early-warning-system-could-help-you-spot-scam-sites/",
+      "alt": "Google Chrome enhanced production",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "27f70dd3a7-g0.webp",
+      "w": 1503,
+      "h": 902
+    },
+    {
+      "src": "https://www.digitaltrends.com/tachyon/2026/10/Google-Chrome-dangerious-website-warning.jpg?resize=2000%2C1200",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/google-chromes-new-early-warning-system-could-help-you-spot-scam-sites/",
+      "alt": "Dangerous site warnings in Google Chrome browser",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "27f70dd3a7-g1.webp",
+      "w": 1600,
+      "h": 960
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "27f70dd3a7-g0.webp",
+    "credit": "Digital Trends",
+    "page": "https://www.digitaltrends.com/computing/google-chromes-new-early-warning-system-could-help-you-spot-scam-sites/",
+    "src": "https://www.digitaltrends.com/tachyon/2026/10/Google-Chrome-enhanced-production.jpg?resize=1503%2C902",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "google-chrome-erken-uyari-sistemi",
+  "published_at": "2026-10-21T02:46:32Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/google-chrome-erken-uyari-sistemi",
+  "photos_vetted": "2026-10-21T02:46:37Z",
+  "photos_vet_v": 2
+}
