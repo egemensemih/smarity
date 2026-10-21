@@ -1,41 +1,41 @@
 {
   "id": "ffc238d447",
   "created_at": "2026-10-21T20:11:10Z",
-  "title": "PHP güvenlik açığı milyonlarca internet sitesini vurdu",
-  "summary": "Yapay zeka modellerinin de tespit ettiği kritik PHP güvenlik açığı nedeniyle dünya genelinde hükümet siteleri dahil çok sayıda internet site erişime kapatıldı.",
-  "body": "Yapay zeka modellerinin de yardımıyla tespit edilen kritik PHP güvenlik açığı, dünya genelinde milyonlarca internet sitesini etkiledi. The Decoder'ın aktardığına göre, **GPT-5.6 Sol** ve Google'ın Gemini 4 Argon modelleri, dünya internet sitelerinin büyük kısmını destekleyen programlama dilindeki açığı kötü niyetli kişilerden önce fark etti. Anadolu Ajansı'nın haberine göre ise açığın duyulmasının ardından ABD'den İskandinav ülkelerine kadar pek çok devlet kurumu ve kuruluş önlem amacıyla sistemlerini geçici olarak çevrim dışı bıraktı.\n\n## Yapay zeka ve güvenlik açığı süreci\n\nOpenAI'ın açıklamasına göre, şirket son iki ay boyunca PHP'deki güvenlik açıklarını gidermek amacıyla araştırmacılar, PHP geliştiricileri, Cloudflare ve ABD kurumlarıyla koordineli bir sürece öncülük etti. Güvenlik firması Wiz de Google ve OpenAI modellerini kullanarak açıkları bağımsız olarak doğruladı. Wiz, büyük dil modellerinin farklı PHP sürümlerinde ve bellek düzenlerinde saldırıları otomatik olarak uyarlayabildiğine dikkat çekerek, bu durumun saldırıların ölçeklenmesini kolaylaştırdığını belirtti.\n\n## Dünya genelinde alınan önlemler\n\nFBI ve NSA, PHP'deki bu kritik açıkların uzaktan kod çalıştırmaya ve hassas verilerin tehlikeye girmesine yol açabileceği konusunda uyarıda bulundu. Güncelleme yapamayan kurum ve kişilere sitelerini çevrim dışı bırakmaları tavsiye edildi. Hollanda, Norveç, Danimarka, Finlandiya ve Japonya'da devlet hizmetleri, veri paylaşım sistemleri ve bazı bakanlık siteleri geçici olarak erişime kapatıldı. PHP Vakfı ise düzeltmelerin ve sistemlerin nasıl güncelleneceğine dair talimatların yayımlandığını duyurdu.\n\n**Neden önemli?** Yapay zeka modellerinin kritik güvenlik açıklarını erkenden tespit etmesi savunma açısından avantaj sağlarken, aynı yeteneklerin saldırganlar tarafından da kullanılabilmesi siber güvenlik dengelerini değiştiriyor.",
+  "title": "PHP güvenlik açığı krizi büyüyor: Yapay zekanın bulduğu açıklar interneti sarstı",
+  "summary": "Yapay zeka araçlarının yardımıyla ortaya çıkarılan kritik PHP güvenlik açıkları nedeniyle dünya genelinde kamu kurumları ve siteler önlem amaçlı kapatıldı.",
+  "body": "İnternetin büyük bölümünün altyapısını oluşturan programlama dilinde tespit edilen PHP güvenlik açığı küresel ölçekte krize yol açtı. DonanımHaber ve Engadget'ın aktardığına göre, son yirmi yılda yayımlanan PHP sürümlerini etkileyen iki kritik açık, saldırganların uzaktan kod çalıştırmasına zemin hazırlayabiliyor. CERT-EU tarafından 10 üzerinden 9,2 seviyesinde değerlendirilen bu risk, Hollanda, Danimarka, Fransa, Finlandiya ve Kanada gibi ülkelerde kamu kurumlarının internet sitelerini geçici olarak erişime kapatmasına neden oldu.\n\n## Yapay zeka süreci nasıl hızlandırdı?\n\nDonanımHaber'in haberine göre, Calif araştırmacıları OpenAI'ın GPT-5.6 Sol modelini kullanarak kod tabanındaki bu açıkları keşfederken, Google bünyesindeki Wiz de kendi yapay zeka araçlarıyla sorunları bağımsız olarak doğruladı. Wiz'e göre geleneksel yöntemlerle son derece karmaşık adımlar gerektiren istismar süreçleri, yapay zeka modelleri sayesinde hız kazandı ve uzun süredir kodda bulunan hatalar pratikte kullanılabilir hale geldi. Diğer yandan yama sürecinde yaşanan bazı sızıntılar ve ambargo ihlalleri tartışmaları artırdı.\n\n## Alınan önlemler ve çağrılar\n\nPHP Foundation güvenlik yaması yayımlarken, Beyaz Saray ve CISA gibi kuruluşlar site yöneticilerini güncellemeleri acilen uygulamaya çağırdı. Wikimedia Foundation ve bazı Avrupa kurumları da güncellemeler güvenli biçimde tamamlanana kadar sistemlerini devre dışı bıraktı. Kendi sunucusunda PHP barındıran veya WordPress kullanan yöneticilerin sistemlerini en güncel sürüme yükseltmesi gerekiyor.\n\n**Neden önemli?** Yapay zeka modellerinin karmaşık güvenlik açıklarını hızla ortaya çıkarması, hem erken savunma imkanı sunuyor hem de kötü niyetli kişilerin bu açıkları istismar etme sürecini hızlandırarak siber güvenlik dengelerini değiştiriyor.",
   "category": "super-zeka",
   "tags": [
+    "PHP",
     "OpenAI",
     "Google",
-    "ABD",
-    "Japonya",
-    "Hollanda"
+    "Cloudflare",
+    "WordPress"
   ],
   "confidence": "yuksek",
   "flags": [],
   "editor_note": "",
-  "short_title": "PHP güvenlik açığı internet sitelerini vurdu",
-  "kicker": "Kritik açık",
-  "hero_stat": "%70",
-  "hero_stat_label": "etkilenen internet siteleri oranı",
+  "short_title": "PHP güvenlik açığı krizi büyüyor",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "9,2",
+  "hero_stat_label": "CVSS risk puanı",
   "visual_style": "studio",
   "visual_scene": "a dark minimalist studio setup with multiple vertical glass shards representing code structures, a sharp warm light beam cutting through a central fracture representing a software vulnerability, surrounded by tiny scattered digital dust particles",
   "focus_keyword": "PHP güvenlik açığı",
-  "seo_title": "PHP güvenlik açığı milyonlarca siteyi etkiledi",
-  "meta_description": "Yapay zeka modellerinin tespit ettiği kritik PHP güvenlik açığı nedeniyle dünya genelinde birçok internet sitesi geçici olarak erişime kapatıldı.",
+  "seo_title": "PHP güvenlik açığı krizi büyüyor ve siteler kapatılıyor",
+  "meta_description": "Yapay zeka ile keşfedilen kritik PHP güvenlik açığı interneti sarstı. Hollanda, Fransa ve Kanada gibi ülkelerde kamu siteleri geçici olarak kapatıldı.",
   "seo_slug": "php-guvenlik-acigi-milyonlarca-siteyi-vurdu",
-  "image_alt": "Karanlık bir stüdyo ortamında cam yapıları ve dijital güvenlik açıklarını temsil eden ışık kırılmaları",
-  "cover_text": "PHP güvenlik açığı",
+  "image_alt": "Buzlu cam küplerden yükselen grafik: yapay zeka ile tespit edilen PHP güvenlik açığı krizini temsil eden görsel",
+  "cover_text": "PHP",
   "carousel_points": [
-    "GPT-5.6 Sol ve Gemini 4 Argon modelleri kritik PHP açığını keşfetti.",
-    "Dünya genelinde hükümet siteleri ve pek çok platform geçici olarak kapatıldı.",
-    "PHP Vakfı sistemlerin güncellenmesi için talimatlar yayımladı."
+    "İnternetin yaklaşık yüzde 70'inde kullanılan PHP dilinde iki kritik açık bulundu.",
+    "Yapay zeka modellerinin yardımıyla keşfedilen açıklar uzaktan kod çalıştırmaya imkan tanıyor.",
+    "Hollanda, Fransa, Finlandiya ve Kanada'da kamu siteleri geçici olarak kapatıldı."
   ],
-  "appeal": 8,
+  "appeal": 9,
   "update_note": "",
-  "cover_headline": "PHP güvenlik açığı milyonlarca siteyi durdurdu",
-  "cover_highlight": "PHP güvenlik açığı",
+  "cover_headline": "PHP açığı nedeniyle kamu siteleri kapatıldı",
+  "cover_highlight": "kamu siteleri kapatıldı",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -68,11 +68,43 @@
       "via_url": null,
       "published": "2026-10-21T19:43:18Z",
       "image": null
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/php-nedir-neden-tum-interneti-tehdit-ediyor--211938",
+      "title": "PHP nedir, neden tüm interneti tehdit ediyor?",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-21T21:03:02Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/211938/1200x675php-nedir-neden-tum-interneti-tehdit-ediyor.jpg"
+    },
+    {
+      "name": "Engadget",
+      "url": "https://www.engadget.com/2293625/government-websites-in-the-eu-and-canada-taken-offline-over-php-vulnerability/",
+      "title": "Government websites in the EU and Canada taken offline over PHP vulnerability",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-21T20:56:47Z",
+      "image": "https://www.engadget.com/img/gallery/government-websites-in-eu-and-canada-taken-offline-over-php-vulnerability/l-intro-1792616156.jpg"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis--211937",
+      "title": "PHP’deki kritik güvenlik açığı 2024’ten beri biliniyordu: Yama süreci krize dönüştü!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-21T20:56:09Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/211937/1200x675milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis.jpg"
     }
   ],
   "source_keys": [
     "The Decoder",
-    "Anadolu Ajansı"
+    "Anadolu Ajansı",
+    "DonanımHaber",
+    "Engadget"
   ],
   "rewrites": 0,
   "telegram": {
@@ -162,6 +194,42 @@
       "kind": "media",
       "image": "https://www.donanimhaber.com/images/images/haber/211935/1200x675php-krizi-interneti-vurdu-dunya-capinda-web-siteleri-kapatiliyor.jpg",
       "at": "2026-10-21T20:55:38Z"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/php-nedir-neden-tum-interneti-tehdit-ediyor--211938",
+      "title": "PHP nedir, neden tüm interneti tehdit ediyor?",
+      "kind": "media",
+      "image": "https://www.donanimhaber.com/images/images/haber/211938/1200x675php-nedir-neden-tum-interneti-tehdit-ediyor.jpg",
+      "at": "2026-10-21T21:10:41Z"
+    },
+    {
+      "name": "Engadget",
+      "url": "https://www.engadget.com/2293625/government-websites-in-the-eu-and-canada-taken-offline-over-php-vulnerability/",
+      "title": "Government websites in the EU and Canada taken offline over PHP vulnerability",
+      "kind": "media",
+      "image": "https://www.engadget.com/img/gallery/government-websites-in-eu-and-canada-taken-offline-over-php-vulnerability/l-intro-1792616156.jpg",
+      "at": "2026-10-21T21:10:41Z"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis--211937",
+      "title": "PHP’deki kritik güvenlik açığı 2024’ten beri biliniyordu: Yama süreci krize dönüştü!",
+      "kind": "media",
+      "image": "https://www.donanimhaber.com/images/images/haber/211937/1200x675milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis.jpg",
+      "at": "2026-10-21T21:10:41Z"
+    }
+  ],
+  "updated_at": "2026-10-21T21:12:25Z",
+  "refreshed_at": "2026-10-21T21:12:25Z",
+  "updates": [
+    {
+      "at": "2026-10-21T21:12:25Z",
+      "note": "Yapay zeka destekli tespitlerin ardından Avrupa ve Kanada'da kamu sitelerinin geçici olarak kapatılmasına yol açan yeni PHP güvenlik açığı krizi ve yama…",
+      "sources": [
+        "DonanımHaber",
+        "Engadget"
+      ]
     }
   ]
 }
