@@ -1,41 +1,41 @@
 {
   "id": "ffc238d447",
   "created_at": "2026-10-21T20:11:10Z",
-  "title": "PHP güvenlik açığı krizi büyüyor: Yapay zekanın bulduğu açıklar interneti sarstı",
-  "summary": "Yapay zeka araçlarının yardımıyla ortaya çıkarılan kritik PHP güvenlik açıkları nedeniyle dünya genelinde kamu kurumları ve siteler önlem amaçlı kapatıldı.",
-  "body": "İnternetin büyük bölümünün altyapısını oluşturan programlama dilinde tespit edilen PHP güvenlik açığı küresel ölçekte krize yol açtı. DonanımHaber ve Engadget'ın aktardığına göre, son yirmi yılda yayımlanan PHP sürümlerini etkileyen iki kritik açık, saldırganların uzaktan kod çalıştırmasına zemin hazırlayabiliyor. CERT-EU tarafından 10 üzerinden 9,2 seviyesinde değerlendirilen bu risk, Hollanda, Danimarka, Fransa, Finlandiya ve Kanada gibi ülkelerde kamu kurumlarının internet sitelerini geçici olarak erişime kapatmasına neden oldu.\n\n## Yapay zeka süreci nasıl hızlandırdı?\n\nDonanımHaber'in haberine göre, Calif araştırmacıları OpenAI'ın GPT-5.6 Sol modelini kullanarak kod tabanındaki bu açıkları keşfederken, Google bünyesindeki Wiz de kendi yapay zeka araçlarıyla sorunları bağımsız olarak doğruladı. Wiz'e göre geleneksel yöntemlerle son derece karmaşık adımlar gerektiren istismar süreçleri, yapay zeka modelleri sayesinde hız kazandı ve uzun süredir kodda bulunan hatalar pratikte kullanılabilir hale geldi. Diğer yandan yama sürecinde yaşanan bazı sızıntılar ve ambargo ihlalleri tartışmaları artırdı.\n\n## Alınan önlemler ve çağrılar\n\nPHP Foundation güvenlik yaması yayımlarken, Beyaz Saray ve CISA gibi kuruluşlar site yöneticilerini güncellemeleri acilen uygulamaya çağırdı. Wikimedia Foundation ve bazı Avrupa kurumları da güncellemeler güvenli biçimde tamamlanana kadar sistemlerini devre dışı bıraktı. Kendi sunucusunda PHP barındıran veya WordPress kullanan yöneticilerin sistemlerini en güncel sürüme yükseltmesi gerekiyor.\n\n**Neden önemli?** Yapay zeka modellerinin karmaşık güvenlik açıklarını hızla ortaya çıkarması, hem erken savunma imkanı sunuyor hem de kötü niyetli kişilerin bu açıkları istismar etme sürecini hızlandırarak siber güvenlik dengelerini değiştiriyor.",
+  "title": "PHP güvenlik güncellemesi yayımlandı: Geliştirici ekipten gecikme itirafı",
+  "summary": "PHP geliştiricileri sunucuları tehdit eden iki kritik açık için güvenlik güncellemesi yayımlarken, yamalarda yaşanan yıllar süreli gecikme için başarısızlık itirafında bulundu.",
+  "body": "PHP geliştirme ekibi, dünya genelinde binlerce sunucuyu etkileyen ve CVSS 4.0 ölçeğinde 9,2 risk puanına sahip iki kritik açık için **PHP güvenlik güncellemesi** yayımladı. 21 Ekim 2026'da yayımlanan yamalar PHP 8.5.12, 8.4.27, 8.3.36 ve 8.2.35 sürümleriyle erişime sunulurken, Apache sunucularındaki mod_php yapılandırmalarının en yüksek riski taşıdığı bildirildi.\n\n## Yıllar süren gecikme ve itiraf\n\nAnadolu Ajansı'nın aktardığına göre PHP ekibi, açıklardan birinin ilk olarak 2024 yılında tespit edildiğini ancak teknik görüş ayrılıkları ve uzman eksikliği nedeniyle sürecin aksadığını açıkladı. Geliştiriciler durumu yapısal bir başarısızlık olarak nitelendirdi. OpenAI'ın \"Patch the Planet\" programı ve Wiz Research'ün Gemini 4 Argon ile GPT-5.6 Sol yapay zeka modelleriyle yaptığı incelemeler, güncelleme takvimini öne çekti.\n\n## PHP güvenlik güncellemesi nasıl uygulanır?\n\nDonanımHaber'in aktardığı bilgilere göre web sitesi yöneticilerinin öncelikle mevcut sürümlerini doğrulayıp **yedek alma** adımlarını tamamlaması gerekiyor:\n\n* Hosting kullanıcıları cPanel üzerindeki MultiPHP Manager veya firma panellerinden sürümlerini güncellemeli.\n* WordPress altyapısı kullananlar, eklenti ve tema uyumluluğunu kontrol ettikten sonra sürüm yükseltmeli.\n* Kendi sunucusunu yönetenler PHP-FPM veya ilgili servisleri güncel imajlarla yeniden başlatmalı.\n\n**Neden önemli?** Kimlik doğrulaması olmadan uzaktan kod çalıştırılmasına izin veren bu açıklar, internet altyapısının büyük bölümünü doğrudan tehdit ettiği için yamaların acilen uygulanması hayatı önem taşıyor.",
   "category": "super-zeka",
   "tags": [
     "PHP",
     "OpenAI",
-    "Google",
-    "Cloudflare",
+    "Wiz Research",
+    "cPanel",
     "WordPress"
   ],
   "confidence": "yuksek",
   "flags": [],
   "editor_note": "",
-  "short_title": "PHP güvenlik açığı krizi büyüyor",
-  "kicker": "Siber güvenlik",
+  "short_title": "PHP için kritik güvenlik yamaları yayımlandı",
+  "kicker": "Güvenlik yaması",
   "hero_stat": "9,2",
   "hero_stat_label": "CVSS risk puanı",
   "visual_style": "studio",
   "visual_scene": "a dark minimalist studio setup with multiple vertical glass shards representing code structures, a sharp warm light beam cutting through a central fracture representing a software vulnerability, surrounded by tiny scattered digital dust particles",
-  "focus_keyword": "PHP güvenlik açığı",
-  "seo_title": "PHP güvenlik açığı krizi büyüyor ve siteler kapatılıyor",
-  "meta_description": "Yapay zeka ile keşfedilen kritik PHP güvenlik açığı interneti sarstı. Hollanda, Fransa ve Kanada gibi ülkelerde kamu siteleri geçici olarak kapatıldı.",
+  "focus_keyword": "PHP güvenlik güncellemesi",
+  "seo_title": "PHP güvenlik güncellemesi yayımlandı: Kritik yamalar çıktı",
+  "meta_description": "PHP güvenlik güncellemesi yayımlandı. Sunucuları tehdit eden iki kritik açık kapatılırken geliştirici ekip gecikme itirafında bulundu.",
   "seo_slug": "php-guvenlik-acigi-milyonlarca-siteyi-vurdu",
-  "image_alt": "Buzlu cam küplerden yükselen grafik: yapay zeka ile tespit edilen PHP güvenlik açığı krizini temsil eden görsel",
+  "image_alt": "Sunucu kasası ve üzerinde kilit görseliyle PHP güvenlik güncellemesini temsil eden illüstrasyon",
   "cover_text": "PHP",
   "carousel_points": [
-    "İnternetin yaklaşık yüzde 70'inde kullanılan PHP dilinde iki kritik açık bulundu.",
-    "Yapay zeka modellerinin yardımıyla keşfedilen açıklar uzaktan kod çalıştırmaya imkan tanıyor.",
-    "Hollanda, Fransa, Finlandiya ve Kanada'da kamu siteleri geçici olarak kapatıldı."
+    "PHP ekibi iki kritik güvenlik açığını kapatan yeni sürüm yamalarını resmi olarak yayımladı.",
+    "Geliştiriciler açıklardan birinin 2024'ten beri bilindiğini ve gecikmenin yapısal bir hata olduğunu bildirdi.",
+    "Web sitesi yöneticilerinin sunucu yedeklerini alarak sistemlerini vakit kaybetmeden güncellemesi gerekiyor."
   ],
   "appeal": 9,
   "update_note": "",
-  "cover_headline": "PHP açığı nedeniyle kamu siteleri kapatıldı",
-  "cover_highlight": "kamu siteleri kapatıldı",
+  "cover_headline": "PHP kritik güvenlik yamalarını yayımladı",
+  "cover_highlight": "güvenlik yamalarını",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -98,6 +98,26 @@
       "via_url": null,
       "published": "2026-10-21T20:56:09Z",
       "image": "https://www.donanimhaber.com/images/images/haber/211937/1200x675milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis.jpg"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/php-surumu-nasil-guncellenir-php-surumu-ogrenme-ve-guncelleme--211948",
+      "title": "Kritik PHP güvenlik yaması yayınlandı! Peki PHP nasıl güncellenir?",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-22T08:59:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/211948/1200x675php-surumu-nasil-guncellenir-php-surumu-ogrenme-ve-guncelleme.jpg"
+    },
+    {
+      "name": "Anadolu Ajansı",
+      "url": "https://www.aa.com.tr/tr/bilim-teknoloji/php-sunuculari-tehdit-eden-iki-kritik-guvenlik-acigini-gidermek-icin-guncelleme-yayimladi/4096863",
+      "title": "PHP, sunucuları tehdit eden iki kritik güvenlik açığını gidermek için güncelleme yayımladı",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-22T08:52:02Z",
+      "image": null
     }
   ],
   "source_keys": [
@@ -155,22 +175,6 @@
   "photos_vetted": "2026-10-21T20:11:20Z",
   "photos_vet_v": 2,
   "coverage": [
-    {
-      "name": "DonanımHaber",
-      "url": "https://www.donanimhaber.com/php-nedir-neden-tum-interneti-tehdit-ediyor--211938",
-      "title": "PHP nedir, neden tüm interneti tehdit ediyor?",
-      "kind": "media",
-      "image": "https://www.donanimhaber.com/images/images/haber/211938/1200x675php-nedir-neden-tum-interneti-tehdit-ediyor.jpg",
-      "at": "2026-10-21T21:10:41Z"
-    },
-    {
-      "name": "Engadget",
-      "url": "https://www.engadget.com/2293625/government-websites-in-the-eu-and-canada-taken-offline-over-php-vulnerability/",
-      "title": "Government websites in the EU and Canada taken offline over PHP vulnerability",
-      "kind": "media",
-      "image": "https://www.engadget.com/img/gallery/government-websites-in-eu-and-canada-taken-offline-over-php-vulnerability/l-intro-1792616156.jpg",
-      "at": "2026-10-21T21:10:41Z"
-    },
     {
       "name": "DonanımHaber",
       "url": "https://www.donanimhaber.com/milyonlarca-siteyi-ilgilendiren-php-acigi-2024-te-tespit-edilmis--211937",
@@ -314,10 +318,26 @@
       "kind": "media",
       "image": null,
       "at": "2026-10-22T08:45:40Z"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/php-surumu-nasil-guncellenir-php-surumu-ogrenme-ve-guncelleme--211948",
+      "title": "Kritik PHP güvenlik yaması yayınlandı! Peki PHP nasıl güncellenir?",
+      "kind": "media",
+      "image": "https://www.donanimhaber.com/images/images/haber/211948/1200x675php-surumu-nasil-guncellenir-php-surumu-ogrenme-ve-guncelleme.jpg",
+      "at": "2026-10-22T09:01:13Z"
+    },
+    {
+      "name": "Anadolu Ajansı",
+      "url": "https://www.aa.com.tr/tr/bilim-teknoloji/php-sunuculari-tehdit-eden-iki-kritik-guvenlik-acigini-gidermek-icin-guncelleme-yayimladi/4096863",
+      "title": "PHP, sunucuları tehdit eden iki kritik güvenlik açığını gidermek için güncelleme yayımladı",
+      "kind": "media",
+      "image": null,
+      "at": "2026-10-22T09:01:13Z"
     }
   ],
-  "updated_at": "2026-10-21T21:12:25Z",
-  "refreshed_at": "2026-10-21T21:12:25Z",
+  "updated_at": "2026-10-22T09:02:21Z",
+  "refreshed_at": "2026-10-22T09:02:21Z",
   "updates": [
     {
       "at": "2026-10-21T21:12:25Z",
@@ -325,6 +345,14 @@
       "sources": [
         "DonanımHaber",
         "Engadget"
+      ]
+    },
+    {
+      "at": "2026-10-22T09:02:21Z",
+      "note": "PHP ekibinin resmi güvenlik yamalarını yayımlaması ve 2024'ten beri süren gecikmeye dair yapısal başarısızlık itirafı eklenmiştir.",
+      "sources": [
+        "DonanımHaber",
+        "Anadolu Ajansı"
       ]
     }
   ]
