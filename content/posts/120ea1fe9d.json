@@ -1,0 +1,111 @@
+{
+  "id": "120ea1fe9d",
+  "created_at": "2026-10-22T23:16:03Z",
+  "title": "WhatsApp iOS için mesaj zamanlama özelliğini test etmeye başladı",
+  "summary": "WhatsApp, iOS kullanıcıları için mesaj zamanlama özelliğini test etmeye başladı. Özellik sayesinde kullanıcılar ileri bir tarih ve saat için mesaj planlayabiliyor.",
+  "body": "GSMArena'nın aktardığına göre **WhatsApp**, mesaj zamanlama özelliğini iOS platformundaki test kullanıcıları için genişletmeye başladı. Daha önce ekim ayının başlarında Android beta kullanıcıları için test edilmeye başlanan yenilik, şimdi TestFlight üzerinden iOS beta sürümü 26.42.10.19 ile bazı kullanıcılara sunuluyor ve önümüzdeki haftalarda daha fazla kişiye ulaşması bekleniyor.\n\n## Mesaj zamanlama nasıl çalışıyor?\n\nSistem Android sürümüyle aynı mantıkta işliyor. Mesaj yazıldıktan sonra gönder tuşuna basılı tutularak tarih ve saat seçici açılıyor ve yeşil onay butonuyla işlem tamamlanıyor. En erken 10 dakika sonrasına, en geç ise iki hafta ilerisine kadar mesaj planlanabiliyor. Cihaz çevrimdışı olsa bile mesaj belirlenen saatte iletiliyor ve sohbette beliren onay yalnızca gönderen kişi tarafından görülüyor.\n\nÖzellik metin, bağlantı, fotoğraflar ve videoları destekliyor. Fotoğraf veya video gönderimlerinde çizim düzenleyicisindeyken gönder tuşuna basılı tutularak tek bir medya dosyası eklenebiliyor. Planlanan içerikler uçtan uca şifreleniyor ve sohbet bilgi ekranındaki özel bir bölümde saklanıyor; gönderilmeden önce buradan silinebiliyor ve karşı taraf bu durumdan haberdar edilmiyor. Grup sohbetlerinde ise mesaj yalnızca planlandığı andaki üyelere iletiliyor, sonradan katılanlar mesajı almıyor. Özelliklerin genel kullanıma ne zaman sunulacağı henüz bilinmiyor.\n\n**Neden önemli?** Mesaj zamanlama özelliği, kullanıcıların iletişimlerini önceden planlamasına olanak tanıyarak popüler mesajlaşma uygulamasının işlevselliğini artırıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "WhatsApp",
+    "iOS",
+    "Android",
+    "TestFlight"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "WhatsApp iOS için mesaj zamanlamayı test ediyor",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a sleek modern smartphone resting on a minimalist surface, angled to show a soft glowing abstract clock face projected gently above the screen",
+  "focus_keyword": "mesaj zamanlama özelliği",
+  "seo_title": "WhatsApp iOS için mesaj zamanlama özelliğini test ediyor",
+  "meta_description": "WhatsApp, iOS beta kullanıcıları için mesaj zamanlama özelliğini test etmeye başladı. İleri bir tarihe nasıl mesaj planlanacağını öğrenin.",
+  "seo_slug": "whatsapp-ios-mesaj-zamanlama-ozelligi",
+  "image_alt": "Akıllı telefon ekranının üzerinde hafifçe parlayan soyut saat görseli ile mesaj zamanlama özelliğini temsil eden stüdyo…",
+  "cover_text": "WhatsApp",
+  "carousel_points": [
+    "WhatsApp, mesaj zamanlama özelliğini iOS platformunda test etmeye başladı.",
+    "Özellik ile en erken 10 dakika, en geç iki hafta sonrasına mesaj planlanabiliyor.",
+    "Planlanan mesajlar uçtan uca şifreleniyor ve gönderilmeden önce silinebiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "WhatsApp'ta mesaj zamanlama dönemi başlıyor",
+  "cover_highlight": "mesaj zamanlama",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": true,
+  "replaces": "",
+  "triage_reason": "WhatsApp iOS için zamanlanmış mesaj testlerine başlıyor.",
+  "entities": [
+    "WhatsApp"
+  ],
+  "topic": "WhatsApp scheduled messages testing on iOS",
+  "sources": [
+    {
+      "name": "GSMArena",
+      "url": "https://www.gsmarena.com/whatsapp_expands_its_testing_of_scheduled_messages_to_ios-news-75175.php",
+      "title": "WhatsApp expands its testing of scheduled messages to iOS",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.gsmarena.com/newscomm-75175.php",
+      "published": "2026-10-22T23:05:02Z",
+      "image": "https://fdn.gsmarena.com/imgroot/news/26/10/whatsapp-scheduled-messages-ios/-184x111/gsmarena_000.jpg"
+    }
+  ],
+  "source_keys": [
+    "GSMArena"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1559
+  },
+  "photos": [
+    {
+      "src": "https://fdn.gsmarena.com/imgroot/news/26/10/whatsapp-scheduled-messages-ios/inline/-1200/gsmarena_001.jpg",
+      "credit": "GSMArena",
+      "page": "https://www.gsmarena.com/whatsapp_expands_its_testing_of_scheduled_messages_to_ios-news-75175.php",
+      "alt": "WhatsApp expands its testing of scheduled messages to iOS",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "120ea1fe9d-g0.webp",
+      "w": 1200,
+      "h": 674
+    },
+    {
+      "src": "https://fdn.gsmarena.com/imgroot/news/26/10/whatsapp-scheduled-messages-ios/-952x498w6/gsmarena_000.jpg",
+      "credit": "GSMArena",
+      "page": "https://www.gsmarena.com/whatsapp_expands_its_testing_of_scheduled_messages_to_ios-news-75175.php",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "120ea1fe9d-g1.webp",
+      "w": 952,
+      "h": 498
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "120ea1fe9d-g0.webp",
+    "credit": "GSMArena",
+    "page": "https://www.gsmarena.com/whatsapp_expands_its_testing_of_scheduled_messages_to_ios-news-75175.php",
+    "src": "https://fdn.gsmarena.com/imgroot/news/26/10/whatsapp-scheduled-messages-ios/inline/-1200/gsmarena_001.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "whatsapp-ios-mesaj-zamanlama-ozelligi",
+  "published_at": "2026-10-22T23:16:15Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/whatsapp-ios-mesaj-zamanlama-ozelligi",
+  "photos_vetted": "2026-10-22T23:16:20Z",
+  "photos_vet_v": 2
+}
