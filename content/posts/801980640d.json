@@ -65,9 +65,12 @@
     "message_id": 1526
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "801980640d-g0.webp",
+    "credit": "Swipeline",
+    "page": "https://swipeline.co/deepseek-abd-yapay-zeka-sirketleriyle-rekabet-edebilmek-icin-15-milyar-dolar-yatirim-aldi/",
+    "src": "https://swipeline.co/cdn/2026/10/ds-5.webp",
     "layout": "manset",
-    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -76,7 +79,7 @@
   "published_at": "2026-10-22T02:35:54Z",
   "publish_mode": "auto",
   "path": "super-zeka/2026/10/deepseek-15-milyar-dolar-yatirim-aldi",
-  "photos_filled": "2026-10-22T06:44:25Z",
+  "photos_filled": "2026-10-22T08:45:52Z",
   "photos_tried": "2026-10-22T02:35:58Z",
   "coverage": [
     {
@@ -87,5 +90,21 @@
       "image": "https://swipeline.co/cdn/2026/10/ds-5.webp",
       "at": "2026-10-22T08:30:58Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://swipeline.co/cdn/2026/10/ds-5.webp",
+      "credit": "Swipeline",
+      "page": "https://swipeline.co/deepseek-abd-yapay-zeka-sirketleriyle-rekabet-edebilmek-icin-15-milyar-dolar-yatirim-aldi/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "801980640d-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-22T02:35:54Z"
 }
