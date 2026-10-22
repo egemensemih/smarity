@@ -1,0 +1,97 @@
+{
+  "id": "18709ed434",
+  "created_at": "2026-10-22T22:16:14Z",
+  "title": "Windows 11 ses hatası ekim güncellemesi ile giderildi",
+  "summary": "Microsoft, eylül ayındaki güncellemeden bu yana oyunların ve uygulamaların çökmesine neden olan Windows 11 ses sorununu KB5127648 güncellemesiyle çözdü.",
+  "body": "Wccftech'in aktardığına göre, **Windows 11 ses hatası** nedeniyle son dönemde bazı oyunlar ve uygulamalar beklenmedik şekilde çöküyor veya hiç açılmıyordu. Eylül ayındaki isteğe bağlı ön izleme güncellemesiyle ortaya çıkan bu sorun, özellikle işletim sisteminin yerleşik Dolby Digital AC-3 ses kod çözme bileşenini kullanan eski yazılımları etkiliyordu.\n\n## KB5127648 güncellemesi ile gelen düzeltmeler\n\nMicrosoft'un ekim ayı olağan yama dönemi kapsamında yayınladığı **KB5127648** güncellemesi, AC-3 kod çözücü çökmelerini tamamen ortadan kaldırdı. Bu düzeltme Windows 11'in 24H2, 25H2 ve 26H2 sürümlerini kapsıyor. Güncelleme ayrıca bazı oyunlardaki fare imleci takılmalarını ve oturum açma sonrası yaşanan siyah ekran problemlerini de giderdi.\n\n**Neden önemli?** Oyunların ve uygulamaların çökmesine yol açan bu hata, ekim ayı kümülatif güncellemesinin yüklenmesiyle çözülmüş durumda; kullanıcılar güncellemeyi Ayarlar menüsünden edinebiliyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Windows 11",
+    "PCWorld",
+    "Wccftech"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Windows 11 ses hatası giderildi",
+  "kicker": "Yazılım güncellemesi",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a sleek modern computer desk in soft studio lighting with a floating glass sound wave sculpture glowing gently next to a minimal mechanical keyboard",
+  "focus_keyword": "Windows 11 ses hatası",
+  "seo_title": "Windows 11 ses hatası ekim güncellemesiyle çözüldü",
+  "meta_description": "Microsoft, eylül ayından bu yana oyun ve uygulamaların çökmesine neden olan Windows 11 ses hatasını ekim güncellemesiyle düzeltti.",
+  "seo_slug": "windows-11-ses-hatasi-giderildi",
+  "image_alt": "Masaüstü bilgisayar ortamını temsil eden soyut ses dalgası heykeli",
+  "cover_text": "Windows 11",
+  "carousel_points": [
+    "Eylül ayındaki güncelleme oyun ve uygulamaların çökmesine yol açıyordu.",
+    "Sorun yerleşik AC-3 ses kod çözme özelliğinden kaynaklanıyordu.",
+    "Microsoft yayınladığı ekim güncellemesiyle hatayı resmen giderdi."
+  ],
+  "appeal": 6,
+  "update_note": "",
+  "cover_headline": "Windows 11 ses hatası giderildi",
+  "cover_highlight": "ses hatası",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Windows 11 için kritik ses hatası ve çökme sorunu çözüldü.",
+  "entities": [
+    "Microsoft",
+    "Windows 11"
+  ],
+  "topic": "Microsoft fixes Windows 11 audio bug causing application crashes",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/microsoft-fixes-windows-11-audio-bug-that-caused-games-and-applications-to-crash-with-october-update/",
+      "title": "Microsoft Fixes Windows 11 Audio Bug That Caused Games And Applications To Crash With October Update",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-22T22:00:00Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/10/FI-10-1456x819.jpg"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1557
+  },
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/en/9/92/Windows_11_Desktop.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Windows_11",
+      "alt": "Windows 11",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "18709ed434-g0.webp",
+      "w": 724,
+      "h": 406
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-1",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "windows-11-ses-hatasi-giderildi",
+  "published_at": "2026-10-22T22:16:23Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/windows-11-ses-hatasi-giderildi",
+  "photos_vetted": "2026-10-22T22:16:34Z",
+  "photos_vet_v": 2
+}
