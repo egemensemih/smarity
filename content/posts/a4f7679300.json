@@ -65,9 +65,12 @@
     "message_id": 1565
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "a4f7679300-g0.webp",
+    "credit": "Tom's Guide",
+    "page": "https://www.tomsguide.com/audio/ipod-25th-anniversary-25-things-you-need-to-know-about-the-product-that-changed-apple-and-the-world",
+    "src": "https://cdn.mos.cms.futurecdn.net/DcNTPeXbyMTfHjtkmRQagD-1920-80.jpg",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -76,7 +79,7 @@
   "published_at": "2026-10-23T10:10:42Z",
   "publish_mode": "auto",
   "path": "teknoloji/2026/10/apple-music-sitesinde-gizli-orijinal-ipod",
-  "photos_filled": "2026-10-23T10:11:10Z",
+  "photos_filled": "2026-10-23T12:19:45Z",
   "photos_tried": "2026-10-23T10:11:18Z",
   "coverage": [
     {
@@ -87,5 +90,33 @@
       "image": "https://cdn.mos.cms.futurecdn.net/DcNTPeXbyMTfHjtkmRQagD-1920-80.jpg",
       "at": "2026-10-23T11:03:38Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/DcNTPeXbyMTfHjtkmRQagD-1920-80.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/audio/ipod-25th-anniversary-25-things-you-need-to-know-about-the-product-that-changed-apple-and-the-world",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a4f7679300-g0.webp",
+      "w": 1600,
+      "h": 678
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/8YHxUTx2FMu9oTWaEqbb5f-2560-80.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/audio/ipod-25th-anniversary-25-things-you-need-to-know-about-the-product-that-changed-apple-and-the-world",
+      "alt": "Steve Jobs, Jony Ive and the original iPod in 2001",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a4f7679300-g1.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-23T10:10:42Z"
 }
