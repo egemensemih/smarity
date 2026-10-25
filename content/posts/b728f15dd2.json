@@ -67,9 +67,12 @@
     "message_id": 1591
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "b728f15dd2-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/mg4-akilli-telefonla-kontrol-ismart-turkiye",
+    "src": "https://ares.shiftdelete.net/2026/10/mg4-artik-akilli-telefonla-kontrol-edilebiliyor-ismart-turkiyede-2.webp",
     "layout": "manset",
-    "palette": "otomotiv-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -78,7 +81,7 @@
   "published_at": "2026-10-24T09:27:31Z",
   "publish_mode": "auto",
   "path": "otomotiv/2026/10/mg-ismart-uzaktan-kontrol-sistemi-turkiyede",
-  "photos_filled": "2026-10-25T07:55:30Z",
+  "photos_filled": "2026-10-25T09:55:38Z",
   "photos_tried": "2026-10-24T09:27:36Z",
   "coverage": [
     {
@@ -89,5 +92,33 @@
       "image": null,
       "at": "2026-10-25T08:10:44Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/mg4-artik-akilli-telefonla-kontrol-edilebiliyor-ismart-turkiyede-2.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/mg4-akilli-telefonla-kontrol-ismart-turkiye",
+      "alt": "MG4 Artık Akıllı Telefonla Kontrol Edilebiliyor: iSMART Türkiye'de — MG4 akıllı telefonla kontrol, MG iSMART özellikleri, MG4 uzaktan şarj yönetimi, MG4 Türkiye",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b728f15dd2-g0.webp",
+      "w": 1600,
+      "h": 929
+    },
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/mg4-artik-akilli-telefonla-kontrol-edilebiliyor-ismart-turkiyede.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/mg4-akilli-telefonla-kontrol-ismart-turkiye",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b728f15dd2-g1.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-24T09:27:31Z"
 }
