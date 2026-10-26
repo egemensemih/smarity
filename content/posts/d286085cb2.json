@@ -1,39 +1,40 @@
 {
   "id": "d286085cb2",
   "created_at": "2026-10-26T18:25:50Z",
-  "title": "OpenAI GPT-6.1 Terra modelini duyurdu",
-  "summary": "OpenAI, ChatGPT ve Codex sistemlerini hız, görsel akıl yürütme ve bilgisayar kullanımı sunan yeni GPT-6.1 Terra modeliyle güncelledi.",
-  "body": "OpenAI'ın duyurusuna göre, şirket ChatGPT ve Codex sistemlerini yeni orta boy modeli **GPT-6.1 Terra** ile güncelledi. Geçen ay duyurulan Sol ve Luna modellerinin ardından gelen bu yeni sürüm, önceki GPT-5.6 Terra modelinin yerini alarak daha düşük maliyetle daha hızlı ve verimli bir bilgisayar kullanımı vadediyor.\n\n## Yeni model neler sunuyor?\n\n9to5Mac'in aktardığına göre yeni model, görsel akıl yürütme ve bilgisayar tabanlı görevlerde önemli bir sıçrama sunuyor. Metin taslakları hazırlamak, teknik çizimleri yorumlamak, form doldurmak ve video düzenlemek gibi iş gününü dolduran görevlerde başarı gösteren model, önceki sürümüne kıyasla %50 daha düşük fiyatla sunuluyor. OpenAI, iç testlerde düşük akıl yürütme çabasındaki hata oranının yüzde 53,6'dan yüzde 16,7'ye düştüğünü belirtti.\n\n## Kullanıma sunulduğu yerler\n\nGüncellenen model, ChatGPT Work, Codex ve API üzerinden kullanıcıların erişimine açıldı. Şirketin model yelpazesinde Luna, Terra, Sol ve Astra olmak üzere dört ana sınıf bulunuyor ve yeni Terra modeli zeka ile uygun fiyat arasında bir denge kurmayı hedefliyor.\n\n**Neden önemli?** GPT-6.1 Terra modeli, günlük bilgisayar işlerini daha düşük maliyetle ve daha az hatayla otomatikleştirerek yapay zeka destekli iş süreçlerini genişletiyor.",
+  "title": "OpenAI GPT-6.1 Terra fiyatı açıklandı: Bilgisayarı kendi kullanıyor",
+  "summary": "OpenAI’ın bilgisayar kullanımı odaklı yeni yapay zeka modeli GPT-6.1 Terra, önceki sürümüne göre yarı yarıya daha ucuz fiyatla kullanıma sunuldu.",
+  "body": "OpenAI'ın duyurusuna göre, şirket bilgisayar kullanımı ve görsel muhakeme odaklı yeni yapay zeka modeli **GPT-6.1 Terra**'yı erişime açtı. Ekrandaki içeriği anlayabilen ve uygulamalar arasında işlem yapabilen model, teklif hazırlamaktan teknik çizimleri yorumlamaya kadar iş günü boyunca yapılan görevlerde öne çıkıyor. ShiftDelete.Net'in aktardığına göre standart API fiyatları önceki modellere kıyasla yüzde 50 daha düşük belirlenen GPT-6.1 Terra, milyon girdi tokenı başına 1 dolar, milyon çıktı tokenı başına ise 5 dolar olarak fiyatlandırılıyor.\n\n## Gelişmiş yetenekler ve düşük maliyet\n\nŞirketin paylaştığı bilgilere göre model, profesyonel görevleri içeren testlerde önceki nesil GPT-5.6 Terra'ya göre belirgin bir performans artışı sunarken çok daha düşük bir maliyetle çalışıyor. Düşük muhakeme seviyesindeki hata oranının yüzde 16,7'ye gerilediği belirtilirken, XDA'nın aktardığına göre model Claude Opus 5.5 modeline kıyasla benzer bir performansı çok daha uygun bir maliyetle sağlıyor. En karmaşık kodlama işleri için ise şirket hâlâ GPT-6.1 Sol ve GPT-6 Astra modellerinin daha iyi seçenek olduğunu kabul ediyor.\n\n## Kimler erişebilecek?\n\nGPT-6.1 Terra, ChatGPT Work ve Codex üzerinden tüm Plus, Pro, Enterprise ve Edu kullanıcılarına sunulurken geliştiriciler modele OpenAI API aracılığıyla erişebiliyor. Model 1.050.000 tokenlık bağlam penceresi sunuyor ve bilgisayar kullanımı aracını destekliyor.\n\n**Neden önemli?** GPT-6.1 Terra, günlük bilgisayar tabanlı görevleri daha düşük maliyetle ve daha yüksek doğrulukla otomatikleştirerek yapay zeka araçlarını iş süreçlerinde daha erişilebilir hale getiriyor.",
   "category": "super-zeka",
   "tags": [
     "OpenAI",
     "ChatGPT",
-    "Codex"
+    "Claude",
+    "Anthropic"
   ],
   "confidence": "yuksek",
   "flags": [],
-  "editor_note": "",
-  "short_title": "OpenAI'dan GPT-6.1 Terra güncellemesi",
+  "editor_note": "Previous article updated with detailed pricing, benchmark results and availability from new sources.",
+  "short_title": "OpenAI GPT-6.1 Terra çıktı",
   "kicker": "Yapay zeka",
   "hero_stat": "%50",
-  "hero_stat_label": "daha düşük fiyat",
+  "hero_stat_label": "daha düşük API fiyatı",
   "visual_style": "studio",
   "visual_scene": "a minimalist arrangement of thin matte ceramic tiles stacked unevenly on a smooth stone surface, with a single warm light casting soft shadows across the layers",
   "focus_keyword": "GPT-6.1 Terra",
-  "seo_title": "OpenAI GPT-6.1 Terra modelini duyurdu",
-  "meta_description": "OpenAI, ChatGPT ve Codex için hız, görsel akıl yürütme ve daha düşük fiyat sunan yeni orta boy yapay zeka modeli GPT-6.1 Terra'yı duyurdu.",
+  "seo_title": "OpenAI GPT-6.1 Terra duyuruldu: Fiyatı ve özellikleri",
+  "meta_description": "OpenAI'ın yeni bilgisayar kullanımı odaklı yapay zeka modeli GPT-6.1 Terra çıktı. Fiyatı, yetenekleri ve kullanım alanları haberimizde.",
   "seo_slug": "openai-gpt-6-1-terra-modelini-duyurdu",
-  "image_alt": "Mat seramik karoların düzenlendiği minimalist stüdyo ortamı",
+  "image_alt": "Buzlu cam küplerden oluşan grafik ve üzerinde yuvarlanan seramik küreler",
   "cover_text": "GPT-6.1 Terra",
   "carousel_points": [
-    "OpenAI, ChatGPT ve Codex sistemlerini yeni orta boy modeli GPT-6.1 Terra ile güncelledi.",
-    "Önceki modele göre daha hızlı çalışıyor ve fiyatı yüzde 50 daha düşük.",
-    "Model bugün itibarıyla ChatGPT Work, Codex ve API üzerinden kullanıma sunuldu."
+    "Bilgisayar kullanımı ve görsel muhakeme odaklı yeni yapay zeka modeli.",
+    "Önceki sürüme göre yarı yarıya daha düşük API fiyatıyla sunuluyor.",
+    "ChatGPT Work, Codex ve API üzerinden kullanıma açıldı."
   ],
   "appeal": 8,
   "update_note": "",
-  "cover_headline": "GPT-6.1 Terra modeli yüzde 50 ucuzladı",
-  "cover_highlight": "yüzde 50 ucuzladı",
+  "cover_headline": "GPT-6.1 Terra bilgisayarı sizin yerinize kullanıyor",
+  "cover_highlight": "bilgisayarı",
   "cover_line_v": 3,
   "importance": 9,
   "big_brand": true,
@@ -56,10 +57,32 @@
       "via_url": "https://9to5mac.com/2026/10/26/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-1-terra-model/#respond",
       "published": "2026-10-26T18:21:40Z",
       "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/09/chatgpt-codex-gpt-6-astra-1.webp?w=1600"
+    },
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/openai-gpt-6-1-terra",
+      "title": "OpenAI’ın Yeni Modeli GPT-6.1 Terra, Bilgisayarı Sizin Yerinize Kullanabiliyor",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://shiftdelete.net/openai-gpt-6-1-terra#respond",
+      "published": "2026-10-26T19:47:39Z",
+      "image": null
+    },
+    {
+      "name": "XDA",
+      "url": "https://www.xda-developers.com/gpt-61-terra-brings-more-advanced-computer-agent-use-at-a-lower-cost-than-56-terra/",
+      "title": "GPT-6.1 Terra brings more advanced computer agent use at a lower cost than Claude",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-26T19:43:17Z",
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/macbook-showing-chatgpt-s-homepage-with-code-highlighted-in-color-above-a-coding-demo.jpeg"
     }
   ],
   "source_keys": [
-    "9to5Mac"
+    "9to5Mac",
+    "ShiftDelete.Net",
+    "XDA"
   ],
   "rewrites": 0,
   "telegram": {
@@ -102,6 +125,34 @@
       "kind": "official",
       "image": null,
       "at": "2026-10-26T19:26:20Z"
+    },
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/openai-gpt-6-1-terra",
+      "title": "OpenAI’ın Yeni Modeli GPT-6.1 Terra, Bilgisayarı Sizin Yerinize Kullanabiliyor",
+      "kind": "media",
+      "image": null,
+      "at": "2026-10-26T19:55:45Z"
+    },
+    {
+      "name": "XDA",
+      "url": "https://www.xda-developers.com/gpt-61-terra-brings-more-advanced-computer-agent-use-at-a-lower-cost-than-56-terra/",
+      "title": "GPT-6.1 Terra brings more advanced computer agent use at a lower cost than Claude",
+      "kind": "media",
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/macbook-showing-chatgpt-s-homepage-with-code-highlighted-in-color-above-a-coding-demo.jpeg",
+      "at": "2026-10-26T19:55:45Z"
+    }
+  ],
+  "updated_at": "2026-10-26T19:55:56Z",
+  "refreshed_at": "2026-10-26T19:55:56Z",
+  "updates": [
+    {
+      "at": "2026-10-26T19:55:56Z",
+      "note": "Modelin detaylı API fiyatlandırması, test sonuçları ve kullanım alanları eklendi.",
+      "sources": [
+        "ShiftDelete.Net",
+        "XDA"
+      ]
     }
   ]
 }
