@@ -1,40 +1,41 @@
 {
   "id": "d286085cb2",
   "created_at": "2026-10-26T18:25:50Z",
-  "title": "OpenAI GPT-6.1 Terra fiyatı açıklandı: Bilgisayarı kendi kullanıyor",
-  "summary": "OpenAI’ın bilgisayar kullanımı odaklı yeni yapay zeka modeli GPT-6.1 Terra, önceki sürümüne göre yarı yarıya daha ucuz fiyatla kullanıma sunuldu.",
-  "body": "OpenAI'ın duyurusuna göre, şirket bilgisayar kullanımı ve görsel muhakeme odaklı yeni yapay zeka modeli **GPT-6.1 Terra**'yı erişime açtı. Ekrandaki içeriği anlayabilen ve uygulamalar arasında işlem yapabilen model, teklif hazırlamaktan teknik çizimleri yorumlamaya kadar iş günü boyunca yapılan görevlerde öne çıkıyor. ShiftDelete.Net'in aktardığına göre standart API fiyatları önceki modellere kıyasla yüzde 50 daha düşük belirlenen GPT-6.1 Terra, milyon girdi tokenı başına 1 dolar, milyon çıktı tokenı başına ise 5 dolar olarak fiyatlandırılıyor.\n\n## Gelişmiş yetenekler ve düşük maliyet\n\nŞirketin paylaştığı bilgilere göre model, profesyonel görevleri içeren testlerde önceki nesil GPT-5.6 Terra'ya göre belirgin bir performans artışı sunarken çok daha düşük bir maliyetle çalışıyor. Düşük muhakeme seviyesindeki hata oranının yüzde 16,7'ye gerilediği belirtilirken, XDA'nın aktardığına göre model Claude Opus 5.5 modeline kıyasla benzer bir performansı çok daha uygun bir maliyetle sağlıyor. En karmaşık kodlama işleri için ise şirket hâlâ GPT-6.1 Sol ve GPT-6 Astra modellerinin daha iyi seçenek olduğunu kabul ediyor.\n\n## Kimler erişebilecek?\n\nGPT-6.1 Terra, ChatGPT Work ve Codex üzerinden tüm Plus, Pro, Enterprise ve Edu kullanıcılarına sunulurken geliştiriciler modele OpenAI API aracılığıyla erişebiliyor. Model 1.050.000 tokenlık bağlam penceresi sunuyor ve bilgisayar kullanımı aracını destekliyor.\n\n**Neden önemli?** GPT-6.1 Terra, günlük bilgisayar tabanlı görevleri daha düşük maliyetle ve daha yüksek doğrulukla otomatikleştirerek yapay zeka araçlarını iş süreçlerinde daha erişilebilir hale getiriyor.",
+  "title": "GPT-6.1 Terra Astra ile yarışıyor: OpenAI'ın yeni modeli çıktı",
+  "summary": "OpenAI’ın bilgisayar kullanımı odaklı yeni yapay zeka modeli GPT-6.1 Terra, daha yüksek performans ve çok daha düşük maliyetle erişime açıldı.",
+  "body": "OpenAI'ın duyurusuna göre, şirket bilgisayar kullanımı, görsel muhakeme ve kodlama odaklı yeni yapay zeka modeli **GPT-6.1 Terra**'yı erişime açtı. Önceki sürümüne kıyasla API üzerinden yüzde 50 daha düşük maliyet sunan model; form doldurma, tablo düzenleme, teknik çizim yorumlama ve video kurgulama gibi günlük ofis görevlerini yerine getirebiliyor. Digital Trends'in aktardığına göre, GPT-6.1 Terra bazı profesyonel görev testlerinde OpenAI'ın en gelişmiş modeli GPT-6 Astra'nın sonuçlarına Astra'nın maliyetinin onda biriyle ulaşıyor.\n\n## Performans ve fiyat avantajı\n\nŞirketin paylaştığı bilgilere göre Terra, ekran üzerinde tıklama ve yazma gibi işlemleri bir insan gibi gerçekleştirerek görevleri GPT-6 Astra ve GPT-6.1 Sol'e kıyasla üç katından fazla bir hızla tamamlayabiliyor. The Next Web'in aktardığına göre model, Anthropic Claude Opus 5.5 ile kıyaslandığında benzer görevleri dokuz kat daha düşük maliyetle yerine getiriyor. Kodlama tarafında Terminal-Bench 4.0 testinde yüzde 50,3 başarı gösteren model, en karmaşık yazılım geliştirme işleri için ise şirket tarafından Sol veya Astra'ya bırakılıyor. Standart API kullanımında milyon girdi tokenı 1 dolar, milyon çıktı tokenı ise 5 dolar olarak fiyatlandırılıyor.\n\n## Kimler kullanabiliyor?\n\nGPT-6.1 Terra, ChatGPT Plus, Pro, Enterprise, Edu ve ChatGPT Work kullanıcılarının yanı sıra Codex ve API üzerinden geliştiricilere sunuldu. Şirket, modelin hazırlık çerçevesinde siber güvenlik yeteneklerinde kritik seviyeye ulaştığını ve önceki sürüme kıyasla sınırları konusunda kullanıcılara daha iyi bilgi verdiğini belirtiyor.\n\n**Neden önemli?** GPT-6.1 Terra, gelişmiş görsel muhakeme ve bilgisayar kullanım yeteneklerini çok daha düşük bir maliyetle sunarak yapay zeka ajanlarının iş süreçlerinde yaygınlaşmasını hızlandırıyor.",
   "category": "super-zeka",
   "tags": [
     "OpenAI",
+    "GPT-6.1 Terra",
     "ChatGPT",
-    "Claude",
-    "Anthropic"
+    "yapay zeka",
+    "API"
   ],
   "confidence": "yuksek",
   "flags": [],
   "editor_note": "Previous article updated with detailed pricing, benchmark results and availability from new sources.",
-  "short_title": "OpenAI GPT-6.1 Terra çıktı",
+  "short_title": "GPT-6.1 Terra Astra ile yarışıyor",
   "kicker": "Yapay zeka",
-  "hero_stat": "%50",
-  "hero_stat_label": "daha düşük API fiyatı",
+  "hero_stat": "1 $",
+  "hero_stat_label": "milyon girdi token fiyatı",
   "visual_style": "studio",
   "visual_scene": "a minimalist arrangement of thin matte ceramic tiles stacked unevenly on a smooth stone surface, with a single warm light casting soft shadows across the layers",
   "focus_keyword": "GPT-6.1 Terra",
-  "seo_title": "OpenAI GPT-6.1 Terra duyuruldu: Fiyatı ve özellikleri",
-  "meta_description": "OpenAI'ın yeni bilgisayar kullanımı odaklı yapay zeka modeli GPT-6.1 Terra çıktı. Fiyatı, yetenekleri ve kullanım alanları haberimizde.",
+  "seo_title": "GPT-6.1 Terra duyuruldu: Astra seviyesinde sonuçlar",
+  "meta_description": "OpenAI'ın bilgisayar kullanımı odaklı yeni yapay zeka modeli GPT-6.1 Terra, Astra seviyesinde performansı düşük maliyetle sunuyor.",
   "seo_slug": "openai-gpt-6-1-terra-modelini-duyurdu",
-  "image_alt": "Buzlu cam küplerden oluşan grafik ve üzerinde yuvarlanan seramik küreler",
+  "image_alt": "Buzlu cam küplerden yükselen grafik ve akıllı sistemleri temsil eden stüdyo görseli",
   "cover_text": "GPT-6.1 Terra",
   "carousel_points": [
-    "Bilgisayar kullanımı ve görsel muhakeme odaklı yeni yapay zeka modeli.",
-    "Önceki sürüme göre yarı yarıya daha düşük API fiyatıyla sunuluyor.",
-    "ChatGPT Work, Codex ve API üzerinden kullanıma açıldı."
+    "OpenAI'ın yeni modeli bilgisayar kullanımı odaklı geliştirildi.",
+    "Astra seviyesindeki sonuçlara onda bir fiyatla ulaşıyor.",
+    "ChatGPT ve API üzerinden kullanıma sunuldu."
   ],
-  "appeal": 8,
+  "appeal": 9,
   "update_note": "",
-  "cover_headline": "GPT-6.1 Terra bilgisayarı sizin yerinize kullanıyor",
-  "cover_highlight": "bilgisayarı",
+  "cover_headline": "GPT-6.1 Terra Astra ile yarışıyor",
+  "cover_highlight": "GPT-6.1 Terra",
   "cover_line_v": 3,
   "importance": 9,
   "big_brand": true,
@@ -77,12 +78,34 @@
       "via_url": null,
       "published": "2026-10-26T19:43:17Z",
       "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/macbook-showing-chatgpt-s-homepage-with-code-highlighted-in-color-above-a-coding-demo.jpeg"
+    },
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/computing/openais-new-gpt-6-1-terra-model-gets-astra-like-results-at-a-fraction-of-the-cost/",
+      "title": "OpenAI’s new GPT-6.1 Terra model gets Astra-like results for one-tenth the price",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-26T20:08:15Z",
+      "image": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/ChatGPT-6.1-Terra.jpg?resize=440%2C292&ssl=1"
+    },
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/openai-gpt-6-1-terra-computer-use",
+      "title": "OpenAI launches GPT-6.1 Terra, a cheaper model for everyday computer work",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-26T19:49:19Z",
+      "image": "https://media.thenextweb.com/2026/10/gpt-6-1-terra-earth-globe-launch-art.avif"
     }
   ],
   "source_keys": [
     "9to5Mac",
     "ShiftDelete.Net",
-    "XDA"
+    "XDA",
+    "Digital Trends",
+    "The Next Web"
   ],
   "rewrites": 0,
   "telegram": {
@@ -141,10 +164,26 @@
       "kind": "media",
       "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/10/macbook-showing-chatgpt-s-homepage-with-code-highlighted-in-color-above-a-coding-demo.jpeg",
       "at": "2026-10-26T19:55:45Z"
+    },
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/computing/openais-new-gpt-6-1-terra-model-gets-astra-like-results-at-a-fraction-of-the-cost/",
+      "title": "OpenAI’s new GPT-6.1 Terra model gets Astra-like results for one-tenth the price",
+      "kind": "media",
+      "image": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/ChatGPT-6.1-Terra.jpg?resize=440%2C292&ssl=1",
+      "at": "2026-10-26T20:10:46Z"
+    },
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/openai-gpt-6-1-terra-computer-use",
+      "title": "OpenAI launches GPT-6.1 Terra, a cheaper model for everyday computer work",
+      "kind": "media",
+      "image": "https://media.thenextweb.com/2026/10/gpt-6-1-terra-earth-globe-launch-art.avif",
+      "at": "2026-10-26T20:10:46Z"
     }
   ],
-  "updated_at": "2026-10-26T19:55:56Z",
-  "refreshed_at": "2026-10-26T19:55:56Z",
+  "updated_at": "2026-10-26T20:11:27Z",
+  "refreshed_at": "2026-10-26T20:11:27Z",
   "updates": [
     {
       "at": "2026-10-26T19:55:56Z",
@@ -152,6 +191,14 @@
       "sources": [
         "ShiftDelete.Net",
         "XDA"
+      ]
+    },
+    {
+      "at": "2026-10-26T20:11:27Z",
+      "note": "OpenAI'ın yeni GPT-6.1 Terra modelinin Astra seviyesindeki performans sonuçları ve detaylı fiyatlandırması eklendi.",
+      "sources": [
+        "Digital Trends",
+        "The Next Web"
       ]
     }
   ]
