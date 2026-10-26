@@ -66,9 +66,12 @@
     "message_id": 1606
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "08a56bfde2-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/T%C3%BCrkiye_Cumhuriyet_Merkez_Bankas%C4%B1",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Finans_Merkezi.jpg/960px-Finans_Merkezi.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -77,6 +80,22 @@
   "published_at": "2026-10-26T12:44:08Z",
   "publish_mode": "auto",
   "path": "super-zeka/2026/10/tcmb-evds-mcp-yapay-zeka-erisimi",
-  "photos_filled": "2026-10-26T20:58:33Z",
-  "photos_tried": "2026-10-26T12:46:33Z"
+  "photos_filled": "2026-10-26T23:02:19Z",
+  "photos_tried": "2026-10-26T12:46:33Z",
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Finans_Merkezi.jpg/960px-Finans_Merkezi.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/T%C3%BCrkiye_Cumhuriyet_Merkez_Bankas%C4%B1",
+      "alt": "Türkiye Cumhuriyet Merkez Bankası",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "08a56bfde2-g0.webp",
+      "w": 960,
+      "h": 960
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-26T12:44:08Z"
 }
