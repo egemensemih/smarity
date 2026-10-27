@@ -1,0 +1,159 @@
+{
+  "id": "e96d334152",
+  "created_at": "2026-10-27T13:07:17Z",
+  "title": "Opera One tarayıcısına yerel yapay zeka desteği geldi",
+  "summary": "Opera, WebAI adını verdiği yeni bir web standardı sayesinde kullanıcıların tarayıcı üzerinden buluta bağlanmadan yerel yapay zeka modellerini çalıştırmasına olanak tanıyor.",
+  "body": "Opera, **Opera One** tarayıcısı için yerel olarak yapay zeka modellerini çalıştırmaya imkan tanıyan yeni bir ön izleme özelliğini duyurdu. 9to5Mac ve TechCrunch'ın aktardığına göre, **WebAI** adı verilen bu önerilen web standardı, kullanıcıların verilerini bulut sunucularına göndermeden doğrudan kendi cihazlarında yapay zeka çalıştırmasını hedefliyor.\n\n## WebAI standardı neler sunuyor?\n\nGoogle ve Microsoft gibi şirketlerin desteklediği belirtilen WebAI standardı, modelden bağımsız yapısıyla dikkat çekiyor. Opera'nın açıklamasına göre kullanıcılar, herhangi bir abonelik ücreti ödemeden veya kişisel verilerini harici sunuculara paylaşmadan açık ağırlıklı modellerden faydalanabiliyor. Başlangıç aşamasında Google'ın Gemma modelleri desteklenirken, Mac kullanıcıları Apple'ın cihaz üzerindeki temel modeline de doğrudan tarayıcı içinden erişebiliyor. Bu yerel altyapı; metin üretimi, içerik sınıflandırma ve bilgi ilişkilerini kurma gibi işlemleri tarayıcı uzantıları aracılığıyla bilgisayar üzerinde gerçekleştiriyor.\n\n## Diğer tarayıcılara da gelecek\n\nOpera, WebAI özelliğinin ilk olarak amiral gemisi tarayıcısı Opera One'da ön izleme olarak sunulduğunu, ilerleyen dönemde ise Opera GX ve Opera Neon tarayıcılarında da yer alacağını belirtti. Şirket ayrıca geliştiricilerin web sayfalarını iki ve üç boyutlu sahnelerin içine gömmesine imkan tanıyan HTML-in-Canvas özelliğini de duyurdu. Yerel yapay zeka modellerinin bilgisayar donanımına bağlı olarak performans değişiklikleri gösterebileceği ve kullanıcıların hangi sitelerin bu modellere erişebileceğini kendilerinin belirleyeceği ifade edildi.\n\n**Neden önemli?** Yapay zeka araçlarının kişisel verilere erişimi konusunda artan gizlilik endişeleri sürerken, verilerin buluta gönderilmeden cihaz üzerinde işlenmesi kullanıcılara tam kontrol sağlıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Opera",
+    "Opera One",
+    "Google",
+    "Apple"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Opera One tarayıcısına yerel yapay zeka geldi",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a sleek minimalist browser window frame cast in matte dark metal, floating above a smooth wooden surface, with soft ambient light reflecting off a translucent glass sphere resting inside the frame, symbolizing local data processing",
+  "focus_keyword": "Opera One",
+  "seo_title": "Opera One tarayıcısına yerel yapay zeka desteği geldi",
+  "meta_description": "Opera One tarayıcısına gelen yeni WebAI standardı sayesinde kullanıcılar, buluta bağlanmadan yerel yapay zeka modellerini doğrudan cihazlarında çalıştırabiliyor.",
+  "seo_slug": "opera-one-tarayicisina-yerel-yapay-zeka-destegi-geldi",
+  "image_alt": "Matte metal Opera One tarayıcı çerçevesi ve içinde yerel veri işlemeyi simgeleyen şeffaf cam küre",
+  "cover_text": "Opera One",
+  "carousel_points": [
+    "Opera One, buluta gerek duymadan yerel yapay zeka çalıştırma özelliği sunan ilk tarayıcı oldu.",
+    "WebAI standardı sayesinde kullanıcılar Google Gemma ve Apple modellerine cihaz üzerinden erişebiliyor.",
+    "Veriler bilgisayarda kaldığı için abonelik veya harici sunucu veri paylaşımı gerektirmiyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Opera One tarayıcısına yerel yapay zeka geldi",
+  "cover_highlight": "yerel yapay zeka",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": false,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Opera, tarayıcı içinde yerel yapay zeka modelleri için yeni WebAI standardını tanıttı.",
+  "entities": [
+    "Opera",
+    "WebAI"
+  ],
+  "topic": "Opera introduces WebAI standard for local browser AI models",
+  "sources": [
+    {
+      "name": "XDA",
+      "url": "https://www.xda-developers.com/local-llm-browser-history-built-better-bookmark-system/",
+      "title": "I gave my local LLM my browser history, and it built a better bookmark system than I ever had",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-27T13:01:22Z",
+      "image": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/09/img_20260904_213144.jpg"
+    },
+    {
+      "name": "9to5Mac",
+      "url": "https://9to5mac.com/2026/10/27/opera-one-now-lets-mac-users-run-apples-foundation-model-directly-in-the-browser/",
+      "title": "Opera One now lets Mac users run Apple’s foundation model directly in the browser",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5mac.com/2026/10/27/opera-one-now-lets-mac-users-run-apples-foundation-model-directly-in-the-browser/#respond",
+      "published": "2026-10-27T13:00:18Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/10/opera-webai.jpg?quality=82&#038;strip=all&#038;w=1600"
+    },
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/opera-introduces-a-new-web-standard-to-let-users-deploy-ai-locally-in-their-browser/",
+      "title": "Opera introduces a new web standard to let users deploy AI locally in their browser",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-27T13:00:00Z",
+      "image": null
+    },
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/computing/opera-wants-websites-to-run-ai-on-your-laptop-instead-of-sending-your-data-to-the-cloud/",
+      "title": "Opera wants websites to run AI on your laptop instead of sending your data to the cloud",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-27T13:00:00Z",
+      "image": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/Opera-WebAI.jpeg?resize=440%2C292&ssl=1"
+    }
+  ],
+  "source_keys": [
+    "XDA",
+    "9to5Mac",
+    "TechCrunch",
+    "Digital Trends"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1651
+  },
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "e96d334152-g0.webp",
+    "credit": "9to5Mac",
+    "page": "https://9to5mac.com/2026/10/27/opera-one-now-lets-mac-users-run-apples-foundation-model-directly-in-the-browser/",
+    "src": "https://9to5mac.com/wp-content/uploads/sites/6/2026/10/opera-webai.jpg?quality=82&#038;strip=all&#038;w=1600",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "opera-one-tarayicisina-yerel-yapay-zeka-destegi-geldi",
+  "published_at": "2026-10-27T13:07:30Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/10/opera-one-tarayicisina-yerel-yapay-zeka-destegi-geldi",
+  "photos_vetted": "2026-10-27T13:07:33Z",
+  "photos_vet_v": 2,
+  "updated_at": "2026-10-27T13:07:41Z",
+  "photos_filled": "2026-10-27T13:07:47Z",
+  "photos": [
+    {
+      "src": "https://9to5mac.com/wp-content/uploads/sites/6/2026/10/opera-webai.jpg?quality=82&#038;strip=all&#038;w=1600",
+      "credit": "9to5Mac",
+      "page": "https://9to5mac.com/2026/10/27/opera-one-now-lets-mac-users-run-apples-foundation-model-directly-in-the-browser/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "e96d334152-g0.webp",
+      "w": 1600,
+      "h": 800
+    },
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/Opera-AI.jpeg?resize=1350%2C810&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/opera-wants-websites-to-run-ai-on-your-laptop-instead-of-sending-your-data-to-the-cloud/",
+      "alt": "Opera AI",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "e96d334152-g1.webp",
+      "w": 1350,
+      "h": 810
+    },
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/Opera-HTML-in-canvas.jpeg?resize=1350%2C810&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/opera-wants-websites-to-run-ai-on-your-laptop-instead-of-sending-your-data-to-the-cloud/",
+      "alt": "Opera HTML in canvas",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "e96d334152-g2.webp",
+      "w": 1350,
+      "h": 810
+    }
+  ]
+}
