@@ -1,6 +1,6 @@
 {
   "telegram_offset": 872816557,
-  "last_collect": "2026-10-27T13:05:39Z",
+  "last_collect": "2026-10-27T13:22:23Z",
   "last_summary_date": "2026-10-26",
   "mode_override": null,
   "paused": false,
@@ -104,296 +104,296 @@
   "source_health": {
     "Apple": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:30Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:30Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "Samsung": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 50,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "Google": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "OpenAI": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 1325,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "Anthropic": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 21,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "TechCrunch": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "The Verge": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "Engadget": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "WIRED": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 50,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "Ars Technica": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:16Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:16Z"
     },
     "GSMArena": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:17Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:17Z"
     },
     "MIT Technology Review": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:17Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:17Z"
     },
     "New Atlas": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:31Z",
+      "last_ok": "2026-10-27T13:22:17Z",
       "count": 60,
-      "last_try": "2026-10-27T13:05:31Z"
+      "last_try": "2026-10-27T13:22:17Z"
     },
     "Interesting Engineering": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Electrek": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 150,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Carscoops": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Autocar": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 37,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "IGN": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Polygon": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "VGC": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "GamesIndustry.biz": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Webrazzi": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Egirisim": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Webtekno": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 41,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "ShiftDelete.Net": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "DonanımHaber": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50,
-      "last_try": "2026-10-27T13:05:32Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "LOG": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10,
-      "last_try": "2026-10-27T13:05:39Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Anadolu Ajansı": {
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30,
-      "last_try": "2026-10-27T13:05:39Z"
+      "last_try": "2026-10-27T13:22:23Z"
     },
     "Crunchbase News": {
-      "last_try": "2026-10-27T13:05:32Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:32Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Microsoft": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Meta": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Google DeepMind": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100
     },
     "PlayStation Blog": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Xbox Wire": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "NASA": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "9to5Mac": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100
     },
     "MacRumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "AppleInsider": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "9to5Google": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100
     },
     "Android Authority": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 80
     },
     "Android Police": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Android Central": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "SamMobile": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "XDA": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Tom's Guide": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "TechRadar": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "Digital Trends": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30
     },
     "CNET": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 25
     },
     "ZDNET": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 25
     },
     "Gizmodo": {
@@ -402,15 +402,15 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://gizmodo.com/rss"
     },
     "Tom's Hardware": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "Wccftech": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "VideoCardz": {
@@ -419,153 +419,153 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://videocardz.com/feed"
     },
     "The Next Web": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Pocket-lint": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Stuff": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 71
     },
     "T3": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "BBC Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "The Guardian Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 35
     },
     "New York Times Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 31
     },
     "Bloomberg Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "CNBC Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30
     },
     "Yanko Design": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 16
     },
     "Dezeen Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "designboom Teknoloji": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "DPReview": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30
     },
     "PetaPixel": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "Digital Camera World": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "Fstoppers": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30
     },
     "DIY Photography": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "DroneDJ": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 25
     },
     "Photo Rumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "Sony Alpha Rumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 7
     },
     "Canon Rumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Nikon Rumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "Fuji Rumors": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 5
     },
     "What Hi-Fi": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "SoundGuys": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Wareable": {
@@ -574,33 +574,33 @@
       "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.wareable.com/rss.xml"
     },
     "DC Rainmaker": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 8
     },
     "Motor1": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "InsideEVs": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "Car and Driver": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "The Drive": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Autoblog": {
@@ -609,63 +609,63 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.autoblog.com/rss.xml"
     },
     "Teslarati": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "CarNewsChina": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "Eurogamer": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100
     },
     "PC Gamer": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "Kotaku": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 20
     },
     "GameSpot": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 30
     },
     "Rock Paper Shotgun": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 100
     },
     "Nintendo Life": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 25
     },
     "Game Developer": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "The Decoder": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 10
     },
     "VentureBeat": {
@@ -680,9 +680,9 @@
       "count": 0
     },
     "SpaceNews": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 15
     },
     "Teknoseyir": {
@@ -703,15 +703,15 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://donanimarsivi.com/feed/"
     },
     "Chip Online": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 50
     },
     "Swipeline": {
-      "last_try": "2026-10-27T13:05:39Z",
+      "last_try": "2026-10-27T13:22:23Z",
       "fails": 0,
-      "last_ok": "2026-10-27T13:05:39Z",
+      "last_ok": "2026-10-27T13:22:23Z",
       "count": 1493
     }
   },
@@ -854,457 +854,33 @@
       "updated": 6
     },
     "2026-10-27": {
-      "tok_in": 749373,
-      "tok_out": 107664,
+      "tok_in": 801661,
+      "tok_out": 114114,
       "cost_usd": 0.0,
-      "drafts": 13,
-      "published": 12,
-      "auto": 12,
-      "updates": 7,
-      "updated": 7,
+      "drafts": 15,
+      "published": 14,
+      "auto": 14,
+      "updates": 8,
+      "updated": 8,
       "dropped": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-10-27T13:12:08Z",
+  "last_build": "2026-10-27T13:28:25Z",
   "build_sig": "7b2c603916f7d4c4",
   "commands_version": 5,
-  "queue": [
-    {
-      "story": {
-        "item_ids": [
-          "i22",
-          "i24",
-          "i32"
-        ],
-        "topic": "Ford details sub-$30K Fathom electric truck bidirectional home charging",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 8,
-        "category": "otomotiv",
-        "entities": [
-          "Ford",
-          "Ford Fathom"
-        ],
-        "reason": "Ford'un uygun fiyatlı elektrikli kamyoneti Fathom'un ev yedek güç özellikleri geniş bir okuyucu kitlesine hitap ediyor.",
-        "must_read": 0,
-        "big_brand": false,
-        "preview": false,
-        "replaces": "",
-        "editor_reason": ""
-      },
-      "items": [
-        {
-          "key": "2b1157bbf7dab18e",
-          "source": "The Verge",
-          "kind": "media",
-          "credit": "The Verge",
-          "url": "https://www.theverge.com/transportation/1018784/ford-fathom-bidirectional-charging-inverter-power-station-cost",
-          "via": null,
-          "via_url": null,
-          "title": "Ford’s sub-$30K electric truck puts the home backup inverter right inside the vehicle",
-          "summary": "We're still a few months away from the official reveal of the Ford Fathom, the automaker's first next-generation electric vehicle. While we wait, Ford has been whetting our appetite with news about the sub-$30,000 pickup - including today's announcement about the Fathom's bidirectional charging capabilities. With an increasing number of EVs coming out with bidirectional […]",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/Ford-Fathom-Camo.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-          "tid": "i22"
-        },
-        {
-          "key": "f419f10e7a670ce5",
-          "source": "Electrek",
-          "kind": "media",
-          "credit": "Electrek",
-          "url": "https://electrek.co/2026/10/27/fords-new-sub-30k-electric-truck-can-power-your-home-for-a-lot-less/",
-          "via": null,
-          "via_url": "https://electrek.co/2026/10/27/fords-new-sub-30k-electric-truck-can-power-your-home-for-a-lot-less/#respond",
-          "title": "Ford’s new sub-$30K electric truck can power your home for a lot less",
-          "summary": "Ford wants to make powering your home with an EV a lot cheaper. Its upcoming sub-$30,000 Fathom electric truck will feature a new bidirectional charging system that ditches the need for an expensive external inverter. more…",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://electrek.co/wp-content/uploads/sites/3/2026/09/Ford-Fathom-closer-look-1.jpeg?quality=82&#038;strip=all&#038;w=1400",
-          "tid": "i24"
-        },
-        {
-          "key": "e0371603b1cc490d",
-          "source": "InsideEVs",
-          "kind": "media",
-          "credit": "InsideEVs",
-          "url": "https://insideevs.com/news/813326/ford-fathom-bidirectional-vehicle-to-home-charging/",
-          "via": null,
-          "via_url": null,
-          "title": "The Ford Fathom's Home Backup System Will Be Way Cheaper Than The F-150 Lightning's",
-          "summary": "Thanks to an onboard DC-to-AC inverter, you won't need expensive hardware to backup your home with Ford's $30,000 EV truck.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://cdn.motor1.com/images/mgl/ZnzWoK/s3/fathom.jpg",
-          "tid": "i32"
-        }
-      ],
-      "at": "2026-10-27T13:06:09Z",
-      "holds": 1,
-      "held_at": "2026-10-27T13:06:25Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i33",
-          "i34",
-          "i35",
-          "i36",
-          "i37",
-          "i38"
-        ],
-        "topic": "2027 Audi Q9 and SQ9 full-size luxury SUVs reviewed",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 8,
-        "category": "otomotiv",
-        "entities": [
-          "Audi",
-          "Audi Q9"
-        ],
-        "reason": "Audi'nin yeni amiral gemisi lüks SUV modeli Q9'un ilk sürüş incelemeleri otomobil meraklıları için büyük önem taşıyor.",
-        "must_read": 0,
-        "big_brand": false,
-        "preview": false,
-        "replaces": "",
-        "editor_reason": ""
-      },
-      "items": [
-        {
-          "key": "7dfbf0826eb61c91",
-          "source": "Car and Driver",
-          "kind": "media",
-          "credit": "Car and Driver",
-          "url": "https://www.caranddriver.com/photos/a74231347/2027-audi-q9-drive-interior-gallery/",
-          "via": null,
-          "via_url": null,
-          "title": "View Interior Photos of the 2027 Audi Q9",
-          "summary": "See the interior of the 2027 Audi Q9 from every angle.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://hips.hearstapps.com/hmg-prod/images/148b908e-3dc4-46b5-908e-45c99861a265.jpg",
-          "tid": "i33"
-        },
-        {
-          "key": "51c88998c88104cf",
-          "source": "Car and Driver",
-          "kind": "media",
-          "credit": "Car and Driver",
-          "url": "https://www.caranddriver.com/reviews/a74233484/2027-audi-q9-sq9-drive/",
-          "via": null,
-          "via_url": null,
-          "title": "2027 Audi Q9 and SQ9: We Drive Audi’s Big-League SUVs",
-          "summary": "Audi breaks into the full-size luxury-SUV club with the Q9 and SQ9.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://hips.hearstapps.com/hmg-prod/images/d380a676-3b77-4282-8baa-b15fcf7d28dd.jpg",
-          "tid": "i34"
-        },
-        {
-          "key": "4cf60465f8f14618",
-          "source": "Car and Driver",
-          "kind": "media",
-          "credit": "Car and Driver",
-          "url": "https://www.caranddriver.com/photos/a74231657/2027-audi-sq9-drive-interior-gallery/",
-          "via": null,
-          "via_url": null,
-          "title": "View Interior Photos of the 2027 Audi SQ9",
-          "summary": "See the interior of the 2027 Audi SQ9 from every angle.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://hips.hearstapps.com/hmg-prod/images/63729314-0837-4d55-952b-e428dee93227.jpg",
-          "tid": "i35"
-        },
-        {
-          "key": "7257bfb913c224b3",
-          "source": "Car and Driver",
-          "kind": "media",
-          "credit": "Car and Driver",
-          "url": "https://www.caranddriver.com/photos/a74231333/2027-audi-q9-drive-exterior-gallery/",
-          "via": null,
-          "via_url": null,
-          "title": "View Exterior Photos of the 2027 Audi Q9",
-          "summary": "See the exterior of the 2027 Audi Q9 from every angle.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://hips.hearstapps.com/hmg-prod/images/209f30d4-6458-4f23-b800-68ff6884dfb1.jpg",
-          "tid": "i36"
-        },
-        {
-          "key": "f5c2fd63499df3d3",
-          "source": "Car and Driver",
-          "kind": "media",
-          "credit": "Car and Driver",
-          "url": "https://www.caranddriver.com/photos/a74231644/2027-audi-sq9-drive-exterior-gallery/",
-          "via": null,
-          "via_url": null,
-          "title": "View Exterior Photos of the 2027 Audi SQ9",
-          "summary": "See the exterior of the 2027 Audi SQ9 from every angle.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://hips.hearstapps.com/hmg-prod/images/662334a7-f1a0-4606-aaff-23ad4b7ccdf8.jpg",
-          "tid": "i37"
-        },
-        {
-          "key": "e08b9eec10cdf9ed",
-          "source": "The Drive",
-          "kind": "media",
-          "credit": "The Drive",
-          "url": "https://www.thedrive.com/car-reviews/2027-audi-q9-first-drive-review",
-          "via": null,
-          "via_url": null,
-          "title": "2027 Audi Q9 First-Drive Review: Audi’s Biggest SUV Beats BMW and Mercedes on Family-Friendliness",
-          "summary": "Audi is finally ready to compete for American families with the all-new Q9 three-row SUV, and its rivals should take notice. The post 2027 Audi Q9 First-Drive Review: Audi’s Biggest SUV Beats BMW and Mercedes on Family-Friendliness appeared first on The Drive .",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://www.thedrive.com/wp-content/uploads/2026/10/untitled-0447_6afce2-e1793028067850-copy.jpg?quality=85",
-          "tid": "i38"
-        }
-      ],
-      "at": "2026-10-27T13:06:09Z",
-      "holds": 1,
-      "held_at": "2026-10-27T13:06:25Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i4"
-        ],
-        "topic": "Apple updates Creator Studio with AI features",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "super-zeka",
-        "entities": [
-          "Apple",
-          "Apple Creator Studio"
-        ],
-        "reason": "Apple Creator Studio uygulamasına eklenen yeni yapay zeka özellikleri yaratıcı profesyoneller için önemli.",
-        "must_read": 0,
-        "big_brand": false,
-        "preview": false,
-        "replaces": "",
-        "editor_reason": ""
-      },
-      "items": [
-        {
-          "key": "c8d5f1232b284116",
-          "source": "Apple",
-          "kind": "official",
-          "credit": "Apple",
-          "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
-          "via": null,
-          "via_url": null,
-          "title": "Apple Creator Studio adds powerful new AI features and even more creative tools",
-          "summary": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators.",
-          "published": "2026-10-27T12:58:45Z",
-          "html_source": false,
-          "image": "https://www.apple.com/newsroom/images/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/tile/Apple-Creator-Studio-hero-261027-lp.jpg.og.jpg",
-          "tid": "i4"
-        }
-      ],
-      "at": "2026-10-27T13:06:09Z",
-      "holds": 1,
-      "held_at": "2026-10-27T13:06:25Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i1"
-        ],
-        "topic": "Fitbit Edge smartwatch introduced",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "teknoloji",
-        "entities": [
-          "Fitbit",
-          "Fitbit Edge"
-        ],
-        "reason": "Fitbit'in yenilenen tasarıma sahip yeni akıllı saati giyilebilir teknoloji meraklılarının ilgisini çekecektir.",
-        "must_read": 0,
-        "big_brand": false,
-        "preview": false,
-        "replaces": "",
-        "editor_reason": ""
-      },
-      "items": [
-        {
-          "key": "628f9146cedda23b",
-          "source": "Google",
-          "kind": "official",
-          "credit": "Google",
-          "url": "https://blog.google/products-and-platforms/devices/fitbit/fitbit-edge-design/",
-          "via": null,
-          "via_url": null,
-          "title": "Fitbit Edge: Premium design for an active life",
-          "summary": "With a reimagined screen, refined mechanics, and elevated style, Fitbit Edge looks as good as it performs, year after year.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FitEdge_Metal_Links_Matte_Black.max-600x600.format-webp.webp",
-          "tid": "i1"
-        }
-      ],
-      "at": "2026-10-27T13:06:09Z",
-      "holds": 1,
-      "held_at": "2026-10-27T13:06:25Z"
-    },
-    {
-      "story": {
-        "item_ids": [
-          "i18",
-          "i23",
-          "i30"
-        ],
-        "topic": "Anduril and Qualcomm partner to build US-made BlueChip laptops",
-        "on_topic": true,
-        "duplicate_of": "",
-        "importance": 7,
-        "category": "teknoloji",
-        "entities": [
-          "Anduril",
-          "Qualcomm",
-          "BlueChip"
-        ],
-        "reason": "Anduril ve Qualcomm ortaklığıyla tamamen ABD'de üretilecek yeni laptop serisi sektörel açıdan önemli.",
-        "must_read": 0,
-        "big_brand": false,
-        "preview": false,
-        "replaces": "",
-        "editor_reason": ""
-      },
-      "items": [
-        {
-          "key": "17e23f6bdae7a25a",
-          "source": "TechCrunch",
-          "kind": "media",
-          "credit": "TechCrunch",
-          "url": "https://techcrunch.com/2026/10/27/anduril-qualcomm-launch-bluechip-a-new-kind-of-us-made-laptop/",
-          "via": null,
-          "via_url": null,
-          "title": "Anduril, Qualcomm launch BlueChip, a new kind of US-made laptop",
-          "summary": "Anduril founder Palmer Luckey is vowing to bring computer manufacturing back to the U.S. and by that he doesn't just mean assembly, but every individual component, some of which are exclusively made in China today.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i18"
-        },
-        {
-          "key": "2189033dd82460a4",
-          "source": "The Verge",
-          "kind": "media",
-          "credit": "The Verge",
-          "url": "https://www.theverge.com/gadgets/1019274/anduril-qualcomm-bluechip-laptops-american-made-military",
-          "via": null,
-          "via_url": null,
-          "title": "Palmer Luckey’s Anduril is getting into laptops — and claims they’ll be American-made",
-          "summary": "Anduril and Qualcomm are partnering on a new line of laptops called BlueChip, launching in early 2027. The first prototype is a ruggedized model using Arm-based Snapdragon X series chips and aimed at the US military, but the ultimate focus of the joint venture is to make laptops entirely in the US. Eventually. The global […]",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/2026-BlueChip-InField-11-Web.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-          "tid": "i23"
-        },
-        {
-          "key": "4bf2263a323482a1",
-          "source": "Bloomberg Teknoloji",
-          "kind": "media",
-          "credit": "Bloomberg Teknoloji",
-          "url": "https://www.bloomberg.com/news/articles/2026-10-27/anduril-and-qualcomm-plan-to-build-laptop-with-us-supply-chain",
-          "via": null,
-          "via_url": null,
-          "title": "Anduril and Qualcomm Plan to Build Laptop With US Supply Chain",
-          "summary": "Defense tech startup Anduril Industries Inc. has joined forces with chipmaker Qualcomm Inc. to produce laptops that are designed and assembled in the US, an attempt to rebuild a manufacturing process that has largely moved overseas.",
-          "published": "2026-10-27T13:00:00Z",
-          "html_source": false,
-          "image": null,
-          "tid": "i30"
-        }
-      ],
-      "at": "2026-10-27T13:06:09Z",
-      "holds": 1,
-      "held_at": "2026-10-27T13:06:25Z"
-    }
-  ],
+  "queue": [],
   "last_activity": "2026-10-18T08:25:22Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/teknoloji/2026/10/apple-creator-studio-guncellendi-yapay-zeka/",
+    "https://smarity.com.tr/teknoloji/2026/10/fitbit-edge-tanitildi/",
+    "https://smarity.com.tr/teknoloji/2026/10/apple-m6-islemcili-yeni-macbook-pro-ve-imac/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
   "edit_log": [
-    {
-      "t": "2026-10-26T14:14:37Z",
-      "topic": "Roborock F25 Ultra wet-and-dry vacuum with steam cleaning launched in UK",
-      "action": "skip",
-      "score": 5,
-      "reason": "İngiltere pazarına özel akıllı ev aleti.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-26T14:14:37Z",
-      "topic": "Volkswagen gets L3 autonomous driving test permit in China",
-      "action": "skip",
-      "score": 4,
-      "reason": "Yalnızca Çin pazarını ilgilendiren test izni.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-26T14:14:37Z",
-      "topic": "Bugatti CEO hints at possible manual transmission hypercar",
-      "action": "skip",
-      "score": 5,
-      "reason": "Kesinleşmemiş ihtimal ve açıklamalar.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-26T14:14:37Z",
-      "topic": "OLED iPad Mini starts at $699 after price hike",
-      "action": "skip",
-      "score": 7,
-      "reason": "Yeni iPad mini fiyat detayları ana habere eklenebilir.",
-      "target": "f0f00e7363"
-    },
-    {
-      "t": "2026-10-26T14:32:06Z",
-      "topic": "Apple unveils new iPad mini with OLED and A20 Pro",
-      "action": "update",
-      "score": 9,
-      "reason": "Yeni iPad mini özellikleri ve detayları resmen açıklandı.",
-      "target": "f0f00e7363"
-    },
-    {
-      "t": "2026-10-26T14:32:06Z",
-      "topic": "Meta plans stock sales to fund AI infrastructure",
-      "action": "skip",
-      "score": 6,
-      "reason": "Mevcut haberin tekrarı niteliğinde, yeni bir gelişme içermiyor.",
-      "target": "61c5607d76"
-    },
-    {
-      "t": "2026-10-26T14:32:06Z",
-      "topic": "Anthropic S-1 filing and growth trajectory analysis",
-      "action": "skip",
-      "score": 6,
-      "reason": "Halka arz başvuru haberi daha önce işlendi, finansal analiz.",
-      "target": "1630b9d0b2"
-    },
-    {
-      "t": "2026-10-26T14:32:06Z",
-      "topic": "Apple raises iPad prices in Turkey following new model launch",
-      "action": "publish",
-      "score": 8,
-      "reason": "Apple Türkiye'nin yeni iPad zamları kullanıcıları doğrudan ilgilendiriyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-10-26T14:32:06Z",
-      "topic": "OpenAI offers discounts to win Anthropic customers",
-      "action": "skip",
-      "score": 6,
-      "reason": "Sektörel kulis haberi, kesinleşmiş resmi bir gelişme değil.",
-      "target": ""
-    },
     {
       "t": "2026-10-26T14:50:29Z",
       "topic": "Anthropic files for IPO",
@@ -2831,6 +2407,78 @@
       "action": "hold",
       "score": 0,
       "reason": "",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Apple announces 14-inch MacBook Pro with M6 chip",
+      "action": "skip",
+      "score": 8,
+      "reason": "M6 MacBook Pro ailesi zaten duyuruldu.",
+      "target": "7e9df0612a"
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Ford details sub-$30K Fathom electric truck bidirectional home charging",
+      "action": "skip",
+      "score": 5,
+      "reason": "Amerika odaklı elektrikli kamyonet Türkiye pazarını ilgilendirmiyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "2027 Audi Q9 and SQ9 full-size luxury SUVs reviewed",
+      "action": "skip",
+      "score": 5,
+      "reason": "Otomobil inceleme yazısı, kesin bir lansman veya Türkiye duyurusu değil.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Apple announces M6 iMac with Wi-Fi 7 and new colors",
+      "action": "update",
+      "score": 9,
+      "reason": "Yeni iMac için Türkiye fiyatı ve resmi satış detayları açıklandı.",
+      "target": "7e9df0612a"
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Nvidia invests 3 billion dollars in Meta",
+      "action": "skip",
+      "score": 6,
+      "reason": "Yabancı teknoloji yatırım haberi yerel okuyucu için yeterince somut değil.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Intel acquires quantum computing startup Classiq for 2.3 billion dollars",
+      "action": "skip",
+      "score": 5,
+      "reason": "B2B kurumsal satın alma haberi geniş kitlelerin ilgisini çekmiyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Apple updates Creator Studio with AI features",
+      "action": "publish",
+      "score": 7,
+      "reason": "Apple Creator Studio güncellemesi yapay zeka araçlarıyla yenilendi.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Fitbit Edge smartwatch introduced",
+      "action": "publish",
+      "score": 7,
+      "reason": "Google, yeni akıllı saati Fitbit Edge modelini resmi olarak tanıttı.",
+      "target": ""
+    },
+    {
+      "t": "2026-10-27T13:22:40Z",
+      "topic": "Anduril and Qualcomm partner to build US-made BlueChip laptops",
+      "action": "skip",
+      "score": 5,
+      "reason": "ABD pazarındaki özel tedarik zincirli dizüstü bilgisayar projesi.",
       "target": ""
     }
   ],
