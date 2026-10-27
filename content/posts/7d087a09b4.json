@@ -66,9 +66,12 @@
     "message_id": 1645
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "7d087a09b4-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/hastanelerde-islak-imza-donemi-sona-erdi-sms-ve-e-nabiz-ile-onay-devri-basladi",
+    "src": "https://ares.shiftdelete.net/2026/10/imza.webp",
     "layout": "manset",
-    "palette": "teknoloji-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -77,7 +80,7 @@
   "published_at": "2026-10-27T09:53:06Z",
   "publish_mode": "auto",
   "path": "teknoloji/2026/10/hastanelerde-sms-ile-onay-donemi-basladi",
-  "photos_filled": "2026-10-27T09:53:10Z",
+  "photos_filled": "2026-10-27T11:55:46Z",
   "photos_tried": "2026-10-27T09:53:13Z",
   "coverage": [
     {
@@ -88,5 +91,21 @@
       "image": null,
       "at": "2026-10-27T10:51:28Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/imza.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/hastanelerde-islak-imza-donemi-sona-erdi-sms-ve-e-nabiz-ile-onay-devri-basladi",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "7d087a09b4-g0.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-27T09:53:06Z"
 }
