@@ -1,0 +1,113 @@
+{
+  "id": "b420ceb2f3",
+  "created_at": "2026-10-27T15:43:25Z",
+  "title": "Microsoft Authenticator uygulamasındaki kritik açık kapatıldı",
+  "summary": "TechRadar'ın aktardığına göre, Microsoft Authenticator'ın Android sürümünde bulunan kritik bir açık, zararlı uygulamaların kullanıcı etkileşimi olmadan oturum belirteçlerini çalmasına yol açabiliyordu.",
+  "body": "TechRadar'ın aktardığına göre, Microsoft Authenticator uygulamasının Android sürümünde keşfedilen **kritik açık**, zararlı uygulamaların kullanıcı onayı gerektirmeden oturum belirteçlerini ele geçirmesine olanak tanıyordu. Enclave araştırmacılarının tespit ettiği ve CVE_2026-80097 olarak takip edilen güvenlik açığı, Microsoft tarafından kapatıldı ve kullanıcıların uygulamalarını derhal güncellemesi istendi.\n\n## Açık nasıl çalışıyordu?\n\nAraştırmacılar, olağan Android standartlarında şüpheli görünmeyen ve geniş izinler istemeyen üçüncü taraf bir uygulamanın, kendisini meşru bir Microsoft Teams uygulaması gibi tanıtabildiğini gösterdi. Authenticator uygulaması, gelen verilerin doğruluğunu kontrol ederken uygulamanın kimliğini doğrulayamadığı için izinsiz bir şekilde oturum belirteci (token) sağladı. Bu süreç tamamen arka planda gerçekleşti; kullanıcıların oturum açma girişimini onaylaması veya herhangi bir bildirim alması gerekmedi. Bu durum, saldırganların e-postalara, Teams verilerine, takvimlere ve dosyalara erişmesine imkan tanıyabilecek bir zafiyet yarattı.\n\n## Güncelleme çağrısı yapıldı\n\nEnclave, bu açığın gerçek dünyada kötü niyetli kişiler tarafından kullanıldığına dair bir kanıt bulamadı ve sorunu kontrollü bir ortamda test etti. Sınamayı gerçekleştiren araştırmacılara göre, zararlı uygulamanın hedeflenen Android cihazına bir şekilde yüklenmesi gerekiyor. Microsoft Security Response Center, 6.2606.4246 sürümünden önceki Microsoft Authenticator Android sürümlerinin etkilendiğini belirterek, kullanıcıların Google Play Store üzerinden uygulamalarını en son sürüme güncellemelerini tavsiye ediyor.\n\n**Neden önemli?** Zafiyet, saldırganların herhangi bir kullanıcı etkileşimi veya parola bilgisi olmaksızın hassas kurumsal ve kişisel verilere arka planda erişmesini mümkün kılıyordu.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Microsoft Authenticator",
+    "Android",
+    "Google Play Store",
+    "Enclave"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Microsoft Authenticator açığı kapatıldı",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a matte dark gray smartphone resting on a neutral surface, with a glowing abstract shield made of thin frosted glass floating above the screen, casting soft shadows",
+  "focus_keyword": "Microsoft Authenticator",
+  "seo_title": "Microsoft Authenticator açığı kapatıldı: Güncelleme çağrısı",
+  "meta_description": "TechRadar'ın haberine göre Microsoft Authenticator Android uygulamasındaki kritik açık kapatıldı. Kullanıcıların uygulamayı güncellemesi gerekiyor.",
+  "seo_slug": "microsoft-authenticator-acigi-kapatildi",
+  "image_alt": "Koyu gri bir akıllı telefonun üzerinde süzülen buzlu cam kalkanı temsil eden güvenlik görseli",
+  "cover_text": "Microsoft Authenticator",
+  "carousel_points": [
+    "Android sürümünde kritik bir güvenlik açığı tespit edildi.",
+    "Açık, kullanıcı onayı olmadan oturum belirteçlerinin çalınmasına yol açabiliyordu.",
+    "Microsoft açığı kapatarak kullanıcıları uygulamayı güncellemeye çağırdı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Microsoft Authenticator açığı kapatıldı",
+  "cover_highlight": "Authenticator",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Microsoft Authenticator kritik Android açığı kapatıldı.",
+  "entities": [
+    "Microsoft",
+    "Microsoft Authenticator"
+  ],
+  "topic": "Critical Microsoft Authenticator flaw fixed on Android",
+  "sources": [
+    {
+      "name": "TechRadar",
+      "url": "https://www.techradar.com/pro/security/critical-microsoft-authenticator-flaw-let-malicious-android-apps-steal-access-to-your-precious-accounts",
+      "title": "Critical Microsoft Authenticator flaw let malicious Android apps steal access to your precious accounts",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-27T15:20:00Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/vAk5oh4pWzGeSY7xpMFAwR-1920-80.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechRadar"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1658
+  },
+  "photos": [
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/vAk5oh4pWzGeSY7xpMFAwR-1920-80.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/critical-microsoft-authenticator-flaw-let-malicious-android-apps-steal-access-to-your-precious-accounts",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b420ceb2f3-g0.webp",
+      "w": 1600,
+      "h": 949
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:1513,cw:4415,ch:4415,q:80,w:2560/vAk5oh4pWzGeSY7xpMFAwR.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/critical-microsoft-authenticator-flaw-let-malicious-android-apps-steal-access-to-your-precious-accounts",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b420ceb2f3-g1.webp",
+      "w": 1600,
+      "h": 1600
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "b420ceb2f3-g0.webp",
+    "credit": "TechRadar",
+    "page": "https://www.techradar.com/pro/security/critical-microsoft-authenticator-flaw-let-malicious-android-apps-steal-access-to-your-precious-accounts",
+    "src": "https://cdn.mos.cms.futurecdn.net/vAk5oh4pWzGeSY7xpMFAwR-1920-80.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "microsoft-authenticator-acigi-kapatildi",
+  "published_at": "2026-10-27T15:43:35Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/microsoft-authenticator-acigi-kapatildi",
+  "photos_vetted": "2026-10-27T15:43:41Z",
+  "photos_vet_v": 2
+}
