@@ -66,15 +66,34 @@
     "message_id": 1284
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "776f884daf-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/SpaceX",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/CRS-18_Mission_%2848380511427%29.jpg/960px-CRS-18_Mission_%2848380511427%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "layout": "manset",
-    "palette": "super-zeka-2",
     "cover_v": 2
   },
   "slug": "spacex-super-intelligence-x-aboneligi-paketi",
   "published_at": "2026-10-13T07:40:32Z",
   "publish_mode": "manual",
   "path": "super-zeka/2026/10/spacex-super-intelligence-x-aboneligi-paketi",
-  "photos_filled": "2026-10-25T07:55:35Z",
-  "photos_tried": "2026-10-25T07:55:47Z"
+  "photos_filled": "2026-10-28T07:57:03Z",
+  "photos_tried": "2026-10-28T07:57:15Z",
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/CRS-18_Mission_%2848380511427%29.jpg/960px-CRS-18_Mission_%2848380511427%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/SpaceX",
+      "alt": "SpaceX",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "776f884daf-g0.webp",
+      "w": 960,
+      "h": 640
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-13T07:40:32Z"
 }
