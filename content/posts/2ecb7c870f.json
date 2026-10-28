@@ -67,9 +67,12 @@
   },
   "photos_v": 2,
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "2ecb7c870f-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/dijital-t-c-kimlik-karti-geliyor-ilk-testler-2027de-basliyor",
+    "src": "https://ares.shiftdelete.net/2022/12/süleyman-soylu-eski-kimlik-banka-için-geçersiz-açiklama.webp",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -81,7 +84,7 @@
   "photos_vetted": "2026-10-28T08:40:33Z",
   "photos_vet_v": 2,
   "updated_at": "2026-10-28T08:40:35Z",
-  "photos_filled": "2026-10-28T12:47:06Z",
+  "photos_filled": "2026-10-28T14:52:32Z",
   "photos_tried": "2026-10-28T08:40:37Z",
   "coverage": [
     {
@@ -99,6 +102,32 @@
       "kind": "media",
       "image": null,
       "at": "2026-10-28T13:11:00Z"
+    }
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/2022/12/süleyman-soylu-eski-kimlik-banka-için-geçersiz-açiklama.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/dijital-t-c-kimlik-karti-geliyor-ilk-testler-2027de-basliyor",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "2ecb7c870f-g0.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "https://ares.shiftdelete.net/2026/10/Dijital-Kimlik-Karti.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/dijital-t-c-kimlik-karti-geliyor-ilk-testler-2027de-basliyor",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "2ecb7c870f-g1.webp",
+      "w": 1280,
+      "h": 720
     }
   ]
 }
