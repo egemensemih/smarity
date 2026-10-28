@@ -52,9 +52,12 @@
     "message_id": 251
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "81b95abbba-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Grand_Theft_Auto_V",
+    "src": "https://upload.wikimedia.org/wikipedia/tr/b/be/Grand_Theft_Auto_V_oyununun_kapa%C4%9F%C4%B1.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "slug": "iphone-18-pro-max-gta-5-performansi",
@@ -69,6 +72,20 @@
   "path": "teknoloji/2026/09/iphone-18-pro-max-gta-5-performansi",
   "photos_vetted": "2026-10-04T13:07:13Z",
   "photos_vet_v": 2,
-  "photos_filled": "2026-10-25T13:36:06Z",
-  "photos_tried": "2026-10-25T13:36:15Z"
+  "photos_filled": "2026-10-28T13:37:31Z",
+  "photos_tried": "2026-10-25T13:36:15Z",
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/tr/b/be/Grand_Theft_Auto_V_oyununun_kapa%C4%9F%C4%B1.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Grand_Theft_Auto_V",
+      "alt": "Grand Theft Auto V",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "81b95abbba-g0.webp",
+      "w": 1280,
+      "h": 1580
+    }
+  ]
 }
