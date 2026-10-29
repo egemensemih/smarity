@@ -66,9 +66,12 @@
     "message_id": 1699
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "ef41c43d9b-g1.webp",
+    "credit": "Digital Trends",
+    "page": "https://www.digitaltrends.com/computing/openai-now-lets-you-text-your-chatgpt-dot-agent-to-get-things-done/",
+    "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/chatgpt-dot-agent-imessage-scaled.jpg?resize=2560%2C1426&ssl=1",
     "layout": "manset",
-    "palette": "super-zeka-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -77,7 +80,7 @@
   "published_at": "2026-10-28T18:24:35Z",
   "publish_mode": "auto",
   "path": "super-zeka/2026/10/chatgpt-dot-imessage-ve-rcs-destegi",
-  "photos_filled": "2026-10-29T00:34:15Z",
+  "photos_filled": "2026-10-29T02:36:29Z",
   "photos_tried": "2026-10-28T18:25:12Z",
   "coverage": [
     {
@@ -96,5 +99,45 @@
       "image": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/chatgpt-dot-agent-imessage-rcs.jpg?resize=440%2C292&ssl=1",
       "at": "2026-10-29T01:17:03Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://www.engadget.com/img/gallery/openai-now-lets-you-text-your-dot-agent/l-intro-1793214741.jpg",
+      "credit": "Engadget",
+      "page": "https://www.engadget.com/2300235/openai-now-lets-you-text-your-dot-agent/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "ef41c43d9b-g0.webp",
+      "w": 1600,
+      "h": 898
+    },
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/chatgpt-dot-agent-imessage-scaled.jpg?resize=2560%2C1426&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/openai-now-lets-you-text-your-chatgpt-dot-agent-to-get-things-done/",
+      "alt": "chatgpt-dot-agent-imessage",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ef41c43d9b-g1.webp",
+      "w": 1600,
+      "h": 891
+    },
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/10/chatgpt-dot-agent-text-messages-scaled.jpg?resize=2560%2C1424&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/openai-now-lets-you-text-your-chatgpt-dot-agent-to-get-things-done/",
+      "alt": "chatgpt-dot-agent-text-messages",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ef41c43d9b-g2.webp",
+      "w": 1600,
+      "h": 890
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-28T18:24:35Z"
 }
