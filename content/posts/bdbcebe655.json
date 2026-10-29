@@ -1,0 +1,109 @@
+{
+  "id": "bdbcebe655",
+  "created_at": "2026-10-29T13:28:27Z",
+  "title": "Mistral Large 4 yapay zeka modeli açık kaynak olarak yayımlandı",
+  "summary": "Mistral, 1 trilyon parametreli yapay zeka modeli Mistral Large 4'ün ağırlıklarını açık kaynak olarak erişime açtı.",
+  "body": "Mistral, 1 trilyon parametreli yapay zeka modeli **Mistral Large 4**'ün ağırlıklarını açık kaynak olarak yayımladı. Paris merkezli yapay zeka şirketi, üç hafta önce ön izlemesi yapılan modelin müşteri geri bildirimleriyle güçlendirildiğini duyurdu.\n\n## Mistral Large 4 neler sunuyor?\n\n\"Le Chonk\" takma adıyla bilinen model, metin ve görselleri okuyarak metin ile kod üretebiliyor ve her görev için 52 milyar parametresini aktif hale getiriyor. Şirketin aktardığına göre, yapılan ek pekiştirmeli öğrenme çalışmaları sayesinde model, yazılım geliştirme ve siber savunma alanlarında güçlendi. Terminal-Bench 4.0 testlerinde başarı oranını artıran model, Artificial Analysis kodlama endeksinde de rakipleriyle benzer performans sergiliyor. Ayrıca siber savunma testlerinde açık kaynaklı projelerdeki hataları bulma ve onarma konusunda öne çıkıyor.\n\n## Erişim ve verimlilik\n\nModelin daha verimli çalışması için düşük, orta ve yüksek olmak üzere farklı akıl yürütme modları eklendi. Mistral, modelin eğitimi için daha az kaynak kullandığını vurgularken, önümüzdeki aylarda dizüstü bilgisayarlarda çalışabilecek daha küçük versiyonların da geleceğini belirtti. Model şu an Hugging Face üzerinden, şirketin kendi API'si aracılığıyla ve bazı Vibe kullanıcıları tarafından erişilebiliyor.\n\n**Neden önemli?** Mistral yöneticileri, yapay zekanın elektrik gibi temel bir altyapı haline geleceğini belirterek açık kaynak erişiminin bağımsızlık açısından önemine dikkat çekti.",
+  "category": "super-zeka",
+  "tags": [
+    "Mistral",
+    "Mistral Large 4",
+    "Hugging Face",
+    "Nvidia",
+    "yapay zeka modeli"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Mistral Large 4 açık kaynak olarak çıktı",
+  "kicker": "Yapay zeka",
+  "hero_stat": "1 trilyon",
+  "hero_stat_label": "parametre sayısı",
+  "visual_style": "studio",
+  "visual_scene": "a tall stack of translucent frosted-glass cubes rising like a bar chart, the top cube glowing warm amber, tiny ceramic spheres rolling off the edge onto a soft surface",
+  "focus_keyword": "Mistral Large 4",
+  "seo_title": "Mistral Large 4 yapay zeka modeli erişime açıldı",
+  "meta_description": "Mistral, 1 trilyon parametreli Mistral Large 4 yapay zeka modelini açık kaynak olarak yayımladı. Modelin detayları ve özellikleri.",
+  "seo_slug": "mistral-large-4-yapay-zeka-modeli-cikti",
+  "image_alt": "Buzlu cam küplerden yükselen grafik ve Mistral Large 4 yapay zeka modelinin açık kaynak duyurusunu temsil eden görsel",
+  "cover_text": "Mistral Large 4",
+  "carousel_points": [
+    "Mistral, 1 trilyon parametreli Mistral Large 4 modelini açık kaynak olarak yayımladı.",
+    "Model yazılım geliştirme ve siber savunma görevlerinde yüksek performans gösteriyor.",
+    "Hugging Face üzerinden ve API aracılığıyla erişilebilen modelin daha küçük versiyonları da gelecekte çıkacak."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Mistral Large 4 modeli 1 trilyon parametreyle çıktı",
+  "cover_highlight": "1 trilyon parametreyle",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": false,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Mistral'in 1 trilyon parametreli yeni amiral gemisi modeli açık kaynak dağıtıldı.",
+  "entities": [
+    "Mistral"
+  ],
+  "topic": "Mistral Large 4 open weights release",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/mistral-large-4-open-weights-release",
+      "title": "Mistral releases open weights for its 1 trillion-parameter Large 4 model",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-29T13:00:37Z",
+      "image": "https://media.thenextweb.com/2026/10/mistral-logo-orange-red-white-pixel-grid.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1709
+  },
+  "photos": [
+    {
+      "src": "https://media.thenextweb.com/2026/10/terminal-bench-4-coding-agent-chart.avif",
+      "credit": "The Next Web",
+      "page": "https://thenextweb.com/news/mistral-large-4-open-weights-release",
+      "alt": "Bar chart of Terminal-Bench 4.0 scores: Mistral Large 4 41%, GLM-5.3 40%, DeepSeek V4.1 Flash 31%, Kimi K3 21%, preview 28%",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "bdbcebe655-g0.webp",
+      "w": 1126,
+      "h": 892
+    },
+    {
+      "src": "https://media.thenextweb.com/2026/10/cybergym-e2e-cyber-index-chart.avif",
+      "credit": "The Next Web",
+      "page": "https://thenextweb.com/news/mistral-large-4-open-weights-release",
+      "alt": "Bar chart of CyberGym-E2E scores: Mistral Large 4 and MiMo-V2.6-Pro 79%, DeepSeek V4.1 Flash 76%, GLM-5.3 Flash 74%, GLM-5.3 29%",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "bdbcebe655-g1.webp",
+      "w": 1126,
+      "h": 892
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-3",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "mistral-large-4-yapay-zeka-modeli-cikti",
+  "published_at": "2026-10-29T13:28:48Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/10/mistral-large-4-yapay-zeka-modeli-cikti",
+  "photos_vetted": "2026-10-29T13:29:04Z",
+  "photos_vet_v": 2
+}
