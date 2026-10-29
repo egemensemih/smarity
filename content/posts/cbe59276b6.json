@@ -65,9 +65,12 @@
     "message_id": 1713
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "cbe59276b6-g0.webp",
+    "credit": "Digital Trends",
+    "page": "https://www.digitaltrends.com/computing/amazon-alexa-for-shopping-100-new-features/",
+    "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/05/Alexa-for-Shopping-1.jpg?w=2477&ssl=1",
     "layout": "manset",
-    "palette": "super-zeka-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -76,7 +79,7 @@
   "published_at": "2026-10-29T15:29:28Z",
   "publish_mode": "auto",
   "path": "super-zeka/2026/10/amazon-alexa-alisveris-asistani-yeni-yetenekler",
-  "photos_filled": "2026-10-29T17:33:47Z",
+  "photos_filled": "2026-10-29T19:35:51Z",
   "photos_tried": "2026-10-29T15:30:17Z",
   "coverage": [
     {
@@ -95,5 +98,21 @@
       "image": "https://cdn.mos.cms.futurecdn.net/8vPLUMYrAGCUjp76NdG3nU-1920-80.jpg",
       "at": "2026-10-29T18:38:27Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/05/Alexa-for-Shopping-1.jpg?w=2477&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/amazon-alexa-for-shopping-100-new-features/",
+      "alt": "Amazon Alexa, AI",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "cbe59276b6-g0.webp",
+      "w": 1600,
+      "h": 960
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-10-29T15:29:28Z"
 }
