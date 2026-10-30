@@ -1,0 +1,97 @@
+{
+  "id": "2032182599",
+  "created_at": "2026-10-30T06:31:17Z",
+  "title": "Windows 11 bulut üzerinden yeniden kurulabiliyor",
+  "summary": "Windows 11 için yayımlanan yeni güncellemeyle gelen Cloud Rebuild özelliği, açılmayan bilgisayarları internet üzerinden sıfırdan kurmayı sağlıyor.",
+  "body": "LOG'un aktardığına göre, **Windows 11** için yayımlanan KB5127936 güncellemesiyle kullanıma sunulan Cloud Rebuild adlı yeni özellik, açılmayan bilgisayarlarda işletim sistemini ve sürücüleri **Windows Update** üzerinden yeniden yüklüyor.\n\n## Cloud Rebuild ne işe yarıyor?\n\nBu faydalı özellik, bilgisayar açılmadığı durumlarda özel bir ISO dosyası barındıran USB belleğe olan ihtiyacı ortadan kaldırıyor. İşlemin gerçekleştirilebilmesi için aktif bir internet bağlantısı gerekiyor.\n\n## Güncelleme detayları\n\nYayımlanan yeni güncelleme sayesinde kullanıcılar, işletim sistemini ve gerekli sürücüleri doğrudan bulut üzerinden indirerek sistemi hızlıca ayağa kaldırabiliyor.\n\n**Neden önemli?** Açılmayan bilgisayarların kurtarılması sürecini USB bellek gereksinimi olmadan internet üzerinden çözmesi, kullanıcılar için büyük bir pratiklik sağlıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Windows 11",
+    "Microsoft",
+    "Windows Update"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Windows 11 bulut üzerinden kurulabiliyor",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a minimalist white desktop surface with a single glowing translucent blue glass cube connected to a thin stream of rising light particles representing cloud data transfer.",
+  "focus_keyword": "Windows 11",
+  "seo_title": "Windows 11 bulut üzerinden yeniden kurulabiliyor",
+  "meta_description": "Windows 11 için sunulan Cloud Rebuild özelliği ile açılmayan bilgisayarlar internet üzerinden USB belleğe gerek kalmadan yeniden kurulabiliyor.",
+  "seo_slug": "windows-11-bulut-uzerinden-yeniden-kurulabiliyor",
+  "image_alt": "Bulut üzerinden veri aktarımını temsil eden parlayan mavi cam küp ve ışık parçacıkları.",
+  "cover_text": "Windows 11",
+  "carousel_points": [
+    "Windows 11 için Cloud Rebuild özelliği kullanıma sunuldu.",
+    "Açılmayan bilgisayarlar internet üzerinden yeniden kurulabiliyor.",
+    "İşlem için özel bir USB belleğe ihtiyaç duyulmuyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Windows 11 buluttan kurulabiliyor",
+  "cover_highlight": "buluttan kurulabiliyor",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Windows 11 için buluttan sistem yükleme özelliği sunuldu.",
+  "entities": [
+    "Microsoft",
+    "Windows 11"
+  ],
+  "topic": "Windows 11 Cloud Rebuild feature allows reinstalling via cloud",
+  "sources": [
+    {
+      "name": "LOG",
+      "url": "https://www.log.com.tr/windows-11-artik-bulut-uzerinden-sifirdan-yeniden-kurulabiliyor/",
+      "title": "Windows 11 artık bulut üzerinden sıfırdan yeniden kurulabiliyor",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-30T06:28:53Z",
+      "image": "https://www.log.com.tr/wp-content/uploads/2026/04/windows-11-icin-yeni-bir-dokunsal-geri-bildirim-altyapisi-test-ediliyor-660x371.jpg"
+    }
+  ],
+  "source_keys": [
+    "LOG"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1725
+  },
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-2",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "windows-11-bulut-uzerinden-yeniden-kurulabiliyor",
+  "published_at": "2026-10-30T06:31:25Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/windows-11-bulut-uzerinden-yeniden-kurulabiliyor",
+  "photos_vetted": "2026-10-30T06:31:31Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/en/9/92/Windows_11_Desktop.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Windows_11",
+      "alt": "Windows 11",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "2032182599-g0.webp",
+      "w": 724,
+      "h": 406
+    }
+  ],
+  "updated_at": "2026-10-30T06:31:43Z"
+}
