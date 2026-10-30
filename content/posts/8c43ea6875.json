@@ -65,9 +65,12 @@
     "message_id": 1719
   },
   "image": {
-    "source": "cover",
-    "layout": "isik",
-    "palette": "teknoloji-3",
+    "source": "photo",
+    "photo": "8c43ea6875-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/twitch-turkiye-15-yas-alti-hesap-yasagi",
+    "src": "https://ares.shiftdelete.net/2026/08/yayinci-iceriklerini-izinsiz-kullanmislar-twitche-yapay-zeka-davasi.webp",
+    "layout": "manset",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -76,7 +79,7 @@
   "published_at": "2026-10-29T19:21:24Z",
   "publish_mode": "auto",
   "path": "teknoloji/2026/10/twitch-15-yas-alti-hesap-yasagi",
-  "photos_filled": "2026-10-30T07:33:39Z",
+  "photos_filled": "2026-10-30T09:35:28Z",
   "photos_tried": "2026-10-29T19:21:36Z",
   "coverage": [
     {
@@ -91,5 +94,19 @@
   "photos_v": 2,
   "updated_at": "2026-10-30T07:39:09Z",
   "photos_vetted": "2026-10-30T07:38:57Z",
-  "photos_vet_v": 2
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/2026/08/yayinci-iceriklerini-izinsiz-kullanmislar-twitche-yapay-zeka-davasi.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/twitch-turkiye-15-yas-alti-hesap-yasagi",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "8c43ea6875-g0.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ]
 }
