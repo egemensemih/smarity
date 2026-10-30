@@ -1,0 +1,98 @@
+{
+  "id": "288ad6f6c2",
+  "created_at": "2026-10-30T10:52:46Z",
+  "title": "DirectX ışın izleme güncellemesi performans kaybını azaltıyor",
+  "summary": "Microsoft, DirectX Raytracing için duyurduğu yeni altyapıyla ışın izleme performansını artırırken bellek tüketimini düşürmeyi hedefliyor.",
+  "body": "Microsoft, oyun grafiklerinin en yoğun işlem gücü gerektiren alanlarından biri olan ışın izleme için yeni bir altyapı hazırladı. DonanımHaber'in aktardığına göre, 2018'den bu yana DirectX Raytracing tarafındaki en kapsamlı yenilik olarak tanımlanan **DirectX ışın izleme güncellemesi**, özellikle karmaşık oyun sahnelerinde performans kaybı ve bellek tüketimini azaltmayı amaçlıyor.\n\n## Yeni teknolojiler ve test sonuçları\n\nDirectX 12 Agility SDK 1.722 Preview ile sunulan Clustered Geometry ve PTLAS teknolojileri, grafik işlemcisinin sahnedeki değişiklikleri çok daha verimli yönetmesini sağlıyor. Yeni sistemde bir nesne değiştiğinde bütün geometrik verilerin yeniden işlenmesi gerekmiyor; bunun yerine yalnızca etkilenen küçük bölümler güncelleniyor. Microsoft'un AMD Radeon RX 9070 kullanarak gerçekleştirdiği gösterimde, geleneksel yöntemle 1,2 FPS alınan test sahnesi yeni teknolojiyle 79 FPS seviyesine ulaştı ve yaklaşık 66 katlık bir performans farkı ortaya çıktı. Aynı işlemde kullanılan toplam bellek miktarı da yüzde 90 oranında azaldı.\n\n## Donanım desteği ve kullanım koşulları\n\nYeni teknolojiler için özel bir ışın izleme donanımı gerekmiyor. Nvidia, RTX 20 serisinden itibaren bütün GeForce RTX nesillerinin destekleneceğini duyururken; AMD tarafında Radeon RX 9000 serisi, Intel tarafında ise Arc B serisi ve Core Ultra 200V ile Series 3 işlemcilerin entegre grafik birimleri destek kapsamında yer alıyor. Qualcomm'un **Snapdragon X2** işlemcileri için desteği ise 2027'nin ilk yarısında sunması planlanıyor. Şu anda deneysel aşamada olan özellikler için DirectX 12 Agility SDK 1.722 Preview, Shader Model 6.10, uyumlu sürücüler ve Windows Developer Mode gerekiyor.\n\n**Neden önemli?** Microsoft'un tanıttığı yeni altyapı, ışın izlemenin önündeki en büyük engeller olan yüksek işlem maliyeti ve bellek tüketimini azaltarak oyun geliştiricilerine ve oyunculara önemli avantajlar sunmaya hazırlanıyor.",
+  "category": "gaming",
+  "tags": [
+    "Microsoft",
+    "DirectX",
+    "Nvidia",
+    "AMD",
+    "Intel"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "DirectX ışın izleme güncellemesi duyuruldu",
+  "kicker": "Oyun teknolojisi",
+  "hero_stat": "66 kat",
+  "hero_stat_label": "performans artışı",
+  "visual_style": "studio",
+  "visual_scene": "a complex geometric structure made of dark translucent glass blocks with sharp edges, a single sharp beam of blue light cutting through the structure and reflecting off small polished metallic spheres scattered around",
+  "focus_keyword": "DirectX ışın izleme güncellemesi",
+  "seo_title": "DirectX ışın izleme güncellemesi ile performans arttı",
+  "meta_description": "Microsoft, DirectX Raytracing için yeni güncellemesini duyurdu. Işın izleme performansını artıran ve bellek tüketimini düşüren yenilikler detaylanıyor.",
+  "seo_slug": "directx-isin-izleme-guncellemesi",
+  "image_alt": "Karanlık transparan cam bloklar arasından geçen mavi ışın ve metal küpleri temsil eden stüdyo görseli",
+  "cover_text": "DirectX 12",
+  "carousel_points": [
+    "Microsoft, DirectX Raytracing için yeni bir altyapı hazırladı.",
+    "Yapılan testlerde ışın izleme performansı 66 kata kadar arttı.",
+    "Nvidia, AMD ve Intel işlemciler ile ekran kartları desteklenecek."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "DirectX ışın izleme performansı 66 kat arttı",
+  "cover_highlight": "66 kat",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Microsoft, DirectX için ışın izleme performansını katlayan güncellemeyi duyurdu.",
+  "entities": [
+    "Microsoft",
+    "DirectX"
+  ],
+  "topic": "Microsoft announces major DirectX update with massive ray tracing boost",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/directx-e-dev-guncelleme-isin-izleme-performansi-66-kat-artti--212250",
+      "title": "DirectX'e dev güncelleme: Işın izleme performansı 66 kat arttı!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-30T10:47:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/212250/1200x675directx-e-dev-guncelleme-isin-izleme-performansi-66-kat-artti.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1734
+  },
+  "photos": [
+    {
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20261030101933&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/212250/directx-e-dev-guncelleme-isin-izleme-performansi-66-kat-artti212250_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/directx-e-dev-guncelleme-isin-izleme-performansi-66-kat-artti--212250",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "288ad6f6c2-g0.webp",
+      "w": 720,
+      "h": 342
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "gaming-3",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "directx-isin-izleme-guncellemesi",
+  "published_at": "2026-10-30T10:52:59Z",
+  "publish_mode": "auto",
+  "path": "gaming/2026/10/directx-isin-izleme-guncellemesi",
+  "photos_vetted": "2026-10-30T10:53:05Z",
+  "photos_vet_v": 2
+}

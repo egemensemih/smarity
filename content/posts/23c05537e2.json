@@ -1,0 +1,101 @@
+{
+  "id": "23c05537e2",
+  "created_at": "2026-10-30T10:52:30Z",
+  "title": "Android SMS of Death açığı telefonları kilitleyebilir",
+  "summary": "Güvenlik araştırmacısı Mark Blaszczyk tarafından keşfedilen SMS of Death açığı, kötü amaçlı mesajlarla Android telefonları kilitleyebiliyor.",
+  "body": "Android işletim sistemini hedefleyen ve SMS of Death olarak adlandırılan yeni bir güvenlik açığı, kötü amaçlı kısa mesajların telefonların arama servisini çökertmesine neden olabiliyor. Güvenlik araştırmacısı Mark Blaszczyk tarafından ortaya çıkarılan bu açık, kullanıcıların haberi olmadan arka planda çalışarak çağrıları kesebiliyor ve cihazları yeniden başlatma döngüsüne sokabiliyor.\n\n## Açık nasıl çalışıyor?\n\nAndroid Authority'nin aktardığına göre, özel olarak hazırlanmış bu mesajlar gelen kutusunda görünmüyor ancak telefonun arama sistemini devre dışı bırakabiliyor. Yaklaşık 20 mesajın arka arkaya gelmesi durumunda telefonlar neredeyse kullanılmaz hale gelebiliyor ve fabrika ayarlarına sıfırlama bile operatörün mesajları tekrar göndermesi halinde kalıcı çözüm sunmayabiliyor. Blaszczyk, bu saldırıyı Google Pixel ve Samsung Galaxy cihazlarda başarıyla tekrarladığını belirtiyor. Açığın kökeni Android 12 sürümlerine kadar uzanırken, risk durumunun cihazın aldığı güncellemelere bağlı olduğu ifade ediliyor.\n\n## Google'ın yaması ve süreç\n\nAraştırmacı durumu ilk olarak 5 Mayıs'ta Google'a bildirdiğini ancak şirketin başlangıçta bunu bir güvenlik sorunu olarak değerlendirmediğini aktardı. Bunun üzerine Blaszczyk, açığı 29 Ekim'de kamuoyuna açıkladı. Android kod kayıtlarına göre Google, Haziran ayında bir yama geliştirmişti. GrapheneOS'in X üzerinden aktardığına göre ise Google, düzeltmeyi temmuz ayındaki güvenlik önizlemeleriyle dağıtmıştı. CVE-2026-58882 olarak takip edilen kritik seviyedeki bu açığın, kasım ayı Android Güvenlik Bülteni'ne dahil edilmesi bekleniyor.\n\n**Neden önemli?** Acil arama servislerini kesintiye uğratabilecek ve cihazları kullanılmaz hale getirebilecek bu kritik açık nedeniyle, kullanıcıların en güncel güvenlik güncellemelerini yüklemesi önem taşıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Android",
+    "Google",
+    "Samsung",
+    "Google Pixel",
+    "GrapheneOS"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Android SMS of Death açığı duyuruldu",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a dark minimalist studio setting with a sleek frosted glass mobile phone resting upright on a smooth concrete surface, a single sharp beam of cool blue light cutting across the screen area, casting subtle long shadows",
+  "focus_keyword": "Android SMS of Death",
+  "seo_title": "Android SMS of Death açığı telefonları kilitleyebilir",
+  "meta_description": "Android telefonları kilitleyen ve çağrıları düşüren SMS of Death açığı keşfedildi. Google'ın yama süreci ve detaylar haberimizde.",
+  "seo_slug": "android-sms-of-death-acigi",
+  "image_alt": "Buzlu cam telefon modelinin üzerinde keskin mavi ışık çizen stüdyo ortamı",
+  "cover_text": "SMS of Death",
+  "carousel_points": [
+    "Android telefonları hedefleyen açık, çağrıları düşürebiliyor.",
+    "Kötü amaçlı mesajlar cihazları yeniden başlatma döngüsüne sokabiliyor.",
+    "Google kritik açık için yama hazırlıkları yürütüyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Android SMS of Death açığı telefonları kilitliyor",
+  "cover_highlight": "SMS of Death",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Milyonlarca Android cihazını etkileyen kritik SMS güvenlik açığı keşfedildi.",
+  "entities": [
+    "Android",
+    "Google"
+  ],
+  "topic": "Android SMS of Death vulnerability discovered",
+  "sources": [
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/android-sms-of-death-google-fix-3729929/",
+      "title": "Android’s SMS of Death bug can knock out your phone, but a fix is coming soon",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.androidauthority.com/android-sms-of-death-google-fix-3729929/#respond",
+      "published": "2026-10-30T10:33:32Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "Android Authority"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1733
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Android.JPG/960px-Android.JPG?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Android",
+      "alt": "Android",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "23c05537e2-g0.webp",
+      "w": 960,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "23c05537e2-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Android",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Android.JPG/960px-Android.JPG?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "android-sms-of-death-acigi",
+  "published_at": "2026-10-30T10:52:37Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/10/android-sms-of-death-acigi",
+  "photos_vetted": "2026-10-30T10:53:21Z",
+  "photos_vet_v": 2
+}
