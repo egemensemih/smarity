@@ -1,0 +1,102 @@
+{
+  "id": "f3253170af",
+  "created_at": "2026-10-31T12:39:25Z",
+  "title": "Google, OpenAI ve Microsoft ortak yapay zeka eğitim engelleme kuralını destekliyor",
+  "summary": "Dört büyük teknoloji şirketi, web sitelerinin içeriklerini yapay zeka eğitiminde tek bir robots.txt kuralıyla engelleyebilmesine imkan tanıyan yeni standardı destekleyecek.",
+  "body": "Google, OpenAI, Microsoft ve Anthropic, web sitelerinin içeriklerini yapay zeka modellerinin eğitiminde kullanmasını engellemesini kolaylaştıracak ortak bir adım attı. 31 Ekim'de duyurulan yeni IETF taslağı kapsamında, site sahipleri tek bir kural üzerinden **yapay zeka eğitim engelleme** tercihini belirtebilecek.\n\n## Yeni sistem nasıl çalışacak?\nMevcut sistemde web yayıncıları, her yapay zeka şirketinin veri tarayıcısı için ayrı ayrı kurallar yazmak zorunda kalıyordu. Yeni öneride ise robots.txt dosyasına eklenecek __usage_ai-training adlı tek bir belirteç, tüm katılımcı şirketler tarafından tanınacak. Site sahipleri, bu sayede belirli sayfaların veya tüm sitenin yapay zeka modellerini eğitmek amacıyla kullanılmasını tek bir hamleyle engelleyebilecek.\n\nAnthropic yetkilisi Kevin Kelley tarafından sunulan taslak, içeriklerin taranmasını doğrudan engellemek yerine kullanım tercihlerini bildirmeyi amaçlıyor. Taslağın henüz IETF tarafından resmi bir standart olarak onaylanmadığı, ancak şirketlerin bu kuralı kendi sistemlerinde dikkate alacağı belirtildi.\n\n## Şirketlerin uygulama takvimi\nŞirketlerin bu yeni ortak kuralı sistemlerine entegre etme süreçleri farklı tarihlerde gerçekleşecek:\n\n- Anthropic, geliştirmelere başladığını duyurdu.\n- OpenAI, özelliği önümüzdeki aylarda hayata geçirmeyi hedefliyor.\n- Microsoft, yeni kuralları 1 Şubat 2027 tarihinden itibaren geçerli kılacak.\n- Google, sistemin kendi altyapısına 2027 başlarında entegre edileceğini açıkladı.\n\nMeta iletişim yöneticisi Andy Stone da sosyal medyada bu ortak standardı desteklediğini ifade etti, ancak Meta'nın kuralı uygulayıp uygulayacağını henüz netleştirmedi.\n\n**Neden önemli?** İnternet yayıncıları uzun süredir içeriklerinin izin alınmadan yapay zeka modellerinde işlenmesinden şikayet ediyordu. Bu ortak standart, yayıncıların içerik haklarını korumasını kolaylaştırırken arama motorlarında görünür kalmalarına da olanak tanıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google",
+    "OpenAI",
+    "Microsoft",
+    "Anthropic",
+    "yapay zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Yapay zeka devlerinden ortak robots.txt adımı",
+  "kicker": "Ortak standart",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "sculpture",
+  "visual_scene": "A series of frosted glass panels standing vertically in a clean row, each carved with subtle grid lines, receiving a single warm beam of light that illuminates one specific path through them.",
+  "focus_keyword": "yapay zeka eğitim engelleme",
+  "seo_title": "Yapay zeka eğitim engelleme için ortak robots.txt kuralı",
+  "meta_description": "Google, OpenAI, Microsoft ve Anthropic, web sitelerinin yapay zeka eğitim engelleme tercihlerini tek bir robots.txt kuralıyla yapmasını destekliyor.",
+  "seo_slug": "yapay-zeka-egitim-engelleme-icin-ortak-robots-txt-kurali",
+  "image_alt": "Buzlu cam paneller üzerinde ışık hüzmelerini ve ağ hatlarını gösteren temsilî görsel",
+  "cover_text": "robots.txt",
+  "carousel_points": [
+    "Dört büyük teknoloji şirketi, yapay zeka eğitimi için tek bir ortak engelleme kuralını destekleyecek.",
+    "Yayıncılar, robots.txt dosyasına ekleyecekleri tek bir belirteçle veri kullanımını sınırlandırabilecek.",
+    "Sistemin şirketler tarafından hayata geçirilmesi kademeli olarak 2027 yılına kadar tamamlanacak."
+  ],
+  "appeal": 6,
+  "update_note": "",
+  "cover_headline": "Yapay zeka eğitimine tek tuşla engel",
+  "cover_highlight": "tek tuşla engel",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Dev yapay zekâ şirketleri ortak veri engelleme standardında anlaştı.",
+  "entities": [
+    "Google",
+    "Microsoft",
+    "OpenAI"
+  ],
+  "topic": "major tech giants back shared AI training opt-out",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/ai-training-opt-out-robots-txt-google-openai-microsoft-anthropic",
+      "title": "Google, Microsoft, OpenAI and Anthropic back one AI training opt-out",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-10-31T12:24:36Z",
+      "image": "https://media.thenextweb.com/2026/10/developer-two-monitors-code-editor-mac-mini.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1760
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Google",
+      "alt": "Google",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "f3253170af-g0.webp",
+      "w": 960,
+      "h": 702
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "f3253170af-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Google",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "yapay-zeka-egitim-engelleme-icin-ortak-robots-txt-kurali",
+  "published_at": "2026-10-31T12:39:35Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/10/yapay-zeka-egitim-engelleme-icin-ortak-robots-txt-kurali",
+  "photos_vetted": "2026-10-31T12:39:45Z",
+  "photos_vet_v": 2
+}
