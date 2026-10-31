@@ -124,6 +124,6 @@
 </div>
 {% endif %}
 <script src="{{ site.base }}/static/site.js?v={{ site.asset_v }}" defer></script>
-{% if site.cf_analytics %}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics }}"}'></script>{% endif %}
+{% if site.cf_analytics %}<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics }}"}'></script>{% endif %}
 </body>
 </html>

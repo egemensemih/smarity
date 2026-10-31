@@ -404,6 +404,7 @@ def test_big_stories_rank_higher_and_get_photos_from_later_sources():
 
 def test_legal_pages_and_analytics():
     with _App() as (cfg, a):
+        cfg.raw["analytics"], cfg.raw["legal"] = {"cloudflare_token": ""}, {}
         a.store.save_post(_post(1, 2))
         SiteBuilder(cfg).build()
         home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
