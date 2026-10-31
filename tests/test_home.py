@@ -415,6 +415,9 @@ def test_legal_pages_and_analytics():
         assert "KVKK" in priv and "çerez" in priv and "Yayın sahibi" not in cont   # boş künye satırı gösterilmez
         sm = (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
         assert "/gizlilik/" in sm and "/iletisim/" in sm
+        red = (cfg.out_dir / "api" / "redirects.csv").read_text(encoding="utf-8").splitlines()
+        p01 = a.store.load_post("p01")
+        assert f"smarity.com.tr/haber/{p01['slug']}/,https://smarity.com.tr/{cfg.post_path(p01)}/,301,TRUE,FALSE,FALSE,FALSE" in red
         cfg.raw["analytics"] = {"cloudflare_token": "abc123"}
         cfg.raw["legal"] = {"owner": "Örnek Medya", "address": "İstanbul"}
         SiteBuilder(cfg).build()
