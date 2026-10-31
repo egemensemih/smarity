@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "18"
+ASSET_V = "19"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -459,9 +459,12 @@ class SiteBuilder:
             # arama: dizin yalnızca arama açılınca yüklenir; sürüm en yeni haberle değişir (eski dizin önbellekte kalmasın)
             "search_url": f"{b}/ara/",
             "search_index": f"{b}/api/search.json?v={max((p['ts'] for p in posts), default=0)}",
+            # ziyaretçi istatistiği: Cloudflare Web Analytics (çerezsiz); belirteç Cloudflare panelinden alınır
+            "cf_analytics": str(((cfg.raw.get("analytics") or {}).get("cloudflare_token") or "")).strip(),
         }
         site["follow"] = follow_links(site)
-        ctx = {"site": site}
+        legal = {k: str(v).strip() for k, v in (cfg.raw.get("legal") or {}).items() if v}
+        ctx = {"site": site, "legal": legal}
 
         # statik dosyalar, logo ve görseller
         shutil.copytree(ROOT / "static", out / "static")
@@ -563,6 +566,10 @@ class SiteBuilder:
         self._write("hakkinda/index.html", self.env.get_template("about.html").render(
             **ctx, canonical=f"{cfg.site_url}/hakkinda/",
             sources=[s for s in cfg.sources]))
+        self._write("gizlilik/index.html", self.env.get_template("privacy.html").render(
+            **ctx, canonical=f"{cfg.site_url}/gizlilik/"))
+        self._write("iletisim/index.html", self.env.get_template("contact.html").render(
+            **ctx, canonical=f"{cfg.site_url}/iletisim/"))
         self._write("404.html", self.env.get_template("404.html").render(**ctx, canonical=cfg.site_url + "/", noindex=True))
         # arama sayfası (/ara/?q=…) ve tarayıcıda aranan haber dizini
         self._write("ara/index.html", self.env.get_template("search.html").render(

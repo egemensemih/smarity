@@ -402,6 +402,26 @@ def test_big_stories_rank_higher_and_get_photos_from_later_sources():
         assert a.apply_update(upd) and tried == ["p03"]
         assert a.store.load_post("p03")["photos_filled"]
 
+def test_legal_pages_and_analytics():
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 2))
+        SiteBuilder(cfg).build()
+        home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
+        assert "cloudflareinsights" not in home                       # belirteç yokken istatistik kodu eklenmez
+        assert "/iletisim/" in home and "/gizlilik/" in home          # alt bilgide bağlantılar
+        priv = (cfg.out_dir / "gizlilik" / "index.html").read_text(encoding="utf-8")
+        cont = (cfg.out_dir / "iletisim" / "index.html").read_text(encoding="utf-8")
+        assert "KVKK" in priv and "çerez" in priv and "Yayın sahibi" not in cont   # boş künye satırı gösterilmez
+        sm = (cfg.out_dir / "sitemap.xml").read_text(encoding="utf-8")
+        assert "/gizlilik/" in sm and "/iletisim/" in sm
+        cfg.raw["analytics"] = {"cloudflare_token": "abc123"}
+        cfg.raw["legal"] = {"owner": "Örnek Medya", "address": "İstanbul"}
+        SiteBuilder(cfg).build()
+        home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
+        assert '"token": "abc123"' in home and "static.cloudflareinsights.com/beacon.min.js" in home
+        cont = (cfg.out_dir / "iletisim" / "index.html").read_text(encoding="utf-8")
+        assert "Yayın sahibi" in cont and "Örnek Medya" in cont and "İstanbul" in cont
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

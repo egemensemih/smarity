@@ -456,6 +456,11 @@ img.is-fit { object-fit: contain !important; background: #F5F5F7; }
 .prose h2 { font-size: 28px; letter-spacing: -.03em; margin: 48px 0 12px; }
 .prose ul { padding-left: 1.2em; }
 .prose li { margin: 8px 0; }
+.prose h3 { font-size: 21px; letter-spacing: -.02em; margin: 28px 0 8px; }
+.kunye { display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; font-size: 17px; margin: 16px 0; }
+.kunye dt { color: var(--muted); }
+.kunye dd { margin: 0; }
+@media (max-width: 560px) { .kunye { grid-template-columns: 1fr; gap: 2px; } .kunye dd { margin-bottom: 10px; } }
 .prose a { color: var(--link); }
 
 /* ── alt bilgi ─────────────────────────── */

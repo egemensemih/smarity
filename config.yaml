@@ -11,12 +11,26 @@ site:
   # Sitenin adresi (boş bırakırsan GitHub Pages adresi otomatik kullanılır)
   url: "https://smarity.com.tr"
   posts_per_page: 18
-  contact_email: "smarityco@gmail.com"   # Hakkında sayfasında görünür
+  contact_email: "smarityco@gmail.com"   # Hakkında, İletişim ve Gizlilik sayfalarında görünür
   # Takip kanalları: yazılanlar sitede "Takip et" bölümünde ve alt bilgide görünür
   instagram: ""            # Instagram kullanıcı adı (boşsa bağlanan hesap kullanılır)
   telegram: ""             # Telegram kanalı kullanıcı adı (örn. smaritytr)
   whatsapp: ""             # WhatsApp kanalı bağlantısı (https://whatsapp.com/channel/...)
   x: ""                    # X (Twitter) kullanıcı adı
+
+# İletişim ve künye sayfası (/iletisim/) ile gizlilik sayfasında görünür. Boş bırakılan satır sayfada gösterilmez.
+# 5651 sayılı Kanun gereği içerik sağlayıcının tanıtıcı bilgileri (gerçek kişiyse ad soyad ve adres, şirketse unvan ve
+# adres) sitede yer almalıdır.
+legal:
+  owner: ""                # Yayın sahibi (ad soyad ya da şirket unvanı)
+  editor: ""               # Sorumlu yazı işleri müdürü (varsa)
+  address: ""              # Yönetim yeri / tebligat adresi
+  phone: ""                # İsteğe bağlı
+
+# Ziyaretçi istatistiği: Cloudflare Web Analytics (ücretsiz, çerez kullanmaz). Cloudflare → Web Analytics → siteyi ekle →
+# verilen koddaki "token" değerini buraya yaz.
+analytics:
+  cloudflare_token: ""
 
 home:
   # Ana sayfa seçkisi: her haber ana sayfaya çıkmaz. İlgi puanı (yapay zeka verir) ve tazeliğe göre en dikkat çekiciler

@@ -91,7 +91,8 @@
       <h2>{{ site.name }}</h2>
       <a href="{{ site.base }}/hakkinda/">Hakkında</a>
       <a href="{{ site.base }}/hakkinda/#ilkeler">Yayın ilkeleri</a>
-      {% if site.contact_email %}<a href="mailto:{{ site.contact_email }}">İletişim</a>{% endif %}
+      <a href="{{ site.base }}/iletisim/">İletişim ve künye</a>
+      <a href="{{ site.base }}/gizlilik/">Gizlilik ve çerezler</a>
     </nav>
     {% if site.top_tags %}
     <div class="foot-tags" aria-label="Popüler konular">
@@ -123,5 +124,6 @@
 </div>
 {% endif %}
 <script src="{{ site.base }}/static/site.js?v={{ site.asset_v }}" defer></script>
+{% if site.cf_analytics %}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cf_analytics }}"}'></script>{% endif %}
 </body>
 </html>
