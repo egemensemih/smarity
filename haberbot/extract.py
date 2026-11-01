@@ -55,13 +55,24 @@ def fetch_html(url: str) -> str:
     if url in _html_cache:
         return _html_cache[url]
     html = ""
+    if not url.lower().startswith(("http://", "https://")):
+        return html
     try:
         if not _allowed(url):
             log.info("robots.txt izin vermiyor, sayfa okunmadı: %s", url)
         else:
-            r = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html"}, timeout=15)
+            r = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html"}, timeout=15, stream=True)
             if r.status_code < 400 and "html" in r.headers.get("content-type", "html"):
-                html = r.text[:3_000_000]
+                raw = b""
+                for chunk in r.iter_content(64 * 1024):      # en fazla 3 MB: dev ya da bitmeyen sayfa belleği doldurmasın
+                    raw += chunk
+                    if len(raw) >= 3_000_000:
+                        break
+                try:
+                    html = raw[:3_000_000].decode(r.encoding or "utf-8", errors="replace")
+                except LookupError:                           # tanınmayan karakter kümesi adı
+                    html = raw[:3_000_000].decode("utf-8", errors="replace")
+            r.close()
     except requests.RequestException as e:
         log.info("Sayfa okunamadı (%s): %s", type(e).__name__, url)
     _html_cache[url] = html

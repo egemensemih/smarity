@@ -426,6 +426,61 @@ def test_legal_pages_and_analytics():
         cont = (cfg.out_dir / "iletisim" / "index.html").read_text(encoding="utf-8")
         assert "Yayın sahibi" in cont and "Örnek Medya" in cont and "İstanbul" in cont
 
+def test_launch_audit_fixes():
+    from haberbot.site import clean_meta, figure_html, render_body, seo_title_of, weburl
+    from haberbot.sources import _load_source  # noqa: F401  (modül yüklenebiliyor)
+    long = "Apple yeni Mac serisini duyurdu; fiyatlar, ön sipariş tarihi ve teslimat takvimi de açıklandı."
+    assert clean_meta(long + " Detaylar haberimizde.") == long
+    assert clean_meta(long + " İşte detaylar.") == long
+    assert clean_meta("Kısa açıklama. Detaylar haberimizde.") == "Kısa açıklama. Detaylar haberimizde."
+    assert seo_title_of({"seo_title": "OpenAI Apple'a dava açtı: Bilgiler sızdırıldı iddi"},
+                        "OpenAI Apple'a dava açtı: Gizli bilgilerin sızdırıldığı iddiası", "OpenAI Apple davası") == \
+        "OpenAI Apple davası"                                        # başlık 62'yi aşıyor: kısa başlık
+    assert seo_title_of({"seo_title": "Apple yeni iPad tanıttı"}, "Apple yeni iPad'i tanıttı", "") == "Apple yeni iPad tanıttı"
+    assert weburl("javascript:alert(1)") == "#" and weburl("https://a.com/x") == "https://a.com/x"
+    body = render_body("Metin ![x](https://kotu.com/takip.png) ve [bağlantı](https://a.com) [kötü](javascript:alert(1))")
+    assert "<img" not in body and 'rel="noopener nofollow"' in body and "javascript:" not in body
+    fig = figure_html({"url": "https://k.com/a.jpg", "remote": True, "credit": "K", "page": "https://k.com"})
+    assert "data-remote" in fig and "onerror" not in fig
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 3, title="İphone Duo tamir ücretleri açıklandı"))
+        a.store.save_post(_post(2, 4, title="Yeni MacBook Pro tasarımı ortaya çıktı"))
+        a.store.save_post(_post(3, 5, photos=[{"file": "p03-g0.webp", "src": "https://k.com/a.jpg", "remote": True,
+                                                "credit": "K", "page": "https://k.com", "w": 1600, "h": 900}]))
+        cfg.raw["maintenance"] = {"unpublish": ["p02"],
+                                  "fix_posts": {"p01": {"title": "iPhone Duo tamir ücretleri açıklandı",
+                                                        "category": "gaming", "url": "https://kotu.com"},
+                                                "p03": {"category": "olmayan-kategori"}}}
+        a.apply_maintenance()
+        p1 = a.store.load_post("p01")
+        assert a.store.load_post("p02") is None
+        assert p1["title"] == "iPhone Duo tamir ücretleri açıklandı" and p1["category"] == "gaming" and "url" not in p1
+        assert a.store.load_post("p03")["category"] == "teknoloji"
+        p1["title"] = "Bot sonradan güncelledi"
+        a.store.save_post(p1)
+        a.apply_maintenance()                                       # düzeltme bir kez uygulanır, güncellemeyi ezmez
+        assert a.store.load_post("p01")["title"] == "Bot sonradan güncelledi"
+        SiteBuilder(cfg).build()
+        html = "".join(f.read_text(encoding="utf-8") for f in cfg.out_dir.rglob("*.html"))
+        assert "onerror=" not in html                                # içerik güvenlik politikasına uygun: satır içi betik yok
+        import re as _re
+        assert not _re.search(r"<script(?![^>]*(src=|application/ld\+json))", html)
+
+
+def test_feed_links_must_be_http():
+    import haberbot.sources as srcmod
+    with _App() as (cfg, a):
+        cfg.raw["sources"] = [{"name": "Deneme", "url": "https://d.com/rss", "kind": "media"}]
+        old = srcmod._load_source
+        srcmod._load_source = lambda c, s: [
+            {"title": "Zararlı bağlantılı başlık burada", "link": "javascript:alert(1)", "summary": "", "published": None},
+            {"title": "Normal bağlantılı haber başlığı", "link": "https://d.com/haber", "summary": "", "published": None}]
+        try:
+            items = srcmod.fetch_all(cfg, a.store)
+        finally:
+            srcmod._load_source = old
+        assert [i["url"] for i in items] == ["https://d.com/haber"]
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

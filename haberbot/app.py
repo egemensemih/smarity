@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import json
 import os
 import re
 import shutil
@@ -89,6 +90,10 @@ Otomatik yayınlanan 2 haberi 3 gün içinde kaldırırsan otomatik yayın kendi
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
 Komutlar: /manset /secki /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
+
+
+# bakım listesiyle (maintenance.fix_posts) düzeltilebilen alanlar
+FIXABLE = {"title", "short_title", "seo_title", "summary", "meta_description", "category", "carousel_points"}
 
 
 def esc(s) -> str:
@@ -734,7 +739,10 @@ class App:
                      kaynakları kalan habere eklenir.
         retitle: {haber_id: "Yeni başlık"} → başlık düzeltilir (adres değişmez).
         relaunch: [haber_id, …] → ön izleme olarak açılıp asıl gelişmeyle güncellenen haber yeni haber olarak yeniden
-                  yayınlanır (yeni adres, eski adres yönlenir); bir kez uygulanır."""
+                  yayınlanır (yeni adres, eski adres yönlenir); bir kez uygulanır.
+        fix_posts: {haber_id: {alan: değer}} → yazım/kategori düzeltmesi (title, short_title, seo_title, summary,
+                   meta_description, category, carousel_points); adres değişmez.
+        unpublish: [haber_id, …] → haber yayından kaldırılır (ör. sonradan doğrulanamayan söylenti)."""
         m = self.cfg.raw.get("maintenance") or {}
         st = self.store
         for pair in m.get("merge_posts") or []:
@@ -757,6 +765,36 @@ class App:
             p = st.load_post(str(pid))
             if p and not p.get("relaunched"):
                 self._relaunch(p)
+        for pid in m.get("unpublish") or []:
+            if st.load_post(str(pid)):
+                st.delete_post(str(pid))
+                self._ig_drop(str(pid), "🗑 Haber yayından kaldırıldı; Instagram'a gönderilmeyecek")
+                log.info("Haber yayından kaldırıldı (bakım listesi): %s", pid)
+        done = self.state.setdefault("fixes_done", [])
+        for pid, fields in (m.get("fix_posts") or {}).items():
+            p = st.load_post(str(pid))
+            if not p or not isinstance(fields, dict):
+                continue
+            # bir kez uygulanır: haber sonra güncellenirse (yeni başlık vb.) eski düzeltme geri yazılmaz
+            key = f"{pid}:{short_hash(json.dumps(fields, ensure_ascii=False, sort_keys=True), n=8)}"
+            if key in done:
+                continue
+            done.append(key)
+            del done[:-300]
+            ch = {k: v for k, v in fields.items()
+                  if k in FIXABLE and v not in (None, "", []) and p.get(k) != v
+                  and not (k == "category" and v not in CATEGORIES)}
+            if not ch:
+                continue
+            p.update(ch)
+            if "title" in ch:
+                p.pop("cover_line_v", None)            # kapak başlığı da yeni başlıkla yeniden yazılsın
+                try:
+                    self._make_og(p)                   # paylaşım görselindeki başlık da yenilensin
+                except Exception as e:  # noqa: BLE001
+                    log.warning("Paylaşım görseli yenilenemedi (%s): %s", p["id"], e)
+            st.save_post(p)
+            log.info("Haber düzeltildi: %s (%s)", p["id"], ", ".join(ch))
         for pid, title in (m.get("retitle") or {}).items():
             p = st.load_post(str(pid))
             title = clip(str(title or "").strip(), 120)
@@ -1316,7 +1354,8 @@ class App:
         if not self._authorized(chat):
             return
         self.state["last_activity"] = iso(now_utc())
-        log.info("Telegram mesajı: %s", clip(text, 40))
+        # depo herkese açık, çalışma kayıtları da öyle: mesajın içeriği değil yalnızca türü yazılır
+        log.info("Telegram mesajı: %s", text.split()[0].split("@")[0][:20] if text.startswith("/") else "metin")
         self.tg.typing(chat)
 
         reply_to = (msg.get("reply_to_message") or {}).get("message_id")

@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "19"
+ASSET_V = "20"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -27,11 +27,49 @@ def render_body(md: str) -> str:
     safe = htmlmod.escape(md or "", quote=False)
     out = markdown.markdown(safe, extensions=["sane_lists"], output_format="html")
     out = re.sub(r'href="(?!https?://)[^"]*"', 'href="#"', out)
-    out = out.replace('<a href="http', '<a rel="noopener" target="_blank" href="http')
+    out = re.sub(r"<img\b[^>]*>", "", out)          # metne dışarıdan görsel gömülmez (fotoğraflar ayrı, kaynaklı eklenir)
+    out = out.replace('<a href="http', '<a rel="noopener nofollow" target="_blank" href="http')
     out = WHY_RE.sub(r'<aside class="why"><strong>Neden önemli?</strong><p>\1</p></aside>', out)
     # Metindeki başlıklar sayfanın H1'i ile yarışmasın: hepsi H2, bağlantılanabilir
     out = H2_RE.sub(lambda m: f'<h2 id="{slugify(re.sub("<[^>]+>", "", m.group(1)), 60)}">{m.group(1)}</h2>', out)
     return out
+
+
+FILLER_RE = re.compile(r"^(?:(?:tüm |bütün )?(?:detaylar|ayrıntılar)\b.*haberimizde|.*\bhaberimizde|[İi]şte detaylar)[.!]?$", re.I)
+CUT_END = re.compile(r"[\wçğıöşüÇĞİÖŞÜ]+$")
+
+
+def clean_meta(meta: str) -> str:
+    """Açıklamanın sonundaki "Detaylar haberimizde." gibi boş cümleyi at (kalan metin yeterince uzunsa)."""
+    meta = re.sub(r"\s+", " ", meta or "").strip()
+    parts = re.split(r"(?<=[.!?])\s+", meta)
+    if len(parts) > 1 and FILLER_RE.match(parts[-1].strip()):
+        rest = " ".join(parts[:-1]).strip()
+        if len(rest) >= 80:
+            return rest
+    return meta
+
+
+def seo_title_of(p: dict, title: str, short: str) -> str:
+    """Arama sonucu başlığı: yazarın SEO başlığı yarım kalmışsa ("…hazırlan", "…" ile biten) haber başlığına dönülür."""
+    s = re.sub(r"\s+", " ", p.get("seo_title") or "").strip()
+    words = set(re.findall(r"[\wçğıöşü]+", f"{title} {short}".lower()))
+    last = (CUT_END.findall(s.lower()) or [""])[0]
+    cut = (not s or s.endswith(("…", "...")) or len(s) > 62
+           or (last and last not in words and any(w.startswith(last) and w != last for w in words)))
+    if not cut:
+        return s
+    for cand in (title, short):
+        cand = (cand or "").strip()
+        if cand and len(cand) <= 62:
+            return cand
+    return clip(short or title, 62)
+
+
+def weburl(u) -> str:
+    """Dış bağlantı yalnızca http(s) olabilir (javascript: gibi adresler bağlantıya dönüşmez)."""
+    u = str(u or "").strip()
+    return u if re.match(r"https?://", u, re.I) else "#"
 
 
 BLOCK_RE = re.compile(r"<(aside|blockquote|ul|ol|table|pre|figure)\b.*?</\1>", re.S)
@@ -40,7 +78,8 @@ BLOCK_RE = re.compile(r"<(aside|blockquote|ul|ol|table|pre|figure)\b.*?</\1>", r
 def figure_html(ph: dict) -> str:
     """Haberin içine yerleşen fotoğraf: kaynağı altında."""
     e = lambda v: htmlmod.escape(str(v or ""), quote=True)  # noqa: E731
-    remote = ' referrerpolicy="no-referrer" onerror="this.closest(\'figure\').remove()"' if ph.get("remote") else ""
+    # kaynağından gösterilen fotoğraf açılmazsa site.js figürü kaldırır (satır içi betik yok: içerik güvenlik politikası)
+    remote = ' referrerpolicy="no-referrer" data-remote' if ph.get("remote") else ""
     cap = (f'<figcaption><a href="{e(ph.get("page"))}" rel="noopener nofollow" target="_blank">Görsel: {e(ph.get("credit"))}</a>'
            f'</figcaption>' if ph.get("credit") else "")
     return (f'<figure class="inl{" graphic" if ph.get("graphic") else ""}"><img src="{e(ph["url"])}" alt="{e(ph.get("alt"))}" '
@@ -208,6 +247,7 @@ class SiteBuilder:
             autoescape=select_autoescape(["html", "xml"]),
             trim_blocks=True, lstrip_blocks=True,
         )
+        self.env.filters["weburl"] = weburl
 
     def _post_view(self, p: dict) -> dict:
         cfg, b = self.cfg, self.base
@@ -218,8 +258,8 @@ class SiteBuilder:
         title = p.get("title", "")
         short = p.get("short_title") or title
         summary = p.get("summary", "")
-        seo_title = clip(p.get("seo_title") or short or title, 62)
-        meta = p.get("meta_description") or ""
+        seo_title = seo_title_of(p, title, short)
+        meta = clean_meta(p.get("meta_description") or "")
         if len(meta) < 70:  # yedek: özet + ilk paragraf
             meta = summary if len(summary) >= 110 else f"{summary} {plain(p.get('body', ''))}"
         tags = []
@@ -249,7 +289,7 @@ class SiteBuilder:
             "cover_image": (p.get("image") or {}).get("source") == "cover",
             # rakam kapakta yazıyorsa "öne çıkanlar" kutusunda tekrar edilmez
             "stat_on_cover": False,   # sitede görsellerin üstünde yazı yok: rakam "öne çıkanlar" kutusunda görünür
-            "img_alt": clip(p.get("image_alt") or f"{short}: habere ait görsel", 125),
+            "img_alt": self._alt(p, disp, short),
             "seo_title": seo_title,
             "meta_description": clip(meta, 158),
             "focus_keyword": p.get("focus_keyword", ""),
@@ -303,6 +343,22 @@ class SiteBuilder:
             })
         return out
 
+    @staticmethod
+    def _alt(p: dict, disp: dict, short: str) -> str:
+        """Görselin alt metni gösterilen görsele göre: image_alt yalnızca yapay zeka görselini anlatır (çizim tarifinden
+        yazılır); gerçek fotoğrafta kaynağın kendi açıklaması (makulse) ya da haber + fotoğraf sahibi; renk zemininde
+        başlık (zemin süs, okuyucuya bir şey anlatmaz)."""
+        kind = disp.get("kind")
+        if kind == "image":
+            return clip(p.get("image_alt") or f"{short}: temsili görsel", 125)
+        if kind == "photo":
+            rec = next((r for r in p.get("photos") or [] if r.get("file") == disp.get("file")), {})
+            a = re.sub(r"\s+", " ", str(rec.get("alt") or "")).strip()
+            if 20 <= len(a) <= 125 and a.count(",") <= 2 and not re.search(r"\.(jpe?g|png|webp)\b", a, re.I):
+                return a
+            return clip(f"{short}: {disp.get('credit') or 'habere ait'} fotoğrafı", 125)
+        return clip(short, 125)
+
     def _display(self, p: dict) -> dict:
         """Sitede görünen görsel — üstünde yazı yok, başlık sayfada HTML olarak durur (tek parça görünüm):
         haberin gerçek fotoğrafı; yoksa yapay zeka görseli; o da yoksa habere özel renk ağı (CSS)."""
@@ -348,7 +404,7 @@ class SiteBuilder:
         name = htmlmod.escape(title or "Smarity")
         self._write(rel, f'<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>{name}</title>'
                          f'<link rel="canonical" href="{t}"><meta http-equiv="refresh" content="0; url={t}">'
-                         f'<script>location.replace({json.dumps(target)} + location.hash)</script></head>'
+                         f'<script src="{self.base}/static/go.js"></script></head>'
                          f'<body><a href="{t}">{name}</a></body></html>')
 
     def _write(self, rel: str, content: str) -> None:

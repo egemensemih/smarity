@@ -160,14 +160,28 @@ BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHT
               "Chrome/128.0 Safari/537.36")
 
 
+MAX_FEED_BYTES = 5_000_000
+
+
+def read_capped(r, limit: int) -> bytes:
+    """Yanıtı parça parça oku, sınırı aşınca dur (çok büyük ya da bitmeyen yanıt belleği doldurmasın)."""
+    buf = bytearray()
+    for chunk in r.iter_content(64 * 1024):
+        buf += chunk
+        if len(buf) >= limit:
+            break
+    r.close()
+    return bytes(buf[:limit])
+
+
 def _fetch(url: str, timeout: int = 15, browser: bool = False) -> bytes:
     headers = {"User-Agent": BROWSER_UA if browser else UA,
                "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, */*;q=0.8"}
     if browser:
         headers["Accept-Language"] = "tr-TR,tr;q=0.9,en;q=0.8"
-    r = requests.get(url, headers=headers, timeout=timeout)
+    r = requests.get(url, headers=headers, timeout=timeout, stream=True)
     r.raise_for_status()
-    return r.content[:5_000_000]
+    return read_capped(r, MAX_FEED_BYTES)
 
 
 def _load_source(cfg: Config, src: dict) -> list[dict]:
@@ -225,6 +239,8 @@ def fetch_all(cfg: Config, store) -> list[dict]:
                 if not e.get("title") or not e.get("link"):
                     continue
                 link = e["link"].strip()
+                if not re.match(r"https?://", link, re.I):   # javascript:, data: vb. adresler haber bağlantısı olamaz
+                    continue
                 credit, credit_url = src["name"], link
                 via = None
                 if src.get("credit_linked_site"):

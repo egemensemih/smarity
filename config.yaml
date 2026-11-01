@@ -7,7 +7,7 @@
 site:
   name: "Smarity"
   tagline: "Teknolojide yeni olan her şey, kaynağıyla."
-  description: "Dünyadan ve Türkiye'den yeni ürünleri, girişim hikâyelerini, ilk kez denenen teknolojileri, yapay zeka, otomobil ve oyun dünyasını her haberde orijinal kaynağıyla aktaran Türkçe teknoloji haber sitesi."
+  description: "Dünyadan ve Türkiye'den yeni ürünler, yapay zeka, otomobil, oyun ve girişim haberleri. Her haber kaynağıyla, sade bir Türkçeyle."
   # Sitenin adresi (boş bırakırsan GitHub Pages adresi otomatik kullanılır)
   url: "https://smarity.com.tr"
   posts_per_page: 18
@@ -42,8 +42,8 @@ home:
 seo:
   # Ana sayfanın büyük başlığı ve Google'da görünen başlığı ve açıklaması
   home_h1: "Teknoloji haberleri"
-  home_title: "Teknoloji Haberleri: Yapay Zeka, İnovasyon, Girişimcilik, Gaming"
-  home_description: "Dünyadan ve Türkiye'den yapay zeka, yeni teknoloji ürünleri, inovasyon, girişim hikâyeleri ve oyun dünyası haberleri. Kaynağıyla, Türkçe, her gün güncel."
+  home_title: "Teknoloji Haberleri: Yapay Zeka, Otomobil, Oyun"
+  home_description: "Yapay zeka, yeni ürünler, otomobil, oyun ve girişim dünyasından günün teknoloji haberleri. Dünyadan ve Türkiye'den, her haber kaynağıyla."
   # Arama motoru doğrulama kodları (Search Console / Bing / Yandex'in verdiği "content" değeri)
   google_site_verification: "ChTcddRF_YOMXdFjpyGX4IbkbxC2lXSjJkQSMRd_Dqs"
   bing_site_verification: ""
@@ -141,10 +141,46 @@ maintenance:
     - ["377564d2b6", "48679f20de"]   # Kia Seltos Türkiye'de satışa çıktı (5 Eki ↔ 2 Eki)
     - ["671d0ac58e", "9976fc4746"]   # OpenAI en gelişmiş modellerinin eğitimini durdurdu (28 Eyl, aynı gün iki haber)
     - ["7f88f8a5fd", "d901a6a000"]   # ChatGPT Pro 500 Türkiye fiyatı (30 Eyl ↔ 27 Eyl)
+    # 1 Kasım yayın öncesi denetim: aynı haberin ikinci kez yayımlanmış hâlleri
+    - ["b4b9d9047e", "f0f00e7363"]   # iPad mini OLED + A20 Pro (28 Eki ↔ 26 Eki)
+    - ["be585a47e8", "cffe0d965c"]   # Gemini 4 Argon tanıtıldı (1 Eki ↔ 13 Eki, resmi kaynaklı olan kalır)
+    - ["50fdfe4c79", "3cd1956194"]   # Meta Muse Wonder (13 Eki ↔ 12 Eki)
+    - ["41727050c7", "ac77027a3a"]   # ChatGPT sanal kıyafet deneme (5 Eki ↔ 2 Eki)
+    - ["3bf4a255f6", "ff53f9557d"]   # Volvo ES90 Türkiye fiyatı (7 Eki ↔ 30 Eyl)
+    - ["c70726c28f", "b99febacda"]   # GTA 6 lansman fragmanı (19 Eki ↔ 15 Eki)
+    - ["346e3cd8ab", "b99febacda"]   # GTA 6 lansman fragmanı (23 Eki ↔ 15 Eki)
   relaunch:                          # ön izleme olarak açılıp asıl gelişmeyle güncellenen haber: yeni haber olarak yeniden yayınla
     - "248dd99ad3"                   # Tesla Roadster tanıtıldı (14 Eki "tanıtım tarihi" haberi olarak açılmıştı)
   retitle:
     "95a0ae8187": "Uygun fiyatlı elektrikli Dacia Hipster 2027'de geliyor"   # başlıkta yurtdışı fiyatı vardı
+  unpublish:                         # doğrulanmamış söylenti (tam otonomda yayımlanmamalıydı)
+    - "1ede6986ae"                   # "Yenilenen MacBook Pro tasarımı ortaya çıktı" (27 Eki, sızıntı)
+  fix_posts:                         # yazım, büyük-küçük harf, kategori düzeltmeleri (bir kez uygulanır; adres değişmez)
+    "73c7bf9f15": {title: "Mercedes-AMG GT SUV tanıtıldı: 1.153 beygir gücünde elektrikli SUV", seo_title: "Mercedes-AMG GT SUV tanıtıldı: 1.153 beygirlik elektrikli"}
+    "787a9bdf1d": {title: "iPhone Duo tamir ücretleri açıklandı"}
+    "21a6c2a8ef": {title: "SpaceX Starship yörünge testi için hazırlıkları tamamladı", seo_title: "Starship yörünge testi 28 Eylül'de yapılacak"}
+    "fc10b745fd": {title: "Togg T10F'e bölgesel kararabilen akıllı cam tavan", seo_title: "Togg T10F akıllı cam tavan teknolojisi tanıtıldı"}
+    "78194275fd": {seo_title: "Jaguar Type 01 New York'ta tanıtıldı"}
+    "90c6631ac7": {summary: "Google, farklı mağazalardaki ürünleri tek bir yerde toplamanızı sağlayan yapay zeka destekli Universal Cart aracını ABD'de kullanıma sundu."}
+    "63c8283d28": {title: "Galaxy S27 Ultra kamera sızıntısı: 3x zoom kalkıyor mu?", seo_title: "Galaxy S27 Ultra kamera sızıntısı: 3x zoom kalkıyor mu?", meta_description: "Android Authority aktarımına göre Galaxy S27 Ultra modelinde 3x zoom kamerası kaldırılarak doğrudan 5x telefoto lense geçilebilir."}
+    "54c909b79f": {carousel_points: ["Unitree, H2-X Kung Fu Legend Guardian adlı yeni insansı robotunu tanıttı.", "Robot yaklaşık sekiz saat pil ömrü sunuyor ve dört metreden atlayabiliyor.", "Genel satışa çıkması beklenmeyen robot şimdilik bir teknoloji gösterisi olarak sergileniyor."]}
+    "c47acb3791": {carousel_points: ["MB.EA platformu üzerinde geliştirilen model 94 kWh batarya taşıyor.", "Araç, 800 volt mimarisiyle yüzde 10'dan yüzde 80 şarja 22 dakikada ulaşıyor.", "İç mekânda Hyperscreen ekran ve yapay zekâ destekli asistan yer alıyor."]}
+    "02bf4090a3": {carousel_points: ["Call of Duty: Modern Warfare 4 oyununda Itaewon faciası görüntülerine yer verilmişti.", "Faciadan kurtulanların ve hayatını kaybedenlerin ailelerinin tepkisi üzerine Activision özür diledi.", "Sorunlu görüntüler 12 Kasım'da yayınlanacak güncellemeyle oyundan kaldırılacak."]}
+    "643ca04634": {title: "Aston Martin Valhalla Spider tanıtıldı: Tavanı açıkken 349 km/s hıza ulaşıyor", summary: "Aston Martin, 1.079 beygir gücündeki hibrit süper otomobili Valhalla Spider'ı duyurdu. Model, tavanı açıkken de saatte 349 kilometre hıza ulaşabiliyor.", meta_description: "Aston Martin Valhalla Spider duyuruldu. 1.079 beygirlik hibrit süper otomobil, tavanı açıkken 349 km/s hızla markanın en hızlı üstü açık modeli oldu.", seo_title: "Aston Martin Valhalla Spider tanıtıldı: 1.079 beygir, 349 km/s"}
+    "0c162953d5": {title: "Jensen Huang: Nvidia, güvenli olmayan yapay zeka geliştirenlere çip tedarikini kesebilir", seo_title: "Jensen Huang: Güvensiz yapay zekaya çip tedariki kesilebilir"}
+    "3ba08c4da9": {title: "iPhone Duo ekran çatlakları: Söküm, menteşedeki bir parçayı işaret ediyor", seo_title: "iPhone Duo ekran çatlakları: Söküm menteşeyi işaret ediyor"}
+    "ab987ccf38": {title: "Volkswagen, Türkiye'de üretim için Doğuş Otomotiv ile niyet mektubu imzaladı", seo_title: "Volkswagen Türkiye'de üretim için niyet mektubu imzaladı"}
+    "aee5729954": {title: "ASUS ProArt P16 Türkiye'de ön siparişe açıldı: RTX Spark ve Blackwell bir arada", seo_title: "ASUS ProArt P16 Türkiye'de ön siparişe açıldı"}
+    "4ba411ee1d": {title: "GTA 6, Rockstar tarihinin en yüksek satın alma niyetine ulaştı", seo_title: "GTA 6 satın alma niyetinde Circana rekorunu kırdı"}
+    "e072bedb01": {title: "Apple, iPad mini'nin ardından iMac ve MacBook Pro sinyali verdi", seo_title: "Apple'dan iPad mini sonrası iMac ve MacBook Pro sinyali"}
+    "b99febacda": {title: "GTA 6'nın lansman fragmanı yayınlandı: Oyun 19 Kasım'da çıkıyor", seo_title: "GTA 6 lansman fragmanı yayınlandı: Çıkış 19 Kasım"}
+    "e1bc99d753": {category: "gaming"}
+    "7a56fb18bc": {category: "otomotiv"}
+    "786bf7382a": {category: "super-zeka"}
+    "b58951c070": {category: "teknoloji"}
+    "4624a73fba": {category: "otomotiv"}
+    "93bde74dd2": {category: "teknoloji"}
+    "0251d12963": {category: "teknoloji"}
 
 ai:
   # gemini: Google Gemini ücretsiz katmanı (kredi kartı gerekmez, günlük sınırlı)

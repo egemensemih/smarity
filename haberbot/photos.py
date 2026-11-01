@@ -20,6 +20,9 @@ from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 import requests
 from PIL import Image, ImageChops, ImageOps, ImageStat
 
+# Küçük dosyada dev çözünürlük ("sıkıştırma bombası") belleği doldurmasın: 40 MP üstü uyarı, 80 MP üstü reddedilir
+Image.MAX_IMAGE_PIXELS = 40_000_000
+
 from .extract import UA, fetch_html
 from .util import log
 

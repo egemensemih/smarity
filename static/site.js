@@ -155,7 +155,28 @@
     g.querySelectorAll(".gal-thumbs button").forEach(function (b) { b.addEventListener("click", function () { go(+b.getAttribute("data-go")); }); });
     var t; track.addEventListener("scroll", function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
     track.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") go(idx() + 1); if (e.key === "ArrowLeft") go(idx() - 1); });
+    g.addEventListener("gal:update", update);
     update();
+  });
+
+  // Kaynağından gösterilen fotoğraf açılmazsa yeri boş kalmasın: fotoğraf (galeride küçük resmiyle birlikte) kaldırılır
+  function dropImg(img) {
+    var src = img.getAttribute("src"), gal = img.closest("[data-gal]");
+    if (!gal) { var f = img.closest("figure") || img.parentNode; if (f) f.remove(); return; }
+    gal.querySelectorAll("img").forEach(function (o) {
+      if (o.getAttribute("src") === src) { var w = o.closest(".gal-slide, .gal-thumbs button"); if (w) w.remove(); }
+    });
+    if (!gal.querySelector(".gal-slide")) { gal.remove(); return; }
+    var th = gal.querySelector(".gal-thumbs");
+    if (th) { Array.prototype.forEach.call(th.children, function (b, k) { b.setAttribute("data-go", k); b.setAttribute("aria-label", (k + 1) + ". görsel"); }); if (th.children.length < 2) th.remove(); }
+    var n = gal.querySelectorAll(".gal-slide").length, t = gal.querySelector(".gal-title span");
+    if (t) t.textContent = n + " fotoğraf";
+    gal.dispatchEvent(new Event("gal:update"));
+  }
+  document.querySelectorAll("img[data-remote]").forEach(function (img) {
+    // tembel yüklenen görselde "complete" güvenilir değil: onlar için yalnızca hata olayı dinlenir
+    if (img.loading !== "lazy" && img.complete && img.naturalWidth === 0 && img.getAttribute("src")) dropImg(img);
+    else img.addEventListener("error", function () { dropImg(img); }, { once: true });
   });
 
   // Bağlantıyı kopyala

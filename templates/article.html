@@ -69,7 +69,7 @@
   {% if post.disp.kind != 'art' %}
   <figure class="art-media">
     <div class="ph">{{ img(post, eager=true, sizes='(min-width: 880px) 840px, 100vw', priority=true) }}
-      {% if cp and cp.credit %}<a class="gal-credit" href="{{ cp.page or post.sources[0].url }}" rel="noopener nofollow" target="_blank">Görsel: {{ cp.credit }}</a>{% endif %}
+      {% if cp and cp.credit %}<a class="gal-credit" href="{{ (cp.page or post.sources[0].url)|weburl }}" rel="noopener nofollow" target="_blank">Görsel: {{ cp.credit }}</a>{% endif %}
     </div>
     {% if post.ai_image %}<figcaption>Temsili görsel, yapay zeka ile üretilmiştir.</figcaption>{% endif %}
   </figure>
@@ -99,8 +99,8 @@
       <div class="gal-track">
         {% for ph in post.slides %}
         <div class="gal-slide{{ ' fit' if ph.graphic or (ph.w / ph.h) < 1.25 }}" role="group" aria-label="{{ loop.index }} / {{ n }}">
-          <img src="{{ ph.url }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" decoding="async" loading="lazy"{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %}>
-          {% if ph.credit %}<a class="gal-credit" href="{{ ph.page or post.sources[0].url }}" rel="noopener nofollow" target="_blank">Görsel: {{ ph.credit }}</a>{% endif %}
+          <img src="{{ ph.url }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" decoding="async" loading="lazy"{% if ph.remote %} referrerpolicy="no-referrer" data-remote{% endif %}>
+          {% if ph.credit %}<a class="gal-credit" href="{{ (ph.page or post.sources[0].url)|weburl }}" rel="noopener nofollow" target="_blank">Görsel: {{ ph.credit }}</a>{% endif %}
         </div>
         {% endfor %}
       </div>
@@ -111,7 +111,7 @@
     {% if n > 1 %}
     <div class="gal-thumbs">
       {% for ph in post.slides %}
-      <button type="button" data-go="{{ loop.index0 }}" aria-label="{{ loop.index }}. görsel"{% if loop.first %} aria-current="true"{% endif %}><img src="{{ ph.url }}" alt="" loading="lazy" decoding="async"{% if ph.remote %} referrerpolicy="no-referrer" onerror="this.parentNode.remove()"{% endif %}></button>
+      <button type="button" data-go="{{ loop.index0 }}" aria-label="{{ loop.index }}. görsel"{% if loop.first %} aria-current="true"{% endif %}><img src="{{ ph.url }}" alt="" loading="lazy" decoding="async"{% if ph.remote %} referrerpolicy="no-referrer" data-remote{% endif %}></button>
       {% endfor %}
     </div>
     {% endif %}
@@ -131,7 +131,7 @@
     <h2 id="kaynaklar">Kaynaklar</h2>
     <ol>
       {% for s in post.sources %}
-      <li><a href="{{ s.url }}" rel="noopener" target="_blank">
+      <li><a href="{{ s.url|weburl }}" rel="noopener" target="_blank">
         <span><span class="s-name">{{ s.name }}</span>{% if s.via %} <span class="muted">({{ s.via }} üzerinden)</span>{% endif %}<span class="s-title">{{ s.title }}</span></span>
         <span class="s-go" aria-hidden="true">↗</span>
       </a></li>
@@ -141,8 +141,8 @@
       Bu haber, yukarıdaki kaynaklardan yapay zeka yardımıyla Türkçe derlenmiş
       {%- if post.publish_mode == 'auto' %} ve yayın masasının doğruluk kuralları çerçevesinde otomatik yayımlanmıştır.{% else %} ve editör onayıyla yayımlanmıştır.{% endif %}
       {% if post.has_photo %}Fotoğraflar, altlarında belirtilen kaynaklara aittir.{% endif %}
-      Ayrıntılar ve orijinal ifadeler için kaynaklara başvurun.{% if post.updated_str %} Son güncelleme: {{ post.updated_str }}.{% endif %}
-      Bir hata görürseniz <a href="{{ site.base }}/iletisim/">bize bildirin</a>.
+      Ayrıntılar ve orijinal ifadeler için kaynaklara bakabilirsin.{% if post.updated_str %} Son güncelleme: {{ post.updated_str }}.{% endif %}
+      Bir hata görürsen <a href="{{ site.base }}/iletisim/">bize bildir</a>.
     </p>
   </section>
 
