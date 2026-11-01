@@ -1,0 +1,98 @@
+{
+  "id": "15468cfa96",
+  "created_at": "2026-11-01T04:10:48Z",
+  "title": "ChatGPT paylaşım açığı kapatıldı",
+  "summary": "Parameter güvenlik firmasının keşfettiği ChatGPT paylaşım açığı, tek tıkla özel sohbetlere erişim sağlıyordu. OpenAI hatayı sekiz günde kapattı.",
+  "body": "**ChatGPT paylaşım açığı**, kullanıcıların oturumu açıkken tek bir tıklamayla özel sohbetlerinin ele geçirilmesine yol açabilen kritik bir güvenlik sorunuydu. Güvenlik firması Parameter tarafından tespit edilen açık, kötü niyetli paylaşılan sohbet bağlantıları üzerinden hedef hesabın oturumunda kod çalıştırabiliyordu. Şifre çalmaya gerek kalmadan çalışan açık, chatgpt.com gibi güvenilir görünen adresler üzerinden etki gösteriyordu.\n\n## Açık nasıl çalışıyordu ve nasıl kapatıldı?\n\nSaldırı zinciri, MathLive kütüphanesinin mesajları doğrulamadan kabul etmesi ve ham HTML alabilmesi üzerine kuruluydu. Bu durum, güvenilmeyen önizlemelerin ana sayfaya HTML eklemesine olanak tanıyordu. OpenAI, 18 Ekim'de Bugcrowd platformu üzerinden yapılan bildirimin ardından sorunu kendi sistemlerinde doğruladı. Şirket, önem derecesini en yüksek seviye olan P1'e yükselterek sunucu tarafında gerekli düzeltmeleri tamamladı.\n\n## Kullanıcıların yapması gereken bir şey var mı?\n\nDüzeltmenin tamamen sunucu tarafında yapılmış olması nedeniyle kullanıcıların herhangi bir işlem yapması gerekmiyor. Parameter tarafından yayımlanan teknik raporun ardından OpenAI, araştırmacılara toplam 5.000 dolar ödül ödedi.\n\n**Neden önemli?** Açığın gerçek saldırılarda kullanıldığına dair bir bulguya rastlanmadı ve hata OpenAI tarafından hızla kapatıldı.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "ChatGPT",
+    "Parameter",
+    "Bugcrowd"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "ChatGPT paylaşım açığı kapatıldı",
+  "kicker": "Güvenlik",
+  "hero_stat": "5.000 $",
+  "hero_stat_label": "araştırmacı ödülü",
+  "visual_style": "studio",
+  "visual_scene": "a stack of dark translucent glass panes with a single glowing amber thread weaving through them, casting soft shadows on a neutral matte surface",
+  "focus_keyword": "ChatGPT paylaşım açığı",
+  "seo_title": "ChatGPT paylaşım açığı kapatıldı ve ödül verildi",
+  "meta_description": "Parameter tarafından bulunan ChatGPT paylaşım açığı OpenAI tarafından sekiz günde kapatıldı. Kullanıcıların yapması gereken bir şey yok.",
+  "seo_slug": "chatgpt-paylasim-acigi-kapatildi",
+  "image_alt": "Koyu renkli cam katmanları ve arasından geçen ışık sızıntısını temsil eden soyut stüdyo görseli",
+  "cover_text": "ChatGPT",
+  "carousel_points": [
+    "Parameter firması ChatGPT'de kritik bir açık buldu.",
+    "Açık, tek tıkla son sohbetlere erişilmesini sağlıyordu.",
+    "OpenAI hatayı sekiz günde kapatıp ödül verdi."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "ChatGPT paylaşım açığı kapatıldı",
+  "cover_highlight": "açığı kapatıldı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "OpenAI, ChatGPT güvenlik açığının kapatıldığını resmen duyurdu.",
+  "entities": [
+    "OpenAI",
+    "ChatGPT"
+  ],
+  "topic": "ChatGPT share link vulnerability patched by OpenAI",
+  "sources": [
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/chatgpt-paylasim-acigi-kapatildi",
+      "title": "ChatGPT Paylaşım Açığı Kapatıldı: Tek Tıkla Sohbetler Okunabiliyordu",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-01T04:00:01Z",
+      "image": "https://ares.shiftdelete.net/static/img/content/26-11/01/yz_chatgpt-paylasim-acigi.png"
+    }
+  ],
+  "source_keys": [
+    "ShiftDelete.Net"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1765
+  },
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-2",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "chatgpt-paylasim-acigi-kapatildi",
+  "published_at": "2026-11-01T04:11:46Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/chatgpt-paylasim-acigi-kapatildi",
+  "photos_vetted": "2026-11-01T04:12:20Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/Dall-e_3_%28jan_%2724%29_artificial_intelligence_icon.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/OpenAI",
+      "alt": "OpenAI",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "15468cfa96-g0.webp",
+      "w": 820,
+      "h": 820
+    }
+  ],
+  "updated_at": "2026-11-01T04:12:41Z"
+}
