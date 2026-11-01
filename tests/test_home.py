@@ -467,6 +467,20 @@ def test_launch_audit_fixes():
         assert not _re.search(r"<script(?![^>]*(src=|application/ld\+json))", html)
 
 
+def test_updated_lead_shows_update_time():
+    with _App() as (cfg, a):
+        upd = iso(now_utc() - timedelta(hours=1))
+        a.store.save_post(_post(1, 70, appeal=9, image={"source": "photo"}, refreshed_at=upd,
+                                updates=[{"at": upd, "note": "Yeni gelişme eklendi"}]))
+        for i in range(2, 6):
+            a.store.save_post(_post(i, i))
+        SiteBuilder(cfg).build()
+        home = (cfg.out_dir / "index.html").read_text(encoding="utf-8")
+        i = home.index('data-id="p01"')
+        chunk = home[i:i + 2500]
+        assert "Güncellendi" in chunk and f'datetime="{upd}"' in chunk
+
+
 def test_feed_links_must_be_http():
     import haberbot.sources as srcmod
     with _App() as (cfg, a):

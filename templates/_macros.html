@@ -53,7 +53,9 @@
       </span>
       <h2>{{ p.title_disp }}</h2>
       <span class="slide-dek">{{ p.summary }}</span>
-      <span class="slide-meta"><time datetime="{{ p.iso }}" data-rel>{{ p.date_str }}</time> · {{ p.credits|join(', ') }}</span>
+      {# güncellenen haberde son güncelleme zamanı görünür ("Güncellendi" etiketiyle birlikte): manşette eski tarih durmaz #}
+      {% set u = p.update_list[0] if p.update_list else {} %}
+      <span class="slide-meta"><time datetime="{{ u.iso or p.iso }}" data-rel>{{ u.date or p.date_str }}</time> · {{ p.credits|join(', ') }}</span>
       <span class="more">Haberi oku</span>
     </span>
     <span class="slide-media">{{ img(p, 'slide-img', eager=(i == 1), sizes='(min-width: 900px) 640px, 100vw', priority=(i == 1)) }}</span>
