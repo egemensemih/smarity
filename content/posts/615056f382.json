@@ -1,0 +1,114 @@
+{
+  "id": "615056f382",
+  "created_at": "2026-11-02T21:07:08Z",
+  "title": "Google, sertifikalı Android TV kutularına arka kapı yerleştiren Videostrong ile bağlarını kesti",
+  "summary": "Google, cihazlarına gizli arka kapı yerleştirerek botnet ağı kuran üretici Videostrong ile bağlarını kopardı ve ilgili sunucuları engelledi.",
+  "body": "Google'ın açıklamasına göre, sertifikalı Android TV üreticisi Videostrong'un milyonlarca cihaza gizli bir **arka kapı** yerleştirdiği ve bunları botnet ağına dönüştürdüğü ortaya çıktı. ShiftDelete.Net ve The Verge'ün aktardığına göre, Shenzhen merkezli Videostrong Technology Co. şirketi ile tüm bağlar koparıldı ve firma sertifikalı Android cihaz üretmekten ya da bunlara yazılım sağlamaktan men edildi. Şirket, bu erişimi suç ortaklarına satarak reklam dolandırıcılığı ve izinsiz ağ trafiği gibi kötü amaçlı faaliyetler yürütmekle suçlanıyor.\n\n## Botnet ağı ve etkilenen cihazlar\n\nVideostrong'un zararlı yazılımı cihaza ilk kurulumdan sonra gizleme teknikleriyle yüklediği belirtiliyor. Etkilenen ürünler arasında Android TV set üstü kutularının yanı sıra karaoke makineleri, uzaktan sağlık cihazları ve dijital tabelalar gibi çeşitli Android tabanlı nesnelerin interneti ürünleri de yer alıyor. Synthient tarafından hazırlanan olası etkilenen cihazlar listesinde Mecool markası öne çıkarken, kapatılan komuta kontrol sunucularının en az 10 milyon ek cihazın erişimini keseceği ifade ediliyor.\n\n## Alınan önlemler ve güvenlik açıkları\n\nGoogle, cihazlar \"sertifikalı\" olduğu için kullanıcıların güvende sandığını ancak üreticilerin test sürecindeki boşlukları kötüye kullandığını kabul ediyor. Yaşanan bu güven ihlalinin ardından Google, inceleme ve denetim süreçlerini bu tür davranışlara karşı güncellediğini duyurdu. Kullanıcıların güvenliği için tanınmış ve düzenli güncelleme alan Google TV cihazlarını tercih etmesi öneriliyor.\n\n**Neden önemli?** Google, bir üreticinin kullanıcılarını bilerek zararlı yazılımla enfekte etmesini kabul edilemez bir güven ihlali olarak tanımlarken, kapatılan altyapı milyonlarca cihazı etkileyen devasa bir botnet ağını etkisiz hale getirdi.",
+  "category": "teknoloji",
+  "tags": [
+    "Google",
+    "Videostrong",
+    "Android TV",
+    "botnet",
+    "siber güvenlik"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Google, Videostrong ile bağlarını kesti",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "1,3 milyon",
+  "hero_stat_label": "etkilenen cihaz",
+  "visual_style": "studio",
+  "visual_scene": "a single dark matte set-top box on a clean neutral surface, with a faint red digital pulse glowing softly from a hidden seam along its edge",
+  "focus_keyword": "Android TV kutuları",
+  "seo_title": "Google, Android TV kutularına arka kapı koyan üreticiyi…",
+  "meta_description": "Google, sertifikalı Android TV kutularına arka kapı yerleştirip botnet ağı kuran üretici Videostrong ile bağlarını kestiğini açıkladı.",
+  "seo_slug": "google-android-tv-kutulari-arka-kapi-videostrong",
+  "image_alt": "Koyu renkli dijital medya kutusu ve üzerinde siber güvenlik tehdidini simgeleyen loş ışık",
+  "cover_text": "Videostrong",
+  "carousel_points": [
+    "Google, Videostrong ile tüm bağlarını kopardı.",
+    "Milyonlarca cihaz botnet ağına dönüştürüldü.",
+    "Komuta kontrol sunucuları yasal işlemle engellendi."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Google arka kapı kuran üreticiyi yasakladı",
+  "cover_highlight": "arka kapı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Google, arka kapı tespit edilen Android TV üreticisiyle ortaklığını sonlandırdı.",
+  "entities": [
+    "Google",
+    "Android TV",
+    "Videostrong"
+  ],
+  "topic": "Google cuts ties with Android TV partner over malware backdoor",
+  "sources": [
+    {
+      "name": "ShiftDelete.Net",
+      "url": "https://shiftdelete.net/android-tv-kutulari-arka-kapi-google",
+      "title": "Android TV kutularındaki arka kapı kapatıldı",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-02T21:00:40Z",
+      "image": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/android-tv-arka-kapi-kapak.webp"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/1024807/google-botnet-android-tv-shut-down",
+      "title": "One of Google’s Android partners turned 1.3 million set-top boxes into a botnet",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-02T20:37:49Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/videostrong-android-tv-device.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    }
+  ],
+  "source_keys": [
+    "ShiftDelete.Net",
+    "The Verge"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1808
+  },
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "615056f382-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Android_TV",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Android_TV.jpg/960px-Android_TV.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "google-android-tv-kutulari-arka-kapi-videostrong",
+  "published_at": "2026-11-02T21:07:14Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/google-android-tv-kutulari-arka-kapi-videostrong",
+  "photos_vetted": "2026-11-02T21:07:20Z",
+  "photos_vet_v": 2,
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Android_TV.jpg/960px-Android_TV.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Android_TV",
+      "alt": "Android TV",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "615056f382-g0.webp",
+      "w": 960,
+      "h": 678
+    }
+  ],
+  "updated_at": "2026-11-02T21:07:28Z"
+}
