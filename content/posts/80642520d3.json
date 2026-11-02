@@ -69,9 +69,9 @@
   "image": {
     "source": "photo",
     "photo": "80642520d3-g0.webp",
-    "credit": "CNBC Teknoloji",
-    "page": "https://www.cnbc.com/2026/11/02/openai-abu-dhabi-ai-deals.html",
-    "src": "https://image.cnbcfm.com/api/v1/image/108469839-1793120706479-Screenshot_2026-10-27_at_125651_PM.png?v=1793120747&w=1920&h=1080",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Sam_Altman",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Sam_Altman_CropEdit_James_Tamim.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "layout": "manset",
     "cover_v": 2
   },
@@ -82,20 +82,22 @@
   "publish_mode": "auto",
   "path": "super-zeka/2026/11/openai-abu-dhabi-is-birligi-anlasmalari",
   "photos_filled": "2026-11-02T11:21:18Z",
+  "photos_v": 2,
+  "updated_at": "2026-11-02T11:26:41Z",
+  "photos_vetted": "2026-11-02T11:26:25Z",
+  "photos_vet_v": 2,
   "photos": [
     {
-      "src": "https://image.cnbcfm.com/api/v1/image/108469839-1793120706479-Screenshot_2026-10-27_at_125651_PM.png?v=1793120747&w=1920&h=1080",
-      "credit": "CNBC Teknoloji",
-      "page": "https://www.cnbc.com/2026/11/02/openai-abu-dhabi-ai-deals.html",
-      "alt": "",
-      "kind": "og",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Sam_Altman_CropEdit_James_Tamim.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Sam_Altman",
+      "alt": "Sam Altman",
+      "kind": "wiki",
       "graphic": false,
       "cover_ok": true,
       "file": "80642520d3-g0.webp",
       "w": 1600,
-      "h": 900
+      "h": 1601
     }
-  ],
-  "photos_v": 2,
-  "updated_at": "2026-11-02T11:21:13Z"
+  ]
 }
