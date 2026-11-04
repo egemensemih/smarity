@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, crumbs %}
+{% block title %}Instagram'da paylaştıklarımız | {{ site.name }}{% endblock %}
+{% block description %}{{ site.name }} Instagram hesabında paylaşılan haberlerin tamamı: hikâyede ya da gönderide gördüğün haberi burada bul, dokun ve oku.{% endblock %}
+{% block main %}
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), ("Instagram", site.base ~ "/instagram/", site.url ~ "/instagram/")]) }}
+<header class="page-head wrap" style="--c:#6E6E73">
+  <span class="eyebrow">Instagram</span>
+  <h1>Instagram'da<br>paylaştıklarımız.</h1>
+  <p>Hikâyede ya da gönderide gördüğün haber burada. Dokun, tamamını kaynağıyla oku.</p>
+</header>
+<section class="wrap sec-tight">
+  {% if posts %}
+  <div class="grid">{% for p in posts %}{{ card(p, heading='h2') }}{% endfor %}</div>
+  {% else %}
+  <p class="muted">Henüz paylaşım yok. <a href="{{ site.base }}/haberler/">Son haberlere göz at</a>.</p>
+  {% endif %}
+  <p style="margin-top:32px;text-align:center"><a class="more" href="{{ site.base }}/haberler/">Tüm haberler</a></p>
+</section>
+{% endblock %}

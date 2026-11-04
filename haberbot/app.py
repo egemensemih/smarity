@@ -18,6 +18,7 @@ from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok, is_fb_token
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
 from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, PHOTO_SCHEMA, SEO_SCHEMA, TRIAGE_SCHEMA,
+                      SOCIAL_SCHEMA, social_system, social_user,
                       photo_system, photo_user,
                       WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
@@ -39,6 +40,7 @@ SLOW_ACTIONS = {
     "w": ("⏳ Yeniden yazılıyor…", "🔁 Yeniden yazıldı"),
 }
 IG_WINDOW_DEFAULT = [8, 24]
+IG_FORMATS = {"post": "Gönderi + hikâye", "story": "Hikâye"}   # Instagram paylaşım biçimleri (sıradaki haber)
 CONF_LABEL = {"yuksek": "yüksek", "orta": "orta", "dusuk": "düşük"}
 COMMANDS = [
     ("durum", "Sistem durumu ve istatistikler"),
@@ -1261,9 +1263,11 @@ class App:
         """Instagram için hazır carousel ve hikâyeyi Telegram'a gönder (elle paylaşım için).
         Carousel: kapak + öne çıkanlar + neden önemli. Hikâye: bağlantı çıkartmasıyla siteye yönlendirir."""
         if not force and self.ig_enabled:
-            # her haber paylaşılmaz: social.instagram_every_post false iken yalnızca seçilenler (/instagram dene, düğmeler)
+            # her haber paylaşılmaz: sosyal medya masası seçer (social.instagram_every_post true ise hepsi gider)
             if self._ig_cfg("instagram_every_post", True):
                 self.ig_enqueue(post)
+            else:
+                self.social_desk(post)
             return
         if not (self.tg and self.chat_id):
             return
@@ -1375,12 +1379,30 @@ class App:
     def _on_button(self, action: str, did: str) -> str:
         st = self.store
         if action == "x":
+            day = self._ig_day()
+            day[:] = [x for x in day if x.get("id") != did]          # günlük hak geri döner
             return "🚫 Instagram'a gönderilmeyecek" if self._ig_drop(did, cancelled=True) else "Sırada değil (paylaşılmış olabilir)."
+        if action in ("y", "b"):          # Instagram sırası: y = yalnızca hikâye, b = gönderi + hikâye
+            it = next((x for x in self.state.get("ig_queue") or [] if x["id"] == did), None)
+            post = st.load_post(did)
+            if not it or not post:
+                return "Sırada değil (paylaşılmış olabilir)."
+            if it.get("media_id") or it.get("story_id"):
+                return "Paylaşım başladı, artık değiştirilemez."
+            it["format"] = "story" if action == "y" else "post"
+            for x in self._ig_day():
+                if x.get("id") == did:
+                    x["format"] = it["format"]
+            self.store.site_dirty = True                                # gönderi kartları da siteye konsun
+            self._ig_msg(it, *self._ig_queue_msg(post, it))
+            return f"📸 {IG_FORMATS[it['format']]} olarak paylaşılacak"
         if action == "q":
             post = st.load_post(did)
             if not post:
                 return "Bu haber artık yayında değil."
-            return "📸 Tekrar sıraya alındı" if self.ig_enqueue(post, mid=self._cb_mid) else "Zaten sırada ya da paylaşıldı."
+            fmt = (post.get("social") or {}).get("format")
+            fmt = fmt if fmt in IG_FORMATS else "story"
+            return "📸 Tekrar sıraya alındı" if self.ig_enqueue(post, mid=self._cb_mid, fmt=fmt) else "Zaten sırada ya da paylaşıldı."
         where, d = st.find_any(did)
         if not d:
             return "Bu haber artık yok."
@@ -2066,22 +2088,102 @@ class App:
             except TelegramError as e:
                 log.warning("Instagram bildirimi gönderilemedi: %s", e)
 
-    def ig_enqueue(self, post: dict, mid: int | None = None) -> bool:
-        """Yayınlanan haberi Instagram sırasına ekler (kartlar site yayınlanırken _site/ig/ altına konur)."""
+    def ig_enqueue(self, post: dict, mid: int | None = None, fmt: str = "post", note: str = "") -> bool:
+        """Haberi Instagram sırasına ekler (kartlar site yayınlanırken _site/ig/ altına konur).
+        fmt: "post" (kalıcı gönderi + aynı haberin hikâyesi) ya da "story" (yalnızca hikâye)."""
         q = self.state.setdefault("ig_queue", [])
         done = {x.get("id") for x in self.state.get("ig_done") or []}
         if post["id"] in done or any(x["id"] == post["id"] for x in q):
             return False
-        it = {"id": post["id"], "queued_at": iso(now_utc()), "tries": 0}
+        it = {"id": post["id"], "queued_at": iso(now_utc()), "tries": 0, "format": fmt if fmt in IG_FORMATS else "post"}
+        if note:
+            it["note"] = clip(note, 300)
         if mid:
             it["mid"] = mid
         q.append(it)
         self.store.site_dirty = True
-        where = "" if not self.state.get("ig_off") else " (Instagram şu an kapalı: /instagram ac)"
-        self._ig_msg(it, f"📸 <b>Instagram sırasında</b>{where}\n{esc(post['title'])}\n"
-                         f"<i>Carousel ve hikâye birkaç dakika içinde paylaşılacak.</i>",
-                     [[{"text": "🚫 Instagram'a gönderme", "callback_data": f"x:{post['id']}"}]])
+        self._ig_msg(it, *self._ig_queue_msg(post, it))
         return True
+
+    def _ig_queue_msg(self, post: dict, it: dict) -> tuple[str, list]:
+        """Sıradaki haberin Telegram mesajı: biçim, masanın gerekçesi, değiştir / paylaşma düğmeleri."""
+        fmt = it.get("format", "post")
+        where = "" if not self.state.get("ig_off") else " (Instagram şu an kapalı: /instagram ac)"
+        text = (f"📸 <b>Instagram: {IG_FORMATS[fmt]}</b>{where}\n{esc(post['title'])}"
+                f"{chr(10) + '<i>' + esc(it['note']) + '</i>' if it.get('note') else ''}\n"
+                f"<i>Birkaç dakika içinde paylaşılacak.</i>")
+        switch = ({"text": "Sadece hikâye", "callback_data": f"y:{post['id']}"} if fmt == "post"
+                  else {"text": "⬆️ Gönderi yap", "callback_data": f"b:{post['id']}"})
+        return text, [[{"text": "🚫 Paylaşma", "callback_data": f"x:{post['id']}"}, switch]]
+
+    # ── sosyal medya masası ─────────────────────────────────
+    def _ig_day(self) -> list[dict]:
+        """Bugün Instagram için seçilen haberler (gönderi / hikâye); günlük sınırlar buna göre hesaplanır."""
+        book = self.state.setdefault("ig_log", {})
+        for k in sorted(book)[:-7]:          # son 7 gün yeter
+            book.pop(k, None)
+        return book.setdefault(self.today(), [])
+
+    def ig_budget(self) -> tuple[int, int]:
+        """Bugün kalan (gönderi, hikâye) hakkı. Her gönderinin hikâyesi de atıldığı için hikâye sayısına dahildir."""
+        day = self._ig_day()
+        posts = sum(1 for x in day if x.get("format") == "post")
+        return (max(0, int(self._ig_cfg("instagram_daily_posts", 4) or 0) - posts),
+                max(0, int(self._ig_cfg("instagram_daily_stories", 7) or 0) - len(day)))
+
+    def _social_fallback(self, post: dict, has_photo: bool) -> dict:
+        """Yapay zeka yanıt vermezse kaba kural: çok büyük haber gönderi, büyük haber hikâye, gerisi paylaşılmaz."""
+        appeal = int(post.get("appeal") or max(1, int(post.get("importance") or 6) - 1))
+        imp = int(post.get("importance") or 0)
+        fmt = "post" if appeal >= 9 and imp >= 9 and has_photo else "story" if appeal >= 8 else "none"
+        return {"format": fmt, "score": appeal, "reason": "Yapay zeka yanıt vermedi; ilgi puanına göre karar verildi.",
+                "votes": []}
+
+    def social_desk(self, post: dict) -> str:
+        """Sosyal medya masası (haber editörü, sosyal medya editörü, görsel yönetmen) yayınlanan haberi değerlendirir:
+        "post" (kalıcı gönderi + hikâye), "story" (yalnızca hikâye) ya da "none". Günlük sınırlar ve alt puanlar kodda da
+        uygulanır; seçilen haber Instagram sırasına girer."""
+        posts_left, stories_left = self.ig_budget()
+        ph = self.vis.best_photo(post)
+        if not stories_left:
+            out = {"format": "none", "score": 0, "reason": "Bugünkü Instagram sınırı doldu.", "votes": []}
+        else:
+            photo = (f"real photo from {ph.get('credit') or 'the source'} ({ph.get('w')}x{ph.get('h')})"
+                     f"{', a screenshot/graphic' if ph.get('graphic') else ''}" if ph else "none (only a colored background)")
+            outlets = len({s.get("name") for s in (post.get("sources") or []) + (post.get("coverage") or []) if s.get("name")})
+            shared = [{"time": local(x.get("at"), self.cfg.tz).strftime("%H:%M") if x.get("at") else "",
+                       "format": x.get("format"), "title": x.get("title", "")} for x in self._ig_day()]
+            now_l = local(now_utc(), self.cfg.tz)
+            out = None
+            if self.llm:
+                try:
+                    out = self.llm.json(self.cfg.get("ai", "writer_model", "gemini-flash-latest"),
+                                        social_system(self.brand, int(self._ig_cfg("instagram_daily_posts", 4) or 0),
+                                                      int(self._ig_cfg("instagram_daily_stories", 7) or 0)),
+                                        social_user(post, photo, outlets, shared, posts_left, stories_left,
+                                                    now_l.strftime("%H:%M")),
+                                        SOCIAL_SCHEMA, max_tokens=1500)
+                except LLMError as e:
+                    log.warning("Sosyal medya masası yanıt vermedi: %s", e)
+            if not isinstance(out, dict) or out.get("format") not in ("post", "story", "none"):
+                out = self._social_fallback(post, bool(ph))
+        fmt, score = out.get("format"), int(out.get("score") or 0)
+        post_min = int(self._ig_cfg("instagram_post_min", 8) or 0)
+        story_min = int(self._ig_cfg("instagram_story_min", 6) or 0)
+        if fmt == "post" and (not posts_left or score < post_min):
+            fmt = "story"
+        if fmt == "story" and (not stories_left or score < story_min):
+            fmt = "none"
+        reason = clip(str(out.get("reason") or "").strip(), 300)
+        votes = [{"role": v.get("role"), "format": v.get("format"), "score": v.get("score"),
+                  "reason": clip(str(v.get("reason") or ""), 200)} for v in out.get("votes") or [] if isinstance(v, dict)]
+        post["social"] = {"format": fmt, "score": score, "reason": reason, "votes": votes, "at": iso(now_utc())}
+        self.store.save_post(post)
+        if fmt in IG_FORMATS:
+            self._ig_day().append({"id": post["id"], "format": fmt, "at": iso(now_utc()), "title": clip(post["title"], 90)})
+            self.ig_enqueue(post, fmt=fmt, note=reason)
+        log.info("Sosyal medya masası: %s → %s (puan %s) %s", post["id"], fmt, score, reason)
+        return fmt
 
     def _ig_drop(self, did: str, note: str = "", cancelled: bool = False) -> bool:
         q = self.state.get("ig_queue") or []
@@ -2195,9 +2297,10 @@ class App:
         if cap and self.store.count(self.today(), "instagram") >= cap:
             return
         it = q[0]
+        fmt = it.get("format", "post")
         post = self.store.load_post(it["id"])
         urls = self._ig_urls(post)
-        code = head_ok(urls["post"])
+        code = head_ok(urls["post" if fmt == "post" else "story"])
         if code != 200:
             waited = hours_since(it["queued_at"]) * 60
             if waited > 15 and hours_since(it.get("restaged_at")) * 60 > 30:
@@ -2209,12 +2312,16 @@ class App:
         if not cli:
             return
         try:
-            if not it.get("media_id"):
+            if fmt == "post" and not it.get("media_id"):
                 caption = clip(self.instagram_caption(post), 2150)
                 mid, link = self._ig_run(cli.carousel, [urls[k] for k in self._ig_kinds()], caption)
                 it.update({"media_id": mid, "permalink": link})
                 self.state["ig_last_at"] = iso(now_utc())
                 self.store.bump(self.today(), "instagram")
+            elif fmt == "story" and not it.get("story_id"):
+                it["story_id"] = self._ig_run(cli.story, urls["story"])
+                self.state["ig_last_at"] = iso(now_utc())
+                self.store.bump(self.today(), "instagram_story")
         except InstagramError as e:
             if e.auth:
                 self._ig_problem(f"paylaşım yapılamadı: {esc(e)}. Anahtarın <b>instagram_business_content_publish</b> "
@@ -2226,20 +2333,27 @@ class App:
             if it["tries"] >= 3:
                 self._ig_drop(it["id"], f"⚠️ <b>Instagram'da paylaşılamadı</b>\n{esc(post['title'])}\n<i>{esc(e)}</i>")
             return
-        if self._ig_cfg("instagram_story", True) and not it.get("story_id"):
+        if fmt == "post" and self._ig_cfg("instagram_story", True) and not it.get("story_id"):
             try:
                 it["story_id"] = self._ig_run(cli.story, urls["story"])
+                self.store.bump(self.today(), "instagram_story")
             except InstagramError as e:  # hikâye olmasa da gönderi paylaşıldı; sırayı tıkama
                 log.warning("Instagram hikâyesi paylaşılamadı (%s): %s", post["id"], e)
                 it["story_error"] = str(e)[:200]
         q.remove(it)
         done = self.state.setdefault("ig_done", [])
         done.append({"id": post["id"], "at": iso(now_utc()), "permalink": it.get("permalink", ""),
-                     "story": bool(it.get("story_id"))})
+                     "story": bool(it.get("story_id")), "format": fmt})
         self.state["ig_done"] = done[-200:]
-        story = " + hikâye" if it.get("story_id") else (", hikâye paylaşılamadı" if it.get("story_error") else "")
+        # profildeki bağlantı sayfası (/instagram/) Instagram'da paylaşılan haberleri listeler
+        post["ig"] = {"format": fmt, "at": iso(now_utc()), "permalink": it.get("permalink", "")}
+        self.store.save_post(post)
+        if fmt == "post":
+            what = "gönderi" + (" + hikâye" if it.get("story_id") else (", hikâye paylaşılamadı" if it.get("story_error") else ""))
+        else:
+            what = "hikâye"
         kb = [[{"text": "📸 Instagram'da aç", "url": it["permalink"]}]] if it.get("permalink") else None
-        self._ig_msg(it, f"✅ <b>Instagram'da paylaşıldı</b> (carousel{story})\n{esc(post['title'])}", kb)
+        self._ig_msg(it, f"✅ <b>Instagram'da paylaşıldı</b> ({what})\n{esc(post['title'])}", kb)
         log.info("Instagram'da paylaşıldı: %s %s", post["id"], it.get("permalink", ""))
 
     def stage_instagram(self, out) -> int:
@@ -2254,7 +2368,8 @@ class App:
             post = self.store.load_post(it["id"])
             if not post:
                 continue
-            for k in self._ig_kinds() + ["story"]:
+            kinds = self._ig_kinds() + ["story"] if it.get("format", "post") == "post" else ["story"]
+            for k in kinds:
                 try:
                     shutil.copyfile(self._card(post, k), folder / f"{post['id']}-{k}.jpg")
                     n += 1
@@ -2289,7 +2404,11 @@ class App:
         left = TokenStore(self.cfg.instagram_token, d).days_left()
         lines = [f"📸 <b>Instagram</b> {'⏸ kapalı' if self.state.get('ig_off') else '▶️ açık'}"
                  f"{' · @' + esc(d['username']) if d.get('username') else ''}",
-                 f"Bugün: {c.get('instagram', 0)} paylaşım · Sırada: {len(self.state.get('ig_queue') or [])}"]
+                 f"Bugün: {c.get('instagram', 0)} gönderi, {c.get('instagram_story', 0)} hikâye · "
+                 f"Sırada: {len(self.state.get('ig_queue') or [])}"]
+        if not self._ig_cfg("instagram_every_post", True):
+            pl, sl = self.ig_budget()
+            lines.append(f"Sosyal medya masası seçiyor · bugün kalan hak: {pl} gönderi, {sl} hikâye")
         a, b = (self._ig_cfg("instagram_hours", IG_WINDOW_DEFAULT) or [0, 24])[:2]
         lines.append(f"Paylaşım saatleri: {a:02d}:00–{b:02d}:00 · en az {self._ig_cfg('instagram_min_gap_minutes', 15)} dk arayla")
         if left is not None:

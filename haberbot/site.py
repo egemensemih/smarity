@@ -626,6 +626,10 @@ class SiteBuilder:
             **ctx, canonical=f"{cfg.site_url}/gizlilik/"))
         self._write("iletisim/index.html", self.env.get_template("contact.html").render(
             **ctx, canonical=f"{cfg.site_url}/iletisim/"))
+        # Instagram profilindeki bağlantı: Instagram'da paylaşılan haberler (yeniden eskiye)
+        ig_posts = sorted((p for p in posts if (p.get("ig") or {}).get("at")), key=lambda p: p["ig"]["at"], reverse=True)
+        self._write("instagram/index.html", self.env.get_template("instagram.html").render(
+            **ctx, posts=ig_posts[:36], canonical=f"{cfg.site_url}/instagram/", noindex=True))
         self._write("404.html", self.env.get_template("404.html").render(**ctx, canonical=cfg.site_url + "/", noindex=True))
         # arama sayfası (/ara/?q=…) ve tarayıcıda aranan haber dizini
         self._write("ara/index.html", self.env.get_template("search.html").render(

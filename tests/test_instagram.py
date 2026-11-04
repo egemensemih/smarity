@@ -164,6 +164,66 @@ def test_try_latest_command():
         assert "bağlı değil" in a.ig_try_latest()
 
 
+def _pub(i, hours, appeal, photo=True, **kw):
+    return {"id": f"s{i}", "slug": f"sosyal-{i}", "title": f"Sosyal haber {i}", "summary": "Kısa özet.",
+            "category": "teknoloji", "tags": [], "body": "Metin.", "sources": [{"name": "A", "url": "https://a"}],
+            "published_at": iso(now_utc() - timedelta(hours=hours)), "appeal": appeal, "importance": appeal, **kw}
+
+
+def test_social_desk_selects_and_limits():
+    """Sosyal medya masası: her haber paylaşılmaz; gönderi ve hikâye günlük sınırları ve alt puanlar uygulanır."""
+    FakeIG.calls = []
+    appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.raw["social"].update({"instagram_every_post": False, "instagram_daily_posts": 1, "instagram_daily_stories": 3})
+        a.vis.best_photo = lambda d: {"credit": "Kaynak", "w": 1600, "h": 900} if d.get("photo") else None
+        posts = [_pub(1, 1, 9, photo=True), _pub(2, 1, 9, photo=True), _pub(3, 1, 5), _pub(4, 1, 8), _pub(5, 1, 8)]
+        for p in posts:
+            p["photo"] = True
+            a.store.save_post(p)
+            a._send_social(p)
+        q = {x["id"]: x["format"] for x in a.state["ig_queue"]}
+        assert q == {"s1": "post", "s2": "story", "s4": "story"}            # 1 gönderi hakkı; ilgisiz haber elendi
+        assert a.store.load_post("s5")["social"]["reason"]                   # hikâye hakkı doldu: gerekçe yazıldı
+        assert a.store.load_post("s3")["social"]["format"] == "none"
+        assert a.ig_budget() == (0, 0)
+        # düğmeler: gönderiyi hikâyeye indir, hikâyeyi paylaşma (hak geri döner)
+        assert "Hikâye" in a._on_button("y", "s1")
+        assert a._on_button("x", "s4").startswith("🚫") and a.ig_budget() == (1, 1)
+        # sıradaki hikâye yalnızca hikâye olarak paylaşılır; profil sayfası için haberde işaret kalır
+        a.ig_tick()
+        assert [c[0] for c in FakeIG.calls] == ["story", "story"][:len(FakeIG.calls)] and FakeIG.calls[0][0] == "story"
+        assert a.store.load_post("s1")["ig"]["format"] == "story"
+
+
+def test_manset_cards_and_instagram_page():
+    """Manşet tarzı kartlar doğru boyutta üretilir; /instagram/ sayfası paylaşılan haberleri listeler."""
+    from PIL import Image
+    from haberbot.site import SiteBuilder
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.raw["social"]["card_style"] = "manset"
+        a.cfg.images_dir.mkdir(parents=True, exist_ok=True)
+        Image.new("RGB", (1600, 900), (40, 90, 160)).save(a.cfg.images_dir / "m1-g0.webp")
+        post = _pub(1, 1, 9, image={"source": "photo", "photo": "m1-g0.webp"},
+                    photos=[{"file": "m1-g0.webp", "credit": "Apple", "w": 1600, "h": 900}],
+                    carousel_points=["Birinci madde.", "İkinci madde.", "Üçüncü madde."])
+        post["id"] = "m1"
+        a.store.save_post(post)
+        assert a.vis.best_photo(post)["credit"] == "Apple"
+        sizes = {k: Image.open(a._card(post, k)).size for k in ("post", "c2", "c3", "story")}
+        assert sizes == {"post": (1080, 1350), "c2": (1080, 1350), "c3": (1080, 1350), "story": (1080, 1920)}
+        post2 = {**_pub(2, 2, 8), "ig": {"format": "story", "at": iso(now_utc())}}
+        a.store.save_post(post2)
+        if a._vis:
+            a._vis.close()
+            a._vis = None
+        SiteBuilder(a.cfg).build()
+        page = (a.cfg.out_dir / "instagram" / "index.html").read_text(encoding="utf-8")
+        assert "Sosyal haber 2" in page and "Sosyal haber 1" not in page
+
+
 def test_missing_card_triggers_rebuild():
     appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 404)
     with tempfile.TemporaryDirectory() as t:

@@ -1,0 +1,129 @@
+{# Smarity Instagram kartı: "Manşet" tarzı (sitenin mobil manşetiyle aynı dil).
+   mode: cover  (gönderi 1/3: tam ekran fotoğraf, koyu geçiş, kategori etiketi, beyaz başlık)
+         points (gönderi 2/3: öne çıkan 3 madde, fotoğrafın bulanık hâli zeminde)
+         why    (gönderi 3/3: neden önemli + haberin tamamı için yönlendirme)
+         story  (hikâye 1080×1920: fotoğraf kırpılmadan ortada, başlık, "Haberi oku" düğmesi; Instagram'ın üst ve alt
+                 çubuklarına denk gelen alanlarda yalnızca zemin var — üst 250 px, alt 340 px)
+   Fotoğraf yoksa kategori renginde koyu, yumuşak ışıklı zemin. #}
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "IS"; src: url("{{ font_dir }}/InstrumentSans-Bold.ttf"); font-weight: 700; }
+:root { --c: {{ accent }}; --ink: #1D1D1F; --soft: rgba(255,255,255,.74); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: {{ W }}px; height: {{ H }}px; overflow: hidden; }
+body { font-family: "IS", system-ui, sans-serif; color: #fff; background: #0B0B10; -webkit-font-smoothing: antialiased;
+  position: relative; font-kerning: normal; }
+.abs { position: absolute; }
+h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap: balance; }
+.logo { position: absolute; left: 64px; height: 42px; display: block; }
+.ph { overflow: hidden; } .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* zemin: fotoğraf (ya da fotoğrafın bulanık hâli) veya kategori renginde ışık */
+.bg-photo { position: absolute; inset: 0; }
+.bg-blur { position: absolute; inset: -80px; }
+.bg-blur img { width: 100%; height: 100%; object-fit: cover; filter: blur(46px) saturate(1.25); }
+.bg-art { position: absolute; inset: 0;
+  background: radial-gradient(110% 70% at 15% 8%, color-mix(in srgb, var(--c) 62%, transparent), transparent 62%),
+              radial-gradient(90% 60% at 95% 92%, color-mix(in srgb, var(--c) 45%, #00D1B2 30%), transparent 64%),
+              #0B0B10; }
+.dim { position: absolute; inset: 0; background: rgba(10, 10, 14, .70); }
+.chip { display: inline-block; background: var(--c); color: #fff; font-weight: 700; font-size: 28px; line-height: 1;
+  padding: 12px 22px; border-radius: 999px; letter-spacing: -.01em; }
+.label { font-size: 30px; font-weight: 700; color: color-mix(in srgb, var(--c) 50%, #fff); letter-spacing: -.01em; }
+.meta { font-size: 24px; color: var(--soft); }
+.credit { position: absolute; right: 16px; bottom: 16px; font-size: 21px; padding: 7px 14px; border-radius: 999px;
+  background: rgba(0,0,0,.55); color: #fff; }
+.list { list-style: none; display: grid; gap: 46px; }
+.list li { display: grid; grid-template-columns: 56px 1fr; gap: 26px; font-size: 42px; line-height: 1.28; letter-spacing: -.012em; }
+.list b { width: 56px; height: 56px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center;
+  font-size: 28px; margin-top: 2px; }
+.box { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.24); border-radius: 28px; padding: 34px 40px; }
+.btn { display: inline-flex; align-items: center; gap: 14px; font-weight: 700; font-size: 40px; line-height: 1;
+  padding: 28px 46px; border-radius: 999px; background: #fff; color: var(--ink); }
+.col { position: absolute; left: 64px; right: 64px; display: flex; flex-direction: column; justify-content: center; }
+</style></head>
+<body>
+{% set arrow %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>{% endset %}
+
+{% if mode == 'cover' %}
+  {% if photo and not fit %}
+  <div class="bg-photo ph"><img src="{{ photo }}" alt=""></div>
+  <div class="abs" style="inset:0;background:linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,0) 17%, rgba(0,0,0,0) 30%, rgba(0,0,0,.84) 57%, rgba(0,0,0,.95) 100%)"></div>
+  {% elif photo %}
+  <div class="bg-blur ph"><img src="{{ photo }}" alt=""></div><div class="dim"></div>
+  <div class="ph abs" style="left:64px;right:64px;top:140px;height:520px;border-radius:30px;background:#000"><img src="{{ photo }}" alt="" style="object-fit:contain"></div>
+  {% else %}
+  <div class="bg-art"></div>
+  {% endif %}
+  <img class="logo" src="{{ logo_light_uri }}" style="top:60px" alt="">
+  <div class="abs" style="left:64px;right:64px;bottom:128px">
+    <span class="chip">{{ label }}</span>
+    <h1 data-max="{{ 360 if photo else 560 }}" style="font-size:{{ 80 if photo else 96 }}px;margin-top:26px">{{ title }}</h1>
+  </div>
+  <div class="abs meta" style="left:64px;right:260px;bottom:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Kaynak: {{ credits }}{% if photo_credit %} · Görsel: {{ photo_credit }}{% endif %}</div>
+  <div class="abs meta" style="right:64px;bottom:56px">{{ page }}/{{ pages }} · Kaydır →</div>
+
+{% elif mode in ('points', 'why') %}
+  {% if photo %}<div class="bg-blur ph"><img src="{{ photo }}" alt=""></div><div class="dim"></div>{% else %}<div class="bg-art"></div><div class="dim" style="background:rgba(10,10,14,.35)"></div>{% endif %}
+  <img class="logo" src="{{ logo_light_uri }}" style="top:60px" alt="">
+  {% if mode == 'points' %}
+  <div class="col" style="top:150px;bottom:130px"><div>
+    <span class="chip">{{ label }}</span>
+    <h1 data-max="200" style="font-size:56px;margin-top:24px">{{ short }}</h1>
+    <ul class="list" data-max="680" style="margin-top:56px">{% for t in points %}<li><b>{{ loop.index }}</b><span>{{ t }}</span></li>{% endfor %}</ul>
+  </div></div>
+  {% else %}
+  <div class="col" style="top:150px;bottom:340px">
+    <span class="label">Neden önemli?</span>
+    <p class="h" data-max="640" style="font-size:58px;line-height:1.16;margin-top:24px;letter-spacing:-.025em">{{ why }}</p>
+  </div>
+  <div class="abs box" style="left:64px;right:64px;bottom:120px">
+    <div style="font-size:36px;font-weight:700;letter-spacing:-.02em">Haberin tamamı ve tüm kaynaklar</div>
+    <div style="font-size:28px;color:var(--soft);margin-top:8px">Profildeki bağlantıda{% if site_host %} · {{ site_host }}{% endif %}</div>
+  </div>
+  {% endif %}
+  <div class="abs meta" style="right:64px;bottom:56px">{{ page }}/{{ pages }}</div>
+
+{% else %}{# hikâye #}
+  {% if photo %}<div class="bg-blur ph"><img src="{{ photo }}" alt=""></div><div class="dim" style="background:rgba(10,10,14,.62)"></div>{% else %}<div class="bg-art"></div>{% endif %}
+  {# Instagram'ın üst çubuğu ilk 250 px'i, alt çubuğu son 340 px'i kaplar: içerik arada #}
+  <div class="col" style="top:250px;bottom:340px;gap:0">
+    <img src="{{ logo_light_uri }}" style="height:42px;align-self:flex-start" alt="">
+    {% if photo %}
+    {% set ph_h = [[952 / photo_ratio, 420]|max, 640]|min %}
+    <div class="ph" style="position:relative;margin-top:40px;height:{{ ph_h|int }}px;border-radius:32px;background:#000;flex:none">
+      <img src="{{ photo }}" alt=""{% if fit %} style="object-fit:contain"{% endif %}>{% if photo_credit %}<span class="credit">Görsel: {{ photo_credit }}</span>{% endif %}
+    </div>
+    {% endif %}
+    <div style="margin-top:{{ 44 if photo else 120 }}px">
+      <span class="chip">{{ label }}</span>
+      <h1 data-max="{{ 330 if photo else 620 }}" style="font-size:{{ 78 if photo else 100 }}px;margin-top:24px">{{ title }}</h1>
+      <div class="meta" style="margin-top:20px;font-size:26px">Kaynak: {{ credits }}</div>
+    </div>
+    <div style="margin-top:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <span class="btn">Haberi oku {{ arrow }}</span>
+      {% if auto %}<span class="meta" style="font-size:28px;line-height:1.3">Bağlantı profilde<br>{{ site_host }}</span>{% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<script>
+function fitH(el, max) { let fs = parseFloat(getComputedStyle(el).fontSize); while (el.scrollHeight > max && fs > 20) { fs -= 2; el.style.fontSize = fs + "px"; } }
+function fitCol() {
+  // hikâyede tüm içerik güvenli alana sığmazsa başlık küçülür
+  document.querySelectorAll(".col").forEach(function (c) {
+    var h1 = c.querySelector("h1"); if (!h1) return;
+    var fs = parseFloat(getComputedStyle(h1).fontSize);
+    while (c.scrollHeight > c.clientHeight + 1 && fs > 40) { fs -= 2; h1.style.fontSize = fs + "px"; }
+  });
+}
+document.fonts.ready.then(function () {
+  document.querySelectorAll("[data-max]").forEach(function (e) { fitH(e, +e.dataset.max); });
+  fitCol();
+  Promise.all(Array.prototype.slice.call(document.images).map(function (i) {
+    return i.complete ? 1 : new Promise(function (r) { i.onload = i.onerror = r; }); }))
+    .then(function () { window.__ready = true; });
+});
+</script>
+</body></html>

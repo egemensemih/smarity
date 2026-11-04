@@ -554,3 +554,76 @@ screenshot of the product's own interface), and neither does a small, unobtrusiv
 
 def photo_user(title: str, summary: str, n: int) -> str:
     return f"STORY TITLE: {title}\nSUMMARY: {summary}\nNUMBER OF IMAGES: {n} (numbered 0 to {n - 1} in order)"
+
+
+# ── Sosyal medya masası: yayınlanan haber Instagram'a girer mi, hangi biçimde? ──
+SOCIAL_ROLES = ("haber_editoru", "sosyal_medya_editoru", "gorsel_yonetmen")
+SOCIAL_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "votes": {"type": "array", "items": {"type": "object", "properties": {
+            "role": {"type": "string", "enum": list(SOCIAL_ROLES)},
+            "format": {"type": "string", "enum": ["post", "story", "none"]},
+            "score": {"type": "integer"},
+            "reason": {"type": "string"}},
+            "required": ["role", "format", "score", "reason"], "additionalProperties": False}},
+        "format": {"type": "string", "enum": ["post", "story", "none"]},
+        "score": {"type": "integer"},
+        "reason": {"type": "string"},
+    },
+    "required": ["votes", "format", "score", "reason"],
+    "additionalProperties": False,
+}
+
+
+def social_system(site_name: str, posts_per_day: int, stories_per_day: int) -> str:
+    return f"""You are the social media desk of "{site_name}", a Turkish technology news site (AI, gadgets, cars, games,
+startups). A story was just published on the site. Three editors decide together whether it goes to the site's Instagram
+account and in which format. The account's value depends on ruthless selection: if it shares everything, it becomes
+noise and nobody follows it. Sharing nothing is a perfectly good outcome.
+
+FORMATS
+- "post": a permanent carousel on the profile grid. Only the day's most significant stories with the broadest appeal:
+  big launches and reveals from famous brands (Apple, Samsung, Google, OpenAI, Tesla, Togg, PlayStation, GTA…), news that
+  a broad Turkish audience will talk about, save or send to friends, major Türkiye tech news. Target about
+  {max(1, posts_per_day - 1)}–{posts_per_day} posts on a busy day of ~15 stories; most days fewer is better than weak posts.
+  Every post is also shared as a story.
+- "story": a 24-hour story. Notable, broadly interesting stories that are worth a glance but not worth a permanent spot.
+  Target about {max(1, stories_per_day - 1)}–{stories_per_day} stories per day in total (stories of posts included).
+- "none": do not share. Niche, specialist, B2B or industry-only news, routine software betas and minor updates, price
+  lists and campaigns, small funding rounds, stock and earnings news (unless huge and widely known), rumors and leaks,
+  stories very similar to something already shared today.
+
+THE THREE EDITORS (each votes format, score 1–10 and one short reason in Turkish)
+1. haber_editoru (news editor): news value, significance, timeliness, confirmed facts, relevance for Türkiye.
+2. sosyal_medya_editoru (social media editor): would a broad Turkish Instagram audience (18–40, curious about tech,
+   cars, games and AI but not specialists) stop scrolling, save or share it? Is it too similar to today's earlier posts?
+3. gorsel_yonetmen (visual director): is there a strong real photo (the product, the car, the game, the person, the scene)
+   that works full-screen? Stories without a real photo, with a dull photo (logos, screenshots of text, charts) rarely
+   make a good post; at best a story.
+
+DECISION
+- Final "format": "post" only if at least two editors vote "post" and the desk score is 8 or more and post budget remains;
+  "story" if the desk score is 6 or more and story budget remains; otherwise "none".
+- Respect the remaining budget for today; never lower the bar just because budget is left late in the day.
+- Balance: avoid two posts about the same brand or topic on the same day; vary categories when quality is equal.
+- "score": the desk's overall 1–10 score. "reason": one clear sentence in Turkish explaining the decision for the owner."""
+
+
+def social_user(post: dict, photo: str, outlets: int, shared_today: list[dict], posts_left: int, stories_left: int,
+                local_time: str) -> str:
+    lines = [
+        "STORY:",
+        f"TITLE: {post.get('title', '')}",
+        f"CATEGORY: {post.get('category', '')}",
+        f"SUMMARY: {post.get('summary', '')}",
+        f"KEY POINTS: {' / '.join(post.get('carousel_points') or [])}",
+        f"IMPORTANCE (news desk, 1–10): {post.get('importance', '')} · APPEAL (homepage, 1–10): {post.get('appeal', '')}",
+        f"OUTLETS COVERING IT: {outlets}",
+        f"PHOTO: {photo}",
+        "",
+        "ALREADY SHARED ON INSTAGRAM TODAY:",
+    ]
+    lines += [f"- {x.get('time', '')} {x.get('format')}: {x.get('title', '')}" for x in shared_today] or ["- nothing yet"]
+    lines += ["", f"REMAINING BUDGET TODAY: posts {posts_left}, stories {stories_left}", f"LOCAL TIME: {local_time}"]
+    return "\n".join(lines)

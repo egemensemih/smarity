@@ -332,6 +332,20 @@ class MockLLM:
             return {"keep": list(range(len(images or []))), "text": []}
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
+        if "votes" in schema.get("properties", {}):       # sosyal medya masası: ilgi puanı ve fotoğrafa göre
+            m = re.search(r"APPEAL \(homepage, 1–10\): (\d+)", user)
+            appeal = int(m.group(1)) if m else 5
+            photo = "PHOTO: none" not in user
+            left = re.search(r"REMAINING BUDGET TODAY: posts (\d+), stories (\d+)", user)
+            posts_left, stories_left = (int(left.group(1)), int(left.group(2))) if left else (1, 1)
+            fmt, score = ("post", 9) if appeal >= 9 and photo else ("story", 7) if appeal >= 7 else ("none", 4)
+            if fmt == "post" and not posts_left:
+                fmt = "story"
+            if fmt == "story" and not stories_left:
+                fmt = "none"
+            votes = [{"role": r, "format": fmt, "score": score, "reason": "Test modu oyu"}
+                     for r in ("haber_editoru", "sosyal_medya_editoru", "gorsel_yonetmen")]
+            return {"votes": votes, "format": fmt, "score": score, "reason": "Test modu kararı"}
         if "decisions" in schema.get("properties", {}):   # yayın yönetmeni: masanın puanına göre
             out = []
             for ln in user.split("CANDIDATES:", 1)[-1].splitlines():

@@ -264,8 +264,54 @@ class Visuals:
     NEWS_MODES = {"post": "cover", "c2": "points", "c3": "why", "story": "story"}
 
     @property
+    def card_style(self) -> str:
+        return (self.cfg.get("social", "card_style", "ozet") or "ozet").strip().lower()
+
+    @property
     def summary_style(self) -> bool:
-        return (self.cfg.get("social", "card_style", "ozet") or "ozet") == "ozet"
+        """3 sayfalı carousel (kapak + öne çıkanlar + neden önemli) üreten tarzlar."""
+        return self.card_style in ("ozet", "manset")
+
+    def best_photo(self, d: dict) -> dict | None:
+        """Kartta kullanılacak gerçek fotoğraf: haberin kapak fotoğrafı, yoksa en büyük fotoğrafı (yerel kopyası olan)."""
+        img = d.get("image") or {}
+        recs = [r for r in d.get("photos") or [] if r.get("file") and (self.cfg.images_dir / r["file"]).exists()]
+        pick = None
+        if img.get("source") == "photo" and img.get("photo"):
+            pick = next((r for r in recs if r["file"] == img["photo"]), None)
+        if pick is None:
+            big = sorted((r for r in recs if (r.get("w") or 0) >= 600),
+                         key=lambda r: (bool(r.get("graphic")), -(r.get("w") or 0)))
+            pick = big[0] if big else None
+        return {**pick, "path": self.cfg.images_dir / pick["file"]} if pick else None
+
+    def manset_context(self, d: dict, kind: str) -> dict:
+        """Manşet tarzı Instagram kartı: haberin gerçek fotoğrafı tam ekran, koyu geçiş, beyaz başlık (sitenin mobil
+        manşeti). Fotoğraf yoksa kategori renginde koyu zemin. Hikâyede fotoğraf kırpılmadan ortada durur."""
+        cat = d.get("category", "teknoloji")
+        ph = self.best_photo(d)
+        credits = list(dict.fromkeys(s["name"] for s in d.get("sources", [])))
+        w, h = ((ph.get("w") or 1600), (ph.get("h") or 900)) if ph else (16, 9)
+        return {
+            "mode": self.NEWS_MODES[kind],
+            "photo": ph["path"].resolve().as_uri() if ph else "",
+            "photo_credit": (ph.get("credit") or "") if ph else "",
+            "photo_ratio": max(.5, min(2.2, w / max(1, h))),
+            "fit": bool(ph and ph.get("graphic")),
+            "accent": category_color(cat),
+            "label": category_label(cat),
+            "title": nobr(d.get("title", "")),
+            "short": nobr(d.get("short_title") or d.get("title", "")),
+            "summary": d.get("summary", ""),
+            "points": covers.carousel_points(d),
+            "why": covers.why_text(d),
+            "credits": ", ".join(credits[:3]),
+            "date": tr_date(d.get("published_at") or d.get("created_at"), self.cfg.tz, with_time=False),
+            "page": self.CAROUSEL.index(kind) + 1 if kind in self.CAROUSEL else 0,
+            "pages": len(self.CAROUSEL),
+            "site_host": self.cfg.site_url.split("://", 1)[-1] if "localhost" not in self.cfg.site_url else "",
+            "auto": bool(self.cfg.instagram_auto),
+        }
 
     def layout_for(self, d: dict) -> str:
         if (d.get("hero_stat") or "").strip():
@@ -312,6 +358,11 @@ class Visuals:
 
     def render_card(self, d: dict, kind: str, hero: Path, out: Path) -> Path:
         size = self.SIZES[kind]
+        if kind in self.NEWS_MODES and self.card_style == "manset":
+            try:
+                return self.renderer.html_to_image("manset.html", self.manset_context(d, kind), size, out)
+            except Exception as e:  # noqa: BLE001
+                log.warning("Manşet kartı üretilemedi (%s), özet kartı kullanılıyor: %s", kind, e)
         if kind in self.NEWS_MODES and self.summary_style:
             try:
                 credits = list(dict.fromkeys(s["name"] for s in d.get("sources", [])))

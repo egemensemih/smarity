@@ -120,7 +120,11 @@ social:
   # birkaç dakika sonra carousel (3 görsel) ve hikâye olarak paylaşılır. Telegram'dan /instagram ile yönetilir.
   instagram_auto: true
   instagram_user_id: "17841405730803695"   # @smarityco hesap numarası (Meta panelinde hesabın altında yazar)
-  instagram_every_post: false      # false: yayınlanan her haber otomatik paylaşılmaz (seçim sosyal medya masasında)
+  instagram_every_post: false      # false: her haber paylaşılmaz; sosyal medya masası seçer (gönderi + hikâye / hikâye / hiç)
+  instagram_daily_posts: 4         # günlük en fazla kalıcı gönderi (her gönderinin hikâyesi de atılır)
+  instagram_daily_stories: 7       # günlük en fazla hikâye (gönderilerin hikâyeleri dahil)
+  instagram_post_min: 8            # masanın gönderi için istediği en düşük puan (1–10)
+  instagram_story_min: 6           # hikâye için en düşük puan
   instagram_story: true            # carousel'e ek olarak hikâye de paylaşılsın
   instagram_hours: [8, 24]         # paylaşım saatleri; gece yayınlanan haberler sabah 8'de sırayla paylaşılır
   instagram_min_gap_minutes: 15    # iki paylaşım arasında en az bu kadar dakika olsun (akış boğulmasın)
@@ -130,9 +134,10 @@ social:
   # (true yapılırsa, Instagram bağlı değilken görseller elle paylaşım için Telegram'a gelir.)
   send_to_telegram: false
   # Instagram görsel tarzı:
-  # ozet  : logo, kategori etiketi, vurgulu büyük başlık ve kısa özet; renkler habere göre değişir (önerilen)
+  # manset: haberin gerçek fotoğrafı tam ekran, koyu geçiş, beyaz başlık (sitenin mobil manşeti; önerilen)
+  # ozet  : logo, kategori etiketi, vurgulu büyük başlık ve kısa özet; renkli ışık zemini
   # kapak : dev rakam / ürün adı kapağı (sitedeki kapakla aynı)
-  card_style: ozet
+  card_style: manset
 
 # ─────────────────────────────────────────────────────────────
 #  Bakım (her turda uygulanır, tekrar çalışması zararsızdır)
