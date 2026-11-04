@@ -859,8 +859,8 @@
       "updated": 2
     },
     "2026-11-05": {
-      "tok_in": 65348,
-      "tok_out": 11564,
+      "tok_in": 67171,
+      "tok_out": 11625,
       "cost_usd": 0.0,
       "drafts": 1,
       "published": 1,
@@ -869,7 +869,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-04T21:16:18Z",
+  "last_build": "2026-11-04T22:20:09Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
@@ -2674,7 +2674,20 @@
       "tries": 0,
       "format": "story",
       "note": "macOS için beklenen bir özellik olmasına rağmen henüz geliştirici aşamasında ve beta sürümünde olduğu için kalıcı post yerine 24 saatlik story formatında paylaşılması daha uygundur.",
-      "mid": 1914
+      "mid": 1914,
+      "vtried": [
+        "auto"
+      ],
+      "vcheck": {
+        "variant": "auto",
+        "ok": true,
+        "score": 10,
+        "issues": [],
+        "reason": "Görsel, başlık ve yerleşim standartlarımıza tamamen uygun ve sorunsuz görünüyor.",
+        "at": "2026-11-04T22:20:09Z"
+      },
+      "variant": "auto",
+      "vok": true
     }
   ],
   "ig_warned_at": "2026-11-04T10:04:07Z",
