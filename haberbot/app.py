@@ -18,7 +18,7 @@ from .extract import full_text
 from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok, is_fb_token
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
 from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, PHOTO_SCHEMA, SEO_SCHEMA, TRIAGE_SCHEMA,
-                      SOCIAL_SCHEMA, social_system, social_user,
+                      SOCIAL_SCHEMA, social_system, social_user, VISUAL_SCHEMA, visual_system, visual_user,
                       photo_system, photo_user,
                       WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
@@ -41,6 +41,8 @@ SLOW_ACTIONS = {
 }
 IG_WINDOW_DEFAULT = [8, 24]
 IG_FORMATS = {"post": "Gönderi + hikâye", "story": "Hikâye"}   # Instagram paylaşım biçimleri (sıradaki haber)
+# görsel yönetmenin onayladığı kart hâli (Telegram'da gösterilir)
+IG_VARIANTS = {"auto": "fotoğraf tam ekran", "contain": "fotoğraf kırpılmadan", "nophoto": "fotoğrafsız, kategori renginde zemin"}
 CONF_LABEL = {"yuksek": "yüksek", "orta": "orta", "dusuk": "düşük"}
 COMMANDS = [
     ("durum", "Sistem durumu ve istatistikler"),
@@ -1015,12 +1017,12 @@ class App:
         st = self.store
         return st.post_image(d["id"]) if st.post_path(d["id"]).exists() else st.draft_image(d["id"])
 
-    def _card(self, d: dict, kind: str):
-        """Kartı (.cache içine) üret ve yolunu döndür."""
+    def _card(self, d: dict, kind: str, variant: str = "auto"):
+        """Kartı (.cache içine) üret ve yolunu döndür. variant: görsel yönetmenin seçtiği hâl (auto / contain / nophoto)."""
         hero = self._hero(d)
         if not hero.exists():
             d["image"] = self.vis.make_hero(d, hero)
-        return self.vis.render_card(d, kind, hero, self.store.card_path(d["id"], kind))
+        return self.vis.render_card(d, kind, hero, self.store.card_path(d["id"], kind), variant)
 
     # ── 3) YAYIN ────────────────────────────────────────────
     def publish(self, d: dict, auto: bool) -> dict:
@@ -1396,6 +1398,19 @@ class App:
             self.store.site_dirty = True                                # gönderi kartları da siteye konsun
             self._ig_msg(it, *self._ig_queue_msg(post, it))
             return f"📸 {IG_FORMATS[it['format']]} olarak paylaşılacak"
+        if action == "k":                 # görsel kontrolünden geçmeyeni sahibinin onayıyla yine de paylaş
+            post = st.load_post(did)
+            if not post:
+                return "Bu haber artık yayında değil."
+            soc = post.get("social") or {}
+            fmt = (soc.get("vfail") or {}).get("format") or soc.get("format")
+            if not self.ig_enqueue(post, mid=self._cb_mid, fmt=fmt if fmt in IG_FORMATS else "story"):
+                return "Zaten sırada ya da paylaşıldı."
+            it = next(x for x in self.state["ig_queue"] if x["id"] == did)
+            it.update({"vok": True, "variant": (soc.get("vfail") or {}).get("variant") or "auto",
+                       "vcheck": {"skipped": True, "at": iso(now_utc())}})
+            self._ig_msg(it, *self._ig_queue_msg(post, it))
+            return "📸 Görsel kontrolü atlanarak sıraya alındı"
         if action == "q":
             post = st.load_post(did)
             if not post:
@@ -2109,8 +2124,18 @@ class App:
         """Sıradaki haberin Telegram mesajı: biçim, masanın gerekçesi, değiştir / paylaşma düğmeleri."""
         fmt = it.get("format", "post")
         where = "" if not self.state.get("ig_off") else " (Instagram şu an kapalı: /instagram ac)"
+        vc = it.get("vcheck") or {}
+        if it.get("vok") and vc.get("skipped"):
+            vline = "\n🖼️ Görsel kontrolü senin onayınla atlandı"
+        elif it.get("vok") and vc:
+            look = f", {IG_VARIANTS[it['variant']]}" if it.get("variant") in IG_VARIANTS and it["variant"] != "auto" else ""
+            vline = f"\n🖼️ Görsel kontrolü geçti ({vc.get('score')}/10{look})"
+        elif self._ig_cfg("instagram_visual_check", True):
+            vline = "\n🖼️ Görseller hazırlanınca görsel yönetmen kontrol edecek"
+        else:
+            vline = ""
         text = (f"📸 <b>Instagram: {IG_FORMATS[fmt]}</b>{where}\n{esc(post['title'])}"
-                f"{chr(10) + '<i>' + esc(it['note']) + '</i>' if it.get('note') else ''}\n"
+                f"{chr(10) + '<i>' + esc(it['note']) + '</i>' if it.get('note') else ''}{vline}\n"
                 f"<i>Birkaç dakika içinde paylaşılacak.</i>")
         switch = ({"text": "Sadece hikâye", "callback_data": f"y:{post['id']}"} if fmt == "post"
                   else {"text": "⬆️ Gönderi yap", "callback_data": f"b:{post['id']}"})
@@ -2185,7 +2210,7 @@ class App:
         log.info("Sosyal medya masası: %s → %s (puan %s) %s", post["id"], fmt, score, reason)
         return fmt
 
-    def _ig_drop(self, did: str, note: str = "", cancelled: bool = False) -> bool:
+    def _ig_drop(self, did: str, note: str = "", cancelled: bool = False, keyboard=None) -> bool:
         q = self.state.get("ig_queue") or []
         it = next((x for x in q if x["id"] == did), None)
         if not it:
@@ -2196,15 +2221,17 @@ class App:
             self._ig_msg(it, f"🚫 <b>Instagram'a gönderilmeyecek</b>\n{esc(post.get('title', ''))}",
                          [[{"text": "↩️ Yine de paylaş", "callback_data": f"q:{did}"}]])
         elif note:
-            self._ig_msg(it, note)
+            self._ig_msg(it, note, keyboard)
         return True
 
     def _ig_problem(self, text: str) -> None:
         """Aynı uyarıyı en fazla 12 saatte bir gönder."""
+        plain = re.sub(r"<[^>]+>", "", text)
+        self.state["ig_problem"] = {"at": iso(now_utc()), "text": clip(html.unescape(plain), 400)}  # /instagram'da görünür
         if hours_since(self.state.get("ig_warned_at")) >= 12:
             self.state["ig_warned_at"] = iso(now_utc())
             self.notify("⚠️ <b>Instagram</b>: " + text)
-        log.warning("Instagram: %s", re.sub(r"<[^>]+>", "", text))
+        log.warning("Instagram: %s", plain)
 
     def _ig_client(self):
         """Anahtarı (gerekirse yenileyip) hazırlar, hesabı tanır. Sorun varsa None."""
@@ -2239,6 +2266,7 @@ class App:
                     self._ig_problem(f"erişim anahtarı çalışmıyor ({esc(e)}). Yeni anahtar üretip GitHub'da "
                                      "<b>IG_ACCESS_TOKEN</b> değerini güncelle.")
                 else:
+                    self.state["ig_problem"] = {"at": iso(now_utc()), "text": clip(f"hesap okunamadı: {e}", 400)}
                     log.warning("Instagram hesabı okunamadı: %s", e)
                 return None
             data.update({"me_fp": fp, "id": str(me.get("id") or ""), "user_id": str(me.get("user_id") or ""),
@@ -2300,13 +2328,16 @@ class App:
         fmt = it.get("format", "post")
         post = self.store.load_post(it["id"])
         urls = self._ig_urls(post)
-        code = head_ok(urls["post" if fmt == "post" else "story"])
+        # görsel yönetmen kartları onaylamadan paylaşılmaz (onay, kartlar siteye konurken verilir)
+        vetted = it.get("vok") or not self._ig_cfg("instagram_visual_check", True)
+        code = head_ok(urls["post" if fmt == "post" else "story"]) if vetted else 0
         if code != 200:
             waited = hours_since(it["queued_at"]) * 60
             if waited > 15 and hours_since(it.get("restaged_at")) * 60 > 30:
                 it["restaged_at"] = iso(now_utc())
                 self.store.site_dirty = True  # site yeniden yayınlansın, kartlar eklensin
-                log.info("Instagram kartı sitede yok (HTTP %s); site yeniden yayınlanacak", code)
+                log.info("Instagram kartı %s; site yeniden yayınlanacak",
+                         f"sitede yok (HTTP {code})" if vetted else "görsel kontrolünü bekliyor")
             return
         cli = self._ig_client()
         if not cli:
@@ -2341,6 +2372,7 @@ class App:
                 log.warning("Instagram hikâyesi paylaşılamadı (%s): %s", post["id"], e)
                 it["story_error"] = str(e)[:200]
         q.remove(it)
+        self.state.pop("ig_problem", None)
         done = self.state.setdefault("ig_done", [])
         done.append({"id": post["id"], "at": iso(now_utc()), "permalink": it.get("permalink", ""),
                      "story": bool(it.get("story_id")), "format": fmt})
@@ -2363,15 +2395,29 @@ class App:
             return 0
         folder = out / "ig"
         folder.mkdir(parents=True, exist_ok=True)
-        n = 0
-        for it in q[:8]:
+        n, vets = 0, 0
+        for it in list(q[:8]):
             post = self.store.load_post(it["id"])
             if not post:
                 continue
             kinds = self._ig_kinds() + ["story"] if it.get("format", "post") == "post" else ["story"]
+            if not it.get("vok") and self._ig_cfg("instagram_visual_check", True) and self.llm:
+                if vets >= 4:                      # bir turda en fazla 4 haber kontrol edilir; gerisi sonraki turda
+                    continue
+                vets += 1
+                try:
+                    cards = self.ig_vet(post, it, kinds)
+                except Exception as e:  # noqa: BLE001
+                    log.warning("Görsel kontrolü yapılamadı (%s): %s", post["id"], e)
+                    cards = None
+                if not cards:
+                    continue
+            else:
+                cards = {}
             for k in kinds:
                 try:
-                    shutil.copyfile(self._card(post, k), folder / f"{post['id']}-{k}.jpg")
+                    shutil.copyfile(cards.get(k) or self._card(post, k, it.get("variant", "auto")),
+                                    folder / f"{post['id']}-{k}.jpg")
                     n += 1
                 except Exception as e:  # noqa: BLE001
                     log.warning("Instagram kartı hazırlanamadı (%s %s): %s", post["id"], k, e)
@@ -2380,6 +2426,89 @@ class App:
             self._vis = None
         log.info("Instagram kartları siteye kondu: %d görsel", n)
         return n
+
+    # ── görsel yönetmen: kartların son kontrolü ─────────────
+    def _ig_variants(self, post: dict) -> list[str]:
+        """Denenecek kart hâlleri, sırayla: fotoğraf tam ekran → kırpılmadan çerçevede → fotoğrafsız renkli zemin."""
+        if self.vis.card_style != "manset":
+            return ["auto"]
+        ph = self.vis.best_photo(post)
+        if not ph:
+            return ["nophoto"]
+        return (["auto"] if ph.get("graphic") else ["auto", "contain"]) + ["nophoto"]
+
+    @staticmethod
+    def _card_jpeg(path, width: int = 720) -> bytes:
+        """Kartın küçültülmüş JPEG'i (yapay zekaya gönderilir; telefonda görülen boyuta yakın)."""
+        import io
+        from PIL import Image
+        im = Image.open(path).convert("RGB")
+        im.thumbnail((width, width * 2))
+        buf = io.BytesIO()
+        im.save(buf, "JPEG", quality=84)
+        return buf.getvalue()
+
+    def ig_vet(self, post: dict, it: dict, kinds: list[str]) -> dict | None:
+        """Görsel yönetmen, kartları Instagram'a gitmeden önce bitmiş hâlleriyle inceler: fotoğraf haberle ilgili mi,
+        başlık okunuyor mu, taşan / kesilen yazı, kötü kırpma, hikâyede güvenli alan, uygunsuz ya da yanıltıcı görsel.
+        Geçmezse önerdiği hâl denenir (fotoğraf kırpılmadan → fotoğrafsız); hiçbiri geçmezse haber Instagram'a gitmez.
+        Onaylanan kartların yollarını döndürür; yapay zeka yanıt vermezse None (sonraki turda yeniden denenir)."""
+        order = self._ig_variants(post)
+        tried = it.setdefault("vtried", [])
+
+        def pick(pref=None):
+            if pref in order and pref not in tried:
+                return pref
+            return next((v for v in order if v not in tried), None)
+
+        variant = pick(it.get("variant"))
+        min_score = int(self._ig_cfg("instagram_visual_min", 7) or 0)
+        model = self.cfg.get("ai", "visual_model", None) or self.cfg.get("ai", "writer_model", "gemini-flash-latest")
+        while variant:
+            cards = {k: self._card(post, k, variant) for k in kinds}
+            ph = self.vis.best_photo(post) if variant != "nophoto" else None
+            try:
+                res = self.llm.json(model, visual_system(self.brand),
+                                    visual_user(post, it.get("format", "post"), variant, kinds,
+                                                (ph or {}).get("credit", "") if ph else ""),
+                                    VISUAL_SCHEMA, max_tokens=900, images=[self._card_jpeg(cards[k]) for k in kinds])
+            except Exception as e:  # noqa: BLE001
+                it["variant"] = variant
+                it["verr"] = it.get("verr", 0) + 1
+                log.warning("Görsel yönetmen yanıt vermedi (%s), sonraki turda yeniden denenecek: %s",
+                            post["id"], str(e)[:160])
+                return None
+            if not isinstance(res, dict):
+                res = {}
+            tried.append(variant)
+            score = int(res.get("score") or 0)
+            ok = bool(res.get("ok")) and score >= min_score
+            issues = [clip(str(x).strip(), 160) for x in res.get("issues") or [] if str(x).strip()][:6]
+            it["vcheck"] = {"variant": variant, "ok": ok, "score": score, "issues": issues,
+                            "reason": clip(str(res.get("reason") or "").strip(), 300), "at": iso(now_utc())}
+            log.info("Görsel yönetmen: %s %s → %s (puan %s) %s", post["id"], variant, "uygun" if ok else "uygun değil",
+                     score, "; ".join(issues))
+            if ok:
+                it.update({"variant": variant, "vok": True})
+                self._ig_msg(it, *self._ig_queue_msg(post, it))
+                return cards
+            fix = res.get("fix")
+            if fix == "skip":
+                break
+            variant = pick({"contain_photo": "contain", "no_photo": "nophoto"}.get(fix))
+        vc = it.get("vcheck") or {}
+        detail = "; ".join(vc.get("issues") or []) or vc.get("reason") or ""
+        post.setdefault("social", {})["vfail"] = {"format": it.get("format", "post"), "variant": vc.get("variant", "auto"),
+                                                  "score": vc.get("score"), "issues": vc.get("issues") or [],
+                                                  "at": iso(now_utc())}
+        self.store.save_post(post)
+        day = self._ig_day()
+        day[:] = [x for x in day if x.get("id") != post["id"]]          # günlük hak geri döner
+        self._ig_drop(post["id"], f"🖼️ <b>Instagram'a gönderilmedi</b>: görseller kontrolden geçmedi\n"
+                                  f"{esc(post['title'])}\n<i>{esc(clip(detail, 400))}</i>",
+                      keyboard=[[{"text": "↩️ Yine de paylaş", "callback_data": f"k:{post['id']}"}]])
+        log.info("Görsel kontrolünden geçmedi, Instagram'a gönderilmeyecek: %s (%s)", post["id"], detail)
+        return None
 
     def ig_try_latest(self) -> str:
         """/instagram dene: henüz paylaşılmamış en yeni haberi Instagram sırasına al (bağlantıyı denemek için)."""
@@ -2413,6 +2542,13 @@ class App:
         lines.append(f"Paylaşım saatleri: {a:02d}:00–{b:02d}:00 · en az {self._ig_cfg('instagram_min_gap_minutes', 15)} dk arayla")
         if left is not None:
             lines.append(f"Anahtar: {left:.0f} gün geçerli (bot kendisi yeniler)")
+        prob = self.state.get("ig_problem") or {}
+        if prob and hours_since(prob.get("at")) < 48:
+            when = local(prob["at"], self.cfg.tz).strftime("%d.%m %H:%M")
+            lines.append(f"⚠️ Son sorun ({when}): {esc(prob.get('text', ''))}")
+        waiting = [x for x in self.state.get("ig_queue") or [] if not x.get("vok")]
+        if waiting and self._ig_cfg("instagram_visual_check", True):
+            lines.append(f"🖼️ Görsel kontrolü bekleyen: {len(waiting)}")
         for x in (self.state.get("ig_done") or [])[-3:][::-1]:
             p = self.store.load_post(x["id"]) or {}
             if x.get("permalink"):

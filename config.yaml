@@ -125,6 +125,8 @@ social:
   instagram_daily_stories: 7       # günlük en fazla hikâye (gönderilerin hikâyeleri dahil)
   instagram_post_min: 8            # masanın gönderi için istediği en düşük puan (1–10)
   instagram_story_min: 6           # hikâye için en düşük puan
+  instagram_visual_check: true     # görsel yönetmen her kartı paylaşımdan önce inceler (uygun değilse başka hâli dener ya da paylaşmaz)
+  instagram_visual_min: 7          # görsel kontrolünde geçmek için en düşük puan (1–10)
   instagram_story: true            # carousel'e ek olarak hikâye de paylaşılsın
   instagram_hours: [8, 24]         # paylaşım saatleri; gece yayınlanan haberler sabah 8'de sırayla paylaşılır
   instagram_min_gap_minutes: 15    # iki paylaşım arasında en az bu kadar dakika olsun (akış boğulmasın)

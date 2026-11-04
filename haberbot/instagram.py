@@ -120,17 +120,38 @@ class Instagram:
                                  transient=r.status_code >= 500 or bool(err.get("is_transient")) or err.get("code") in (1, 2, 4, 9007))
         return j
 
+    def _discover(self) -> str:
+        """Anahtarın eriştiği Facebook sayfalarına bağlı ilk Instagram işletme hesabının numarası."""
+        pages = self._req("GET", "me/accounts", fields="instagram_business_account{id,username}").get("data") or []
+        return next((str(p["instagram_business_account"]["id"]) for p in pages if p.get("instagram_business_account")), "")
+
     def me(self) -> dict:
         if not self.fb:
             return self._req("GET", "me", fields="user_id,username")
         ig_id = self.ig_id
-        if not ig_id:  # anahtarın eriştiği sayfalara bağlı ilk Instagram hesabı
-            pages = self._req("GET", "me/accounts", fields="instagram_business_account{id,username}").get("data") or []
-            ig_id = next((str(p["instagram_business_account"]["id"]) for p in pages if p.get("instagram_business_account")), "")
+        if ig_id:
+            try:
+                j = self._req("GET", ig_id, fields="id,username")
+            except InstagramError as e:
+                # numara yanlışsa ya da bu anahtara atanmamışsa: anahtarın gördüğü sayfalardan bulmayı dene
+                if e.transient:
+                    raise
+                try:
+                    found = self._discover()
+                except InstagramError:
+                    found = ""
+                if not found or found == ig_id:
+                    raise e
+                log.warning("Instagram hesap numarası %s okunamadı (%s); anahtarın eriştiği hesap %s kullanılacak",
+                            ig_id, e, found)
+                ig_id = found
+                j = self._req("GET", ig_id, fields="id,username")
+        else:  # anahtarın eriştiği sayfalara bağlı ilk Instagram hesabı
+            ig_id = self._discover()
             if not ig_id:
                 raise InstagramError("Anahtarın eriştiği bir Instagram hesabı bulunamadı; config.yaml → "
                                      "social.instagram_user_id alanına hesap numarasını yaz", 100)
-        j = self._req("GET", ig_id, fields="id,username")
+            j = self._req("GET", ig_id, fields="id,username")
         return {"id": str(j.get("id") or ig_id), "user_id": str(j.get("id") or ig_id), "username": j.get("username", "")}
 
     def container(self, ig_id: str, **params) -> str:

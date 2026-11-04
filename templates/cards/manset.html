@@ -51,13 +51,16 @@ h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap
   <div class="bg-photo ph"><img src="{{ photo }}" alt=""></div>
   <div class="abs" style="inset:0;background:linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,0) 17%, rgba(0,0,0,0) 30%, rgba(0,0,0,.84) 57%, rgba(0,0,0,.95) 100%)"></div>
   {% elif photo %}
+  {# fotoğraf kırpılmadan: çerçeve, logo ile başlık arasındaki boşluğun ortasında durur #}
   <div class="bg-blur ph"><img src="{{ photo }}" alt=""></div><div class="dim"></div>
-  <div class="ph abs" style="left:64px;right:64px;top:140px;height:520px;border-radius:30px;background:#000"><img src="{{ photo }}" alt="" style="object-fit:contain"></div>
+  <div id="frame-zone" class="abs" style="left:64px;right:64px;top:132px;height:560px;display:flex;align-items:center;justify-content:center">
+    <img id="frame-img" src="{{ photo }}" alt="" style="display:block;width:100%;height:100%;object-fit:contain;border-radius:30px;box-shadow:0 24px 70px rgba(0,0,0,.45)">
+  </div>
   {% else %}
   <div class="bg-art"></div>
   {% endif %}
   <img class="logo" src="{{ logo_light_uri }}" style="top:60px" alt="">
-  <div class="abs" style="left:64px;right:64px;bottom:128px">
+  <div id="cover-text" class="abs" style="left:64px;right:64px;bottom:128px">
     <span class="chip">{{ label }}</span>
     <h1 data-max="{{ 360 if photo else 560 }}" style="font-size:{{ 80 if photo else 96 }}px;margin-top:26px">{{ title }}</h1>
   </div>
@@ -92,7 +95,9 @@ h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap
     <img src="{{ logo_light_uri }}" style="height:42px;align-self:flex-start" alt="">
     {% if photo %}
     {% set ph_h = [[952 / photo_ratio, 420]|max, 640]|min %}
-    <div class="ph" style="position:relative;margin-top:40px;height:{{ ph_h|int }}px;border-radius:32px;background:#000;flex:none">
+    {# kırpılmadan gösterilen fotoğrafta çerçeve fotoğrafın kendi oranında (yanlarda siyah bant kalmaz) #}
+    {% set ph_w = ([952, ph_h * photo_ratio]|min) if fit else 952 %}
+    <div class="ph" style="position:relative;margin-top:40px;height:{{ ph_h|int }}px;width:{{ ph_w|int }}px;align-self:{{ 'center' if fit else 'stretch' }};border-radius:32px;background:#000;flex:none">
       <img src="{{ photo }}" alt=""{% if fit %} style="object-fit:contain"{% endif %}>{% if photo_credit %}<span class="credit">Görsel: {{ photo_credit }}</span>{% endif %}
     </div>
     {% endif %}
@@ -110,6 +115,17 @@ h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap
 
 <script>
 function fitH(el, max) { let fs = parseFloat(getComputedStyle(el).fontSize); while (el.scrollHeight > max && fs > 20) { fs -= 2; el.style.fontSize = fs + "px"; } }
+function frame() {
+  // kırpılmamış fotoğraf: başlığın üstünde kalan alana, kendi oranıyla, ortalanarak yerleşir
+  var z = document.getElementById("frame-zone"), ct = document.getElementById("cover-text"), im = document.getElementById("frame-img");
+  if (!z || !ct) return;
+  var zh = Math.max(240, ct.getBoundingClientRect().top - 40 - 132);
+  z.style.height = zh + "px";
+  if (im && im.naturalWidth) {
+    var r = im.naturalWidth / im.naturalHeight, w = Math.min(z.clientWidth, zh * r);
+    im.style.width = w + "px"; im.style.height = (w / r) + "px"; im.style.objectFit = "cover";
+  }
+}
 function fitCol() {
   // hikâyede tüm içerik güvenli alana sığmazsa başlık küçülür
   document.querySelectorAll(".col").forEach(function (c) {
@@ -123,7 +139,7 @@ document.fonts.ready.then(function () {
   fitCol();
   Promise.all(Array.prototype.slice.call(document.images).map(function (i) {
     return i.complete ? 1 : new Promise(function (r) { i.onload = i.onerror = r; }); }))
-    .then(function () { window.__ready = true; });
+    .then(function () { frame(); window.__ready = true; });
 });
 </script>
 </body></html>

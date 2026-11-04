@@ -285,11 +285,15 @@ class Visuals:
             pick = big[0] if big else None
         return {**pick, "path": self.cfg.images_dir / pick["file"]} if pick else None
 
-    def manset_context(self, d: dict, kind: str) -> dict:
+    # görsel yönetmenin denediği hâller: fotoğraf tam ekran / fotoğraf kırpılmadan çerçevede / fotoğrafsız renkli zemin
+    VARIANTS = ("auto", "contain", "nophoto")
+
+    def manset_context(self, d: dict, kind: str, variant: str = "auto") -> dict:
         """Manşet tarzı Instagram kartı: haberin gerçek fotoğrafı tam ekran, koyu geçiş, beyaz başlık (sitenin mobil
-        manşeti). Fotoğraf yoksa kategori renginde koyu zemin. Hikâyede fotoğraf kırpılmadan ortada durur."""
+        manşeti). Fotoğraf yoksa kategori renginde koyu zemin. Hikâyede fotoğraf kırpılmadan ortada durur.
+        variant: "contain" fotoğrafı kırpmadan çerçeveye koyar, "nophoto" fotoğrafı hiç kullanmaz."""
         cat = d.get("category", "teknoloji")
-        ph = self.best_photo(d)
+        ph = None if variant == "nophoto" else self.best_photo(d)
         credits = list(dict.fromkeys(s["name"] for s in d.get("sources", [])))
         w, h = ((ph.get("w") or 1600), (ph.get("h") or 900)) if ph else (16, 9)
         return {
@@ -297,7 +301,7 @@ class Visuals:
             "photo": ph["path"].resolve().as_uri() if ph else "",
             "photo_credit": (ph.get("credit") or "") if ph else "",
             "photo_ratio": max(.5, min(2.2, w / max(1, h))),
-            "fit": bool(ph and ph.get("graphic")),
+            "fit": bool(ph and (ph.get("graphic") or variant == "contain")),
             "accent": category_color(cat),
             "label": category_label(cat),
             "title": nobr(d.get("title", "")),
@@ -356,11 +360,11 @@ class Visuals:
             edge, dark = "#FFFFFF", False
         return {**base, "edge": edge, "dark_edge": dark and ctx_layout == "product"}
 
-    def render_card(self, d: dict, kind: str, hero: Path, out: Path) -> Path:
+    def render_card(self, d: dict, kind: str, hero: Path, out: Path, variant: str = "auto") -> Path:
         size = self.SIZES[kind]
         if kind in self.NEWS_MODES and self.card_style == "manset":
             try:
-                return self.renderer.html_to_image("manset.html", self.manset_context(d, kind), size, out)
+                return self.renderer.html_to_image("manset.html", self.manset_context(d, kind, variant), size, out)
             except Exception as e:  # noqa: BLE001
                 log.warning("Manşet kartı üretilemedi (%s), özet kartı kullanılıyor: %s", kind, e)
         if kind in self.NEWS_MODES and self.summary_style:

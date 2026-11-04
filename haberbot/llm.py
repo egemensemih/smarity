@@ -328,6 +328,8 @@ class MockLLM:
     def json(self, model, system, user, schema, max_tokens=4000, effort=None, images=None) -> dict:
         if self.usage_cb:
             self.usage_cb(model, len(user) // 4, 300)
+        if "fix" in schema.get("properties", {}):         # görsel yönetmen: kartlar uygun
+            return {"ok": True, "score": 8, "issues": [], "fix": "none", "reason": "Test modu kontrolü"}
         if "keep" in schema.get("properties", {}):        # fotoğraf editörü: hepsi ilgili
             return {"keep": list(range(len(images or []))), "text": []}
         if "stories" in schema.get("properties", {}):

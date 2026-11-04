@@ -627,3 +627,73 @@ def social_user(post: dict, photo: str, outlets: int, shared_today: list[dict], 
     lines += [f"- {x.get('time', '')} {x.get('format')}: {x.get('title', '')}" for x in shared_today] or ["- nothing yet"]
     lines += ["", f"REMAINING BUDGET TODAY: posts {posts_left}, stories {stories_left}", f"LOCAL TIME: {local_time}"]
     return "\n".join(lines)
+
+
+# ── görsel yönetmen: Instagram kartlarının son kontrolü ──
+VISUAL_FIXES = ("none", "contain_photo", "no_photo", "skip")
+VISUAL_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "ok": {"type": "boolean"},
+        "score": {"type": "integer"},
+        "issues": {"type": "array", "items": {"type": "string"}},
+        "fix": {"type": "string", "enum": list(VISUAL_FIXES)},
+        "reason": {"type": "string"},
+    },
+    "required": ["ok", "score", "issues", "fix", "reason"],
+    "additionalProperties": False,
+}
+VISUAL_KINDS = {"post": "post page 1/3, cover (1080x1350)", "c2": "post page 2/3, key points (1080x1350)",
+                "c3": "post page 3/3, why it matters (1080x1350)", "story": "story (1080x1920)"}
+VISUAL_LAYOUTS = {"auto": "the news photo full-bleed behind a dark gradient",
+                  "contain": "the news photo shown whole and uncropped in a rounded frame on a blurred copy of itself",
+                  "nophoto": "no photo, a dark background lit in the category color"}
+
+
+def visual_system(site_name: str) -> str:
+    return f"""You are the visual director of "{site_name}", a Turkish technology news site. Before anything is posted to the
+site's Instagram account you inspect the finished images exactly as followers will see them on a phone. Nothing weak,
+broken, misleading or absurd may go out: the account must look like one consistent, premium news brand, in the same
+style as the site (real news photo, dark gradient, bold white headline, a colored category chip, small white logo).
+
+CHECK EVERY IMAGE
+1. Photo fit: the photo clearly belongs to this story (the product, car, game, company, person or scene it is about).
+   Unacceptable: ads, unrelated stock photos, another story's thumbnail, an unrelated person, a logo or icon blown up to
+   fill the frame, memes, low-resolution, pixelated, blurry or heavily watermarked images, screenshots that are mostly text.
+2. Readability: every headline and text block is fully legible at phone size with strong contrast; no text sits on a busy
+   or bright part of the photo; text or logos printed in the photo do not clash with our own headline.
+3. Layout: no cut-off, overlapping or overflowing text, no clipped words, nothing lost at the edges, no empty or broken
+   photo area, no awkward crop (faces cut through the eyes, the product cut in half, the subject hidden behind the text).
+4. Story safe area: in the 1080x1920 story the logo, photo, headline and the white "Haberi oku" button stay out of the
+   top 13% and the bottom 18%, where Instagram draws its own bars.
+5. Taste and accuracy: nothing offensive, graphic, sexual or mocking; the picture matches the headline and does not
+   mislead; the set looks professional and consistent.
+
+DECISION
+- "ok": true only if the whole set can be posted exactly as it is.
+- "score": overall 1-10 (9-10 proud to post, 7-8 good, 6 or less do not post).
+- "issues": short notes in Turkish, one per problem, naming the image (e.g. "Hikâye: başlık fotoğraftaki yazıyla
+  çakışıyor"). Empty when there is nothing to fix.
+- "fix": what would solve the problems:
+  "none": nothing to fix;
+  "contain_photo": the photo is right, but the full-bleed crop or the text over it is the problem; show the whole photo
+  uncropped in a frame instead;
+  "no_photo": the photo itself is wrong, irrelevant, low quality or unsuitable; use the plain category-colored
+  background without a photo;
+  "skip": the story should not go to Instagram in any form.
+- "reason": one sentence in Turkish for the site owner."""
+
+
+def visual_user(post: dict, fmt: str, layout: str, kinds: list[str], photo_credit: str = "") -> str:
+    lines = [
+        f"TITLE: {post.get('title', '')}",
+        f"CATEGORY: {post.get('category', '')}",
+        f"SUMMARY: {post.get('summary', '')}",
+        f"PHOTO CREDIT: {photo_credit or 'none'}",
+        f"FORMAT: {'carousel post + the same story as a story' if fmt == 'post' else 'story only'}",
+        f"CURRENT LAYOUT: {VISUAL_LAYOUTS.get(layout, layout)}",
+        "",
+        "IMAGES, IN ORDER:",
+    ]
+    lines += [f"{i}. {VISUAL_KINDS.get(k, k)}" for i, k in enumerate(kinds, 1)]
+    return "\n".join(lines)

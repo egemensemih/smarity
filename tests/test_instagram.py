@@ -70,6 +70,7 @@ def _app(tmp: Path):
     raw = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     raw["social"]["instagram_hours"] = [0, 24]
     raw["social"]["instagram_every_post"] = True
+    raw["social"]["instagram_visual_check"] = False   # görsel kontrolü ayrı testte
     cfg = Config(raw=raw, root=tmp, site_url="https://example.github.io/smarity", mock=True,
                  instagram_token="SECRET-TOKEN", telegram_chat_id="1")
     return appmod.App(cfg)
@@ -222,6 +223,102 @@ def test_manset_cards_and_instagram_page():
         SiteBuilder(a.cfg).build()
         page = (a.cfg.out_dir / "instagram" / "index.html").read_text(encoding="utf-8")
         assert "Sosyal haber 2" in page and "Sosyal haber 1" not in page
+
+
+class Director:
+    """Görsel yönetmen yerine sırayla verilen yanıtları döndürür (yanıt kalmazsa hata verir)."""
+    def __init__(self, answers):
+        self.answers, self.seen = list(answers), []
+
+    def json(self, model, system, user, schema, max_tokens=4000, effort=None, images=None):
+        self.seen.append((user, len(images or [])))
+        if not self.answers:
+            raise RuntimeError("yanıt yok")
+        return self.answers.pop(0)
+
+
+def test_visual_check_variants():
+    """Görsel yönetmen: kartlar onaylanmadan paylaşılmaz; önerdiği hâl denenir; hiçbiri geçmezse haber düşer."""
+    from PIL import Image
+    FakeIG.calls = []
+    appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.raw["social"].update({"card_style": "manset", "instagram_visual_check": True})
+        a.cfg.images_dir.mkdir(parents=True, exist_ok=True)
+        Image.new("RGB", (1600, 900), (40, 90, 160)).save(a.cfg.images_dir / "v-g0.webp")
+        photo = {"image": {"source": "photo", "photo": "v-g0.webp"},
+                 "photos": [{"file": "v-g0.webp", "credit": "Apple", "w": 1600, "h": 900}],
+                 "carousel_points": ["Birinci madde.", "İkinci madde.", "Üçüncü madde."]}
+        posts = []
+        for i in (1, 2, 3):
+            p = {**_pub(i, 1, 9, **photo), "id": f"v{i}"}
+            a.store.save_post(p)
+            posts.append(p)
+        out = Path(t) / "_site"
+        # 1) tam ekran fotoğraf geçmez, yönetmen "kırpmadan göster" der → ikinci hâl geçer
+        a.llm = Director([{"ok": False, "score": 4, "issues": ["Kapak: başlık fotoğraftaki yazıyla çakışıyor"],
+                           "fix": "contain_photo", "reason": "Kırpma kötü"},
+                          {"ok": True, "score": 8, "issues": [], "fix": "none", "reason": "Uygun"}])
+        a.ig_enqueue(posts[0])
+        a.ig_tick()
+        assert FakeIG.calls == [] and a.state["ig_queue"][0].get("vok") is None   # onaysız paylaşılmaz
+        assert a.stage_instagram(out) == 4
+        it = a.state["ig_queue"][0]
+        assert it["vok"] and it["variant"] == "contain" and it["vtried"] == ["auto", "contain"]
+        assert a.llm.seen[0][1] == 4 and "full-bleed" in a.llm.seen[0][0] and "uncropped" in a.llm.seen[1][0]
+        assert sorted(x.name for x in (out / "ig").iterdir()) == ["v1-c2.jpg", "v1-c3.jpg", "v1-post.jpg", "v1-story.jpg"]
+        a.ig_tick()
+        assert a.state["ig_queue"] == [] and FakeIG.calls[0][0] == "carousel"
+        # 2) hikâye: fotoğraf ilgisiz → fotoğrafsız hâl de geçmez → paylaşılmaz, günlük hak geri döner
+        a.llm = Director([{"ok": False, "score": 3, "issues": ["Hikâye: fotoğraf haberle ilgisiz"], "fix": "no_photo",
+                           "reason": "Fotoğraf yanlış"},
+                          {"ok": False, "score": 5, "issues": ["Hikâye: zemin boş duruyor"], "fix": "skip", "reason": "Zayıf"}])
+        a.ig_enqueue(posts[1], fmt="story")
+        a._ig_day().append({"id": "v2", "format": "story", "at": iso(now_utc()), "title": "x"})
+        assert a.stage_instagram(out) == 0
+        assert a.state["ig_queue"] == [] and not any(x["id"] == "v2" for x in a._ig_day())
+        assert a.llm.seen[1][1] == 1 and "no photo" in a.llm.seen[1][0]
+        assert a.store.load_post("v2")["social"]["vfail"]["format"] == "story"
+        outbox = (Path(t) / "data" / "_mock" / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "kontrolden geçmedi" in outbox and "zemin boş duruyor" in outbox
+        # sahibi "Yine de paylaş" derse kontrol atlanır
+        assert "atlanarak" in a._on_button("k", "v2")
+        assert a.state["ig_queue"][0]["vok"] and a.state["ig_queue"][0]["format"] == "story"
+        a._on_button("x", "v2")
+        # 3) yapay zeka yanıt vermezse kart siteye konmaz, haber sırada kalır (sonraki turda yeniden denenir)
+        a.llm = Director([])
+        a.ig_enqueue(posts[2], fmt="story")
+        assert a.stage_instagram(out) == 0
+        it = a.state["ig_queue"][0]
+        assert it["id"] == "v3" and not it.get("vok") and it["verr"] == 1 and it["vtried"] == []
+        assert "Görsel kontrolü bekleyen: 1" in a.instagram_status()
+
+
+def test_fb_me_falls_back_to_pages():
+    """Ayardaki hesap numarası okunamazsa anahtarın eriştiği sayfalardaki Instagram hesabı bulunur."""
+    cli = ig.Instagram("EAAtest", ig_id="999")
+
+    def req(method, path, **params):
+        if path == "999":
+            raise ig.InstagramError("Object does not exist", 100, 33)
+        if path == "me/accounts":
+            return {"data": [{"id": "p1"}, {"id": "p2", "instagram_business_account": {"id": "1784"}}]}
+        return {"id": path, "username": "smarityco"}
+    cli._req = req
+    assert cli.me()["id"] == "1784"
+    cli2 = ig.Instagram("EAAtest", ig_id="999")
+    cli2._req = lambda method, path, **params: (_ for _ in ()).throw(ig.InstagramError("Invalid token", 190))
+    try:
+        cli2.me()
+        raise AssertionError("hata yutulmamalı")
+    except ig.InstagramError as e:
+        assert e.code == 190
+    # sorun /instagram durumunda görünür
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a._ig_problem("erişim anahtarı çalışmıyor (Invalid token)")
+        assert "Son sorun" in a.instagram_status() and "Invalid token" in a.instagram_status()
 
 
 def test_missing_card_triggers_rebuild():
