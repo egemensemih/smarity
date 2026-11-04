@@ -15,7 +15,7 @@ from . import photos, policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
-from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok
+from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok, is_fb_token
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
 from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, PHOTO_SCHEMA, SEO_SCHEMA, TRIAGE_SCHEMA,
                       photo_system, photo_user,
@@ -2108,7 +2108,8 @@ class App:
         secret = self.cfg.instagram_token
         data = self.store.ig
         ts = TokenStore(secret, data)
-        if ts.refresh_due():
+        fb = is_fb_token(ts.token)                   # yeni Meta kurulumu: süresi dolmayan anahtar, yenileme yok
+        if not fb and ts.refresh_due():
             try:
                 tok, exp = Instagram(ts.token).refresh()
                 ts.save(tok, exp)
@@ -2121,7 +2122,8 @@ class App:
         if left is not None and left < 5:
             self._ig_problem(f"erişim anahtarının süresi {max(0, left):.0f} gün içinde doluyor ve yenilenemedi. "
                              "Meta geliştirici panelinden yeni anahtar üretip GitHub'da <b>IG_ACCESS_TOKEN</b> değerini güncelle.")
-        cli = Instagram(ts.token, self._ig_cfg("instagram_api_version", None) or "v25.0")
+        cli = Instagram(ts.token, self._ig_cfg("instagram_api_version", None) or "v25.0",
+                        ig_id=str(self._ig_cfg("instagram_user_id", "") or "").strip())
         fp = fingerprint(secret)
         if data.get("me_fp") != fp or not data.get("id"):
             try:
@@ -2146,7 +2148,8 @@ class App:
         d = self.store.ig
         if d.get("target"):
             return [d["target"]]
-        return [t for t in dict.fromkeys(["me", d.get("user_id"), d.get("id")]) if t]
+        first = [] if getattr(self._ig, "fb", False) else ["me"]   # Facebook Graph'ta "me" Instagram hesabı değildir
+        return [t for t in dict.fromkeys(first + [d.get("user_id"), d.get("id")]) if t]
 
     def _ig_run(self, fn, *a):
         """Paylaşım hedefini (me / hesap numarası) dener, çalışanı hatırlar."""

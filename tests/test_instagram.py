@@ -44,8 +44,9 @@ def test_error_classification():
 class FakeIG:
     calls = []
 
-    def __init__(self, token, version="v25.0", timeout=60):
+    def __init__(self, token, version="v25.0", timeout=60, ig_id=""):
         self.token = token
+        self.fb = ig.is_fb_token(token)
 
     def me(self):
         return {"id": "178", "user_id": "178", "username": "smarity"}
@@ -111,6 +112,35 @@ def test_queue_and_publish_flow():
         assert "Instagram&#x27;da paylaşıldı" in out or "Instagram'da paylaşıldı" in out
         a.store.save()
         assert "SECRET-TOKEN" not in (Path(t) / "data" / "instagram.json").read_text()
+
+
+def test_fb_system_user_token():
+    """Meta'nın yeni "Unified login" kurulumu: EAA… anahtarı graph.facebook.com'da, hesap numarasıyla çalışır."""
+    cli = ig.Instagram("EAAtest", ig_id="1784")
+    assert cli.fb and cli.base.startswith("https://graph.facebook.com/")
+    assert not ig.Instagram("IGAAtest").fb and ig.Instagram("IGAAtest").base.startswith("https://graph.instagram.com/")
+    seen = []
+    cli._req = lambda method, path, **params: seen.append(path) or {"id": "1784", "username": "smarityco"}
+    assert cli.me() == {"id": "1784", "user_id": "1784", "username": "smarityco"} and seen == ["1784"]
+    try:
+        cli.refresh()
+        raise AssertionError("sistem kullanıcısı anahtarı yenilenmemeli")
+    except ig.InstagramError:
+        pass
+    FakeIG.calls = []
+    appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.instagram_token = "EAA-SECRET-TOKEN"
+        post = {"id": "p1", "slug": "ornek-haber", "title": "Örnek haber başlığı", "summary": "Kısa özet.",
+                "category": "teknoloji", "tags": ["Apple"], "body": "Metin.", "sources": [{"name": "Apple", "url": "https://a"}],
+                "published_at": iso(now_utc())}
+        a.store.save_post(post)
+        a.ig_enqueue(post)
+        a.ig_tick()
+        assert a.state["ig_queue"] == [] and FakeIG.calls[0][1] == "178"   # "me" denenmeden doğrudan hesap numarası
+        a.store.save()
+        assert "EAA-SECRET-TOKEN" not in (Path(t) / "data" / "instagram.json").read_text()
 
 
 def test_missing_card_triggers_rebuild():

@@ -1,4 +1,4 @@
-"""Instagram otomatik paylaşım (Instagram API with Instagram Login).
+"""Instagram otomatik paylaşım (Instagram API with Instagram Login ya da Meta'nın yeni "Unified login" kurulumu).
 
 Akış: haber yayınlanınca sıraya girer → site yayınlanırken kartlar _site/ig/ altına konur →
 bir sonraki turda Instagram bu herkese açık JPEG'leri alır ve carousel + hikâye paylaşılır.
@@ -6,6 +6,9 @@ bir sonraki turda Instagram bu herkese açık JPEG'leri alır ve carousel + hik�
 Erişim anahtarı (IG_ACCESS_TOKEN) GitHub'da gizli anahtar olarak durur. 60 günlük anahtar bot tarafından
 düzenli yenilenir; yenilenen anahtar yalnızca asıl gizli anahtarla açılabilecek şekilde şifrelenip
 data/instagram.json dosyasına yazılır (depoda düz metin anahtar yoktur).
+
+Meta'nın yeni uygulamalarda verdiği sistem kullanıcısı anahtarı ("EAA…" ile başlar, süresi dolmaz) graph.facebook.com
+üzerinden çalışır: hesap numarası ayarlardan (social.instagram_user_id) alınır ya da anahtarın eriştiği hesaplardan bulunur.
 """
 from __future__ import annotations
 
@@ -21,7 +24,13 @@ import requests
 from .util import iso, log, now_utc, parse_iso
 
 API = "https://graph.instagram.com"
+FB_API = "https://graph.facebook.com"
 VERSION = "v25.0"
+
+
+def is_fb_token(token: str) -> bool:
+    """Facebook Graph anahtarı mı (sistem kullanıcısı / Facebook girişi)? Instagram girişi anahtarları "IG" ile başlar."""
+    return str(token or "").startswith("EAA")
 
 
 class InstagramError(Exception):
@@ -79,9 +88,11 @@ def fingerprint(secret: str) -> str:
 
 # ── API istemcisi ──
 class Instagram:
-    def __init__(self, token: str, version: str = VERSION, timeout: int = 60):
+    def __init__(self, token: str, version: str = VERSION, timeout: int = 60, ig_id: str = ""):
         self.token = token
-        self.base = f"{API}/{version}"
+        self.fb = is_fb_token(token)
+        self.ig_id = str(ig_id or "")
+        self.base = f"{FB_API if self.fb else API}/{version}"
         self.timeout = timeout
         self.s = requests.Session()
         self.s.headers["Authorization"] = f"Bearer {token}"
@@ -110,7 +121,17 @@ class Instagram:
         return j
 
     def me(self) -> dict:
-        return self._req("GET", "me", fields="user_id,username")
+        if not self.fb:
+            return self._req("GET", "me", fields="user_id,username")
+        ig_id = self.ig_id
+        if not ig_id:  # anahtarın eriştiği sayfalara bağlı ilk Instagram hesabı
+            pages = self._req("GET", "me/accounts", fields="instagram_business_account{id,username}").get("data") or []
+            ig_id = next((str(p["instagram_business_account"]["id"]) for p in pages if p.get("instagram_business_account")), "")
+            if not ig_id:
+                raise InstagramError("Anahtarın eriştiği bir Instagram hesabı bulunamadı; config.yaml → "
+                                     "social.instagram_user_id alanına hesap numarasını yaz", 100)
+        j = self._req("GET", ig_id, fields="id,username")
+        return {"id": str(j.get("id") or ig_id), "user_id": str(j.get("id") or ig_id), "username": j.get("username", "")}
 
     def container(self, ig_id: str, **params) -> str:
         return self._req("POST", f"{ig_id}/media", **params)["id"]
@@ -162,6 +183,8 @@ class Instagram:
 
     def refresh(self) -> tuple[str, int]:
         """Uzun ömürlü anahtarı 60 gün uzatır (anahtar en az 24 saatlik olmalı)."""
+        if self.fb:
+            raise InstagramError("Sistem kullanıcısı anahtarının süresi dolmaz, yenilenmez")
         s = requests.Session()
         try:
             r = s.get(f"{API}/refresh_access_token", params={"grant_type": "ig_refresh_token",
