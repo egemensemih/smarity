@@ -857,8 +857,8 @@
       "updated": 5
     },
     "2026-11-04": {
-      "tok_in": 638429,
-      "tok_out": 75671,
+      "tok_in": 643562,
+      "tok_out": 75732,
       "cost_usd": 0.0,
       "drafts": 13,
       "published": 13,
@@ -867,8 +867,8 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-04T10:55:25Z",
-  "build_sig": "df9cddfb7b0287ab",
+  "last_build": "2026-11-04T11:06:03Z",
+  "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
@@ -2523,7 +2523,21 @@
       "id": "efbe53caef",
       "queued_at": "2026-11-04T09:56:47Z",
       "tries": 0,
-      "mid": 1871
+      "mid": 1871,
+      "restaged_at": "2026-11-04T11:01:31Z",
+      "vtried": [
+        "auto"
+      ],
+      "vcheck": {
+        "variant": "auto",
+        "ok": true,
+        "score": 10,
+        "issues": [],
+        "reason": "Görseller, metinler ve düzen Smarity marka kimliğine ve Instagram standartlarına tamamen uygun.",
+        "at": "2026-11-04T11:06:02Z"
+      },
+      "variant": "auto",
+      "vok": true
     }
   ],
   "ig_warned_at": "2026-11-04T10:04:07Z"
