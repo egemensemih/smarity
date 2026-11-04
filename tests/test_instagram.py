@@ -1,6 +1,7 @@
 """Instagram otomatik paylaşım testleri (ağ yok: Instagram istemcisi sahte)."""
 import sys
 import tempfile
+from datetime import timedelta
 from pathlib import Path
 
 import yaml
@@ -141,6 +142,22 @@ def test_fb_system_user_token():
         assert a.state["ig_queue"] == [] and FakeIG.calls[0][1] == "178"   # "me" denenmeden doğrudan hesap numarası
         a.store.save()
         assert "EAA-SECRET-TOKEN" not in (Path(t) / "data" / "instagram.json").read_text()
+
+
+def test_try_latest_command():
+    FakeIG.calls = []
+    appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        for i, h in ((1, 5), (2, 1)):
+            a.store.save_post({"id": f"p{i}", "slug": f"haber-{i}", "title": f"Haber {i}", "summary": "Özet.",
+                               "category": "teknoloji", "tags": [], "body": "Metin.", "sources": [{"name": "A", "url": "https://a"}],
+                               "published_at": iso(now_utc() - timedelta(hours=h))})
+        assert "Haber 2" in a.ig_try_latest()                       # en yeni haber
+        assert [x["id"] for x in a.state["ig_queue"]] == ["p2"]
+        assert "Haber 1" in a.ig_try_latest()                       # sıradaki atlanır, bir öncekine geçer
+        a.cfg.instagram_token = ""
+        assert "bağlı değil" in a.ig_try_latest()
 
 
 def test_missing_card_triggers_rebuild():

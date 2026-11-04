@@ -50,7 +50,7 @@ COMMANDS = [
     ("kaynaklar", "Kaynaklar ve onay oranları"),
     ("manset", "Manşeti yönet: haberi manşete al / çıkar"),
     ("secki", "Yayın yönetmeninin son kararları (neden seçildi / elendi)"),
-    ("instagram", "Instagram paylaşımları: durum / kapat / ac"),
+    ("instagram", "Instagram paylaşımları: durum / kapat / ac / dene"),
     ("yardim", "Nasıl kullanılır"),
 ]
 COMMANDS_VERSION = 5
@@ -1677,6 +1677,8 @@ class App:
             elif arg in ("ac", "aç", "baslat", "başlat"):
                 self.state["ig_off"] = False
                 self.notify("▶️ Instagram paylaşımları açık.", silent=True)
+            elif arg in ("dene", "test", "son"):
+                self.notify(self.ig_try_latest(), silent=True)
             else:
                 self.notify(self.instagram_status(), silent=True)
         else:
@@ -2262,6 +2264,20 @@ class App:
         log.info("Instagram kartları siteye kondu: %d görsel", n)
         return n
 
+    def ig_try_latest(self) -> str:
+        """/instagram dene: henüz paylaşılmamış en yeni haberi Instagram sırasına al (bağlantıyı denemek için)."""
+        if not self.cfg.instagram_token:
+            return self.instagram_status()
+        done = {x.get("id") for x in self.state.get("ig_done") or []}
+        queued = {x.get("id") for x in self.state.get("ig_queue") or []}
+        post = next((p for p in self.store.posts() if p["id"] not in done | queued), None)
+        if not post:
+            return "📸 Paylaşılmamış haber yok."
+        self.ig_enqueue(post)
+        note = " Instagram şu an kapalı: <code>/instagram ac</code>" if self.state.get("ig_off") else \
+            " Görseller sitede yayınlanınca (5–10 dk) paylaşılır."
+        return f"📸 Deneme için sıraya alındı: <b>{esc(post['title'])}</b>.{note}"
+
     def instagram_status(self) -> str:
         if not self.cfg.instagram_token:
             return ("📸 <b>Instagram</b> henüz bağlı değil.\nGitHub'da <b>IG_ACCESS_TOKEN</b> gizli anahtarı eklenince "
@@ -2280,7 +2296,8 @@ class App:
             p = self.store.load_post(x["id"]) or {}
             if x.get("permalink"):
                 lines.append(f'• <a href="{esc(x["permalink"])}">{esc(clip(p.get("title", x["id"]), 70))}</a>')
-        lines.append("Durdur: <code>/instagram kapat</code> · Aç: <code>/instagram ac</code>")
+        lines.append("Durdur: <code>/instagram kapat</code> · Aç: <code>/instagram ac</code> · "
+                     "Son haberi şimdi paylaş: <code>/instagram dene</code>")
         return "\n".join(lines)
 
     # ── manşet yönetimi (/manset) ───────────────────────────
