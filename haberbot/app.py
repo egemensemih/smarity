@@ -1261,7 +1261,9 @@ class App:
         """Instagram için hazır carousel ve hikâyeyi Telegram'a gönder (elle paylaşım için).
         Carousel: kapak + öne çıkanlar + neden önemli. Hikâye: bağlantı çıkartmasıyla siteye yönlendirir."""
         if not force and self.ig_enabled:
-            self.ig_enqueue(post)
+            # her haber paylaşılmaz: social.instagram_every_post false iken yalnızca seçilenler (/instagram dene, düğmeler)
+            if self._ig_cfg("instagram_every_post", True):
+                self.ig_enqueue(post)
             return
         if not (self.tg and self.chat_id):
             return

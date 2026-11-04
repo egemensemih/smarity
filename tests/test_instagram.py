@@ -69,6 +69,7 @@ class FakeIG:
 def _app(tmp: Path):
     raw = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     raw["social"]["instagram_hours"] = [0, 24]
+    raw["social"]["instagram_every_post"] = True
     cfg = Config(raw=raw, root=tmp, site_url="https://example.github.io/smarity", mock=True,
                  instagram_token="SECRET-TOKEN", telegram_chat_id="1")
     return appmod.App(cfg)
@@ -153,6 +154,9 @@ def test_try_latest_command():
             a.store.save_post({"id": f"p{i}", "slug": f"haber-{i}", "title": f"Haber {i}", "summary": "Özet.",
                                "category": "teknoloji", "tags": [], "body": "Metin.", "sources": [{"name": "A", "url": "https://a"}],
                                "published_at": iso(now_utc() - timedelta(hours=h))})
+        a.cfg.raw["social"]["instagram_every_post"] = False
+        a._send_social(a.store.load_post("p2"))                     # her haber otomatik sıraya girmez
+        assert not a.state.get("ig_queue")
         assert "Haber 2" in a.ig_try_latest()                       # en yeni haber
         assert [x["id"] for x in a.state["ig_queue"]] == ["p2"]
         assert "Haber 1" in a.ig_try_latest()                       # sıradaki atlanır, bir öncekine geçer
