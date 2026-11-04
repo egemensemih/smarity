@@ -154,6 +154,30 @@ class Instagram:
             j = self._req("GET", ig_id, fields="id,username")
         return {"id": str(j.get("id") or ig_id), "user_id": str(j.get("id") or ig_id), "username": j.get("username", "")}
 
+    def diagnose(self) -> dict:
+        """Anahtarın ne gördüğü (anahtarın kendisi yazılmaz): kimlik, verilen izinler, erişilen sayfalar ve bağlı
+        Instagram hesapları. Bağlantı kurulamadığında sorunun anahtar mı, izin mi, hesap ataması mı olduğunu gösterir."""
+        out: dict = {"kind": "facebook" if self.fb else "instagram"}
+
+        def safe(key, fn):
+            try:
+                out[key] = fn()
+            except InstagramError as e:
+                out[key] = {"error": str(e)[:200], "code": e.code, "subcode": e.subcode}
+
+        if self.fb:
+            safe("me", lambda: {k: v for k, v in self._req("GET", "me", fields="id,name").items() if k in ("id", "name")})
+            safe("perms", lambda: sorted(x["permission"] for x in self._req("GET", "me/permissions").get("data") or []
+                                         if x.get("status") == "granted"))
+            safe("pages", lambda: [{"name": p.get("name", ""),
+                                    "ig": (p.get("instagram_business_account") or {}).get("username")
+                                    or (p.get("instagram_business_account") or {}).get("id") or ""}
+                                   for p in self._req("GET", "me/accounts",
+                                                      fields="name,instagram_business_account{id,username}").get("data") or []])
+        else:
+            safe("me", lambda: self._req("GET", "me", fields="user_id,username"))
+        return out
+
     def container(self, ig_id: str, **params) -> str:
         return self._req("POST", f"{ig_id}/media", **params)["id"]
 

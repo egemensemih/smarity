@@ -314,11 +314,25 @@ def test_fb_me_falls_back_to_pages():
         raise AssertionError("hata yutulmamalı")
     except ig.InstagramError as e:
         assert e.code == 190
+    # teşhis: anahtarın kimliği, izinleri ve eriştiği sayfalar (anahtarın kendisi yazılmaz)
+    cli3 = ig.Instagram("EAAsecret", ig_id="999")
+    answers = {"me": {"id": "5", "name": "Smarity Bot"},
+               "me/permissions": {"data": [{"permission": "instagram_basic", "status": "granted"},
+                                           {"permission": "pages_show_list", "status": "declined"}]},
+               "me/accounts": {"data": [{"name": "Smarity", "instagram_business_account": {"id": "1", "username": "smarityco"}},
+                                        {"name": "Boş sayfa"}]}}
+    cli3._req = lambda method, path, **params: answers[path]
+    dg = cli3.diagnose()
+    assert dg["perms"] == ["instagram_basic"] and dg["pages"][0]["ig"] == "smarityco" and dg["pages"][1]["ig"] == ""
+    assert "EAAsecret" not in str(dg)
     # sorun /instagram durumunda görünür
     with tempfile.TemporaryDirectory() as t:
         a = _app(Path(t))
         a._ig_problem("erişim anahtarı çalışmıyor (Invalid token)")
         assert "Son sorun" in a.instagram_status() and "Invalid token" in a.instagram_status()
+        a.state["ig_diag"] = {**dg, "at": iso(now_utc())}
+        st = a.instagram_status()
+        assert "İzinler: instagram_basic" in st and "Boş sayfa → Instagram bağlı değil" in st
 
 
 def test_missing_card_triggers_rebuild():

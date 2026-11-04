@@ -2262,6 +2262,11 @@ class App:
             try:
                 me = cli.me()
             except InstagramError as e:
+                if hours_since((self.state.get("ig_diag") or {}).get("at")) >= 1:   # anahtarın ne gördüğünü kaydet
+                    try:
+                        self.state["ig_diag"] = {**cli.diagnose(), "at": iso(now_utc())}
+                    except Exception as de:  # noqa: BLE001
+                        log.warning("Instagram teşhisi yapılamadı: %s", de)
                 if e.auth:
                     self._ig_problem(f"erişim anahtarı çalışmıyor ({esc(e)}). Yeni anahtar üretip GitHub'da "
                                      "<b>IG_ACCESS_TOKEN</b> değerini güncelle.")
@@ -2373,6 +2378,7 @@ class App:
                 it["story_error"] = str(e)[:200]
         q.remove(it)
         self.state.pop("ig_problem", None)
+        self.state.pop("ig_diag", None)
         done = self.state.setdefault("ig_done", [])
         done.append({"id": post["id"], "at": iso(now_utc()), "permalink": it.get("permalink", ""),
                      "story": bool(it.get("story_id")), "format": fmt})
@@ -2546,6 +2552,18 @@ class App:
         if prob and hours_since(prob.get("at")) < 48:
             when = local(prob["at"], self.cfg.tz).strftime("%d.%m %H:%M")
             lines.append(f"⚠️ Son sorun ({when}): {esc(prob.get('text', ''))}")
+        dg = self.state.get("ig_diag") or {}
+        if prob and dg:
+            me = dg.get("me") or {}
+            perms = dg.get("perms")
+            pages = dg.get("pages")
+            lines.append("🔎 Anahtar: " + ("Facebook" if dg.get("kind") == "facebook" else "Instagram") +
+                         (f" · {esc(me.get('name') or me.get('username') or '')}" if isinstance(me, dict) and not me.get("error") else ""))
+            if isinstance(perms, list):
+                lines.append("İzinler: " + (esc(", ".join(perms)) or "yok"))
+            if isinstance(pages, list):
+                lines.append("Erişilen sayfalar: " + (esc(", ".join(f"{p['name']} → {p['ig'] or 'Instagram bağlı değil'}"
+                                                                   for p in pages)) or "yok"))
         waiting = [x for x in self.state.get("ig_queue") or [] if not x.get("vok")]
         if waiting and self._ig_cfg("instagram_visual_check", True):
             lines.append(f"🖼️ Görsel kontrolü bekleyen: {len(waiting)}")
