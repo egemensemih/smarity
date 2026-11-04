@@ -1,6 +1,6 @@
 {
   "telegram_offset": 872816559,
-  "last_collect": "2026-11-04T11:39:42Z",
+  "last_collect": "2026-11-04T11:53:27Z",
   "last_summary_date": "2026-11-03",
   "mode_override": null,
   "paused": false,
@@ -105,296 +105,296 @@
   "source_health": {
     "Apple": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "Samsung": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 50,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "Google": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "OpenAI": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 1354,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "Anthropic": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 21,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "TechCrunch": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "The Verge": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "Engadget": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "WIRED": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 50,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "Ars Technica": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:35Z",
+      "last_ok": "2026-11-04T11:53:24Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:35Z"
+      "last_try": "2026-11-04T11:53:24Z"
     },
     "GSMArena": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:36Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:36Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "MIT Technology Review": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:36Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:36Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "New Atlas": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:36Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 60,
-      "last_try": "2026-11-04T11:39:36Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Interesting Engineering": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Electrek": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 150,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Carscoops": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Autocar": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 38,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "IGN": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Polygon": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "VGC": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "GamesIndustry.biz": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 100,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Webrazzi": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 20,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Egirisim": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:25Z"
     },
     "Webtekno": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:26Z"
     },
     "ShiftDelete.Net": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:26Z"
     },
     "DonanımHaber": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:26Z"
     },
     "LOG": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:26Z"
     },
     "Anadolu Ajansı": {
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 30,
-      "last_try": "2026-11-04T11:39:38Z"
+      "last_try": "2026-11-04T11:53:26Z"
     },
     "Crunchbase News": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:25Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:25Z",
       "count": 10
     },
     "Microsoft": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Meta": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Google DeepMind": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 100
     },
     "PlayStation Blog": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Xbox Wire": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "NASA": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "9to5Mac": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 100
     },
     "MacRumors": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 20
     },
     "AppleInsider": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "9to5Google": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 100
     },
     "Android Authority": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 80
     },
     "Android Police": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Android Central": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "SamMobile": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "XDA": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Tom's Guide": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "TechRadar": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "Digital Trends": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 30
     },
     "CNET": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 25
     },
     "ZDNET": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 25
     },
     "Gizmodo": {
@@ -403,15 +403,15 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://gizmodo.com/rss"
     },
     "Tom's Hardware": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "Wccftech": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 20
     },
     "VideoCardz": {
@@ -420,153 +420,153 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://videocardz.com/feed"
     },
     "The Next Web": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Pocket-lint": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 10
     },
     "Stuff": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 71
     },
     "T3": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 50
     },
     "BBC Teknoloji": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 21
     },
     "The Guardian Teknoloji": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 32
     },
     "New York Times Teknoloji": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 29
     },
     "Bloomberg Teknoloji": {
-      "last_try": "2026-11-04T11:39:38Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:38Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 20
     },
     "CNBC Teknoloji": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 30
     },
     "Yanko Design": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:26Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:26Z",
       "count": 16
     },
     "Dezeen Teknoloji": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "designboom Teknoloji": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "DPReview": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 30
     },
     "PetaPixel": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "Digital Camera World": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "Fstoppers": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 30
     },
     "DIY Photography": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "DroneDJ": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 25
     },
     "Photo Rumors": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "Sony Alpha Rumors": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 7
     },
     "Canon Rumors": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "Nikon Rumors": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "Fuji Rumors": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 5
     },
     "What Hi-Fi": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "SoundGuys": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "Wareable": {
@@ -575,99 +575,99 @@
       "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.wareable.com/rss.xml"
     },
     "DC Rainmaker": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 8
     },
     "Motor1": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "InsideEVs": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "Car and Driver": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "The Drive": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 12
     },
     "Autoblog": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "Teslarati": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "CarNewsChina": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "Eurogamer": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 100
     },
     "PC Gamer": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "Kotaku": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 20
     },
     "GameSpot": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
-      "count": 0
+      "last_ok": "2026-11-04T11:53:27Z",
+      "count": 30
     },
     "Rock Paper Shotgun": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 100
     },
     "Nintendo Life": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 25
     },
     "Game Developer": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "The Decoder": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 10
     },
     "VentureBeat": {
@@ -682,9 +682,9 @@
       "count": 0
     },
     "SpaceNews": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 15
     },
     "Teknoseyir": {
@@ -705,15 +705,15 @@
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://donanimarsivi.com/feed/"
     },
     "Chip Online": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 50
     },
     "Swipeline": {
-      "last_try": "2026-11-04T11:39:42Z",
+      "last_try": "2026-11-04T11:53:27Z",
       "fails": 0,
-      "last_ok": "2026-11-04T11:39:42Z",
+      "last_ok": "2026-11-04T11:53:27Z",
       "count": 1492
     }
   },
@@ -857,67 +857,29 @@
       "updated": 5
     },
     "2026-11-04": {
-      "tok_in": 710762,
-      "tok_out": 87521,
+      "tok_in": 733188,
+      "tok_out": 91840,
       "cost_usd": 0.0,
-      "drafts": 16,
-      "published": 15,
-      "auto": 15,
+      "drafts": 17,
+      "published": 16,
+      "auto": 16,
       "dropped": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-04T11:29:34Z",
+  "last_build": "2026-11-04T11:58:47Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/teknoloji/2026/11/sony-yeni-walkman-modellerini-satis-cikardi/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
   "edit_log": [
-    {
-      "t": "2026-11-03T14:11:19Z",
-      "topic": "Sony teasing new Walkman headphones",
-      "action": "skip",
-      "score": 5,
-      "reason": "Ürün tanıtım ipuçları ve teaser haberleri es geçiliyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-11-03T14:11:19Z",
-      "topic": "War Thunder adding DLSS 5 with 3D-Guided Neural Rendering",
-      "action": "skip",
-      "score": 6,
-      "reason": "Oyun içi teknoloji güncellemeleri geniş kitleye hitap etmiyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-11-03T14:11:19Z",
-      "topic": "New 2027 Volvo EX40 EV preview on SPA3 platform",
-      "action": "skip",
-      "score": 5,
-      "reason": "Gelecek model ön gösterimleri ve konseptler yayınlanmıyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-11-03T14:25:34Z",
-      "topic": "Anthropic warning on self-improving AI risks",
-      "action": "skip",
-      "score": 5,
-      "reason": "Yapay zeka güvenlik ve risk uyarıları sıradan ve araştırma odaklı bulunuyor.",
-      "target": ""
-    },
-    {
-      "t": "2026-11-03T14:25:34Z",
-      "topic": "Bambu Lab H3C multi-nozzle 3D printer launched",
-      "action": "skip",
-      "score": 4,
-      "reason": "3D yazıcı haberi niş bir kitleye hitap ediyor, genel okuyucu için uygun değil.",
-      "target": ""
-    },
     {
       "t": "2026-11-03T14:25:34Z",
       "topic": "Apple confirms upcoming Siri AI usage limits",
@@ -2477,6 +2439,46 @@
       "score": 5,
       "reason": "Kod sızıntılarına dayanan doğrulanmamış erken aşama projeler atlanıyor.",
       "target": ""
+    },
+    {
+      "t": "2026-11-04T11:53:57Z",
+      "topic": "Kia leaked product roadmap with Sorento, Carnival EV and EV7",
+      "action": "skip",
+      "score": 5,
+      "reason": "Yol haritası ve sızıntı haberleri onaylanmış haber politikamıza uymuyor.",
+      "target": ""
+    },
+    {
+      "t": "2026-11-04T11:53:57Z",
+      "topic": "Samsung Galaxy T1 fitness earbuds FCC certification",
+      "action": "skip",
+      "score": 5,
+      "reason": "FCC sertifikası aşamasındaki ürünler haber değerimiz için çok erken.",
+      "target": ""
+    },
+    {
+      "t": "2026-11-04T11:53:57Z",
+      "topic": "Samsung Galaxy A38 expected with 6000 mAh battery",
+      "action": "skip",
+      "score": 5,
+      "reason": "Henüz resmi olarak duyurulmamış erken dönem sızıntı haberidir.",
+      "target": ""
+    },
+    {
+      "t": "2026-11-04T11:53:57Z",
+      "topic": "Tesla faces South Korean consumer complaint over FSD sales",
+      "action": "skip",
+      "score": 4,
+      "reason": "Yurtdışı odaklı tüketici şikayetleri geniş Türk okur kitlesini ilgilendirmez.",
+      "target": ""
+    },
+    {
+      "t": "2026-11-04T11:53:57Z",
+      "topic": "Sony unveils two high-end Walkman audio players",
+      "action": "publish",
+      "score": 7,
+      "reason": "Sony yeni üst düzey Walkman ses oynatıcılarını resmi olarak duyurdu.",
+      "target": ""
     }
   ],
   "reselect_try": 1,
@@ -2581,6 +2583,27 @@
       },
       "variant": "auto",
       "vok": true
+    },
+    {
+      "id": "c1a429ae38",
+      "queued_at": "2026-11-04T11:54:25Z",
+      "tries": 0,
+      "format": "story",
+      "note": "Niche bir urun olmasina ragmen kaliteli gorseli ve ilginc detaylari sayesinde sadece 24 saatlik hikaye formatinda yer alabilir.",
+      "mid": 1881,
+      "vtried": [
+        "auto"
+      ],
+      "vcheck": {
+        "variant": "auto",
+        "ok": true,
+        "score": 10,
+        "issues": [],
+        "reason": "Görsel, başlık, renk çipi ve güvenli alanlar marka standartlarına tamamen uygun ve sorunsuz.",
+        "at": "2026-11-04T11:58:47Z"
+      },
+      "variant": "auto",
+      "vok": true
     }
   ],
   "ig_warned_at": "2026-11-04T10:04:07Z",
@@ -2597,11 +2620,17 @@
         "format": "story",
         "at": "2026-11-04T11:25:03Z",
         "title": "Apple Watch için yapay zeka destekli Audio Intelligence duyuruldu"
+      },
+      {
+        "id": "c1a429ae38",
+        "format": "story",
+        "at": "2026-11-04T11:54:25Z",
+        "title": "Sony iki yeni NW-WM1AM3 ve NW-WM1ZM3 Walkman modelini satışa çıkardı"
       }
     ]
   },
   "ig_problem": {
-    "at": "2026-11-04T11:48:54Z",
+    "at": "2026-11-04T11:54:29Z",
     "text": "erişim anahtarı çalışmıyor (Unsupported get request. Object with ID '17841405730803695' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
