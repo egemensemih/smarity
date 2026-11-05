@@ -67,9 +67,12 @@
     "message_id": 1920
   },
   "image": {
-    "source": "cover",
-    "layout": "isik",
-    "palette": "teknoloji-3",
+    "source": "photo",
+    "photo": "efc8c01f69-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/hepsiburada-veri-ihlali-kvkk-bildirimi",
+    "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/hepsiburada-veri-ihlali-kapak.webp",
+    "layout": "manset",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -113,7 +116,7 @@
       "at": "2026-11-05T06:01:38Z"
     }
   },
-  "photos_filled": "2026-11-05T05:57:05Z",
+  "photos_filled": "2026-11-05T07:57:33Z",
   "photos_tried": "2026-11-05T05:57:10Z",
   "coverage": [
     {
@@ -124,5 +127,33 @@
       "image": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/hepsiburada-veri-ihlali-kapak.webp",
       "at": "2026-11-05T07:01:07Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/hepsiburada-veri-ihlali-kapak.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/hepsiburada-veri-ihlali-kvkk-bildirimi",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "efc8c01f69-g0.webp",
+      "w": 1200,
+      "h": 675
+    },
+    {
+      "src": "https://www.log.com.tr/wp-content/uploads/2023/11/kvkk-vavacars-icin-veri-ihlal-bildirimi-gecti-1-660x371.jpg",
+      "credit": "LOG",
+      "page": "https://www.log.com.tr/kvkk-hepsiburada-icin-veri-ihlal-bildirimi-gecti/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "efc8c01f69-g1.webp",
+      "w": 660,
+      "h": 371
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-05T05:56:59Z"
 }
