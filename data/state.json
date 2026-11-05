@@ -875,10 +875,7 @@
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/gaming/2026/11/playstation-satislarinda-dusus-ve-yazilim-basarisi/",
-    "https://smarity.com.tr/otomotiv/2026/11/2027-mercedes-amg-gt-4-door-elektrikli/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2526,27 +2523,6 @@
   ],
   "ig_queue": [
     {
-      "id": "508d9ad004",
-      "queued_at": "2026-11-04T21:11:55Z",
-      "tries": 0,
-      "format": "story",
-      "note": "macOS için beklenen bir özellik olmasına rağmen henüz geliştirici aşamasında ve beta sürümünde olduğu için kalıcı post yerine 24 saatlik story formatında paylaşılması daha uygundur.",
-      "mid": 1914,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık ve yerleşim standartlarımıza tamamen uygun ve sorunsuz görünüyor.",
-        "at": "2026-11-04T22:20:09Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "3fe6e591b4",
       "queued_at": "2026-11-04T23:56:01Z",
       "tries": 0,
@@ -2767,7 +2743,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-05T09:11:05Z",
+    "at": "2026-11-05T09:16:34Z",
     "text": "erişim anahtarı çalışmıyor (Unsupported get request. Object with ID '17841405730803695' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
