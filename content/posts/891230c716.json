@@ -66,9 +66,12 @@
     "message_id": 1962
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "891230c716-g1.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/openai-gpt-6-cyber",
+    "src": "https://shiftdelete.net/static/img/content/26-11/05/gpt-6-cyber.jpg",
     "layout": "manset",
-    "palette": "super-zeka-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -84,7 +87,7 @@
     "votes": [],
     "at": "2026-11-05T18:56:33Z"
   },
-  "photos_filled": "2026-11-05T18:56:35Z",
+  "photos_filled": "2026-11-05T20:58:20Z",
   "photos_tried": "2026-11-05T18:56:37Z",
   "coverage": [
     {
@@ -111,5 +114,45 @@
       "image": "https://the-decoder.com/wp-content/uploads/2026/11/openai_cybersecurity.png",
       "at": "2026-11-05T20:38:22Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://the-decoder.com/wp-content/uploads/2026/11/gpt6_astra_cyber.png",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
+      "alt": "",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "891230c716-g0.webp",
+      "w": 1544,
+      "h": 914
+    },
+    {
+      "src": "https://shiftdelete.net/static/img/content/26-11/05/gpt-6-cyber.jpg",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/openai-gpt-6-cyber",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "891230c716-g1.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://the-decoder.com/wp-content/uploads/2026/11/openai_cybersecurity.png",
+      "credit": "The Decoder",
+      "page": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "891230c716-g2.webp",
+      "w": 1376,
+      "h": 768
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-05T18:56:31Z"
 }
