@@ -859,8 +859,8 @@
       "updated": 2
     },
     "2026-11-05": {
-      "tok_in": 1053001,
-      "tok_out": 116955,
+      "tok_in": 1056107,
+      "tok_out": 116989,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -870,7 +870,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-05T13:31:31Z",
+  "last_build": "2026-11-05T14:06:43Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
@@ -2722,7 +2722,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-05T13:57:31Z",
+    "at": "2026-11-05T14:02:12Z",
     "text": "erişim anahtarı çalışmıyor (Unsupported get request. Object with ID '17841405730803695' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
