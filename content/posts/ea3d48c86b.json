@@ -77,9 +77,12 @@
     "message_id": 1926
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "ea3d48c86b-g0.webp",
+    "credit": "Nintendo Life",
+    "page": "https://www.nintendolife.com/news/2026/11/switch-2-surpasses-26-million-units-sold-hardware-sales-down-by-37-4percent",
+    "src": "https://images.nintendolife.com/f973b0a777507/1280x720.jpg",
     "layout": "manset",
-    "palette": "gaming-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -123,7 +126,7 @@
       "at": "2026-11-05T07:24:36Z"
     }
   },
-  "photos_filled": "2026-11-05T07:19:23Z",
+  "photos_filled": "2026-11-05T09:21:53Z",
   "photos_tried": "2026-11-05T07:19:34Z",
   "coverage": [
     {
@@ -134,5 +137,21 @@
       "image": "https://images.nintendolife.com/f973b0a777507/small.jpg",
       "at": "2026-11-05T08:52:11Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://images.nintendolife.com/f973b0a777507/1280x720.jpg",
+      "credit": "Nintendo Life",
+      "page": "https://www.nintendolife.com/news/2026/11/switch-2-surpasses-26-million-units-sold-hardware-sales-down-by-37-4percent",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ea3d48c86b-g0.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-05T07:17:36Z"
 }
