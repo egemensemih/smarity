@@ -859,8 +859,8 @@
       "updated": 2
     },
     "2026-11-05": {
-      "tok_in": 974469,
-      "tok_out": 110011,
+      "tok_in": 976050,
+      "tok_out": 110028,
       "cost_usd": 0.0,
       "drafts": 22,
       "published": 21,
@@ -870,16 +870,12 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-05T13:15:59Z",
+  "last_build": "2026-11-05T13:22:57Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/spotify-sesli-kitap-ozelligi-turkiyede-yayinda/",
-    "https://smarity.com.tr/inovasyon/2026/11/gokceada-ozdemir-bayraktar-meslek-yuksekokulu-kurulacak/",
-    "https://smarity.com.tr/girisimcilik/2026/11/tech-istanbul-on-kulucka-basvurulari/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2726,7 +2722,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-05T13:11:42Z",
+    "at": "2026-11-05T13:17:22Z",
     "text": "erişim anahtarı çalışmıyor (Unsupported get request. Object with ID '17841405730803695' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
