@@ -1,0 +1,128 @@
+{
+  "id": "5912cc0721",
+  "created_at": "2026-11-05T18:12:46Z",
+  "title": "Claude'a gelen Personal Finance özelliği ile harcamalarınızı yönetin",
+  "summary": "Anthropic, kullanıcıların banka hesaplarını bağlayarak harcamalarını analiz etmelerini sağlayan yeni Personal Finance aracını duyurdu.",
+  "body": "Anthropic, kullanıcıların finansal durumlarını daha yakından takip etmelerini sağlamak amacıyla Claude üzerinde yeni bir özellik olan Personal Finance'i kullanıma sundu. Fintech platformu Plaid ile yapılan iş birliği sayesinde kullanıcılar, banka ve kredi kartı hesaplarını doğrudan Claude ile bağlayarak finansal verilerine dair sorular sorabiliyor. ABD'de Pro, Max ve Ultra planı aboneleri için beta sürecinde olan bu araç, harcamaları kategorize etme, beklenmedik ücretleri tespit etme ve bütçe planlama gibi konularda kişiselleştirilmiş rehberlik sağlıyor.\n\n## Kişisel finans yönetimi nasıl çalışıyor?\n\nKullanıcılar, Claude'a \"Bu ay param nereye gitti?\" gibi sorular yönelterek harcama dökümlerine ulaşabiliyor veya karmaşık finansal terimlerin açıklamasını isteyebiliyor. Anthropic'in açıklamasına göre, sistem sadece \"salt okunur\" (read-only) erişime sahip; yani Claude'un kullanıcı parasını yönetme, transfer etme veya yatırım yapma yetkisi bulunmuyor. Şirket, bu özelliğin yatırım tavsiyesi vermek için tasarlanmadığını da özellikle vurguluyor.\n\n## Gizlilik ve veri güvenliği\n\nAnthropic, kullanıcı gizliliğini korumak adına Personal Finance merkezindeki görüşmelerin yapay zeka modellerini eğitmek için kullanılmayacağını belirtti. Ayrıca, Claude'un reklamlara veya sponsorlu önerilere yer vermediği ve herhangi bir kredi kartı veya bankacılık ürünü sunmadığı ifade edildi. Platform, bu yönüyle finansal verileri işleme konusunda benzer bir altyapı sunan OpenAI'ın ChatGPT deneyiminden ayrışmayı hedefliyor.\n\n**Neden önemli?** Anthropic, Personal Finance özelliğini finansal kararlar için bir başlangıç noktası olarak görüyor ve gelecekte kullanıcıların lisanslı finansal profesyonellerle çalışmasını destekleyecek bir yapı kurmayı hedefliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Anthropic",
+    "Claude",
+    "Plaid",
+    "yapay zeka",
+    "finans"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude'a finans yönetimi özelliği geldi",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A clean wooden desk featuring a simple smartphone showing a blurred financial chart on its screen, placed next to a sleek glass water carafe and a single green leaf, capturing a calm and organized workspace environment.",
+  "focus_keyword": "Claude Personal Finance",
+  "seo_title": "Claude Personal Finance ile harcama analizi yapın",
+  "meta_description": "Anthropic, kullanıcıların banka hesaplarını bağlayarak finansal verilerini analiz etmelerini sağlayan Claude Personal Finance özelliğini duyurdu.",
+  "seo_slug": "claude-personal-finance-ozelligi-duyuruldu",
+  "image_alt": "Masa üzerinde akıllı telefon ve finansal grafikler",
+  "cover_text": "Claude Personal Finance",
+  "carousel_points": [
+    "Claude'a artık banka ve kredi kartı hesaplarınızı bağlayarak harcamalarınızı analiz ettirebilirsiniz.",
+    "Yeni özellik, bütçenizi kategorize ederken beklenmedik ücretleri ve harcama alışkanlıklarınızı raporluyor.",
+    "Sistem salt okunur erişim sunuyor; yani Claude sizin adınıza para transferi veya yatırım yapamıyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Claude harcamalarınızı analiz etmeye başladı",
+  "cover_highlight": "harcamalarınızı analiz",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Claude artık banka hesaplarına bağlanıp finansal analiz yapabiliyor.",
+  "entities": [
+    "Anthropic",
+    "Claude",
+    "Plaid"
+  ],
+  "topic": "Claude adds Personal Finance integration via Plaid",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "title": "Claude can now analyze your spending with its new Personal Finance tool",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-05T18:00:00Z",
+      "image": null
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+      "title": "Claude AI can plug directly into your bank account",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-05T18:00:00Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Personal-Finance-in-Claude-hed.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    },
+    {
+      "name": "Engadget",
+      "url": "https://www.engadget.com/2307936/now-claude-can-help-with-your-finances-too/",
+      "title": "Now Claude can help with your finances too",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-05T18:00:00Z",
+      "image": "https://www.engadget.com/img/gallery/now-claude-can-help-with-your-finances-too/l-intro-1793895674.jpg"
+    },
+    {
+      "name": "Bloomberg Teknoloji",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/anthropic-plaid-collaborate-on-ai-consumer-finance-guidance",
+      "title": "Anthropic, Plaid Collaborate on AI Consumer Finance Guidance",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-05T18:00:00Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "TechCrunch",
+    "The Verge",
+    "Engadget",
+    "Bloomberg Teknoloji"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1961
+  },
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-2",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "claude-personal-finance-ozelligi-duyuruldu",
+  "published_at": "2026-11-05T18:14:18Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/claude-personal-finance-ozelligi-duyuruldu",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-05T18:14:22Z"
+  },
+  "photos_vetted": "2026-11-05T18:14:26Z",
+  "photos_vet_v": 2,
+  "updated_at": "2026-11-05T18:14:32Z",
+  "photos_filled": "2026-11-05T18:14:32Z",
+  "photos_tried": "2026-11-05T18:14:42Z"
+}
