@@ -1,0 +1,129 @@
+{
+  "id": "3fe6e591b4",
+  "created_at": "2026-11-04T23:55:45Z",
+  "title": "Siber saldırganlar iOS ve Android açıklarıyla telefonları hedef aldı",
+  "summary": "Siber saldırganlar, aralarında ABD Anayasası'nın yıldönümü sitesinin de bulunduğu platformları hedef alarak iOS ve Android açıklarından yararlandı.",
+  "body": "Ars Technica'nın aktardığına göre, Rusya'nın Dış İstihbarat Servisi ile bağlantılı olabileceği değerlendirilen siber saldırganlar, iOS ve Android açıklarından yararlanarak mobil cihazları hedef aldı. Araştırmacılar, saldırıların ABD Anayasası'nın 250. kuruluş yıldönümünü kutlayan bir site de dahil olmak üzere çok sayıda internet sitesine giren ziyaretçileri etkilediğini belirtti.\n\n## Zararlı yazılımlar verileri çalmaya çalıştı\n\nSaldırganlar, ziyaretçilerin iPhone veya Android kullanıcısı olup olmadığını tespit etmek için site trafiğine JavaScript enjekte etti. Platform türüne göre uyarlanan yazılımlar; tarayıcı çerezlerini, bazı durumlarda Wi-Fi şifrelerini ve tüm mobil cihaz verilerini ele geçirmeyi amaçladı. Güvenlik firması Sekoia araştırmacıları, yüksek profilli ulusal kutlamaların kimlik avı kampanyaları için gerekçe olarak kullanılmış olabileceğini kaydetti.\n\n## Hedef alınan diğer siteler\n\nSaldırganlar, asıl sitenin benzeri sahte alan adları üzerinden yönlendirme yaparak içerik aktardı. Benzer şekilde, İngiltere'deki hassas devlet kurumlarına yakın konumda bulunan lüks bir otelin web sitesi de hedef alınan noktalar arasında yer aldı.\n\n**Neden önemli?** Daha önce yamalanmış güvenlik açıklarının siber saldırılarda kullanılması, güncellemelerin zamanında yapılmasının önemini bir kez daha ortaya koyuyor.",
+  "category": "teknoloji",
+  "tags": [
+    "iOS",
+    "Android",
+    "Sekoia",
+    "Rusya",
+    "ABD"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "iOS ve Android açıklarına siber saldırı",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a dark abstract studio background with a glowing frosted-glass mobile phone silhouette, subtle red light reflecting on its polished edges, suggesting digital vulnerability and intercepted signals",
+  "focus_keyword": "iOS ve Android",
+  "seo_title": "iOS ve Android açıklarıyla siber saldırı düzenlendi",
+  "meta_description": "Siber saldırganlar, iOS ve Android açıklarını kullanarak web sitesi ziyaretçilerinin verilerini çalmaya çalıştı. Detaylar haberimizde.",
+  "seo_slug": "ios-android-aciklariyla-siber-saldiri",
+  "image_alt": "Karanlık stüdyo ortamında parlayan ve siber güvenliği temsil eden buzlu cam telefon silüeti",
+  "cover_text": "iOS ve Android",
+  "carousel_points": [
+    "Saldırganlar iOS ve Android açıklarını hedef aldı.",
+    "ABD Anayasası kutlama sitesi de hedef alındı.",
+    "Zararlı yazılımlar şifreleri ve çerezleri çalmayı amaçladı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "iOS ve Android açıklarıyla telefonlara siber saldırı",
+  "cover_highlight": "iOS ve Android",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "iOS ve Android'de aktif istismar edilen sıfır gün güvenlik açığı tespit edildi.",
+  "entities": [
+    "Apple",
+    "Google",
+    "iOS"
+  ],
+  "topic": "Hackers exploit iOS and Android zero-day flaws",
+  "sources": [
+    {
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones/",
+      "title": "Hackers exploited iOS and Android flaws to infect phones",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones/#comments",
+      "published": "2026-11-04T22:26:49Z",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2023/05/malware-1000x648.jpg"
+    }
+  ],
+  "source_keys": [
+    "Ars Technica"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1915
+  },
+  "image": {
+    "source": "photo",
+    "photo": "3fe6e591b4-g0.webp",
+    "credit": "Ars Technica",
+    "page": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones/",
+    "src": "https://cdn.arstechnica.net/wp-content/uploads/2023/05/malware-1000x648.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "ios-android-aciklariyla-siber-saldiri",
+  "published_at": "2026-11-04T23:55:56Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/ios-android-aciklariyla-siber-saldiri",
+  "social": {
+    "format": "story",
+    "score": 6,
+    "reason": "Genel güvenlik riskine dikkat çekmek için story formatında yer verebiliriz ancak görsel yetersizliği nedeniyle post olamaz.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Mobil işletim sistemlerindeki açıkları kullanan siber saldırılar önemli bir güvenlik haberi ancak detaylar henüz sınırlı."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Kullanıcıları ilgilendiren bir siber güvenlik tehdidi ama teknik detaylar genel kitle için fazla soyut kalabilir."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "none",
+        "score": 4,
+        "reason": "Haberin gerçek bir görseli yok, sadece renkli arka planla verilebileceği için ancak story formatını zorlar."
+      }
+    ],
+    "at": "2026-11-04T23:56:01Z"
+  },
+  "photos_filled": "2026-11-04T23:56:02Z",
+  "photos_tried": "2026-11-04T23:56:09Z",
+  "photos": [
+    {
+      "src": "https://cdn.arstechnica.net/wp-content/uploads/2023/05/malware-1000x648.jpg",
+      "credit": "Ars Technica",
+      "page": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "3fe6e591b4-g0.webp",
+      "w": 1000,
+      "h": 648
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-04T23:55:56Z"
+}
