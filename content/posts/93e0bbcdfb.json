@@ -1,0 +1,128 @@
+{
+  "id": "93e0bbcdfb",
+  "created_at": "2026-11-05T05:41:40Z",
+  "title": "Android telefonlara yönelik siber saldırı: Chrome ve Snapdragon açığı",
+  "summary": "Güvenlik araştırmacıları, güncel olmayan Chrome sürümlerini ve Qualcomm GPU açıklarını kullanan bir saldırı kampanyasının cihazlara sızdığını belirledi.",
+  "body": "Sekoia güvenlik firmasının raporuna göre, Android telefonlara yönelik siber saldırı, kullanıcıların herhangi bir bağlantıya tıklamasına veya izin vermesine gerek kalmadan gerçekleşebiliyor. Saldırganlar, güncel olmayan Chrome sürümleri (139-145 arası) ve Qualcomm Adreno grafik birimi sürücülerindeki bir açığı birleştirerek cihazların güvenliğini aşıyor. Bu yöntemle tarayıcı çerezleri, kayıtlı giriş bilgileri, tarama geçmişi ve Wi-Fi şifreleri ele geçiriliyor.\n\n## Saldırı nasıl işliyor?\n\nSaldırı zinciri, Chrome içindeki CVE-2026-3910 kodlu açıktan faydalanarak tarayıcı üzerinde kod çalıştırılmasıyla başlıyor. Ardından, Snapdragon çiplerinde bulunan Adreno GPU sürücüsündeki CVE-2025-27038 açığı kullanılarak Chrome'un güvenlik katmanı (sandbox) kırılıyor ve cihazın daha derin bölümlerine erişim sağlanıyor. AndroSnitch adı verilen zararlı yazılım, özellikle oturumların açık olduğu hesaplara sızılmasına olanak tanıyan çerezleri çalmayı hedefliyor. Saldırının Samsung Galaxy S25 Ultra modellerinde çalışmayacak şekilde kodlandığı ise Sekoia tarafından paylaşılan dikkat çekici bir detay oldu.\n\n## Önlemler ve güncellemeler\n\nRusya dış istihbarat servisi ile ilişkilendirilen APT29 adlı grubun yürüttüğü tahmin edilen bu kampanyanın, çoğunlukla diplomatları ve Ukrayna ile bağlantılı kişileri hedef aldığı belirtiliyor. Saldırganlar, kodları yasal web sitelerine yerleştirerek veya sahte internet siteleri üzerinden yayıyor. Bahsi geçen tüm güvenlik açıkları için halihazırda yamalar yayımlanmış durumda. Kullanıcıların güvende kalması için Chrome sürümünü 145'in üzerine çıkarmaları ve telefonlarının en güncel aylık güvenlik güncellemelerini yüklemeleri öneriliyor.\n\n**Neden önemli?** Söz konusu saldırı, güncellemeleri ihmal etmenin, kullanıcı etkileşimi gerektirmeyen (zero-click) yöntemlerle dahi cihazların tüm dijital kimliğinin çalınmasına yol açabileceğini kanıtlıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Android",
+    "Chrome",
+    "Qualcomm",
+    "siber güvenlik",
+    "APT29"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Android telefonlarda ciddi güvenlik açığı",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A modern smartphone lying on a dark wooden desk, partially obscured by a translucent digital grid representing a corrupted browser layer, with soft shadows and sharp details on the phone's hardware edges.",
+  "focus_keyword": "Android telefonlar",
+  "seo_title": "Android telefonlar için kritik Chrome ve GPU güvenlik uyarısı",
+  "meta_description": "Güvenlik açıkları nedeniyle Android telefonlara yönelik sızma girişimleri tespit edildi. Cihazınızı korumak için hangi güncellemeleri yapmanız gerektiğini öğrenin.",
+  "seo_slug": "android-telefonlar-chrome-snapdragon-guvenlik-acigi",
+  "image_alt": "Karanlık bir masa üzerinde duran ve dijital güvenlik katmanlarıyla temsil edilen bir akıllı telefon.",
+  "cover_text": "Android güvenlik",
+  "carousel_points": [
+    "Güncel olmayan Chrome tarayıcıları ve Qualcomm GPU sürücüleri üzerinden saldırı yapılıyor.",
+    "Saldırganlar tarayıcı çerezleri, Wi-Fi şifreleri ve oturum bilgilerini çalabiliyor.",
+    "Telefonunuzu korumak için en son Chrome sürümünü ve sistem güncellemelerini hemen yükleyin."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Android telefonlarda Chrome ve GPU açığı",
+  "cover_highlight": "Chrome ve GPU",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Google Chrome ve Snapdragon GPU açıklarının Android telefonları hedef alması kritik önem taşıyor.",
+  "entities": [
+    "Google Chrome",
+    "Qualcomm",
+    "Android"
+  ],
+  "topic": "Critical Chrome and Snapdragon GPU vulnerabilities exploited on Android",
+  "sources": [
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/hackers-chrome-snapdragon-gpu-flaws-android-zero-click-3731860/",
+      "title": "Hackers used Chrome and Snapdragon GPU flaws to hack Android phones",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.androidauthority.com/hackers-chrome-snapdragon-gpu-flaws-android-zero-click-3731860/#respond",
+      "published": "2026-11-05T05:36:04Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "Android Authority"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1918
+  },
+  "photos": [
+    {
+      "src": "https://www.androidauthority.com/wp-content/uploads/2023/03/Security-and-privacy-option-in-Android-settings-stock-photo-2.jpg",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/hackers-chrome-snapdragon-gpu-flaws-android-zero-click-3731860/",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "93e0bbcdfb-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "93e0bbcdfb-g0.webp",
+    "credit": "Android Authority",
+    "page": "https://www.androidauthority.com/hackers-chrome-snapdragon-gpu-flaws-android-zero-click-3731860/",
+    "src": "https://www.androidauthority.com/wp-content/uploads/2023/03/Security-and-privacy-option-in-Android-settings-stock-photo-2.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "android-telefonlar-chrome-snapdragon-guvenlik-acigi",
+  "published_at": "2026-11-05T05:41:53Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/android-telefonlar-chrome-snapdragon-guvenlik-acigi",
+  "social": {
+    "format": "story",
+    "score": 7,
+    "reason": "Kullanıcılarımızı güvenlik açıklarına karşı uyarmak için önemli ancak gün içinde benzer bir güvenlik haberi paylaşıldığı için formatı story olarak belirliyoruz.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 8,
+        "reason": "Kritik bir güvenlik açığı ancak sabah saatlerinde benzer bir siber saldırı haberi paylaşıldığı için tekrara düşmemeliyiz."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Kullanıcıları uyarmak için değerli bir içerik ancak bugün benzer bir konuyu zaten story olarak paylaştık."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Görsel yeterli seviyede ancak konu teknik bir güvenlik uyarısı olduğu için gridde post olarak durması yerine 24 saatlik uyarı yeterli."
+      }
+    ],
+    "at": "2026-11-05T05:41:57Z"
+  },
+  "photos_vetted": "2026-11-05T05:42:00Z",
+  "photos_vet_v": 2
+}
