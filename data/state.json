@@ -859,8 +859,8 @@
       "updated": 2
     },
     "2026-11-05": {
-      "tok_in": 1536516,
-      "tok_out": 187992,
+      "tok_in": 1539574,
+      "tok_out": 188028,
       "cost_usd": 0.0,
       "drafts": 37,
       "published": 36,
@@ -870,7 +870,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-05T19:20:37Z",
+  "last_build": "2026-11-05T19:50:09Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
@@ -2657,7 +2657,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-05T19:40:33Z",
+    "at": "2026-11-05T19:45:51Z",
     "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
@@ -2677,6 +2677,6 @@
       "code": 200,
       "subcode": null
     },
-    "at": "2026-11-05T18:45:04Z"
+    "at": "2026-11-05T19:45:51Z"
   }
 }
