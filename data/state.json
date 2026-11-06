@@ -2521,27 +2521,6 @@
   ],
   "ig_queue": [
     {
-      "id": "61ce005a9d",
-      "queued_at": "2026-11-06T07:01:01Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Tesla'nın uçan araba konseptine dair paylaşılan bu dikkat çekici görüntüler geniş bir kitleye hitap ediyor ve yüksek etkileşim potansiyeli taşıyor.",
-      "mid": 1974,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi Smarity marka kimliğiyle uyumlu, tüm içerik okunabilir ve güvenli alanlar korunmuş.",
-        "at": "2026-11-06T07:05:29Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "92fc2ae607",
       "queued_at": "2026-11-06T07:16:01Z",
       "tries": 0,
@@ -2762,7 +2741,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-06T18:55:56Z",
+    "at": "2026-11-06T19:01:03Z",
     "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
