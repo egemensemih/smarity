@@ -857,8 +857,8 @@
       "dropped": 1
     },
     "2026-11-06": {
-      "tok_in": 1475916,
-      "tok_out": 190964,
+      "tok_in": 1477427,
+      "tok_out": 190991,
       "cost_usd": 0.0,
       "drafts": 32,
       "published": 30,
@@ -868,7 +868,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-06T18:54:41Z",
+  "last_build": "2026-11-06T19:39:57Z",
   "build_sig": "e093a6e023cb4bc5",
   "commands_version": 5,
   "queue": [],
@@ -2521,48 +2521,6 @@
   ],
   "ig_queue": [
     {
-      "id": "10d55fe334",
-      "queued_at": "2026-11-06T07:31:50Z",
-      "tries": 0,
-      "format": "post",
-      "note": "BYD Seal 07'nin etkileyici menzili ve hızlı şarj özellikleri geniş bir Türk kitlenin ilgisini çekeceği ve güçlü bir görsele sahip olduğu için post formatında paylaşıldı.",
-      "mid": 1978,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller marka kimliğine tam uygun, metinler okunaklı ve güvenli alanlarda yer alıyor.",
-        "at": "2026-11-06T07:36:43Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
-      "id": "81aa0057a1",
-      "queued_at": "2026-11-06T07:32:06Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Oyuncuların ilgisini çekecek faydalı bir güncelleme haberi ancak post bütçesini daha büyük gelişmelere saklamak adına story formatında paylaşıyoruz.",
-      "mid": 1980,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi marka standartlarına tamamen uygun, güvenle paylaşılabilir.",
-        "at": "2026-11-06T07:36:49Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "00994d4eee",
       "queued_at": "2026-11-06T08:08:30Z",
       "tries": 0,
@@ -2720,7 +2678,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-06T19:30:50Z",
+    "at": "2026-11-06T19:35:37Z",
     "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
