@@ -1,0 +1,107 @@
+{
+  "id": "14f7edd5dc",
+  "created_at": "2026-11-06T09:09:24Z",
+  "title": "Discord RAM kullanımı sorununu çözüyor: Yeni masaüstü sürümü Rust ile yazılıyor",
+  "summary": "Discord masaüstü uygulamasını Electron altyapısından Rust diline taşıyor. Discord Phoenix kod adlı yeni sürüm RAM tüketimini 290 MB seviyesine kadar düşürüyor.",
+  "body": "Popüler iletişim platformu Discord masaüstü uygulamasını daha performanslı hale getirmek amacıyla altyapısını yeniliyor. Chip Online'ın aktardığı bilgilere göre şirket, masaüstü yazılımını Electron altyapısından Rust programlama diline taşıma kararı aldı. Bu mimari değişiklik ile birlikte yıllardır tartışılan Discord RAM kullanımı sorununa çözüm getirilmesi amaçlanıyor.\n\n## Discord Phoenix ne sunuyor?\n\nGeliştirilme aşamasındaki yeni masaüstü uygulaması Discord Phoenix kod adıyla anılıyor. Yayınlanan ilk bilgilere göre Discord Phoenix adını taşıyan erken sürüm, çalışırken yaklaşık 290 MB RAM bellek tüketiyor.\n\nMevcut Discord masaüstü uygulaması ise arka planda çalışırken gigabayt seviyelerine ulaşabilen bellek kullanımı nedeniyle kullanıcılar tarafından sıkça eleştiriliyordu. Rust programlama dili kullanılarak yeniden inşa edilen yeni sürümün, sistem kaynakları üzerindeki yükü belirgin şekilde hafifletmesi bekleniyor.\n\n## Electron altyapısından Rust'a geçiş\n\nDiscord'un mevcut istemcisi uzun süredir web teknolojilerini masaüstüne taşıyan Electron altyapısını temel alıyordu. Ancak bu yapı, yüksek RAM ve işlemci kullanımıyla biliniyor. Rust diline geçiş yapılmasıyla birlikte uygulamanın hem açılış hızının hem de bellek yönetiminin iyileştirilmesi hedefleniyor.\n\n**Neden önemli?** Oyun oynarken veya sistem kaynağı tüketen yazılımlar çalıştırırken arka planda duran uygulamaların az RAM kullanması büyük önem taşıyor. Discord'un bellek tüketimini 290 MB seviyesine indirmesi, özellikle kısıtlı donanıma sahip bilgisayarlarda yaşanan performans kayıplarının önüne geçebilir.",
+  "category": "teknoloji",
+  "tags": [
+    "Discord",
+    "Discord Phoenix",
+    "Rust",
+    "Electron",
+    "RAM"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Discord RAM sorununa Rust ile çözüm arıyor",
+  "kicker": "Yeni altyapı",
+  "hero_stat": "290 MB",
+  "hero_stat_label": "bellek kullanımı",
+  "visual_style": "still_life",
+  "visual_scene": "a heavy metal padlock placed beside a delicate paper origami bird on a dark slate surface under subtle studio light",
+  "focus_keyword": "Discord RAM kullanımı",
+  "seo_title": "Discord RAM kullanımı sorunu çözülüyor: Yeni Rust sürümü",
+  "meta_description": "Discord masaüstü uygulamasını Electron altyapısından Rust diline taşıyor. Discord RAM kullanımı Phoenix sürümü ile 290 MB seviyesine düşüyor.",
+  "seo_slug": "discord-ram-kullanimi-rust-phoenix-surumu",
+  "image_alt": "Karanlık taş yüzeyde ağır metal kilit ile hafif kağıt objenin yan yana durduğu yazılım altyapısı görseli",
+  "cover_text": "Discord Phoenix",
+  "carousel_points": [
+    "Discord masaüstü uygulamasını Electron altyapısından Rust programlama diline taşıyor.",
+    "Discord Phoenix adını taşıyan erken sürüm yaklaşık 290 MB RAM bellek tüketimiyle çalışıyor.",
+    "Mevcut Discord uygulamasında bellek tüketimi gigabayt seviyelerine kadar çıkabiliyordu."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Discord RAM kullanımını 290 MB'a düşürüyor",
+  "cover_highlight": "290 MB'a düşürüyor",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Discord masaüstü uygulamasının bellek tüketimini düşüren güncellemesi yayınlandı.",
+  "entities": [
+    "Discord"
+  ],
+  "topic": "Discord updates desktop app to Rust, reducing RAM usage",
+  "sources": [
+    {
+      "name": "Chip Online",
+      "url": "https://www.chip.com.tr/guncel/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor_185134.html",
+      "title": "Discord'un RAM sorunu bitiyor mu? Yeni uygulama 290 MB ile çalışıyor",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-06T09:04:00Z",
+      "image": "https://img.chip.com.tr/storage/files/images/2026/11/06/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor-qc38.jpg"
+    }
+  ],
+  "source_keys": [
+    "Chip Online"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 1984
+  },
+  "photos": [
+    {
+      "src": "https://img.chip.com.tr/storage/files/images/2026/11/06/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor-qc38.jpg",
+      "credit": "Chip Online",
+      "page": "https://www.chip.com.tr/guncel/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor_185134.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "14f7edd5dc-g0.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "14f7edd5dc-g0.webp",
+    "credit": "Chip Online",
+    "page": "https://www.chip.com.tr/guncel/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor_185134.html",
+    "src": "https://img.chip.com.tr/storage/files/images/2026/11/06/discordun-ram-sorunu-bitiyor-mu-yeni-uygulama-290-mb-ile-calisiyor-qc38.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "discord-ram-kullanimi-rust-phoenix-surumu",
+  "published_at": "2026-11-06T09:09:36Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/discord-ram-kullanimi-rust-phoenix-surumu",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-06T09:09:38Z"
+  },
+  "photos_vetted": "2026-11-06T09:10:29Z",
+  "photos_vet_v": 2
+}
