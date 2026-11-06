@@ -66,9 +66,12 @@
     "message_id": 2000
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "82092d145a-g0.webp",
+    "credit": "Engadget",
+    "page": "https://www.engadget.com/2309307/fox-wraps-up-its-dollar22-billion-roku-deal/",
+    "src": "https://www.engadget.com/img/gallery/fox-wraps-up-its-22-billion-roku-deal/l-intro-1793985540.jpg",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -84,7 +87,7 @@
     "votes": [],
     "at": "2026-11-06T16:16:43Z"
   },
-  "photos_filled": "2026-11-06T18:22:26Z",
+  "photos_filled": "2026-11-06T20:25:53Z",
   "photos_tried": "2026-11-06T16:17:09Z",
   "coverage": [
     {
@@ -95,5 +98,21 @@
       "image": "https://www.engadget.com/img/gallery/fox-wraps-up-its-22-billion-roku-deal/l-intro-1793985540.jpg",
       "at": "2026-11-06T17:31:02Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://www.engadget.com/img/gallery/fox-wraps-up-its-22-billion-roku-deal/l-intro-1793985540.jpg",
+      "credit": "Engadget",
+      "page": "https://www.engadget.com/2309307/fox-wraps-up-its-dollar22-billion-roku-deal/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "82092d145a-g0.webp",
+      "w": 1600,
+      "h": 898
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-06T16:16:41Z"
 }
