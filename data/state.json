@@ -2521,27 +2521,6 @@
   ],
   "ig_queue": [
     {
-      "id": "92fc2ae607",
-      "queued_at": "2026-11-06T07:16:01Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Togg sahiplerini ilgilendiren vergi tutarları geniş kitleler için dikkat çekici bir gelişme olsa da, kalıcı bir gönderi yerine 24 saatlik hikaye formatında paylaşılması daha uygundur.",
-      "mid": 1976,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık, logo ve buton yerleşimi güvenli alanlar içinde kusursuz görünüyor.",
-        "at": "2026-11-06T07:20:21Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "10d55fe334",
       "queued_at": "2026-11-06T07:31:50Z",
       "tries": 0,
@@ -2741,7 +2720,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-06T19:15:44Z",
+    "at": "2026-11-06T19:20:35Z",
     "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
