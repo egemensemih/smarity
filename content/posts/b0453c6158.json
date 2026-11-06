@@ -1,0 +1,106 @@
+{
+  "id": "b0453c6158",
+  "created_at": "2026-11-06T16:16:47Z",
+  "title": "ChatGPT Lockdown Mode açığı güvenlik uzmanları tarafından kapatıldı",
+  "summary": "Güvenlik araştırmacılarının ChatGPT Lockdown Mode korumasını atlamasının ardından OpenAI sunucu tarafında yama yayınladı.",
+  "body": "TechRadar'ın aktardığına göre, güvenlik araştırmacıları **ChatGPT Lockdown Mode** korumasını aşarak hassas verilere erişilebileceğini ve siber saldırılar düzenlenebileceğini ortaya çıkardı. Check Point Research (CPR) uzmanları tarafından keşfedilen açık, yapay zekanın sunduğu güvenlik önlemlerinin uygulandığı geniş çevre birimlerindeki riskleri bir kez daha gözler önüne serdi.\n\n## Açık nasıl keşfedildi?\n\nAraştırmacılar, güvenlik açığının ChatGPT kod bloklarının HTML sayfa önizlemelerini gösterme biçiminden kaynaklandığını belirtti. Normal şartlarda kullanıcı kontrollü HTML ve JavaScript içerikleri ana uygulamadan izole ediliyor ve dış kaynaklarla iletişim kısıtlanıyordu. Ancak uzmanlar, iç içe yerleştirilmiş sandviç çerçeveler aracılığıyla bu kısıtlamaların atlatılabildiğini ve kullanıcı onayına gerek kalmadan pencerelerin açılabildiğini fark etti. Bu yöntemle kimlik bilgisi hırsızlığı, veri sızdırma ve kötü amaçlı yazılım dağıtımı gibi tehlikelerin önü açılmış oldu.\n\n## OpenAI'ın müdahalesi\n\nCheck Point Research bulguları OpenAI ile paylaştıktan sonra şirket, Lockdown Mode geçici çözümünü devre dışı bırakmak için ek güvenlik önlemleri uygulayarak açığı sunucu tarafında kapattı. Uzmanlar ise organizasyonların yalnızca model güvenliğine odaklanmaması gerektiğini, çalışma zamanları ve bağlayıcılar gibi çevre bileşenlerin de dikkate alınması gerektiğini vurguladı.\n\n**Neden önemli?** Yapay zeka sistemlerindeki güvenlik kontrollerinin modelin ötesinde geniş uygulama ortamlarıyla birlikte değerlendirilmesi gerektiğini gösteren bu açık, kurumsal veri güvenliği açısından kritik bir uyarı niteliği taşıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "ChatGPT",
+    "Check Point Research"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "ChatGPT Lockdown Mode açıklarına yama",
+  "kicker": "Güvenlik açığı",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a dark minimalist desk with a glowing abstract glass block that features thin interlocking digital layers shifting slightly under a soft white light",
+  "focus_keyword": "ChatGPT Lockdown Mode",
+  "seo_title": "ChatGPT Lockdown Mode açığı kapatıldı",
+  "meta_description": "Güvenlik araştırmacılarının ChatGPT Lockdown Mode korumasını atlamasının ardından OpenAI hızlı bir şekilde sunucu tarafında yama yayınladı.",
+  "seo_slug": "chatgpt-lockdown-mode-guvenlik-acigi",
+  "image_alt": "Karanlık bir masada ışık yansıtan soyut cam blok ve dijital katmanlar",
+  "cover_text": "ChatGPT Lockdown Mode",
+  "carousel_points": [
+    "Araştırmacılar ChatGPT Lockdown Mode korumasını atlamayı başardı.",
+    "Açık sayesinde veri sızdırma ve kötü amaçlı yazılım riski oluştu.",
+    "OpenAI bulguların ardından sunucu tarafında hızlıca yama yayınladı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "ChatGPT Lockdown Mode koruması aşıldı",
+  "cover_highlight": "Lockdown Mode",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "OpenAI, ChatGPT kilit modu açığını kapatan yamayı yayınladı",
+  "entities": [
+    "OpenAI",
+    "ChatGPT"
+  ],
+  "topic": "OpenAI patches ChatGPT lockdown mode vulnerability",
+  "sources": [
+    {
+      "name": "TechRadar",
+      "url": "https://www.techradar.com/pro/security/ai-security-controls-are-only-as-strong-as-the-wider-application-environment-around-them-openai-forced-to-patch-after-experts-bypass-chatgpt-lockdown-mode-to-gain-access-to-entire-chat-history",
+      "title": "'AI security controls are only as strong as the wider application environment around them': OpenAI forced to patch after experts bypass ChatGPT 'lockdown mode' to gain access to entire chat history",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-06T16:05:00Z",
+      "image": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1920-80.jpg"
+    }
+  ],
+  "source_keys": [
+    "TechRadar"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2001
+  },
+  "photos": [
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1920-80.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/pro/security/ai-security-controls-are-only-as-strong-as-the-wider-application-environment-around-them-openai-forced-to-patch-after-experts-bypass-chatgpt-lockdown-mode-to-gain-access-to-entire-chat-history",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b0453c6158-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "b0453c6158-g0.webp",
+    "credit": "TechRadar",
+    "page": "https://www.techradar.com/pro/security/ai-security-controls-are-only-as-strong-as-the-wider-application-environment-around-them-openai-forced-to-patch-after-experts-bypass-chatgpt-lockdown-mode-to-gain-access-to-entire-chat-history",
+    "src": "https://cdn.mos.cms.futurecdn.net/DVffQnnibMWmNpx2Wfb5Se-1920-80.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "chatgpt-lockdown-mode-guvenlik-acigi",
+  "published_at": "2026-11-06T16:16:53Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/chatgpt-lockdown-mode-guvenlik-acigi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-06T16:16:55Z"
+  },
+  "photos_vetted": "2026-11-06T16:16:58Z",
+  "photos_vet_v": 2
+}
