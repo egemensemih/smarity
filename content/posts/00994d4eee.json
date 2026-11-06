@@ -66,9 +66,12 @@
     "message_id": 1982
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "00994d4eee-g0.webp",
+    "credit": "Swipeline",
+    "page": "https://swipeline.co/the-new-york-times-letterboxd-330-milyon-dolara-satin-almak-icin-gorusmelere-basladi/",
+    "src": "https://swipeline.co/cdn/2026/11/lb.webp",
     "layout": "manset",
-    "palette": "girisimcilik-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -103,6 +106,32 @@
     ],
     "at": "2026-11-06T08:08:30Z"
   },
-  "photos_filled": "2026-11-06T08:08:31Z",
-  "photos_tried": "2026-11-06T08:08:33Z"
+  "photos_filled": "2026-11-06T10:09:34Z",
+  "photos_tried": "2026-11-06T08:08:33Z",
+  "coverage": [
+    {
+      "name": "Swipeline",
+      "url": "https://swipeline.co/the-new-york-times-letterboxd-330-milyon-dolara-satin-almak-icin-gorusmelere-basladi/",
+      "title": "The New York Times, Letterboxd’ı 330 milyon dolara satın almak için görüşmelere başladı",
+      "kind": "media",
+      "image": "https://swipeline.co/cdn/2026/11/lb.webp",
+      "at": "2026-11-06T10:07:17Z"
+    }
+  ],
+  "photos": [
+    {
+      "src": "https://swipeline.co/cdn/2026/11/lb.webp",
+      "credit": "Swipeline",
+      "page": "https://swipeline.co/the-new-york-times-letterboxd-330-milyon-dolara-satin-almak-icin-gorusmelere-basladi/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "00994d4eee-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-06T08:08:26Z"
 }
