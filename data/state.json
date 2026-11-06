@@ -2564,27 +2564,6 @@
   ],
   "ig_queue": [
     {
-      "id": "d245f6cafc",
-      "queued_at": "2026-11-06T06:12:22Z",
-      "tries": 0,
-      "format": "story",
-      "note": "İçerik üreticilerini ilgilendiren yapay zeka destekli yeni masaüstü uygulaması, kalıcı akış postu yerine 24 saatlik story olarak paylaşılmaya uygun bulundu.",
-      "mid": 1972,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel ve arayüz yerleşimi oldukça temiz, tipografi okunaklı ve güvenli alan sınırlarına uygun.",
-        "at": "2026-11-06T06:16:47Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "61ce005a9d",
       "queued_at": "2026-11-06T07:01:01Z",
       "tries": 0,
@@ -2826,7 +2805,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-06T18:12:02Z",
+    "at": "2026-11-06T18:16:26Z",
     "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
   },
   "ig_diag": {
