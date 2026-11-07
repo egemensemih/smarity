@@ -123,7 +123,7 @@
   "photos_vetted": "2026-11-05T18:14:26Z",
   "photos_vet_v": 2,
   "updated_at": "2026-11-05T18:14:32Z",
-  "photos_filled": "2026-11-07T11:06:41Z",
+  "photos_filled": "2026-11-07T13:07:04Z",
   "photos_tried": "2026-11-05T18:14:42Z",
   "coverage": [
     {
@@ -213,6 +213,32 @@
       "kind": "media",
       "image": "https://imgrosetta.webtekno.com/file/696068/696068-640xauto.jpg",
       "at": "2026-11-06T14:43:36Z"
+    }
+  ],
+  "photos": [
+    {
+      "src": "https://www.engadget.com/img/gallery/now-claude-can-help-with-your-finances-too/l-intro-1793895674.jpg",
+      "credit": "Engadget",
+      "page": "https://www.engadget.com/2307936/now-claude-can-help-with-your-finances-too/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "5912cc0721-g0.webp",
+      "w": 1600,
+      "h": 899
+    },
+    {
+      "src": "https://techcrunch.com/wp-content/uploads/2026/11/Claude-Personal-Finance-2.png?resize=1200,675",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "alt": "",
+      "kind": "og",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "5912cc0721-g1.webp",
+      "w": 1200,
+      "h": 675
     }
   ]
 }
