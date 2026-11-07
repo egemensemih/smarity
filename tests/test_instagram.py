@@ -335,6 +335,41 @@ def test_fb_me_falls_back_to_pages():
         assert "İzinler: instagram_basic" in st and "Boş sayfa → Instagram bağlı değil" in st
 
 
+class BlockedIG(FakeIG):
+    tries = 0
+
+    def me(self):
+        BlockedIG.tries += 1
+        raise ig.InstagramError("API access blocked.", 200)
+
+
+def test_blocked_access_backs_off():
+    """Meta erişimi engellediğinde bot her turda yoklamaz; bekler, anahtar değişince ya da /instagram dene ile yeniden dener."""
+    BlockedIG.tries = 0
+    appmod.Instagram, appmod.head_ok = BlockedIG, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.instagram_token = "EAA-TOKEN-1"
+        post = _pub(1, 1, 9)
+        a.store.save_post(post)
+        a.ig_enqueue(post)
+        a.ig_tick()
+        assert BlockedIG.tries == 1 and a.state["ig_pause"]["until"]
+        assert "Sorunu düzelt" in a.state["ig_problem"]["text"]
+        for _ in range(3):                     # sonraki turlar: Meta'ya istek gitmez
+            a._ig = None
+            a.ig_tick()
+        assert BlockedIG.tries == 1 and a.state["ig_queue"]
+        a._ig = None
+        a.cfg.instagram_token = "EAA-TOKEN-2"   # yeni anahtar: hemen denenir
+        a.ig_tick()
+        assert BlockedIG.tries == 2
+        a._ig = None
+        a.ig_try_latest()                       # /instagram dene: bekleme biter
+        a.ig_tick()
+        assert BlockedIG.tries == 3
+
+
 def test_missing_card_triggers_rebuild():
     appmod.Instagram, appmod.head_ok = FakeIG, (lambda url: 404)
     with tempfile.TemporaryDirectory() as t:

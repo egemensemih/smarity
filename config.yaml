@@ -132,6 +132,7 @@ social:
   instagram_min_gap_minutes: 15    # iki paylaşım arasında en az bu kadar dakika olsun (akış boğulmasın)
   instagram_max_per_day: 0         # günlük üst sınır (0 = sınır yok; Instagram'ın kendi sınırı 100)
   instagram_max_wait_hours: 12     # bundan uzun sırada bekleyen haber artık paylaşılmaz (bayatlamasın)
+  instagram_blocked_retry_hours: 3 # Meta erişimi reddederse bot bu kadar saat bekleyip yeniden dener (her turda yoklamaz)
   # Instagram post + story görselleri Telegram'a gönderilmez; IG_ACCESS_TOKEN eklenince paylaşım kendiliğinden yapılır.
   # (true yapılırsa, Instagram bağlı değilken görseller elle paylaşım için Telegram'a gelir.)
   send_to_telegram: false

@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import time
+from datetime import timedelta
 from urllib.parse import urlsplit
 
 import requests
@@ -2240,6 +2241,10 @@ class App:
         self._ig = False
         secret = self.cfg.instagram_token
         data = self.store.ig
+        # erişim reddedildiyse Meta'yı her turda (5 dk) yoklama: bekleme süresi dolana ya da anahtar değişene kadar dur
+        pause = self.state.get("ig_pause") or {}
+        if pause.get("fp") == fingerprint(secret) and hours_since(pause.get("until")) < 0:
+            return None
         ts = TokenStore(secret, data)
         fb = is_fb_token(ts.token)                   # yeni Meta kurulumu: süresi dolmayan anahtar, yenileme yok
         if not fb and ts.refresh_due():
@@ -2268,12 +2273,22 @@ class App:
                     except Exception as de:  # noqa: BLE001
                         log.warning("Instagram teşhisi yapılamadı: %s", de)
                 if e.auth:
-                    self._ig_problem(f"erişim anahtarı çalışmıyor ({esc(e)}). Yeni anahtar üretip GitHub'da "
-                                     "<b>IG_ACCESS_TOKEN</b> değerini güncelle.")
+                    blocked = "blocked" in str(e).lower()
+                    wait = float(self._ig_cfg("instagram_blocked_retry_hours", 3) or 3)
+                    self.state["ig_pause"] = {"fp": fp, "until": iso(now_utc() + timedelta(hours=wait))}
+                    if blocked:   # Meta işletme hesabını kısıtladı: anahtar değil, hesap sorunu
+                        self._ig_problem(f"Meta uygulamanın erişimini engelledi ({esc(e)}). Bu genellikle işletme "
+                                         "hesabı kısıtlandığında olur: Meta'nın e-postasındaki <b>Sorunu düzelt</b> ile "
+                                         f"inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her {wait:.0f} "
+                                         "saatte bir dener).")
+                    else:
+                        self._ig_problem(f"erişim anahtarı çalışmıyor ({esc(e)}). Yeni anahtar üretip GitHub'da "
+                                         f"<b>IG_ACCESS_TOKEN</b> değerini güncelle. (Bot {wait:.0f} saatte bir yeniden dener.)")
                 else:
                     self.state["ig_problem"] = {"at": iso(now_utc()), "text": clip(f"hesap okunamadı: {e}", 400)}
                     log.warning("Instagram hesabı okunamadı: %s", e)
                 return None
+            self.state.pop("ig_pause", None)
             data.update({"me_fp": fp, "id": str(me.get("id") or ""), "user_id": str(me.get("user_id") or ""),
                          "username": me.get("username", "")})
             data.pop("target", None)
@@ -2520,6 +2535,7 @@ class App:
         """/instagram dene: henüz paylaşılmamış en yeni haberi Instagram sırasına al (bağlantıyı denemek için)."""
         if not self.cfg.instagram_token:
             return self.instagram_status()
+        self.state.pop("ig_pause", None)          # sahibi denemek istiyor: beklemeyi bırak, hemen yeniden dene
         done = {x.get("id") for x in self.state.get("ig_done") or []}
         queued = {x.get("id") for x in self.state.get("ig_queue") or []}
         post = next((p for p in self.store.posts() if p["id"] not in done | queued), None)
