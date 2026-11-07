@@ -855,8 +855,8 @@
       "dropped": 2
     },
     "2026-11-07": {
-      "tok_in": 567917,
-      "tok_out": 46393,
+      "tok_in": 572083,
+      "tok_out": 46443,
       "cost_usd": 0.0,
       "drafts": 6,
       "dropped": 1,
@@ -866,8 +866,8 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-07T10:59:41Z",
-  "build_sig": "e093a6e023cb4bc5",
+  "last_build": "2026-11-07T11:11:25Z",
+  "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
@@ -2792,8 +2792,8 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-07T11:02:20Z",
-    "text": "erişim anahtarı çalışmıyor (API access blocked.). Yeni anahtar üretip GitHub'da IG_ACCESS_TOKEN değerini güncelle."
+    "at": "2026-11-07T11:06:51Z",
+    "text": "Meta uygulamanın erişimini engelledi (API access blocked.). Bu genellikle işletme hesabı kısıtlandığında olur: Meta'nın e-postasındaki Sorunu düzelt ile inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her 3 saatte bir dener)."
   },
   "ig_diag": {
     "kind": "facebook",
@@ -2813,5 +2813,9 @@
       "subcode": null
     },
     "at": "2026-11-07T10:31:03Z"
+  },
+  "ig_pause": {
+    "fp": "ab71679b4a75",
+    "until": "2026-11-07T14:06:51Z"
   }
 }
