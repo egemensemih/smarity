@@ -863,7 +863,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-08T21:42:09Z",
+  "last_build": "2026-11-08T22:45:15Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
@@ -2515,27 +2515,6 @@
     "0251d12963:1075e7d4"
   ],
   "ig_queue": [
-    {
-      "id": "f35f52c38e",
-      "queued_at": "2026-11-08T10:39:41Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Ulaştırma Bakanlığı'nın duyurduğu drone otoyolu projesi yüksek haber değeri ve geniş kitle çekiciliği taşıdığı için post formatında paylaşılmayı hak ediyor.",
-      "mid": 2035,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller ve metinler marka kimliğine tamamen uygun, okunabilirlik yüksek ve güvenle paylaşılabilir durumda.",
-        "at": "2026-11-08T10:44:09Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
     {
       "id": "fe2a75fe9e",
       "queued_at": "2026-11-08T11:21:12Z",
