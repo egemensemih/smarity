@@ -1,0 +1,122 @@
+{
+  "id": "88d555895b",
+  "created_at": "2026-11-09T08:18:01Z",
+  "title": "Google Chrome gizli sekme güvenliğini artırmak için çalışıyor",
+  "summary": "Google, Chrome tarayıcısının gizli sekme ve misafir modlarında gerçek zamanlı güvenlik kontrollerini devreye sokmaya hazırlanıyor.",
+  "body": "Google Chrome kullanıcılarının internette daha güvenli gezinebilmesi için önemli bir adım atılıyor. Windows Report'un aktardığına göre, popüler internet tarayıcısının geliştirme aşamasındaki yeni sürümleri, gerçek zamanlı Güvenli Gözatma kontrollerini gizli sekme ve misafir modlarına da taşımayı hedefliyor.\n\n## Gizli sekmede güvenlik açığı kapanıyor\n\nMevcut sistemde normal tarama sırasında Google'ın güncel tehdit veritabanı anlık olarak kontrol edilirken, gizli sekmede genellikle cihazda depolanan çevrimdışı listeler kullanılıyordu. Bu durum, kısa ömürlü zararlı sitelere karşı bir güvenlik boşluğu yaratabiliyordu. Yeni geliştirme sayesinde standart ve gelişmiş koruma kullanan kişilerin gizli pencerelerde de anlık tarama özelliklerinden faydalanması planlanıyor.\n\nGizlilik endişelerini gidermek amacıyla geliştiricilerin bazı önlemler aldığı da belirtiliyor. Gizli oturumlar sırasında üretilen geçici güvenlik anahtarları cihazın kalıcı depolama alanına yazılmak yerine sadece bellekte tutulacak. Ayrıca kullanıcıların IP adresleri gizlilik sunucuları aracılığıyla gizlenmeye devam edecek. Özellik şu an için deneysel aşamada bulunuyor ve varsayılan olarak kapalı geliyor. Google henüz resmi bir çıkış tarihi açıklamış değil.\n\n**Neden önemli?** Gerçek zamanlı güvenlik denetimlerinin gizli sekmelere gelmesi, kullanıcıların internetteki tehlikeli sayfalara karşı korunmasında mevcut veritabanı gecikmelerini ortadan kaldırabilir.",
+  "category": "teknoloji",
+  "tags": [
+    "Google",
+    "Chrome",
+    "Windows Report"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Chrome gizli sekme güvenliği yenileniyor",
+  "kicker": "Güvenlik güncellemesi",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a dark translucent glass shield resting on a minimal matte surface, subtle blue light reflecting off its curved edges to represent digital security and privacy protection",
+  "focus_keyword": "Google Chrome gizli sekme",
+  "seo_title": "Google Chrome gizli sekme güvenliği güncelleniyor",
+  "meta_description": "Google Chrome, gizli sekme ve misafir modlarına gerçek zamanlı güvenlik kontrolleri getirmek için yeni bir özellik geliştiriyor.",
+  "seo_slug": "google-chrome-gizli-sekme-guvenligi",
+  "image_alt": "Dijital güvenliği temsil eden koyu renkli cam kalkan görseli",
+  "cover_text": "Chrome gizli sekme",
+  "carousel_points": [
+    "Google Chrome, gizli sekme ve misafir modları için güvenlik geliştirmeleri üzerinde çalışıyor.",
+    "Yeni özellik ile anlık tehdit taramaları özel pencerelerde de aktif hale gelebilir.",
+    "Geçici güvenlik verileri cihaz depolaması yerine sadece bellekte tutulacak."
+  ],
+  "appeal": 6,
+  "update_note": "",
+  "cover_headline": "Chrome gizli sekmesine gerçek zamanlı güvenlik geliyor",
+  "cover_highlight": "gerçek zamanlı güvenlik",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Google Chrome gizli sekmedeki güvenlik açığını yeni güncellemeyle kapatıyor.",
+  "entities": [
+    "Google",
+    "Chrome"
+  ],
+  "topic": "Google Chrome Incognito mode security upgrade",
+  "sources": [
+    {
+      "name": "Digital Trends",
+      "url": "https://www.digitaltrends.com/computing/chromes-incognito-mode-has-a-security-blind-spot-but-google-is-plugging-the-hole-now/",
+      "title": "Chrome’s Incognito mode has a security blind spot, but Google is plugging the hole now",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-09T08:01:29Z",
+      "image": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/08/DT-2026-08-10T151644.324.jpg?resize=440%2C292&ssl=1"
+    }
+  ],
+  "source_keys": [
+    "Digital Trends"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2059
+  },
+  "photos": [
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2019/07/incognito-mode.jpg?resize=992%2C661&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/computing/chromes-incognito-mode-has-a-security-blind-spot-but-google-is-plugging-the-hole-now/",
+      "alt": "Google Chrome Incognito",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "88d555895b-g0.webp",
+      "w": 992,
+      "h": 661
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-2",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "google-chrome-gizli-sekme-guvenligi",
+  "published_at": "2026-11-09T08:18:06Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/google-chrome-gizli-sekme-guvenligi",
+  "social": {
+    "format": "story",
+    "score": 6,
+    "reason": "Genis bir kitleyi ilgilendiren Chrome guvenlik guncellemesi haber degeri tasiyor ancak kalici post yerine 24 saatlik story formatinda paylasilmasi daha dogru.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Google Chrome guvenlik guncellemesi onemli bir gelisme ancak henuz yeni bir ozellik olarak tam yayinlanmadi."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Gizli sekme ozelligi herkesin ilgisini ceker ama kalici bir post olusturmak icin yeterince carpici degil."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 6,
+        "reason": "Eldeki gorsel fena degil ancak hikaye formatinda kullanmak icin daha uygun bir teknoloji fotografi."
+      }
+    ],
+    "at": "2026-11-09T08:18:09Z"
+  },
+  "photos_vetted": "2026-11-09T08:18:12Z",
+  "photos_vet_v": 2
+}
