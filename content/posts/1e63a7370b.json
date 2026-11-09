@@ -66,9 +66,12 @@
     "message_id": 2079
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "1e63a7370b-g0.webp",
+    "credit": "DPReview",
+    "page": "https://www.dpreview.com/news/we-went-hands-on-with-xiaomis-dual-screen-18-pro-phones-with-leica-cameras/",
+    "src": "https://www.dpreview.com/wp-content/uploads/2026/11/P1048092.jpg",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -88,7 +91,7 @@
     "votes": [],
     "at": "2026-11-09T13:11:37Z"
   },
-  "photos_filled": "2026-11-09T13:11:38Z",
+  "photos_filled": "2026-11-09T15:14:08Z",
   "photos_tried": "2026-11-09T13:11:45Z",
   "coverage": [
     {
@@ -99,5 +102,21 @@
       "image": "https://www.dpreview.com/wp-content/uploads/2026/11/P1048092.jpg",
       "at": "2026-11-09T13:37:39Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://www.dpreview.com/wp-content/uploads/2026/11/P1048092.jpg",
+      "credit": "DPReview",
+      "page": "https://www.dpreview.com/news/we-went-hands-on-with-xiaomis-dual-screen-18-pro-phones-with-leica-cameras/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "1e63a7370b-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-09T13:11:34Z"
 }
