@@ -1,0 +1,126 @@
+{
+  "id": "022176ba48",
+  "created_at": "2026-11-10T08:15:37Z",
+  "title": "Apple, macOS güncellemeleri ile kritik eMudhra sertifika açığını kapattı",
+  "summary": "Apple, tüm Mac kullanıcıları için eMudhra sertifika güvenlik açığını gideren yeni macOS sürümlerini yayınladı. Güncellemelerin vakit kaybetmeden yüklenmesi öneriliyor.",
+  "body": "Apple, Mac cihazlarda veri güvenliğini tehdit eden kritik bir eMudhra sertifika açığını kapatmak amacıyla yeni macOS güncellemelerini kullanıma sundu. DonanımHaber tarafından aktarılan bilgilere göre, daha önce Safari ve Mail uygulamalarında engellenen güvenliği ihlal edilmiş sertifikaların, curl ve git gibi komut satırı araçları üzerindeki riskleri de macOS 27.2.1 sürümüyle birlikte tamamen ortadan kaldırıldı.\n\n## Sertifika güvenliği neden önemli?\n\nBir süre önce Mozilla, Hindistan merkezli dijital sertifikasyon şirketi eMudhra'ya ait sekiz ara sertifika yetkilisinin özel anahtarlarının ele geçirildiğini duyurmuştu. Bu sertifikalar, web sitelerinin kimliklerini doğrulayarak güvenli bağlantı kurulmasını sağlıyor. Özel anahtarlara erişim sağlayan kötü niyetli kişiler, sahte sertifikalar oluşturarak kullanıcıların hassas verilerini ele geçirme riski taşıyordu. Apple, kullanıcıları korumak adına Ekim ayında bazı uygulamalarda bu sertifikaları engellemiş olsa da, macOS 27.2.1 güncellemesi kapsamı genişleterek sistem genelinde bir çözüm sunuyor.\n\n## Güncelleme detayları ve sürümler\n\nApple, bu güvenlik açığını gidermek için macOS 27.2.1, macOS 26.7.3 ve macOS 15.8.3 sürümlerini yayınladı. Şirket, kullanıcıların cihazlarını bu sürümlere yükseltmelerini önemle tavsiye ediyor. Daha önce, güvenli kalmak isteyen kullanıcıların ilgili kök sertifikaları sistem dosyalarından elle kaldırması öneriliyordu; ancak yeni yayınlanan güncellemeler bu karmaşık süreci ortadan kaldırarak otomatik koruma sağlıyor.\n\n**Neden önemli?** Dijital sertifikalardaki bu tür bir güvenlik ihlali, sahte sitelerin güvenli görünmesine yol açarak kullanıcıların kişisel verilerini doğrudan tehlikeye atabiliyordu. Apple'ın bu hamlesi, sistem genelindeki tüm uygulamaların artık bu riskli sertifikaları reddetmesini sağlayarak güvenliği yeniden tesis ediyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Apple",
+    "macOS",
+    "siber güvenlik",
+    "eMudhra"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Apple'dan Mac için güvenlik güncellemesi",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A high-angle close-up of an open laptop screen displaying a generic, neutral loading bar, next to a modern smartphone and a clean notebook on a minimalist desk, soft natural light creating a serene, secure workspace environment.",
+  "focus_keyword": "macOS güncellemeleri",
+  "seo_title": "Apple'dan macOS güncellemeleri ile kritik güvenlik yaması",
+  "meta_description": "Apple, eMudhra sertifika açığını kapatmak için yeni macOS güncellemeleri yayınladı. Mac kullanıcıları cihazlarını güvenli hale getirmek için yükseltme yapmalı.",
+  "seo_slug": "apple-macos-guncellemeleri-emudhra-acigi-kapatti",
+  "image_alt": "Bilgisayar başında güvenlik güncellemesi yapan bir kullanıcıyı temsil eden minimalist bir çalışma masası görseli",
+  "cover_text": "macOS Güncellemesi",
+  "carousel_points": [
+    "Apple, Mac cihazlarda veri güvenliğini riske atan bir sertifika açığını kapattı.",
+    "Yeni güncellemelerle birlikte Safari, Mail ve tüm komut satırı araçları koruma altına alındı.",
+    "Şirket, tüm Mac kullanıcılarının cihazlarını vakit kaybetmeden güncellemelerini tavsiye ediyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Apple Mac'ler için güvenlik güncellemesi yayınladı",
+  "cover_highlight": "güvenlik güncellemesi",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Apple macOS için kritik güvenlik güncellemesi yayınlandı, kullanıcılar için önemli.",
+  "entities": [
+    "Apple",
+    "macOS"
+  ],
+  "topic": "Apple macOS security updates",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/apple-dan-tum-mac-lere-guvenlik-guncellemesi--212702",
+      "title": "Apple'dan tüm Mac'lere güvenlik güncellemesi: eMudhra sertifika açığı giderildi!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-10T07:58:07Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/212702/1200x675apple-dan-tum-mac-lere-guvenlik-guncellemesi.jpg"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2109
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Aerial_view_of_Apple_Park_dllu.jpg/960px-Aerial_view_of_Apple_Park_dllu.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Apple",
+      "alt": "Apple",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "022176ba48-g0.webp",
+      "w": 960,
+      "h": 641
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "022176ba48-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Apple",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Aerial_view_of_Apple_Park_dllu.jpg/960px-Aerial_view_of_Apple_Park_dllu.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "apple-macos-guncellemeleri-emudhra-acigi-kapatti",
+  "published_at": "2026-11-10T08:16:09Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/apple-macos-guncellemeleri-emudhra-acigi-kapatti",
+  "social": {
+    "format": "story",
+    "score": 6,
+    "reason": "Apple guvenlik guncellemesi onemli bir gelisme olsa da genel kitle icin rutin bir yazilim yamasi oldugundan sadece story formatinda paylasilmasina karar verildi.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Apple'in guvenlik acigini kapatan kritik guncellemesi onemli ancak rutin bir yazilim yamasi."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Mac kullanicilari icin onemli bir uyari niteliginde ancak genel kitleyi cok heyecanlandiracak bir icerik degil."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 6,
+        "reason": "Gercek bir gorseli bulunuyor ancak yazilim guncellemesi haberi oldugu icin post yerine story duzeyinde kalmasi daha uygun."
+      }
+    ],
+    "at": "2026-11-10T08:20:27Z"
+  },
+  "photos_vetted": "2026-11-10T08:20:35Z",
+  "photos_vet_v": 2
+}
