@@ -1,0 +1,124 @@
+{
+  "id": "5530ed7351",
+  "created_at": "2026-11-10T01:33:17Z",
+  "title": "OpenAI Control Room ile riskli yapay zekaları 35 saniyede durduracak",
+  "summary": "OpenAI, olası riskli yapay zeka araştırmalarını ve ajan tabanlı modelleri 35 saniye içinde durdurabilen merkezi Control Room sistemini devreye soktu.",
+  "body": "OpenAI'ın duyurusuna göre şirket, araştırma altyapısındaki potansiyel olarak riskli yapay zeka iş yüklerini durdurmak amacıyla **Control Room** adlı merkezi bir kontrol sistemi geliştirdi ve kullanıma sundu. Yapay zeka modellerinin güvenliğini artırmayı hedefleyen bu yeni sistem, şüpheli durumları yalnızca tespit etmekle kalmayıp araştırmaların model çıktısı üretmesini aktif olarak engelleyebiliyor.\n\n## Control Room nasıl çalışıyor?\n\nInteresting Engineering'in aktardığına göre sistem; araştırma iş yükü, çıkarım motoru ve merkezi Control Room servisi olmak üzere üç ana bileşeni birbirine bağlıyor. Araştırmacılar bir iş başlattığında sistemden benzersiz bir kimlik alıyor ve çıkarım motorları her istek öncesinde bu işin hâlâ yetkili olup olmadığını merkeze onaylatıyor. Bir müdahale gerekirse merkezi servis isteği reddediyor ve motor model çıktısı üretmeyi durduruyor. Şirket, yoğun istek trafiğini yöneten önbellekleme katmanı nedeniyle durdurma komutunun en fazla **35 saniye** içinde işleme alındığını, bu sürenin sıfıra indirilmesi için çalışmaların sürdüğünü belirtiyor.\n\n## Güvenlik ve önlemler\n\nSistem, merkezi servis erişilemez duruma geldiğinde talepleri doğrudan reddeden güvenli bir kapanma mekanizmasıyla çalışıyor. Ayrıca OpenAI'ın öncü pekiştirmeli öğrenme işleri, potansiyel sorunları izleyen bağımsız model tabanlı denetçilerle birlikte çalıştırılıyor ve gerekli durumlarda Control Room'a sinyal göndererek işin durdurulmasını sağlıyor.\n\n**Neden önemli?** Giderek gelişen yapay zeka modellerinin getirdiği güvenlik risklerini yönetmek amacıyla geliştirilen bu sistem, araştırmaların model çıktısı almasını merkezi bir katmanda denetleyerek olası tehlikelerin önüne geçmeyi amaçlıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "OpenAI",
+    "yapay zeka güvenliği"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "OpenAI'dan riskli yapay zekalar için 35 saniyelik durdurma sistemi",
+  "kicker": "Yapay zeka güvenliği",
+  "hero_stat": "35 saniye",
+  "hero_stat_label": "en uzun müdahale süresi",
+  "visual_style": "studio",
+  "visual_scene": "a central glowing node connected to multiple translucent glass lines, with a physical mechanical switch cutting off light flow in a clean studio environment",
+  "focus_keyword": "OpenAI Control Room",
+  "seo_title": "OpenAI Control Room ile riskli yapay zekaları durduracak",
+  "meta_description": "OpenAI, olası riskli yapay zeka araştırmalarını ve ajan tabanlı modelleri 35 saniye içinde durdurabilen merkezi Control Room sistemini devreye soktu.",
+  "seo_slug": "openai-control-room-riskli-yapay-zekalari-durduracak",
+  "image_alt": "OpenAI tarafından geliştirilen Control Room sistemini temsil eden stüdyo ortamındaki merkezi bağlantı ve durdurma…",
+  "cover_text": "Control Room",
+  "carousel_points": [
+    "OpenAI, araştırma altyapısındaki riskli yapay zeka iş yüklerini durdurmak için Control Room sistemini devreye soktu.",
+    "Sistem, onaylanmamış veya riskli görülen ajan tabanlı model çalışmalarının çıktı üretmesini engelliyor.",
+    "Durdurma komutları önbellekleme katmanından ötürü en fazla 35 saniye içinde uygulanıyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "OpenAI riskli yapay zekayı 35 saniyede durduruyor",
+  "cover_highlight": "35 saniyede",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "OpenAI otonom ajanları durduran Control Room sistemini duyurdu.",
+  "entities": [
+    "OpenAI",
+    "Control Room"
+  ],
+  "topic": "OpenAI launches Control Room with kill switch",
+  "sources": [
+    {
+      "name": "Interesting Engineering",
+      "url": "https://interestingengineering.com/ai-robotics/openai-control-room-35-second-model-shutdown",
+      "title": "OpenAI launches Control Room with a powerful 35-second kill switch for rogue agents",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-10T01:25:45Z",
+      "image": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-design-2026-11-10T065436.488.jpg"
+    }
+  ],
+  "source_keys": [
+    "Interesting Engineering"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2097
+  },
+  "photos": [
+    {
+      "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-design-2026-11-10T065436.488.jpg",
+      "credit": "Interesting Engineering",
+      "page": "https://interestingengineering.com/ai-robotics/openai-control-room-35-second-model-shutdown",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "5530ed7351-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "5530ed7351-g0.webp",
+    "credit": "Interesting Engineering",
+    "page": "https://interestingengineering.com/ai-robotics/openai-control-room-35-second-model-shutdown",
+    "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-design-2026-11-10T065436.488.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "openai-control-room-riskli-yapay-zekalari-durduracak",
+  "published_at": "2026-11-10T01:33:23Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/openai-control-room-riskli-yapay-zekalari-durduracak",
+  "social": {
+    "format": "post",
+    "score": 8,
+    "reason": "OpenAI'ın güvenlik önlemleri geniş kitlelerin ilgisini çektiği ve yüksek haber değerine sahip olduğu için kalıcı post formatında paylaşılıyor.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "post",
+        "score": 8,
+        "reason": "OpenAI'ın yapay zeka güvenliği alanındaki bu kritik adımı yüksek haber değerine sahip."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "post",
+        "score": 8,
+        "reason": "Yapay zekanın kontrol altına alınması konusu geniş kitlelerin ilgisini çeker ve etkileşim yaratır."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Mevcut görsel haberin içeriğini destekliyor ancak kalıcı bir post için biraz teknik kalabilir."
+      }
+    ],
+    "at": "2026-11-10T01:33:27Z"
+  },
+  "photos_vetted": "2026-11-10T01:33:30Z",
+  "photos_vet_v": 2
+}
