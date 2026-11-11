@@ -66,12 +66,9 @@
     "message_id": 2168
   },
   "image": {
-    "source": "photo",
-    "photo": "4b4236742e-g0.webp",
-    "credit": "Webrazzi",
-    "page": "https://webrazzi.com/2026/11/11/openai-yapay-zeka-destekli-seyahat-asistani-odessia-yi-satin-aldi/",
-    "src": "https://cdn.webrazzi.com/uploads/2026/08/openai-1-309.png",
+    "source": "cover",
     "layout": "manset",
+    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -107,20 +104,22 @@
       "at": "2026-11-11T12:29:42Z"
     }
   ],
+  "photos_v": 2,
+  "updated_at": "2026-11-11T14:07:48Z",
+  "photos_vetted": "2026-11-11T14:07:34Z",
+  "photos_vet_v": 2,
   "photos": [
     {
-      "src": "https://cdn.webrazzi.com/uploads/2026/08/openai-1-309.png",
-      "credit": "Webrazzi",
-      "page": "https://webrazzi.com/2026/11/11/openai-yapay-zeka-destekli-seyahat-asistani-odessia-yi-satin-aldi/",
-      "alt": "",
-      "kind": "feed",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/Dall-e_3_%28jan_%2724%29_artificial_intelligence_icon.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/OpenAI",
+      "alt": "OpenAI",
+      "kind": "wiki",
       "graphic": false,
       "cover_ok": true,
       "file": "4b4236742e-g0.webp",
-      "w": 1280,
-      "h": 720
+      "w": 820,
+      "h": 820
     }
-  ],
-  "photos_v": 2,
-  "updated_at": "2026-11-11T09:53:15Z"
+  ]
 }
