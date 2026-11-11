@@ -1,40 +1,41 @@
 {
   "id": "22bd97b32c",
   "created_at": "2026-11-10T18:02:31Z",
-  "title": "ChatGPT 'Business Agents' özelliği ile markalarla doğrudan iletişimi başlatıyor",
-  "summary": "OpenAI, kullanıcıların markaları temsil eden doğrulanmış yapay zeka temsilcileriyle doğrudan konuşabileceği yeni Business Agents özelliğini duyurdu.",
-  "body": "OpenAI, kullanıcıların markalarla etkileşimini değiştirmeyi amaçlayan yeni ChatGPT Business Agents özelliğini beta aşamasında kullanıma sundu. Bu teknoloji sayesinde kullanıcılar, belirli e-ticaret ve çevrimiçi hizmet sağlayıcılarını temsil eden yapay zeka temsilcileriyle doğrudan sohbet edebilecek.\n\n## Business Agents nasıl çalışıyor?\n\nKullanıcılar, ChatGPT içinde bir işletmeyle ilgili sorular sorduklarında, o markanın sunduğu Business Agents ile karşılaşabilecekler. Bu özel temsilciler, markanın kendi belirlediği yönergeler ve sunduğu iş bağlamı üzerinden yanıtlar verecek. Örneğin, bir kullanıcının iki ürün arasındaki farkları sorması durumunda, sistem bu bilgiyi markanın sağladığı güncel veriler ışığında açıklayabilecek. OpenAI, kullanıcıların yanlış yönlendirilmemesi adına bu sohbetlerin ana görüşmelerden ayrı tutulacağını ve açıkça etiketleneceğini belirtiyor.\n\n## İşletmeler için doğrulama ve veriler\n\nMarkaların sunduğu bu hizmetin güvenilirliğini sağlamak adına OpenAI, Business Hub adı verilen bir doğrulama sistemi devreye aldı. Bu sistem, markaların kimliklerini kanıtlamalarına olanak tanırken, işletmelere ChatGPT yanıtlarında ne kadar yer aldıklarını ve kullanıcıların en çok hangi konularda araştırma yaptıklarını görmelerini sağlayan içgörüler sunacak. Şimdilik sadece ABD'deki uygun işletmeler için erişime açılan bu özellik, ilerleyen dönemlerde daha geniş kapsamlı iş birliği imkanlarını beraberinde getirmeyi hedefliyor.\n\n**Neden önemli?** OpenAI, bu adımla ChatGPT'yi yalnızca bir bilgi kaynağı olmaktan çıkarıp, kullanıcıların satın alma kararlarını doğrudan etkileyen bir ticari platforma dönüştürmeyi amaçlıyor.",
+  "title": "OpenAI kurumlar için ChatGPT Business platformunu duyurdu",
+  "summary": "OpenAI, şirketlerin iş süreçlerini yapay zekayla yönetmesini sağlayan ChatGPT Business platformunu tanıttı. Sistem, Slack ve Gmail gibi uygulamalarla entegre çalışıyor.",
+  "body": "OpenAI, şirketlerin ve ekiplerin yapay zeka araçlarını iş süreçlerine entegre etmesini sağlayan ChatGPT Business platformunu duyurdu. 11 Kasım'da tanıtılan bu platform, çalışanların şirket verileri üzerinden ortak çalışmasını ve farklı iş uygulamalarına tek bir noktadan erişmesini amaçlıyor.\n\n## ChatGPT Business neler sunuyor?\nChatGPT Business; Slack, Gmail, Google Drive, Microsoft 365 ve GitHub gibi yaygın olarak kullanılan uygulamalarla entegre şekilde çalışıyor. Platform bünyesinde yer alan Codex aracı kod yazma, hata ayıklama ve kod değişikliklerini inceleme gibi yazılım süreçlerini üstlenirken; ChatGPT ise araştırma, veri analizi, raporlama ve proje planlama görevlerinde destek veriyor. Yönetim tarafında ise şirket yöneticileri çalışan hesaplarını ve kullanım limitlerini merkezi bir panelden takip edebiliyor. Ayrıca sistemdeki kullanıcı verileri varsayılan olarak modellerin eğitiminde kullanılmıyor ve tüm aktarımlar şifreli olarak gerçekleştiriliyor. Daha önce duyurulan ve markaların müşteri etkileşimini sağlayan Business Agents gibi kurumsal çözümler de bu ekosistemin bir parçası olarak konumlanıyor.\n\n## Fiyatlandırma ve erişim\nPlatform, kullanıcı bazlı abonelik modeliyle sunuluyor ve faydalanmak için en az iki lisans satın alınması gerekiyor. Standart plan ABD'de yıllık abonelikte kullanıcı başına ayda 20 dolar, aylık ödemede ise 25 dolar olarak fiyatlandırılıyor. Daha yüksek kullanım limitleri sunan Premium plan ise yıllık abonelikte ayda 100 dolar, aylık ödemede 125 dolar seviyesinde bulunuyor; Türkiye fiyatları ise henüz açıklanmadı.\n\n**Neden önemli?** OpenAI, ChatGPT Business ile tekil bir yapay zeka asistanı olmaktan çıkıp şirketlerin tüm dijital iş akışlarını ve uygulamalarını birleştiren merkezi bir kurumsal çalışma ortamına dönüşmeyi hedefliyor.",
   "category": "super-zeka",
   "tags": [
     "OpenAI",
     "ChatGPT",
-    "yapay zeka",
-    "e-ticaret"
+    "ChatGPT Business",
+    "Codex",
+    "Slack"
   ],
   "confidence": "yuksek",
   "flags": [],
   "editor_note": "",
-  "short_title": "ChatGPT'ye doğrulanmış Business Agents geldi",
-  "kicker": "Yeni özellik",
+  "short_title": "OpenAI'dan kurumlar için ChatGPT Business",
+  "kicker": "Yeni platform",
   "hero_stat": "",
   "hero_stat_label": "",
   "visual_style": "studio",
   "visual_scene": "A clean, white minimalist office desk featuring a single small, translucent blue glass cube reflecting soft light, representing a verified agent interface.",
-  "focus_keyword": "ChatGPT Business Agents",
-  "seo_title": "ChatGPT Business Agents özelliği nedir? Markalarla iletişim",
-  "meta_description": "OpenAI, markaların ürünleri hakkında bilgi alabileceğiniz doğrulanmış ChatGPT Business Agents özelliğini duyurdu. İşte yeni dönemin detayları.",
+  "focus_keyword": "ChatGPT Business",
+  "seo_title": "ChatGPT Business tanıtıldı: İş süreçleri tek platformda",
+  "meta_description": "OpenAI, kurumlar için ChatGPT Business platformunu duyurdu. Slack, Gmail ve Codex entegrasyonlu yeni platformun özellikleri ve detayları.",
   "seo_slug": "chatgpt-business-agents-ozelligi-duyuruldu",
-  "image_alt": "ChatGPT'nin yeni iş temsilcisi özelliğini simgeleyen şeffaf cam küp tasarımı",
-  "cover_text": "ChatGPT Business Agents",
+  "image_alt": "Buzlu camdan yapılmış modüler iş araçları sembolleri ve ortada parlayan ChatGPT Business logosunu temsil eden görsel",
+  "cover_text": "ChatGPT Business",
   "carousel_points": [
-    "OpenAI, markaları temsil eden yapay zeka tabanlı Business Agents özelliğini duyurdu.",
-    "Kullanıcılar bu temsilciler sayesinde ürünler hakkında karşılaştırmalı bilgi alabilecek.",
-    "Doğrulanmış işletmeler, ChatGPT yanıtlarında kullanıcılarla doğrudan etkileşime girecek."
+    "OpenAI, şirketler için kurumsal çalışma alanı ChatGPT Business platformunu duyurdu.",
+    "Slack, Gmail, Microsoft 365 ve GitHub gibi uygulamalar tek bir merkezde buluşuyor.",
+    "Şirket verileri varsayılan olarak yapay zeka modellerinin eğitiminde kullanılmıyor."
   ],
   "appeal": 8,
   "update_note": "",
-  "cover_headline": "ChatGPT markalar için Business Agents başlattı",
-  "cover_highlight": "Business Agents",
+  "cover_headline": "OpenAI'dan kurumlar için ChatGPT Business",
+  "cover_highlight": "ChatGPT Business",
   "cover_line_v": 3,
   "importance": 9,
   "big_brand": true,
@@ -56,10 +57,21 @@
       "via_url": null,
       "published": "2026-11-10T18:00:00Z",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Business-Agent-Customer-Conversation.png?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    },
+    {
+      "name": "Swipeline",
+      "url": "https://swipeline.co/openai-isletmeler-icin-codex-slack-ve-gmail-tek-platformda-bulusturdu-chatgpt-business/",
+      "title": "OpenAI, işletmeler için Codex, Slack ve Gmail’i tek platformda buluşturdu: ChatGPT Business",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-11T12:19:10Z",
+      "image": "https://swipeline.co/cdn/2026/11/cb.webp"
     }
   ],
   "source_keys": [
-    "The Verge"
+    "The Verge",
+    "Swipeline"
   ],
   "rewrites": 0,
   "telegram": {
@@ -164,6 +176,25 @@
       "kind": "media",
       "image": "https://cdn.mos.cms.futurecdn.net/vx46gLMS6a9vSTsqsDZMKE-1920-80.jpg",
       "at": "2026-11-11T12:11:31Z"
+    },
+    {
+      "name": "Swipeline",
+      "url": "https://swipeline.co/openai-isletmeler-icin-codex-slack-ve-gmail-tek-platformda-bulusturdu-chatgpt-business/",
+      "title": "OpenAI, işletmeler için Codex, Slack ve Gmail’i tek platformda buluşturdu: ChatGPT Business",
+      "kind": "media",
+      "image": "https://swipeline.co/cdn/2026/11/cb.webp",
+      "at": "2026-11-11T12:59:08Z"
+    }
+  ],
+  "updated_at": "2026-11-11T12:59:48Z",
+  "refreshed_at": "2026-11-11T12:59:48Z",
+  "updates": [
+    {
+      "at": "2026-11-11T12:59:48Z",
+      "note": "OpenAI'ın kurumlar için Slack, Gmail ve Codex entegrasyonu sunan yeni ChatGPT Business platformu habere eklendi.",
+      "sources": [
+        "Swipeline"
+      ]
     }
   ]
 }
