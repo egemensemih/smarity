@@ -1,0 +1,127 @@
+{
+  "id": "95bde488cb",
+  "created_at": "2026-11-12T09:33:28Z",
+  "title": "Grok Build veri sızıntısı: SpaceXSI platformunda hassas belgeler açığa çıktı",
+  "summary": "SpaceXSI bünyesindeki Grok Build platformunda yaşanan yapılandırma hatası, binlerce uygulamanın ve hassas kurumsal belgenin şifresiz şekilde erişime açılmasına neden oldu.",
+  "body": "Webtekno'nun aktardığına göre, SpaceX ve xAI ortaklığında kurulan SpaceXSI şirketinin geliştirdiği Grok Build platformunda kapsamlı bir **Grok Build veri sızıntısı** tespit edildi. Güvenlik firması Claroc tarafından yapılan araştırmaya göre, hatalı yapılandırılan varsayılan paylaşım ayarları ve adres oluşturma sistemi nedeniyle binlerce uygulama internete sızdı.\n\n## Hassas veriler şifresiz erişilebilir hâle geldi\n\nClaroc'un 8 Kasım'da şirkete bildirdiği güvenlik açığı, \"grok.me\" alan adı altında oluşturulan adreslerin pasif DNS servisleri üzerinden kolayca taranabilmesinden kaynaklandı. Varsayılan olarak \"Bağlantıya sahip olan herkes\" şeklinde ayarlanan erişim tercihleri nedeniyle yetkisiz kişiler şifreye ihtiyaç duymadan belgelere erişebildi. Sızdırılan içerikler arasında şunlar yer aldı:\n\n- SpaceXSI ve X çalışanlarına ait gizli satış planları ile reklam bütçelerini içeren 24 uygulama,\n- Tesla teknisyenlerinin performans değerlendirme karneleri,\n- ABD Donanması yüklenicisi mühendislerin personel listeleri ve bir şirketteki 18 yöneticinin açık metin halindeki şifreleri,\n- Yoğun bakım hastalarının laboratuvar sonuçları ve 3 bin 500 kişilik hastane personel rehberi.\n\n## SpaceXSI uyarılara karşılık vermekte gecikti\n\nClaroc'un bildiriminin ardından SpaceXSI, kendi bünyesindeki iş planlarını ve reklam bütçelerini içeren uygulamalara erişimi birkaç saat içinde kapattı. Ancak platformu kullanan diğer kurumların ve Fortune 500 şirketlerinin verileri günlerce internet ortamında açık kalmaya devam etti. Şirket, dışarıdan gelen uyarılara günlerce yanıt vermedi.\n\n**Neden önemli?** Veri güvenliği süreçlerinde yapılan basit bir varsayılan ayar hatası, dev şirketlerin ve sağlık kuruluşlarının kritik verilerini savunmasız bırakarak sistem mimarisindeki güvenlik standartlarının hayatı önemini bir kez daha gösteriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "SpaceXSI",
+    "Grok Build",
+    "Tesla",
+    "xAI",
+    "Elon Musk"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Grok Build platformunda büyük veri sızıntısı",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "a translucent obsidian vault with a subtle open fissure on top, from which thin glowing blue pages drift out onto a polished dark surface, minimalistic lighting, realistic texture",
+  "focus_keyword": "Grok Build veri sızıntısı",
+  "seo_title": "Grok Build veri sızıntısı hassas belgeleri açığa çıkardı",
+  "meta_description": "SpaceXSI tarafından sunulan Grok Build platformundaki güvenlik hatası, Tesla verilerinden hastane kayıtlarına kadar binlerce belgeyi açıkta bıraktı.",
+  "seo_slug": "grok-build-veri-sizintisi-skandali",
+  "image_alt": "Saydam siyah bir kasanın yarığından sızan mavi ışıklı belgeleri temsil eden görsel",
+  "cover_text": "Grok Build",
+  "carousel_points": [
+    "Grok Build platformundaki varsayılan ayar hatası nedeniyle binlerce uygulama internete sızdı.",
+    "Sızıntıda Tesla belgeleri, hastane verileri ve şirket içi yönetici şifreleri açıkta kaldı.",
+    "SpaceXSI kendi verilerini hızla gizlerken diğer kurumların verileri günlerce açık kaldı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Grok Build'de hassas veriler sızdı",
+  "cover_highlight": "hassas veriler sızdı",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Elon Musk'ın yapay zeka platformu Grok'ta yaşanan veri sızıntısı gelişmesi.",
+  "entities": [
+    "Elon Musk",
+    "Grok"
+  ],
+  "topic": "Grok Build user data breach",
+  "sources": [
+    {
+      "name": "Webtekno",
+      "url": "https://www.webtekno.com/elon-musk-grok-build-veri-sizintisi-skandali-h228847.html",
+      "title": "Elon Musk'ın Yapay Zekâsı Kendi Şirketini de Yaktı: Gizli Belgeler İnternete Sızdı!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-12T09:08:50Z",
+      "image": "https://imgrosetta.webtekno.com/file/696949/696949-640xauto.jpg"
+    }
+  ],
+  "source_keys": [
+    "Webtekno"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2204
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Elon_Musk_-_54820081119_%28cropped%29.jpg/960px-Elon_Musk_-_54820081119_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Elon_Musk",
+      "alt": "Elon Musk",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "95bde488cb-g0.webp",
+      "w": 960,
+      "h": 1262
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "95bde488cb-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Elon_Musk",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Elon_Musk_-_54820081119_%28cropped%29.jpg/960px-Elon_Musk_-_54820081119_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "grok-build-veri-sizintisi-skandali",
+  "published_at": "2026-11-12T09:33:43Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/grok-build-veri-sizintisi-skandali",
+  "social": {
+    "format": "story",
+    "score": 7,
+    "reason": "Tesla ve Grok ile ilişkili kritik veri sızıntısı geniş kitlenin ilgisini çekecek nitelikte olduğundan hikaye olarak paylaşılmasına karar verildi.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Tesla ve SpaceXSI bağlantılı veri sızıntısı önemli bir güvenlik haberi olsa da ana akış yerine 24 saatlik hikaye formatına daha uygun."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Grok ve Tesla markaları merak uyandırsa da kurumsal siber güvenlik sızıntıları akışta yüksek etkileşim almaz, hikaye kalması doğru olur."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Wikipedia kaynaklı dikey odaklı gerçek fotoğraf hikaye paylaşımı için görsel açıdan yeterli kalitede."
+      }
+    ],
+    "at": "2026-11-12T09:33:52Z"
+  },
+  "photos_vetted": "2026-11-12T09:33:56Z",
+  "photos_vet_v": 2
+}
