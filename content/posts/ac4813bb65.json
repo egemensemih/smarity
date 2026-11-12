@@ -64,9 +64,12 @@
     "message_id": 2193
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "ac4813bb65-g0.webp",
+    "credit": "Interesting Engineering",
+    "page": "https://interestingengineering.com/energy/solid-state-battery-1000-cycles",
+    "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/IE-2026-11-12T191214.300.jpg",
     "layout": "manset",
-    "palette": "inovasyon-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -101,7 +104,7 @@
     ],
     "at": "2026-11-11T22:01:23Z"
   },
-  "photos_filled": "2026-11-12T12:25:31Z",
+  "photos_filled": "2026-11-12T14:26:19Z",
   "photos_tried": "2026-11-11T22:01:31Z",
   "coverage": [
     {
@@ -112,5 +115,33 @@
       "image": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/IE-2026-11-12T191214.300.jpg",
       "at": "2026-11-12T14:01:42Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/IE-2026-11-12T191214.300.jpg",
+      "credit": "Interesting Engineering",
+      "page": "https://interestingengineering.com/energy/solid-state-battery-1000-cycles",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ac4813bb65-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://interestingengineering.com/_next/image?url=https%3A%2F%2Fcms.interestingengineering.com%2Fwp-content%2Fuploads%2F2026%2F11%2FOKLO.jpg&w=3840&q=75",
+      "credit": "Interesting Engineering",
+      "page": "https://interestingengineering.com/energy/solid-state-battery-1000-cycles",
+      "alt": "Advanced nuclear test reactor unlocks full clearance for core hardware trials",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ac4813bb65-g1.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-11T22:01:15Z"
 }
