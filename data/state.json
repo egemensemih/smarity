@@ -2513,48 +2513,6 @@
   ],
   "ig_queue": [
     {
-      "id": "5948c637fd",
-      "queued_at": "2026-11-12T09:32:28Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Yüksek haber değerine ve geniş kitle ilgisine rağmen gerçek bir fotoğraf bulunmadığı için haber hikaye olarak paylaşılacaktır.",
-      "mid": 2203,
-      "vtried": [
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel düzeni, tipografi ve güvenli alan sınırları standartlara tam uygun, paylaşıma hazır.",
-        "at": "2026-11-12T09:40:25Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    },
-    {
-      "id": "95bde488cb",
-      "queued_at": "2026-11-12T09:33:52Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Tesla ve Grok ile ilişkili kritik veri sızıntısı geniş kitlenin ilgisini çekecek nitelikte olduğundan hikaye olarak paylaşılmasına karar verildi.",
-      "mid": 2205,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel seçimi, metin okunurluğu ve sayfa düzeni Smarity standartlarına tam uyumludur.",
-        "at": "2026-11-12T09:40:32Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "f5886c4902",
       "queued_at": "2026-11-12T09:47:34Z",
       "tries": 0,
