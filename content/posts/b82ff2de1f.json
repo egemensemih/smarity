@@ -1,39 +1,42 @@
 {
   "id": "b82ff2de1f",
   "created_at": "2026-11-12T19:01:50Z",
-  "title": "Microsoft Outlook dünya genelinde erişim sorunu yaşıyor",
-  "summary": "Microsoft Outlook ve Microsoft 365 hizmetleri, 12 Kasım tarihinde başlayan geniş çaplı bir erişim sorunu ile karşı karşıya.",
-  "body": "Microsoft Outlook kullanıcıları 12 Kasım'da dünya genelinde büyük bir erişim engeli ile karşılaştı. 9to5Mac ve Tom's Guide gibi kaynakların aktardığına göre, Microsoft 365 hizmetleri genelinde yaşanan bu sorun nedeniyle yüz binlerce kullanıcı e-postalarına ve takvim verilerine ulaşmakta zorluk yaşıyor. Downdetector üzerinden gelen bildirimler, sorunun ölçeğinin 130 binin üzerinde rapor ile oldukça geniş olduğunu gösteriyor.\n\n## Microsoft 365 servisleri etkilendi\nMicrosoft, yaşanan kesintinin sadece Outlook ile sınırlı olmadığını, Microsoft 365 hizmet paketi içerisindeki diğer servislerin de bağlantı sorunlarından etkilendiğini doğruladı. Şirket, sosyal medya platformu X üzerindeki Microsoft 365 Status hesabı üzerinden yaptığı açıklamada, sorunun herhangi bir bölgedeki kullanıcıları etkileyebileceğini ve hizmetlerin tekrar normale dönmesi için çalışmaların sürdüğünü belirtti. Servis durum sayfalarının da yoğunluk nedeniyle yüklenemediği gözlemleniyor.\n\n**Neden önemli?** İş dünyasında kritik bir rol oynayan Microsoft 365 hizmetlerinin devre dışı kalması, küresel çapta büyük bir iş akışı aksamasına yol açıyor. Microsoft henüz sistemlerin ne zaman tamamen düzeleceğine dair kesin bir zaman dilimi paylaşmadı.",
+  "title": "Microsoft servislerinde dünya genelinde geniş çaplı kesinti",
+  "summary": "Microsoft Outlook, Teams ve Xbox dahil birçok serviste yaşanan erişim sorunları büyüyerek devam ediyor. Şirket, sunucularda yaşanan beklenmedik sorunları çözmeye çalışıyor.",
+  "body": "12 Kasım'da başlayan Microsoft hizmetlerindeki küresel erişim sorunu, Outlook ile sınırlı kalmayarak Teams, OneDrive, Copilot ve Xbox gibi birçok platforma yayıldı. Pocket-lint'in aktardığına göre, Downdetector platformunda yarım milyona yaklaşan raporla birlikte, sorunun etkisi genişlemeye devam ediyor. Microsoft'un resmi servis durum sayfalarına erişimde de büyük güçlükler yaşanıyor.\n\n## Sunucu sorunları üzerinde çalışılıyor\nZDNET'in paylaştığı bilgilere göre, Microsoft, yaşanan durumun trafik artışından kaynaklanmadığını, bazı sunucuların beklenmedik şekilde devre dışı kalması sonucu altyapının zorlandığını belirtti. Şirket, tüm yazılım güncellemelerini durdurarak etkilenen sunucuları yeniden başlatma sürecine girdiğini açıkladı. Microsoft, gün içerisinde sorunun çözüldüğünü duyurmasına rağmen, birçok kullanıcı Teams ve Outlook gibi servislerde aksaklıkların devam ettiğini bildirmeye devam etti.\n\n## Diğer servislerde de hareketlilik var\nMicrosoft merkezli bu durumun yanı sıra, Downdetector verileri Google bünyesindeki Gmail, Amazon Web Services ve Cloudflare gibi diğer büyük çevrim içi platformlarda da kullanıcıların erişim sorunları bildirdiğini gösteriyor. Henüz bu diğer hizmetlerdeki durumun Microsoft'taki kesintiyle doğrudan bağlantılı olup olmadığı netlik kazanmadı. \n\n**Neden önemli?** Küresel iş dünyasının temel iletişim ve veri araçlarının eş zamanlı olarak devre dışı kalması, geniş çaplı bir iş akışı aksamasına neden oluyor. Microsoft, etkilenen altyapıyı güvenli bir şekilde normale döndürmek için çalışmaların sürdüğünü belirtiyor.",
   "category": "teknoloji",
   "tags": [
     "Microsoft",
     "Outlook",
-    "Microsoft 365"
+    "Teams",
+    "OneDrive",
+    "Xbox",
+    "Türkiye"
   ],
   "confidence": "yuksek",
   "flags": [],
-  "editor_note": "",
-  "short_title": "Microsoft Outlook çöktü",
-  "kicker": "Erişim sorunu",
-  "hero_stat": "130.000",
-  "hero_stat_label": "rapor edilen sorun",
+  "editor_note": "Kesintinin kapsamı genişlediği için önceki haber güncellenmiştir.",
+  "short_title": "Microsoft servislerinde küresel kesinti",
+  "kicker": "Güncel gelişme",
+  "hero_stat": "500 bin",
+  "hero_stat_label": "rapor edilen kesinti",
   "visual_style": "still_life",
   "visual_scene": "A sleek, minimalist workstation with a darkened laptop screen showing an abstract error pattern, with a small, frosted glass paperweight sitting next to it, catching soft natural light.",
-  "focus_keyword": "Microsoft Outlook",
-  "seo_title": "Microsoft Outlook erişim sorunu yaşanıyor",
-  "meta_description": "Microsoft Outlook ve Microsoft 365 servislerinde dünya genelinde geniş çaplı erişim sorunu yaşanıyor. 130 bini aşkın rapor edilen kesintinin detayları.",
+  "focus_keyword": "Microsoft servislerinde kesinti",
+  "seo_title": "Microsoft servislerinde kesinti: Outlook ve Teams çalışmıyor",
+  "meta_description": "Microsoft Outlook, Teams ve Xbox servislerinde yaşanan geniş çaplı kesinti dünya genelinde etkili oluyor. Sunucu sorunları giderilmeye çalışılıyor.",
   "seo_slug": "microsoft-outlook-erisim-sorunu",
-  "image_alt": "Karanlık bir dizüstü bilgisayar ekranı ve yanında buzlu cam bir kağıt ağırlığı",
-  "cover_text": "Microsoft Outlook",
+  "image_alt": "Karanlık bir veri merkezinde kırmızı ışıklarla uyarı veren sunucu üniteleri",
+  "cover_text": "Microsoft Kesintisi",
   "carousel_points": [
-    "Microsoft Outlook ve Microsoft 365 hizmetlerine dünya genelinde ulaşılamıyor.",
-    "Downdetector verilerine göre 130 binden fazla kullanıcı erişim sorunu bildirdi.",
-    "Microsoft sorunu kabul ederek hizmetleri normale döndürmek için çalıştıklarını belirtti."
+    "Outlook, Teams ve Xbox dahil birçok Microsoft servisi dünya genelinde çalışmıyor.",
+    "Microsoft, sorunun bazı sunucuların beklenmedik şekilde devre dışı kalmasından kaynaklandığını açıkladı.",
+    "Şirket tüm güncellemeleri durdurarak sunucuları yeniden başlatma sürecine girdiğini belirtti."
   ],
-  "appeal": 8,
+  "appeal": 9,
   "update_note": "",
-  "cover_headline": "Microsoft Outlook'ta dünya genelinde kesinti",
-  "cover_highlight": "kesinti",
+  "cover_headline": "Microsoft servislerinde kesinti büyüyor",
+  "cover_highlight": "kesinti büyüyor",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -65,11 +68,33 @@
       "via_url": null,
       "published": "2026-11-12T18:49:43Z",
       "image": "https://cdn.mos.cms.futurecdn.net/KPG47747aX2DtH8NaaLvK-1920-80.jpg"
+    },
+    {
+      "name": "Pocket-lint",
+      "url": "https://www.pocket-lint.com/its-not-just-you-microsoft-outlook-teams-and-xbox-live-are-all-down/",
+      "title": "It's not just you Microsoft Outlook, Teams, OneDrive, and Xbox are all down",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-12T19:59:35Z",
+      "image": "https://static0.pocketlintimages.com/wordpress/wp-content/uploads/wm/2026/10/asus-zenbook-14-2.jpg"
+    },
+    {
+      "name": "ZDNET",
+      "url": "https://www.zdnet.com/business/microsoft-outage-outlook-teams-copilot/",
+      "title": "Several Microsoft services appear to be down – what we know",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-12T19:45:52Z",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/GettyImages-2304396071.jpg"
     }
   ],
   "source_keys": [
     "9to5Mac",
-    "Tom's Guide"
+    "Tom's Guide",
+    "Pocket-lint",
+    "ZDNET"
   ],
   "rewrites": 0,
   "telegram": {
@@ -202,6 +227,34 @@
       "kind": "media",
       "image": "https://cdn.mos.cms.futurecdn.net/nKJy6amqLiZhxUx5bPe5mK-1920-80.jpg",
       "at": "2026-11-12T19:48:57Z"
+    },
+    {
+      "name": "Pocket-lint",
+      "url": "https://www.pocket-lint.com/its-not-just-you-microsoft-outlook-teams-and-xbox-live-are-all-down/",
+      "title": "It's not just you Microsoft Outlook, Teams, OneDrive, and Xbox are all down",
+      "kind": "media",
+      "image": "https://static0.pocketlintimages.com/wordpress/wp-content/uploads/wm/2026/10/asus-zenbook-14-2.jpg",
+      "at": "2026-11-12T20:02:29Z"
+    },
+    {
+      "name": "ZDNET",
+      "url": "https://www.zdnet.com/business/microsoft-outage-outlook-teams-copilot/",
+      "title": "Several Microsoft services appear to be down – what we know",
+      "kind": "media",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/GettyImages-2304396071.jpg",
+      "at": "2026-11-12T20:02:29Z"
+    }
+  ],
+  "updated_at": "2026-11-12T20:04:31Z",
+  "refreshed_at": "2026-11-12T20:04:31Z",
+  "updates": [
+    {
+      "at": "2026-11-12T20:04:31Z",
+      "note": "Kesintinin Outlook dışındaki servislere de sıçradığı ve sunucu kaynaklı olduğu bilgisi eklendi.",
+      "sources": [
+        "Pocket-lint",
+        "ZDNET"
+      ]
     }
   ]
 }
