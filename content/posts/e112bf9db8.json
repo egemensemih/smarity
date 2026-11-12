@@ -1,0 +1,108 @@
+{
+  "id": "e112bf9db8",
+  "created_at": "2026-11-12T19:17:27Z",
+  "title": "Anthropic, Claude Managed Agents için kendi sunucuda çalışma seçeneği sunuyor",
+  "summary": "Anthropic, şirketlerin Claude Managed Agents hizmetini kendi sunucularında veya bulut hesaplarında çalıştırmasına olanak tanıyan yeni bir seçeneği devreye aldı.",
+  "body": "Anthropic, şirketlerin Claude Managed Agents hizmetini kendi veri merkezlerinde veya bulut ortamlarında barındırabilmesine imkân veren yeni bir yapılandırmayı kullanıma sundu. Daha önce tüm geçmiş verileri ve kimlik bilgileri Anthropic tarafından yönetilen bu hizmet, artık kurumların kendi sistemleri içinde kontrol edilebiliyor.\n\n## Claude Managed Agents nasıl çalışıyor?\n\nClaude Managed Agents, yapay zekâ tabanlı temsilcilerin araçları kullanabildiği ve geçmiş oturumları hatırlayabildiği bir hizmet olarak biliniyor. Yeni güncellemeyle birlikte kullanıcılar, temsilcilerin oturum geçmişlerini ve kimlik bilgilerini tamamen kendi sistemlerinde tutabiliyor. Ayrıca bu yapıyla birlikte tüm araç çağrılarının günlüğü (log) tutulabiliyor. Ancak sistemin tam anlamıyla yerel çalışmadığını belirtmek gerekiyor; model çağrıları, müşteri tarafından seçilen bir model sağlayıcısına (Anthropic, Amazon Bedrock, Google Cloud veya Microsoft Foundry) iletilmeye devam ediyor.\n\n## Dikkat edilmesi gerekenler\n\nKendi sunucularında barındırma seçeneğini tercih eden şirketler, sunucuların güvenliği ve güncellenmesi gibi sorumlulukları da üstlenmiş oluyor. Mevcut Anthropic tarafından barındırılan sistemdeki veriler yeni yapıya taşınamıyor; bu nedenle temsilcilerin ve kayıtlı verilerin yeniden oluşturulması gerekiyor. Ayrıca webhooks ve zamanlanmış görevler gibi bazı özellikler bu sürümde henüz yer almıyor. Sisteme erişim sağlamak isteyen şirketlerin Anthropic hesap ekipleriyle iletişime geçmesi gerekiyor.\n\n**Neden önemli?** Avrupa Merkez Bankası Başkanı Christine Lagarde'ın yabancı yapay zekâ sistemlerine bağımlılık konusundaki uyarıları düşünüldüğünde, bu adım veri güvenliği konusunda hassas olan şirketlere kendi verileri üzerinde daha fazla kontrol imkânı tanıyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Anthropic",
+    "Claude",
+    "yapay zeka",
+    "veri güvenliği",
+    "bulut bilişim"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Anthropic'ten kendi sunucunda Claude dönemi",
+  "kicker": "Yapay zeka",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A row of sleek, metallic server racks glowing with soft blue light inside a minimalist, dark office, with a transparent glass sphere resting on top of the central unit, representing data control and sovereignty.",
+  "focus_keyword": "Claude Managed Agents",
+  "seo_title": "Anthropic, Claude Managed Agents hizmetini sunuculara taşıyor",
+  "meta_description": "Anthropic, şirketlerin Claude Managed Agents hizmetini kendi bulut hesaplarında veya veri merkezlerinde çalıştırmasına imkan sağlayan yeni seçeneği duyurdu.",
+  "seo_slug": "anthropic-claude-managed-agents-sunucu-secenegi",
+  "image_alt": "Sunucu rafları ve üzerinde duran cam bir küre, veri yönetimi ve güvenliği temsil ediyor.",
+  "cover_text": "Claude Managed Agents",
+  "carousel_points": [
+    "Anthropic, Claude Managed Agents hizmetinin kendi sunucularınızda barındırılmasına izin veriyor.",
+    "Tüm oturum geçmişi ve kimlik bilgileri artık doğrudan kurumların kendi sistemlerinde saklanabiliyor.",
+    "Kullanıcılar model sağlayıcısı olarak Anthropic, AWS, Google Cloud veya Microsoft Foundry'yi seçebiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Anthropic veriyi şirketin kendi sunucusuna taşıyor",
+  "cover_highlight": "kendi sunucusuna",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Kurumsal yapay zeka çözümleri ve Anthropic'in bulut dışı hamlesi önemli.",
+  "entities": [
+    "Anthropic",
+    "Claude"
+  ],
+  "topic": "Anthropic lets companies run Claude Managed Agents on-premise",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/anthropic-self-hosted-claude-managed-agents",
+      "title": "Anthropic lets companies run Claude’s agent service on their own servers",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-12T19:06:13Z",
+      "image": "https://media.thenextweb.com/2026/10/anthropic-wordmark-3d-render-purple-glass.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2225
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Anthropic",
+      "alt": "Anthropic",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "e112bf9db8-g0.webp",
+      "w": 960,
+      "h": 989
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "e112bf9db8-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://en.wikipedia.org/wiki/Anthropic",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "anthropic-claude-managed-agents-sunucu-secenegi",
+  "published_at": "2026-11-12T19:17:39Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/anthropic-claude-managed-agents-sunucu-secenegi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-12T19:17:41Z"
+  },
+  "photos_vetted": "2026-11-12T19:17:43Z",
+  "photos_vet_v": 2
+}
