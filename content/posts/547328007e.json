@@ -66,9 +66,12 @@
     "message_id": 2187
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "547328007e-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/xiaomi-18-on-siparis-cin-satici-kapora",
+    "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/xiaomi-18-pro-kapak-1011.webp",
     "layout": "manset",
-    "palette": "teknoloji-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -84,7 +87,7 @@
     "votes": [],
     "at": "2026-11-11T18:27:10Z"
   },
-  "photos_filled": "2026-11-12T17:24:45Z",
+  "photos_filled": "2026-11-12T19:27:39Z",
   "photos_tried": "2026-11-11T18:27:51Z",
   "coverage": [
     {
@@ -95,5 +98,21 @@
       "image": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/xiaomi-18-pro-kapak-1011.webp",
       "at": "2026-11-12T19:01:23Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/xiaomi-18-pro-kapak-1011.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/xiaomi-18-on-siparis-cin-satici-kapora",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "547328007e-g0.webp",
+      "w": 1200,
+      "h": 675
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-11T18:27:08Z"
 }
