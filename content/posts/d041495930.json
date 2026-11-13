@@ -66,9 +66,12 @@
     "message_id": 2117
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "d041495930-g0.webp",
+    "credit": "ShiftDelete.Net",
+    "page": "https://shiftdelete.net/en-iyi-sogutan-oyun-laptopu-hangisi-casper-excalibur-g915",
+    "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/casper-excalibur-g915-sogutma-kapak.webp",
     "layout": "manset",
-    "palette": "gaming-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -85,7 +88,7 @@
     "at": "2026-11-10T09:29:45Z"
   },
   "photos_filled": "2026-11-12T09:13:39Z",
-  "photos_tried": "2026-11-10T09:29:48Z",
+  "photos_tried": "2026-11-13T09:35:11Z",
   "coverage": [
     {
       "name": "ShiftDelete.Net",
@@ -95,5 +98,21 @@
       "image": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/casper-excalibur-g915-sogutma-kapak.webp",
       "at": "2026-11-12T09:46:29Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://ares.shiftdelete.net/static/sdnweb-rehber/2026/11/casper-excalibur-g915-sogutma-kapak.webp",
+      "credit": "ShiftDelete.Net",
+      "page": "https://shiftdelete.net/en-iyi-sogutan-oyun-laptopu-hangisi-casper-excalibur-g915",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "d041495930-g0.webp",
+      "w": 1200,
+      "h": 675
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-10T09:29:43Z"
 }
