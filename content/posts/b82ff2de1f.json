@@ -1,40 +1,41 @@
 {
   "id": "b82ff2de1f",
   "created_at": "2026-11-12T19:01:50Z",
-  "title": "Microsoft 365 servislerinde kesinti devam ediyor",
-  "summary": "Microsoft 365 servislerinde 12 Kasım'da başlayan küresel erişim sorunu, 13 Kasım itibarıyla Outlook, Teams ve diğer uygulamalarda sürmeye devam ediyor.",
-  "body": "Microsoft 365 hizmetlerinde 12 Kasım'da başlayan geniş çaplı erişim sorunu, 13 Kasım itibarıyla Outlook, Teams ve diğer platformlarda hala çözüme kavuşturulamadı. Android Authority'nin aktardığına göre, kullanıcılar Outlook ve diğer Microsoft 365 servislerine erişim sağlamakta zorluk yaşamayı sürdürüyor. Şirketin resmi durum sayfası, sorunun henüz giderilmediğini doğruluyor.\n\n## Microsoft'un açıklama ve çözüm arayışı\nMicrosoft, kullanıcıların servislere erişemediğini veya çeşitli işlemleri gerçekleştiremediğini onayladı. Şirket, yaşanan sorunun arkasındaki temel nedenleri belirlemek ve çözüm üretmek için birden fazla çalışma yürütüyor. Microsoft, mevcut durumu düzeltmek adına uygulanan hafifletici önlemler sırasında, yönlendirme hizmetlerinden arka uç sunucularına yönelik giden çağrı trafiğinde bir artış gözlemlediklerini belirtti.\n\nŞirketin uyguladığı güncel çözüm adımları şunları içeriyor:\n- Sunucu kapasitesini artırmak ve yükü hafifletmek amacıyla sanal makinelerin ölçeklendirilmesi.\n- Hatalı durumdaki makinelerin tespit edilerek yakın zamanda yapılan ağ değişikliği için zorunlu eşitleme (force sync) yapılması.\n\nAncak Microsoft, bazı makinelerin hatalı durumda takılı kalması nedeniyle yapılan değişikliklerin istendiği gibi eşlenemediğini ve servis kullanılabilirliğini iyileştirme sürecinin zorlaştığını ifade etti. \n\n**Neden önemli?** Küresel iş dünyasının temel iletişim ve veri araçlarının eş zamanlı olarak devre dışı kalması, geniş çaplı bir iş akışı aksamasına neden oluyor. Microsoft, etkilenen altyapıyı güvenli bir şekilde normale döndürmek için çalışmaların sürdüğünü belirtiyor.",
+  "title": "Microsoft kesintisi nedeni açıklandı: Sızma değil sunucu hatası",
+  "summary": "Microsoft 365 servislerinde yaşanan ve dünya genelinde hayatı durma noktasına getiren küresel kesintinin sörver sağlığı kontrollerindeki başarısızlıktan kaynaklandığı duyuruldu.",
+  "body": "Microsoft 365 servislerinde yaşanan ve dünya genelinde hayatı durma noktasına getiren küresel erişim sorunu devam ederken, Microsoft kesintisi nedeni olarak sızma faaliyetlerini değil hatalı sunucu sağlık kontrollerini gösterdi. Arstechnica'nın aktardığına göre, 12 Kasım öğle saatlerinde başlayan ve e-posta, bulut ile yapay zeka hizmetlerini etkileyen kesintinin ardından şirket, siber saldırı bulgusuna rastlanmadığını açıkladı.\n\n## Küresel etkiler ve alınan önlemler\n\n13 Kasım sabahı itibarıyla sürdüğü belirtilen aksaklıklar, hastanelerden polis merkezlerine ve okullara kadar pek çok kurumu etkiledi. Japonya'daki hükümet altyapısı, Filipinler Yüksek Mahkemesi ve Colorado'daki bir şerif ofisi sorun nedeniyle zorluk yaşadı. Finans sektöründe ise kullanıcılar doğrulama kodlarını alamadıkları için para transferi yapamadı. Kesintiden etkilenen e-postaların kaybolmasını önlemek amacıyla Microsoft 365 Status hesabı üzerinden yapılan açıklamada, e-posta zaman aşımının 48 saate çıkarıldığı duyuruldu.\n\n## Kurtarma çalışmaları ve inceleme\n\nMicrosoft, kurtarma eylemlerinin devam ettiğini ve etkiyi azaltmak için tüm yolların denendiğini belirtti. Şirket, olay tamamen çözüldüğünde kök nedeni ve savunma eylemlerini içeren tam bir olay sonrası raporu paylaşacağını taahhüt etti. \n\n**Neden önemli?** İngiltere Ulusal Siber Güvenlik Merkezi'nin eski başkanı Ciaran Martin'in tüm zamanların en büyük kesintilerinden biri olarak nitelendirdiği olay, kritik altyapıların bulut sistemlerine bağımlılığını gözler önüne seriyor.",
   "category": "teknoloji",
   "tags": [
     "Microsoft",
+    "Microsoft 365",
     "Outlook",
     "Teams",
-    "Microsoft 365"
+    "siber güvenlik"
   ],
   "confidence": "yuksek",
   "flags": [],
-  "editor_note": "Olayın ikinci gününe ilişkin güncel gelişmelerle içerik yenilenmiştir.",
-  "short_title": "Microsoft 365 servislerinde kesinti sürüyor",
-  "kicker": "Güncel gelişme",
-  "hero_stat": "500 bin",
-  "hero_stat_label": "rapor edilen kesinti",
+  "editor_note": "Kesintinin siber saldırı değil sunucu sağlık kontrollerinden kaynaklandığı açıklandı.",
+  "short_title": "Microsoft kesintisi nedeni açıklandı",
+  "kicker": "Küresel kesinti",
+  "hero_stat": "450 milyon",
+  "hero_stat_label": "ticari abonelik",
   "visual_style": "still_life",
   "visual_scene": "A sleek, minimalist workstation with a darkened laptop screen showing an abstract error pattern, with a small, frosted glass paperweight sitting next to it, catching soft natural light.",
-  "focus_keyword": "Microsoft 365 servisleri",
-  "seo_title": "Microsoft 365 servislerinde kesinti devam ediyor",
-  "meta_description": "Microsoft 365 hizmetlerinde 12 Kasım'da başlayan küresel erişim sorunu sürüyor. Outlook ve Teams dahil birçok servise erişim hala sağlanamıyor.",
+  "focus_keyword": "Microsoft kesintisi",
+  "seo_title": "Microsoft kesintisi nedeni açıklandı: Sızma değil sunucu…",
+  "meta_description": "Microsoft 365 servislerinde yaşanan küresel kesintinin nedeni açıklandı. Şirket, sorunun siber saldırıdan değil sunucu sağlık kontrollerinden kaynaklandığını duyur",
   "seo_slug": "microsoft-outlook-erisim-sorunu",
-  "image_alt": "Sistem hatasını simgeleyen yanıp sönen ışıklı sunucu kabinleri.",
-  "cover_text": "Microsoft 365",
+  "image_alt": "Karanlık bir sunucu kabininde yanan tek bir amber uyarı ışığı",
+  "cover_text": "Microsoft kesintisi",
   "carousel_points": [
-    "Microsoft 365 hizmetlerinde 12 Kasım'da başlayan küresel erişim sorunu devam ediyor.",
-    "Outlook ve Teams gibi platformlar, şirketin süregelen teknik çalışmaları nedeniyle hala kullanılamıyor.",
-    "Microsoft, hatalı durumdaki sunucuları onarmak için kapasite artırımı ve ağ eşitleme adımları uyguluyor."
+    "Microsoft 365 servislerinde yaşanan küresel kesinti 12 Kasım'da başladı.",
+    "Microsoft, sorunun siber saldırılardan değil sunucu sağlık kontrollerinden kaynaklandığını açıkladı.",
+    "Aksaklıklar nedeniyle e-posta zaman aşımı süresi 48 saate çıkarıldı."
   ],
   "appeal": 9,
   "update_note": "",
-  "cover_headline": "Microsoft 365 servislerinde kesinti devam ediyor",
-  "cover_highlight": "kesinti devam ediyor",
+  "cover_headline": "Microsoft kesintisi sızmadan kaynaklanmadı",
+  "cover_highlight": "sızmadan kaynaklanmadı",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -96,6 +97,16 @@
       "via_url": "https://www.androidauthority.com/microsoft-outlook-still-down-3734796/#respond",
       "published": "2026-11-13T05:53:08Z",
       "image": "https://www.androidauthority.com/wp-content/uploads/2023/02/Outlook-logo-stock-photo-6.jpg"
+    },
+    {
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/11/microsoft-blames-failed-server-health-checks-not-hackers-for-global-outage/",
+      "title": "Microsoft blames failed server health checks—not hackers—for global outage",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://arstechnica.com/tech-policy/2026/11/microsoft-blames-failed-server-health-checks-not-hackers-for-global-outage/#comments",
+      "published": "2026-11-13T15:26:53Z",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2191081646-1024x648.jpg"
     }
   ],
   "source_keys": [
@@ -103,7 +114,8 @@
     "Tom's Guide",
     "Pocket-lint",
     "ZDNET",
-    "Android Authority"
+    "Android Authority",
+    "Ars Technica"
   ],
   "rewrites": 0,
   "telegram": {
@@ -173,14 +185,6 @@
   "photos_vetted": "2026-11-12T19:02:12Z",
   "photos_vet_v": 2,
   "coverage": [
-    {
-      "name": "Bloomberg Teknoloji",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-13/microsoft-struggles-to-restore-access-to-software-video",
-      "title": "Microsoft Struggles to Restore Access to Software",
-      "kind": "media",
-      "image": null,
-      "at": "2026-11-13T09:01:07Z"
-    },
     {
       "name": "Webtekno",
       "url": "https://www.webtekno.com/microsoft-outlook-teams-copilot-saatlerdir-erisilemiyor-h228943.html",
@@ -332,10 +336,18 @@
       "kind": "media",
       "image": null,
       "at": "2026-11-13T15:11:00Z"
+    },
+    {
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/11/microsoft-blames-failed-server-health-checks-not-hackers-for-global-outage/",
+      "title": "Microsoft blames failed server health checks—not hackers—for global outage",
+      "kind": "media",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2191081646-1024x648.jpg",
+      "at": "2026-11-13T15:38:50Z"
     }
   ],
-  "updated_at": "2026-11-13T06:05:03Z",
-  "refreshed_at": "2026-11-13T06:05:03Z",
+  "updated_at": "2026-11-13T15:39:19Z",
+  "refreshed_at": "2026-11-13T15:39:19Z",
   "updates": [
     {
       "at": "2026-11-12T20:04:31Z",
@@ -350,6 +362,13 @@
       "note": "12 Kasım'da başlayan kesintinin 13 Kasım itibarıyla devam ettiği ve şirketin çözüm çalışmaları hakkındaki yeni bilgilerle güncellenmiştir.",
       "sources": [
         "Android Authority"
+      ]
+    },
+    {
+      "at": "2026-11-13T15:39:19Z",
+      "note": "Microsoft, küresel kesintinin siber saldırıdan değil hatalı sunucu sağlık kontrollerinden kaynaklandığını açıkladı ve e-posta zaman aşımını 48 saate çıkardı.",
+      "sources": [
+        "Ars Technica"
       ]
     }
   ]
