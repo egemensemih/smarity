@@ -857,8 +857,8 @@
       "dropped": 3
     },
     "2026-11-14": {
-      "tok_in": 528460,
-      "tok_out": 50342,
+      "tok_in": 531564,
+      "tok_out": 50388,
       "cost_usd": 0.0,
       "updates": 2,
       "updated": 2,
@@ -869,7 +869,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-14T11:27:55Z",
+  "last_build": "2026-11-14T12:00:13Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
@@ -2521,27 +2521,6 @@
     "0251d12963:1075e7d4"
   ],
   "ig_queue": [
-    {
-      "id": "1e77e8a1e3",
-      "queued_at": "2026-11-13T23:51:27Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Tesla'nin devrim niteligindeki direksiyonsuz araci Cybercab yuksek haber degeri ve carpici gorseliyle gunun ilk postu olmayı fazlasiyla hak ediyor.",
-      "mid": 2280,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller marka diline tamamen uygun, metinler okunaklı ve güvenli alanlar içinde yer alıyor.",
-        "at": "2026-11-13T23:55:45Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
     {
       "id": "c021222a9b",
       "queued_at": "2026-11-14T00:21:06Z",
