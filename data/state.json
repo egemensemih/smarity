@@ -2521,27 +2521,6 @@
   ],
   "ig_queue": [
     {
-      "id": "230cc05af0",
-      "queued_at": "2026-11-14T08:15:24Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Yerli oyuncu bilgisayarı duyurusu Türk teknoloji meraklılarının ilgisini çekecek düzeyde ancak kalıcı bir post yerine 24 saatlik story olarak paylaşılması daha uygun.",
-      "mid": 2288,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık ve marka kimliği ile tam uyumlu, güvenli alan kurallarına eksiksiz riayet eden profesyonel bir Instagram hikayesi sunuyor.",
-        "at": "2026-11-14T08:20:00Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "c6e6d7b0ba",
       "queued_at": "2026-11-14T11:21:02Z",
       "tries": 0,
@@ -2917,7 +2896,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-14T17:11:04Z",
+    "at": "2026-11-14T20:15:38Z",
     "text": "Meta uygulamanın erişimini engelledi (API access blocked.). Bu genellikle işletme hesabı kısıtlandığında olur: Meta'nın e-postasındaki Sorunu düzelt ile inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her 3 saatte bir dener)."
   },
   "ig_diag": {
@@ -2937,10 +2916,10 @@
       "code": 200,
       "subcode": 5258005
     },
-    "at": "2026-11-14T17:11:04Z"
+    "at": "2026-11-14T20:15:38Z"
   },
   "ig_pause": {
     "fp": "ab71679b4a75",
-    "until": "2026-11-14T20:11:04Z"
+    "until": "2026-11-14T23:15:38Z"
   }
 }
