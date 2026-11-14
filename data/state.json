@@ -856,8 +856,8 @@
       "dropped": 3
     },
     "2026-11-14": {
-      "tok_in": 550770,
-      "tok_out": 52594,
+      "tok_in": 552343,
+      "tok_out": 52613,
       "cost_usd": 0.0,
       "updates": 2,
       "updated": 2,
@@ -868,7 +868,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-14T12:00:13Z",
+  "last_build": "2026-11-14T12:29:54Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
@@ -2520,27 +2520,6 @@
     "0251d12963:1075e7d4"
   ],
   "ig_queue": [
-    {
-      "id": "c021222a9b",
-      "queued_at": "2026-11-14T00:21:06Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Fallout serisinin geleceğine dair yapılan bu dev duyurular geniş kitlelerin ilgisini çekeceği için kalıcı post formatını hak ediyor.",
-      "mid": 2282,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller ve şablon marka kimliğine tam uygun, okunabilirlik ve yerleşim kusursuz.",
-        "at": "2026-11-14T00:25:38Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
     {
       "id": "8c59f3ccf4",
       "queued_at": "2026-11-14T06:47:26Z",
