@@ -1,0 +1,127 @@
+{
+  "id": "a654e98bb5",
+  "created_at": "2026-11-16T21:03:17Z",
+  "title": "Apple Mac güvenlik kontrollerini yapay zeka ajanları için güncelliyor",
+  "summary": "Apple, yapay zeka ajanlarının erişim talepleri nedeniyle Mac işletim sistemindeki güvenlik ayarlarını daha şeffaf ve kontrol edilebilir hale getiriyor.",
+  "body": "Apple, cihaz üzerinde çalışan yapay zeka ajanlarının veri gizliliği üzerindeki riskleri göz önüne alarak Mac güvenlik kontrolleri için yeni düzenlemeler getirdi. Şirket, kullanıcıların işletim sistemi ve dosyalar üzerinde geniş yetkiler talep eden bu uygulamalara karşı daha bilinçli kararlar almasını hedefliyor. Yapay zeka ajanlarının aksine, basit sohbet botlarından farklı olarak doğrudan dosyalar ve uygulamalar üzerinde işlem yapabildiğine dikkat çeken Apple, bu durumun kişisel verileri koruma konusunda yeni zorluklar yarattığını vurguluyor.\n\n## Yeni güvenlik özellikleri neler sunuyor?\n\nmacOS 27.3 güncellemesiyle gelecek değişiklikler, kullanıcıların uygulamalara verdiği izinleri daha ayrıntılı yönetmesini sağlıyor. Apple, \"Cihaz Kontrolü\" ve \"Veri Erişimi\" ayarlarını; Sistem ve Uygulama Koruma Geçişi ile Erişilebilirlik olarak ikiye ayırıyor. Bu sayede kullanıcılar, sistemin yerleşik güvenlik duvarını devre dışı bırakıp bırakmadıklarını daha net görebilecekler.\n\nGüncellemeyle gelen başlıca yenilikler şunlar:\n\n* Uygulamaların hangi verilere eriştiğine dair daha şeffaf bilgilendirme ekranları.\n* Bir uygulama başka bir programı yönettiğinde devreye giren yeni şeffaflık göstergesi.\n* Kullanıcıların, izinleri her erişim talebinde yeniden onaylamasına olanak tanıyan daha granüler kontrol seçeneği.\n\n## Geliştiriciler için süreç nasıl işleyecek?\n\nApple, geliştiricilerden uygulamalarını bu yeni kısıtlamalara göre uyarlamalarını istiyor. Şirket, uygulamaların yalnızca ihtiyaç duyulan dosyalara erişecek şekilde optimize edilmesini öneriyor. Yedekleme gibi belirli işlemler için tam disk erişimine ihtiyaç duyan geliştiriciler ise özel muafiyet taleplerinde bulunabilecekler.\n\n**Neden önemli?** Yapay zeka ajanlarının yerel bilgisayarlarda yaygınlaşması, standart izin modellerinin veri güvenliğini korumada yetersiz kalmasına neden oluyordu. Bu düzenlemeler, Apple'ın kullanıcılara tam yetki vermek ile yapay zekanın sunduğu yeteneklerden faydalanmak arasındaki dengeyi kurma çabasını gösteriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Apple",
+    "Mac",
+    "macOS",
+    "veri gizliliği",
+    "yapay zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Mac için yeni güvenlik kontrolleri",
+  "kicker": "Güvenlik güncellemesi",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "A polished aluminum computer interface icon floating above a dark, textured surface, surrounded by several translucent geometric barriers that are shifting and rearranging into a more organized, secure pattern.",
+  "focus_keyword": "Mac güvenlik kontrolleri",
+  "seo_title": "Apple Mac güvenlik kontrollerini güncelliyor",
+  "meta_description": "Apple, yapay zeka ajanlarının neden olduğu gizlilik risklerine karşı macOS üzerinde daha şeffaf ve kontrol edilebilir yeni güvenlik ayarları getiriyor.",
+  "seo_slug": "apple-mac-guvenlik-kontrolleri-guncellendi",
+  "image_alt": "Apple'ın yeni güvenlik ayarlarını simgeleyen dijital koruma kalkanı görseli",
+  "cover_text": "Mac güvenlik",
+  "carousel_points": [
+    "Apple, yapay zeka ajanlarının veri erişimi risklerine karşı Mac güvenlik ayarlarını yeniliyor.",
+    "Yeni izin yönetimi sayesinde kullanıcılar, hangi uygulamanın sisteme ne kadar erişebileceğini daha detaylı kontrol edebilecek.",
+    "macOS 27.3 sürümüyle gelen bu özellikler, sistem güvenliğini korurken yerel yapay zeka modellerinin çalışmasını da mümkün kılıyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Apple Mac güvenlik ayarlarını güçlendiriyor",
+  "cover_highlight": "Mac güvenlik",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Apple macOS yapay zeka ajanları için yeni gizlilik denetimlerini tanıttı.",
+  "entities": [
+    "Apple",
+    "macOS"
+  ],
+  "topic": "Apple macOS privacy controls for AI",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+      "title": "Apple reveals new Mac security controls as AI agents raise privacy risks",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-16T21:01:02Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "TechCrunch"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2349
+  },
+  "photos": [
+    {
+      "src": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8152.jpg?resize=1200,800",
+      "credit": "TechCrunch",
+      "page": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a654e98bb5-g0.webp",
+      "w": 1200,
+      "h": 800
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "a654e98bb5-g0.webp",
+    "credit": "TechCrunch",
+    "page": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+    "src": "https://techcrunch.com/wp-content/uploads/2024/11/CMC_8152.jpg?resize=1200,800",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "apple-mac-guvenlik-kontrolleri-guncellendi",
+  "published_at": "2026-11-16T21:03:29Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/apple-mac-guvenlik-kontrolleri-guncellendi",
+  "social": {
+    "format": "story",
+    "score": 7,
+    "reason": "Apple'ın güncel güvenlik önlemleri teknoloji meraklısı takipçilerimiz için değerli bir bilgi ancak grid akışını etkilemeyecek bir hikaye içeriği olarak değerlendirildi.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 7,
+        "reason": "Apple'ın güvenlik güncellemeleri teknik olarak önemli ancak genel kullanıcı için bir 'devrim' niteliği taşımıyor."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Güvenlik ayarları çoğu kullanıcıyı sıkabilir, daha basit ve görsel bir anlatımla sadece hikaye kısmında yer alması yeterli."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Elimizdeki fotoğraf kaliteli ve Apple kimliğini yansıtıyor, ancak bir carousel postu olacak kadar görsel derinliğe sahip değil."
+      }
+    ],
+    "at": "2026-11-16T21:03:35Z"
+  },
+  "photos_vetted": "2026-11-16T21:03:40Z",
+  "photos_vet_v": 2
+}
