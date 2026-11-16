@@ -1,0 +1,106 @@
+{
+  "id": "63899c7c18",
+  "created_at": "2026-11-16T19:45:59Z",
+  "title": "Google, tam otomatik siber saldırıların başladığını duyurdu",
+  "summary": "Google Tehdit İstihbarat Grubu, yapay zekayı kullanarak insan müdahalesi olmadan güvenlik açıklarını bulan ve istismar eden otomatik saldırıların başladığını belirtti.",
+  "body": "Google'ın bünyesinde faaliyet gösteren Google Tehdit İstihbarat Grubu (GTIG), siber güvenlik alanında kritik bir değişimin yaşandığını açıkladı. Paylaşılan bilgilere göre, siber saldırganlar artık yazılım açıklarını keşfetmekten saldırı gerçekleştirmeye kadar tüm süreci, insan müdahalesi olmadan otomatik hale getiren yöntemler kullanmaya başladı.\n\n## Otomatik saldırı sistemi nasıl çalışıyor?\n\nGTIG tarafından yapılan incelemelerde, 'exploit_agent' adlı bir yapay zeka çerçevesi ile yapılandırılmış bir sunucu tespit edildi. Bu sistem, yazılım kodlarını güncellemelerden önce ve sonra karşılaştırarak zafiyetleri belirliyor, bunlara yönelik saldırı yöntemleri geliştiriyor ve süreci tamamen otomatik yönetiyor. Yapılan analizler, saldırganın sistemi hız odaklı kullandığını, bu durumun ise saldırıları daha görünür kıldığını gösteriyor.\n\n## Hedefte Avrupa var\n\nSunucu verilerini inceleyen uzmanlar, söz konusu sistemin Fransa merkezli medya, eğlence ve eğitim sektöründeki web sitelerini hedef aldığını belirledi. Yapılandırma dosyalarında yer alan Rusça ifadeler, saldırıların kökenine dair ipuçları sunuyor. GTIG, saldırıların şu aşamada hız uğruna gizlilikten ödün verdiğini ve bu yüzden dijital iz bırakarak kolay tespit edilebildiğini vurguluyor.\n\n**Neden önemli?** Bu gelişme, yapay zeka destekli saldırıların teorik bir olasılıktan çıkıp gerçek bir tehdide dönüştüğünü gösteren önemli bir dönüm noktası olarak değerlendiriliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google",
+    "siber güvenlik",
+    "yapay zeka",
+    "siber saldırı"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Tam otomatik siber saldırılar başladı",
+  "kicker": "Siber Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A dark, textured obsidian stone surface with several metallic, geometric needles scattered in a chaotic pattern. A single, glowing blue fiber-optic cable snakes through the needles, emitting a faint, cool light that reflects off the metallic edges, symbolizing automated digital intrusion.",
+  "focus_keyword": "tam otomatik siber saldırı",
+  "seo_title": "Google tam otomatik siber saldırıların başladığını açıkladı",
+  "meta_description": "Google Tehdit İstihbarat Grubu, insan müdahalesi olmadan yazılım açıklarını bulan ve istismar eden tam otomatik siber saldırıların tespit edildiğini duyurdu.",
+  "seo_slug": "google-tam-otomatik-siber-saldirilar-basladi",
+  "image_alt": "Karanlık bir yüzey üzerinde karmaşık metalik iğneler ve aralarından geçen ışıklı bir fiber kablo.",
+  "cover_text": "Otomatik siber saldırı",
+  "carousel_points": [
+    "Google, tamamen otomatikleştirilmiş yeni bir siber saldırı yöntemi tespit etti.",
+    "Yapay zeka kullanan sistem, insan müdahalesi olmadan yazılım açıklarını bulup saldırı yapabiliyor.",
+    "Şu an Fransa'daki web sitelerini hedef alan saldırılar, geride bırakılan izler sayesinde tespit edilebiliyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Google tam otomatik siber saldırıları duyurdu",
+  "cover_highlight": "tam otomatik",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Google, tam otomatik yapay zeka siber saldırı riskleri konusunda ciddi uyarılar yaptı.",
+  "entities": [
+    "Google"
+  ],
+  "topic": "Google warns of fully automated AI cyberattacks",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/google-warns-that-fully-automated-cyberattacks-have-arrived-and-will-get-worse-fast/",
+      "title": "Google warns that fully automated cyberattacks have arrived and will get worse fast",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/google-warns-that-fully-automated-cyberattacks-have-arrived-and-will-get-worse-fast/#respond",
+      "published": "2026-11-16T19:42:13Z",
+      "image": null
+    }
+  ],
+  "source_keys": [
+    "The Decoder"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2345
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Google",
+      "alt": "Google",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "63899c7c18-g0.webp",
+      "w": 960,
+      "h": 702
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "63899c7c18-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Google",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "google-tam-otomatik-siber-saldirilar-basladi",
+  "published_at": "2026-11-16T19:46:15Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/google-tam-otomatik-siber-saldirilar-basladi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-16T19:46:18Z"
+  },
+  "photos_vetted": "2026-11-16T19:46:30Z",
+  "photos_vet_v": 2
+}
