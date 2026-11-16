@@ -78,9 +78,12 @@
     "message_id": 2337
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "ef1ba23f6c-g0.webp",
+    "credit": "IGN",
+    "page": "https://www.ign.com/articles/nba-2k27-is-adding-vice-city-gta-6-themed-cosmetics-and-much-more-as-part-of-massive-rockstar-games-collaboration",
+    "src": "https://assets-prd.ignimgs.com/2026/11/16/nbathumb-1794845245723.png",
     "layout": "manset",
-    "palette": "gaming-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -96,7 +99,7 @@
     "votes": [],
     "at": "2026-11-16T17:05:59Z"
   },
-  "photos_filled": "2026-11-16T17:06:00Z",
+  "photos_filled": "2026-11-16T19:07:01Z",
   "photos_tried": "2026-11-16T17:06:02Z",
   "coverage": [
     {
@@ -123,5 +126,33 @@
       "image": "https://images.nintendolife.com/ad4102eefb513/small.jpg",
       "at": "2026-11-16T18:59:22Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://assets-prd.ignimgs.com/2026/11/16/nbathumb-1794845245723.png",
+      "credit": "IGN",
+      "page": "https://www.ign.com/articles/nba-2k27-is-adding-vice-city-gta-6-themed-cosmetics-and-much-more-as-part-of-massive-rockstar-games-collaboration",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ef1ba23f6c-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://images.nintendolife.com/ad4102eefb513/1280x720.jpg",
+      "credit": "Nintendo Life",
+      "page": "https://www.nintendolife.com/news/2026/11/nba-2k27-brings-a-slice-of-gta-6s-vice-city-to-switch-2-this-month",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "ef1ba23f6c-g1.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-16T17:05:56Z"
 }
