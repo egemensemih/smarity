@@ -1,0 +1,109 @@
+{
+  "id": "7131d3efb5",
+  "created_at": "2026-11-16T16:48:33Z",
+  "title": "Claude artık canvas grafiklerinde etkileşimli web siteleri oluşturabiliyor",
+  "summary": "Anthropic'in geliştirdiği Claude, canvas grafiklerine gerçek HTML öğeleri yerleştirerek hem görsel olarak karmaşık hem de tam etkileşimli web sayfaları üretebiliyor.",
+  "body": "Claude artık canvas grafiklerinin içine metin, buton ve benzeri web öğelerini doğrudan gömebiliyor. The Decoder'ın aktardığına göre, bu yeni yetenek sayesinde kullanıcılar karmaşık grafiklerin veya üç boyutlu tasarımların içinde yer alan, ancak tarayıcı tarafından düz bir görsel gibi değil, etkileşimli öğeler olarak algılanan yapılar oluşturabiliyor. Anthropic çalışanı Felix Rieseberg'in ifadesiyle, Claude bu özellikle \"bizarre & beautiful sites\" yani \"tuhaf ve güzel siteler\" tasarlayabiliyor.\n\n## Web tasarımında yeni dönem\n\nGeçmişte web tasarımı sırasında geliştiriciler görsel özgürlük ile erişilebilirlik arasında bir seçim yapmak zorundaydı. Canvas teknolojisi çizim konusunda büyük bir özgürlük sunsa da içerikler seçilebilir veya tıklanabilir olmuyordu. Yeni HTML-in-Canvas standardı, bu iki dünyayı birleştirerek kullanıcıların metinleri kopyalamasına veya bağlantılara tıklamasına olanak tanıyor. Örnek olarak, 3D küpler veya örgü desenleri üzerine yerleştirilmiş, tamamen işlevsel web öğeleri içeren demolar sergileniyor.\n\n## Nasıl erişilir?\n\nGoogle tarafından geliştirilen bu web standardı, şu an için sınırlı tarayıcı ve uygulama desteğine sahip:\n\n* Chrome ve Edge tarayıcılarının 157 ve üzeri sürümleri özelliği destekliyor.\n* Claude'un masaüstü uygulamalarında 5.11492 sürümü gereklidir.\n* Kullanıcıların bu özellikten faydalanabilmek için Claude'a verecekleri komutlarda \"HTML-in-Canvas\" ifadesini açıkça belirtmeleri gerekiyor.\n\nSafari ve Firefox'ta ise henüz destek bulunmuyor.\n\n**Neden önemli?** Geleneksel web sayfalarının kısıtlı görsel yapısını aşarak, yüksek estetik değer taşıyan tasarımları işlevsellikten ödün vermeden tarayıcıya taşıyan bu yenilik, web tasarımının geçmişteki hareketli ve yaratıcı \"Flash\" dönemine benzer yeni bir yaklaşımı işaret ediyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Anthropic",
+    "Claude",
+    "yapay zeka",
+    "yazılım",
+    "web tasarımı"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude'un yeni yeteneği web sitelerini değiştiriyor",
+  "kicker": "Yapay zeka",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "A glowing, semi-transparent 3D cube floating in a dark space, with complex geometric lines intersecting its faces, while small, sharp-edged white floating buttons and text labels hover just above the cube's surface as if projected into the air.",
+  "focus_keyword": "Claude web siteleri",
+  "seo_title": "Claude artık canvas grafiklerinde etkileşimli web siteleri…",
+  "meta_description": "Anthropic'in yapay zekası Claude, artık canvas grafiklerinde etkileşimli HTML öğeleri oluşturabiliyor. Yeni özellik ile karmaşık web tasarımları mümkün.",
+  "seo_slug": "claude-canvas-grafiklerinde-etkilesimli-web-siteleri",
+  "image_alt": "Üç boyutlu bir grafik küpün yüzeyinde etkileşimli butonlar ve metinlerin havada asılı durduğu dijital bir tasarım görseli",
+  "cover_text": "Claude Web",
+  "carousel_points": [
+    "Claude artık canvas grafiklerinin içine tıklanabilir butonlar ve seçilebilir metinler yerleştirebiliyor.",
+    "Bu yeni özellik web sitelerine karmaşık 3D görsel efektler ve işlevsellik katmayı birleştiriyor.",
+    "HTML-in-Canvas standardı şu an için Chrome, Edge ve Claude masaüstü uygulamalarında kullanılabiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Claude web sitelerine etkileşimli grafikler ekliyor",
+  "cover_highlight": "etkileşimli grafikler",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Anthropic Claude artık doğrudan arayüz içinde interaktif HTML öğeleri oluşturabiliyor.",
+  "entities": [
+    "Anthropic",
+    "Claude"
+  ],
+  "topic": "Claude HTML and web element embedding",
+  "sources": [
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/claude-now-builds-interactive-websites-inside-canvas-graphics-reviving-the-flash-era-with-real-html/",
+      "title": "Claude now builds interactive websites inside canvas graphics, reviving the Flash era with real HTML",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://the-decoder.com/claude-now-builds-interactive-websites-inside-canvas-graphics-reviving-the-flash-era-with-real-html/#respond",
+      "published": "2026-11-16T16:10:22Z",
+      "image": "https://the-decoder.com/wp-content/uploads/2026/11/claude_gemini_pro-scaled.png"
+    }
+  ],
+  "source_keys": [
+    "The Decoder"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2336
+  },
+  "image": {
+    "source": "photo",
+    "photo": "7131d3efb5-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://en.wikipedia.org/wiki/Anthropic",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "claude-canvas-grafiklerinde-etkilesimli-web-siteleri",
+  "published_at": "2026-11-16T16:50:22Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/claude-canvas-grafiklerinde-etkilesimli-web-siteleri",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-16T16:50:25Z"
+  },
+  "photos_filled": "2026-11-16T16:51:11Z",
+  "photos_tried": "2026-11-16T16:51:38Z",
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/960px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/Anthropic",
+      "alt": "Anthropic",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "7131d3efb5-g0.webp",
+      "w": 960,
+      "h": 989
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-16T16:50:22Z"
+}
