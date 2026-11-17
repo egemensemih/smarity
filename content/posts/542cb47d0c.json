@@ -1,40 +1,41 @@
 {
   "id": "542cb47d0c",
   "created_at": "2026-11-17T21:09:55Z",
-  "title": "Küresel çapta teknoloji kesintileri yaşanıyor",
-  "summary": "Son birkaç gündür dünya genelinde Apple, Microsoft, havayolları ve finans kuruluşlarını etkileyen büyük teknoloji kesintileri meydana geldi.",
-  "body": "Son dört iş gününde yaşanan ve dünya genelinde hayatı durma noktasına getiren teknoloji kesintileri gündemdeki yerini koruyor. CNBC’nin aktardığına göre; Apple, Microsoft, JPMorgan Chase, United Airlines ve ABD Federal Havacılık İdaresi (FAA) gibi dev kurumlar arka arkaya sistem sorunlarıyla karşılaştı. Salı günü ise Ulusal Güvenlik Ajansı’ndaki (NSA) iç iletişim ağlarında yaşanan aksaklıklar bu zincire eklendi.\n\n## Kesintilerin sebebi ne?\n\nUzmanlar, arka arkaya gelen bu sistem hatalarını siber saldırılardan ziyade, yazılım güncellemelerinin yönetimiyle ilgili süreçlere bağlıyor. Apple sorunların \"iç bir güncellemeden\" kaynaklandığını belirtirken, NSA durumu \"rutin bakım\" olarak açıkladı. Microsoft’un geçtiğimiz hafta yaşadığı e-posta kesintisinin temelinde ise temmuz ayından beri fark edilmeyen bir yazılım hatası olduğu ortaya çıktı. Palo Alto Networks'ten Sam Rubin, işletmelerin güvenlik açıklarıyla başa çıkmak için sürekli yazılım yamaları yapmasının BT ekiplerini zorladığını ve bu yoğun temponun hata riskini artırdığını belirtiyor.\n\n## Siyasi tepkiler ve gelecek endişesi\n\nYaşanan bu teknoloji kesintileri, dijital altyapının günlük hayata ne kadar derinden entegre olduğunu gözler önüne serdi. ABD'li kanun yapıcılar, yaşananların sadece teknik bir hata olduğuna dair açıklamalara şüpheyle yaklaşarak daha fazla şeffaflık talep ediyor. JetStream Security CEO’su Raj Rajamani, \"Microsoft çöktüğünde tüm dünya durma noktasına geliyor\" diyerek durumun ciddiyetini özetledi. Konuyla ilgili kongre düzeyinde brifing çalışmaları sürerken, Senatör Mark Warner bu olayları yeni bir yapay zeka güvenlik yasa tasarısının gerekçesi olarak kullanıyor.\n\n**Neden önemli?** Küresel ölçekte yaşanan bu ardışık kesintiler, modern dijital altyapının hassasiyetini kanıtlıyor ve kritik sistemlerin yedeklilik planlarına yönelik ihtiyacı tartışmaya açıyor.",
+  "title": "Apple ve NSA ağlarında kesinti: İç yazılım güncellemesi tetikledi",
+  "summary": "Apple servislerinde ve NSA'nın gizli iletişim ağında kesintiler yaşandı. Apple, sorunun iç bir yazılım güncellemesinden kaynaklandığını açıkladı.",
+  "body": "ABD'de Apple servisleri ve Ulusal Güvenlik Ajansı (NSA) **gizli ağı** dahil olmak üzere kritik altyapılarda yeni teknoloji kesintileri meydana geldi. Interesting Engineering'in aktardığına göre, 17 Kasım Salı günü yaşanan olaylar Apple Hesapları, iCloud ve NSA Net iletişim ağını etkiledi.\n\n## Apple servislerinde ve NSA ağında aksama\n\nApple, kullanıcıların uygulama indirme, iCloud hizmetleri ve Apple Pay gibi alanlarda yaşadığı sorunların ardından servisleri yeniden devreye almaya başladı. Şirket, USA TODAY'e yaptığı açıklamada bir **iç yazılım güncellemesinin** kesintiyi tetiklediğini doğrularken, Bloomberg'e de olayda siber saldırı bulgusu olmadığını bildirdi. Öte yandan NSA, gizli iç iletişim ağı NSA Net'te aralıklı sorunlar yaşandığını bildirdi. Ajans yetkilileri, sistemlere binen yükü azaltmak için personelin işe gelişte kademeli saatler uygulamasına geçtiğini kaydetti. Google ise Downdetector'de artan şikayetlere rağmen Gmail'de genel bir kesinti olmadığını savundu.\n\n## Altyapı endişeleri sürüyor\n\nGeçtiğimiz günlerde Microsoft Outlook, bankacılık hizmetleri ve havacılık altyapısında da benzer sorunlar görülmüştü. Uzmanlar, art arda yaşanan bu aksaklıkların dijital altyapının hassasiyetini ve yedeklilik planlarına duyulan ihtiyacı göz önüne serdiğini belirtiyor.\n\n**Neden önemli?** Ardışık kesintiler, tüketici teknolojisinden kritik devlet kurumlarına kadar uzanan dijital altyapının ne kadar birbirine bağlı ve hassas olduğunu gösteriyor.",
   "category": "teknoloji",
   "tags": [
     "Apple",
-    "Microsoft",
-    "teknoloji",
-    "siber güvenlik"
+    "NSA",
+    "Google",
+    "Gmail",
+    "ABD"
   ],
   "confidence": "yuksek",
   "flags": [],
-  "editor_note": "",
-  "short_title": "Küresel teknoloji sistemlerinde büyük kesintiler",
-  "kicker": "Teknoloji dünyası",
+  "editor_note": "Güncel gelişmelere göre Apple ve NSA kesintileri ön plana çıkarılarak güncellendi.",
+  "short_title": "Apple ve NSA'da güncelleme kesintisi",
+  "kicker": "Teknoloji kesintisi",
   "hero_stat": "",
   "hero_stat_label": "",
   "visual_style": "still_life",
   "visual_scene": "A cluster of glowing, translucent fiber-optic cables tied together in a messy, frayed knot, resting on a dark, polished stone table.",
-  "focus_keyword": "teknoloji kesintileri",
-  "seo_title": "Küresel çapta teknoloji kesintileri yaşanıyor",
-  "meta_description": "Apple, Microsoft ve havayollarını etkileyen küresel teknoloji kesintileri gündemde. Uzmanlar güncellemeler ve yazılım hatalarına dikkat çekiyor.",
+  "focus_keyword": "Apple ve NSA",
+  "seo_title": "Apple ve NSA ağlarında kesinti: İç yazılım güncellemesi",
+  "meta_description": "Apple servisleri ve NSA gizli ağı iç yazılım güncellemesi nedeniyle kesintiler yaşadı. ABD'deki teknoloji kesintilerinin detayları.",
   "seo_slug": "kuresel-capta-teknoloji-kesintileri-yasaniyor",
-  "image_alt": "Kabloların birbirine dolandığı ve bağlantının koptuğunu simgeleyen soyut bir görsel.",
-  "cover_text": "Teknoloji kesintileri",
+  "image_alt": "Buzlu cam küplerden yükselen grafik: teknoloji kesintilerini temsil eden görsel",
+  "cover_text": "Apple ve NSA",
   "carousel_points": [
-    "Apple, Microsoft ve birçok dev kurumda peş peşe sistem arızaları yaşandı.",
-    "Yetkililer olayların siber saldırıdan değil, yazılım güncellemelerinden kaynaklandığını belirtti.",
-    "Olayların ardından ABD hükümeti yetkililerden kapsamlı bir bilgilendirme talep etti."
+    "Apple servisleri iç yazılım güncellemesi nedeniyle kesintiye uğradı.",
+    "NSA'nın gizli iletişim ağı NSA Net'te aralıklı sorunlar yaşandı.",
+    "Yetkililer olayların siber saldırı kaynaklı olmadığını doğruladı."
   ],
   "appeal": 8,
   "update_note": "",
-  "cover_headline": "Teknoloji dünyasında küresel kesintiler yaşanıyor",
-  "cover_highlight": "küresel kesintiler",
+  "cover_headline": "Apple ve NSA ağlarında kesinti yaşandı",
+  "cover_highlight": "Apple ve NSA",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -56,10 +57,21 @@
       "via_url": null,
       "published": "2026-11-17T20:52:58Z",
       "image": null
+    },
+    {
+      "name": "Interesting Engineering",
+      "url": "https://interestingengineering.com/culture/apple-nsa-gmail-outages-us-tech-disruptions",
+      "title": "US tech disruptions spread from Apple services to the NSA’s classified network",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-17T22:32:24Z",
+      "image": "https://cms.interestingengineering.com/wp-content/uploads/2025/04/Untitled-design-73.jpg"
     }
   ],
   "source_keys": [
-    "CNBC Teknoloji"
+    "CNBC Teknoloji",
+    "Interesting Engineering"
   ],
   "rewrites": 0,
   "telegram": {
@@ -123,7 +135,7 @@
       "h": 641
     }
   ],
-  "updated_at": "2026-11-17T21:10:33Z",
+  "updated_at": "2026-11-17T22:48:07Z",
   "coverage": [
     {
       "name": "Bloomberg Teknoloji",
@@ -132,6 +144,24 @@
       "kind": "media",
       "image": null,
       "at": "2026-11-17T22:31:24Z"
+    },
+    {
+      "name": "Interesting Engineering",
+      "url": "https://interestingengineering.com/culture/apple-nsa-gmail-outages-us-tech-disruptions",
+      "title": "US tech disruptions spread from Apple services to the NSA’s classified network",
+      "kind": "media",
+      "image": "https://cms.interestingengineering.com/wp-content/uploads/2025/04/Untitled-design-73.jpg",
+      "at": "2026-11-17T22:47:20Z"
+    }
+  ],
+  "refreshed_at": "2026-11-17T22:48:07Z",
+  "updates": [
+    {
+      "at": "2026-11-17T22:48:07Z",
+      "note": "Apple servislerinin ve NSA ağının 17 Kasım Salı günü yaşadığı kesintiler ve şirket açıklamaları eklendi.",
+      "sources": [
+        "Interesting Engineering"
+      ]
     }
   ]
 }
