@@ -1,0 +1,119 @@
+{
+  "id": "d47015847a",
+  "created_at": "2026-11-17T12:58:10Z",
+  "title": "iPhone siber saldırı dalgası: Popüler siteler üzerinden iOS kullanıcıları hedef alındı",
+  "summary": "Popüler 178 web sitesi üzerinden iPhone ve iPad kullanıcılarını hedef alan bir siber saldırı düzenlendi. Güvenlik ihlalinin arkasında Optimizely platformundaki açık yer alıyor.",
+  "body": "Popüler web siteleri üzerinden gerçekleştirilen kapsamlı bir **iPhone siber saldırı** dalgası, iOS ve iPadOS kullanıcılarını hedef aldı. Reuters'ın aktardığı habere göre 16 Kasım'da gerçekleşen saldırıda Zoom, BBC, CNN, HSBC, Salesforce ve IKEA'nın da aralarında bulunduğu 178 kuruma ait internet siteleri kötü amaçlı yazılımların yayılmasında aracı olarak kullanıldı.\n\n## iPhone siber saldırı riski nasıl ortaya çıktı?\n\nGüvenlik araştırmacısı Scott Helme tarafından tespit edilen güvenlik ihlali, şirketlerin web sitelerini test etmek için kullandığı üçüncü taraf **Optimizely** platformundaki bir açıktan kaynaklandı. Optimizely'nin BleepingComputer'a yaptığı açıklamaya göre, saldırganlar hesap kayıt sürecindeki bir zafiyeti kullanarak müşteri projelerine kötü amaçlı JavaScript kodları yerleştirdi. Bu yöntem sayesinde korsanlar, doğrudan kurumların kendi altyapılarını ele geçirmeden meşru web siteleri üzerinden yazılım yaymayı başardı.\n\nYerleştirilen zararlı kodların kripto para cüzdan adreslerini saldırganların adresleriyle değiştirebildiği, ödeme kartı detaylarını ele geçirebildiği, taranan sayfa çerezlerini çalabildiği ve ekran görüntüsü alabildiği belirtildi.\n\n## iOS cihazlarını hedef alan özel kodlar\n\nSaldırıda iPhone ve iPad kullanıcılarına cihazlarının yazılım sürümüne bağlı olarak gizli web sayfası ögeleri aracılığıyla iki farklı saldırı paketi sunuldu. Cihazlarda iOS 13 ile iOS 17 arasındaki sürümler için Coruna, iOS 18 için ise DarkSword kod adlı paketlerin kullanıldığı tespit edildi. Ayrıca iOS 26 sürümünü hedefleyen kodlara da rastlansa da bunların yalnızca cihaz özelliklerini tanımlamakla sınırlı kaldığı aktarıldı. Kullanıcıların herhangi bir uygulama indirmesine veya bağlantıya tıklamasına gerek kalmadan sadece web sitesini ziyaret etmesiyle kodların çalışabildiği ifade edilirken, herhangi bir cihazın başarıyla ele geçirilip geçirilmediği henüz netlik kazanmadı. Optimizely ise açığın kapatıldığını ve zararlı kodların temizlendiğini duyurdu.\n\n**Neden önemli?** Doğan riske karşı güvenlik uzmanları ve Apple, kullanıcıların iOS cihazlarını en son yazılım güncellemesine yükseltmelerinin önemini vurguluyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Apple",
+    "iPhone",
+    "iPad",
+    "iOS",
+    "Optimizely"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "178 web sitesi üzerinden iPhone kullanıcılarına saldırı",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "A floating glass panel representing a browser screen with small translucent geometric crystals embedded inside it. One crystal shines with an intense red core while surrounding smooth metallic spheres rest silently on a dark matte obsidian surface in a controlled studio light setting.",
+  "focus_keyword": "iPhone siber saldırı",
+  "seo_title": "iPhone siber saldırı dalgası 178 web sitesini etkiledi",
+  "meta_description": "Popüler siteler üzerinden düzenlenen iPhone siber saldırı dalgası 178 kurumu etkiledi. Güvenlik açığı Optimizely platformundaki zafiyetten kaynaklandı.",
+  "seo_slug": "iphone-ve-ipad-kullanicilarina-siber-saldiri",
+  "image_alt": "Siyah zemin üzerinde cam panel ve parlayan kırmızı kristal ile güvenlik ihlalini temsil eden görsel",
+  "cover_text": "iPhone",
+  "carousel_points": [
+    "BBC, CNN ve Zoom'un da aralarında bulunduğu 178 web sitesi üzerinden siber saldırı düzenlendi.",
+    "Saldırganlar, Optimizely platformundaki zafiyeti kullanarak zararlı kodları sitelere yerleştirdi.",
+    "Kullanıcıların yalnızca etkilenen siteleri ziyaret etmesi bile zararlı kodların çalışmasına yetti."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "178 web sitesinden iPhone'lara saldırı",
+  "cover_highlight": "iPhone'lara saldırı",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "iPhone kullanıcılarını hedef alan güvenlik ihlali geniş kitleyi ilgilendiriyor.",
+  "entities": [
+    "Apple"
+  ],
+  "topic": "Website security breach targeting iPhone users",
+  "sources": [
+    {
+      "name": "MacRumors",
+      "url": "https://www.macrumors.com/2026/11/17/iphone-users-targeted-website-security-breach/",
+      "title": "iPhone Users Targeted in Major Website Security Breach",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://forums.macrumors.com/threads/iphone-users-targeted-in-major-website-security-breach.2494641/",
+      "published": "2026-11-17T12:42:03Z",
+      "image": "https://images.macrumors.com/article-new/2023/05/bug-security-vulnerability-issue-fix-larry.jpg"
+    }
+  ],
+  "source_keys": [
+    "MacRumors"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2379
+  },
+  "photos": [
+    {
+      "src": "https://images.macrumors.com/article-new/2023/05/bug-security-vulnerability-issue-fix-larry.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/11/17/iphone-users-targeted-website-security-breach/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "d47015847a-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://images.macrumors.com/t/SOhqU4isIbba4doUazbwuciGXYk=/1200x1200/article-new/2023/05/bug-security-vulnerability-issue-fix-larry.jpg",
+      "credit": "MacRumors",
+      "page": "https://www.macrumors.com/2026/11/17/iphone-users-targeted-website-security-breach/",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "d47015847a-g1.webp",
+      "w": 1200,
+      "h": 1200
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "d47015847a-g0.webp",
+    "credit": "MacRumors",
+    "page": "https://www.macrumors.com/2026/11/17/iphone-users-targeted-website-security-breach/",
+    "src": "https://images.macrumors.com/article-new/2023/05/bug-security-vulnerability-issue-fix-larry.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "iphone-ve-ipad-kullanicilarina-siber-saldiri",
+  "published_at": "2026-11-17T12:58:25Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/iphone-ve-ipad-kullanicilarina-siber-saldiri",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-17T12:58:28Z"
+  },
+  "photos_vetted": "2026-11-17T12:58:45Z",
+  "photos_vet_v": 2
+}
