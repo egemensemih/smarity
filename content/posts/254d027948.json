@@ -1,0 +1,120 @@
+{
+  "id": "254d027948",
+  "created_at": "2026-11-17T17:17:21Z",
+  "title": "Gemini 4 ile yapay zeka destekli kişisel asistan dönemi başladı",
+  "summary": "Google, Gemini 4 modelini ve kullanıcıların e-posta, takvim ve ödeme sistemleri gibi birçok işlemi devredebilmesini sağlayan yeni yeteneklerini duyurdu.",
+  "body": "Google, kullanıcıların günlük rutinlerini kolaylaştırmayı hedefleyen yeni güncellemelerini duyurdu. **Gemini 4** adını taşıyan yeni modelle birlikte Gemini, artık takvim yönetimi, fatura analizi ve alışveriş gibi karmaşık görevleri kullanıcı adına yürütebilen bir kişisel asistan haline geliyor. Google’ın aktardığına göre, bu özellikler bugün itibarıyla ABD, Japonya, Güney Kore, Kanada, Avustralya ve Hindistan'da ücretsiz olarak kullanıma sunuldu.\n\n## Gemini neler yapabiliyor?\n\nKullanıcılar, servis randevusu almaktan internet üzerinden alışveriş yapmaya kadar pek çok işlemi artık Gemini üzerinden yönetebiliyor. Google'ın yeni geliştirdiği Agent Payments Protocol (AP2) altyapısı, American Express, Mastercard ve Visa kartlarıyla güvenli alışveriş imkânı tanırken, ödemeler Google Wallet üzerinden takip edilebiliyor. Ayrıca RCS entegrasyonu sayesinde kullanıcılar, mesajlaşma uygulamaları üzerinden Gemini'a alışveriş listesi ekleme veya takvim düzenleme gibi komutlar verebiliyor. 9to5Google'ın aktardığına göre, artık Gemini ile doğrudan e-posta göndererek veya Google Messages ile iMessage üzerinden metin mesajlaşarak da etkileşim kurmak mümkün.\n\n## Güvenlik ve gizlilik önlemleri\n\nGoogle, bu süreçte verilerin korunması için donanım tabanlı izole edilmiş sanal makineler (Agent Compute Engine) kullandığını vurguluyor. **Gemini**, kullanıcı onayı gerektiren kritik adımlarda, örneğin bir ödeme işlemi sırasında, mutlaka kullanıcıdan onay bekleyecek şekilde tasarlandı. Kullanıcılar, diledikleri zaman bu bağlantıları kesebiliyor veya geçmiş verilerini silebiliyor.\n\n**Neden önemli?** Gemini, kullanıcının Google ekosistemindeki e-posta, takvim ve dosya gibi verilerine erişerek dijital asistan kavramını daha işlevsel bir noktaya taşımayı hedefliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google",
+    "Gemini",
+    "Yapay Zeka",
+    "Google Wallet",
+    "RCS"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Gemini 4 ile yeni asistan özellikleri",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "A series of smooth, interconnected translucent spheres of varying sizes floating in a neutral space, connected by thin luminous lines representing digital tasks and data flows, reflecting soft ambient light.",
+  "focus_keyword": "Gemini 4",
+  "seo_title": "Gemini 4 ile gelen yeni yapay zeka özellikleri",
+  "meta_description": "Google, Gemini 4 modeli ile kullanıcıların e-posta ve alışveriş gibi günlük işlerini kolaylaştıran yeni asistan özelliklerini kullanıma sundu.",
+  "seo_slug": "gemini-4-ile-yapay-zeka-ozellikleri",
+  "image_alt": "Soyut dijital bağlantıları temsil eden parlak küreler ve ışık çizgileri",
+  "cover_text": "Gemini 4",
+  "carousel_points": [
+    "Gemini 4, takvim ve e-posta gibi kişisel verileri kullanarak günlük işleri üstleniyor.",
+    "Yeni özellikler arasında doğrudan e-posta ve mesajlaşma üzerinden asistanla iletişim kurmak yer alıyor.",
+    "Güvenlik için donanım tabanlı izole çalışma ortamları ve kullanıcı onayı gerektiren kritik işlem denetimleri sunuluyor."
+  ],
+  "appeal": 9,
+  "update_note": "",
+  "cover_headline": "Gemini 4 ile yapay zeka kişisel asistan oldu",
+  "cover_highlight": "Gemini 4",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Gemini artık doğrudan e-posta ve mesajlaşma servislerine entegre oldu.",
+  "entities": [
+    "Google",
+    "Gemini",
+    "Google Workspace"
+  ],
+  "topic": "Gemini updates with Workspace integration and communication features",
+  "sources": [
+    {
+      "name": "Google",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "title": "Put Gemini to work for you",
+      "kind": "official",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-17T17:00:00Z",
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_2784_x_1566.max-600x600.format-webp.webp"
+    },
+    {
+      "name": "9to5Google",
+      "url": "https://9to5google.com/2026/11/17/email-text-with-gemini/",
+      "title": "You can now Email and Text (via Google Messages, iMessage) with Gemini",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5google.com/2026/11/17/email-text-with-gemini/#respond",
+      "published": "2026-11-17T17:00:00Z",
+      "image": "https://9to5google.com/wp-content/uploads/sites/4/2026/11/Gemini-text-email-cover.jpg?quality=82&#038;strip=all&#038;w=1600"
+    }
+  ],
+  "source_keys": [
+    "Google",
+    "9to5Google"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2393
+  },
+  "photos": [
+    {
+      "src": "https://i0.wp.com/9to5google.com/wp-content/uploads/sites/4/2026/11/android-xr-intelligent-eyewear-warby-parker-22.jpg?w=1500&quality=82&strip=all&ssl=1",
+      "credit": "9to5Google",
+      "page": "https://9to5google.com/2026/11/17/email-text-with-gemini/",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "254d027948-g0.webp",
+      "w": 1500,
+      "h": 750
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "254d027948-g0.webp",
+    "credit": "9to5Google",
+    "page": "https://9to5google.com/2026/11/17/email-text-with-gemini/",
+    "src": "https://i0.wp.com/9to5google.com/wp-content/uploads/sites/4/2026/11/android-xr-intelligent-eyewear-warby-parker-22.jpg?w=1500&quality=82&strip=all&ssl=1",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "gemini-4-ile-yapay-zeka-ozellikleri",
+  "published_at": "2026-11-17T17:17:46Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/gemini-4-ile-yapay-zeka-ozellikleri",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-17T17:17:48Z"
+  },
+  "photos_vetted": "2026-11-17T17:18:30Z",
+  "photos_vet_v": 2
+}

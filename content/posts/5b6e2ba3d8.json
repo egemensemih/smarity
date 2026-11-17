@@ -66,9 +66,12 @@
     "message_id": 2387
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "5b6e2ba3d8-g0.webp",
+    "credit": "Digital Trends",
+    "page": "https://www.digitaltrends.com/movies/disney-and-hulu-to-finally-become-one-streaming-app-in-december/",
+    "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/11/Disney-plus-hulu.jpg?resize=2000%2C1200&ssl=1",
     "layout": "manset",
-    "palette": "teknoloji-3",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -84,7 +87,7 @@
     "votes": [],
     "at": "2026-11-17T15:11:11Z"
   },
-  "photos_filled": "2026-11-17T15:11:26Z",
+  "photos_filled": "2026-11-17T17:18:36Z",
   "photos_tried": "2026-11-17T15:11:29Z",
   "coverage": [
     {
@@ -111,5 +114,21 @@
       "image": "https://www.engadget.com/img/gallery/the-unified-disney-and-hulu-app-is-set-to-arrive-in-december/l-intro-1794931146.jpg",
       "at": "2026-11-17T16:15:04Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://i0.wp.com/cdn.dtmg.xyz/uploads/2026/11/Disney-plus-hulu.jpg?resize=2000%2C1200&ssl=1",
+      "credit": "Digital Trends",
+      "page": "https://www.digitaltrends.com/movies/disney-and-hulu-to-finally-become-one-streaming-app-in-december/",
+      "alt": "Hulu on Disney+",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "5b6e2ba3d8-g0.webp",
+      "w": 1600,
+      "h": 960
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-17T15:11:09Z"
 }
