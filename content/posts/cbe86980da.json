@@ -1,0 +1,110 @@
+{
+  "id": "cbe86980da",
+  "created_at": "2026-11-17T11:04:34Z",
+  "title": "Optimizely saldırısı yüzlerce siteyi hedef aldı",
+  "summary": "Optimizely platformundaki bir güvenlik açığını kullanan saldırganlar, aralarında BBC ve Zoom'un da bulunduğu 178 kurumun web sitesine kötü amaçlı kod yerleştirdi.",
+  "body": "Optimizely platformuna yönelik gerçekleştirilen bir siber saldırı, aralarında Zoom, BBC, CNN, Salesforce, GitLab, IKEA ve HSBC'nin de bulunduğu en az 178 kurumun web sitesini etkiledi. Güvenlik araştırmacısı Scott Helme, Optimizely üzerinden yüklenen web sitesi test scriptlerine kötü amaçlı yazılımların dahil edildiğini tespit etti. Optimizely, saldırının platformun hesap kayıt akışındaki bir açıktan kaynaklandığını doğruladı ve söz konusu güvenlik açığının kapatıldığını belirtti.\n\n## Kötü amaçlı kod ne yapıyordu?\n\nSaldırganlar, web sitelerinin kendi kodlarını değiştirmek yerine doğrudan Optimizely'nin sunucuları üzerinden çalışan scriptleri hedef aldı. Araştırmalara göre, bu kötü amaçlı kodlar kullanıcıların kripto para cüzdan adreslerini saldırganın adresleriyle değiştirdi, girilen ödeme bilgilerini kopyaladı ve tarayıcı çerezleri ile ekran görüntülerini ele geçirdi. Ayrıca iPhone ve iPad kullanıcılarını hedefleyen bazı exploit paketlerinin de bu yöntemle yüklendiği ancak cihazlarda başarılı bir ele geçirme rapor edilmediği belirtildi.\n\n## Güvenlik önlemleri ve sonuçlar\n\nOptimizely, güvenlik ihlalinin ardından etkilenen tüm müşterileri bilgilendirdiğini ve zararlı kodları temizlediğini duyurdu. Salesforce gibi bazı şirketler ise önlem olarak platforma ait scriptleri geçici olarak devre dışı bıraktıklarını açıkladı. Siber güvenlik uzmanları, saldırı sırasında bu siteleri ziyaret eden kullanıcıların iPhone ve iPad'lerini güncellemelerini, kredi kartı ekstrelerini ve yakın zamanda yaptıkları kripto para transferlerini kontrol etmelerini öneriyor.\n\n**Neden önemli?** Optimizely saldırısı, geliştiricilerin güven duyduğu üçüncü taraf araçların siber saldırılar için nasıl bir vektöre dönüşebileceğini bir kez daha ortaya koydu. Olay, modern internet altyapısındaki merkezi bağımlılıkların güvenlik risklerini gözler önüne seriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Optimizely",
+    "siber güvenlik",
+    "malware",
+    "veri ihlali",
+    "Zoom",
+    "BBC"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Optimizely saldırısı 178 siteyi etkiledi",
+  "kicker": "Siber saldırı",
+  "hero_stat": "178",
+  "hero_stat_label": "etkilenen kurum",
+  "visual_style": "still_life",
+  "visual_scene": "A series of translucent glass panels layered behind each other, with thin dark filaments like cables running between them, some segments glowing with a subtle red warning light, set against a dark grey background.",
+  "focus_keyword": "Optimizely saldırısı",
+  "seo_title": "Optimizely saldırısı: Zoom ve BBC dahil 178 site etkilendi",
+  "meta_description": "Optimizely platformundaki bir açık nedeniyle 178 kurumun sitesine kötü amaçlı kod yerleştirildi. Kullanıcılar için güvenlik uyarıları yapıldı.",
+  "seo_slug": "optimizely-saldirisi-siteleri-etkiledi",
+  "image_alt": "Üst üste dizilmiş, aralarında ince karanlık hatlar geçen ve yer yer kırmızı ışıkla uyaran cam paneller.",
+  "cover_text": "Optimizely saldırısı",
+  "carousel_points": [
+    "Optimizely platformundaki bir açık kullanılarak 178 sitenin scriptleri manipüle edildi.",
+    "Kötü amaçlı kodlar, kullanıcıların kredi kartı ve kripto cüzdan verilerini hedef aldı.",
+    "Optimizely açığı kapattığını duyururken, uzmanlar etkilenen sitelerin kullanıcılarını uyardı."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Optimizely saldırısı 178 siteyi etkiledi",
+  "cover_highlight": "Optimizely saldırısı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Zoom ve BBC gibi büyük platformları etkileyen kritik bir güvenlik zafiyeti.",
+  "entities": [
+    "Zoom",
+    "BBC",
+    "Optimizely"
+  ],
+  "topic": "Hackers use Optimizely widget to plant malware on major sites like Zoom and BBC",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/optimizely-hack-malware-zoom-bbc-cnn-hsbc-178-sites",
+      "title": "Hackers used Optimizely to plant malware on Zoom, BBC, CNN and HSBC sites",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-17T10:47:39Z",
+      "image": "https://media.thenextweb.com/2026/11/person-silhouette-screens-computer-code-dark.avif"
+    }
+  ],
+  "source_keys": [
+    "The Next Web"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2371
+  },
+  "photos": [
+    {
+      "src": "https://media.thenextweb.com/2026/11/person-silhouette-screens-computer-code-dark.avif",
+      "credit": "The Next Web",
+      "page": "https://thenextweb.com/news/optimizely-hack-malware-zoom-bbc-cnn-hsbc-178-sites",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "cbe86980da-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "cbe86980da-g0.webp",
+    "credit": "The Next Web",
+    "page": "https://thenextweb.com/news/optimizely-hack-malware-zoom-bbc-cnn-hsbc-178-sites",
+    "src": "https://media.thenextweb.com/2026/11/person-silhouette-screens-computer-code-dark.avif",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "optimizely-saldirisi-siteleri-etkiledi",
+  "published_at": "2026-11-17T11:04:45Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/optimizely-saldirisi-siteleri-etkiledi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-17T11:04:47Z"
+  },
+  "photos_vetted": "2026-11-17T11:07:53Z",
+  "photos_vet_v": 2
+}
