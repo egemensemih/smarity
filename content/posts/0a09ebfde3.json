@@ -1,0 +1,106 @@
+{
+  "id": "0a09ebfde3",
+  "created_at": "2026-11-19T20:44:54Z",
+  "title": "Gemini geçmiş aktarma özelliğiyle diğer yapay zekalardan veri taşınabilecek",
+  "summary": "Google, kullanıcıların farklı yapay zeka araçlarındaki sohbet geçmişini ve tercihlerini sıfırdan başlamadan Gemini servislerine aktarmasına imkan tanıyan yeni özelliğini duyurdu.",
+  "body": "Google'ın 19 Kasım'da yaptığı duyuruya göre platform, başka bir yapay zeka asistanından geçen kullanıcıların sıfırdan başlamasını önlemek amacıyla **Gemini geçmiş aktarma** imkanını sundu. Yeni özellik sayesinde kullanıcılar, daha önce kullandıkları yapay zeka uygulamalarındaki sohbet geçmişlerini, kişisel tercihlerini ve bağlamlarını doğrudan Gemini hesaplarına taşıyabiliyor.\n\n## Sohbet geçmişi ve tercihler nasıl taşınır?\n\nGoogle'ın açıkladığı süreç kapsamında verilerini aktarmak isteyen kullanıcıların izlemesi gereken adımlar şu şekilde sıralanıyor:\n\n- Gemini aktarım ayarları bölümünden Google'ın sunduğu özel yönlendirme metni kopyalanıyor.\n- Bu metin eski yapay zeka aracına yapıştırılarak kullanıcının tercihlerini içeren bir özet üretiliyor ve alınan yanıt Gemini'a aktarılıyor.\n- Eski yapay zeka sağlayıcısının hesap ayarlarından sohbet geçmişini içeren **ZIP arşivi** indiriliyor.\n- İndirilen ZIP dosyası Gemini ayarlarından sisteme yükleniyor.\n\n## Kaldığı yerden devam eden sohbetler\n\nZIP arşivinin Gemini sistemine yüklenmesinin ardından kullanıcılar, eski sohbetlerine tam olarak bıraktıkları yerden devam edebiliyor. Bu aktarım modeli, platform değişikliği sırasında biriken bağlamın ve kişiselleştirilmiş ayarların korunmasını hedefliyor.\n\n**Neden önemli?** Bu güncelleme, kullanıcıların alışkın oldukları yapay zeka tercihlerini ve sohbet verilerini kaybetme endişesi duymadan platformlar arasında geçiş yapmasını pratik hale getiriyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Google",
+    "Gemini",
+    "yapay zeka"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Gemini'a sohbet geçmişi aktarma özelliği geldi",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A glowing amber translucent glass cube with neat rows of physical index cards inside, sitting beside a sleek dark metallic box. A soft satin ribbon connects the two objects on a smooth monochrome surface, symbolizing seamless data transfer between two distinct structures.",
+  "focus_keyword": "Gemini geçmiş aktarma",
+  "seo_title": "Gemini geçmiş aktarma özelliği kullanıma sunuldu",
+  "meta_description": "Google Gemini geçmiş aktarma özelliği sayesinde başka yapay zeka araçlarındaki sohbet geçmişinizi ve tercihlerinizi tek tıkla aktarabilirsiniz.",
+  "seo_slug": "gemini-gecmis-aktarma-ozelligi-kullanima-sunuldu",
+  "image_alt": "Işıklı cam bir küpten kutuya uzanan kurdele: yapay zekalar arası sohbet geçmişi aktarımını simgeleyen görsel.",
+  "cover_text": "Google Gemini",
+  "carousel_points": [
+    "Google, başka yapay zeka uygulamalarındaki sohbet geçmişini Gemini'a aktarma özelliği sundu.",
+    "Kullanıcılar eski tercihlerinin özetini ve ZIP formatındaki sohbet arşivini Gemini'a yükleyebiliyor.",
+    "Yükleme tamamlandıktan sonra eski platformdaki sohbetlere kaldığı yerden devam edilebiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Gemini diğer yapay zekalardan veri alıyor",
+  "cover_highlight": "veri alıyor",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Gemini'ye diğer yapay zekalardan sohbet geçmişi içe aktarma özelliği geldi.",
+  "entities": [
+    "Google",
+    "Gemini"
+  ],
+  "topic": "Google Gemini chat history import feature",
+  "sources": [
+    {
+      "name": "Google",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/switch-ai-assistants-transfer-history/",
+      "title": "ICYMI: Transfer your history from other AI apps into Gemini.",
+      "kind": "official",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-19T20:30:00Z",
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Transfer_socialshare.max-600x600.format-webp.webp"
+    }
+  ],
+  "source_keys": [
+    "Google"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2509
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Google",
+      "alt": "Google",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "0a09ebfde3-g0.webp",
+      "w": 960,
+      "h": 702
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "0a09ebfde3-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Google",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/960px-Googleplex_HQ_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "gemini-gecmis-aktarma-ozelligi-kullanima-sunuldu",
+  "published_at": "2026-11-19T20:44:59Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/gemini-gecmis-aktarma-ozelligi-kullanima-sunuldu",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-19T20:45:01Z"
+  },
+  "photos_vetted": "2026-11-19T20:45:04Z",
+  "photos_vet_v": 2
+}
