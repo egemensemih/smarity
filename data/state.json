@@ -722,15 +722,6 @@
     }
   },
   "day_counts": {
-    "2026-11-06": {
-      "tok_in": 1544294,
-      "tok_out": 200385,
-      "cost_usd": 0.0,
-      "drafts": 32,
-      "published": 30,
-      "auto": 30,
-      "dropped": 2
-    },
     "2026-11-07": {
       "tok_in": 990550,
       "tok_out": 99175,
@@ -868,11 +859,16 @@
       "updates": 5,
       "updated": 5,
       "dropped": 1
+    },
+    "2026-11-20": {
+      "tok_in": 8487,
+      "tok_out": 59,
+      "cost_usd": 0.0
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-19T21:02:53Z",
+  "last_build": "2026-11-19T21:13:24Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
