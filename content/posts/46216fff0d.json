@@ -1,0 +1,106 @@
+{
+  "id": "46216fff0d",
+  "created_at": "2026-11-19T15:38:59Z",
+  "title": "Nvidia sürücü güncellemesi SSD'lerde hızlı aşınmaya yol açıyor",
+  "summary": "Nvidia'nın 621.24 numaralı GeForce sürücü güncellemesindeki bir hata, bazı kullanıcıların SSD'lerinde aşırı veri yazımına ve donanımın hızla eskimesine neden oluyor.",
+  "body": "Nvidia tarafından yayınlanan yeni bir sürücü güncellemesi, bilgisayarlardaki katı hal sürücülerinde (SSD) beklenmedik bir veri yazma sorununa ve hızlı aşınmaya yol açıyor. Kotaku'nun aktardığına göre, TroubleGrid tarafından ortaya çıkarılan sorun, 12 Kasım'da kullanıma sunulan **621.24 numaralı Nvidia GeForce Game Ready Driver** güncellemesiyle birlikte sisteme dahil oldu.\n\n## Sorunun kaynağı nedir\n\nGüncellemede yer alan bir hata nedeniyle NVDisplay.Container.exe süreci, bazı kullanıcıların bilgisayarlarında sürekli olarak büyük miktarda veri kaydediyor. Bu durum, SSD'lerin normal oranının çok üzerinde veri yazmasına ve normal şartlarda yaklaşık 10 yıl sürebilecek donanım ömrünün hızla tükenmesine neden oluyor. Reddit üzerindeki pek çok toplulukta dile getirilen bu yaygın hata, bilgisayar performansını da olumsuz etkiliyor. Benzer bir sorunun geçtiğimiz haftalarda bir AMD güncellemesinde de görüldüğü, ancak AMD'nin hızlı bir şekilde yama yayınlayarak hatayı giderdiği belirtiliyor.\n\n## Nasıl çözülür\n\nKullanıcılar için geçici çözüm oldukça basit görünüyor. Önceki Nvidia sürücü sürümüne geri dönüldüğünde gereksiz veri yazma işleminin durduğu ve sürecin normal seviyelere döndüğü ifade ediliyor. Sosyal medyadaki bazı teorilerde ise Nvidia mühendislerinin yapay zeka araçlarını yoğun şekilde kullanmasının bu tür büyük hataların gözden kaçmasına yol açmış olabileceği öne sürülüyor.\n\n**Neden önemli?** SSD'lerin ömrünü ciddi oranda kısaltabilen bu hata, oyuncuların ve bilgisayar kullanıcılarının donanımlarındakalıcı hasar riskine karşı dikkatli olmasını gerektiriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Nvidia",
+    "GeForce",
+    "SSD"
+  ],
+  "confidence": "orta",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Nvidia sürücü güncellemesi SSD'leri aşındırıyor",
+  "kicker": "Donanım sorunu",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a slim metal computer storage drive resting on a dark slate surface, illuminated by a sharp red light beam cutting across its casing to signify hardware strain, with soft grey shadows around it",
+  "focus_keyword": "Nvidia sürücü güncellemesi",
+  "seo_title": "Nvidia sürücü güncellemesi SSD ömrünü kısaltıyor",
+  "meta_description": "Nvidia'nın yeni sürücü güncellemesindeki bir hata, SSD'lerde aşırı veri yazımına ve donanımın hızlı aşınmasına neden oluyor. Detaylar haberimizde.",
+  "seo_slug": "nvidia-surucu-guncellemesi-ssd-asindirma-sorunu",
+  "image_alt": "Koyu zemin üzerinde duran ve kırmızı ışıkla aydınlatılan metal katı hal sürücüsü",
+  "cover_text": "Nvidia sürücü",
+  "carousel_points": [
+    "Nvidia'nın yeni sürücü güncellemesinde SSD'lere aşırı veri yazan bir hata tespit edildi.",
+    "Hata nedeniyle katı hal sürücülerinin ömrü normalden çok daha hızlı tükeniyor.",
+    "Kullanıcılar eski sürücü sürümüne geri dönerek sorunun önüne geçebiliyor."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Nvidia sürücü güncellemesi SSD'leri eskitiyor",
+  "cover_highlight": "SSD'leri eskitiyor",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Nvidia sürücüsünün SSD'leri bozabileceğine dair ciddi sorun tüm kullanıcıları ilgilendiriyor.",
+  "entities": [
+    "NVIDIA",
+    "GeForce"
+  ],
+  "topic": "Nvidia driver update SSD degradation issue",
+  "sources": [
+    {
+      "name": "Kotaku",
+      "url": "https://kotaku.com/nvidia-update-degrading-ssds-ai-coding-jenson-huang-geforce-2000758372",
+      "title": "Nvidia’s Latest Driver Update Could Be Destroying Your SSDs, And People Suspect AI Coding Could Be To Blame",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://kotaku.com/nvidia-update-degrading-ssds-ai-coding-jenson-huang-geforce-2000758372#respond",
+      "published": "2026-11-19T15:30:26Z",
+      "image": "https://kotaku.com/app/uploads/2022/10/a779191d09107040549a5931452449f6-1280x720.jpg"
+    }
+  ],
+  "source_keys": [
+    "Kotaku"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2500
+  },
+  "photos": [
+    {
+      "src": "https://kotaku.com/app/uploads/2022/10/a779191d09107040549a5931452449f6-1280x720.jpg",
+      "credit": "Kotaku",
+      "page": "https://kotaku.com/nvidia-update-degrading-ssds-ai-coding-jenson-huang-geforce-2000758372",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "46216fff0d-g0.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "46216fff0d-g0.webp",
+    "credit": "Kotaku",
+    "page": "https://kotaku.com/nvidia-update-degrading-ssds-ai-coding-jenson-huang-geforce-2000758372",
+    "src": "https://kotaku.com/app/uploads/2022/10/a779191d09107040549a5931452449f6-1280x720.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "nvidia-surucu-guncellemesi-ssd-asindirma-sorunu",
+  "published_at": "2026-11-19T15:39:10Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/nvidia-surucu-guncellemesi-ssd-asindirma-sorunu",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-19T15:39:11Z"
+  },
+  "photos_vetted": "2026-11-19T15:41:54Z",
+  "photos_vet_v": 2
+}
