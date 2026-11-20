@@ -861,8 +861,8 @@
       "dropped": 1
     },
     "2026-11-20": {
-      "tok_in": 735600,
-      "tok_out": 74261,
+      "tok_in": 737164,
+      "tok_out": 74276,
       "cost_usd": 0.0,
       "drafts": 17,
       "published": 13,
@@ -872,7 +872,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-20T09:09:36Z",
+  "last_build": "2026-11-20T09:22:16Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
@@ -2524,27 +2524,6 @@
     "0251d12963:1075e7d4"
   ],
   "ig_queue": [
-    {
-      "id": "8f2097d123",
-      "queued_at": "2026-11-19T21:15:40Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Visa ve Mastercard gibi devlerin adının geçtiği veri sızıntısı haberi geniş kitlelerin dikkatini çekecek kadar önemli ancak görsel yapısı ve kartların güvende olması nedeniyle kalıcı bir post yerine story formatında paylaşılmalıdır.",
-      "mid": 2512,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık, kategori çipi ve güvenli alanlar marka kimliğimize tamamen uygun durumda.",
-        "at": "2026-11-19T21:20:30Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
     {
       "id": "07e063096a",
       "queued_at": "2026-11-19T23:47:28Z",
