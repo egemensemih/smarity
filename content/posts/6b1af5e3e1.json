@@ -1,0 +1,145 @@
+{
+  "id": "6b1af5e3e1",
+  "created_at": "2026-11-20T12:42:38Z",
+  "title": "Signal, Gemini ve Siri AI araçlarının mesajları okumasını engelliyor",
+  "summary": "Şifreli mesajlaşma uygulaması Signal, Gemini ve Siri AI gibi yapay zeka asistanlarının özel sohbetleri taramasını önlemek için ekran görüntüsü engelleme özellikleri getirdi.",
+  "body": "Signal, Android ve iOS cihazlarda yapay zeka asistanlarının kullanıcı mesajlarını taramasını engellemek amacıyla yeni güvenlik önlemleri hayata geçirdi. Android ve iOS 27 işletim sistemlerinde devreye alınan bu korumalar, **Gemini** ve **Siri AI** gibi yapay zeka araçlarının ekrandaki özel yazışmaları okumasının önüne geçmeyi hedefliyor.\n\n## Gizlilik koruması ve ekran görüntüsü kısıtlaması\n\nAndroid tarafında Signal, bir yapay zeka asistanının ekranı okumaya çalıştığını algıladığında ekran güvenliği ayarını otomatik olarak etkinleştiriyor. iOS 27'de ise doğrudan Siri AI engelleme seçeneği sunuluyor. Bu önlemler aynı zamanda kullanıcıların uygulama içinde ekran görüntüsü almasını da kısıtlıyor. Ancak dileyen kullanıcılar, uygulama ayarlarından bu korumaları devre dışı bırakabiliyor; Signal başkanı Meredith Whittaker ise bu durumun gizlilik garantilerini tehlikeye atabileceği konusunda uyarıyor.\n\n## Geliştiriciler için çağrı\n\nSignal yönetimi, ekran görüntüsü engellemenin tam bir çözüm olmadığını ve yapay zeka ajanlarının dosya sistemi gibi farklı yollarla verilere erişebileceğini kabul ediyor. macOS gibi platformlarda benzer korumaların uygulanamadığını belirten yetkililer, Google, Apple ve Microsoft gibi büyük teknoloji şirketlerinden uygulama işlevselliğini bozmadan yapay zeka erişimini kısıtlayacak gelişmiş araçlar ve net belgeler talep ediyor.\n\n**Neden önemli?** İşletim sistemlerine entegre edilen yapay zeka ajanlarının uygulama düzeyindeki gizliliği tehdit ettiğini belirten Signal, bankacılık ve sağlık gibi hassas alanlardaki uygulamalar için de benzer koruma araçlarına acilen ihtiyaç duyulduğunun altını çiziyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Signal",
+    "Gemini",
+    "Siri",
+    "Google",
+    "Apple",
+    "Microsoft"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Signal'den yapay zekaya karşı gizlilik hamlesi",
+  "kicker": "Gizlilik koruması",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a single dark metallic smartphone resting vertically on a neutral matte grey surface, with a faint translucent geometric shield floating just above the screen, casting soft shadows",
+  "focus_keyword": "Signal Gemini ve Siri AI",
+  "seo_title": "Signal, Gemini ve Siri AI ajanlarının mesajları okumas",
+  "meta_description": "Signal, Gemini ve Siri AI gibi yapay zeka asistanlarının özel mesajları taramasını engellemek için yeni gizlilik ve ekran görüntüsü önlemleri getirdi.",
+  "seo_slug": "signal-gemini-ve-siri-ai-mesajlari-engelliyor",
+  "image_alt": "Koyu gri zemin üzerinde duran akıllı telefon ve üzerinde yer alan yarı saydam koruma kalkanı görseli",
+  "cover_text": "Signal",
+  "carousel_points": [
+    "Signal, yapay zeka asistanlarının özel sohbetleri taramasını önlemek için yeni korumalar getirdi.",
+    "Android ve iOS 27 üzerinde devreye giren özellik, ekran görüntüsü almayı da kısıtlıyor.",
+    "Uygulama yönetimi, büyük teknoloji şirketlerinden geliştiriciler için daha iyi gizlilik araçları istiyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Signal ekran okuyan yapay zekaları engelliyor",
+  "cover_highlight": "yapay zekaları",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Signal yapay zekanın mesajları taramasını önlemek için ekran görüntüsünü engelliyor.",
+  "entities": [
+    "Signal",
+    "Gemini",
+    "Apple"
+  ],
+  "topic": "Signal blocks screenshots to prevent AI agents from scanning chats",
+  "sources": [
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
+      "title": "Signal is blocking screenshots to prevent Gemini and Siri AI from scanning your chats",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/#respond",
+      "published": "2026-11-20T12:35:10Z",
+      "image": null
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+      "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-20T12:30:47Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/protecting-your-privacy-1.png?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    }
+  ],
+  "source_keys": [
+    "Android Authority",
+    "The Verge"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2540
+  },
+  "photos": [
+    {
+      "src": "https://www.androidauthority.com/wp-content/uploads/2026/11/Block-screenshots-in-Signal-app.jpg.webp",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
+      "alt": "",
+      "kind": "body",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "6b1af5e3e1-g0.webp",
+      "w": 1200,
+      "h": 680
+    },
+    {
+      "src": "https://www.androidauthority.com/wp-content/uploads/2026/11/Block-Siri-AI-in-Signal-app.jpg.webp",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "6b1af5e3e1-g1.webp",
+      "w": 1200,
+      "h": 680
+    },
+    {
+      "src": "https://www.androidauthority.com/wp-content/uploads/2025/07/the-signal-app-on-a-smartphone-screen-scaled.jpg",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "6b1af5e3e1-g2.webp",
+      "w": 1600,
+      "h": 901
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "6b1af5e3e1-g2.webp",
+    "credit": "Android Authority",
+    "page": "https://www.androidauthority.com/signal-blocks-gemini-siri-ai-private-messages-3737647/",
+    "src": "https://www.androidauthority.com/wp-content/uploads/2025/07/the-signal-app-on-a-smartphone-screen-scaled.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "signal-gemini-ve-siri-ai-mesajlari-engelliyor",
+  "published_at": "2026-11-20T12:42:45Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/signal-gemini-ve-siri-ai-mesajlari-engelliyor",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-20T12:42:47Z"
+  },
+  "photos_vetted": "2026-11-20T12:42:50Z",
+  "photos_vet_v": 2
+}
