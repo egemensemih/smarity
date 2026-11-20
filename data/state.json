@@ -861,8 +861,8 @@
       "dropped": 1
     },
     "2026-11-20": {
-      "tok_in": 405591,
-      "tok_out": 43135,
+      "tok_in": 408695,
+      "tok_out": 43167,
       "cost_usd": 0.0,
       "drafts": 8,
       "published": 5,
@@ -872,14 +872,12 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-20T05:03:14Z",
+  "last_build": "2026-11-20T05:09:13Z",
   "build_sig": "b602068eb2af619e",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-04T09:56:47Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/super-zeka/2026/11/chatgpt-mobil-tasarim-yenilendi-sekme-cubugu/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2887,7 +2885,7 @@
     ]
   },
   "ig_problem": {
-    "at": "2026-11-19T20:18:56Z",
+    "at": "2026-11-20T05:04:48Z",
     "text": "Meta uygulamanın erişimini engelledi (API access blocked.). Bu genellikle işletme hesabı kısıtlandığında olur: Meta'nın e-postasındaki Sorunu düzelt ile inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her 3 saatte bir dener)."
   },
   "ig_diag": {
@@ -2907,10 +2905,10 @@
       "code": 200,
       "subcode": 5258005
     },
-    "at": "2026-11-19T20:18:56Z"
+    "at": "2026-11-20T05:04:48Z"
   },
   "ig_pause": {
     "fp": "ab71679b4a75",
-    "until": "2026-11-19T23:18:56Z"
+    "until": "2026-11-20T08:04:48Z"
   }
 }
