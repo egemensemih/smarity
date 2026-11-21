@@ -1,39 +1,40 @@
 {
   "id": "46216fff0d",
   "created_at": "2026-11-19T15:38:59Z",
-  "title": "Nvidia sürücü güncellemesi SSD'lerde hızlı aşınmaya yol açıyor",
-  "summary": "Nvidia'nın 621.24 numaralı GeForce sürücü güncellemesindeki bir hata, bazı kullanıcıların SSD'lerinde aşırı veri yazımına ve donanımın hızla eskimesine neden oluyor.",
-  "body": "Nvidia tarafından yayınlanan yeni bir sürücü güncellemesi, bilgisayarlardaki katı hal sürücülerinde (SSD) beklenmedik bir veri yazma sorununa ve hızlı aşınmaya yol açıyor. Kotaku'nun aktardığına göre, TroubleGrid tarafından ortaya çıkarılan sorun, 12 Kasım'da kullanıma sunulan **621.24 numaralı Nvidia GeForce Game Ready Driver** güncellemesiyle birlikte sisteme dahil oldu.\n\n## Sorunun kaynağı nedir\n\nGüncellemede yer alan bir hata nedeniyle NVDisplay.Container.exe süreci, bazı kullanıcıların bilgisayarlarında sürekli olarak büyük miktarda veri kaydediyor. Bu durum, SSD'lerin normal oranının çok üzerinde veri yazmasına ve normal şartlarda yaklaşık 10 yıl sürebilecek donanım ömrünün hızla tükenmesine neden oluyor. Reddit üzerindeki pek çok toplulukta dile getirilen bu yaygın hata, bilgisayar performansını da olumsuz etkiliyor. Benzer bir sorunun geçtiğimiz haftalarda bir AMD güncellemesinde de görüldüğü, ancak AMD'nin hızlı bir şekilde yama yayınlayarak hatayı giderdiği belirtiliyor.\n\n## Nasıl çözülür\n\nKullanıcılar için geçici çözüm oldukça basit görünüyor. Önceki Nvidia sürücü sürümüne geri dönüldüğünde gereksiz veri yazma işleminin durduğu ve sürecin normal seviyelere döndüğü ifade ediliyor. Sosyal medyadaki bazı teorilerde ise Nvidia mühendislerinin yapay zeka araçlarını yoğun şekilde kullanmasının bu tür büyük hataların gözden kaçmasına yol açmış olabileceği öne sürülüyor.\n\n**Neden önemli?** SSD'lerin ömrünü ciddi oranda kısaltabilen bu hata, oyuncuların ve bilgisayar kullanıcılarının donanımlarındakalıcı hasar riskine karşı dikkatli olmasını gerektiriyor.",
+  "title": "GeForce Hotfix Driver 621.35 ile Nvidia SSD yazma sorununu çözdü",
+  "summary": "Nvidia, kullanıcıların SSD ömrünü kısaltan arka plan veri yazma sorununu GeForce Hotfix Driver 621.35 güncellemesiyle giderdi.",
+  "body": "Nvidia, kullanıcıların bildirdiği SSD sorununu çözmek için GeForce Hotfix Driver 621.35 güncellemesini yayınladı. LOG'un aktardığına göre, arka planda nvlog.nvlgstg dosyasına sürekli veri yazılmasına neden olan hatayı gideren bu yeni yama kullanıma sunuldu.\n\n## SSD sorununa kalıcı çözüm\n\nNvidia'nın daha önce yayınladığı 621.24 numaralı sürücü güncellemesindeki hata nedeniyle NVDisplay.Container.exe süreci, bazı bilgisayarlarda sürekli olarak büyük miktarda veri kaydediyordu. Bu durum, katı hal sürücülerinin (SSD) normal oranının çok üzerinde veri yazmasına ve donanım ömrünün hızla tükenmesine yol açıyordu. Yeni yayınlanan hotfix güncellemesiyle bu hatanın giderildiği belirtiliyor. Benzer bir sorunun geçtiğimiz haftalarda AMD ekran kartı sürücülerinde de görüldüğü ve AMD'nin Adrenalin 26.11.1 güncellemesiyle sorunu çözdüğü hatırlatılıyor.\n\n**Neden önemli?** Donanımlarda kalıcı hasar riskine yol açabilen ve SSD ömrünü ciddi oranda kısaltabilen bu hatanın güncellemeyle giderilmesi, kullanıcıların sistem güvenliği açısından önem taşıyor.",
   "category": "teknoloji",
   "tags": [
     "Nvidia",
     "GeForce",
+    "AMD",
     "SSD"
   ],
-  "confidence": "orta",
+  "confidence": "yuksek",
   "flags": [],
-  "editor_note": "",
-  "short_title": "Nvidia sürücü güncellemesi SSD'leri aşındırıyor",
-  "kicker": "Donanım sorunu",
+  "editor_note": "LOG kaynaklı son gelişme ile önceki Nvidia SSD sorunu haberi güncellenmiştir.",
+  "short_title": "Nvidia SSD yazma sorununu güncellemeyle çözdü",
+  "kicker": "Sürücü güncellemesi",
   "hero_stat": "",
   "hero_stat_label": "",
   "visual_style": "studio",
   "visual_scene": "a slim metal computer storage drive resting on a dark slate surface, illuminated by a sharp red light beam cutting across its casing to signify hardware strain, with soft grey shadows around it",
-  "focus_keyword": "Nvidia sürücü güncellemesi",
-  "seo_title": "Nvidia sürücü güncellemesi SSD ömrünü kısaltıyor",
-  "meta_description": "Nvidia'nın yeni sürücü güncellemesindeki bir hata, SSD'lerde aşırı veri yazımına ve donanımın hızlı aşınmasına neden oluyor. Detaylar haberimizde.",
+  "focus_keyword": "GeForce Hotfix Driver",
+  "seo_title": "Nvidia GeForce Hotfix Driver ile SSD sorunu çözüldü",
+  "meta_description": "Nvidia, SSD'lerde aşırı veri yazımına yol açan hatayı GeForce Hotfix Driver 621.35 güncellemesiyle düzelttiğini duyurdu.",
   "seo_slug": "nvidia-surucu-guncellemesi-ssd-asindirma-sorunu",
-  "image_alt": "Koyu zemin üzerinde duran ve kırmızı ışıkla aydınlatılan metal katı hal sürücüsü",
-  "cover_text": "Nvidia sürücü",
+  "image_alt": "Nvidia ekran kartı sürücü güncellemesini temsil eden metalik depolama birimi",
+  "cover_text": "GeForce Hotfix",
   "carousel_points": [
-    "Nvidia'nın yeni sürücü güncellemesinde SSD'lere aşırı veri yazan bir hata tespit edildi.",
-    "Hata nedeniyle katı hal sürücülerinin ömrü normalden çok daha hızlı tükeniyor.",
-    "Kullanıcılar eski sürücü sürümüne geri dönerek sorunun önüne geçebiliyor."
+    "Nvidia, SSD'lerde aşırı veri yazımına neden olan hatayı çözdü.",
+    "GeForce Hotfix Driver 621.35 güncellemesi indirilebilir durumda.",
+    "Güncelleme arka plandaki hatalı veri kayıt sürecini durduruyor."
   ],
   "appeal": 7,
   "update_note": "",
-  "cover_headline": "Nvidia sürücü güncellemesi SSD'leri eskitiyor",
-  "cover_highlight": "SSD'leri eskitiyor",
+  "cover_headline": "Nvidia SSD sorununu hotfix ile çözdü",
+  "cover_highlight": "hotfix ile çözdü",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -55,10 +56,21 @@
       "via_url": "https://kotaku.com/nvidia-update-degrading-ssds-ai-coding-jenson-huang-geforce-2000758372#respond",
       "published": "2026-11-19T15:30:26Z",
       "image": "https://kotaku.com/app/uploads/2022/10/a779191d09107040549a5931452449f6-1280x720.jpg"
+    },
+    {
+      "name": "LOG",
+      "url": "https://www.log.com.tr/nvidia-geforce-hotfix-driver-621-35-ile-sikayet-edilen-ssd-yazma-sorununu-cozdu/",
+      "title": "Nvidia, GeForce Hotfix Driver 621.35 ile şikayet edilen SSD yazma sorununu çözdü",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-21T09:04:06Z",
+      "image": "https://www.log.com.tr/wp-content/uploads/2025/09/nvidia-7-660x371.jpg"
     }
   ],
   "source_keys": [
-    "Kotaku"
+    "Kotaku",
+    "LOG"
   ],
   "rewrites": 0,
   "telegram": {
@@ -151,6 +163,25 @@
       "kind": "media",
       "image": "https://cdn.wccftech.com/wp-content/uploads/2026/11/NVIDIA-2-1456x819.jpg",
       "at": "2026-11-21T08:57:52Z"
+    },
+    {
+      "name": "LOG",
+      "url": "https://www.log.com.tr/nvidia-geforce-hotfix-driver-621-35-ile-sikayet-edilen-ssd-yazma-sorununu-cozdu/",
+      "title": "Nvidia, GeForce Hotfix Driver 621.35 ile şikayet edilen SSD yazma sorununu çözdü",
+      "kind": "media",
+      "image": "https://www.log.com.tr/wp-content/uploads/2025/09/nvidia-7-660x371.jpg",
+      "at": "2026-11-21T09:14:55Z"
+    }
+  ],
+  "updated_at": "2026-11-21T09:15:17Z",
+  "refreshed_at": "2026-11-21T09:15:17Z",
+  "updates": [
+    {
+      "at": "2026-11-21T09:15:17Z",
+      "note": "Nvidia, SSD yazma sorununu gideren GeForce Hotfix Driver 621.35 güncellemesini yayınladı.",
+      "sources": [
+        "LOG"
+      ]
     }
   ]
 }
