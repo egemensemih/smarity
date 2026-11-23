@@ -77,9 +77,12 @@
     "message_id": 2612
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "d59d6adcf7-g0.webp",
+    "credit": "SamMobile",
+    "page": "https://www.sammobile.com/news/samsung-launches-worlds-first-1100hz-gaming-monitor/",
+    "src": "https://www.sammobile.com/wp-content/uploads/2026/02/Samsung-Odyssey-G6-G60H-IPS-LCD-Monitor-CES-2026.jpg",
     "layout": "manset",
-    "palette": "gaming-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -95,6 +98,22 @@
     "votes": [],
     "at": "2026-11-23T13:13:58Z"
   },
-  "photos_filled": "2026-11-23T13:14:19Z",
-  "photos_tried": "2026-11-23T13:14:48Z"
+  "photos_filled": "2026-11-23T15:16:19Z",
+  "photos_tried": "2026-11-23T13:14:48Z",
+  "photos": [
+    {
+      "src": "https://www.sammobile.com/wp-content/uploads/2026/02/Samsung-Odyssey-G6-G60H-IPS-LCD-Monitor-CES-2026.jpg",
+      "credit": "SamMobile",
+      "page": "https://www.sammobile.com/news/samsung-launches-worlds-first-1100hz-gaming-monitor/",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "d59d6adcf7-g0.webp",
+      "w": 1600,
+      "h": 900
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-23T13:13:56Z"
 }
