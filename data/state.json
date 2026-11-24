@@ -875,13 +875,13 @@
       "updates": 1,
       "updated": 1,
       "dropped": 1,
-      "instagram_story": 3,
+      "instagram_story": 4,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T12:27:00Z",
+  "last_build": "2026-11-24T12:32:57Z",
   "build_sig": "f5c1b97e6602336a",
   "commands_version": 5,
   "queue": [],
@@ -2534,28 +2534,6 @@
   ],
   "ig_queue": [
     {
-      "id": "2eb03622a3",
-      "queued_at": "2026-11-24T07:40:20Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Erişilebilir elektrikli aile otomobili hamlesi Türk kullanıcıların ilgisini çekecek düzeyde ancak 2028 gibi uzak bir tarih olduğu için kalıcı bir post yerine story formatında paylaşılması daha doğru.",
-      "mid": 2643,
-      "vtried": [
-        "auto",
-        "contain"
-      ],
-      "vcheck": {
-        "variant": "contain",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, yerleşim ve güvenli alan kurallarına tamamen uygun, doğrudan paylaşılabilir kalitede.",
-        "at": "2026-11-24T07:48:38Z"
-      },
-      "variant": "contain",
-      "vok": true
-    },
-    {
       "id": "44d8a6a687",
       "queued_at": "2026-11-24T11:25:24Z",
       "tries": 0,
@@ -2887,7 +2865,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-24T12:11:20Z",
+  "ig_last_at": "2026-11-24T12:28:21Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2906,6 +2884,13 @@
     {
       "id": "1fc8915543",
       "at": "2026-11-24T12:11:20Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "2eb03622a3",
+      "at": "2026-11-24T12:28:21Z",
       "permalink": "",
       "story": true,
       "format": "story"
