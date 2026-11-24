@@ -866,8 +866,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 721526,
-      "tok_out": 120359,
+      "tok_in": 740900,
+      "tok_out": 120483,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -875,13 +875,13 @@
       "updates": 1,
       "updated": 1,
       "dropped": 1,
-      "instagram_story": 2,
+      "instagram_story": 3,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T12:04:19Z",
+  "last_build": "2026-11-24T12:16:03Z",
   "build_sig": "3fbdcebff8bd265b",
   "commands_version": 5,
   "queue": [
@@ -2577,27 +2577,6 @@
   ],
   "ig_queue": [
     {
-      "id": "1fc8915543",
-      "queued_at": "2026-11-24T07:22:05Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Huawei FreeBuds SE 5 MAX'in teknik özellikleri ilgi çekici ancak post bütçemizi daha kritik haberler için korumak adına hikaye formatında paylaşılmasına karar verildi.",
-      "mid": 2641,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, Smarity'nin marka kimliğine uygun, temiz ve okunabilir bir tasarıma sahip.",
-        "at": "2026-11-24T07:28:21Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "2eb03622a3",
       "queued_at": "2026-11-24T07:40:20Z",
       "tries": 0,
@@ -2951,7 +2930,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-24T11:53:36Z",
+  "ig_last_at": "2026-11-24T12:11:20Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2966,6 +2945,13 @@
       "permalink": "",
       "story": true,
       "format": "post"
+    },
+    {
+      "id": "1fc8915543",
+      "at": "2026-11-24T12:11:20Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
     }
   ]
 }
