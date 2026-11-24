@@ -67,3 +67,68 @@ def test_weekly_report_sent_once_on_monday(monkeypatch):
         monkeypatch.setattr(appmod, "now_utc", lambda: datetime(2026, 12, 1, 7, 30, tzinfo=timezone.utc))  # salı
         a.maybe_weekly_report()
         assert (a.tg.dir / "outbox.jsonl").read_text(encoding="utf-8").count("Haftalık rapor") == 1
+
+
+def test_rs256_matches_standard_library():
+    import pytest
+    crypto = pytest.importorskip("cryptography")  # noqa: F841
+    from cryptography.hazmat.primitives import hashes, serialization
+    from cryptography.hazmat.primitives.asymmetric import padding, rsa
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    for fmt in (serialization.PrivateFormat.PKCS8, serialization.PrivateFormat.TraditionalOpenSSL):
+        pem = key.private_bytes(serialization.Encoding.PEM, fmt, serialization.NoEncryption()).decode()
+        msg = b"header.claim"
+        assert R.rs256(msg, pem) == key.sign(msg, padding.PKCS1v15(), hashes.SHA256())
+
+
+GSC = {"cur": {"clicks": 12, "impressions": 1500, "position": 11.84}, "prev": {"clicks": 6, "impressions": 3000},
+       "queries": [{"keys": ["togg fiyat listesi"], "impressions": 400, "clicks": 5},
+                   {"keys": ["imei kayıt ücreti"], "impressions": 900, "clicks": 0}],
+       "pages": [{"keys": ["https://smarity.com.tr/rehber/togg-fiyat-listesi/"], "impressions": 300}]}
+
+
+def test_search_block_in_report(monkeypatch):
+    with _App() as (cfg, a):
+        monkeypatch.setenv("GSC_SERVICE_ACCOUNT", json.dumps({"client_email": "x@y", "private_key": "-----BEGIN PRIVATE KEY-----"}))
+        monkeypatch.setattr(R, "fetch_gsc", lambda *_a: GSC)
+        cfg.raw.setdefault("report", {})["gsc_site"] = "https://smarity.com.tr/"
+        t = a.weekly_report_text()
+        assert "Gösterim: <b>1.500</b> (önceki hafta 3.000, -%50)" in t
+        assert "Tıklama: 12 (önceki hafta 6, +%100), ort. sıra 11,8" in t
+        assert t.index("imei kayıt ücreti") < t.index("togg fiyat listesi")          # gösterime göre sıralı
+        assert "/rehber/togg-fiyat-listesi/ — 300 gösterim" in t
+        monkeypatch.setenv("GSC_SERVICE_ACCOUNT", "yanlış")
+        assert "Google arama verisi alınamadı" in a.weekly_report_text()
+        monkeypatch.delenv("GSC_SERVICE_ACCOUNT")
+        assert "Google araması" not in a.weekly_report_text()                       # anahtar yoksa bölüm yok
+
+
+def test_gsc_token_request_is_valid_jwt(monkeypatch):
+    import base64 as b64
+    import pytest
+    pytest.importorskip("cryptography")
+    from cryptography.hazmat.primitives import hashes, serialization
+    from cryptography.hazmat.primitives.asymmetric import padding, rsa
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    pem = key.private_bytes(serialization.Encoding.PEM, serialization.PrivateFormat.PKCS8,
+                            serialization.NoEncryption()).decode()
+    sent = {}
+
+    class Resp:
+        status_code = 200
+        headers = {"content-type": "application/json; charset=utf-8"}
+
+        def json(self):
+            return {"access_token": "ya29.test"}
+
+    def post(url, data=None, **_k):
+        sent.update(url=url, **data)
+        return Resp()
+    monkeypatch.setattr(R.requests, "post", post)
+    assert R.gsc_access_token({"client_email": "rapor@proje.iam.gserviceaccount.com", "private_key": pem}) == "ya29.test"
+    head, claim, sig = sent["assertion"].split(".")
+    pad = lambda s: s + "=" * (-len(s) % 4)  # noqa: E731
+    key.public_key().verify(b64.urlsafe_b64decode(pad(sig)), f"{head}.{claim}".encode(), padding.PKCS1v15(), hashes.SHA256())
+    c = json.loads(b64.urlsafe_b64decode(pad(claim)))
+    assert c["iss"].startswith("rapor@") and c["scope"].endswith("webmasters.readonly") and c["exp"] - c["iat"] == 3600
+    assert sent["url"] == R.GSC_TOKEN_URL and sent["grant_type"].endswith("jwt-bearer")

@@ -691,3 +691,6 @@ report:
   hour: 9
   cf_account_id: "8b50a495bf0914524b1e3d8a5208dc3b"
   cf_site_tag: "6e2bf0fdd8b84422b162de09fa63eacd"
+  # Google arama verisi (Search Console): GitHub'da GSC_SERVICE_ACCOUNT sırrı (hizmet hesabının JSON anahtarı) gerekir;
+  # hizmet hesabı Search Console → Ayarlar → Kullanıcılar ve izinler'e "Kısıtlı" olarak eklenir.
+  gsc_site: "https://smarity.com.tr/"

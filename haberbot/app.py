@@ -2264,6 +2264,14 @@ class App:
                 lines += [f"👥 Okur verisi alınamadı: {esc(str(e))}", ""]
         else:
             lines += ["👥 Okur verisi için Cloudflare anahtarı (CLOUDFLARE_API_TOKEN) tanımlı değil.", ""]
+        if rc.get("gsc_site"):
+            try:
+                sa = reportmod.gsc_credentials()
+                if sa:
+                    g = reportmod.fetch_gsc(sa, str(rc["gsc_site"]), a, b)
+                    lines += reportmod.search_block(g, self._path_titles(), cfg.site_url, esc) + [""]
+            except reportmod.ReportError as e:
+                lines += [f"🔎 Google arama verisi alınamadı: {esc(str(e))}", ""]
 
         def in_week(ts) -> bool:
             d = local(ts, cfg.tz)
