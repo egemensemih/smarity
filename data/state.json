@@ -874,8 +874,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 973612,
-      "tok_out": 170338,
+      "tok_in": 977886,
+      "tok_out": 172270,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -889,7 +889,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T20:37:33Z",
+  "last_build": "2026-11-24T21:03:15Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -1160,7 +1160,9 @@
     }
   ],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/rehber/apple-turkiye-fiyatlari/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -3180,8 +3182,7 @@
     ]
   },
   "guide_wait": {
-    "sifir-arac-fiyat-listeleri": "2026-11-24T17:37:01Z",
-    "apple-turkiye-fiyatlari": "2026-11-24T17:55:42Z"
+    "sifir-arac-fiyat-listeleri": "2026-11-24T17:37:01Z"
   },
   "guide_err": {
     "slug": "apple-turkiye-fiyatlari",
