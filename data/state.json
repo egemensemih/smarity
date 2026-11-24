@@ -874,21 +874,18 @@
       "auto": 21,
       "updates": 1,
       "updated": 1,
-      "dropped": 1
+      "dropped": 1,
+      "instagram_story": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T11:31:46Z",
+  "last_build": "2026-11-24T11:37:45Z",
   "build_sig": "3fbdcebff8bd265b",
   "commands_version": 5,
   "queue": [],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/3-5-milyar-veri-sizintisi-tespit-edildi/",
-    "https://smarity.com.tr/super-zeka/2026/11/tesla-reality-view-yapay-zeka-modeli/",
-    "https://smarity.com.tr/teknoloji/2026/11/casper-pad-d10-pen-satis-fiyati/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2536,27 +2533,6 @@
   ],
   "ig_queue": [
     {
-      "id": "b1cba9bafe",
-      "queued_at": "2026-11-24T06:02:18Z",
-      "tries": 0,
-      "format": "story",
-      "note": "OpenAI duyurusu teknoloji meraklıları için ilgi çekici ancak görsel eksikliği ve ara model olması nedeniyle post yerine sadece story olarak paylaşılıyor.",
-      "mid": 2637,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi kurallara tam uygun, herhangi bir sorun bulunmuyor.",
-        "at": "2026-11-24T06:07:20Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "e3ba93683d",
       "queued_at": "2026-11-24T07:21:21Z",
       "tries": 0,
@@ -2953,31 +2929,14 @@
       }
     ]
   },
-  "ig_problem": {
-    "at": "2026-11-24T11:26:17Z",
-    "text": "Meta uygulamanın erişimini engelledi (API access blocked.). Bu genellikle işletme hesabı kısıtlandığında olur: Meta'nın e-postasındaki Sorunu düzelt ile inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her 3 saatte bir dener)."
-  },
-  "ig_diag": {
-    "kind": "facebook",
-    "me": {
-      "error": "API access blocked.",
-      "code": 200,
-      "subcode": 5258005
-    },
-    "perms": {
-      "error": "API access blocked.",
-      "code": 200,
-      "subcode": 5258005
-    },
-    "pages": {
-      "error": "API access blocked.",
-      "code": 200,
-      "subcode": 5258005
-    },
-    "at": "2026-11-24T11:10:37Z"
-  },
-  "ig_pause": {
-    "fp": "ab71679b4a75",
-    "until": "2026-11-24T14:26:17Z"
-  }
+  "ig_last_at": "2026-11-24T11:33:05Z",
+  "ig_done": [
+    {
+      "id": "b1cba9bafe",
+      "at": "2026-11-24T11:33:05Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    }
+  ]
 }
