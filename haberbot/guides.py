@@ -124,6 +124,9 @@ Accuracy rules (most important):
   if useful, mention the previous value as "önceki fiyat" with its month.
 - Say for which month/date each price or fee is valid ("Kasım 2026 fiyat listesine göre"). If the newest information
   is older than about two months, say clearly that it is the last announced value.
+- Date every number by the article that actually contains it, also in the summary. Never present an older price as
+  part of a newer list: if the newest list or article did not restate a price, write that the last announced price is
+  from the older month (e.g. "Kasım listesinde model fiyatları yer almadı; son açıklanan fiyatlar Ekim 2026'ya ait").
 - If the articles do not contain something a reader would expect (a model's price, a campaign), do not invent it;
   leave it out or say in one short sentence that it has not been announced.
 
