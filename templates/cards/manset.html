@@ -2,7 +2,8 @@
    mode: cover  (gönderi 1/3: tam ekran fotoğraf, koyu geçiş, kategori etiketi, beyaz başlık)
          points (gönderi 2/3: öne çıkan 3 madde, fotoğrafın bulanık hâli zeminde)
          why    (gönderi 3/3: neden önemli + haberin tamamı için yönlendirme)
-         story  (hikâye 1080×1920: fotoğraf kırpılmadan ortada, başlık, "Haberi oku" düğmesi; Instagram'ın üst ve alt
+         story  (hikâye 1080×1920: fotoğraf kırpılmadan ortada, başlık, "Haberin devamı smarity.com.tr'de" satırı (düğme yok:
+                 otomatik paylaşımda tıklanabilir bağlantı eklenemiyor); Instagram'ın üst ve alt
                  çubuklarına denk gelen alanlarda yalnızca zemin var — üst 250 px, alt 340 px)
    Fotoğraf yoksa kategori renginde koyu, yumuşak ışıklı zemin. #}
 <!doctype html>
@@ -41,6 +42,9 @@ h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap
 .box { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.24); border-radius: 28px; padding: 34px 40px; }
 .btn { display: inline-flex; align-items: center; gap: 14px; font-weight: 700; font-size: 40px; line-height: 1;
   padding: 28px 46px; border-radius: 999px; background: #fff; color: var(--ink); }
+.more { margin-top: 40px; padding-top: 30px; border-top: 2px solid rgba(255,255,255,.16); font-size: 36px; line-height: 1.2;
+  letter-spacing: -.012em; color: rgba(255,255,255,.80); }
+.more b { color: #fff; font-weight: 700; }
 .col { position: absolute; left: 64px; right: 64px; display: flex; flex-direction: column; justify-content: center; }
 </style></head>
 <body>
@@ -106,10 +110,7 @@ h1, .h { font-weight: 700; letter-spacing: -.035em; line-height: 1.05; text-wrap
       <h1 data-max="{{ 330 if photo else 620 }}" style="font-size:{{ 78 if photo else 100 }}px;margin-top:24px">{{ title }}</h1>
       <div class="meta" style="margin-top:20px;font-size:26px">Kaynak: {{ credits }}</div>
     </div>
-    <div style="margin-top:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
-      <span class="btn">Haberi oku {{ arrow }}</span>
-      {% if auto %}<span class="meta" style="font-size:28px;line-height:1.3">Bağlantı profilde<br>{{ site_host }}</span>{% endif %}
-    </div>
+    <div class="more">Haberin devamı <b>{{ site_host or "smarity.com.tr" }}</b>'de</div>
   </div>
 {% endif %}
 

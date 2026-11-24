@@ -664,8 +664,8 @@ CHECK EVERY IMAGE
    or bright part of the photo; text or logos printed in the photo do not clash with our own headline.
 3. Layout: no cut-off, overlapping or overflowing text, no clipped words, nothing lost at the edges, no empty or broken
    photo area, no awkward crop (faces cut through the eyes, the product cut in half, the subject hidden behind the text).
-4. Story safe area: in the 1080x1920 story the logo, photo, headline and the white "Haberi oku" button stay out of the
-   top 13% and the bottom 18%, where Instagram draws its own bars.
+4. Story safe area: in the 1080x1920 story the logo, photo, headline and the "Haberin devamı smarity.com.tr'de" line stay
+   out of the top 13% and the bottom 18%, where Instagram draws its own bars. The story has no button on purpose.
 5. Taste and accuracy: nothing offensive, graphic, sexual or mocking; the picture matches the headline and does not
    mislead; the set looks professional and consistent.
 
