@@ -866,8 +866,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 772962,
-      "tok_out": 126058,
+      "tok_in": 774486,
+      "tok_out": 126073,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -881,7 +881,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T14:31:04Z",
+  "last_build": "2026-11-24T14:44:55Z",
   "build_sig": "fbd6a1c1d72533bb",
   "commands_version": 6,
   "queue": [],
@@ -2885,11 +2885,12 @@
   "guide_tried": {},
   "guide_wait": {
     "elektrikli-otomobil-fiyatlari": "2026-11-24T14:25:40Z",
-    "sifir-arac-fiyat-listeleri": "2026-11-24T14:33:23Z"
+    "sifir-arac-fiyat-listeleri": "2026-11-24T14:33:23Z",
+    "imei-kayit-ucreti": "2026-11-24T14:40:29Z"
   },
   "guide_err": {
-    "slug": "sifir-arac-fiyat-listeleri",
-    "at": "2026-11-24T14:33:23Z",
+    "slug": "imei-kayit-ucreti",
+    "at": "2026-11-24T14:40:29Z",
     "err": "Tüm modeller meşgul: HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}"
   }
 }
