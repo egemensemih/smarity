@@ -866,8 +866,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 771438,
-      "tok_out": 126043,
+      "tok_in": 772962,
+      "tok_out": 126058,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -881,7 +881,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T14:23:48Z",
+  "last_build": "2026-11-24T14:31:04Z",
   "build_sig": "fbd6a1c1d72533bb",
   "commands_version": 6,
   "queue": [],
@@ -2882,5 +2882,13 @@
       "format": "post"
     }
   ],
-  "guide_tried": {}
+  "guide_tried": {},
+  "guide_wait": {
+    "elektrikli-otomobil-fiyatlari": "2026-11-24T14:25:40Z"
+  },
+  "guide_err": {
+    "slug": "elektrikli-otomobil-fiyatlari",
+    "at": "2026-11-24T14:25:40Z",
+    "err": "Tüm modeller meşgul: HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}"
+  }
 }
