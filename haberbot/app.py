@@ -176,6 +176,25 @@ class App:
         allowed = int(cap * frac + 0.999) + int(ed("burst", 3))
         return max(0, min(cap - used, allowed - used))
 
+    def big_extra_left(self) -> int:
+        """Günlük sınır (ya da günün o saatine düşen pay) dolduğunda bile yayımlanabilecek büyük haber sayısı."""
+        n = int(self.cfg.get("editorial", "big_news_extra", 0) or 0)
+        if n <= 0 or int(self.cfg.get("editorial", "max_drafts_per_day", 0) or 0) <= 0:
+            return 0
+        b = self.state.get("big_extra") or {}
+        return max(0, n - (int(b.get("n", 0)) if b.get("date") == self.today() else 0))
+
+    def _use_big_extra(self) -> None:
+        b = self.state.get("big_extra") or {}
+        n = int(b.get("n", 0)) if b.get("date") == self.today() else 0
+        self.state["big_extra"] = {"date": self.today(), "n": n + 1}
+
+    @staticmethod
+    def is_big_news(x: dict) -> bool:
+        """Sınırı beklemeyen haber: günün öne çıkan haberi (9+) ya da herkesin bildiği bir markanın yeni ürünü/hamlesi (8+)."""
+        mr = int(x.get("must_read") or 0)
+        return mr >= 9 or (mr >= 8 and bool(x.get("big_brand")))
+
     def notify(self, text: str, silent: bool | None = None, keyboard=None) -> None:
         if not (self.tg and self.chat_id):
             log.info("[bildirim] %s", re.sub(r"<[^>]+>", "", text)[:200])
@@ -208,12 +227,17 @@ class App:
         ed = lambda k, d: cfg.get("editorial", k, d)  # noqa: E731
         today = self.today()
         remaining = self.draft_budget()
+        big_only = False
         if remaining <= 0:
-            # Haberler "görüldü" sayılmaz; sıra gelince (en geç ertesi sabah) değerlendirilir.
-            self.state["last_collect"] = iso(now_utc())
-            log.info("Taslak sırası dolu (bugün %d taslak); yeni haberler sonraki turda değerlendirilecek.",
-                     st.count(today, "drafts"))
-            return
+            extra = self.big_extra_left()
+            if extra <= 0:
+                # Haberler "görüldü" sayılmaz; sıra gelince (en geç ertesi sabah) değerlendirilir.
+                self.state["last_collect"] = iso(now_utc())
+                log.info("Taslak sırası dolu (bugün %d taslak); yeni haberler sonraki turda değerlendirilecek.",
+                         st.count(today, "drafts"))
+                return
+            # sınır dolu ama büyük haber kaçmasın: tarama sürer, yalnızca büyük haberler yazılır, diğerleri sırada bekler
+            big_only, remaining = True, extra
         items = fetch_all(cfg, st)
         seeded = set(self.state.get("seeded_sources", []))
         max_age = ed("max_item_age_hours", 36)
@@ -335,6 +359,14 @@ class App:
             q["story"]["replaces"] = x.get("replaces") or ""
             q["story"]["editor_reason"] = x.get("reason", "")
             act = x["action"]
+            if big_only and act == "publish" and not self.is_big_news(x):
+                # günlük sınır dolu: büyük haber değil, sıra açılınca yazılır (bekleme sayısı artmaz)
+                x["action"], x["reason"] = "hold", clip("günlük sınır dolu, sıra bekliyor" +
+                                                        (f": {x['reason']}" if x.get("reason") else ""), 120)
+                q["held_at"] = iso(now_utc())
+                keep.append(q)
+                self._edit_log(q, "hold", x)
+                continue
             if act == "publish":
                 todo.append(q)
             elif act == "update":
@@ -358,6 +390,9 @@ class App:
                 self.process_updates()  # yazım sürerken basılan düğmeler beklemesin
             try:
                 self.create_draft(q["story"], q["items"])
+                if big_only:
+                    self._use_big_extra()
+                    log.info("Günlük sınır dolu, büyük haber yine de yazıldı: %s", clip(q["story"].get("topic", ""), 80))
             except LLMError as e:
                 if self._transient(e):
                     log.warning("Yapay zeka şu an yoğun (yazım), kalan %d haber sonraki turda yazılacak: %s",

@@ -77,6 +77,8 @@ editorial:
   max_per_company_per_day: 0     # Aynı şirketten 24 saatte en fazla kaç haber (0 = sınır yok)
   max_drafts_per_run: 3          # Bir taramada aynı anda yazılan taslak (fazlası kaybolmaz, bir sonraki taramada gelir)
   max_drafts_per_day: 10         # Günlük üst sınır (Kasım 2026: az ama dolu haber; Google çekirdek güncellemesi sonrası)
+  big_news_extra: 3              # Sınır dolsa da yayımlanan büyük haber sayısı (önem 9+, ya da herkesin bildiği bir markada 8+;
+                                 # ör. Apple'ın sürpriz yeni ürünü). Diğer haberler sırada bekler.
   burst: 2                       # Günlük sınır varsa: günün başında sınırın önüne geçebilecek taslak sayısı
   triage_batch: 100              # Bir turda ayıklanan en fazla öğe (fazlası sonraki tura kalır, kaybolmaz)
   active_hours: [7, 24]          # Taslakların yayıldığı saatler (gece en fazla birkaç haber gelir, kalanlar sabaha kalır)

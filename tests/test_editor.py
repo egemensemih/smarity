@@ -77,6 +77,42 @@ def test_related_coverage_finds_earlier_posts():
         assert all("Apple" not in r["title"] for r in rel)
 
 
+def test_big_news_passes_full_daily_cap(monkeypatch):
+    """Günlük sınır dolu: Apple'ın sürpriz ürünü yine de yazılır; sıradan haber sırada bekler."""
+    import haberbot.app as appmod
+    with _App() as (cfg, a):
+        ed = cfg.raw.setdefault("editorial", {})
+        ed.update({"max_drafts_per_day": 10, "big_news_extra": 1, "min_outlets": 0})
+        a.store.bump(a.today(), "drafts", 10)
+        assert a.draft_budget() == 0 and a.big_extra_left() == 1
+
+        def item(i, title):
+            return {"key": f"k{i}", "url": f"https://k.com/{i}", "title": title, "kind": "media", "source": "Kaynak",
+                    "credit": "Kaynak", "summary": "", "published": iso(now_utc()), "html_source": False}
+        items = [item(1, "Apple surprise launches new iPad"), item(2, "Minor brand launches cable")]
+        a.state["seeded_sources"] = ["Kaynak"]
+        monkeypatch.setattr(appmod, "fetch_all", lambda *_: items)
+
+        class LLM:
+            def json(self, *_a, **_k):
+                return {"stories": [
+                    {"item_ids": ["i1"], "topic": "Apple new iPad", "importance": 8, "entities": ["Apple"],
+                     "category": "teknoloji", "on_topic": True, "duplicate_of": ""},
+                    {"item_ids": ["i2"], "topic": "Cable launch", "importance": 8, "entities": ["Foo"],
+                     "category": "teknoloji", "on_topic": True, "duplicate_of": ""}]}
+        a.llm = LLM()
+        monkeypatch.setattr(a, "_edit", lambda queue, slots: {
+            i: {"action": "publish", "target": "", "must_read": 8, "reason": "",
+                "big_brand": "Apple" in q["story"]["topic"]} for i, q in enumerate(queue)})
+        made = []
+        monkeypatch.setattr(a, "create_draft", lambda story, its: made.append(story["topic"]))
+        a.collect()
+        assert made == ["Apple new iPad"]
+        assert [q["story"]["topic"] for q in a.state["queue"]] == ["Cable launch"]   # kaybolmaz, sıra bekler
+        assert a.big_extra_left() == 0
+        assert a.is_big_news({"must_read": 9}) and not a.is_big_news({"must_read": 8})
+
+
 def test_launch_replaces_its_preview_story():
     with _App() as (cfg, a):
         from haberbot.telegram import MockTelegram
