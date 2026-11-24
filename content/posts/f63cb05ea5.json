@@ -1,0 +1,108 @@
+{
+  "id": "f63cb05ea5",
+  "created_at": "2026-11-24T11:25:41Z",
+  "title": "Tesla Reality View, 1 milyar parametreli yapay zeka modeliyle çalışıyor",
+  "summary": "Tesla, Full Self-Driving v15.0.1 güncellemesiyle birlikte araç içi görselleştirme sistemine 1 milyar parametreli bir üretken yapay zeka modeli entegre etti.",
+  "body": "Tesla'nın yeni yayınlanan Full Self-Driving (FSD) v15.0.1 güncellemesi, araç içi sürüş görselleştirme teknolojisinde önemli bir değişimi beraberinde getirdi. Wccftech'in aktardığına göre, Tesla Reality View olarak adlandırılan sistem, geleneksel üç boyutlu grafikler yerine 1 milyar parametreli bir difüzyon modeli kullanarak çevreyi gerçek zamanlı olarak görüntülüyor. Saniye başına 36 kare (FPS) hızında çalışan bu yapay zeka, aracın kameralarından aldığı verileri işleyerek sürücüye sunuyor.\n\n## Yapay zeka ile görselleştirme nasıl çalışıyor?\nElon Musk'ın açıklamalarına göre, Tesla'nın Universal Vision Encoder (UVE) birimi, araç kameralarından gelen görsel bilgileri işleyerek hem sürüş kararlarını alan 3 milyar parametreli modele hem de yeni Reality View sistemine aktarıyor. Görselleştirme modeli, mevcut görüntünün üzerine gürültü ekleyip bunu yinelemeli olarak temizleme (denoising) yöntemiyle güncel bir çevre tasviri oluşturuyor. Şirket, bu işlemleri gerçekleştirmek için mevcut AI4 donanımındaki üç TRIP hızlandırıcısından sadece yarısını kullanmayı başardı.\n\n## Sınırlar ve performans\nSistem, etkileyici bir teknolojik başarı olsa da bazı kısıtlamaları bulunuyor. Musk, mevcut donanım mimarisinin 8-bit tam sayı işlemleri üzerine kurulu olması nedeniyle, modelin çalıştırılmasında zorluklar yaşandığını ve şu an için sistemde gözle görülür bir gecikme olduğunu belirtti. Bu gecikmeyi %35 oranında azaltmak için çalışmalar sürerken, yeni nesil AI5 donanımının ise daha yüksek performans sunacağı ancak bu donanımın şimdilik Optimus gibi farklı ürünlere odaklanacağı ifade edildi.\n\n**Neden önemli?** Tesla'nın bu uygulaması, oldukça kısıtlı kaynaklara sahip araç içi donanımlarda karmaşık üretken yapay zeka modellerinin nasıl optimize edilerek çalıştırılabileceğine dair önemli bir örnek teşkil ediyor. Sistemin doğrudan sürüş kararlarından bağımsız olduğunu belirtmekte fayda var.",
+  "category": "super-zeka",
+  "tags": [
+    "Tesla",
+    "FSD",
+    "yapay zeka",
+    "otomotiv",
+    "donanım"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Tesla'dan araç içinde 1 milyar parametreli AI",
+  "kicker": "Yeni özellik",
+  "hero_stat": "36 FPS",
+  "hero_stat_label": "görselleştirme hızı",
+  "visual_style": "diorama",
+  "visual_scene": "A translucent glass car model sits on a dark stage, inside the cabin a glowing, fluid stream of light particles forms a shifting, abstract representation of an urban landscape, soft focus background.",
+  "focus_keyword": "Tesla Reality View",
+  "seo_title": "Tesla Reality View: 1 milyar parametreli AI araç içinde",
+  "meta_description": "Tesla, yeni FSD güncellemesiyle araç içi görselleştirme sistemine 1 milyar parametreli üretken yapay zeka modeli entegre ederek çevreyi gerçek zamanlı üretiyor.",
+  "seo_slug": "tesla-reality-view-yapay-zeka-modeli",
+  "image_alt": "Işıklı parçacıklardan oluşan, aracın çevresini simgeleyen soyut bir dijital harita görseli.",
+  "cover_text": "Tesla Reality View",
+  "carousel_points": [
+    "Tesla, yeni güncellemesiyle araç içi görselleştirme sistemini yapay zekaya emanet etti.",
+    "1 milyar parametreli difüzyon modeli, aracın çevresini 36 FPS hızında gerçek zamanlı oluşturuyor.",
+    "Sistem, mevcut araç donanımı üzerinde çok düşük bir enerji ve işlem gücü maliyetiyle çalışıyor."
+  ],
+  "appeal": 9,
+  "update_note": "",
+  "cover_headline": "Tesla Reality View 36 FPS ile çalışıyor",
+  "cover_highlight": "36 FPS",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Tesla araç içi yapay zeka modeliyle FSD performansını artırıyor.",
+  "entities": [
+    "Tesla",
+    "Elon Musk"
+  ],
+  "topic": "Tesla runs 1-billion-parameter diffusion AI model inside cars for FSD",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/tesla-is-running-a-1-billion-parameter-ai-model-inside-its-cars-to-generate-real-time-visuals-at-36-fps/",
+      "title": "Tesla Is Running A 1-Billion-Parameter AI Model Inside Its Cars To Generate Real-Time Visuals At 36 FPS",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-24T11:15:04Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-68-1456x819.jpg"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2659
+  },
+  "photos": [
+    {
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-68-1456x819.jpg",
+      "credit": "Wccftech",
+      "page": "https://wccftech.com/tesla-is-running-a-1-billion-parameter-ai-model-inside-its-cars-to-generate-real-time-visuals-at-36-fps/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "f63cb05ea5-g0.webp",
+      "w": 1456,
+      "h": 819
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "f63cb05ea5-g0.webp",
+    "credit": "Wccftech",
+    "page": "https://wccftech.com/tesla-is-running-a-1-billion-parameter-ai-model-inside-its-cars-to-generate-real-time-visuals-at-36-fps/",
+    "src": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-68-1456x819.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "tesla-reality-view-yapay-zeka-modeli",
+  "published_at": "2026-11-24T11:25:44Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/tesla-reality-view-yapay-zeka-modeli",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-24T11:25:45Z"
+  },
+  "photos_vetted": "2026-11-24T11:25:59Z",
+  "photos_vet_v": 2
+}

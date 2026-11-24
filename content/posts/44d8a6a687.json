@@ -1,0 +1,128 @@
+{
+  "id": "44d8a6a687",
+  "created_at": "2026-11-24T11:25:13Z",
+  "title": "İnternette 3,5 milyar veri sızıntısı tespit edildi",
+  "summary": "Güvenlik araştırmacıları, internete açık bırakılan iki farklı veri tabanında milyarlarca şifre, kullanıcı adı ve kimlik belgesi tespit etti.",
+  "body": "WIRED'ın aktardığına göre, korumasız halde açık internette bırakılan iki farklı veri tabanında 3,5 milyar veri sızıntısı tespit edildi. Birbiriyle bağlantısı bulunmayan iki güvenlik araştırmacısı tarafından ortaya çıkarılan bu durum, siber suçluların zararlı yazılımlar ve derlenmiş verilerle ulaştığı ölçeği sergiliyor.\n\n## 3,5 milyar veri sızıntısı nasıl ortaya çıktı?\n\nUpGuard şirketinden güvenlik araştırmacısı Greg Pollock tarafından bulunan ilk veri tabanı, 1,64 milyar belge içeriyor. Pollock'ın analizine göre verilerin büyük bölümü Çin merkezli kişilere ve kurumlara ait. Veri tabanında 840 milyon benzersiz kimlik numarası, 300 milyon telefon numarası, yaklaşık 11 milyon öğrenci kayıt belgesi ve 8 milyona yakın şirket kaydı yer alıyor. Pollock, araştırma sürecinde bu veri tabanının bir fidye yazılımı veya yıkıcı bir saldırı sonrasında erişilemez hale geldiğini bildirdi.\n\n## 2 milyar kullanıcı bilgisi sızdırıldı\n\nBlack Hills Information Security araştırmacısı Jeremiah Fowler tarafından keşfedilen ikinci arşiv ise yaklaşık 2 milyar giriş bilgisini barındırıyor. Bilgi çalan zararlı yazılımlarla toplandığı değerlendirilen veri tabanında e-posta adresleri, şifreler, çerezler ve cihaz bilgileri bulunuyor. Fowler; ABD, İngiltere, Fransa ve Almanya gibi ülkelere göre ayrılmış klasörlerde kamu ve eğitim kurumlarına ait onlarca milyon e-posta adresi ile 100 milyondan fazla sosyal medya hesabının yer aldığını kaydetti. Sunucu sağlayıcısı, yapılan bildirim üzerine veri tabanını internetten kaldırdı.\n\n**Neden önemli?** Yapay zeka destekli siber güvenlik araçlarının zafiyet istismarını hızlandırdığı bu dönemde, çalınan kimlik ve hesap bilgileri dolandırıcılık risklerini artırıyor. Araştırmacılar, şifre yöneticileri kullanmanın ve çok faktörlü kimlik doğrulamayı etkinleştirmenin hesap güvenliği açısından kritik önem taşıdığını belirtiyor.",
+  "category": "teknoloji",
+  "tags": [
+    "siber güvenlik",
+    "veri sızıntısı",
+    "UpGuard",
+    "Black Hills Security"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "İnternette 3,5 milyarlık dev veri sızıntısı",
+  "kicker": "Siber güvenlik",
+  "hero_stat": "3,5 milyar",
+  "hero_stat_label": "sızan kayıt sayısı",
+  "visual_style": "still_life",
+  "visual_scene": "A rusted metal padlock resting on a slate dark surface, surrounded by tiny scattered porcelain shards with fine etched line patterns, lit by cool moody studio illumination.",
+  "focus_keyword": "3,5 milyar veri sızıntısı",
+  "seo_title": "İnternette 3,5 milyar veri sızıntısı tespit edildi",
+  "meta_description": "İki ayrı veri tabanında kullanıcı adı, şifre ve kimlik numaralarından oluşan 3,5 milyar veri sızıntısı tespit edildi. Kayıtlar internetten kaldırıldı.",
+  "seo_slug": "3-5-milyar-veri-sizintisi-tespit-edildi",
+  "image_alt": "Karanlık zemin üzerinde paslı bir kilit ve porselen parçaları: 3,5 milyar veri sızıntısını simgeleyen görsel",
+  "cover_text": "Veri Sızıntısı",
+  "carousel_points": [
+    "İnternete açık iki ayrı veri tabanında 3,5 milyardan fazla kişisel veri ve şifre tespit edildi.",
+    "Verilerin bir kısmının zararlı yazılımlar, bir kısmının eski sızıntıların derlenmesiyle toplandığı belirtildi.",
+    "Araştırmacıların bildirimi ve siber saldırılar sonrasında her iki veri tabanı da internetten kaldırıldı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "3,5 milyar kişisel veri internete sızdı",
+  "cover_highlight": "3,5 milyar",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": false,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "3,5 milyar hesabı ilgilendiren dev güvenlik sızıntısı tespit edildi.",
+  "entities": [],
+  "topic": "Massive database leak exposes billions of credentials and documents",
+  "sources": [
+    {
+      "name": "WIRED",
+      "url": "https://www.wired.com/story/3-billion-usernames-passwords-and-documents-leaked-online/",
+      "title": "Database Leaks Expose 3.5 Billion Usernames, Passwords, and Documents",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-24T11:00:00Z",
+      "image": "https://media.wired.com/photos/6b04b219ef7c9c5fad5ca15d/master/pass/Security_3.5%20Billion%20Usernames,%20Passwords,%20and%20Documents%20Leaked%20Online_v1.jpg"
+    }
+  ],
+  "source_keys": [
+    "WIRED"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2655
+  },
+  "photos": [
+    {
+      "src": "https://media.wired.com/photos/6b04b219ef7c9c5fad5ca15d/master/pass/Security_3.5%20Billion%20Usernames,%20Passwords,%20and%20Documents%20Leaked%20Online_v1.jpg",
+      "credit": "WIRED",
+      "page": "https://www.wired.com/story/3-billion-usernames-passwords-and-documents-leaked-online/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "44d8a6a687-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://media.wired.com/photos/6b04b219ef7c9c5fad5ca15d/4:3/w_1800,h_1350,c_limit/Security_3.5%20Billion%20Usernames,%20Passwords,%20and%20Documents%20Leaked%20Online_v1.jpg",
+      "credit": "WIRED",
+      "page": "https://www.wired.com/story/3-billion-usernames-passwords-and-documents-leaked-online/",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "44d8a6a687-g1.webp",
+      "w": 1600,
+      "h": 1200
+    },
+    {
+      "src": "https://media.wired.com/photos/6b04b219ef7c9c5fad5ca15d/1:1/w_1350,h_1350,c_limit/Security_3.5%20Billion%20Usernames,%20Passwords,%20and%20Documents%20Leaked%20Online_v1.jpg",
+      "credit": "WIRED",
+      "page": "https://www.wired.com/story/3-billion-usernames-passwords-and-documents-leaked-online/",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "44d8a6a687-g2.webp",
+      "w": 1350,
+      "h": 1350
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "44d8a6a687-g0.webp",
+    "credit": "WIRED",
+    "page": "https://www.wired.com/story/3-billion-usernames-passwords-and-documents-leaked-online/",
+    "src": "https://media.wired.com/photos/6b04b219ef7c9c5fad5ca15d/master/pass/Security_3.5%20Billion%20Usernames,%20Passwords,%20and%20Documents%20Leaked%20Online_v1.jpg",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "3-5-milyar-veri-sizintisi-tespit-edildi",
+  "published_at": "2026-11-24T11:25:21Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/3-5-milyar-veri-sizintisi-tespit-edildi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-24T11:25:23Z"
+  },
+  "photos_vetted": "2026-11-24T11:26:04Z",
+  "photos_vet_v": 2
+}
