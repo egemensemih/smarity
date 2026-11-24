@@ -875,13 +875,13 @@
       "updates": 1,
       "updated": 1,
       "dropped": 1,
-      "instagram_story": 4,
-      "instagram": 1
+      "instagram_story": 5,
+      "instagram": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T12:32:57Z",
+  "last_build": "2026-11-24T12:49:00Z",
   "build_sig": "f5c1b97e6602336a",
   "commands_version": 5,
   "queue": [],
@@ -2532,28 +2532,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "44d8a6a687",
-      "queued_at": "2026-11-24T11:25:24Z",
-      "tries": 0,
-      "format": "post",
-      "mid": 2656,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel kullanımı, tipografi yerleşimi ve marka kimliği Smarity'nin premium standartlarına tamamen uygun; içerik profesyonel ve hatasız.",
-        "at": "2026-11-24T11:31:45Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-18": [
@@ -2865,7 +2844,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-24T12:28:21Z",
+  "ig_last_at": "2026-11-24T12:44:18Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2894,6 +2873,13 @@
       "permalink": "",
       "story": true,
       "format": "story"
+    },
+    {
+      "id": "44d8a6a687",
+      "at": "2026-11-24T12:44:29Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
     }
   ]
 }
