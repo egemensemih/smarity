@@ -1,7 +1,7 @@
 {
   "telegram_offset": 872816561,
   "last_collect": "2026-11-24T17:49:18Z",
-  "last_summary_date": "2026-11-23",
+  "last_summary_date": "2026-11-24",
   "mode_override": null,
   "paused": false,
   "seeded_sources": [
@@ -878,8 +878,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 776219,
-      "tok_out": 127302,
+      "tok_in": 777922,
+      "tok_out": 128110,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -893,12 +893,14 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T17:47:39Z",
+  "last_build": "2026-11-24T18:05:41Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/rehber/samsung-galaxy-turkiye-fiyatlari/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2899,7 +2901,6 @@
     "elektrikli-otomobil-fiyatlari": "2026-11-24T17:31:14Z",
     "sifir-arac-fiyat-listeleri": "2026-11-24T17:37:01Z",
     "apple-turkiye-fiyatlari": "2026-11-24T17:55:42Z",
-    "samsung-galaxy-turkiye-fiyatlari": "2026-11-24T14:58:22Z",
     "dijital-abonelik-fiyatlari": "2026-11-24T15:07:18Z"
   },
   "guide_err": {
