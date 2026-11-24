@@ -2084,7 +2084,10 @@ class App:
         gap = float(gc.get("min_hours_between", 24) or 24)
         posts = self.store.posts()[:1000]
         tried = self.state.setdefault("guide_tried", {})
+        wait = self.state.setdefault("guide_wait", {})
         for spec in specs:
+            if hours_since(wait.get(spec["slug"])) < 3:
+                continue        # az önce hata verdi (ör. yapay zeka kotası): bu arada sıradaki rehberler yazılsın
             rel = guidesmod.related_posts(spec, posts, float(spec.get("lookback_days") or lookback),
                                           int(spec.get("max_posts") or limit))
             if len(rel) < int(spec.get("min_posts") or gc.get("min_posts") or 2):
@@ -2095,8 +2098,18 @@ class App:
                 continue        # yeni bilgi yok ya da bu haberlerle denendi, olmadı: yeni haber gelince tekrar
             if old and hours_since(old.get("updated_at")) < gap:
                 continue
-            return self._write_guide(spec, rel, old, sig)
+            try:
+                return self._write_guide(spec, rel, old, sig)
+            except Exception as e:  # noqa: BLE001
+                log.exception("Rehber hatası (%s): %s", spec["slug"], e)
+                self._guide_failed(spec["slug"], f"{type(e).__name__}: {e}")
+                return False
         return False
+
+    def _guide_failed(self, slug: str, err: str) -> None:
+        """Hata veren rehber 3 saat bekler (diğerlerini tıkamasın); son hata durum dosyasında görünür."""
+        self.state.setdefault("guide_wait", {})[slug] = iso(now_utc())
+        self.state["guide_err"] = {"slug": slug, "at": iso(now_utc()), "err": clip(err, 300)}
 
     def _write_guide(self, spec: dict, rel: list[dict], old: dict | None, sig: list[str]) -> bool:
         cfg = self.cfg
@@ -2108,6 +2121,7 @@ class App:
                                     effort=cfg.get("ai", "writer_effort", "medium"))
             except LLMError as e:
                 log.warning("Rehber yazılamadı (%s): %s", spec["slug"], str(e)[:160])
+                self._guide_failed(spec["slug"], str(e))
                 return False
             body = (out.get("body") or "").strip()
             faq = [{"q": clip(str(f.get("q", "")).strip(), 160), "a": clip(str(f.get("a", "")).strip(), 400)}
@@ -2141,6 +2155,7 @@ class App:
              "created_at": (old or {}).get("created_at") or now, "updated_at": now, "history": hist[:12]}
         guidesmod.save_guide(cfg, g)
         self.state.get("guide_tried", {}).pop(spec["slug"], None)
+        self.state.get("guide_wait", {}).pop(spec["slug"], None)
         self.store.site_dirty = True
         url = f"{cfg.site_url}/rehber/{spec['slug']}/"
         self.queue_indexnow(url)

@@ -84,3 +84,27 @@ def test_guide_written_checked_and_published(monkeypatch):
         assert "/rehber/imei-kayit-ucreti/" in sm
         art = max((f.read_text(encoding="utf-8") for f in cfg.out_dir.rglob("haber-2/index.html")), key=len)
         assert 'class="guide-box"' in art and "/rehber/imei-kayit-ucreti/" in art   # eski haberden güncel rehbere
+
+
+def test_failing_guide_does_not_block_others():
+    from haberbot.llm import LLMError
+    with _App() as (cfg, a):
+        other = {"slug": "togg-fiyat-listesi", "title": "Togg fiyat listesi", "match": ["togg"]}
+        cfg.raw["guides"] = {"enabled": True, "min_posts": 2, "list": [SPEC, other]}
+        _imei_posts(a)
+        a.store.save_post(_post(5, 3, title="Togg fiyatı 1.909.048 TL", tags=["Togg"], body="Togg 1.909.048 TL."))
+        a.store.save_post(_post(6, 4, title="Togg kampanyası", tags=["Togg"], body="Togg kampanya 1.909.048 TL."))
+        seen = []
+
+        class LLM:
+            def json(self, model, system, user, schema, **_k):
+                seen.append("IMEI" in user)
+                if "IMEI" in user:
+                    raise LLMError("HTTP 429 kota")
+                return {"seo_title": "Togg", "meta_description": "Togg.", "summary": "Togg 1.909.048 TL.",
+                        "body": "Togg 1.909.048 TL. " + " ".join(["Togg fiyatı açıklandı."] * 60), "faq": [],
+                        "changes": "İlk sürüm.", "used": []}
+        a.llm = LLM()
+        assert a.guides_tick() is False and a.state["guide_err"]["slug"] == "imei-kayit-ucreti"
+        assert a.guides_tick() is True and seen == [True, False]           # IMEI beklerken Togg yazıldı
+        assert G.guide_path(cfg, "togg-fiyat-listesi").exists()
