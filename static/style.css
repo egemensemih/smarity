@@ -353,6 +353,9 @@ img.is-fit { object-fit: contain !important; background: #F5F5F7; }
 .gal-title { margin: 0 0 14px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
 .gal-title span { margin-left: 6px; font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 /* metnin içindeki fotoğraflar */
+.art-body table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 16px; display: block; overflow-x: auto; }
+.art-body th, .art-body td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line, rgba(0,0,0,.1)); vertical-align: top; }
+.art-body th { font-weight: 600; background: var(--bg-alt); }
 .art-body figure.inl { margin: 28px 0; }
 .art-body figure.inl img { display: block; width: 100%; height: auto; border-radius: var(--r-md); background: var(--bg-alt); }
 .art-body figure.inl.graphic img { border: 1px solid var(--line); background: #fff; }

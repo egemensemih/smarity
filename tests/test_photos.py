@@ -129,6 +129,7 @@ class _App:
     def __enter__(self):
         self.tmp = tempfile.TemporaryDirectory()
         raw = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+        raw.setdefault("images", {})["photo_policy"] = "any"   # basın görseli kuralı ayrıca sınanır
         self.cfg = Config(raw=raw, root=Path(self.tmp.name), site_url="https://smarity.com.tr")
         self.app = appmod.App(self.cfg)
         return self.cfg, self.app
@@ -145,6 +146,21 @@ def _post(**kw):
             "hero_stat_label": "başlangıç fiyatı",
             "body": "\n\n".join(f"Paragraf {i} metni." for i in range(1, 9)), "published_at": iso(now_utc()),
             "image": {"source": "cover"}, "sources": [{"name": "Marka", "url": "https://brand.com/press", "kind": "official"}], **kw}
+
+
+def test_press_policy_drops_news_site_photos():
+    with _App() as (cfg, a):
+        cfg.raw["images"]["photo_policy"] = "press"
+        a.store.save_post(_post())
+        shots = [{"image": _photo("#446", seed=i), "src": f"https://cdn.newssite.com/{i}.jpg", "credit": "Haber Sitesi",
+                  "page": "https://newssite.com/a", "alt": "", "kind": "body", "graphic": False, "src_kind": "media"}
+                 for i in range(3)]
+        shots.append({"image": _photo("#644", seed=9), "src": "https://brand.com/press/a.jpg", "credit": "Marka",
+                      "page": "https://brand.com/press", "alt": "", "kind": "og", "graphic": False, "src_kind": "official"})
+        appmod.photos.gather = lambda *a_, **k: shots
+        a.backfill_photos(5)
+        p = a.store.load_post("p1")
+        assert [r["src"] for r in p.get("photos") or []] == ["https://brand.com/press/a.jpg"]
 
 
 def test_attach_cover_slides_inline_and_buttons():

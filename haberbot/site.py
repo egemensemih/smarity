@@ -17,7 +17,7 @@ from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "20"
+ASSET_V = "21"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -25,7 +25,7 @@ H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
 
 def render_body(md: str) -> str:
     safe = htmlmod.escape(md or "", quote=False)
-    out = markdown.markdown(safe, extensions=["sane_lists"], output_format="html")
+    out = markdown.markdown(safe, extensions=["sane_lists", "tables"], output_format="html")
     out = re.sub(r'href="(?!https?://)[^"]*"', 'href="#"', out)
     out = re.sub(r"<img\b[^>]*>", "", out)          # metne dışarıdan görsel gömülmez (fotoğraflar ayrı, kaynaklı eklenir)
     out = out.replace('<a href="http', '<a rel="noopener nofollow" target="_blank" href="http')
@@ -48,6 +48,26 @@ def clean_meta(meta: str) -> str:
         if len(rest) >= 80:
             return rest
     return meta
+
+
+def load_keep() -> set[str]:
+    """Google'da gösterim almış haberlerin adresleri (seo-keep.txt): kısa olsalar da dizinde kalırlar."""
+    f = ROOT / "seo-keep.txt"
+    if not f.exists():
+        return set()
+    return {ln.strip() for ln in f.read_text(encoding="utf-8").splitlines() if ln.strip() and not ln.startswith("#")}
+
+
+def is_thin(p: dict, words: int, seo: dict, keep: set[str]) -> bool:
+    """Zayıf sayfa: eski dönemde yazılmış, kısa ve tek kaynaklı, Google'da hiç gösterim almamış haber. Sitede kalır ama
+    arama motorlarına "dizine ekleme" denir ve site haritasına girmez (Kasım 2026 çekirdek güncellemesi sonrası)."""
+    if not seo.get("prune_thin", True):
+        return False
+    before = str(seo.get("prune_before") or "")
+    if not before or (p.get("published_at") or "") >= before:
+        return False
+    outlets = {s.get("name") for s in p.get("sources") or [] if s.get("name")}
+    return words < int(seo.get("thin_words", 250) or 250) and len(outlets) < 2 and p.get("slug") not in keep
 
 
 def seo_title_of(p: dict, title: str, short: str) -> str:
@@ -248,6 +268,8 @@ class SiteBuilder:
             trim_blocks=True, lstrip_blocks=True,
         )
         self.env.filters["weburl"] = weburl
+        self.seo = dict(cfg.raw.get("seo") or {})
+        self.keep = load_keep()
 
     def _post_view(self, p: dict) -> dict:
         cfg, b = self.cfg, self.base
@@ -310,7 +332,8 @@ class SiteBuilder:
             "abs_cat_url": f"{cfg.site_url}/{cat}/",
             "credits": list(dict.fromkeys(s["name"] for s in p.get("sources", []))),
             "minutes": reading_minutes(p.get("body", "")),
-            "words": len(plain(p.get("body", "")).split()),
+            "words": (nw := len(plain(p.get("body", "")).split())),
+            "thin": is_thin(p, nw, self.seo, self.keep),
             **(media := self._media(p, short, render_body(p.get("body", "")))),
             "toc": [{"id": m.group(1), "text": re.sub("<[^>]+>", "", m.group(2))}
                     for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', media["body_html"])],
@@ -481,6 +504,7 @@ class SiteBuilder:
                 tag_posts.setdefault(t["slug"], []).append(p)
                 tag_label.setdefault(t["slug"], Counter())[t["label"]] += 1
         tags = sorted(({"slug": s, "label": tag_label[s].most_common(1)[0][0], "count": len(ps),
+                        "idx_count": sum(1 for q in ps if not q["thin"]),
                         "url": f"{b}/etiket/{s}/", "lastmod": ps[0]["mod_iso"]}
                        for s, ps in tag_posts.items()), key=lambda t: (-t["count"], t["label"].lower()))
         for p in posts:   # tek haberlik konu sayfası noindex: haberden ona bağlantı verilmez (Google boşuna taramasın)
@@ -590,7 +614,7 @@ class SiteBuilder:
             nxt = next((q for q in pool if q["category"] == p["category"]), pool[0] if pool else None)
             related = [q for q in related if not nxt or q["id"] != nxt["id"]]
             self._write(f"{p['path']}/index.html", self.env.get_template("article.html").render(
-                **ctx, post=p, related=related, next_post=nxt, canonical=p["abs_url"]))
+                **ctx, post=p, related=related, next_post=nxt, canonical=p["abs_url"], noindex=p["thin"]))
             # eski adres (/haber/slug/) yeni adrese yönlenir
             self._redirect(f"haber/{p['slug']}/index.html", p["abs_url"], p["title"])
             for old in p.get("old_paths") or []:
@@ -617,7 +641,7 @@ class SiteBuilder:
         for t in tags:
             self._write(f"etiket/{t['slug']}/index.html", self.env.get_template("tag.html").render(
                 **ctx, tag=t, posts=tag_posts[t["slug"]][:120], canonical=f"{cfg.site_url}/etiket/{t['slug']}/",
-                noindex=t["count"] < 2))
+                noindex=t["idx_count"] < 2))
 
         self._write("hakkinda/index.html", self.env.get_template("about.html").render(
             **ctx, canonical=f"{cfg.site_url}/hakkinda/",
@@ -657,8 +681,8 @@ class SiteBuilder:
         self._write("feed.xml", self.env.get_template("feed.xml").render(
             **ctx, posts=posts[:40], now_rfc=format_datetime(now_utc())))
         self._write("sitemap.xml", self.env.get_template("sitemap.xml").render(
-            **ctx, posts=posts, cats=[c for c in cats if c["count"]], tags=[t for t in tags if t["count"] >= 2],
-            pages=pages))
+            **ctx, posts=[p for p in posts if not p["thin"]], cats=[c for c in cats if c["count"]],
+            tags=[t for t in tags if t["idx_count"] >= 2], pages=pages))
         # ana ekrana eklenebilir site (PWA bildirimi)
         self._write("manifest.webmanifest", json.dumps({
             "name": cfg.site.get("name", "Smarity"), "short_name": cfg.site.get("name", "Smarity"),
@@ -667,7 +691,7 @@ class SiteBuilder:
             "icons": [{"src": f"{b}/static/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
                       {"src": f"{b}/static/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}]},
             ensure_ascii=False, indent=1))
-        news = [p for p in posts if hours_since(p.get("published_at")) <= 48][:1000]
+        news = [p for p in posts if hours_since(p.get("published_at")) <= 48 and not p["thin"]][:1000]
         self._write("news-sitemap.xml", self.env.get_template("news-sitemap.xml").render(**ctx, posts=news))
         self._write("robots.txt", "User-agent: *\nAllow: /\nDisallow: /api/\n\n"
                                   f"Sitemap: {cfg.site_url}/sitemap.xml\nSitemap: {cfg.site_url}/news-sitemap.xml\n")

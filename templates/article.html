@@ -32,7 +32,10 @@
   "keywords": post.tag_list|map(attribute='label')|list,
   "wordCount": post.words, "isAccessibleForFree": true,
   "author": {"@type": "Organization", "name": site.name ~ " Haber Masası", "url": site.url ~ "/hakkinda/"},
+  "editor": ({"@type": "Person", "name": legal.owner} if legal.owner else none),
   "publisher": {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name,
+                "publishingPrinciples": site.url ~ "/hakkinda/#ilkeler",
+                "correctionsPolicy": site.url ~ "/hakkinda/#duzeltme",
                 "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512}},
   "isBasedOn": post.sources|map(attribute='url')|list
 }|tojson }}</script>
@@ -142,6 +145,7 @@
       {%- if post.publish_mode == 'auto' %} ve yayın masasının doğruluk kuralları çerçevesinde otomatik yayımlanmıştır.{% else %} ve editör onayıyla yayımlanmıştır.{% endif %}
       {% if post.has_photo %}Fotoğraflar, altlarında belirtilen kaynaklara aittir.{% endif %}
       Ayrıntılar ve orijinal ifadeler için kaynaklara bakabilirsin.{% if post.updated_str %} Son güncelleme: {{ post.updated_str }}.{% endif %}
+      {% if legal.owner %}Sorumlu editör: {{ legal.owner }}. {% endif %}<a href="{{ site.base }}/hakkinda/#ilkeler">Yayın ilkelerimiz</a> ·
       Bir hata görürsen <a href="{{ site.base }}/iletisim/">bize bildir</a>.
     </p>
   </section>

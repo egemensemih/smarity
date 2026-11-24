@@ -15,11 +15,16 @@
     <li><strong>Her haberde kaynak.</strong> Haberin dayandığı tüm kaynaklar adıyla ve bağlantısıyla belirtilir.</li>
     <li><strong>Kopyalama yok.</strong> Kaynak metinler çevrilip aktarılmaz; bilgiler özetlenip kendi cümlelerimizle yazılır.</li>
     <li><strong>Uydurma yok.</strong> Kaynaklarda olmayan rakam, tarih, alıntı ya da iddia eklenmez. Doğrulanmamış bilgiler kaynağına atfedilir.</li>
-    <li><strong>Fotoğraflar kaynağıyla.</strong> Haberlerdeki fotoğraflar, öncelikle ilgili şirketin basın için yayımladığı görsellerdir; bunlar yoksa haberin kaynağında yayımlanan görseller kullanılır. Her fotoğrafın altında kaynağı ve bağlantısı yer alır. Fotoğraf bulunamayan haberlerde habere özel renkli bir zemin kullanılır; yapay zeka ile üretilmiş temsili görseller altında belirtilir.</li>
+    <li><strong>Fotoğraflar kaynağıyla.</strong> Haberlerdeki fotoğraflar, ilgili şirketin basın için yayımladığı görseller ya da açık lisanslı (Wikipedia) görsellerdir; haber sitelerinin kendi fotoğraflarını kullanmayız (Kasım 2026'dan önceki bazı haberlerde kaynak yayının görselleri, kaynağıyla birlikte yer alır). Her fotoğrafın altında kaynağı ve bağlantısı yer alır. Fotoğraf bulunamayan haberlerde habere özel renkli bir zemin kullanılır; yapay zeka ile üretilmiş temsili görseller altında belirtilir.</li>
     <li><strong>Kaldırma talepleri.</strong> Bir fotoğrafın ya da metnin hak sahibiysen ve kaldırılmasını istiyorsan {% if site.contact_email %}<strong>{{ site.contact_email }}</strong> adresine{% else %}bize{% endif %} yaz; talebini hızla değerlendiririz.</li>
     <li><strong>Yapay zeka destekli yayın masası.</strong> Haberler yapay zeka destekli yayın masasında seçilir ve yazılır; bu durum her haberin altında belirtilir. Doğrulanmamış iddialar, söylentiler ve kaynakları çelişen haberler yayımlanmaz; resmi olmayan bilgiler ancak kaynağına açıkça atfedilerek aktarılır. Editör, yayındaki haberleri izler; hatalı bulunanları düzeltir ya da kaldırır.</li>
-    <li><strong>Düzeltme.</strong> Hatalı bir bilgi fark edersek haberi güncelleriz ya da kaldırırız.</li>
+    <li id="duzeltme"><strong>Düzeltme.</strong> Hatalı bir bilgi fark edersek haberi güncelleriz ya da kaldırırız; güncellenen haberlerde neyin değiştiği ve tarihi haberin başında yazar. Hata bildirimlerini {% if site.contact_email %}<strong>{{ site.contact_email }}</strong> adresinden{% else %}iletişim sayfasından{% endif %} alırız.</li>
+    <li><strong>Az ama dolu.</strong> Her gelişmeyi değil, okurlarımızın gerçekten bilmek isteyeceği haberleri yayımlarız. Tek bir yayının iddiasına dayanan haberler, başka bir kaynak da doğrulayana kadar beklenir; şirketlerin resmi duyuruları bunun dışındadır.</li>
   </ul>
+  {% if legal.owner %}
+  <h2>Sorumlu editör</h2>
+  <p>{{ site.name }}'nin yayın ilkelerini belirleyen ve yayımlanan haberlerden sorumlu olan editör <strong>{{ legal.owner }}</strong>'dir. Yayın masasının seçtiği ve yazdığı haberler bu ilkelere göre yayımlanır; editör yayındaki haberleri izler, gerektiğinde düzeltir ya da kaldırır.</p>
+  {% endif %}
   <h2>Takip ettiğimiz kaynaklar</h2>
   <p>{% for s in sources %}{{ s.name }}{{ ', ' if not loop.last }}{% endfor %}.</p>
   <h2>İletişim</h2>

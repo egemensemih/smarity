@@ -22,6 +22,7 @@ def _q(topic, imp, ents, dup="", cat="teknoloji"):
 
 def test_guard_rules():
     with _App() as (cfg, a):
+        cfg.raw.setdefault("editorial", {})["min_outlets"] = 0   # tek kaynak kuralı ayrıca sınanır
         a.store.save_post(_post(1, 3, tags=["Honor"], entities=["Honor", "Honor Magic9"]))
         queue = [_q("Honor Watch 6 Pro launched", 8, ["Honor"]),           # aynı şirketten ikinci haber: sorun değil
                  _q("Starship reaches orbit", 9, ["SpaceX", "Starship"]),   # yayınla
@@ -46,6 +47,34 @@ def test_guard_rules():
         cfg.raw.setdefault("editorial", {})["max_per_company_per_day"] = 1
         out = a._guard(queue, dec(), slots=3, min_score=7, covered=a._covered(48))
         assert out[0]["action"] == "skip" and "24 saat" in out[0]["reason"]
+
+
+def test_single_source_waits_for_second_outlet():
+    with _App() as (cfg, a):
+        cfg.raw.setdefault("editorial", {})["min_outlets"] = 2
+        two = _q("Galaxy S27 Türkiye fiyatı", 8, ["Samsung"])
+        two["items"].append({**two["items"][0], "url": "https://b.com/1", "credit": "Başka Yayın"})
+        off = _q("Apple iOS 27.2 yayınlandı", 8, ["Apple"])
+        off["items"][0]["kind"] = "official"
+        queue = [_q("Tek kaynaklı söylenti", 8, ["Foo"]), two, off, _q("Dev tanıtım", 9, ["Bar"])]
+        dec = {i: {"action": "publish", "target": "", "must_read": q["story"]["importance"], "reason": ""}
+               for i, q in enumerate(queue)}
+        out = a._guard(queue, dec, slots=5, min_score=7, covered=a._covered(48))
+        assert out[0]["action"] == "hold" and out[0]["reason"].startswith("tek kaynak")
+        assert out[1]["action"] == "publish"     # iki ayrı yayın
+        assert out[2]["action"] == "publish"     # şirketin kendi duyurusu
+        assert out[3]["action"] == "publish"     # 9+ önemli haber beklemez
+
+
+def test_related_coverage_finds_earlier_posts():
+    with _App() as (cfg, a):
+        a.store.save_post(_post(1, 30, tags=["Togg"], entities=["Togg", "Togg T10F"], title="Togg T10F satışa çıktı"))
+        a.store.save_post(_post(2, 40, tags=["Apple"], entities=["Apple"], title="Apple yeni iPad'i tanıttı"))
+        src = [{"title": "Togg T10F fiyatı güncellendi", "text": "Togg T10F için yeni fiyat listesi yayımlandı.",
+                "url": "https://x.com/a", "name": "X"}]
+        rel = a._related_coverage(src)
+        assert rel and rel[0]["title"] == "Togg T10F satışa çıktı"
+        assert all("Apple" not in r["title"] for r in rel)
 
 
 def test_launch_replaces_its_preview_story():

@@ -99,9 +99,13 @@ Do the following:
         touches everyday life (TOGG, BTK/BDDK/KVKK rules, phone taxes and installments, e-Devlet, Turkcell/Türk Telekom/
         Vodafone moves, internet restrictions); the Turkish startup ecosystem (a Turkish startup's notable round, exit or
         acquisition — Dream Games, Insider, Getir, Peak, Papara, Trendyol… — Turkish founders abroad, big Turkish VC funds)
+        Also 8: what many people in Türkiye will actively SEARCH for on Google: the official Türkiye price, sale date or
+        availability of a well-known phone, computer, console or car (including a car brand's new monthly Türkiye price
+        list), new taxes, fees and rules that hit users' wallets (IMEI registration fee, ÖTV, e-Devlet procedures),
+        price changes of popular services in Türkiye (Netflix, Spotify, YouTube Premium, PlayStation Plus, operators)
    7    noteworthy: notable launches from well-known mid-tier brands sold in Türkiye; credible and detailed leaks about a
-        hugely anticipated flagship (Mark Gurman, certification filings, official teasers); the Türkiye price and
-        availability of a flagship; a smaller Turkish startup round with a clear, interesting idea
+        hugely anticipated flagship (Mark Gurman, certification filings, official teasers); a smaller Turkish startup
+        round with a clear, interesting idea
    ≤6   everything else, in particular:
         - startups and funding OUTSIDE Türkiye: rounds, valuations and acquisitions of foreign startups are ≤5, unless the
           company is a household name (OpenAI, Anthropic, xAI, Mistral, SpaceX, Stripe, Revolut…) AND the deal is huge
@@ -349,7 +353,7 @@ SEO (the site must rank on Google for Turkish searches — write for readers fir
 Output fields:
 - title: the H1. ≤90 characters, informative and specific (who did what), starts with or contains the focus_keyword. Sentence case (only first word and proper nouns capitalized). No trailing period, no clickbait.
 - summary: 1–2 plain sentences, ≤180 characters, the core news in everyday language (shown under the headline and on Instagram).
-- body: Markdown, 180–320 words. Structure: a 2–3 sentence lead paragraph that answers who/what/when and contains the focus_keyword; then 2 sections (3 only if really needed), each starting with a "## " subheading (short, informative, natural search-style phrase such as "## iPhone 18 Pro neler sunuyor?", "## Fiyat ve çıkış tarihi" or "## Girişim ne yapıyor?"), each followed by 1–2 short paragraphs. Use a bullet list only for 3+ concrete items from the sources. Bold at most 2 key terms. The LAST paragraph (not under a new heading) must start with "**Neden önemli?** " followed by 1–2 grounded sentences (no speculation beyond what sources support). Do not include a sources list or links; the site adds them. If the sources are thin, write fewer, shorter sections rather than padding — accuracy beats length.
+- body: Markdown, 320–550 words: the reader should not need to open the sources to understand the news. Structure: a 2–3 sentence lead paragraph that answers who/what/when and contains the focus_keyword; then 3–4 sections, each starting with a "## " subheading (short, informative, natural search-style phrase such as "## iPhone 18 Pro neler sunuyor?", "## Önceki modelden farkı ne?", "## Türkiye'de fiyat ve satış tarihi" or "## Girişim ne yapıyor?"), each followed by 1–3 short paragraphs. Cover, when the sources allow: (a) what exactly is new, with the concrete details from the sources (features, specs, availability, numbers); (b) context: how it differs from the previous model, the rivals or the company's earlier moves, using only the sources and the RELATED EARLIER COVERAGE list (never your own memory); (c) Türkiye: the Türkiye price, sale date, availability or rules if the sources give them; for products or services people in Türkiye could buy or use, if the sources say nothing about Türkiye, write one honest sentence that it has not been announced yet. Use a bullet list, or a short Markdown table, for 3+ concrete specs, prices or dates from the sources. Bold at most 2 key terms. The LAST paragraph (not under a new heading) must start with "**Neden önemli?** " followed by 1–2 grounded sentences (no speculation beyond what sources support). Do not include a sources list or links; the site adds them. Length must come from facts, never from padding, repetition or filler: if the sources are genuinely thin, write a shorter article (but at least a lead and 2 sections) rather than inventing anything.
 - category: one of the allowed keys. If the main subject is an AI model, assistant, feature or AI company (ChatGPT, Gemini, Copilot, Claude…), always "super-zeka", even inside a Google/Microsoft/Apple product; a startup's funding round → "girisimcilik"; games and gaming platforms → "gaming"; cars, EVs, car makers, charging and robotaxis → "otomotiv".
 - tags: 3–6 tags that people search for: companies, products, models, games, car models, technologies, places (e.g. "Apple", "iPhone 18", "TOGG", "elektrikli otomobil", "GTA 6", "OpenAI"). Use the official spelling consistently. If the story is mainly about Turkey or a Turkish company, include the tag "Türkiye". Never use generic words like "teknoloji", "yapay zeka", "oyun", "otomobil", "girişim", "haber", and never use the names of news outlets (TechCrunch, The Verge, Webrazzi…).
 - focus_keyword: as described above.
@@ -391,7 +395,7 @@ Social/visual fields (used on Instagram cards and the site; the design is bold, 
 
 
 def write_user(sources: list[dict], today: str, previous: dict | None = None,
-               instruction: str | None = None) -> str:
+               instruction: str | None = None, related: list[dict] | None = None) -> str:
     parts = [f"TODAY: {today}", "", "SOURCES:"]
     for i, s in enumerate(sources, 1):
         parts.append(f"[{i}] {s['credit']} ({s['kind']}) — {s['title']}")
@@ -421,6 +425,10 @@ def write_user(sources: list[dict], today: str, previous: dict | None = None,
             "",
             f"EDITOR INSTRUCTION (follow it, while keeping all accuracy rules): {instruction or 'Metni daha akıcı ve net hale getir.'}",
         ]
+    if related:
+        parts += ["", "RELATED EARLIER COVERAGE ON OUR SITE (already published, sourced facts; use only for brief "
+                      "context such as the previous model or the company's earlier move; never contradict the SOURCES):"]
+        parts += [f"- {r.get('date', '')}: {r.get('title', '')} — {r.get('summary', '')}" for r in related]
     if instruction and (previous is None or previous.get("_update")):
         parts += ["", f"EDITOR INSTRUCTION (follow it, while keeping all accuracy rules): {instruction}"]
     return "\n".join(parts)

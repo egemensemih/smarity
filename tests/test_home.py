@@ -53,6 +53,8 @@ class _App:
         self.tmp = tempfile.TemporaryDirectory()
         raw = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
         raw.setdefault("autonomy", {})["mode"] = "kural"     # testler canlı moddan bağımsız (tam otonom ayrıca sınanır)
+        raw.setdefault("editorial", {})["min_outlets"] = 0      # tek kaynak kuralı ve zayıf sayfa ayıklaması
+        raw.setdefault("seo", {})["prune_thin"] = False         # test_recovery / test_editor'da ayrıca sınanır
         self.cfg = Config(raw=raw, root=Path(self.tmp.name), site_url="https://smarity.com.tr", mock=True,
                           telegram_chat_id="1")
         self.app = appmod.App(self.cfg)

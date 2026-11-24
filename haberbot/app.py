@@ -342,9 +342,11 @@ class App:
             elif act == "merge":
                 self._merge_sources(x["target"], q["items"])
             elif act == "hold":
-                q["holds"] = int(q.get("holds", 0)) + 1
+                # ikinci kaynağı beklenen haber tur sınırına takılmaz; sıradaki süre sınırı (_queue) yine geçerli
+                if not str(x.get("reason", "")).startswith("tek kaynak"):
+                    q["holds"] = int(q.get("holds", 0)) + 1
                 q["held_at"] = iso(now_utc())
-                if q["holds"] <= 8:
+                if q.get("holds", 0) <= 8:
                     keep.append(q)
             self._edit_log(q, act, x)
         todo.sort(key=lambda q: -q["story"]["must_read"])
@@ -486,6 +488,7 @@ class App:
         """Yönetmen kararlarına kurallı emniyet: eşik, tur başına yer, aynı habere tek güncelleme, (isteğe bağlı) şirket
         sınırı. Günlük adet sınırı yoktur: eşiği geçen her haber gelir, geçemeyen gelmez."""
         cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
+        min_out = int(self.cfg.get("editorial", "min_outlets", 0) or 0)            # tek kaynaklı haber bekler
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -536,8 +539,14 @@ class App:
                 if ok:
                     round_targets.add(dup)
                 continue
+            its = queue[i].get("items") or []
+            outlets = {it.get("credit") for it in its if it.get("credit")}
+            official = any(it.get("kind") == "official" for it in its)
             if mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
+            elif min_out and len(outlets) < min_out and not official and mr < 9:
+                # Google tek kaynaktan yeniden yazılmış haberi değersiz sayıyor: ikinci bir yayın da verene kadar bekle
+                x["action"], x["reason"] = "hold", "tek kaynak, ikinci bir yayın bekleniyor"
             elif cap and mr < 9 and any(day_keys.get(k, 0) >= cap for k in keys):
                 x["action"], x["reason"] = "skip", "aynı şirketten son 24 saatte haber var"
             elif used >= slots:
@@ -693,13 +702,41 @@ class App:
         """Kapak yenilemesi için kapak başlığı hazır mı (ya da artık beklenmiyor mu)."""
         return bool((p.get("cover_headline") and p.get("cover_line_v") == COVERLINE_V) or p.get("cover_line_skip"))
 
+    def _related_coverage(self, sources: list[dict], previous: dict | None = None, n: int = 3) -> list[dict]:
+        """Sitede daha önce yayınlanmış ilgili haberler (yazara bağlam için): kaynak başlıklarında geçen etiket ve
+        şirket/ürün adlarıyla eşleşen, son 90 günün en ilgili haberleri."""
+        text = " ".join(f"{s.get('title', '')} {(s.get('text') or s.get('summary') or '')[:400]}" for s in sources).lower()
+        if not text.strip():
+            return []
+        skip = (previous or {}).get("id")
+        scored = []
+        for p in self.store.posts()[:600]:
+            if p.get("id") == skip or hours_since(p.get("published_at")) > 24 * 90:
+                continue
+            names = {str(x).strip().lower() for x in list(p.get("tags") or []) + list(p.get("entities") or [])
+                     if len(str(x).strip()) >= 3}
+            score = sum(1 for x in names if re.search(r"(?<![\wçğıöşü])" + re.escape(x) + r"(?![\wçğıöşü])", text))
+            if score:
+                scored.append((score, p.get("published_at") or "", p))
+        scored.sort(key=lambda t: (t[0], t[1]), reverse=True)   # en çok eşleşen, eşitse en yeni
+        out = []
+        for _, _, p in scored[:n]:
+            out.append({"date": tr_date(p.get("published_at"), self.cfg.tz, with_time=False),
+                        "title": p.get("title", ""), "summary": clip(p.get("summary") or "", 220)})
+        return out
+
     def _write(self, sources: list[dict], previous: dict | None = None, instruction: str | None = None,
                _retry: bool = True) -> dict:
         cfg = self.cfg
+        try:
+            related = self._related_coverage(sources, previous)
+        except Exception as e:  # noqa: BLE001
+            log.warning("İlgili eski haberler bulunamadı: %s", e)
+            related = []
         out = self.llm.json(
             cfg.get("ai", "writer_model", "claude-sonnet-5"),
             write_system(self.brand),
-            write_user(sources, self.today(), previous, instruction),
+            write_user(sources, self.today(), previous, instruction, related),
             WRITE_SCHEMA, max_tokens=16000, effort=cfg.get("ai", "writer_effort", "medium"))
         cat = out.get("category") if out.get("category") in CATEGORIES else None
         res = {
@@ -2878,6 +2915,13 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Fotoğraflar alınamadı (%s): %s", d.get("id"), e)
             return False
+        if str(cfg.get("images", "photo_policy", "any") or "any").lower() == "press":
+            # yalnızca şirketlerin basın görselleri ve açık lisanslı görseller: haber sitelerinin fotoğrafları kullanılmaz
+            hosts = list(cfg.get("images", "press_hosts", []) or [])
+            n0 = len(got)
+            got = [g for g in got if photos.press_ok(g, hosts)]
+            if len(got) < n0:
+                log.info("Fotoğraf: %d görsel haber sitesine ait olduğu için kullanılmadı (%s)", n0 - len(got), d.get("id"))
         vetted = self._vet_photos(d, got)
         if not vetted and not any(g.get("credit") == "Wikipedia" for g in got):
             # kaynaklardaki fotoğrafların hepsi ilgisiz ya da üstü yazılı: haberin konusunun Wikipedia fotoğrafı

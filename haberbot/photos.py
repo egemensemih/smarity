@@ -320,6 +320,19 @@ def wiki_photo(names: list[str]) -> dict | None:
     return None
 
 
+def press_ok(rec: dict, hosts: list[str] | tuple = ()) -> bool:
+    """Basın görseli mi: şirketin kendi duyurusundaki görsel, açık lisanslı Wikipedia görseli ya da görsel adresi bir
+    şirketin basın/haber odası alan adında. Haber sitelerinin kendi fotoğrafları değil."""
+    if rec.get("src_kind") == "official" or rec.get("kind") == "wiki" or rec.get("credit") == "Wikipedia":
+        return True
+    host = urlsplit(rec.get("src") or "").netloc.lower().split(":")[0]
+    if not host:
+        return False
+    if host.startswith(("newsroom.", "press.", "pressroom.")):
+        return True
+    return any(host == h or host.endswith("." + h) for h in (x.lower().strip() for x in hosts) if h)
+
+
 def gather(sources: list[dict], limit: int = 16, per_source: int = 12, pages: int = 3,
            skip_cover: set[str] | frozenset = frozenset(), entities: list[str] | None = None) -> list[dict]:
     """Kaynaklardan fotoğraf topla. Dönen her öğe: {'image': PIL, 'src', 'credit', 'page', 'alt', 'kind', 'graphic'}
@@ -354,7 +367,8 @@ def gather(sources: list[dict], limit: int = 16, per_source: int = 12, pages: in
                 continue
             hashes.append(h)
             picked.append({"image": im, "src": c["url"], "credit": s.get("name") or urlsplit(url).netloc,
-                           "page": url, "alt": c["alt"], "kind": c["kind"], **classify(im)})
+                           "page": url, "alt": c["alt"], "kind": c["kind"], "src_kind": s.get("kind") or "media",
+                           **classify(im)})
             n += 1
         if len(picked) >= limit:
             break
