@@ -13,11 +13,13 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .config import CATEGORIES, DEFAULT_CATEGORY, ROOT, Config, category_color, category_label, category_seo, indexnow_key
 from .covers import art_style
+from .guides import load_guides
+from .guides import matches as guide_matches
 from .store import Store
 from .textfix import primary_key, tag_display
 from .util import clip, hours_since, iso, local, log, now_utc, parse_iso, slugify, tr_date
 
-ASSET_V = "21"
+ASSET_V = "22"
 FOREIGN_PRICE = re.compile(r"(?=.*fiyat)(?=.*(\$|€|£|¥|dolar|euro|avro|sterlin|yuan|yen\b))", re.I)
 WHY_RE = re.compile(r"<p><strong>Neden önemli\?</strong>\s*(.*?)</p>", re.S)
 H2_RE = re.compile(r"<h[1-3]>(.*?)</h[1-3]>", re.S)
@@ -270,6 +272,27 @@ class SiteBuilder:
         self.env.filters["weburl"] = weburl
         self.seo = dict(cfg.raw.get("seo") or {})
         self.keep = load_keep()
+
+    def _guide_view(self, g: dict, by_id: dict[str, dict]) -> dict:
+        """Rehber sayfası görünümü (/rehber/slug/)."""
+        cfg, b = self.cfg, self.base
+        cat = g.get("category") if g.get("category") in CATEGORIES else DEFAULT_CATEGORY
+        upd = parse_iso(g.get("updated_at")) or now_utc()
+        based = [by_id[i] for i in g.get("based_on") or [] if i in by_id]
+        return {
+            **g,
+            "url": f"{b}/rehber/{g['slug']}/",
+            "abs_url": f"{cfg.site_url}/rehber/{g['slug']}/",
+            "body_html": render_body(g.get("body", "")),
+            "iso": iso(parse_iso(g.get("created_at")) or upd),
+            "mod_iso": iso(upd),
+            "updated_str": tr_date(upd, cfg.tz, with_time=False),
+            "cat_label": category_label(cat), "cat_color": category_color(cat), "cat_url": f"{b}/{cat}/",
+            "based": sorted(based, key=lambda q: q.get("published_at") or "", reverse=True),
+            "history_list": [{"date": tr_date(h.get("at"), cfg.tz, with_time=False), "note": h.get("note", "")}
+                             for h in (g.get("history") or [])[:8] if h.get("note")],
+            "words": len(plain(g.get("body", "")).split()),
+        }
 
     def _post_view(self, p: dict) -> dict:
         cfg, b = self.cfg, self.base
@@ -545,6 +568,12 @@ class SiteBuilder:
         site["follow"] = follow_links(site)
         legal = {k: str(v).strip() for k, v in (cfg.raw.get("legal") or {}).items() if v}
         ctx = {"site": site, "legal": legal}
+        # sürekli güncel rehberler: ilgili haberlerin altında rehbere bağlantı çıkar (eski aylık listeden güncel olana)
+        by_id = {p["id"]: p for p in posts}
+        guides = [self._guide_view(g, by_id) for g in load_guides(cfg)]
+        site["has_guides"] = bool(guides)
+        for p in posts:
+            p["guide"] = next((g for g in guides if guide_matches(g["spec"], p)), None)
 
         # statik dosyalar, logo ve görseller
         shutil.copytree(ROOT / "static", out / "static")
@@ -643,6 +672,13 @@ class SiteBuilder:
                 **ctx, tag=t, posts=tag_posts[t["slug"]][:120], canonical=f"{cfg.site_url}/etiket/{t['slug']}/",
                 noindex=t["idx_count"] < 2))
 
+        for g in guides:
+            self._write(f"rehber/{g['slug']}/index.html", self.env.get_template("guide.html").render(
+                **ctx, guide=g, others=[x for x in guides if x["slug"] != g["slug"]], canonical=g["abs_url"]))
+        if guides:
+            self._write("rehber/index.html", self.env.get_template("guides.html").render(
+                **ctx, guides=guides, canonical=f"{cfg.site_url}/rehber/"))
+
         self._write("hakkinda/index.html", self.env.get_template("about.html").render(
             **ctx, canonical=f"{cfg.site_url}/hakkinda/",
             sources=[s for s in cfg.sources]))
@@ -682,7 +718,7 @@ class SiteBuilder:
             **ctx, posts=posts[:40], now_rfc=format_datetime(now_utc())))
         self._write("sitemap.xml", self.env.get_template("sitemap.xml").render(
             **ctx, posts=[p for p in posts if not p["thin"]], cats=[c for c in cats if c["count"]],
-            tags=[t for t in tags if t["idx_count"] >= 2], pages=pages))
+            tags=[t for t in tags if t["idx_count"] >= 2], pages=pages, guides=guides))
         # ana ekrana eklenebilir site (PWA bildirimi)
         self._write("manifest.webmanifest", json.dumps({
             "name": cfg.site.get("name", "Smarity"), "short_name": cfg.site.get("name", "Smarity"),

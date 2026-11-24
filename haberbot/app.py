@@ -12,6 +12,7 @@ from urllib.parse import urlsplit
 
 import requests
 
+from . import guides as guidesmod
 from . import photos, policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
@@ -24,7 +25,7 @@ from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS,
                       WRITE_SCHEMA, appeal_system, appeal_user, coverline_system, coverline_user, edit_system, edit_user,
                       seo_system, seo_user, triage_system, triage_user, write_system, write_user)
 from .sources import fetch_all
-from .store import Store, write_json
+from .store import Store, read_json, write_json
 from .textfix import Fixer, entity_keys, is_car_story, looks_english, title_words
 from .telegram import MockTelegram, Telegram, TelegramError
 from .util import (clip, hours_since, iso, local, log, now_utc, short_hash, slugify,
@@ -2064,6 +2065,84 @@ class App:
         except requests.RequestException as e:
             log.warning("IndexNow bildirimi başarısız: %s", e)
 
+    # ── SÜREKLİ GÜNCEL REHBERLER ────────────────────────────
+    def guides_tick(self) -> bool:
+        """Rehberler (/rehber/…): ilgili yeni bir haber yayımlanınca (en sık min_hours_between saatte bir) yeniden
+        yazılır. Bir turda en fazla bir rehber. Rakam doğrulamasından geçmeyen sürüm yayımlanmaz."""
+        specs = guidesmod.guide_list(self.cfg)
+        if not specs or not self.llm:
+            return False
+        gc = self.cfg.raw.get("guides") or {}
+        lookback = float(gc.get("lookback_days", 75) or 75)
+        limit = int(gc.get("max_posts", 14) or 14)
+        gap = float(gc.get("min_hours_between", 24) or 24)
+        posts = self.store.posts()[:1000]
+        tried = self.state.setdefault("guide_tried", {})
+        for spec in specs:
+            rel = guidesmod.related_posts(spec, posts, float(spec.get("lookback_days") or lookback),
+                                          int(spec.get("max_posts") or limit))
+            if len(rel) < int(spec.get("min_posts") or gc.get("min_posts") or 2):
+                continue
+            sig = guidesmod.signature(rel)
+            old = read_json(guidesmod.guide_path(self.cfg, spec["slug"]), None)
+            if (old and old.get("sig") == sig) or tried.get(spec["slug"]) == sig:
+                continue        # yeni bilgi yok ya da bu haberlerle denendi, olmadı: yeni haber gelince tekrar
+            if old and hours_since(old.get("updated_at")) < gap:
+                continue
+            return self._write_guide(spec, rel, old, sig)
+        return False
+
+    def _write_guide(self, spec: dict, rel: list[dict], old: dict | None, sig: list[str]) -> bool:
+        cfg = self.cfg
+        user = guidesmod.guide_user(spec, rel, self.today(), cfg.tz, old)
+        for attempt in range(2):
+            try:
+                out = self.llm.json(cfg.get("ai", "writer_model", "claude-sonnet-5"), guidesmod.guide_system(self.brand),
+                                    user, guidesmod.GUIDE_SCHEMA, max_tokens=12000,
+                                    effort=cfg.get("ai", "writer_effort", "medium"))
+            except LLMError as e:
+                log.warning("Rehber yazılamadı (%s): %s", spec["slug"], str(e)[:160])
+                return False
+            body = (out.get("body") or "").strip()
+            faq = [{"q": clip(str(f.get("q", "")).strip(), 160), "a": clip(str(f.get("a", "")).strip(), 400)}
+                   for f in (out.get("faq") or []) if f.get("q") and f.get("a")][:6]
+            summary = clip((out.get("summary") or "").strip(), 280)
+            bad = guidesmod.unsupported_numbers(" ".join([body, summary, out.get("seo_title") or "",
+                                                          out.get("meta_description") or ""]
+                                                         + [f"{f['q']} {f['a']}" for f in faq]), rel)
+            if not bad or attempt:
+                break
+            # bir kez düzelttir: rakamı haberdeki yazımıyla ver ya da çıkar (hesaplama, dönüştürme yok)
+            user += ("\n\nCORRECTION: your previous draft contained numbers that do not appear in the RELATED ARTICLES "
+                     f"with the same digits: {', '.join(bad[:12])}. Write every number exactly as it is written in the "
+                     "articles, or leave it out. Do not compute, convert or round. Return the full guide again.")
+        if bad or len(body.split()) < 120:
+            self.state.setdefault("guide_tried", {})[spec["slug"]] = sig
+            log.warning("Rehber yayımlanmadı (%s): %s", spec["slug"],
+                        f"haberlerde geçmeyen rakam: {', '.join(bad[:8])}" if bad else "metin çok kısa")
+            return False
+        now = iso(now_utc())
+        ids = {p["id"] for p in rel}
+        used = [i for i in dict.fromkeys(out.get("used") or []) if i in ids] or [p["id"] for p in rel]
+        hist = [{"at": now, "note": clip((out.get("changes") or "").strip() or ("İlk sürüm." if not old else
+                                                                                 "Yeni haberlerle güncellendi."), 200)}]
+        hist += list((old or {}).get("history") or [])
+        g = {"slug": spec["slug"], "title": spec["title"], "h1": spec.get("h1") or spec["title"],
+             "category": spec.get("category") or DEFAULT_CATEGORY,
+             "seo_title": clip((out.get("seo_title") or "").strip() or spec["title"], 70),
+             "meta_description": clip((out.get("meta_description") or "").strip() or summary, 160),
+             "summary": summary, "body": body, "faq": faq, "based_on": used, "sig": sig,
+             "created_at": (old or {}).get("created_at") or now, "updated_at": now, "history": hist[:12]}
+        guidesmod.save_guide(cfg, g)
+        self.state.get("guide_tried", {}).pop(spec["slug"], None)
+        self.store.site_dirty = True
+        url = f"{cfg.site_url}/rehber/{spec['slug']}/"
+        self.queue_indexnow(url)
+        log.info("Rehber %s: %s", "güncellendi" if old else "yayımlandı", spec["slug"])
+        self.notify(f"📘 <b>Rehber {'güncellendi' if old else 'yayında'}</b>: {esc(g['h1'])}\n{esc(hist[0]['note'])}\n{url}",
+                    silent=True)
+        return True
+
     def backfill_seo(self, limit: int = 3) -> None:
         """SEO bilgisi olmayan eski haberlere (metnine dokunmadan) arama başlığı ve açıklaması ekle."""
         if not self.llm:
@@ -3163,6 +3242,10 @@ class App:
             except Exception as e:  # noqa: BLE001
                 log.exception("Bekleyen taslak kontrolü hatası: %s", e)
             self.backfill_seo()
+            try:
+                self.guides_tick()
+            except Exception as e:  # noqa: BLE001
+                log.exception("Rehber hatası: %s", e)
             try:
                 self.fix_texts()
                 self.backfill_appeal()

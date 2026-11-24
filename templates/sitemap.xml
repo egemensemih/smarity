@@ -8,6 +8,12 @@
   {% for n in range(2, pages + 1) %}
   <url><loc>{{ site.url }}/haberler/sayfa/{{ n }}/</loc></url>
   {% endfor %}
+  {% if guides %}
+  <url><loc>{{ site.url }}/rehber/</loc><lastmod>{{ guides|map(attribute='mod_iso')|max }}</lastmod></url>
+  {% for g in guides %}
+  <url><loc>{{ g.abs_url }}</loc><lastmod>{{ g.mod_iso }}</lastmod></url>
+  {% endfor %}
+  {% endif %}
   {% for c in cats %}
   <url><loc>{{ c.abs_url }}</loc>{% if c.lastmod %}<lastmod>{{ c.lastmod }}</lastmod>{% endif %}</url>
   {% endfor %}

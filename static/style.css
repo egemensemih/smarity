@@ -611,3 +611,28 @@ body.srch-on { overflow: hidden; }
 @keyframes srchin { from { opacity: 0; transform: translateY(-8px) scale(.99); } to { opacity: 1; transform: none; } }
 @keyframes srchfade { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .srch-back, .srch-panel { animation: none; } }
+/* sürekli güncel rehberler */
+.guide-box { margin: 32px 0 8px; }
+.guide-box a { display: grid; gap: 6px; padding: 18px 20px; border-radius: var(--r-md, 16px); background: var(--bg-alt);
+  border-left: 4px solid var(--c, var(--ink)); color: inherit; text-decoration: none; }
+.guide-box a:hover .gb-title { text-decoration: underline; }
+.gb-title { font-size: 20px; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; }
+.gb-dek { font-size: 16px; color: var(--ink-2); line-height: 1.45; }
+.gb-meta { font-size: 14px; color: var(--muted); }
+.prose table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 16px; display: block; overflow-x: auto; }
+.prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line, rgba(0,0,0,.1)); vertical-align: top; }
+.prose th { font-weight: 600; background: var(--bg-alt); }
+.guide-faq h3 { font-size: 19px; letter-spacing: -.01em; margin: 22px 0 6px; }
+.guide-hist { margin-top: 32px; font-size: 15px; color: var(--ink-2); }
+.guide-hist h2, .guide-others h2 { font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.guide-hist ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.guide-hist time { font-weight: 600; margin-right: 8px; color: var(--ink); }
+.guide-others { margin-top: 36px; display: grid; gap: 8px; }
+.guide-others a, .guide-list a { display: grid; gap: 4px; padding: 14px 16px; border-radius: 14px; background: var(--bg-alt); color: inherit; text-decoration: none; }
+.guide-others a span { font-size: 14px; color: var(--muted); }
+.guide-list { display: grid; gap: 12px; padding-bottom: 56px; }
+.guide-list a { padding: 18px 20px; border-left: 4px solid var(--c, var(--ink)); }
+.guide-list b { font-size: 21px; letter-spacing: -.02em; line-height: 1.25; }
+.gl-dek { color: var(--ink-2); font-size: 16px; line-height: 1.45; }
+.guide-list .muted { font-size: 14px; }
+@media (min-width: 700px) { .art-body table, .prose table { display: table; } }

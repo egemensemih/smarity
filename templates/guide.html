@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% from "_macros.html" import crumbs %}
+{% set active_cat = guide.category %}
+{% block title %}{{ guide.seo_title or guide.h1 }} | {{ site.name }}{% endblock %}
+{% block description %}{{ guide.meta_description or guide.summary }}{% endblock %}
+{% block og %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ guide.seo_title or guide.h1 }}">
+<meta property="og:description" content="{{ guide.meta_description or guide.summary }}">
+<meta property="og:url" content="{{ guide.abs_url }}">
+<meta property="og:image" content="{{ site.og_image }}">
+<meta name="twitter:image" content="{{ site.og_image }}">
+<meta property="article:published_time" content="{{ guide.iso }}">
+<meta property="article:modified_time" content="{{ guide.mod_iso }}">
+{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "Article",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": guide.abs_url},
+  "headline": guide.h1[:110], "alternativeHeadline": guide.seo_title,
+  "description": guide.meta_description or guide.summary,
+  "image": [site.og_image],
+  "datePublished": guide.iso, "dateModified": guide.mod_iso,
+  "inLanguage": "tr-TR", "wordCount": guide.words, "isAccessibleForFree": true,
+  "author": {"@type": "Organization", "name": site.name ~ " Haber Masası", "url": site.url ~ "/hakkinda/"},
+  "editor": ({"@type": "Person", "name": legal.owner} if legal.owner else none),
+  "publisher": {"@type": "NewsMediaOrganization", "@id": site.url ~ "/#org", "name": site.name,
+                "publishingPrinciples": site.url ~ "/hakkinda/#ilkeler",
+                "correctionsPolicy": site.url ~ "/hakkinda/#duzeltme",
+                "logo": {"@type": "ImageObject", "url": site.logo, "width": 512, "height": 512}},
+  "isBasedOn": guide.based|map(attribute='abs_url')|list
+}|tojson }}</script>
+{% endblock %}
+
+{% block main %}
+<article class="art guide" style="--c:{{ guide.cat_color }}">
+  <div class="art-col">
+  {{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), ("Rehberler", site.base ~ "/rehber/", site.url ~ "/rehber/"), (guide.title, guide.url, guide.abs_url)], '') }}
+  <header class="art-head">
+    <div class="meta-top">
+      <a class="eyebrow" href="{{ site.base }}/rehber/">Sürekli güncel rehber</a>
+      <span class="muted">Son güncelleme: <time datetime="{{ guide.mod_iso }}">{{ guide.updated_str }}</time></span>
+    </div>
+    <h1>{{ guide.h1 }}</h1>
+    <p class="dek">{{ guide.summary }}</p>
+  </header>
+
+  <div class="art-body">{{ guide.body_html|safe }}</div>
+
+  {% if guide.faq %}
+  <section class="art-body guide-faq" aria-labelledby="sss">
+    <h2 id="sss">Sık sorulanlar</h2>
+    {% for f in guide.faq %}<h3>{{ f.q }}</h3>
+    <p>{{ f.a }}</p>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="sources" aria-labelledby="dayanak">
+    <h2 id="dayanak">Bu rehberin dayandığı haberler</h2>
+    <ol>
+      {% for p in guide.based %}
+      <li><a href="{{ p.url }}">
+        <span><span class="s-name">{{ p.date_short }}</span><span class="s-title">{{ p.title }}</span></span>
+        <span class="s-go" aria-hidden="true">→</span>
+      </a></li>
+      {% endfor %}
+    </ol>
+    <p class="disclosure">
+      Bu rehber, {{ site.name }}'de kaynaklarıyla yayımlanan haberlerden yapay zeka yardımıyla derlenir ve ilgili yeni
+      bir haber yayımlandığında güncellenir. Rakamlar dayandığı haberlerdekiyle birebir aynıdır; fiyatlar kampanyaya,
+      bayiye ve tarihe göre değişebilir, satın almadan önce resmi kaynaktan doğrulamanı öneririz.
+      {% if legal.owner %}Sorumlu editör: {{ legal.owner }}. {% endif %}<a href="{{ site.base }}/hakkinda/#ilkeler">Yayın ilkelerimiz</a> ·
+      Bir hata görürsen <a href="{{ site.base }}/iletisim/">bize bildir</a>.
+    </p>
+  </section>
+
+  {% if guide.history_list %}
+  <section class="guide-hist" aria-labelledby="gecmis">
+    <h2 id="gecmis">Güncelleme geçmişi</h2>
+    <ul>{% for h in guide.history_list %}<li><time>{{ h.date }}</time><span>{{ h.note }}</span></li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+
+  {% if others %}
+  <nav class="guide-others" aria-label="Diğer rehberler">
+    <h2>Diğer güncel rehberler</h2>
+    {% for g in others %}<a href="{{ g.url }}"><b>{{ g.title }}</b><span>{{ g.updated_str }}</span></a>{% endfor %}
+  </nav>
+  {% endif %}
+  </div>
+</article>
+{% endblock %}

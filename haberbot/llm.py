@@ -334,6 +334,12 @@ class MockLLM:
             return {"keep": list(range(len(images or []))), "text": []}
         if "stories" in schema.get("properties", {}):
             return self._triage(user)
+        if "faq" in schema.get("properties", {}):          # rehber: ilk haberin başlığı ve özetinden (rakamsız) metin
+            m = re.search(r"--- id: (\w+)", user)
+            return {"seo_title": "Test rehberi", "meta_description": "Test modu rehberi.",
+                    "summary": "Test modu rehberi.", "body": "## Özet\n\n" + " ".join(["Test modu rehber metni."] * 40),
+                    "faq": [{"q": "Test sorusu?", "a": "Test cevabı."}], "changes": "İlk sürüm.",
+                    "used": [m.group(1)] if m else []}
         if "votes" in schema.get("properties", {}):       # sosyal medya masası: ilgi puanı ve fotoğrafa göre
             m = re.search(r"APPEAL \(homepage, 1–10\): (\d+)", user)
             appeal = int(m.group(1)) if m else 5

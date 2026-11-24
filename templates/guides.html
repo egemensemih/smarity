@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_macros.html" import crumbs %}
+{% block title %}Güncel rehberler: fiyat listeleri, ücretler ve kurallar | {{ site.name }}{% endblock %}
+{% block description %}Türkiye'deki güncel otomobil ve telefon fiyatları, IMEI kayıt ücreti, şarj ücretleri gibi sık aranan bilgiler; her yeni gelişmede güncellenir.{% endblock %}
+{% block main %}
+<header class="page-head wrap" style="--c:#6E6E73">
+  <span class="eyebrow">Rehberler</span>
+  <h1>Sürekli güncel<br>rehberler</h1>
+  <p>Sık aranan fiyatlar, ücretler ve kurallar tek sayfada. İlgili yeni bir haber yayımlandığında güncellenir.</p>
+</header>
+{{ crumbs([("Ana sayfa", site.base ~ "/", site.url ~ "/"), ("Rehberler", site.base ~ "/rehber/", site.url ~ "/rehber/")], 'narrow') }}
+<div class="narrow guide-list">
+  {% for g in guides %}
+  <a href="{{ g.url }}" style="--c:{{ g.cat_color }}">
+    <span class="eyebrow sm">{{ g.cat_label }}</span>
+    <b>{{ g.h1 }}</b>
+    <span class="gl-dek">{{ g.summary }}</span>
+    <span class="muted">Son güncelleme: {{ g.updated_str }}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

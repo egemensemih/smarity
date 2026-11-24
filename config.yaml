@@ -597,3 +597,86 @@ sources:
   #   url: https://hnrss.org/frontpage?points=400
   #   kind: community
   #   credit_linked_site: true
+
+# ── Sürekli güncel rehberler (/rehber/…) ───────────────────
+# Sık aranan fiyat, ücret ve kurallar tek bir kalıcı sayfada. Sitede yayımlanan ilgili haberlerden derlenir; ilgili yeni bir
+# haber gelince yeniden yazılır. Rehberdeki her rakam dayandığı haberlerde birebir geçmek zorunda: geçmeyen varsa yeni
+# sürüm yayımlanmaz. İlgili haberlerin altında rehbere bağlantı çıkar.
+#   match: başlıkta ya da etiketlerde geçmesi gereken sözcükler (biri yeter)
+#   need / need_also: başlıkta ayrıca geçmesi gereken sözcükler (her listeden biri)   skip: geçmemesi gerekenler
+#   categories: yalnızca bu kategorilerdeki haberler   min_posts: rehberin açılması için gereken haber sayısı
+#   match_in: title → match sözcüklerine yalnızca başlıkta bakılır (etiketlerde değil)
+guides:
+  enabled: true
+  lookback_days: 75          # rehbere giren haberlerin en eski tarihi
+  max_posts: 14              # rehber başına en fazla haber
+  min_posts: 2
+  min_hours_between: 24      # aynı rehber en sık günde bir yeniden yazılır
+  list:
+    - slug: togg-fiyat-listesi
+      title: "Togg fiyat listesi"
+      h1: "Togg fiyat listesi: güncel T10X ve T10F fiyatları"
+      about: "Togg T10X ve T10F'nin Türkiye satış fiyatları ve versiyonları, kampanya ve finansman koşulları"
+      category: otomotiv
+      match: ["togg"]
+      need: ["fiyat", "zam", "kampanya"]
+    - slug: elektrikli-otomobil-fiyatlari
+      title: "Elektrikli otomobil fiyatları"
+      h1: "Türkiye'de elektrikli otomobil fiyatları: en ucuz modeller ve güncel liste"
+      about: "Türkiye'de satılan elektrikli otomobillerin güncel fiyatları, en ucuz modeller, ÖTV durumu"
+      category: otomotiv
+      categories: [otomotiv]
+      match: ["elektrikli"]
+      need: ["fiyat", "zam"]
+      need_also: ["türkiye", "en ucuz", "elektrikli otomobil fiyat"]
+      max_posts: 18
+    - slug: elektrikli-arac-sarj-ucretleri
+      title: "Elektrikli araç şarj ücretleri"
+      h1: "Elektrikli araç şarj ücretleri: güncel AC ve DC kWh fiyatları"
+      about: "Türkiye'deki şarj ağlarının (ZES, Eşarj, Trugo, Tesla Supercharger, Voltrun…) güncel AC/DC kWh ücretleri"
+      category: otomotiv
+      match: ["şarj"]
+      need: ["ücret", "fiyat", "tarife", "zam"]
+    - slug: sifir-arac-fiyat-listeleri
+      title: "Sıfır araç fiyat listeleri"
+      h1: "Sıfır araç fiyat listeleri: marka marka güncel fiyatlar"
+      about: "Türkiye'de satılan otomobil markalarının aylık fiyat listeleri: markaların başlangıç fiyatları, en ucuz modeller"
+      category: otomotiv
+      categories: [otomotiv]
+      match: ["fiyat listesi", "en ucuz sıfır", "sıfır araba fiyat", "sıfır araç fiyat"]
+      lookback_days: 45
+      max_posts: 22
+    - slug: imei-kayit-ucreti
+      title: "IMEI kayıt ücreti"
+      h1: "IMEI kayıt ücreti: yurt dışından getirilen telefon için güncel harç"
+      about: "Yurt dışından getirilen telefonların IMEI kayıt ücreti (harç), geçerlilik tarihi ve kayıt kuralları"
+      category: teknoloji
+      match: ["imei"]
+    - slug: apple-turkiye-fiyatlari
+      title: "Apple Türkiye fiyatları"
+      h1: "Apple Türkiye fiyatları: güncel iPhone, iPad, Mac ve AirPods fiyatları"
+      about: "Apple ürünlerinin (iPhone, iPad, Mac, AirPods, Apple Watch, HomePod) Türkiye satış fiyatları ve son zamlar"
+      category: teknoloji
+      match: ["apple", "iphone", "ipad", "mac", "airpods", "homepod", "apple watch"]
+      need: ["fiyat", "zam"]
+      need_also: ["türkiye"]
+      skip: ["abonelik"]
+    - slug: samsung-galaxy-turkiye-fiyatlari
+      title: "Samsung Galaxy Türkiye fiyatları"
+      h1: "Samsung Galaxy Türkiye fiyatları: güncel telefon ve tablet fiyatları"
+      about: "Samsung Galaxy telefon, tablet ve saatlerinin Türkiye satış fiyatları"
+      category: teknoloji
+      match: ["samsung", "galaxy"]
+      need: ["fiyat", "zam"]
+      need_also: ["türkiye"]
+      skip: ["geely"]
+    - slug: dijital-abonelik-fiyatlari
+      title: "Dijital abonelik fiyatları"
+      h1: "Dijital abonelik fiyatları: Netflix, Spotify, YouTube Premium ve diğerleri"
+      about: "Netflix, Spotify, YouTube Premium, Disney+, Amazon Prime, Apple TV, PlayStation Plus, Xbox Game Pass, X gibi servislerin Türkiye abonelik ücretleri ve son zamlar"
+      category: teknoloji
+      match: ["netflix", "spotify", "youtube premium", "disney", "prime video", "amazon prime", "apple tv", "playstation plus",
+              "ps plus", "game pass", "abonelik", "üyelik"]
+      match_in: title
+      need: ["fiyat", "ücret", "zam"]
+      need_also: ["türkiye", " tl"]

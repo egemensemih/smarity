@@ -89,6 +89,7 @@
     </nav>
     <nav class="foot-col" aria-label="Smarity">
       <h2>{{ site.name }}</h2>
+      {% if site.has_guides %}<a href="{{ site.base }}/rehber/">Güncel rehberler</a>{% endif %}
       <a href="{{ site.base }}/hakkinda/">Hakkında</a>
       <a href="{{ site.base }}/hakkinda/#ilkeler">Yayın ilkeleri</a>
       <a href="{{ site.base }}/iletisim/">İletişim ve künye</a>

@@ -94,6 +94,18 @@
 
   <div class="art-body">{{ post.body_html|safe }}</div>
 
+  {% if post.guide %}
+  {% set g = post.guide %}
+  <aside class="guide-box" aria-label="Sürekli güncel rehber">
+    <a href="{{ g.url }}">
+      <span class="eyebrow sm">Sürekli güncel rehber</span>
+      <span class="gb-title">{{ g.h1 }}</span>
+      <span class="gb-dek">{{ g.summary }}</span>
+      <span class="gb-meta">Son güncelleme: {{ g.updated_str }} <span aria-hidden="true">→</span></span>
+    </a>
+  </aside>
+  {% endif %}
+
   {% if post.slides %}
   {% set n = post.slides|length %}
   <figure class="gal gal-end" data-gal aria-label="Fotoğraf galerisi">
