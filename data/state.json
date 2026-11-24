@@ -874,8 +874,8 @@
       "dropped": 2
     },
     "2026-11-24": {
-      "tok_in": 921360,
-      "tok_out": 161080,
+      "tok_in": 923618,
+      "tok_out": 162058,
       "cost_usd": 0.0,
       "drafts": 24,
       "published": 23,
@@ -889,7 +889,7 @@
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-24T19:44:13Z",
+  "last_build": "2026-11-24T20:37:33Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -1101,7 +1101,9 @@
     }
   ],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [],
+  "indexnow_queue": [
+    "https://smarity.com.tr/rehber/elektrikli-otomobil-fiyatlari/"
+  ],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -3099,7 +3101,6 @@
   ],
   "guide_tried": {},
   "guide_wait": {
-    "elektrikli-otomobil-fiyatlari": "2026-11-24T17:31:14Z",
     "sifir-arac-fiyat-listeleri": "2026-11-24T17:37:01Z",
     "apple-turkiye-fiyatlari": "2026-11-24T17:55:42Z"
   },
