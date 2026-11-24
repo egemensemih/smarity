@@ -9,6 +9,9 @@ data/instagram.json dosyasına yazılır (depoda düz metin anahtar yoktur).
 
 Meta'nın yeni uygulamalarda verdiği sistem kullanıcısı anahtarı ("EAA…" ile başlar, süresi dolmaz) graph.facebook.com
 üzerinden çalışır: hesap numarası ayarlardan (social.instagram_user_id) alınır ya da anahtarın eriştiği hesaplardan bulunur.
+
+IG_ACCESS_TOKEN'da Meta anahtarı yerine Zernio API anahtarı varsa paylaşım Zernio üzerinden yapılır (Zernio sınıfı):
+kendi Meta uygulamamız gerekmez, Instagram hesabı Zernio panelinde bağlanır.
 """
 from __future__ import annotations
 
@@ -281,6 +284,130 @@ class TokenStore:
         if tried and (now_utc() - tried) < timedelta(hours=12):
             return False
         return not last or (now_utc() - last) > timedelta(days=7)
+
+
+# ── Zernio: Meta onaylı uygulaması olan paylaşım servisi (kendi Meta uygulamamız gerekmez) ──
+ZERNIO_API = "https://zernio.com/api/v1"
+
+
+def is_meta_token(token: str) -> bool:
+    """Meta'nın kendi anahtarları "EAA" (Facebook) ya da "IG" (Instagram girişi) ile başlar; diğerleri Zernio anahtarıdır."""
+    return str(token or "").startswith(("EAA", "IG"))
+
+
+class Zernio:
+    """Zernio REST API üzerinden Instagram'a gönderi (carousel) ve hikâye. Görseller herkese açık adresten alınır.
+    Arayüz Instagram sınıfıyla aynıdır (me / carousel / story / diagnose); hedef, Zernio'daki hesap numarasıdır."""
+    kind = "zernio"
+    fb = False
+    ref = ""   # paylaşılan haberin kimliği + deneme sayısı (bot her paylaşımdan önce koyar): çift paylaşımı önler
+
+    def __init__(self, key: str, account_id: str = "", timeout: int = 90):
+        self.key = key
+        self.ig_id = str(account_id or "")
+        self.timeout = timeout
+        self.s = requests.Session()
+        self.s.headers.update({"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+
+    def _clean(self, text: str) -> str:
+        return str(text).replace(self.key, "***") if self.key else str(text)
+
+    def _req(self, method: str, path: str, body: dict | None = None, params: dict | None = None,
+             idem: str = "") -> dict:
+        headers = {"Idempotency-Key": idem} if idem else {}
+        try:
+            r = self.s.request(method, f"{ZERNIO_API}/{path.lstrip('/')}", json=body, params=params,
+                               headers=headers, timeout=self.timeout)
+        except requests.RequestException as e:
+            raise InstagramError(self._clean(f"Zernio bağlantı hatası: {type(e).__name__}"), transient=True) from None
+        try:
+            j = r.json()
+        except ValueError:
+            j = {}
+        if r.status_code >= 400:
+            err = j.get("error") if isinstance(j.get("error"), dict) else j
+            msg = (err.get("message") if isinstance(err, dict) else None) or j.get("error") or f"HTTP {r.status_code}"
+            perr = (err.get("platformError") if isinstance(err, dict) else None) or j.get("platformError")
+            if perr:
+                msg = f"{msg} ({perr if isinstance(perr, str) else perr.get('message', perr)})"
+            code = {401: 190, 403: 200, 422: 200}.get(r.status_code)     # yetki sorunları: anahtar / hesap bağlantısı
+            raise InstagramError(self._clean(f"Zernio: {msg}"), code,
+                                 transient=r.status_code in (429, 500, 502, 503, 504))
+        return j if isinstance(j, dict) else {"data": j}
+
+    @staticmethod
+    def _items(j) -> list[dict]:
+        if isinstance(j, list):
+            return j
+        for k in ("accounts", "data", "items", "results"):
+            if isinstance(j.get(k), list):
+                return j[k]
+        return []
+
+    def accounts(self) -> list[dict]:
+        out = []
+        for a in self._items(self._req("GET", "accounts")):
+            if not isinstance(a, dict):
+                continue
+            out.append({"id": str(a.get("_id") or a.get("id") or a.get("accountId") or ""),
+                        "platform": str(a.get("platform") or "").lower(),
+                        "username": a.get("username") or a.get("handle") or a.get("name") or a.get("displayName") or "",
+                        "active": a.get("isActive", a.get("active", True)) is not False})
+        return out
+
+    def me(self) -> dict:
+        igs = [a for a in self.accounts() if a["platform"] == "instagram" and a["id"]]
+        if self.ig_id:
+            igs = [a for a in igs if a["id"] == self.ig_id] or igs
+        if not igs:
+            raise InstagramError("Zernio'da bağlı Instagram hesabı yok: Zernio panelinde Instagram'ı bağla", 200)
+        a = igs[0]
+        return {"id": a["id"], "user_id": a["id"], "username": a["username"]}
+
+    def _publish(self, body: dict, idem: str) -> tuple[str, str]:
+        j = self._req("POST", "posts", body, idem=idem)
+        post = j.get("post") if isinstance(j.get("post"), dict) else j
+        pid = str(post.get("_id") or post.get("id") or "")
+        plats = [p for p in post.get("platforms") or [] if isinstance(p, dict)] or [post]
+        p = plats[0]
+        st = str(p.get("status") or post.get("status") or "").lower()
+        if st in ("failed", "cancelled"):
+            perr = p.get("platformError") or p.get("error") or post.get("error") or st
+            raise InstagramError(self._clean(f"Zernio: Instagram paylaşımı başarısız ({perr})"))
+        return pid, str(p.get("platformPostUrl") or "")
+
+    def carousel(self, account_id: str, urls: list[str], caption: str) -> tuple[str, str]:
+        body = {"content": caption, "mediaItems": [{"type": "image", "url": u} for u in urls],
+                "platforms": [{"platform": "instagram", "accountId": account_id}], "publishNow": True}
+        if self.ref:
+            body["externalId"] = f"{self.ref}-post"
+        return self._publish(body, self._idem(self.ref or urls[0], "post"))
+
+    def story(self, account_id: str, url: str) -> str:
+        body = {"mediaItems": [{"type": "image", "url": url}],
+                "platforms": [{"platform": "instagram", "accountId": account_id,
+                               "platformSpecificData": {"contentType": "story"}}],
+                "publishNow": True}
+        if self.ref:
+            body["externalId"] = f"{self.ref}-story"
+        return self._publish(body, self._idem(self.ref or url, "story"))[0]
+
+    @staticmethod
+    def _idem(ref: str, kind: str) -> str:
+        """Aynı haberin aynı biçimi iki kez gönderilmesin (zaman aşımı sonrası yeniden denemede çift paylaşım olmaz)."""
+        import uuid
+        return str(uuid.uuid5(uuid.NAMESPACE_URL, f"smarity:{ref}:{kind}"))
+
+    def diagnose(self) -> dict:
+        out: dict = {"kind": "zernio"}
+        try:
+            out["accounts"] = [f"{a['platform']}:{a['username'] or a['id']}" for a in self.accounts()]
+        except InstagramError as e:
+            out["accounts"] = {"error": str(e)[:200], "code": e.code}
+        return out
+
+    def refresh(self) -> tuple[str, int]:
+        raise InstagramError("Zernio anahtarı yenilenmez")
 
 
 def head_ok(url: str) -> int:

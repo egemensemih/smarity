@@ -119,6 +119,10 @@ social:
   # GitHub'da IG_ACCESS_TOKEN gizli anahtarı tanımlıysa yayınlanan her haber, site güncellendikten
   # birkaç dakika sonra carousel (3 görsel) ve hikâye olarak paylaşılır. Telegram'dan /instagram ile yönetilir.
   instagram_auto: true
+  # Paylaşım yolu: auto = IG_ACCESS_TOKEN'daki anahtara bakar (Meta anahtarı "EAA"/"IG" ile başlar; değilse Zernio API anahtarıdır)
+  # Zernio: Meta onaylı uygulaması olan paylaşım servisi; kendi Meta uygulamamız gerekmez, Instagram Zernio panelinde bağlanır.
+  instagram_provider: auto
+  zernio_account_id: ""            # boşsa Zernio'ya bağlı ilk Instagram hesabı kullanılır
   instagram_user_id: "17841405730803695"   # @smarityco hesap numarası (Meta panelinde hesabın altında yazar)
   instagram_every_post: false      # false: her haber paylaşılmaz; sosyal medya masası seçer (gönderi + hikâye / hikâye / hiç)
   instagram_daily_posts: 4         # günlük en fazla kalıcı gönderi (her gönderinin hikâyesi de atılır)

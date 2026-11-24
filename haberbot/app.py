@@ -16,7 +16,7 @@ from . import photos, policy
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
-from .instagram import Instagram, InstagramError, TokenStore, fingerprint, head_ok, is_fb_token
+from .instagram import Instagram, InstagramError, TokenStore, Zernio, fingerprint, head_ok, is_fb_token, is_meta_token
 from .llm import LLMError, MockLLM, estimate_cost, make_llm
 from .prompts import (APPEAL_SCHEMA, COVERLINE_SCHEMA, EDIT_SCHEMA, FLAG_LABELS, FLAGS, PHOTO_SCHEMA, SEO_SCHEMA, TRIAGE_SCHEMA,
                       SOCIAL_SCHEMA, social_system, social_user, VISUAL_SCHEMA, visual_system, visual_user,
@@ -2083,6 +2083,14 @@ class App:
         return self.cfg.get("social", key, default)
 
     @property
+    def ig_provider(self) -> str:
+        """Paylaşım yolu: "zernio" ya da "meta". Ayarda "auto" ise anahtarın biçiminden anlaşılır."""
+        p = str(self._ig_cfg("instagram_provider", "auto") or "auto").strip().lower()
+        if p in ("zernio", "meta"):
+            return p
+        return "meta" if is_meta_token(self.cfg.instagram_token) else "zernio"
+
+    @property
     def ig_enabled(self) -> bool:
         return self.cfg.instagram_auto and not self.state.get("ig_off")
 
@@ -2245,8 +2253,9 @@ class App:
         pause = self.state.get("ig_pause") or {}
         if pause.get("fp") == fingerprint(secret) and hours_since(pause.get("until")) < 0:
             return None
+        zern = self.ig_provider == "zernio"
         ts = TokenStore(secret, data)
-        fb = is_fb_token(ts.token)                   # yeni Meta kurulumu: süresi dolmayan anahtar, yenileme yok
+        fb = zern or is_fb_token(ts.token)           # Zernio / yeni Meta kurulumu: süresi dolmayan anahtar, yenileme yok
         if not fb and ts.refresh_due():
             try:
                 tok, exp = Instagram(ts.token).refresh()
@@ -2256,12 +2265,15 @@ class App:
             except InstagramError as e:
                 data["refresh_tried_at"] = iso(now_utc())
                 log.info("Instagram anahtarı şimdilik yenilenemedi: %s", e)
-        left = ts.days_left()
+        left = None if zern else ts.days_left()
         if left is not None and left < 5:
             self._ig_problem(f"erişim anahtarının süresi {max(0, left):.0f} gün içinde doluyor ve yenilenemedi. "
                              "Meta geliştirici panelinden yeni anahtar üretip GitHub'da <b>IG_ACCESS_TOKEN</b> değerini güncelle.")
-        cli = Instagram(ts.token, self._ig_cfg("instagram_api_version", None) or "v25.0",
-                        ig_id=str(self._ig_cfg("instagram_user_id", "") or "").strip())
+        if zern:
+            cli = Zernio(secret, account_id=str(self._ig_cfg("zernio_account_id", "") or "").strip())
+        else:
+            cli = Instagram(ts.token, self._ig_cfg("instagram_api_version", None) or "v25.0",
+                            ig_id=str(self._ig_cfg("instagram_user_id", "") or "").strip())
         fp = fingerprint(secret)
         if data.get("me_fp") != fp or not data.get("id"):
             try:
@@ -2276,7 +2288,11 @@ class App:
                     blocked = "blocked" in str(e).lower()
                     wait = float(self._ig_cfg("instagram_blocked_retry_hours", 3) or 3)
                     self.state["ig_pause"] = {"fp": fp, "until": iso(now_utc() + timedelta(hours=wait))}
-                    if blocked:   # Meta işletme hesabını kısıtladı: anahtar değil, hesap sorunu
+                    if zern:
+                        self._ig_problem(f"Zernio bağlantısı çalışmıyor ({esc(e)}). Zernio panelinde Instagram hesabının "
+                                         "bağlı olduğunu ve GitHub'daki <b>IG_ACCESS_TOKEN</b> değerinin Zernio API anahtarı "
+                                         f"olduğunu kontrol et. (Bot {wait:.0f} saatte bir yeniden dener.)")
+                    elif blocked:   # Meta işletme hesabını kısıtladı: anahtar değil, hesap sorunu
                         self._ig_problem(f"Meta uygulamanın erişimini engelledi ({esc(e)}). Bu genellikle işletme "
                                          "hesabı kısıtlandığında olur: Meta'nın e-postasındaki <b>Sorunu düzelt</b> ile "
                                          f"inceleme iste. Kısıtlama kalkınca bot kendiliğinden paylaşır (her {wait:.0f} "
@@ -2292,9 +2308,11 @@ class App:
             data.update({"me_fp": fp, "id": str(me.get("id") or ""), "user_id": str(me.get("user_id") or ""),
                          "username": me.get("username", "")})
             data.pop("target", None)
+            data["provider"] = "zernio" if zern else "meta"
             if self.tg and self.chat_id:
-                self.notify(f"📸 Instagram bağlandı: <b>@{esc(data['username'])}</b>. Yayınlanan haberler buraya "
-                            f"carousel ve hikâye olarak paylaşılacak.", silent=True)
+                via = " (Zernio üzerinden)" if zern else ""
+                self.notify(f"📸 Instagram bağlandı{via}: <b>@{esc(data['username'])}</b>. Sosyal medya masasının seçtiği "
+                            f"haberler buraya gönderi ve hikâye olarak paylaşılacak.", silent=True)
         self._ig = cli
         return cli
 
@@ -2302,7 +2320,8 @@ class App:
         d = self.store.ig
         if d.get("target"):
             return [d["target"]]
-        first = [] if getattr(self._ig, "fb", False) else ["me"]   # Facebook Graph'ta "me" Instagram hesabı değildir
+        # Facebook Graph'ta ve Zernio'da "me" Instagram hesabı değildir
+        first = [] if getattr(self._ig, "fb", False) or getattr(self._ig, "kind", "") == "zernio" else ["me"]
         return [t for t in dict.fromkeys(first + [d.get("user_id"), d.get("id")]) if t]
 
     def _ig_run(self, fn, *a):
@@ -2362,6 +2381,8 @@ class App:
         cli = self._ig_client()
         if not cli:
             return
+        if getattr(cli, "kind", "") == "zernio":   # aynı deneme tekrarlanırsa (zaman aşımı) Zernio ikinci kez paylaşmaz
+            cli.ref = f"{post['id']}-{it.get('tries', 0)}"
         try:
             if fmt == "post" and not it.get("media_id"):
                 caption = clip(self.instagram_caption(post), 2150)
@@ -2552,9 +2573,11 @@ class App:
                     "yayınlanan her haber otomatik paylaşılır.")
         d = self.store.ig
         c = self.state.get("day_counts", {}).get(self.today(), {})
-        left = TokenStore(self.cfg.instagram_token, d).days_left()
+        zern = self.ig_provider == "zernio"
+        left = None if zern else TokenStore(self.cfg.instagram_token, d).days_left()
         lines = [f"📸 <b>Instagram</b> {'⏸ kapalı' if self.state.get('ig_off') else '▶️ açık'}"
-                 f"{' · @' + esc(d['username']) if d.get('username') else ''}",
+                 f"{' · @' + esc(d['username']) if d.get('username') and d.get('provider', 'meta') == self.ig_provider else ''}"
+                 f"{' · Zernio üzerinden' if zern else ''}",
                  f"Bugün: {c.get('instagram', 0)} gönderi, {c.get('instagram_story', 0)} hikâye · "
                  f"Sırada: {len(self.state.get('ig_queue') or [])}"]
         if not self._ig_cfg("instagram_every_post", True):
@@ -2569,7 +2592,11 @@ class App:
             when = local(prob["at"], self.cfg.tz).strftime("%d.%m %H:%M")
             lines.append(f"⚠️ Son sorun ({when}): {esc(prob.get('text', ''))}")
         dg = self.state.get("ig_diag") or {}
-        if prob and dg:
+        if prob and dg and dg.get("kind") == "zernio":
+            accs = dg.get("accounts")
+            lines.append("🔎 Zernio'daki hesaplar: " + (esc(", ".join(accs)) or "yok" if isinstance(accs, list)
+                                                        else esc(str((accs or {}).get("error", "")))))
+        elif prob and dg:
             me = dg.get("me") or {}
             perms = dg.get("perms")
             pages = dg.get("pages")

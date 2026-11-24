@@ -71,6 +71,7 @@ def _app(tmp: Path):
     raw["social"]["instagram_hours"] = [0, 24]
     raw["social"]["instagram_every_post"] = True
     raw["social"]["instagram_visual_check"] = False   # görsel kontrolü ayrı testte
+    raw["social"]["instagram_provider"] = "meta"      # test anahtarı Meta biçiminde değil; Zernio ayrı testte
     cfg = Config(raw=raw, root=tmp, site_url="https://example.github.io/smarity", mock=True,
                  instagram_token="SECRET-TOKEN", telegram_chat_id="1")
     return appmod.App(cfg)
@@ -368,6 +369,108 @@ def test_blocked_access_backs_off():
         a.ig_try_latest()                       # /instagram dene: bekleme biter
         a.ig_tick()
         assert BlockedIG.tries == 3
+
+
+class _Resp:
+    def __init__(self, code, body):
+        self.status_code, self._b = code, body
+
+    def json(self):
+        return self._b
+
+
+def test_zernio_client():
+    """Zernio: hesap bulunur; carousel ve hikâye doğru gövdeyle, tekrar anahtarıyla gönderilir; hatalar sınıflandırılır."""
+    cli = ig.Zernio("zk_SECRET", account_id="")
+    sent = []
+
+    def fake(method, url, json=None, params=None, headers=None, timeout=None):
+        sent.append((method, url, json, headers or {}))
+        if url.endswith("/accounts"):
+            return _Resp(200, {"accounts": [{"_id": "a1", "platform": "twitter", "username": "x"},
+                                            {"_id": "a2", "platform": "instagram", "username": "smarityco"}]})
+        if json and json["platforms"][0].get("platformSpecificData"):
+            return _Resp(201, {"post": {"_id": "p2", "status": "published",
+                                        "platforms": [{"platform": "instagram", "status": "published"}]}})
+        return _Resp(201, {"post": {"_id": "p1", "status": "published",
+                                    "platforms": [{"platform": "instagram", "status": "published",
+                                                   "platformPostUrl": "https://www.instagram.com/p/X/"}]}})
+    cli.s.request = fake
+    assert cli.me() == {"id": "a2", "user_id": "a2", "username": "smarityco"}
+    cli.ref = "h1-0"
+    assert cli.carousel("a2", ["https://s/1.jpg", "https://s/2.jpg", "https://s/3.jpg"], "Başlık") == \
+        ("p1", "https://www.instagram.com/p/X/")
+    body, hdr = sent[-1][2], sent[-1][3]
+    assert sent[-1][1].endswith("/api/v1/posts") and body["publishNow"] and body["content"] == "Başlık"
+    assert [m["url"] for m in body["mediaItems"]] == ["https://s/1.jpg", "https://s/2.jpg", "https://s/3.jpg"]
+    assert body["platforms"] == [{"platform": "instagram", "accountId": "a2"}] and hdr["Idempotency-Key"]
+    key1 = hdr["Idempotency-Key"]
+    assert cli.story("a2", "https://s/st.jpg") == "p2"
+    sb = sent[-1][2]
+    assert sb["platforms"][0]["platformSpecificData"] == {"contentType": "story"} and "content" not in sb
+    cli.ref = "h1-1"                                     # yeni deneme: yeni tekrar anahtarı
+    cli.carousel("a2", ["https://s/1.jpg"], "x")
+    assert sent[-1][3]["Idempotency-Key"] != key1
+    # hatalar: başarısız paylaşım, yetki, geçici
+    cli.s.request = lambda *a, **k: _Resp(207, {"post": {"_id": "p3", "platforms": [
+        {"status": "failed", "platformError": "Media download failed"}]}})
+    try:
+        cli.carousel("a2", ["https://s/1.jpg"], "x")
+        raise AssertionError("başarısız paylaşım hata vermeli")
+    except ig.InstagramError as e:
+        assert "Media download failed" in str(e) and not e.auth
+    cli.s.request = lambda *a, **k: _Resp(401, {"error": {"message": "Invalid API key zk_SECRET", "type": "authentication_error"}})
+    try:
+        cli.me()
+        raise AssertionError
+    except ig.InstagramError as e:
+        assert e.auth and "zk_SECRET" not in str(e)
+    cli.s.request = lambda *a, **k: _Resp(429, {"error": {"message": "Too many"}})
+    try:
+        cli.story("a2", "https://s/st.jpg")
+        raise AssertionError
+    except ig.InstagramError as e:
+        assert e.transient and not e.auth
+
+
+class FakeZernio(FakeIG):
+    kind, fb, ref = "zernio", False, ""
+    refs = []
+
+    def __init__(self, key, account_id="", timeout=90):
+        self.key = key
+
+    def me(self):
+        return {"id": "z9", "user_id": "z9", "username": "smarityco"}
+
+    def carousel(self, target, urls, caption):
+        FakeZernio.refs.append(self.ref)
+        FakeIG.calls.append(("carousel", target, tuple(urls), caption))
+        return "ZP1", "https://www.instagram.com/p/z/"
+
+
+def test_zernio_provider_in_app():
+    """IG_ACCESS_TOKEN'da Zernio anahtarı varsa bot paylaşımı Zernio üzerinden yapar; Meta anahtarıysa Meta'dan."""
+    FakeIG.calls, FakeZernio.refs = [], []
+    appmod.Instagram, appmod.Zernio, appmod.head_ok = FakeIG, FakeZernio, (lambda url: 200)
+    with tempfile.TemporaryDirectory() as t:
+        a = _app(Path(t))
+        a.cfg.raw["social"]["instagram_provider"] = "auto"
+        a.cfg.instagram_token = "EAA-meta"
+        assert a.ig_provider == "meta"
+        a.cfg.instagram_token = "zk_live_123"
+        assert a.ig_provider == "zernio"
+        post = _pub(1, 1, 9)
+        a.store.save_post(post)
+        a.ig_enqueue(post)
+        a.ig_tick()
+        assert a.state["ig_queue"] == [] and a.state["ig_done"][-1]["permalink"] == "https://www.instagram.com/p/z/"
+        assert [c[0] for c in FakeIG.calls] == ["carousel", "story"] and FakeIG.calls[0][1] == "z9"
+        assert FakeZernio.refs == ["s1-0"] and a.store.ig["provider"] == "zernio"
+        st = a.instagram_status()
+        assert "Zernio üzerinden" in st and "@smarityco" in st
+        out = (Path(t) / "data" / "_mock" / "outbox.jsonl").read_text(encoding="utf-8")
+        assert "Zernio üzerinden" in out
 
 
 def test_missing_card_triggers_rebuild():
