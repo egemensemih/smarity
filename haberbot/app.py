@@ -14,6 +14,7 @@ import requests
 
 from . import guides as guidesmod
 from . import photos, policy
+from . import report as reportmod
 from .config import CATEGORIES, DEFAULT_CATEGORY, Config, category_label, indexnow_key
 from .covers import COVER_VERSION, PHOTO_COVER_VERSION, photo_design
 from .extract import full_text
@@ -57,9 +58,10 @@ COMMANDS = [
     ("manset", "Manşeti yönet: haberi manşete al / çıkar"),
     ("secki", "Yayın yönetmeninin son kararları (neden seçildi / elendi)"),
     ("instagram", "Instagram paylaşımları: durum / kapat / ac / dene"),
+    ("rapor", "Son 7 günün okur ve yayın raporu"),
     ("yardim", "Nasıl kullanılır"),
 ]
-COMMANDS_VERSION = 5
+COMMANDS_VERSION = 6
 COVERLINE_V = 3               # kapak başlığı yazım kuralları değişince eski haberlerin kapak başlıkları yeniden yazılır
 PHOTO_VET_V = 2               # fotoğraf editörü ölçütleri değişince artır: son iki haftanın fotoğrafları yeniden denetlenir
 RESELECT_V = 1                # seçki ölçütleri değişince artır: onay bekleyen yığın bir kez yeniden elden geçer
@@ -95,7 +97,9 @@ Otomatik yayınlanan 2 haberi 3 gün içinde kaldırırsan otomatik yayın kendi
 
 📸 <b>Instagram</b> — yayınlanan her haber birkaç dakika içinde carousel ve hikâye olarak Instagram'da paylaşılır. Sıradaki bir haberi mesajındaki <b>Instagram'a gönderme</b> düğmesiyle durdurabilirsin. Tümünü durdurmak için <code>/instagram kapat</code>.
 
-Komutlar: /manset /secki /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram"""
+📊 <b>Haftalık rapor</b> — her pazartesi sabahı son haftanın okur sayısı, en çok okunanlar, okurların nereden geldiği ve yayın özeti gelir. İstediğin an /rapor.
+
+Komutlar: /manset /secki /durum /bekleyen /mod /topla /duraklat /devam /kaynaklar /instagram /rapor"""
 
 
 # bakım listesiyle (maintenance.fix_posts) düzeltilebilen alanlar
@@ -1783,6 +1787,8 @@ class App:
             res = self.tg.send_message(self.chat_id, self._manset_text(), keyboard=self._manset_keyboard(), silent=True)
             if isinstance(res, dict) and res.get("message_id"):
                 self.state["manset_mid"] = res["message_id"]
+        elif cmd == "rapor":
+            self.notify(self.weekly_report_text(), silent=True)
         elif cmd == "instagram":
             if arg in ("kapat", "durdur"):
                 self.state["ig_off"] = True
@@ -2211,6 +2217,78 @@ class App:
                 f"Instagram: {c.get('instagram', 0)} paylaşım\n"
                 f"Tahmini maliyet: ${self._cost(c):.2f} ({c.get('images', 0)} yapay zeka görseli)\n"
                 f"Mod: {policy.MODES[policy.current_mode(self.cfg, self.state)]}")
+        self.notify(text, silent=True)
+
+    # ── haftalık rapor ──────────────────────────────────────
+    def _path_titles(self) -> dict[str, str]:
+        """Sitedeki adres → başlık (raporda en çok okunanlar için)."""
+        out = {"/": "Ana sayfa", "/haberler/": "Tüm haberler", "/rehber/": "Rehberler", "/ara/": "Arama",
+               "/hakkinda/": "Hakkında", "/instagram/": "Instagram sayfası"}
+        for k in CATEGORIES:
+            out[f"/{k}/"] = f"{category_label(k)} (kategori)"
+        for p in self.store.posts():
+            out[f"/{self.cfg.post_path(p)}/"] = p.get("title", "")
+            for old in p.get("old_paths") or []:
+                out.setdefault(f"/{old.strip('/')}/", p.get("title", ""))
+        for g in guidesmod.load_guides(self.cfg):
+            out[f"/rehber/{g['slug']}/"] = f"Rehber: {g.get('h1') or g.get('title')}"
+        return out
+
+    def weekly_report_text(self) -> str:
+        cfg = self.cfg
+        rc = cfg.raw.get("report") or {}
+        a, b = reportmod.week_range(local(now_utc(), cfg.tz).date())
+        lines = [f"📊 <b>Haftalık rapor</b> · {reportmod.span(a, b)}", ""]
+        tok = reportmod.cf_token()
+        if tok and rc.get("cf_account_id") and rc.get("cf_site_tag"):
+            try:
+                cf = reportmod.fetch_cf(tok, str(rc["cf_account_id"]), str(rc["cf_site_tag"]), a, b)
+                host = urlsplit(cfg.site_url).netloc.lower().removeprefix("www.")
+                lines += reportmod.readers_block(cf, self._path_titles(), host, esc) + [""]
+            except reportmod.ReportError as e:
+                lines += [f"👥 Okur verisi alınamadı: {esc(str(e))}", ""]
+        else:
+            lines += ["👥 Okur verisi için Cloudflare anahtarı (CLOUDFLARE_API_TOKEN) tanımlı değil.", ""]
+
+        def in_week(ts) -> bool:
+            d = local(ts, cfg.tz)
+            return bool(d) and a <= d.date() <= b
+        posts = self.store.posts()
+        pub = [p for p in posts if in_week(p.get("published_at"))]
+        dc = self.state.get("day_counts") or {}
+        upd = sum(int((dc.get((a + timedelta(days=i)).isoformat()) or {}).get("updated", 0)) for i in range(7))
+        cats: dict[str, int] = {}
+        for p in pub:
+            cats[category_label(p.get("category", DEFAULT_CATEGORY))] = cats.get(category_label(p.get("category", DEFAULT_CATEGORY)), 0) + 1
+        guides = guidesmod.load_guides(cfg)
+        g_upd = sum(1 for g in guides for h in g.get("history") or [] if in_week(h.get("at")))
+        ig = [x for x in self.state.get("ig_done") or [] if in_week(x.get("at"))]
+        ig_posts = sum(1 for x in ig if x.get("format", "post") == "post")
+        lines += ["<b>📰 Yayın</b>",
+                  f"Yeni haber: <b>{len(pub)}</b>" + (f" ({', '.join(f'{k} {v}' for k, v in sorted(cats.items(), key=lambda t: -t[1])[:5])})"
+                                                      if cats else ""),
+                  f"Güncellenen haber: {upd}",
+                  f"Rehber: {len(guides)} sayfa, bu hafta {g_upd} güncelleme",
+                  f"Instagram: {ig_posts} gönderi, {len(ig)} hikâye"]
+        return "\n".join(lines).strip()
+
+    def maybe_weekly_report(self) -> None:
+        """Her hafta (ayarlardaki gün ve saatte) bir kez rapor gönder."""
+        rc = self.cfg.raw.get("report") or {}
+        if not rc.get("weekly", True) or not self.tg or not self.chat_id:
+            return
+        now_l = local(now_utc(), self.cfg.tz)
+        if now_l.weekday() != int(rc.get("weekday", 0)) or now_l.hour < int(rc.get("hour", 9)):
+            return
+        key = now_l.date().isoformat()
+        if self.state.get("last_weekly") == key:
+            return
+        self.state["last_weekly"] = key
+        try:
+            text = self.weekly_report_text()
+        except Exception as e:  # noqa: BLE001
+            log.exception("Haftalık rapor hazırlanamadı: %s", e)
+            return
         self.notify(text, silent=True)
 
     def listen(self, seconds: int) -> None:
@@ -3274,6 +3352,7 @@ class App:
         except Exception as e:  # noqa: BLE001
             log.warning("Telegram düğmeleri yenilenemedi: %s", e)
         self.maybe_summary()
+        self.maybe_weekly_report()
         self.listen(int(self.cfg.get("schedule", "listen_seconds", 120) or 0))
         self.store.save()
         if self._vis:

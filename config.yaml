@@ -680,3 +680,14 @@ guides:
       match_in: title
       need: ["fiyat", "ücret", "zam"]
       need_also: ["türkiye", " tl"]
+
+# ── Haftalık rapor (Telegram) ──────────────────────────────
+# Her hafta bu gün ve saatte (Türkiye saati) son 7 günün raporu gelir; /rapor ile istendiğinde de.
+# Okur verisi Cloudflare Web Analytics'ten okunur: GitHub'da CLOUDFLARE_API_TOKEN sırrı gerekir
+# (Cloudflare → My Profile → API Tokens → yalnızca "Account Analytics: Read" yetkili anahtar).
+report:
+  weekly: true
+  weekday: 0                 # 0 = pazartesi … 6 = pazar
+  hour: 9
+  cf_account_id: "8b50a495bf0914524b1e3d8a5208dc3b"
+  cf_site_tag: "6e2bf0fdd8b84422b162de09fa63eacd"
