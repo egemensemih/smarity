@@ -874,13 +874,13 @@
       "drafts": 5,
       "published": 5,
       "auto": 5,
-      "instagram": 2,
-      "instagram_story": 4
+      "instagram": 3,
+      "instagram_story": 5
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-25T13:03:52Z",
+  "last_build": "2026-11-25T13:10:26Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -1012,9 +1012,7 @@
     }
   ],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/microsoft-kirmizi-kod-ilan-etti/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2660,29 +2658,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "095b6a780d",
-      "queued_at": "2026-11-25T12:58:43Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Microsoft'un büyük kesinti sonrası kırmızı kod ilan etmesi geniş kitleyi ilgilendiren önemli ve etkileşimi yüksek bir kriz haberi.",
-      "mid": 2680,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller marka kimliğine tam uygun, metinler okunaklı ve güvenli alanlarda yer alıyor.",
-        "at": "2026-11-25T13:03:51Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-19": [
@@ -2982,7 +2958,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-25T11:53:49Z",
+  "ig_last_at": "2026-11-25T13:05:49Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3046,6 +3022,13 @@
       "permalink": "",
       "story": true,
       "format": "story"
+    },
+    {
+      "id": "095b6a780d",
+      "at": "2026-11-25T13:05:54Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
     }
   ],
   "guide_tried": {
