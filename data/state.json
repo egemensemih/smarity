@@ -874,13 +874,13 @@
       "drafts": 2,
       "published": 2,
       "auto": 2,
-      "instagram": 1,
-      "instagram_story": 1
+      "instagram": 2,
+      "instagram_story": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-25T10:44:13Z",
+  "last_build": "2026-11-25T10:50:24Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -1011,9 +1011,7 @@
     }
   ],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/super-zeka/2026/11/meta-muse-instagram-dm-entegrasyonu-basladi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2659,30 +2657,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "3d9e02a7c2",
-      "queued_at": "2026-11-25T10:37:35Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Instagram kullanıcılarının ilgisini çekecek popüler bir yapay zeka yeniliği olduğu ve iki editörden onay aldığı için post olarak paylaşılmasına karar verildi.",
-      "mid": 2674,
-      "vtried": [
-        "auto",
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller temiz, okunaklı, düzenli ve marka standartlarına tamamen uygun.",
-        "at": "2026-11-25T10:44:13Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-19": [
@@ -2964,7 +2939,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-25T08:27:00Z",
+  "ig_last_at": "2026-11-25T10:45:53Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3004,6 +2979,13 @@
     {
       "id": "9209321a7e",
       "at": "2026-11-25T08:27:05Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
+    },
+    {
+      "id": "3d9e02a7c2",
+      "at": "2026-11-25T10:45:58Z",
       "permalink": "",
       "story": true,
       "format": "post"
