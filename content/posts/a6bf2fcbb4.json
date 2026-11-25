@@ -1,0 +1,101 @@
+{
+  "id": "a6bf2fcbb4",
+  "created_at": "2026-11-25T19:52:04Z",
+  "title": "Claude artifacts masaüstü uygulamasına dönüştürülebiliyor",
+  "summary": "Anthropic, kullanıcıların Claude artifacts özelliklerini Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştürmesini sağlayan yeni bir betayı kullanıma sundu.",
+  "body": "Anthropic'in duyurusuna göre, Claude kullanıcıları artık oluşturdukları Claude artifacts ögelerini Mac ve Windows işletim sistemlerinde bağımsız masaüstü uygulamaları olarak çalıştırabiliyor. Tüm ücretsiz ve ücretli planlar için beta aşamasında sunulan bu özellik, sık tekrarlanan işleri ve araçları tarayıcı penceresinden çıkararak ayrı bir simge ve pencerede kullanmaya imkân tanıyor.\n\n## Masaüstü uygulaması nasıl çalışıyor?\n\nZDNET'in aktardığına göre, oluşturulan yeni uygulamalar kendi simgeleriyle açılıyor ve ana Claude penceresine ihtiyaç duymadan ayrı bir pencerede çalışıyor. Temel aldığı artifacts ögesinde yapılan düzenlemeler uygulamayı otomatik olarak güncellerken, uygulamaların Claude'a gönderdiği istekler kullanıcının plan kullanım limitlerinden düşülüyor. The Next Web'in belirttiğine göre bu özellik; Linux, mobil veya web sürümlerinde desteklenmiyor ve Claude Docs, Slides veya Sheets şablonlarından üretilen ögelerle çalışmıyor.\n\n## İzin seçenekleri ve güvenlik önlemleri\n\nAnthropic, yeni uygulamalar için varsayılan tarayıcı izinlerinden bildirim göndermeye ve tam bilgisayar erişimine kadar değişen üç farklı yetki seviyesi belirliyor. Tam bilgisayar erişimi verilen uygulamalar, kullanıcılara sormadan program çalıştırabiliyor, dosya okuyabiliyor, değiştirebiliyor veya silebiliyor. Şirket, kullanıcıların yalnızca güvendikleri ve bizzat kendilerinin ya da ekip arkadaşlarının oluşturduğu uygulamalara tam erişim vermesi gerektiği konusunda uyarıyor.\n\n## Türkiye ve kullanım koşulları\n\nÖzelliğin kullanılabilmesi için Mac veya Windows için Claude uygulamasının güncel olması, aktif bir internet bağlantısı ve Claude oturumu gerekiyor. Enterprise planlarında özellik varsayılan olarak kapalı gelirken, yöneticiler tarafından etkinleştirilebiliyor.\n\n**Neden önemli?** Anthropic, yapay zekâ tabanlı iş araçlarının tarayıcı sekmelerinden çıkarak bağımsız birer yazılım gibi çalışmasını sağlayarak kullanıcıların iş akışlarını kolaylaştırmayı hedefliyor.",
+  "category": "super-zeka",
+  "tags": [
+    "Anthropic",
+    "Claude",
+    "yapay zeka",
+    "Windows",
+    "Mac"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Claude artifacts ögeleri masaüstü uygulaması oluyor",
+  "kicker": "Yeni özellik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a single frosted glass window icon glowing softly on a dark studio surface, with subtle light reflections and clean minimalist geometry",
+  "focus_keyword": "Claude artifacts",
+  "seo_title": "Claude artifacts masaüstü uygulamasına dönüştürülebiliyor",
+  "meta_description": "Anthropic, Claude artifacts ögelerini Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştüren yeni beta özelliğini kullanıma sundu.",
+  "seo_slug": "claude-artifacts-masaustu-uygulamasi",
+  "image_alt": "Masaüstü uygulamasına dönüştürülen Claude artifacts özelliğini temsil eden şeffaf cam pencere simgesi",
+  "cover_text": "Claude artifacts",
+  "carousel_points": [
+    "Claude artifacts ögeleri Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştürülebiliyor.",
+    "Yeni özellik tüm ücretsiz ve ücretli planlar için beta aşamasında kullanıma sunuldu.",
+    "Uygulamalar internet bağlantısı gerektiriyor ve kullanıcılardan gelen istekler kullanım limitine işliyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "Claude artifacts masaüstü uygulaması oldu",
+  "cover_highlight": "masaüstü uygulaması",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Claude artifacts artık doğrudan masaüstü uygulamasına dönüştürülebiliyor.",
+  "entities": [
+    "Anthropic",
+    "Claude"
+  ],
+  "topic": "Claude artifacts can now be turned into desktop apps",
+  "sources": [
+    {
+      "name": "ZDNET",
+      "url": "https://www.zdnet.com/innovation/claude-artifacts-desktop-apps-mac-windows/",
+      "title": "You can turn Claude artifacts into Windows and Mac apps now – here’s how",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-25T18:54:05Z",
+      "image": "https://www.zdnet.com/wp-content/uploads/sites/3/How-to-turn-Claude-artifact-into-desktop-app-on-Mac-or-Windows-computer.jpg"
+    },
+    {
+      "name": "The Next Web",
+      "url": "https://thenextweb.com/news/claude-install-as-app-artifacts-mac-windows-desktop",
+      "title": "Claude can now turn its artifacts into Mac and Windows desktop apps",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-25T16:36:13Z",
+      "image": "https://media.thenextweb.com/2026/11/claude-website-thinking-partner-screen.avif"
+    }
+  ],
+  "source_keys": [
+    "ZDNET",
+    "The Next Web"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2689
+  },
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "super-zeka-2",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "claude-artifacts-masaustu-uygulamasi",
+  "published_at": "2026-11-25T19:52:18Z",
+  "publish_mode": "auto",
+  "path": "super-zeka/2026/11/claude-artifacts-masaustu-uygulamasi",
+  "social": {
+    "format": "none",
+    "score": 0,
+    "reason": "Bugünkü Instagram sınırı doldu.",
+    "votes": [],
+    "at": "2026-11-25T19:52:20Z"
+  },
+  "photos_filled": "2026-11-25T19:52:22Z",
+  "photos_tried": "2026-11-25T19:52:24Z"
+}
