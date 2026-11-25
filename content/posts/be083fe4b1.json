@@ -1,0 +1,133 @@
+{
+  "id": "be083fe4b1",
+  "created_at": "2026-11-25T23:40:16Z",
+  "title": "1Password sistemlerine siber saldırı: Müşteri bilgileri ele geçirildi",
+  "summary": "Popüler şifre yöneticisi 1Password, iç sistemlerine düzenlenen bir siber saldırıda bazı kullanıcılarına ait isim ve e-posta adreslerinin çalındığını doğruladı.",
+  "body": "Popüler şifre yöneticisi platformu 1Password, 19 Kasım'da gerçekleşen bir siber saldırı ile iç sistemlerine sızıldığını ve bazı müşterilerine ait bilgilerin ele geçirildiğini duyurdu. Şirketin yaptığı açıklamaya göre, saldırganlar bir çalışanın kurumsal GitHub hesabını ele geçirerek şirketin kaynak kodlarına ulaştı ve arka uç sistemlerine kötü amaçlı kod yerleştirerek bir grup kullanıcıya ait verileri kopyaladı.\n\n## Hangi veriler çalındı?\n\n1Password, saldırıdan etkilenen müşteri sayısına ilişkin net bir sayı vermemekle birlikte, sadece belirli bir kullanıcı grubunun etkilendiğini belirtti. Çalınan veriler arasında kullanıcıların isimleri, giriş yaptıkları e-posta adresleri, hesap tanımlayıcıları ve hesap oluşturma ile son oturum açma zamanları yer alıyor. Ayrıca, bazı e-posta ile gönderilen davet ve hesap kurtarma bağlantılarına ait token bilgileri de saldırganların eline geçti.\n\n## Şifreler güvende mi?\n\nŞirket, kullanıcıların parola kasalarının, bu kasaları koruyan Secret Key (Gizli Anahtar) bilgilerinin ve saklanan tüm şifrelerin saldırıdan etkilenmediğini vurguladı. 1Password uygulamalarının ve tarayıcı eklentilerinin de bu olaydan etkilenmediği ifade edildi. Çalınan hesap kurtarma tokenlerinin tek başına hesaplara erişim sağlamak için yeterli olmadığı, saldırganların bu yöntemle hesaba girmesi için ek olarak SSO (tek oturum açma) bilgisi veya e-posta adresine gönderilen doğrulama koduna ihtiyaç duyduğu belirtildi.\n\n## Şirket hangi önlemleri aldı?\n\nSaldırının ardından 1Password, ele geçirilen çalışana ait GitHub hesabını devre dışı bıraktı ve sistemlerindeki iç erişim bilgilerini yeniledi. Ayrıca, saldırganların elde ettiği e-posta adresleri üzerinden kimlik avı (phishing) girişimlerinde bulunabileceği konusunda kullanıcılarını uyardı. Şirket, e-posta ile gönderilen hesap kurtarma kodlarını da daha güvenli hale getirerek, altı rakamlı sistem yerine 10 karakterli harf ve rakamlardan oluşan bir yapıya geçti.\n\n**Neden önemli?** Veri ihlalleri, saldırganların çalınan e-posta adresleri üzerinden kullanıcıları kandırmaya yönelik sahte destek talepleri veya hesap kurtarma bildirimleri göndermesine zemin hazırlayabilir. Kullanıcıların özellikle e-posta üzerinden gelen şüpheli bağlantılara karşı dikkatli olması öneriliyor.",
+  "category": "teknoloji",
+  "tags": [
+    "1Password",
+    "siber güvenlik",
+    "veri ihlali",
+    "şifre yöneticisi"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "1Password sistemlerine saldırı yapıldı",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "still_life",
+  "visual_scene": "A broken padlock lying on a clean white desk, next to a smartphone screen displaying a blurred security warning icon, soft natural morning light coming from the side casting long shadows.",
+  "focus_keyword": "1Password",
+  "seo_title": "1Password saldırıya uğradı: Kullanıcı verileri ele geçirildi",
+  "meta_description": "1Password, iç sistemlerine yapılan saldırıda bazı kullanıcılarının isim ve e-posta bilgilerinin çalındığını doğruladı. İşte olay hakkında bilmeniz gerekenler.",
+  "seo_slug": "1password-sistemlerine-siber-saldiri",
+  "image_alt": "Kırık bir aşma kilit ve yanında güvenlik uyarısı veren bir akıllı telefon ekranı",
+  "cover_text": "1Password",
+  "carousel_points": [
+    "Saldırganlar 19 Kasım'da bir çalışanın GitHub hesabını kullanarak sistemlere sızdı.",
+    "Kullanıcıların e-posta ve isimleri çalındı ancak şifre kasaları güvende kaldı.",
+    "Şirket, kullanıcıların kimlik avı saldırılarına karşı tetikte olmasını öneriyor."
+  ],
+  "appeal": 8,
+  "update_note": "",
+  "cover_headline": "1Password saldırıya uğradı veriler sızdı",
+  "cover_highlight": "saldırıya uğradı",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Popüler şifre yöneticisi 1Password'ün güvenlik ihlali yaşaması geniş kitleyi ilgilendiriyor.",
+  "entities": [
+    "1Password"
+  ],
+  "topic": "1Password confirms a cybersecurity breach affecting customer data",
+  "sources": [
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/1password-hacklendi-musteri-verileri-ele-gecirildi--213399",
+      "title": "Şifre yöneticisi 1Password hacklendi, müşteri verileri ele geçirildi",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-25T22:18:12Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/213399/1200x6751password-hacklendi-musteri-verileri-ele-gecirildi.jpg"
+    },
+    {
+      "name": "9to5Mac",
+      "url": "https://9to5mac.com/2026/11/25/1password-confirms-security-incident-heres-what-you-need-to-know/",
+      "title": "1Password confirms security incident, here’s what you need to know",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5mac.com/2026/11/25/1password-confirms-security-incident-heres-what-you-need-to-know/#respond",
+      "published": "2026-11-25T23:30:05Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/02/1password-app-icon-FI.jpg?quality=82&#038;strip=all&#038;w=1600"
+    }
+  ],
+  "source_keys": [
+    "DonanımHaber",
+    "9to5Mac"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2692
+  },
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/1Password_login_screenshot.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://en.wikipedia.org/wiki/1Password",
+      "alt": "1Password",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "be083fe4b1-g0.webp",
+      "w": 601,
+      "h": 451
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "cover",
+    "layout": "isik",
+    "palette": "teknoloji-3",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "1password-sistemlerine-siber-saldiri",
+  "published_at": "2026-11-25T23:40:23Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/1password-sistemlerine-siber-saldiri",
+  "social": {
+    "format": "story",
+    "score": 8,
+    "reason": "Haber değeri yüksek olsa da görselin zayıflığı nedeniyle post yerine story formatında paylaşılmasına karar verildi.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "post",
+        "score": 9,
+        "reason": "1Password gibi yaygın kullanılan bir servis için veri sızıntısı haberi büyük önem taşıyor."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "post",
+        "score": 8,
+        "reason": "Kullanıcıların e-posta ve isim güvenliği geniş kitleleri doğrudan ilgilendirdiği için etkileşim yaratır."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Görsel olarak zayıf bir konu, sadece bilgilendirici bir story formatı için uygun."
+      }
+    ],
+    "at": "2026-11-25T23:40:26Z"
+  },
+  "photos_vetted": "2026-11-25T23:40:32Z",
+  "photos_vet_v": 2
+}
