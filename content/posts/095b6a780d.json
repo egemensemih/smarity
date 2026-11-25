@@ -1,0 +1,149 @@
+{
+  "id": "095b6a780d",
+  "created_at": "2026-11-25T12:57:38Z",
+  "title": "Microsoft kırmızı kod ilan ederek tüm mühendislerini alarma geçirdi",
+  "summary": "Microsoft, tarihinin en büyük Microsoft 365 ve Outlook kesintisinin ardından şirket içinde kırmızı kod ilan ederek mühendislik kaynaklarını kriz önlemeye yönlendirdi.",
+  "body": "Microsoft, dünya genelinde milyonlarca kullanıcıyı etkileyen tarihi Microsoft 365 ve Outlook kesintisinin ardından şirket genelinde **Microsoft kırmızı kod** seviyesinde alarm durumuna geçti. Şirket yönetimi, yaşanan devasa erişim krizinin ardından mühendislik ekiplerinin önceliklerini tamamen yenileyerek benzer bir felaketin tekrarlanmaması için günlük değerlendirme toplantıları başlattı.\n\n## Sunucuları kilitleyen teknik felaket\nReuters ve The Verge tarafından aktarılan şirket içi belgeler, krizin boyutunu gözler önüne seriyor. Microsoft 365 Core Başkanı Jason Henderson, yaşanan olayı kurum tarihinin müşterileri en çok etkileyen kesintisi olarak tanımladı. En yoğun anda sunucuların yüzde 80'inden fazlasının yanıt veremez hale geldiği ve arızanın \"sev0\" yani en üst felaket seviyesinde sınıflandırıldığı bildirildi. Arızanın Temmuz ayından bu yana ağ geçidi sunucularında bekleyen bir hatanın, son yapılan ağ güncellemesiyle tetiklenmesi sonucu meydana geldiği açıklandı. Şirket yetkilileri olayın siber saldırı veya yapay zeka kaynaklı olmadığını vurguladı.\n\nTeşhis verilerinin dağınık sistemlere yayılmış olması nedeniyle mühendisler kriz anında büyük bir bilgi kirliliğiyle mücadele etti:\n- **1.000 katılımcı:** Mühendislerin kesinti süresince açık tuttuğu ana destek çağrısındaki üst sınır.\n- **11 ayrı sohbet:** Mühendislik gruplarının Teams üzerinde koordinasyon kurmaya çalıştığı kanal sayısı.\n- **11.000'den fazla mesaj:** Ekiplerin kriz tablosunu netleştirmek için iletişim kanallarında ilettiği mesaj sayısı.\n- **1 saatin altı:** Microsoft'un bundan sonraki kesintileri çözmek için belirlediği yeni hedef süre.\n\n## Microsoft kırmızı kod kararıyla neyi hedefliyor?\nİlan edilen kırmızı kod kapsamında yazılım devi, mühendislik kaynaklarının büyük bölümünü rutin projelerden çekerek doğrudan altyapı dayanıklılığına yönlendiriyor. M365 Core Yöneticisi Amanda Silver'ın aktardığı belgelere göre ekipler kriz sırasında \"savaş sisi\" altında çalışmak zorunda kaldı. Şirket şimdi yük azaltma, coğrafi trafik bölümleme ve daha hızlı kurtarma mekanizmalarına odaklanıyor. Ayrıca arıza teşhis süreçlerini hızlandırmak amacıyla sistemlere yapay zeka ajanlarının entegre edilmesi planlanıyor.\n\n**Neden önemli?** Şirket tarihinin en ağır hizmet kesintisinin ardından alınan bu radikal karar, küresel bulut altyapılarının kırılganlığını ve tek bir sunucu hatasının dünya genelinde iş süreçlerini nasıl durdurabildiğini gösteriyor. Microsoft'un iç iletişim ve arıza teşhis altyapısını yeniden yapılandırması, kurumsal müşterilerin bulut sistemlerine olan güvenini koruması açısından kritik bir sınav niteliği taşıyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Microsoft 365",
+    "Outlook",
+    "Exchange Online",
+    "yazılım"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Microsoft kesintiler sonrası kırmızı kod ilan etti",
+  "kicker": "Kriz yönetimi",
+  "hero_stat": "%80",
+  "hero_stat_label": "yanıtsız sunucu oranı",
+  "visual_style": "sculpture",
+  "visual_scene": "An abstract composition of red and frosted white glass monoliths, with one tall central red tower cracked slightly and spilling warm amber light onto a smooth gray slate surface.",
+  "focus_keyword": "Microsoft kırmızı kod",
+  "seo_title": "Microsoft kırmızı kod ilan etti: Tarihi kesinti alarmı",
+  "meta_description": "Microsoft kırmızı kod ilanıyla küresel Outlook kesintisi sonrası tüm mühendislik önceliklerini değiştirdi. Gelecekteki sorunlar bir saatte çözülecek.",
+  "seo_slug": "microsoft-kirmizi-kod-ilan-etti",
+  "image_alt": "Kırmızı ve buzlu beyaz cam kulelerden oluşan soyut heykel tasarımı",
+  "cover_text": "Microsoft",
+  "carousel_points": [
+    "Microsoft, tarihinin en büyük Outlook ve M365 kesintisi sonrası şirket içi kırmızı kod ilan etti.",
+    "Mühendisler gelecekteki olası kesintileri bir saatin altında çözmeyi hedefliyor.",
+    "Arıza teşhis süreçlerinde mühendislere yardımcı olmak için yapay zeka ajanları kullanılacak."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Microsoft'tan kesintiye kırmızı kod",
+  "cover_highlight": "kırmızı kod",
+  "cover_line_v": 3,
+  "importance": 8,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Microsoft, 24 saattir süren Outlook kesintisi sonrası kırmızı kod ilan etti.",
+  "entities": [
+    "Microsoft",
+    "Microsoft Outlook"
+  ],
+  "topic": "Microsoft declares internal Code Red following 24-hour Outlook outage",
+  "sources": [
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/news/1042025/microsoft-code-red-outlook-outage",
+      "title": "Microsoft declares ‘Code Red’ after huge Outlook outage",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-25T11:12:42Z",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK153_MICROSOFT_OUTLOOK_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100"
+    },
+    {
+      "name": "LOG",
+      "url": "https://www.log.com.tr/microsoft-yasanan-buyuk-kesintinin-ardindan-kirmizi-kod-ilan-etti/",
+      "title": "Microsoft, yaşanan büyük kesintinin ardından kırmızı kod ilan etti",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-25T12:37:16Z",
+      "image": "https://www.log.com.tr/wp-content/uploads/2026/05/microsoft-iddiaya-gore-yapay-zeka-icin-bir-660x371.jpg"
+    },
+    {
+      "name": "9to5Mac",
+      "url": "https://9to5mac.com/2026/11/25/microsoft-declares-a-code-red-in-response-to-worst-ever-outage/",
+      "title": "Microsoft declares a Code Red in response to worst ever outage",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://9to5mac.com/2026/11/25/microsoft-declares-a-code-red-in-response-to-worst-ever-outage/#respond",
+      "published": "2026-11-25T12:23:19Z",
+      "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/11/Microsoft-declares-a-Code-Red-in-response-to-worst-ever-outage.jpg?quality=82&#038;strip=all&#038;w=1600"
+    }
+  ],
+  "source_keys": [
+    "The Verge",
+    "LOG",
+    "9to5Mac"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2679
+  },
+  "photos": [
+    {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg/langtr-960px-Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Microsoft_Outlook",
+      "alt": "Microsoft Outlook",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "095b6a780d-g0.webp",
+      "w": 960,
+      "h": 909
+    }
+  ],
+  "photos_v": 2,
+  "image": {
+    "source": "photo",
+    "photo": "095b6a780d-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Microsoft_Outlook",
+    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg/langtr-960px-Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "layout": "manset",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "microsoft-kirmizi-kod-ilan-etti",
+  "published_at": "2026-11-25T12:58:34Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/microsoft-kirmizi-kod-ilan-etti",
+  "social": {
+    "format": "post",
+    "score": 8,
+    "reason": "Microsoft'un büyük kesinti sonrası kırmızı kod ilan etmesi geniş kitleyi ilgilendiren önemli ve etkileşimi yüksek bir kriz haberi.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "post",
+        "score": 8,
+        "reason": "Tarihin en büyük Outlook ve M365 kesintisi sonrası alınan kırmızı kod kararı küresel ve yerel düzeyde önemli bir haber."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "post",
+        "score": 8,
+        "reason": "Kırmızı kod ilanı ve iş hayatını etkileyen kesintiler Instagram kitlesinin ilgisini çeker ve yüksek etkileşim sağlar."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "story",
+        "score": 7,
+        "reason": "Gerçek bir fotoğraf bulunsa da şirket binası görseli akışta öne çıkmak için yeterince vurucu değil."
+      }
+    ],
+    "at": "2026-11-25T12:58:43Z"
+  },
+  "photos_vetted": "2026-11-25T12:58:55Z",
+  "photos_vet_v": 2
+}
