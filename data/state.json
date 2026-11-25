@@ -874,13 +874,13 @@
       "drafts": 7,
       "published": 7,
       "auto": 7,
-      "instagram": 3,
-      "instagram_story": 5
+      "instagram": 4,
+      "instagram_story": 6
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-25T19:10:43Z",
+  "last_build": "2026-11-25T19:17:43Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -928,10 +928,7 @@
     }
   ],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/super-zeka/2026/11/spacex-uzay-veri-merkezi-1-milyon-uydu/",
-    "https://smarity.com.tr/teknoloji/2026/11/whatsapp-mesaj-zamanlama-ozelligi-kullanima-sunuldu/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2579,27 +2576,6 @@
   ],
   "ig_queue": [
     {
-      "id": "888cc32055",
-      "queued_at": "2026-11-25T19:04:06Z",
-      "tries": 0,
-      "format": "post",
-      "note": "SpaceX'in uzayda yapay zeka veri merkezi için 1 milyon uydu izni alması küresel ölçekte çok büyük bir gelişme olduğundan günün son post hakkı için mükemmel bir seçim.",
-      "mid": 2685,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller ve metinler Smarity marka kimliğine tam uygun, okunabilirlik ve yerleşim kuralları kusursuz uygulanmış.",
-        "at": "2026-11-25T19:10:36Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "e370bf32a1",
       "queued_at": "2026-11-25T19:05:45Z",
       "tries": 0,
@@ -2932,7 +2908,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-25T13:05:49Z",
+  "ig_last_at": "2026-11-25T19:13:04Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3000,6 +2976,13 @@
     {
       "id": "095b6a780d",
       "at": "2026-11-25T13:05:54Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
+    },
+    {
+      "id": "888cc32055",
+      "at": "2026-11-25T19:13:10Z",
       "permalink": "",
       "story": true,
       "format": "post"
