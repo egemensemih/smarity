@@ -873,12 +873,14 @@
       "cost_usd": 0.0,
       "drafts": 1,
       "published": 1,
-      "auto": 1
+      "auto": 1,
+      "instagram": 1,
+      "instagram_story": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-25T08:25:30Z",
+  "last_build": "2026-11-25T08:31:32Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -965,9 +967,7 @@
     }
   ],
   "last_activity": "2026-11-24T11:25:24Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/usulsuz-hgs-odemeleri-iade-edilecek/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2613,29 +2613,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "9209321a7e",
-      "queued_at": "2026-11-25T08:20:38Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Milyonlarca sürücüyü yakından ilgilendiren HGS ödeme iadeleri haberi, yüksek etkileşim ve kaydetme potansiyeli sebebiyle post olarak belirlendi.",
-      "mid": 2672,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi kurallara uygun, okunabilirlik yüksek ve yayınlanmaya hazır.",
-        "at": "2026-11-25T08:25:30Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-19": [
@@ -2911,7 +2889,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-24T12:44:18Z",
+  "ig_last_at": "2026-11-25T08:27:00Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2944,6 +2922,13 @@
     {
       "id": "44d8a6a687",
       "at": "2026-11-24T12:44:29Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
+    },
+    {
+      "id": "9209321a7e",
+      "at": "2026-11-25T08:27:05Z",
       "permalink": "",
       "story": true,
       "format": "post"
