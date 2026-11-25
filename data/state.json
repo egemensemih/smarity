@@ -875,12 +875,12 @@
       "published": 8,
       "auto": 8,
       "instagram": 4,
-      "instagram_story": 6
+      "instagram_story": 7
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-25T19:25:09Z",
+  "last_build": "2026-11-25T19:35:27Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -2574,29 +2574,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "e370bf32a1",
-      "queued_at": "2026-11-25T19:05:45Z",
-      "tries": 0,
-      "format": "story",
-      "note": "WhatsApp'in yeni mesaj zamanlama ozelligi kitleler icin cok degerli ancak post butonu tukendigi ve guclu bir gorsel olmadigi icin story olarak paylasiliyor.",
-      "mid": 2687,
-      "vtried": [
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, marka kimliğine ve Instagram hikâye güvenli alanlarına tamamen uygun, temiz bir tasarıma sahip.",
-        "at": "2026-11-25T19:10:43Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-19": [
@@ -2908,7 +2886,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-25T19:13:04Z",
+  "ig_last_at": "2026-11-25T19:31:06Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2986,6 +2964,13 @@
       "permalink": "",
       "story": true,
       "format": "post"
+    },
+    {
+      "id": "e370bf32a1",
+      "at": "2026-11-25T19:31:06Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
     }
   ],
   "guide_tried": {
