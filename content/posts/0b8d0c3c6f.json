@@ -79,9 +79,12 @@
     "message_id": 2691
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "0b8d0c3c6f-g0.webp",
+    "credit": "Wikipedia",
+    "page": "https://tr.wikipedia.org/wiki/Sony",
+    "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "layout": "manset",
-    "palette": "gaming-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -97,7 +100,7 @@
     "votes": [],
     "at": "2026-11-25T20:26:35Z"
   },
-  "photos_filled": "2026-11-26T02:31:28Z",
+  "photos_filled": "2026-11-26T04:31:30Z",
   "photos_tried": "2026-11-25T20:26:43Z",
   "coverage": [
     {
@@ -124,5 +127,21 @@
       "image": "https://images.nintendolife.com/27449059c43b8/small.jpg",
       "at": "2026-11-26T04:26:52Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "credit": "Wikipedia",
+      "page": "https://tr.wikipedia.org/wiki/Sony",
+      "alt": "Sony",
+      "kind": "wiki",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "0b8d0c3c6f-g0.webp",
+      "w": 1600,
+      "h": 2081
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-25T20:26:33Z"
 }
