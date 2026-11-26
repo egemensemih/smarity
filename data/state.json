@@ -873,14 +873,14 @@
       "drafts": 3,
       "published": 3,
       "auto": 3,
-      "instagram_story": 2,
+      "instagram_story": 3,
       "updates": 1,
       "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-26T11:27:52Z",
+  "last_build": "2026-11-26T11:33:20Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -968,9 +968,7 @@
     }
   ],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/one-ui-9-5-ozellikleri-neler-sunuyor/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2616,29 +2614,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "22c43464fd",
-      "queued_at": "2026-11-26T11:23:24Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Samsung'un geniÃ§ kitleleri ilgilendiren One UI 9.5 gÃ¼ncellemesi detaylarÃ± nedeniyle story olarak paylaÃ§Ä±lmak iÃ§in ideal.",
-      "mid": 2698,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi marka standartlarına tamamen uygun, güvenle paylaşılabilir.",
-        "at": "2026-11-26T11:27:52Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-20": [
@@ -2926,7 +2902,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-26T07:05:27Z",
+  "ig_last_at": "2026-11-26T11:29:01Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3022,6 +2998,13 @@
     {
       "id": "4d4b788c5c",
       "at": "2026-11-26T07:05:27Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "22c43464fd",
+      "at": "2026-11-26T11:29:01Z",
       "permalink": "",
       "story": true,
       "format": "story"
