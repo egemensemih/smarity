@@ -114,7 +114,8 @@ images:
   # press: yalnızca şirketlerin basın görselleri (resmi duyurular, basın/haber odası alan adları) ve açık lisanslı
   # Wikipedia görselleri; haber sitelerinin kendi fotoğrafları kullanılmaz, onların yerine habere özel kapak gelir.
   # any: kaynak haberin görselleri de kullanılır (eski davranış).
-  photo_policy: press
+  photo_policy: any                # Kasım 2026: kullanıcı kararıyla kaynak fotoğraflarına geri dönüldü
+  photo_redo_since: "2026-11-24"  # bu tarihten beri yayımlanan fotoğrafsız / Wikipedia görselli haberler bir kez yeniden denenir
   press_hosts: [apple.com, samsung.com, blog.google, googleblog.com, google.com, openai.com, anthropic.com,
                 microsoft.com, nvidia.com, sony.com, playstation.com, xbox.com, nintendo.com, tesla.com, togg.com.tr,
                 bmwgroup.com, mercedes-benz.com, volkswagen-newsroom.com, stellantis.com, hyundai.com, kia.com,

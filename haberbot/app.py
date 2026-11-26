@@ -3093,6 +3093,38 @@ class App:
             self.store.save_post(p)
             log.info("Konuyla eşleşmeyen Wikipedia görseli kaldırıldı: %s (%s)", p["id"], ph[0].get("alt"))
 
+    def redo_recent_photos(self, per_run: int = 6) -> None:
+        """Tek seferlik: "yalnızca basın görseli" kuralının açık olduğu dönemde (24 Kasım 2026'dan beri) fotoğrafsız kalan
+        ya da Wikipedia yedeğiyle (logo, şirket binası…) yayımlanan haberlerin görselleri kaynaklarından yeniden seçilir."""
+        if self.cfg.mock or self.cfg.fixtures_dir or not self.cfg.get("images", "photos", True):
+            return
+        since = str(self.cfg.get("images", "photo_redo_since", "") or "")
+        if not since:
+            return
+        done = self.state.setdefault("photo_redo", [])
+        todo = [p for p in self.store.posts()
+                if (p.get("published_at") or "") >= since and p["id"] not in done and not p.get("photos_removed")
+                and (p.get("image") or {}).get("source") != "ai"
+                and all(r.get("credit") == "Wikipedia" for r in p.get("photos") or [])][:per_run]
+        for p in todo:
+            done.append(p["id"])
+            old = list(p.get("photos") or [])
+            if self._attach_photos(p, draft=False):
+                p["updated_at"] = p.get("updated_at") or p.get("published_at")
+                log.info("Görsel yeniden seçildi: %s (%d fotoğraf)", p["id"], len(p["photos"]))
+            elif old and any(photos.wiki_bad(r.get("src", ""), r.get("alt", "")) for r in old):
+                for f in self.store.gallery_files(p["id"], draft=False):
+                    f.unlink(missing_ok=True)
+                p.pop("photos", None)
+                p["image"] = {"source": "cover"}
+                try:
+                    self._make_og(p)
+                except Exception as e:  # noqa: BLE001
+                    log.warning("Paylaşım görseli yenilenemedi (%s): %s", p["id"], e)
+                log.info("Uygunsuz Wikipedia görseli kaldırıldı: %s", p["id"])
+            self.store.save_post(p)
+        del done[:-400]
+
     def fill_missing_photos(self, per_run: int = 8) -> None:
         """Tek seferlik + sürekli: sitede fotoğrafsız görünen haberler için yeniden fotoğraf ara
         (kaynak sayfaları, yoksa Wikipedia). Bulunamayan haber 3 gün sonra tekrar denenir."""
@@ -3357,6 +3389,7 @@ class App:
                 self.vet_existing_photos()
                 self.more_photos()
                 self.recheck_wiki_photos()
+                self.redo_recent_photos()
                 self.fill_missing_photos()
                 self.backfill_photos(int(self.cfg.get("images", "photo_backfill_per_run", 5) or 0))
             except Exception as e:  # noqa: BLE001

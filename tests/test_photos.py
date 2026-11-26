@@ -422,3 +422,35 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print("ok", name)
+
+
+def test_wiki_fallback_rejects_logos_buildings_and_ai_art():
+    from haberbot.photos import wiki_bad
+    for bad in ("Sony_headquaters_2.jpg", "Instagram_logo_2022.svg.png", "Microsoft_Outlook_Icon_2025.png",
+                "Dall-e_3_%28jan_%2724%29_artificial_intelligence_icon.png", "Apple_Park_campus.jpg"):
+        assert wiki_bad(bad), bad
+    for good in ("PlayStation_5_and_DualSense.jpg", "Silicon_Valley.jpg", "1Password_login_screen.png"):
+        assert not wiki_bad(good), good
+
+
+def test_recent_posts_get_their_photos_reselected(monkeypatch):
+    with _App() as (cfg, a):
+        cfg.raw["images"]["photo_redo_since"] = "2000-01-01"
+        bad_wiki = [{"src": "https://upload.wikimedia.org/x/Sony_headquaters_2.jpg", "credit": "Wikipedia",
+                     "page": "https://tr.wikipedia.org/wiki/Sony", "alt": "Sony", "kind": "wiki", "file": "p1-g0.webp",
+                     "w": 800, "h": 600}]
+        a.store.save_post(_post(photos=bad_wiki, image={"source": "photo", "photo": "p1-g0.webp"}))
+        a.store.save_post(_post(id="p2", slug="iki", photos=[dict(bad_wiki[0], file="p2-g0.webp")],
+                                image={"source": "photo", "photo": "p2-g0.webp"}))
+        shots = [{"image": _photo("#446", seed=1), "src": "https://cdn.ign.com/ps-plus.jpg", "credit": "IGN",
+                  "page": "https://ign.com/a", "alt": "", "kind": "og", "graphic": False, "src_kind": "media"}]
+        monkeypatch.setattr(appmod.photos, "gather",
+                            lambda srcs, *a_, **k: shots if any("brand.com" in s.get("url", "") for s in srcs) else [])
+        monkeypatch.setattr(appmod.photos, "wiki_photo", lambda names: None)
+        a.store.save_post({**a.store.load_post("p2"), "sources": [{"name": "X", "url": "https://x.com/a", "kind": "media"}]})
+        a.redo_recent_photos()
+        p1, p2 = a.store.load_post("p1"), a.store.load_post("p2")
+        assert [r["src"] for r in p1["photos"]] == ["https://cdn.ign.com/ps-plus.jpg"]      # kaynak fotoğrafı geldi
+        assert not p2.get("photos") and p2["image"]["source"] == "cover"                     # bina görseli kalktı
+        a.redo_recent_photos()                                                               # bir kez çalışır
+        assert sorted(a.state["photo_redo"]) == ["p1", "p2"]

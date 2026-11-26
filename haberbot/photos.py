@@ -279,6 +279,17 @@ WIKI_UA = "SmarityBot/1.0 (https://smarity.com.tr; haber sitesi gorsel arama)"
 GENERIC_NAMES = {"türkiye", "turkey", "yapay zeka", "ai", "elektrikli otomobil", "abd", "avrupa", "çin"}
 
 
+# Haber görseli olmaz: logo / simge, şirket binası, yapay zeka ile çizilmiş görsel (dosya adına ya da sayfa başlığına göre)
+WIKI_BAD = re.compile(r"(?<![a-z])(?:logo|icon|wordmark|emblem|hq|bina)(?![a-z])|logotype|headquart|headquater|"
+                      r"building|campus|genel[_ ]merkez|dall[-_ ]?e(?![a-z])|midjourney|stable[_ ]diffusion|"
+                      r"ai[-_ ]generated|generated[_ ]by[_ ]ai|yapay[_ ]zeka[_ ]ile", re.I)
+
+
+def wiki_bad(src: str, title: str = "") -> bool:
+    name = re.sub(r"%[0-9A-Fa-f]{2}", "_", (src or "").rsplit("/", 1)[-1])
+    return bool(WIKI_BAD.search(name) or WIKI_BAD.search(title or ""))
+
+
 def _wiki_names(names: list[str]) -> list[str]:
     """Aranacak adlar: özel adlar (büyük harf içeren), en belirgin olan önce (ürün adı şirket adından önce)."""
     out = []
@@ -309,6 +320,9 @@ def wiki_photo(names: list[str]) -> dict | None:
                 th = (j.get("thumbnail") or {}).get("source") or ""
                 src = re.sub(r"/\d+px-", "/960px-", th) if "/thumb/" in th else src
             if not src or src.lower().endswith(".svg"):
+                continue
+            if wiki_bad(org.get("source") or src) or wiki_bad(src):
+                log.info("Wikipedia görseli kullanılmadı (logo / bina / yapay zeka görseli): %s", src.rsplit("/", 1)[-1][:80])
                 continue
             im = fetch_image(src, "https://wikipedia.org/", ua=WIKI_UA)
             if im is None or not usable(im):
