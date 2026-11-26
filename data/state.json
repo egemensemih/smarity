@@ -873,14 +873,14 @@
       "drafts": 4,
       "published": 4,
       "auto": 4,
-      "instagram_story": 3,
+      "instagram_story": 4,
       "updates": 1,
       "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-26T12:10:39Z",
+  "last_build": "2026-11-26T12:16:29Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -928,9 +928,7 @@
     }
   ],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/gaming/2026/11/gta-6-pc-surumu-engellendi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2576,29 +2574,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "a71a8a810a",
-      "queued_at": "2026-11-26T12:05:54Z",
-      "tries": 0,
-      "format": "story",
-      "note": "GTA 6 haberi yüksek ilgi çekse de gerçek görselin olmaması nedeniyle sadece 24 saatlik hikaye formatında paylaşılması uygundur.",
-      "mid": 2700,
-      "vtried": [
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, marka kimliğine uygun, güvenli alan kurallarına tam uyumlu ve sorunsuz bir şekilde yayına hazırdır.",
-        "at": "2026-11-26T12:10:38Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-20": [
@@ -2892,7 +2868,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-26T11:29:01Z",
+  "ig_last_at": "2026-11-26T12:12:09Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2995,6 +2971,13 @@
     {
       "id": "22c43464fd",
       "at": "2026-11-26T11:29:01Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "a71a8a810a",
+      "at": "2026-11-26T12:12:09Z",
       "permalink": "",
       "story": true,
       "format": "story"
