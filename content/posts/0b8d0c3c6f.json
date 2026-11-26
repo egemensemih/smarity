@@ -79,12 +79,9 @@
     "message_id": 2691
   },
   "image": {
-    "source": "photo",
-    "photo": "0b8d0c3c6f-g0.webp",
-    "credit": "Wikipedia",
-    "page": "https://tr.wikipedia.org/wiki/Sony",
-    "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "source": "cover",
     "layout": "manset",
+    "palette": "gaming-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -128,20 +125,8 @@
       "at": "2026-11-26T04:26:52Z"
     }
   ],
-  "photos": [
-    {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/Sony",
-      "alt": "Sony",
-      "kind": "wiki",
-      "graphic": false,
-      "cover_ok": true,
-      "file": "0b8d0c3c6f-g0.webp",
-      "w": 1600,
-      "h": 2081
-    }
-  ],
   "photos_v": 2,
-  "updated_at": "2026-11-25T20:26:33Z"
+  "updated_at": "2026-11-26T04:37:29Z",
+  "photos_vetted": "2026-11-26T04:37:21Z",
+  "photos_vet_v": 2
 }
