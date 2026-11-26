@@ -77,9 +77,12 @@
     "message_id": 2699
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "a71a8a810a-g0.webp",
+    "credit": "TechRadar",
+    "page": "https://www.techradar.com/gaming/pc-gamers-could-see-an-unofficial-gta-6-port-sooner-rather-than-later-stable-30fps-gameplay-at-4k-has-reportedly-been-achieved",
+    "src": "https://cdn.mos.cms.futurecdn.net/pW9wEGWMiuJAFSfDDBMXkJ-1920-80.jpg",
     "layout": "manset",
-    "palette": "gaming-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -146,5 +149,69 @@
       "image": "https://imgrosetta.webtekno.com/file/698770/698770-640xauto.jpg",
       "at": "2026-11-26T13:34:42Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/pW9wEGWMiuJAFSfDDBMXkJ-1920-80.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/gaming/pc-gamers-could-see-an-unofficial-gta-6-port-sooner-rather-than-later-stable-30fps-gameplay-at-4k-has-reportedly-been-achieved",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a71a8a810a-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:437,cw:1125,ch:1125,q:80,w:1125/pW9wEGWMiuJAFSfDDBMXkJ.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/gaming/pc-gamers-could-see-an-unofficial-gta-6-port-sooner-rather-than-later-stable-30fps-gameplay-at-4k-has-reportedly-been-achieved",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a71a8a810a-g1.webp",
+      "w": 1125,
+      "h": 1125
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:250,cw:1500,ch:1125,q:80,w:1500/pW9wEGWMiuJAFSfDDBMXkJ.jpg",
+      "credit": "TechRadar",
+      "page": "https://www.techradar.com/gaming/pc-gamers-could-see-an-unofficial-gta-6-port-sooner-rather-than-later-stable-30fps-gameplay-at-4k-has-reportedly-been-achieved",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a71a8a810a-g2.webp",
+      "w": 1500,
+      "h": 1125
+    },
+    {
+      "src": "https://img.chip.com.tr/storage/files/images/2026/11/26/gta-6nin-pcde-calisan-surumu-engellendi-take-two-tek-bildirimle-3007-depoyu-kapattirdi-yvhr.jpg",
+      "credit": "Chip Online",
+      "page": "https://www.chip.com.tr/guncel/gta-6nin-pcde-calisan-surumu-engellendi-take-two-tek-bildirimle-3007-depoyu-kapattirdi_185608.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a71a8a810a-g3.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "https://imgrosetta.webtekno.com/file/698770/698770-640xauto.jpg",
+      "credit": "Webtekno",
+      "page": "https://www.webtekno.com/gta-6-pc-surumleri-artik-20-30-fps-calisiyor-video-h229504.html",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "remote": true,
+      "w": 640,
+      "h": 360
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-26T12:05:50Z"
 }

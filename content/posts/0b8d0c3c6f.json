@@ -81,9 +81,9 @@
   "image": {
     "source": "photo",
     "photo": "0b8d0c3c6f-g0.webp",
-    "credit": "Wikipedia",
-    "page": "https://tr.wikipedia.org/wiki/Sony",
-    "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "credit": "Chip Online",
+    "page": "https://www.chip.com.tr/guncel/the-witcher-4-icin-sony-ile-el-sikisildi-peki-oyun-playstationa-ozel-mi-olacak_185595.html",
+    "src": "https://img.chip.com.tr/storage/files/images/2026/11/26/the-witcher-4-icin-sony-ile-el-sikisildi-peki-oyun-playstationa-ozel-mi-olacak-jb76.jpg",
     "layout": "manset",
     "cover_v": 2
   },
@@ -150,16 +150,28 @@
   "photos_vet_v": 2,
   "photos": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sony_headquaters_2.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/Sony",
-      "alt": "Sony",
-      "kind": "wiki",
+      "src": "https://img.chip.com.tr/storage/files/images/2026/11/26/the-witcher-4-icin-sony-ile-el-sikisildi-peki-oyun-playstationa-ozel-mi-olacak-jb76.jpg",
+      "credit": "Chip Online",
+      "page": "https://www.chip.com.tr/guncel/the-witcher-4-icin-sony-ile-el-sikisildi-peki-oyun-playstationa-ozel-mi-olacak_185595.html",
+      "alt": "",
+      "kind": "feed",
       "graphic": false,
       "cover_ok": true,
       "file": "0b8d0c3c6f-g0.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "https://assets-prd.ignimgs.com/2024/12/13/tw4-inside-blog-1734092931161.jpg",
+      "credit": "IGN",
+      "page": "https://www.ign.com/articles/the-witcher-4-and-all-cd-projekts-upcoming-games-remain-multiplatform-despite-playstation-marketing-deal-cd-projekt-boss-reassures",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "0b8d0c3c6f-g1.webp",
       "w": 1600,
-      "h": 2081
+      "h": 900
     }
   ]
 }

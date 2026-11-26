@@ -88,23 +88,26 @@
   },
   "photos": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/1Password_login_screenshot.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "credit": "Wikipedia",
-      "page": "https://en.wikipedia.org/wiki/1Password",
-      "alt": "1Password",
-      "kind": "wiki",
+      "src": "https://www.androidauthority.com/wp-content/uploads/2021/09/1Password-iOS-FaceID-darkmode-scaled.jpg",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/1password-data-breach-3739555/",
+      "alt": "",
+      "kind": "og",
       "graphic": false,
-      "cover_ok": false,
+      "cover_ok": true,
       "file": "be083fe4b1-g0.webp",
-      "w": 601,
-      "h": 451
+      "w": 1600,
+      "h": 1067
     }
   ],
   "photos_v": 2,
   "image": {
-    "source": "cover",
-    "layout": "isik",
-    "palette": "teknoloji-3",
+    "source": "photo",
+    "photo": "be083fe4b1-g0.webp",
+    "credit": "Android Authority",
+    "page": "https://www.androidauthority.com/1password-data-breach-3739555/",
+    "src": "https://www.androidauthority.com/wp-content/uploads/2021/09/1Password-iOS-FaceID-darkmode-scaled.jpg",
+    "layout": "manset",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -213,6 +216,14 @@
       "kind": "media",
       "image": "https://imgrosetta.webtekno.com/file/698752/698752-640xauto.jpg",
       "at": "2026-11-26T13:34:42Z"
+    },
+    {
+      "name": "TechRadar",
+      "url": "https://www.techradar.com/pro/security/1password-admits-major-data-breach-top-password-manager-says-customer-details-leaked-but-passwords-should-be-safe",
+      "title": "1Password admits major data breach — top password manager says customer details leaked, but passwords should be safe",
+      "kind": "media",
+      "image": "https://cdn.mos.cms.futurecdn.net/i9zSZktoeHmTBwmxCzjmba-1920-80.jpg",
+      "at": "2026-11-26T14:19:32Z"
     }
   ],
   "ig": {

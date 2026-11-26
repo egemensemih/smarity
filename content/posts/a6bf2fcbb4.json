@@ -78,9 +78,12 @@
     "message_id": 2689
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "a6bf2fcbb4-g1.webp",
+    "credit": "Tom's Guide",
+    "page": "https://www.tomsguide.com/ai/claude/claude-just-got-a-major-update-that-lets-you-build-your-own-desktop-apps-no-coding-required",
+    "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:250,cw:1500,ch:1125,q:80,w:1500/SKg6HNSWUodnkPkLAJ8fA.jpg",
     "layout": "manset",
-    "palette": "super-zeka-2",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -96,7 +99,7 @@
     "votes": [],
     "at": "2026-11-25T19:52:20Z"
   },
-  "photos_filled": "2026-11-26T12:19:39Z",
+  "photos_filled": "2026-11-26T14:22:05Z",
   "photos_tried": "2026-11-25T19:52:24Z",
   "coverage": [
     {
@@ -115,5 +118,33 @@
       "image": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-77-1456x819.jpg",
       "at": "2026-11-26T13:34:42Z"
     }
-  ]
+  ],
+  "photos": [
+    {
+      "src": "https://media.thenextweb.com/2026/11/claude-website-thinking-partner-screen.avif",
+      "credit": "The Next Web",
+      "page": "https://thenextweb.com/news/claude-install-as-app-artifacts-mac-windows-desktop",
+      "alt": "",
+      "kind": "feed",
+      "graphic": true,
+      "cover_ok": false,
+      "file": "a6bf2fcbb4-g0.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:250,cw:1500,ch:1125,q:80,w:1500/SKg6HNSWUodnkPkLAJ8fA.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/ai/claude/claude-just-got-a-major-update-that-lets-you-build-your-own-desktop-apps-no-coding-required",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "a6bf2fcbb4-g1.webp",
+      "w": 1500,
+      "h": 1125
+    }
+  ],
+  "photos_v": 2,
+  "updated_at": "2026-11-25T19:52:18Z"
 }
