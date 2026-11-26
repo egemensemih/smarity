@@ -1,9 +1,9 @@
 {
   "id": "be083fe4b1",
   "created_at": "2026-11-25T23:40:16Z",
-  "title": "1Password sistemlerine siber saldırı: Müşteri bilgileri ele geçirildi",
-  "summary": "Popüler şifre yöneticisi 1Password, iç sistemlerine düzenlenen bir siber saldırıda bazı kullanıcılarına ait isim ve e-posta adreslerinin çalındığını doğruladı.",
-  "body": "Popüler şifre yöneticisi platformu 1Password, 19 Kasım'da gerçekleşen bir siber saldırı ile iç sistemlerine sızıldığını ve bazı müşterilerine ait bilgilerin ele geçirildiğini duyurdu. Şirketin yaptığı açıklamaya göre, saldırganlar bir çalışanın kurumsal GitHub hesabını ele geçirerek şirketin kaynak kodlarına ulaştı ve arka uç sistemlerine kötü amaçlı kod yerleştirerek bir grup kullanıcıya ait verileri kopyaladı.\n\n## Hangi veriler çalındı?\n\n1Password, saldırıdan etkilenen müşteri sayısına ilişkin net bir sayı vermemekle birlikte, sadece belirli bir kullanıcı grubunun etkilendiğini belirtti. Çalınan veriler arasında kullanıcıların isimleri, giriş yaptıkları e-posta adresleri, hesap tanımlayıcıları ve hesap oluşturma ile son oturum açma zamanları yer alıyor. Ayrıca, bazı e-posta ile gönderilen davet ve hesap kurtarma bağlantılarına ait token bilgileri de saldırganların eline geçti.\n\n## Şifreler güvende mi?\n\nŞirket, kullanıcıların parola kasalarının, bu kasaları koruyan Secret Key (Gizli Anahtar) bilgilerinin ve saklanan tüm şifrelerin saldırıdan etkilenmediğini vurguladı. 1Password uygulamalarının ve tarayıcı eklentilerinin de bu olaydan etkilenmediği ifade edildi. Çalınan hesap kurtarma tokenlerinin tek başına hesaplara erişim sağlamak için yeterli olmadığı, saldırganların bu yöntemle hesaba girmesi için ek olarak SSO (tek oturum açma) bilgisi veya e-posta adresine gönderilen doğrulama koduna ihtiyaç duyduğu belirtildi.\n\n## Şirket hangi önlemleri aldı?\n\nSaldırının ardından 1Password, ele geçirilen çalışana ait GitHub hesabını devre dışı bıraktı ve sistemlerindeki iç erişim bilgilerini yeniledi. Ayrıca, saldırganların elde ettiği e-posta adresleri üzerinden kimlik avı (phishing) girişimlerinde bulunabileceği konusunda kullanıcılarını uyardı. Şirket, e-posta ile gönderilen hesap kurtarma kodlarını da daha güvenli hale getirerek, altı rakamlı sistem yerine 10 karakterli harf ve rakamlardan oluşan bir yapıya geçti.\n\n**Neden önemli?** Veri ihlalleri, saldırganların çalınan e-posta adresleri üzerinden kullanıcıları kandırmaya yönelik sahte destek talepleri veya hesap kurtarma bildirimleri göndermesine zemin hazırlayabilir. Kullanıcıların özellikle e-posta üzerinden gelen şüpheli bağlantılara karşı dikkatli olması öneriliyor.",
+  "title": "1Password veri ihlali: Müşteri bilgileri çalındı ancak şifreler güvende",
+  "summary": "Popüler şifre yöneticisi 1Password, uğradığı siber saldırıda bazı müşteri bilgilerinin çalındığını doğruladı ancak şifrelerin güvende olduğunu açıkladı.",
+  "body": "Android Authority'nin aktardığına göre, popüler şifre yöneticisi platformu 1Password yaşanan bir veri ihlali sonucunda bazı müşteri bilgilerinin ele geçirildiğini duyurdu. 25 Kasım'da yayımlanan blog yazısına göre şirket, 19 Kasım'da bir çalışanın kurumsal GitHub hesabındaki şüpheli etkinliği fark ederek araştırmaya başladı. Saldırganların kaynak koduna eriştiği ve arka uç servislerini tehlikeye atarak müşteri isimlerini, e-posta adreslerini ve hesap tanımlayıcılarını elde ettiği belirlendi.\n\n## Hangi veriler ele geçirildi?\n\nSaldırıda müşterilerin isimleri ve e-posta adresleri gibi kişisel bilgileri ile hesap tanımlayıcıları korsanların eline geçti. 1Password, etkilenen toplam müşteri sayısını açıklamadı. Şirket, kullanıcıların parola kasalarının ve bunları koruyan şifreleme anahtarlarının ise güvende kaldığını vurguladı.\n\n## Şifreler ve hesaplar güvende mi?\n\n1Password'ün açıklamasına göre, şirketin sunucularında kullanıcıların ana şifreleri veya Gizli Anahtarları (Secret Key) saklanmadığı için kasalarda tutulan şifrelerin tehlikede olmadığı belirtildi. Bu nedenle kullanıcıların hesap şifrelerini veya kayıtlı parolalarını değiştirmesine gerek bulunmuyor. Şirket, etkilenen sistemlerin güvenli hale getirildiğini ve potansiyel olarak tehlikeye giren iç kimlik bilgilerinin değiştirildiğini bildirdi.\n\n## Kullanıcıların dikkat etmesi gerekenler\n\nDaha önce ekim 2023'te Okta kaynaklı bir olay yaşayan ve rakibi LastPass'in de benzer siber saldırılara uğradığı bilinen 1Password, kullanıcılarına bazı uyarılarda bulundu. Şirket, çalınan bilgilerin kimlik avı (phishing) saldırılarını daha ikna edici kılmak için kullanılabileceği konusunda uyardı.\n\n**Neden önemli?** 1Password, kullanıcıların kimlik bilgilerini açığa çıkarmadan sitelere giriş yapmasını sağlayan yapay aletlerin kullanımını artırırken yaşanan bu ihlal, güvenlik önlemlerinin ve kullanıcı dikkatini artırmanın önemini bir kez daha ortaya koyuyor.",
   "category": "teknoloji",
   "tags": [
     "1Password",
@@ -13,28 +13,28 @@
   ],
   "confidence": "yuksek",
   "flags": [],
-  "editor_note": "",
-  "short_title": "1Password sistemlerine saldırı yapıldı",
+  "editor_note": "Güncel gelişmelere göre içerik güncellendi ve şifrelerin güvende olduğu vurgulandı.",
+  "short_title": "1Password veri ihlali doğrulandı",
   "kicker": "Güvenlik",
   "hero_stat": "",
   "hero_stat_label": "",
   "visual_style": "still_life",
   "visual_scene": "A broken padlock lying on a clean white desk, next to a smartphone screen displaying a blurred security warning icon, soft natural morning light coming from the side casting long shadows.",
-  "focus_keyword": "1Password",
-  "seo_title": "1Password saldırıya uğradı: Kullanıcı verileri ele geçirildi",
-  "meta_description": "1Password, iç sistemlerine yapılan saldırıda bazı kullanıcılarının isim ve e-posta bilgilerinin çalındığını doğruladı. İşte olay hakkında bilmeniz gerekenler.",
+  "focus_keyword": "1Password veri ihlali",
+  "seo_title": "1Password veri ihlali: Müşteri bilgileri çalındı",
+  "meta_description": "Popüler şifre yöneticisi 1Password uğradığı siber saldırıda müşteri bilgilerinin çalındığını doğruladı. Şifrelerin durumu ve detaylar haberimizde.",
   "seo_slug": "1password-sistemlerine-siber-saldiri",
-  "image_alt": "Kırık bir aşma kilit ve yanında güvenlik uyarısı veren bir akıllı telefon ekranı",
+  "image_alt": "1Password veri ihlalini temsil eden dijital kilit görseli",
   "cover_text": "1Password",
   "carousel_points": [
-    "Saldırganlar 19 Kasım'da bir çalışanın GitHub hesabını kullanarak sistemlere sızdı.",
-    "Kullanıcıların e-posta ve isimleri çalındı ancak şifre kasaları güvende kaldı.",
-    "Şirket, kullanıcıların kimlik avı saldırılarına karşı tetikte olmasını öneriyor."
+    "1Password siber saldırıya uğradığını doğruladı.",
+    "Müşteri isimleri ve e-posta adresleri çalındı.",
+    "Kullanıcı şifrelerinin ve kasaların güvende olduğu açıklandı."
   ],
   "appeal": 8,
   "update_note": "",
-  "cover_headline": "1Password saldırıya uğradı veriler sızdı",
-  "cover_highlight": "saldırıya uğradı",
+  "cover_headline": "1Password veri ihlalinde müşteri bilgileri çalındı",
+  "cover_highlight": "veri ihlalinde",
   "cover_line_v": 3,
   "importance": 8,
   "big_brand": true,
@@ -65,11 +65,22 @@
       "via_url": "https://9to5mac.com/2026/11/25/1password-confirms-security-incident-heres-what-you-need-to-know/#respond",
       "published": "2026-11-25T23:30:05Z",
       "image": "https://9to5mac.com/wp-content/uploads/sites/6/2026/02/1password-app-icon-FI.jpg?quality=82&#038;strip=all&#038;w=1600"
+    },
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/1password-data-breach-3739555/",
+      "title": "1Password confirms hackers stole customer data, but not their passwords",
+      "kind": "media",
+      "via": null,
+      "via_url": "https://www.androidauthority.com/1password-data-breach-3739555/#respond",
+      "published": "2026-11-26T05:05:13Z",
+      "image": null
     }
   ],
   "source_keys": [
     "DonanımHaber",
-    "9to5Mac"
+    "9to5Mac",
+    "Android Authority"
   ],
   "rewrites": 0,
   "telegram": {
@@ -138,11 +149,30 @@
       "kind": "media",
       "image": "https://cdn.mos.cms.futurecdn.net/jUTessiAh4x7EyxQB4zHzL-1920-80.jpg",
       "at": "2026-11-26T04:26:52Z"
+    },
+    {
+      "name": "Android Authority",
+      "url": "https://www.androidauthority.com/1password-data-breach-3739555/",
+      "title": "1Password confirms hackers stole customer data, but not their passwords",
+      "kind": "media",
+      "image": null,
+      "at": "2026-11-26T05:12:28Z"
     }
   ],
   "ig": {
     "format": "story",
     "at": "2026-11-26T05:02:08Z",
     "permalink": ""
-  }
+  },
+  "updated_at": "2026-11-26T05:12:43Z",
+  "refreshed_at": "2026-11-26T05:12:43Z",
+  "updates": [
+    {
+      "at": "2026-11-26T05:12:43Z",
+      "note": "1Password'ün güvenlik ihlali ve çalınan veriler hakkındaki son doğrulamaları eklendi.",
+      "sources": [
+        "Android Authority"
+      ]
+    }
+  ]
 }
