@@ -89,25 +89,37 @@
   },
   "photos": [
     {
-      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/CRS-18_Mission_%2848380511427%29.jpg/960px-CRS-18_Mission_%2848380511427%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/SpaceX",
-      "alt": "SpaceX",
-      "kind": "wiki",
+      "src": "https://image.cnbcfm.com/api/v1/image/108368728-1790601399956-Screenshot_2026-09-28_at_91434_AM.png?v=1790601411&w=1920&h=1080",
+      "credit": "CNBC Teknoloji",
+      "page": "https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html",
+      "alt": "",
+      "kind": "og",
       "graphic": false,
       "cover_ok": true,
       "file": "888cc32055-g0.webp",
-      "w": 960,
-      "h": 640
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/11/25/thumbs_b_c_004790116e52b3d096c26e9f5811f8da.jpg",
+      "credit": "Anadolu Ajansı",
+      "page": "https://www.aa.com.tr/tr/bilim-teknoloji/abd-spacexin-uzaydaki-veri-merkezleri-icin-1-milyon-uydu-firlatmasina-yetki-verdi/4137879",
+      "alt": "ABD, SpaceX'in uzaydaki veri merkezleri için 1 milyon uydu fırlatmasına yetki verdi",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "888cc32055-g1.webp",
+      "w": 864,
+      "h": 486
     }
   ],
   "photos_v": 2,
   "image": {
     "source": "photo",
     "photo": "888cc32055-g0.webp",
-    "credit": "Wikipedia",
-    "page": "https://tr.wikipedia.org/wiki/SpaceX",
-    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/CRS-18_Mission_%2848380511427%29.jpg/960px-CRS-18_Mission_%2848380511427%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "credit": "CNBC Teknoloji",
+    "page": "https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html",
+    "src": "https://image.cnbcfm.com/api/v1/image/108368728-1790601399956-Screenshot_2026-09-28_at_91434_AM.png?v=1790601411&w=1920&h=1080",
     "layout": "manset",
     "cover_v": 2
   },
@@ -255,5 +267,6 @@
       "image": "https://the-decoder.com/wp-content/uploads/2026/11/SpaceX-xAI-Satellite-scaled.png",
       "at": "2026-11-26T13:50:48Z"
     }
-  ]
+  ],
+  "updated_at": "2026-11-25T19:04:02Z"
 }

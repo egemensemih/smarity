@@ -90,26 +90,59 @@
   },
   "photos": [
     {
-      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg/langtr-960px-Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/Microsoft_Outlook",
-      "alt": "Microsoft Outlook",
-      "kind": "wiki",
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20261125132849&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/213372/buyuk-kesinti-sonrasi-microsoft-alarma-gecti213372_1.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/buyuk-kesinti-sonrasi-microsoft-alarma-gecti--213372",
+      "alt": "",
+      "kind": "body",
       "graphic": false,
       "cover_ok": true,
       "file": "095b6a780d-g0.webp",
-      "w": 960,
-      "h": 909
+      "w": 720,
+      "h": 405
+    },
+    {
+      "src": "https://www.log.com.tr/wp-content/uploads/2026/05/microsoft-iddiaya-gore-yapay-zeka-icin-bir-660x371.jpg",
+      "credit": "LOG",
+      "page": "https://www.log.com.tr/microsoft-yasanan-buyuk-kesintinin-ardindan-kirmizi-kod-ilan-etti/",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "095b6a780d-g1.webp",
+      "w": 660,
+      "h": 371
+    },
+    {
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK153_MICROSOFT_OUTLOOK_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "credit": "The Verge",
+      "page": "https://www.theverge.com/news/1042025/microsoft-code-red-outlook-outage",
+      "alt": "",
+      "kind": "feed",
+      "graphic": false,
+      "cover_ok": false,
+      "file": "095b6a780d-g2.webp",
+      "w": 1600,
+      "h": 1067
+    },
+    {
+      "src": "https://www.donanimhaber.com/cache-v2/?t=20261125132849&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/213372/buyuk-kesinti-sonrasi-microsoft-alarma-gecti213372_0.jpg",
+      "credit": "DonanımHaber",
+      "page": "https://www.donanimhaber.com/buyuk-kesinti-sonrasi-microsoft-alarma-gecti--213372",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "095b6a780d-g3.webp",
+      "w": 720,
+      "h": 480
     }
   ],
   "photos_v": 2,
   "image": {
-    "source": "photo",
-    "photo": "095b6a780d-g0.webp",
-    "credit": "Wikipedia",
-    "page": "https://tr.wikipedia.org/wiki/Microsoft_Outlook",
-    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg/langtr-960px-Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "source": "cover",
     "layout": "manset",
+    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -176,5 +209,6 @@
       "image": "https://www.donanimhaber.com/images/images/haber/213372/1200x675buyuk-kesinti-sonrasi-microsoft-alarma-gecti.jpg",
       "at": "2026-11-25T20:26:12Z"
     }
-  ]
+  ],
+  "updated_at": "2026-11-25T12:58:34Z"
 }
