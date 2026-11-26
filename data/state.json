@@ -873,12 +873,13 @@
       "cost_usd": 0.0,
       "drafts": 1,
       "published": 1,
-      "auto": 1
+      "auto": 1,
+      "instagram_story": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-26T04:41:54Z",
+  "last_build": "2026-11-26T05:06:30Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [
@@ -2571,29 +2572,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "be083fe4b1",
-      "queued_at": "2026-11-25T23:40:26Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Haber değeri yüksek olsa da görselin zayıflığı nedeniyle post yerine story formatında paylaşılmasına karar verildi.",
-      "mid": 2693,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi marka kimliğimize uygun, okunabilirlik yüksek ve tüm kurallara tam uyum sağlıyor.",
-        "at": "2026-11-25T23:45:08Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-20": [
@@ -2869,7 +2848,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-25T19:31:06Z",
+  "ig_last_at": "2026-11-26T05:02:08Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2951,6 +2930,13 @@
     {
       "id": "e370bf32a1",
       "at": "2026-11-25T19:31:06Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "be083fe4b1",
+      "at": "2026-11-26T05:02:08Z",
       "permalink": "",
       "story": true,
       "format": "story"
