@@ -68,23 +68,62 @@
   },
   "photos": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/tr/b/b6/Galaxy_Z_Fold7%27de_One_UI_8.webp?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/One_UI",
-      "alt": "One UI",
-      "kind": "wiki",
+      "src": "https://www.sammobile.com/wp-content/uploads/2026/08/Galaxy-Watch-Ultra-2-review-13-800x450.jpg",
+      "credit": "SamMobile",
+      "page": "https://www.sammobile.com/news/samsungs-app-lock-feature-missing-crucial-setting/",
+      "alt": "",
+      "kind": "body",
       "graphic": false,
       "cover_ok": true,
       "file": "939614e905-g0.webp",
-      "w": 631,
-      "h": 631
+      "w": 800,
+      "h": 450
+    },
+    {
+      "src": "https://www.sammobile.com/wp-content/uploads/2026/07/Galaxy-A27-review-10-800x449.jpg",
+      "credit": "SamMobile",
+      "page": "https://www.sammobile.com/news/samsungs-app-lock-feature-missing-crucial-setting/",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "939614e905-g1.webp",
+      "w": 800,
+      "h": 449
+    },
+    {
+      "src": "https://www.sammobile.com/wp-content/uploads/2022/01/Samsung-QD-Display-Explained-scaled.jpg",
+      "credit": "SamMobile",
+      "page": "https://www.sammobile.com/news/samsungs-app-lock-feature-missing-crucial-setting/",
+      "alt": "",
+      "kind": "body",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "939614e905-g2.webp",
+      "w": 1600,
+      "h": 900
+    },
+    {
+      "src": "https://www.androidauthority.com/wp-content/uploads/2026/11/applock-revived-android-app-1.jpg",
+      "credit": "Android Authority",
+      "page": "https://www.androidauthority.com/how-to-get-app-lock-on-android-phone-3738771/",
+      "alt": "",
+      "kind": "og",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "939614e905-g3.webp",
+      "w": 1600,
+      "h": 900
     }
   ],
   "photos_v": 2,
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "939614e905-g2.webp",
+    "credit": "SamMobile",
+    "page": "https://www.sammobile.com/news/samsungs-app-lock-feature-missing-crucial-setting/",
+    "src": "https://www.sammobile.com/wp-content/uploads/2022/01/Samsung-QD-Display-Explained-scaled.jpg",
     "layout": "manset",
-    "palette": "teknoloji-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -119,5 +158,6 @@
       "image": null,
       "at": "2026-11-26T09:03:34Z"
     }
-  ]
+  ],
+  "updated_at": "2026-11-24T09:08:34Z"
 }

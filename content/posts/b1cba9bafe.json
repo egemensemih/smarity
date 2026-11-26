@@ -66,9 +66,12 @@
     "message_id": 2636
   },
   "image": {
-    "source": "cover",
+    "source": "photo",
+    "photo": "b1cba9bafe-g0.webp",
+    "credit": "Tom's Guide",
+    "page": "https://www.tomsguide.com/ai/chatgpt/chatgpt-just-got-a-major-gpt-6-2-upgrade-5-things-to-try-right-now",
+    "src": "https://cdn.mos.cms.futurecdn.net/ffth3bmGGSxj2Jn8x266iP-1920-80.jpg",
     "layout": "manset",
-    "palette": "super-zeka-1",
     "cover_v": 2
   },
   "policy_tier": "auto",
@@ -106,16 +109,40 @@
   "photos_filled": "2026-11-24T06:02:21Z",
   "photos": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/Dall-e_3_%28jan_%2724%29_artificial_intelligence_icon.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "credit": "Wikipedia",
-      "page": "https://tr.wikipedia.org/wiki/OpenAI",
-      "alt": "OpenAI",
-      "kind": "wiki",
+      "src": "https://cdn.mos.cms.futurecdn.net/ffth3bmGGSxj2Jn8x266iP-1920-80.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/ai/chatgpt/chatgpt-just-got-a-major-gpt-6-2-upgrade-5-things-to-try-right-now",
+      "alt": "",
+      "kind": "feed",
       "graphic": false,
       "cover_ok": true,
       "file": "b1cba9bafe-g0.webp",
-      "w": 820,
-      "h": 820
+      "w": 1600,
+      "h": 889
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:444,cw:1111,ch:1111,q:80,w:1111/ffth3bmGGSxj2Jn8x266iP.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/ai/chatgpt/chatgpt-just-got-a-major-gpt-6-2-upgrade-5-things-to-try-right-now",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b1cba9bafe-g1.webp",
+      "w": 1111,
+      "h": 1111
+    },
+    {
+      "src": "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:259,cw:1481,ch:1111,q:80,w:1481/ffth3bmGGSxj2Jn8x266iP.jpg",
+      "credit": "Tom's Guide",
+      "page": "https://www.tomsguide.com/ai/chatgpt/chatgpt-just-got-a-major-gpt-6-2-upgrade-5-things-to-try-right-now",
+      "alt": "",
+      "kind": "ld",
+      "graphic": false,
+      "cover_ok": true,
+      "file": "b1cba9bafe-g2.webp",
+      "w": 1481,
+      "h": 1111
     }
   ],
   "photos_v": 2,
