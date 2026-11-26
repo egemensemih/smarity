@@ -873,21 +873,19 @@
       "drafts": 2,
       "published": 2,
       "auto": 2,
-      "instagram_story": 1,
+      "instagram_story": 2,
       "updates": 1,
       "updated": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-26T07:03:59Z",
+  "last_build": "2026-11-26T07:09:51Z",
   "build_sig": "8484b7154e6e444c",
   "commands_version": 6,
   "queue": [],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/super-zeka/2026/11/neuralink-beyin-cipi-fda-onayi-aldi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2533,29 +2531,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "4d4b788c5c",
-      "queued_at": "2026-11-26T06:59:02Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Haberin degeri cok yuksek ve genis bir kitleye hitap ediyor ancak gorsel olarak zayif oldugu ve sadece duz arkaplan barindirdigi icin post yerine story formatinda paylasilmasi daha dogrudur.",
-      "mid": 2696,
-      "vtried": [
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, marka kimliğimize ve güvenli alan kurallarına tamamen uygun, temiz bir tasarıma sahip.",
-        "at": "2026-11-26T07:03:58Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-20": [
@@ -2837,7 +2813,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-26T05:02:08Z",
+  "ig_last_at": "2026-11-26T07:05:27Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2926,6 +2902,13 @@
     {
       "id": "be083fe4b1",
       "at": "2026-11-26T05:02:08Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "4d4b788c5c",
+      "at": "2026-11-26T07:05:27Z",
       "permalink": "",
       "story": true,
       "format": "story"
