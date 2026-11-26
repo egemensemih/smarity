@@ -1,40 +1,39 @@
 {
   "id": "a6bf2fcbb4",
   "created_at": "2026-11-25T19:52:04Z",
-  "title": "Claude artifacts masaüstü uygulamasına dönüştürülebiliyor",
-  "summary": "Anthropic, kullanıcıların Claude artifacts özelliklerini Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştürmesini sağlayan yeni bir betayı kullanıma sundu.",
-  "body": "Anthropic'in duyurusuna göre, Claude kullanıcıları artık oluşturdukları Claude artifacts ögelerini Mac ve Windows işletim sistemlerinde bağımsız masaüstü uygulamaları olarak çalıştırabiliyor. Tüm ücretsiz ve ücretli planlar için beta aşamasında sunulan bu özellik, sık tekrarlanan işleri ve araçları tarayıcı penceresinden çıkararak ayrı bir simge ve pencerede kullanmaya imkân tanıyor.\n\n## Masaüstü uygulaması nasıl çalışıyor?\n\nZDNET'in aktardığına göre, oluşturulan yeni uygulamalar kendi simgeleriyle açılıyor ve ana Claude penceresine ihtiyaç duymadan ayrı bir pencerede çalışıyor. Temel aldığı artifacts ögesinde yapılan düzenlemeler uygulamayı otomatik olarak güncellerken, uygulamaların Claude'a gönderdiği istekler kullanıcının plan kullanım limitlerinden düşülüyor. The Next Web'in belirttiğine göre bu özellik; Linux, mobil veya web sürümlerinde desteklenmiyor ve Claude Docs, Slides veya Sheets şablonlarından üretilen ögelerle çalışmıyor.\n\n## İzin seçenekleri ve güvenlik önlemleri\n\nAnthropic, yeni uygulamalar için varsayılan tarayıcı izinlerinden bildirim göndermeye ve tam bilgisayar erişimine kadar değişen üç farklı yetki seviyesi belirliyor. Tam bilgisayar erişimi verilen uygulamalar, kullanıcılara sormadan program çalıştırabiliyor, dosya okuyabiliyor, değiştirebiliyor veya silebiliyor. Şirket, kullanıcıların yalnızca güvendikleri ve bizzat kendilerinin ya da ekip arkadaşlarının oluşturduğu uygulamalara tam erişim vermesi gerektiği konusunda uyarıyor.\n\n## Türkiye ve kullanım koşulları\n\nÖzelliğin kullanılabilmesi için Mac veya Windows için Claude uygulamasının güncel olması, aktif bir internet bağlantısı ve Claude oturumu gerekiyor. Enterprise planlarında özellik varsayılan olarak kapalı gelirken, yöneticiler tarafından etkinleştirilebiliyor.\n\n**Neden önemli?** Anthropic, yapay zekâ tabanlı iş araçlarının tarayıcı sekmelerinden çıkarak bağımsız birer yazılım gibi çalışmasını sağlayarak kullanıcıların iş akışlarını kolaylaştırmayı hedefliyor.",
+  "title": "Claude masaüstü uygulaması oluşturma özelliği ücretsiz kullanıcılara açıldı",
+  "summary": "Anthropic, kullanıcıların Claude Artifacts içeriklerini bağımsız masaüstü uygulamalarına dönüştürmesini sağlayan yeni özelliği ücretsiz kullanıcılara da açtı.",
+  "body": "DonanımHaber'in aktardığına göre, Anthropic'in geliştirdiği Claude Artifacts içeriklerini bağımsız masaüstü uygulamalarına dönüştürmeyi sağlayan yeni özellik, ücretsiz plan dahil tüm abonelik seviyelerinde beta olarak kullanıma sunuldu. Kullanıcılar artık doğal dilde tarif ettikleri uygulamaları Claude ile geliştirip masaüstü uygulaması olarak yükleyebiliyor.\n\n## Masaüstü uygulamaları nasıl çalışıyor?\n\nYüklenen uygulamalar kendilerine ait bir pencere ve simgeye sahip oluyor. Windows'ta Başlat menüsünden, macOS'te ise Spotlight üzerinden çalıştırılabiliyor. Orijinal Artifact üzerinde yapılan değişiklikler, yüklenmiş uygulamaya otomatik olarak yansıtılıyor. ZDNET'in aktardığına göre, temel aldığı ögede yapılan düzenlemeler uygulamayı otomatik olarak güncellerken, uygulamaların Claude'a gönderdiği istekler kullanıcının plan kullanım limitlerinden düşülüyor. The Next Web'in belirttiğine göre bu özellik Linux, mobil veya web sürümlerinde desteklenmiyor.\n\n## İzin seviyeleri ve güvenlik\n\nAnthropic, oluşturulan uygulamalar için tarayıcı benzeri kısıtlamalardan bilgisayarın yerel kaynaklarına geniş kapsamlı erişime kadar uzanan üç farklı izin seviyesi sunuyor. En yüksek izin seviyesinde uygulamalar bilgisayardaki yerel dosyaları yönetebiliyor, değiştirebiliyor, silebilir veya çalıştırılabilir programları başlatabiliyor. Anthropic, kullanıcıların yalnızca güvendikleri ve bizzat kendilerinin ya da ekip arkadaşlarının oluşturduğu uygulamalara tam erişim vermesi gerektiği konusunda uyarıyor ve şirket, yüklemeden önce uygulamaları bağımsız olarak güvenlik denetiminden geçirmediğini belirtiyor.\n\n## Sistem gereksinimleri ve kullanım koşulları\n\nÖzelliğin kullanılabilmesi için Mac veya Windows için Claude uygulamasının en az 6.28899.0 sürümünün kullanılması, aktif bir internet bağlantısı ve açık bir Claude hesabı gerekiyor. Enterprise planlarında özellik varsayılan olarak kapalı gelirken, yöneticiler tarafından etkinleştirilebiliyor.\n\n**Neden önemli?** Anthropic, yapay zekâ tabanlı araçların tarayıcı sekmelerinden çıkarak bağımsız birer masaüstü yazılımı gibi çalışmasını sağlayarak kullanıcıların iş akışlarını kolaylaştırmayı hedefliyor.",
   "category": "super-zeka",
   "tags": [
     "Anthropic",
     "Claude",
-    "yapay zeka",
     "Windows",
-    "Mac"
+    "macOS"
   ],
   "confidence": "yuksek",
   "flags": [],
   "editor_note": "",
-  "short_title": "Claude artifacts ögeleri masaüstü uygulaması oluyor",
-  "kicker": "Yeni özellik",
+  "short_title": "Claude masaüstü uygulaması oluşturma özelliği açıldı",
+  "kicker": "Yapay zekâ",
   "hero_stat": "",
   "hero_stat_label": "",
   "visual_style": "studio",
   "visual_scene": "a single frosted glass window icon glowing softly on a dark studio surface, with subtle light reflections and clean minimalist geometry",
-  "focus_keyword": "Claude artifacts",
-  "seo_title": "Claude artifacts masaüstü uygulamasına dönüştürülebiliyor",
-  "meta_description": "Anthropic, Claude artifacts ögelerini Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştüren yeni beta özelliğini kullanıma sundu.",
+  "focus_keyword": "Claude masaüstü uygulaması",
+  "seo_title": "Claude masaüstü uygulaması oluşturma özelliği açıldı",
+  "meta_description": "Claude Artifacts içeriklerini bağımsız masaüstü uygulamalarına dönüştürmeyi sağlayan özellik ücretsiz kullanıcılara açıldı.",
   "seo_slug": "claude-artifacts-masaustu-uygulamasi",
-  "image_alt": "Masaüstü uygulamasına dönüştürülen Claude artifacts özelliğini temsil eden şeffaf cam pencere simgesi",
-  "cover_text": "Claude artifacts",
+  "image_alt": "Saydam cam görünümünde pencere içinde parlayan kod satırları ve arayüz simgeleri",
+  "cover_text": "Claude",
   "carousel_points": [
-    "Claude artifacts ögeleri Mac ve Windows için bağımsız masaüstü uygulamalarına dönüştürülebiliyor.",
-    "Yeni özellik tüm ücretsiz ve ücretli planlar için beta aşamasında kullanıma sunuldu.",
-    "Uygulamalar internet bağlantısı gerektiriyor ve kullanıcılardan gelen istekler kullanım limitine işliyor."
+    "Claude Artifacts artık masaüstü uygulamalarına dönüştürülebiliyor.",
+    "Yeni özellik ücretsiz plan dahil tüm abonelik seviyelerine açıldı.",
+    "Uygulamalar Windows ve macOS üzerinde bağımsız pencerelerde çalışıyor."
   ],
   "appeal": 8,
   "update_note": "",
-  "cover_headline": "Claude artifacts masaüstü uygulaması oldu",
+  "cover_headline": "Claude masaüstü uygulaması oluşturabiliyor",
   "cover_highlight": "masaüstü uygulaması",
   "cover_line_v": 3,
   "importance": 7,
@@ -67,11 +66,22 @@
       "via_url": null,
       "published": "2026-11-25T16:36:13Z",
       "image": "https://media.thenextweb.com/2026/11/claude-website-thinking-partner-screen.avif"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/claude-artik-masaustu-uygulamalari-olusturabiliyor--213447",
+      "title": "Claude artık masaüstü uygulamaları oluşturabiliyor: Ücretsiz kullanıcılara da açık!",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-26T20:59:00Z",
+      "image": "https://www.donanimhaber.com/images/images/haber/213447/1200x675claude-artik-masaustu-uygulamalari-olusturabiliyor.jpg"
     }
   ],
   "source_keys": [
     "ZDNET",
-    "The Next Web"
+    "The Next Web",
+    "DonanımHaber"
   ],
   "rewrites": 0,
   "telegram": {
@@ -114,6 +124,14 @@
       "kind": "media",
       "image": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-77-1456x819.jpg",
       "at": "2026-11-26T13:34:42Z"
+    },
+    {
+      "name": "DonanımHaber",
+      "url": "https://www.donanimhaber.com/claude-artik-masaustu-uygulamalari-olusturabiliyor--213447",
+      "title": "Claude artık masaüstü uygulamaları oluşturabiliyor: Ücretsiz kullanıcılara da açık!",
+      "kind": "media",
+      "image": "https://www.donanimhaber.com/images/images/haber/213447/1200x675claude-artik-masaustu-uygulamalari-olusturabiliyor.jpg",
+      "at": "2026-11-26T21:01:19Z"
     }
   ],
   "photos": [
@@ -131,7 +149,17 @@
     }
   ],
   "photos_v": 2,
-  "updated_at": "2026-11-26T14:28:10Z",
+  "updated_at": "2026-11-26T21:02:30Z",
   "photos_vetted": "2026-11-26T14:28:07Z",
-  "photos_vet_v": 2
+  "photos_vet_v": 2,
+  "refreshed_at": "2026-11-26T21:02:30Z",
+  "updates": [
+    {
+      "at": "2026-11-26T21:02:30Z",
+      "note": "Claude'un masaüstü uygulaması oluşturma özelliğinin ücretsiz kullanıcılara da açıldığı bilgisi eklendi.",
+      "sources": [
+        "DonanımHaber"
+      ]
+    }
+  ]
 }
