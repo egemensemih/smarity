@@ -876,14 +876,14 @@
       "auto": 6,
       "updates": 1,
       "updated": 1,
-      "instagram_story": 3,
+      "instagram_story": 4,
       "dropped": 1,
-      "instagram": 1
+      "instagram": 2
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-27T19:19:18Z",
+  "last_build": "2026-11-27T19:35:10Z",
   "build_sig": "cc4717d95b3ef29c",
   "commands_version": 6,
   "queue": [
@@ -2576,29 +2576,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "197ac85c43",
-      "queued_at": "2026-11-27T19:08:34Z",
-      "tries": 0,
-      "format": "post",
-      "note": "GTA 6'nın rekor kıran satış ve gelir rakamları tüm teknoloji ve oyun kitlesinin ilgisini çekecek düzeyde.",
-      "mid": 2716,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller marka kimliğine tam uygun, metinler okunaklı ve güvenli alanlar korunmuş.",
-        "at": "2026-11-27T19:13:33Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-21": [
@@ -2874,7 +2852,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-27T19:14:40Z",
+  "ig_last_at": "2026-11-27T19:30:33Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3008,6 +2986,13 @@
       "permalink": "",
       "story": true,
       "format": "story"
+    },
+    {
+      "id": "197ac85c43",
+      "at": "2026-11-27T19:30:37Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
     }
   ],
   "guide_tried": {
