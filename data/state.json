@@ -875,14 +875,14 @@
       "auto": 6,
       "updates": 1,
       "updated": 1,
-      "instagram_story": 2,
+      "instagram_story": 3,
       "dropped": 1,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-27T19:13:33Z",
+  "last_build": "2026-11-27T19:19:18Z",
   "build_sig": "cc4717d95b3ef29c",
   "commands_version": 6,
   "queue": [
@@ -970,10 +970,7 @@
     }
   ],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/girisimcilik/2026/11/openai-apple-karsi-dava-ticari-sir/",
-    "https://smarity.com.tr/gaming/2026/11/grand-theft-auto-6-ilk-haftasinda-53-milyon-kopya-satti/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2621,27 +2618,6 @@
   ],
   "ig_queue": [
     {
-      "id": "ec45de1bfb",
-      "queued_at": "2026-11-27T19:08:18Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Dev şirketlerin yasal savaşı büyük haber değeri taşısa da, görsel ve kitle çekiciliği açısından kalıcı bir post yerine 24 saatlik bir story olarak paylaşılması daha uygundur.",
-      "mid": 2714,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık, renk çipi ve güvenli alan yerleşimi Smarity marka kimliğine ve hikaye formatına tamamen uygundur.",
-        "at": "2026-11-27T19:13:26Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "197ac85c43",
       "queued_at": "2026-11-27T19:08:34Z",
       "tries": 0,
@@ -2938,7 +2914,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-27T13:18:15Z",
+  "ig_last_at": "2026-11-27T19:14:40Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3065,6 +3041,13 @@
       "permalink": "",
       "story": true,
       "format": "post"
+    },
+    {
+      "id": "ec45de1bfb",
+      "at": "2026-11-27T19:14:40Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
     }
   ],
   "guide_tried": {
