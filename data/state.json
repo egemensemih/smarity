@@ -875,13 +875,14 @@
       "auto": 4,
       "updates": 1,
       "updated": 1,
-      "instagram_story": 1,
-      "dropped": 1
+      "instagram_story": 2,
+      "dropped": 1,
+      "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-27T13:16:33Z",
+  "last_build": "2026-11-27T13:22:46Z",
   "build_sig": "cc4717d95b3ef29c",
   "commands_version": 6,
   "queue": [
@@ -970,9 +971,7 @@
     }
   ],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/otomotiv/2026/11/bina-yangin-yonetmeligi-ev-prizinden-sarj-yasagi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2618,29 +2617,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "7d3f3e4ca1",
-      "queued_at": "2026-11-27T13:11:41Z",
-      "tries": 0,
-      "format": "post",
-      "note": "Elektrikli arac sahiplerini dogrudan ilgilendiren bu onemli Resmi Gazete karari, yuksek etkilesim potansiyeli sayesinde gunun ana gonderilerinden biri olarak secilmistir.",
-      "mid": 2711,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görseller marka kimliğine tam uygun, metinler okunaklı ve güvenli alanlarda konumlandırılmış.",
-        "at": "2026-11-27T13:16:33Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-21": [
@@ -2904,7 +2881,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-27T05:01:41Z",
+  "ig_last_at": "2026-11-27T13:18:15Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3024,6 +3001,13 @@
       "permalink": "",
       "story": true,
       "format": "story"
+    },
+    {
+      "id": "7d3f3e4ca1",
+      "at": "2026-11-27T13:18:27Z",
+      "permalink": "",
+      "story": true,
+      "format": "post"
     }
   ],
   "guide_tried": {
