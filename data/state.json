@@ -874,21 +874,18 @@
       "cost_usd": 0.0,
       "drafts": 3,
       "published": 3,
-      "auto": 3
+      "auto": 3,
+      "instagram_story": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-28T08:42:37Z",
+  "last_build": "2026-11-28T08:48:27Z",
   "build_sig": "b74606399c5a23e6",
   "commands_version": 6,
   "queue": [],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/otomotiv/2026/11/yerli-opel-combo-turkiyede-satisa-cikti/",
-    "https://smarity.com.tr/girisimcilik/2026/11/paribu-hisse-senedi-spk-onayi/",
-    "https://smarity.com.tr/super-zeka/2026/11/sundar-pichai-turkiye-yapay-zeka-aciklamasi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2536,27 +2533,6 @@
   ],
   "ig_queue": [
     {
-      "id": "45e1266b8d",
-      "queued_at": "2026-11-28T08:34:33Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Bursa üretimi yerli Opel Combo'nun Türkiye'de satışa sunulması kayda değer bir gelişme olsa da hafif ticari araç lansmanı kalıcı post yerine hikaye formatı için daha uygundur.",
-      "mid": 2719,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, başlık ve kategori uyumu mükemmel, tasarım marka standartlarına tamamen uygun.",
-        "at": "2026-11-28T08:42:31Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "f0f53495a3",
       "queued_at": "2026-11-28T08:37:02Z",
       "tries": 0,
@@ -2823,7 +2799,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-27T19:30:33Z",
+  "ig_last_at": "2026-11-28T08:43:49Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2964,6 +2940,13 @@
       "permalink": "",
       "story": true,
       "format": "post"
+    },
+    {
+      "id": "45e1266b8d",
+      "at": "2026-11-28T08:43:49Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
     }
   ],
   "guide_tried": {
