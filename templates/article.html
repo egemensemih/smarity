@@ -51,6 +51,7 @@
       <a class="eyebrow" href="{{ post.cat_url }}">{{ post.cat_label }}</a>
       <time datetime="{{ post.iso }}">{{ post.date_str }}</time>
       <span class="muted">{{ post.minutes }} dk okuma</span>
+      {% if 'iddia' in (post.flags or []) %}<span class="claim" title="Resmî olarak doğrulanmamış; kaynağına atfedilen bilgi">İddia</span>{% endif %}
     </div>
     <h1>{{ post.title_disp }}</h1>
     <p class="dek">{{ post.summary }}</p>

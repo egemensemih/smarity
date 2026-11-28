@@ -72,11 +72,11 @@ editorial:
   # haberleri, yalnızca yurtdışını ilgilendiren araç/fiyat haberleri, B2B, araştırma, söylenti vb. elenir.
   min_importance: 7              # 1-10. Haber masasının aday eşiği
   min_must_read: 7               # 1-10. Yayın yönetmeninin yeni haber eşiği (7: sağlam ve yayına değer, 8: geniş kitle için önemli)
-  min_outlets: 2                 # Tek kaynaklı haber, ikinci bir yayın kuruluşu da verene kadar bekler
-                                 # (şirketin kendi resmi duyurusu ya da yönetmen puanı 9+ ise beklemez)
+  min_outlets: 0                 # 2: tek kaynaklı haber ikinci bir yayın da verene kadar bekler (Kasım 2026'da kapatıldı:
+                                 # Türkiye'ye özel haberlerin çoğunu yayından alıkoyuyordu)
   max_per_company_per_day: 0     # Aynı şirketten 24 saatte en fazla kaç haber (0 = sınır yok)
-  max_drafts_per_run: 3          # Bir taramada aynı anda yazılan taslak (fazlası kaybolmaz, bir sonraki taramada gelir)
-  max_drafts_per_day: 10         # Günlük üst sınır (Kasım 2026: az ama dolu haber; Google çekirdek güncellemesi sonrası)
+  max_drafts_per_run: 4          # Bir taramada aynı anda yazılan taslak (fazlası kaybolmaz, bir sonraki taramada gelir)
+  max_drafts_per_day: 40         # Günlük üst sınır (Webtekno / ShiftDelete / LOG benzeri akış: günde 25-40 haber)
   big_news_extra: 3              # Sınır dolsa da yayımlanan büyük haber sayısı (önem 9+, ya da herkesin bildiği bir markada 8+;
                                  # ör. Apple'ın sürpriz yeni ürünü). Diğer haberler sırada bekler.
   burst: 2                       # Günlük sınır varsa: günün başında sınırın önüne geçebilecek taslak sayısı
@@ -86,7 +86,11 @@ editorial:
   pending_expire_hours: 36       # Onaylanmayan taslak bu süre sonunda düşer
   taste_days: 21                 # Yönetmen, son bu kadar günde reddettiğin / kaldırdığın haberlerden zevkini öğrenir
   taste_examples: 40             # ...en fazla bu kadar örnekle
-  confirmed_only: true           # Yalnızca doğrulanmış haber: söylenti, sızıntı, "iddia ediliyor" haberleri yönetmen baştan eler
+  confirmed_only: false          # true: söylenti / sızıntı hiç yayınlanmaz. false: güvenilir sızıntılar (bilinen sızdırıcılar,
+                                 # sertifika belgeleri, saygın yayınların haberleri) "iddia" olarak açıkça belirtilerek yayınlanır
+  allow_leaks: true              # tam otonomda "iddia" işaretli taslak düşürülmez (güven "düşük" değilse); sitede "İddia" etiketi çıkar
+  tr_press_boost: true           # Webtekno, ShiftDelete, LOG, DonanımHaber, Webrazzi, Chip'ten en az ikisinin verdiği haber
+                                 # eşiğin bir altındaysa da yayınlanır (Türk okurun gündemindeki konu)
   fetch_full_text: true          # Haberin tam metnini kaynağından okuyup daha doğru özet çıkar
 
 autonomy:

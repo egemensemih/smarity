@@ -345,7 +345,12 @@ button { font: inherit; color: inherit; }
 .ph-art::before { content: ""; position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; transform: translate(-50%, -50%);
   opacity: .32; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.6 7.2A4.8 4.8 0 1 0 10.8 12a4.8 4.8 0 1 1-4.8 4.8' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round'/%3E%3Ccircle cx='19' cy='3.2' r='1.9' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat; }
 /* ekran görüntüsü / grafik ana görsel olunca kırpılmaz */
-img.is-fit { object-fit: contain !important; background: #F5F5F7; }
+img.is-fit { object-fit: contain !important; background: transparent !important; position: relative; z-index: 1; }
+/* sığdırılan görselin (ekran görüntüsü, koyu ekran fotoğrafı) arkasında kendi bulanık hâli: boş kenar kalmaz */
+.fit-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.2);
+  filter: blur(28px) saturate(1.1) brightness(.9); pointer-events: none; }
+.card .ph, .next-img, .row-img { position: relative; }
+.slide-media img.is-fit { position: absolute; }
 .slide-media .ph-art, .art-media .ph-art { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
 .card .ph-art { transition: transform .8s var(--ease); }
 /* haberin sonundaki galeri (metne yerleşmeyen fotoğraflar) */
@@ -636,3 +641,5 @@ body.srch-on { overflow: hidden; }
 .gl-dek { color: var(--ink-2); font-size: 16px; line-height: 1.45; }
 .guide-list .muted { font-size: 14px; }
 @media (min-width: 700px) { .art-body table, .prose table { display: table; } }
+.meta-top .claim { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px;
+  border-radius: 999px; background: #FFF4D6; color: #8A5A00; }

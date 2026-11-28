@@ -18,7 +18,7 @@ from pathlib import Path
 from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 
 import requests
-from PIL import Image, ImageChops, ImageOps, ImageStat
+from PIL import Image, ImageChops, ImageFilter, ImageOps, ImageStat
 
 # Küçük dosyada dev çözünürlük ("sıkıştırma bombası") belleği doldurmasın: 40 MP üstü uyarı, 80 MP üstü reddedilir
 Image.MAX_IMAGE_PIXELS = 40_000_000
@@ -28,6 +28,9 @@ from .util import log
 
 MAX_BYTES = 15_000_000
 MIN_W, MIN_H = 600, 320
+HERO_W = 1000          # manşet / kapak için en az genişlik (daha küçükler büyük ekranda yumuşak görünür)
+SHARP_MIN = 19.5       # netlik eşiği: altı bulanık (videodan alınmış kare, büyütülmüş küçük görsel)
+SHARP_BAD = 12.0       # bunun altı belirgin biçimde bulanık: başka seçenek varsa hiç kullanılmaz
 BAD_URL = re.compile(
     r"(logo|icon|favicon|sprite|avatar|gravatar|/authors?/|profile[-_]?(pic|photo|image)|placeholder|blank\.|"
     r"pixel|spacer|badge|emoji|/ads?/|advert|doubleclick|banner-ad|/share|social[-_]|newsletter|"
@@ -249,6 +252,29 @@ def _stats(im: Image.Image) -> tuple[float, float]:
     return flat, sum(hist[81:]) / n
 
 
+def sharpness(im: Image.Image) -> float:
+    """Netlik: 800 px genişlikte Laplace kenar enerjisinin en keskin 5 bölgedeki ortalaması (8×6 ızgara).
+    Arka planı bulanık ama konusu net fotoğraflar yüksek, videodan alınmış / büyütülmüş görseller düşük çıkar."""
+    g = im.convert("L")
+    if g.width > 800:
+        g = g.resize((800, max(6, round(g.height * 800 / g.width))), Image.LANCZOS)
+    e = g.filter(ImageFilter.Kernel((3, 3), [0, 1, 0, 1, -4, 1, 0, 1, 0], 1, 128))
+    tw, th = max(1, e.width // 8), max(1, e.height // 6)
+    tiles = sorted((ImageStat.Stat(e.crop((i * tw, j * th, (i + 1) * tw, (j + 1) * th))).stddev[0]
+                    for i in range(8) for j in range(6)), reverse=True)
+    return round(sum(tiles[:5]) / 5, 1)
+
+
+def hero_rank(rec: dict) -> int:
+    """Kapak / manşet sırası: 0 büyük ve net gerçek fotoğraf · 1 net ama küçük · 2 bulanık · 3 ekran görüntüsü / grafik."""
+    if rec.get("graphic"):
+        return 3
+    sharp = rec.get("sharp")
+    if sharp is not None and sharp < SHARP_MIN:
+        return 2
+    return 0 if (rec.get("w") or 0) >= HERO_W and rec.get("cover_ok", True) else 1
+
+
 def classify(im: Image.Image) -> dict:
     """Fotoğrafın türü.
 
@@ -259,7 +285,7 @@ def classify(im: Image.Image) -> dict:
     """
     flat, edge = _stats(im)
     graphic = flat >= 0.62 and edge >= 0.025
-    return {"graphic": graphic, "cover_ok": not graphic and flat < 0.7}
+    return {"graphic": graphic, "cover_ok": not graphic and flat < 0.7, "sharp": sharpness(im), "w": im.width}
 
 
 def is_graphic(im: Image.Image) -> bool:

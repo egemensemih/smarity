@@ -453,4 +453,22 @@ def test_recent_posts_get_their_photos_reselected(monkeypatch):
         assert [r["src"] for r in p1["photos"]] == ["https://cdn.ign.com/ps-plus.jpg"]      # kaynak fotoğrafı geldi
         assert not p2.get("photos") and p2["image"]["source"] == "cover"                     # bina görseli kalktı
         a.redo_recent_photos()                                                               # bir kez çalışır
-        assert sorted(a.state["photo_redo"]) == ["p1", "p2"]
+        assert sorted(a.state["photo_redo2"]) == ["p1", "p2"]
+
+
+def test_sharp_large_photos_lead_and_blurry_ones_drop():
+    from PIL import ImageFilter
+    from haberbot.app import photos_by_quality
+    from haberbot.photos import SHARP_BAD, SHARP_MIN, classify, sharpness
+    crisp = _photo("#446", (1600, 900), seed=3)
+    for i in range(0, 1600, 16):                       # ince ayrıntı (yazı, doku) olan net bir fotoğraf
+        ImageDraw.Draw(crisp).line([(i, 0), (i + 200, 900)], fill=(255, 255, 255), width=1)
+    blurry = crisp.resize((320, 180)).resize((1600, 900)).filter(ImageFilter.GaussianBlur(4))   # büyütülmüş video karesi
+    small = crisp.resize((720, 405))
+    assert sharpness(crisp) >= SHARP_MIN > sharpness(blurry)
+    rec = lambda im, name: {"image": im, "src": name, **classify(im)}  # noqa: E731
+    got = photos_by_quality([rec(blurry, "bulanik"), rec(small, "kucuk"), rec(crisp, "net")])
+    assert [g["src"] for g in got][:2] == ["net", "kucuk"]
+    if sharpness(blurry) < SHARP_BAD:
+        assert "bulanik" not in [g["src"] for g in got]                # başka seçenek varken bulanık hiç kullanılmaz
+    assert [g["src"] for g in photos_by_quality([rec(blurry, "bulanik")])] == ["bulanik"]   # tek seçenekse kalır

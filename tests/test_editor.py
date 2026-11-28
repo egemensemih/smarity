@@ -263,3 +263,23 @@ if __name__ == "__main__":
         if name.startswith("test_"):
             fn()
             print("ok", name)
+
+
+def test_turkish_press_boost_and_credible_leaks():
+    from haberbot import policy
+    with _App() as (cfg, a):
+        cfg.raw.setdefault("editorial", {}).update({"tr_press_boost": True, "allow_leaks": True})
+        q = _q("Opel Combo Türkiye'de satışa sunuldu", 7, ["Opel"])
+        q["items"] = [{**q["items"][0], "credit": "LOG"}, {**q["items"][0], "url": "https://sdn/1", "credit": "ShiftDelete.Net"}]
+        lone = _q("Yerel bir duyuru", 7, ["Foo"])
+        dec = {0: {"action": "skip", "target": "", "must_read": 6, "reason": "rutin"},
+               1: {"action": "skip", "target": "", "must_read": 6, "reason": "rutin"}}
+        out = a._guard([q, lone], dec, slots=4, min_score=7, covered=a._covered(48))
+        assert out[0]["action"] == "publish" and "Türk teknoloji basını" in out[0]["reason"]
+        assert out[1]["action"] == "skip"                                  # tek ve yabancı kaynak: yükseltilmez
+        leak = {"flags": ["iddia"], "confidence": "orta", "importance": 8}
+        assert policy.hard_reason(cfg, leak) is None                       # güvenilir sızıntı yayınlanabilir
+        assert policy.hard_reason(cfg, {**leak, "confidence": "dusuk"})    # güveni düşük: yayınlanmaz
+        assert policy.hard_reason(cfg, {**leak, "flags": ["iddia", "hassas"]})
+        cfg.raw["editorial"]["allow_leaks"] = False
+        assert policy.hard_reason(cfg, leak)

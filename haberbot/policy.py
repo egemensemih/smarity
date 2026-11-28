@@ -104,8 +104,12 @@ def resume(stats: dict) -> None:
 # ── karar ─────────────────────────────────────────────────────────────
 def hard_reason(cfg: Config, draft: dict) -> str | None:
     """Otomatik yayınlanamayacak haber: şüpheli (uyarı işareti), listedeki marka, güveni düşük ya da önemsiz."""
-    if draft.get("flags"):
-        return "Şüpheli içerik: " + ", ".join(FLAG_LABELS.get(f, f) for f in draft["flags"])
+    flags = list(draft.get("flags") or [])
+    # güvenilir sızıntı / iddia haberi: açıkça "iddia" olarak yazıldıysa ve güven düşük değilse yayınlanabilir
+    if flags == ["iddia"] and cfg.get("editorial", "allow_leaks", False) and draft.get("confidence") != "dusuk":
+        flags = []
+    if flags:
+        return "Şüpheli içerik: " + ", ".join(FLAG_LABELS.get(f, f) for f in flags)
     brand = never_auto_brand(cfg, draft)
     if brand:
         return f"{brand}: otomatik yayınlanmayan marka"

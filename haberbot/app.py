@@ -106,6 +106,22 @@ Komutlar: /manset /secki /durum /bekleyen /mod /topla /duraklat /devam /kaynakla
 FIXABLE = {"title", "short_title", "seo_title", "summary", "meta_description", "category", "carousel_points"}
 
 
+# Türk teknoloji basınının ana siteleri: en az ikisinin verdiği konu Türk okurun gündemindedir
+TR_PRESS = {"Webtekno", "ShiftDelete.Net", "LOG", "DonanımHaber", "Webrazzi", "Chip Online", "Technopat",
+            "Donanım Arşivi", "Teknoseyir", "Egirisim", "Swipeline"}
+
+
+def photos_by_quality(got: list[dict]) -> list[dict]:
+    """Fotoğraf editörünün sırasını koruyarak kaliteye göre diz: önce büyük ve net gerçek fotoğraflar (kapak bunlardan
+    olur), sonra küçük ama net olanlar, sonra bulanıklar, en son ekran görüntüleri. Belirgin biçimde bulanık görseller
+    (videodan alınmış kare, büyütülmüş küçük görsel) başka seçenek varsa hiç kullanılmaz."""
+    rank = lambda g: photos.hero_rank({**g, "w": g["image"].width if g.get("image") is not None else g.get("w")})  # noqa: E731
+    clear = [g for g in got if g.get("graphic") or g.get("sharp") is None or g["sharp"] >= photos.SHARP_BAD]
+    if clear:
+        got = clear
+    return sorted(got, key=rank)
+
+
 def esc(s) -> str:
     return html.escape(str(s or ""), quote=False)
 
@@ -529,6 +545,7 @@ class App:
         sınırı. Günlük adet sınırı yoktur: eşiği geçen her haber gelir, geçemeyen gelmez."""
         cap = int(self.cfg.get("editorial", "max_per_company_per_day", 0) or 0)   # 0 = sınır yok
         min_out = int(self.cfg.get("editorial", "min_outlets", 0) or 0)            # tek kaynaklı haber bekler
+        tr_boost = bool(self.cfg.get("editorial", "tr_press_boost", False))
         day_keys: dict[str, int] = {}
         for c in covered:
             if c["status"] in ("published", "pending") and c["hours"] <= 24:
@@ -553,6 +570,15 @@ class App:
                     x["reason"] = clip("asıl gelişme, ön izleme haberinin yerini alır" +
                                        (f": {x['reason']}" if x.get("reason") else ""), 120)
                     retiring.add(tgt)
+            its = queue[i].get("items") or []
+            outlets = {it.get("credit") for it in its if it.get("credit")}
+            # Türk teknoloji basınının en az iki büyük sitesi vermişse konu okurun gündeminde: eşiğin bir altı da yayınlanır
+            if (tr_boost and x["action"] in ("skip", "publish") and not x.get("target") and mr == min_score - 1
+                    and not (s.get("duplicate_of") or "") and len(outlets & TR_PRESS) >= 2):
+                mr = x["must_read"] = min_score
+                s["importance"] = max(int(s.get("importance") or 0), min_score)
+                x["action"], x["reason"] = "publish", clip("Türk teknoloji basınında geniş yer aldı" +
+                                                           (f"; {x['reason']}" if x.get("reason") else ""), 120)
             if x["action"] == "update":
                 if x["target"] in pending:
                     x["action"] = "merge"
@@ -579,8 +605,6 @@ class App:
                 if ok:
                     round_targets.add(dup)
                 continue
-            its = queue[i].get("items") or []
-            outlets = {it.get("credit") for it in its if it.get("credit")}
             official = any(it.get("kind") == "official" for it in its)
             if mr < min_score:
                 x["action"], x["reason"] = "skip", f"önem {mr}/10, eşik {min_score}"
@@ -3101,11 +3125,11 @@ class App:
         since = str(self.cfg.get("images", "photo_redo_since", "") or "")
         if not since:
             return
-        done = self.state.setdefault("photo_redo", [])
+        done = self.state.setdefault("photo_redo2", [])      # 2: bulanık kapaklar da (netlik ölçümü eklendi)
         todo = [p for p in self.store.posts()
                 if (p.get("published_at") or "") >= since and p["id"] not in done and not p.get("photos_removed")
                 and (p.get("image") or {}).get("source") != "ai"
-                and all(r.get("credit") == "Wikipedia" for r in p.get("photos") or [])][:per_run]
+                and (all(r.get("credit") == "Wikipedia" for r in p.get("photos") or []) or self._cover_blurry(p))][:per_run]
         for p in todo:
             done.append(p["id"])
             old = list(p.get("photos") or [])
@@ -3124,6 +3148,18 @@ class App:
                 log.info("Uygunsuz Wikipedia görseli kaldırıldı: %s", p["id"])
             self.store.save_post(p)
         del done[:-400]
+
+    def _cover_blurry(self, p: dict) -> bool:
+        """Sitedeki kapak fotoğrafı bulanık ya da küçük mü (kayıtlı dosyadan ölçülür)."""
+        f = (p.get("image") or {}).get("photo")
+        if not f or not (self.cfg.images_dir / f).exists():
+            return False
+        try:
+            from PIL import Image
+            with Image.open(self.cfg.images_dir / f) as im:
+                return im.width < photos.HERO_W or photos.sharpness(im) < photos.SHARP_MIN
+        except Exception:  # noqa: BLE001
+            return False
 
     def fill_missing_photos(self, per_run: int = 8) -> None:
         """Tek seferlik + sürekli: sitede fotoğrafsız görünen haberler için yeniden fotoğraf ara
@@ -3178,7 +3214,7 @@ class App:
                 log.warning("Wikipedia fotoğrafı alınamadı (%s): %s", d.get("id"), e)
                 w = None
             vetted = self._vet_photos(d, [w]) if w else []
-        got = vetted
+        got = photos_by_quality(vetted)
         if not got:
             return False
         folder = self._photo_dir(draft)
@@ -3190,7 +3226,8 @@ class App:
         recs = []
         for i, p in enumerate(got):
             rec = {"src": p["src"], "credit": p["credit"], "page": p["page"], "alt": p["alt"], "kind": p.get("kind", ""),
-                   "graphic": bool(p.get("graphic")), "cover_ok": bool(p.get("cover_ok", not p.get("graphic")))}
+                   "graphic": bool(p.get("graphic")), "cover_ok": bool(p.get("cover_ok", not p.get("graphic"))),
+                   "sharp": p.get("sharp"), "src_w": p["image"].width}
             if len([r for r in recs if r.get("file")]) < keep:
                 name = f"{d['id']}-g{len([r for r in recs if r.get('file')])}.webp"
                 w, h = photos.save_webp(p["image"], folder / name, 1600, 80 if p.get("graphic") else 78)
