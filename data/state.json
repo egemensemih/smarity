@@ -875,13 +875,13 @@
       "drafts": 6,
       "published": 6,
       "auto": 6,
-      "instagram_story": 2,
+      "instagram_story": 3,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-28T09:13:35Z",
+  "last_build": "2026-11-28T09:32:43Z",
   "build_sig": "b74606399c5a23e6",
   "commands_version": 6,
   "queue": [],
@@ -2532,29 +2532,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "df06500275",
-      "queued_at": "2026-11-28T09:07:59Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Casper'ın yeni monitörü, fiyatı ve performans değerleriyle takipçilerimiz için ilginç bir haber ancak post bütçemizi daha büyük teknolojik gelişmeler için saklamayı tercih ediyoruz.",
-      "mid": 2726,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel ve metin yerleşimi Smarity marka kimliğiyle uyumlu, okunaklı ve güvenli alan sınırları içerisinde.",
-        "at": "2026-11-28T09:13:34Z"
-      },
-      "variant": "auto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-22": [
@@ -2806,7 +2784,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-28T09:09:01Z",
+  "ig_last_at": "2026-11-28T09:28:21Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2961,6 +2939,13 @@
       "permalink": "",
       "story": true,
       "format": "post"
+    },
+    {
+      "id": "df06500275",
+      "at": "2026-11-28T09:28:21Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
     }
   ],
   "guide_tried": {
