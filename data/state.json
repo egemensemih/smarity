@@ -875,13 +875,13 @@
       "drafts": 9,
       "published": 9,
       "auto": 9,
-      "instagram_story": 5,
+      "instagram_story": 6,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-28T12:29:35Z",
+  "last_build": "2026-11-28T12:39:42Z",
   "build_sig": "b74606399c5a23e6",
   "commands_version": 6,
   "queue": [],
@@ -2532,29 +2532,7 @@
     "93bde74dd2:1075e7d4",
     "0251d12963:1075e7d4"
   ],
-  "ig_queue": [
-    {
-      "id": "e50ec21a8a",
-      "queued_at": "2026-11-28T12:13:45Z",
-      "tries": 0,
-      "format": "story",
-      "note": "YouTube uygulamasındaki yeni tasarım değişiklikleri geniş bir kitleyi ilgilendiriyor ancak görsel eksikliği ve küçük bir yenilik olması nedeniyle sadece hikaye formatında paylaşılması uygundur.",
-      "mid": 2732,
-      "vtried": [
-        "nophoto"
-      ],
-      "vcheck": {
-        "variant": "nophoto",
-        "ok": true,
-        "score": 9,
-        "issues": [],
-        "reason": "Görsel, marka kimliğine uygun renk geçişine ve tamamen okunabilir tipografiye sahip, bu haliyle doğrudan paylaşılabilir.",
-        "at": "2026-11-28T12:18:39Z"
-      },
-      "variant": "nophoto",
-      "vok": true
-    }
-  ],
+  "ig_queue": [],
   "ig_warned_at": "2026-11-24T05:01:18Z",
   "ig_log": {
     "2026-11-22": [
@@ -2824,7 +2802,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-28T12:19:46Z",
+  "ig_last_at": "2026-11-28T12:35:09Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -2997,6 +2975,13 @@
     {
       "id": "288cecc34b",
       "at": "2026-11-28T12:19:46Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "e50ec21a8a",
+      "at": "2026-11-28T12:35:09Z",
       "permalink": "",
       "story": true,
       "format": "story"
