@@ -869,27 +869,24 @@
       "instagram": 2
     },
     "2026-11-28": {
-      "tok_in": 463504,
-      "tok_out": 57630,
+      "tok_in": 465154,
+      "tok_out": 57657,
       "cost_usd": 0.0,
       "drafts": 9,
       "published": 9,
       "auto": 9,
-      "instagram_story": 4,
+      "instagram_story": 5,
       "instagram": 1
     }
   },
   "last_error_notice": null,
   "chat_id_hint_sent": [],
-  "last_build": "2026-11-28T12:18:39Z",
+  "last_build": "2026-11-28T12:24:08Z",
   "build_sig": "b74606399c5a23e6",
   "commands_version": 6,
   "queue": [],
   "last_activity": "2026-11-25T13:55:43Z",
-  "indexnow_queue": [
-    "https://smarity.com.tr/teknoloji/2026/11/galaxy-s25-abd-yasagi-iddiasi/",
-    "https://smarity.com.tr/teknoloji/2026/11/youtube-ana-sayfa-tasarimi-yenilendi/"
-  ],
+  "indexnow_queue": [],
   "last_prune": "2026-09-27",
   "keyboard_v": 4,
   "manset_mid": 370,
@@ -2537,27 +2534,6 @@
   ],
   "ig_queue": [
     {
-      "id": "288cecc34b",
-      "queued_at": "2026-11-28T12:13:31Z",
-      "tries": 0,
-      "format": "story",
-      "note": "Galaxy S25 için gündeme gelen olası ABD yasağı iddiası takipçilerin ilgisini çekecek türden bir gelişme olduğundan 24 saatlik story olarak paylaşılmaya uygundur.",
-      "mid": 2730,
-      "vtried": [
-        "auto"
-      ],
-      "vcheck": {
-        "variant": "auto",
-        "ok": true,
-        "score": 10,
-        "issues": [],
-        "reason": "Görsel, tipografi ve güvenli alanlar marka standartlarına tamamen uygundur, paylaşılabilir.",
-        "at": "2026-11-28T12:18:32Z"
-      },
-      "variant": "auto",
-      "vok": true
-    },
-    {
       "id": "e50ec21a8a",
       "queued_at": "2026-11-28T12:13:45Z",
       "tries": 0,
@@ -2848,7 +2824,7 @@
       }
     ]
   },
-  "ig_last_at": "2026-11-28T09:47:48Z",
+  "ig_last_at": "2026-11-28T12:19:46Z",
   "ig_done": [
     {
       "id": "b1cba9bafe",
@@ -3014,6 +2990,13 @@
     {
       "id": "408a829f52",
       "at": "2026-11-28T09:47:48Z",
+      "permalink": "",
+      "story": true,
+      "format": "story"
+    },
+    {
+      "id": "288cecc34b",
+      "at": "2026-11-28T12:19:46Z",
       "permalink": "",
       "story": true,
       "format": "story"
