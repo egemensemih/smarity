@@ -1,0 +1,109 @@
+{
+  "id": "2d5b201531",
+  "created_at": "2026-11-28T12:56:59Z",
+  "title": "Windows Update, Microsoft Defender'ın engellediği eski Intel sürücüsünü kurmaya devam ediyor",
+  "summary": "Wccftech'in aktardığına göre Microsoft, kendi antivirüs yazılımının güvenlik tehdidi olarak işaretlediği eski bir Intel sürücüsünü Windows Update aracılığıyla dağıtmaya devam ediyor.",
+  "body": "Windows Update, Microsoft Defender'ın güvenlik tehdidi olarak işaretlediği yaklaşık dört yıllık bir Intel sürücüsünü kullanıcılara sunmayı sürdürüyor. Wccftech'in aktardığı habere göre, Alman yayın organı Deskmodder tarafından ortaya çıkarılan durumda, Microsoft Defender bir 11. nesil Intel NUC sistemde **OpenHardwareMonitorLib.sys** dosyasını ciddi bir tehdit olarak sınıflandırdı. İlgili dosyanın, Aralık 2022 tarihli Intel Performance Driver Extension sürüm 1.0.0.38 paketine ait olduğu belirlendi.\n\n## Sorunun kaynağı ne?\n\nSöz konusu paket, sistem sıcaklıkları ve voltajlar gibi donanım parametrelerini izleyen uygulamalara düşük seviyeli donanım erişimi sağlayan **WinRing0** bileşenlerini içeriyor. Bu bileşende bulunan ve CVE-2020-14979 olarak bilinen güvenlik açığı, saldırganların sistem üzerinde yetki yükseltmesine olanak tanıyabiliyor. Bilgisayardan tamamen kaldırılan sürücü paketinin Windows Update üzerinden tekrar indirilmeye sunulduğu, yapılan testlerde tespit edildi.\n\n## Intel ve Microsoft ne diyor?\n\nIntel, konuyla ilgili olarak August 2025'te kullanıcıların yazılımı bırakmasını önermiş ve NUC Software Studio servisinin güvenlik desteği yaşam döngüsünün sonuna ulaştığını doğrulamıştı. Intel ayrıca December 2024'te yazılımı etkileyen ayrı güvenlik açıkları için de uyarı yayımlamıştı. Microsoft ise Defender uyarısının yanlış alarm olmadığını onaylasa da, bu durumun etkilenen bilgisayarların kesin olarak ele geçirildiği anlamına gelmediğini belirtiyor.\n\n**Neden önemli?** Microsoft'un eski sürücüleri sistemden temizleme çabalarına rağmen yaşanan bu durum, şirketin güvenlik ve güncelleme altyapıları arasındaki koordinasyon eksikliğini gözler önüne seriyor.",
+  "category": "teknoloji",
+  "tags": [
+    "Microsoft",
+    "Intel",
+    "Windows Update",
+    "Microsoft Defender"
+  ],
+  "confidence": "yuksek",
+  "flags": [],
+  "editor_note": "",
+  "short_title": "Windows Update riskli Intel sürücüsünü yüklüyor",
+  "kicker": "Güvenlik",
+  "hero_stat": "",
+  "hero_stat_label": "",
+  "visual_style": "studio",
+  "visual_scene": "a sleek dark server rack in a minimalist room with a single glowing amber warning light blinking on one unit, surrounded by clean geometric shadows and cool blue ambient light",
+  "focus_keyword": "Windows Update",
+  "seo_title": "Windows Update, Microsoft Defender'ın engellediği sür",
+  "meta_description": "Wccftech'e göre Windows Update, Microsoft Defender'ın güvenlik tehdidi olarak işaretlediği eski bir Intel sürücüsünü kullanıcılara sunmaya devam ediyor.",
+  "seo_slug": "windows-update-riskli-intel-surucusu",
+  "image_alt": "Karanlık bir odada sunucu ünitesi üzerinde yanan turuncu uyarı lambasını temsil eden stüdyo görseli",
+  "cover_text": "Windows Update",
+  "carousel_points": [
+    "Windows Update, güvenlik açığı barındıran eski bir Intel sürücüsünü sunmaya devam ediyor.",
+    "Microsoft Defender bu sürücü dosyasını ciddi bir güvenlik tehdidi olarak sınıflandırıyor.",
+    "Intel, NUC Software Studio servisinin güvenlik desteğinin bittiğini daha önce açıklamıştı."
+  ],
+  "appeal": 7,
+  "update_note": "",
+  "cover_headline": "Windows Update riskli Intel sürücüsünü kuruyor",
+  "cover_highlight": "riskli Intel sürücüsünü",
+  "cover_line_v": 3,
+  "importance": 7,
+  "big_brand": true,
+  "preview": false,
+  "replaces": "",
+  "triage_reason": "Windows Update'in güvenlik riski oluşturan Intel sürücüsü dağıttığı ortaya çıktı.",
+  "entities": [
+    "Microsoft",
+    "Intel",
+    "Windows"
+  ],
+  "topic": "Windows Update Vulnerable Intel Driver",
+  "sources": [
+    {
+      "name": "Wccftech",
+      "url": "https://wccftech.com/windows-update-is-still-pushing-a-vulnerable-intel-driver-that-microsofts-own-defender-flags-as-a-security-threat/",
+      "title": "Windows Update Is Still Pushing A Vulnerable Intel Driver That Microsoft’s Own Defender Flags As A Security Threat",
+      "kind": "media",
+      "via": null,
+      "via_url": null,
+      "published": "2026-11-28T12:40:45Z",
+      "image": "https://cdn.wccftech.com/wp-content/uploads/2026/11/FI-83-1456x819.jpg"
+    }
+  ],
+  "source_keys": [
+    "Wccftech"
+  ],
+  "rewrites": 0,
+  "telegram": {
+    "message_id": 2733
+  },
+  "image": {
+    "source": "cover",
+    "layout": "manset",
+    "palette": "teknoloji-3",
+    "cover_v": 2
+  },
+  "policy_tier": "auto",
+  "auto_reason": "Tam otonom: yayın yönetmeni seçti",
+  "slug": "windows-update-riskli-intel-surucusu",
+  "published_at": "2026-11-28T12:57:04Z",
+  "publish_mode": "auto",
+  "path": "teknoloji/2026/11/windows-update-riskli-intel-surucusu",
+  "social": {
+    "format": "story",
+    "score": 6,
+    "reason": "Windows Update ve güvenlik açığı çelişkisi teknik meraklıların ilgisini çekecek düzeyde bir hikaye sunuyor.",
+    "votes": [
+      {
+        "role": "haber_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Microsoft ve Intel gibi iki devin güvenlik çelişkisini yansıtması haber değeri taşıyor."
+      },
+      {
+        "role": "sosyal_medya_editoru",
+        "format": "story",
+        "score": 6,
+        "reason": "Windows kullanıcılarını yakından ilgilendiren bir açık ama detayları ortalama kullanıcı için biraz teknik."
+      },
+      {
+        "role": "gorsel_yonetmen",
+        "format": "none",
+        "score": 4,
+        "reason": "Gerçek bir fotoğraf yok, sadece renkli arka planla sunulacağı için görsel olarak zayıf."
+      }
+    ],
+    "at": "2026-11-28T12:57:08Z"
+  },
+  "photos_filled": "2026-11-28T12:57:12Z",
+  "photos_tried": "2026-11-28T12:57:18Z"
+}
